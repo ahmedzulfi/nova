@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #000000;
+
+  --color-card: #ffffff;
+  --color-card-foreground: #000000;
+
+  --color-popover: #ffffff;
+  --color-popover-foreground: #000000;
+
+  --color-primary: #e99f3d;
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #68461d;
+  --color-secondary-foreground: #ffffff;
+
+  --color-muted: #f2f2f2;
+  --color-muted-foreground: #666666;
+
+  --color-accent: #4ba0b1;
+  --color-accent-foreground: #ffffff;
+
+  --color-brand-gold: #e99f3d;
+  --color-brand-brown: #68461d;
+  --color-brand-teal: #4ba0b1;
+
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #fafafa;
+
+  --color-border: #e5e5e5;
+  --color-input: #f2f2f2;
+  --color-ring: #000000;
+
+  --color-chart-1: #f7f170;
+  --color-chart-2: #000000;
+  --color-chart-3: #666666;
+  --color-chart-4: #999999;
+  --color-chart-5: #f2f2f2;
+
+  --color-sidebar: #ffffff;
+  --color-sidebar-foreground: #666666;
+  --color-sidebar-primary: #000000;
+  --color-sidebar-primary-foreground: #ffffff;
+  --color-sidebar-accent: #f2f2f2;
+  --color-sidebar-accent-foreground: #000000;
+  --color-sidebar-border: #e5e5e5;
+  --color-sidebar-ring: #000000;
+
+  --color-footer-text: #999999;
+  --color-watermark: #e5e5e5;
+
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Inter", sans-serif;
+
+  --radius-lg: 12px;
+  --radius-md: 8px;
+  --radius-sm: 4px;
+  --radius-full: 100px;
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: #e5e5e5;
+  }
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #000000;
+    --card: #ffffff;
+    --card-foreground: #000000;
+    --popover: #ffffff;
+    --popover-foreground: #000000;
+    --primary: #e99f3d;
+    --primary-foreground: #ffffff;
+    --secondary: #68461d;
+    --secondary-foreground: #ffffff;
+    --accent: #4ba0b1;
+    --accent-foreground: #ffffff;
+    --destructive: #ef4444;
+    --destructive-foreground: #fafafa;
+    --border: #e5e5e5;
+    --input: #f2f2f2;
+    --ring: #000000;
+    --radius: 12px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-foreground tracking-tight;
+  }
+
+  h1 {
+    font-size: clamp(48px, 8vw, 80px);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+  }
+
+  h6 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .quote-text {
+    font-size: clamp(20px, 4vw, 28px);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.03em;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .btn-pill {
+    @apply inline-flex items-center justify-center px-6 py-3 font-semibold transition-all duration-200 rounded-full;
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+    font-size: 16px;
+  }
+
+  .btn-pill:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+
+  .section-padding {
+    padding-top: 140px;
+    padding-bottom: 140px;
+  }
+
+  .team-card-image {
+    @apply aspect-[4/5] object-cover rounded-lg overflow-hidden relative;
+    border-radius: 12px;
+  }
+
+  .plus-button {
+    @apply absolute bottom-4 right-4 w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-200;
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+
+  .plus-button:hover {
+    transform: scale(1.1);
+  }
+
+  .watermark-footer {
+    font-size: clamp(100px, 20vw, 320px);
+    font-weight: 700;
+    color: var(--color-watermark);
+    line-height: 0.8;
+    letter-spacing: -0.05em;
+    pointer-events: none;
+    user-select: none;
+    text-align: center;
+    width: 100%;
+    margin-top: 40px;
+  }
+
+  .role-text {
+    @apply text-muted-foreground;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+}
