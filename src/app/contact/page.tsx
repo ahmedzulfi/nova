@@ -12,11 +12,11 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-white">
       <Navigation />
-      
+
       <section className="pt-32 pb-20 lg:pt-48 lg:pb-40">
         <div className="container mx-auto px-6 max-w-[1280px]">
           <div className="text-center mb-16 lg:mb-24">
-            <h1 className="text-[48px] md:text-[72px] font-semibold font-display leading-[1.1] text-black mb-6">
+            <h1 className="text-[48px] md:text-[72px] text-black mb-6">
               Get in Touch
             </h1>
             <p className="text-[18px] text-[#666666] leading-[1.6] max-w-[600px] mx-auto">
@@ -28,11 +28,11 @@ export default function ContactPage() {
             {/* Contact Info */}
             <div className="space-y-12">
               <div className="space-y-6">
-                <h3 className="text-[32px] font-semibold font-display">Contact Details</h3>
+                <h3 className="text-[32px]">Contact Details</h3>
                 <div className="space-y-4">
                   <div>
                     <Label className="text-[#666666] uppercase text-[12px] tracking-wider">Location</Label>
-                    <p className="text-[18px] font-medium">Pet’s Park, The Pearl – Qatar</p>
+                    <p className="text-[18px] font-medium">Pet’s Park, The Pearl, Qatar</p>
                   </div>
                   <div>
                     <Label className="text-[#666666] uppercase text-[12px] tracking-wider">Phone</Label>
@@ -46,12 +46,12 @@ export default function ContactPage() {
               </div>
 
               <div className="space-y-6">
-                <h3 className="text-[32px] font-semibold font-display">Follow Us</h3>
+                <h3 className="text-[32px]">Follow Us</h3>
                 <div className="flex gap-4">
                   {['Facebook', 'Instagram', 'X'].map((social) => (
-                    <a 
+                    <a
                       key={social}
-                      href="#" 
+                      href="#"
                       className="px-6 py-2 rounded-full border border-[#E6E6E6] hover:bg-black hover:text-white transition-colors font-medium"
                     >
                       {social}
@@ -80,7 +80,7 @@ export default function ContactPage() {
                   <Label htmlFor="message">Message</Label>
                   <Textarea id="message" placeholder="How can we help you?" className="rounded-xl border-[#E6E6E6] bg-white min-h-[150px]" />
                 </div>
-                <Button className="w-full h-14 bg-[#F7F56D] hover:bg-[#F7F56D]/90 text-black font-semibold rounded-full text-[16px]">
+                <Button className="w-full h-14 bg-primary hover:bg-primary/90 text-white font-semibold rounded-full text-[16px]">
                   Send Message
                 </Button>
               </form>

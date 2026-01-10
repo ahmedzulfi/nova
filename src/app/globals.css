@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -37,11 +36,11 @@
   --color-input: #f2f2f2;
   --color-ring: #000000;
 
-  --color-chart-1: #f7f170;
-  --color-chart-2: #000000;
-  --color-chart-3: #666666;
-  --color-chart-4: #999999;
-  --color-chart-5: #f2f2f2;
+  --color-chart-1: #e99f3d;
+  --color-chart-2: #68461d;
+  --color-chart-3: #4ba0b1;
+  --color-chart-4: #000000;
+  --color-chart-5: #666666;
 
   --color-sidebar: #ffffff;
   --color-sidebar-foreground: #666666;
@@ -55,8 +54,9 @@
   --color-footer-text: #999999;
   --color-watermark: #e5e5e5;
 
-  --font-sans: "Inter", sans-serif;
-  --font-display: "Inter", sans-serif;
+  --font-sans: var(--font-inter), sans-serif;
+  --font-display: var(--font-archivo), sans-serif;
+  --font-arabic: var(--font-cairo), sans-serif;
 
   --radius-lg: 12px;
   --radius-md: 8px;
@@ -70,14 +70,17 @@
     from {
       height: 0;
     }
+
     to {
       height: var(--radix-accordion-content-height);
     }
   }
+
   @keyframes accordion-up {
     from {
       height: var(--radix-accordion-content-height);
     }
+
     to {
       height: 0;
     }
@@ -85,6 +88,7 @@
 }
 
 @layer base {
+
   *,
   ::after,
   ::before,
@@ -132,21 +136,63 @@
     line-height: 1.6;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold text-foreground tracking-tight;
+  /* Arabic Font Utility */
+  .font-arabic {
+    font-family: var(--font-arabic);
+  }
+
+  [lang="ar"] {
+    @apply font-arabic;
+    direction: rtl;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display text-foreground;
+    letter-spacing: -0.02em;
   }
 
   h1 {
-    font-size: clamp(48px, 8vw, 80px);
-    line-height: 1.1;
+    font-size: clamp(48px, 8vw, 84px);
+    font-weight: 700;
+    line-height: 1.05;
     letter-spacing: -0.04em;
   }
 
-  h6 {
-    font-size: 24px;
-    font-weight: 600;
+  h2 {
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+
+  h3 {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700;
     line-height: 1.2;
-    letter-spacing: -0.02em;
+  }
+
+  h4 {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  h5 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  h6 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
   }
 
   .container {
@@ -211,6 +257,7 @@
     text-align: center;
     width: 100%;
     margin-top: 40px;
+    white-space: nowrap;
   }
 
   .role-text {

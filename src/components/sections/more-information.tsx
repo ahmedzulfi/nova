@@ -5,79 +5,79 @@ const MoreInformation = () => {
     <section className="bg-white py-[120px] relative">
       <div className="container mx-auto px-8 max-w-[1280px]">
         <div className="flex flex-col gap-24">
-          
-            {/* Section: Event Overview */}
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div className="lg:col-span-1 lg:sticky lg:top-[110px] self-start">
-                  <h2 className="text-[48px] font-medium leading-[1.1] text-[#1c1c1c] tracking-[-0.02em]">
-                    Event overview
-                  </h2>
-                </div>
-              <div className="lg:col-span-2">
-                <div className="flex flex-col gap-4 text-[18px] leading-[1.6] text-[#1c1c1c]">
-                  <p>
-                    <span className="font-semibold">Type of event:</span> Night Ride.
-                  </p>
-                  <p>
-                    <span className="font-semibold">Distance options:</span> 15km, 30km, and 45km.
-                  </p>
-                  <p>
-                    <span className="font-semibold">Difficulty level:</span> Beginner to Intermediate.
-                  </p>
-                  <p>
-                    <span className="font-semibold">Terrain:</span> Urban streets, bike paths, underpasses, and bridges.
-                  </p>
-                  <p>
-                    <span className="font-semibold">Participants:</span> Over 700 cyclists, including night-ride veterans and first-timers.
-                  </p>
-                  <p className="mt-4">
-                    This event blended cycling culture with urban nightlife, offering a unique experience filled with energy and community.
-                  </p>
-                </div>
+
+          {/* Section: Event Overview */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-1 lg:sticky lg:top-[110px] self-start">
+              <h2 className="text-[48px] font-medium leading-[1.1] text-[#1c1c1c] tracking-[-0.02em]">
+                Event overview
+              </h2>
+            </div>
+            <div className="lg:col-span-2">
+              <div className="flex flex-col gap-4 text-[18px] leading-[1.6] text-[#1c1c1c]">
+                <p>
+                  <span className="font-semibold">Type of event:</span> Night Ride.
+                </p>
+                <p>
+                  <span className="font-semibold">Distance options:</span> 15km, 30km, and 45km.
+                </p>
+                <p>
+                  <span className="font-semibold">Difficulty level:</span> Beginner to Intermediate.
+                </p>
+                <p>
+                  <span className="font-semibold">Terrain:</span> Urban streets, bike paths, underpasses, and bridges.
+                </p>
+                <p>
+                  <span className="font-semibold">Participants:</span> Over 700 cyclists, including night-ride veterans and first-timers.
+                </p>
+                <p className="mt-4">
+                  This event blended cycling culture with urban nightlife, offering a unique experience filled with energy and community.
+                </p>
               </div>
             </div>
+          </div>
 
-            {/* Section: Schedule */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              <div className="lg:col-span-1 lg:sticky lg:top-[110px] self-start">
-                <h2 className="text-[48px] font-medium leading-[1.1] text-[#1c1c1c] tracking-[-0.02em]">
-                  Schedule
-                </h2>
-              </div>
-              <div className="lg:col-span-2">
-                <div className="flex flex-col gap-4 text-[18px] leading-[1.6] text-[#1c1c1c]">
-                  <p>
-                    <span className="font-semibold">6:00 PM:</span> Check-in and gear-up zone opens.
-                  </p>
-                  <p>
-                    <span className="font-semibold">7:00 PM:</span> DJ set & safety briefing.
-                  </p>
-                  <p>
-                    <span className="font-semibold">7:30 PM:</span> Start for 45km route.
-                  </p>
-                  <p>
-                    <span className="font-semibold">8:00 PM:</span> Start for 30km route.
-                  </p>
-                  <p>
-                    <span className="font-semibold">8:30 PM:</span> Start for 15km route.
-                  </p>
-                  <p>
-                    <span className="font-semibold">9:00 PM – 11:30 PM:</span> Neon checkpoints, live street performers, snack stops.
-                  </p>
-                  <p>
-                    <span className="font-semibold">12:00 AM:</span> After-ride hangout and night market.
-                  </p>
-                </div>
+          {/* Section: Schedule */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-1 lg:sticky lg:top-[110px] self-start">
+              <h2 className="text-[48px] font-medium leading-[1.1] text-[#1c1c1c] tracking-[-0.02em]">
+                Schedule
+              </h2>
+            </div>
+            <div className="lg:col-span-2">
+              <div className="flex flex-col gap-4 text-[18px] leading-[1.6] text-[#1c1c1c]">
+                <p>
+                  <span className="font-semibold">6:00 PM:</span> Check-in and gear-up zone opens.
+                </p>
+                <p>
+                  <span className="font-semibold">7:00 PM:</span> DJ set & safety briefing.
+                </p>
+                <p>
+                  <span className="font-semibold">7:30 PM:</span> Start for 45km route.
+                </p>
+                <p>
+                  <span className="font-semibold">8:00 PM:</span> Start for 30km route.
+                </p>
+                <p>
+                  <span className="font-semibold">8:30 PM:</span> Start for 15km route.
+                </p>
+                <p>
+                  <span className="font-semibold">9:00 PM - 11:30 PM:</span> Neon checkpoints, live street performers, snack stops.
+                </p>
+                <p>
+                  <span className="font-semibold">12:00 AM:</span> After-ride hangout and night market.
+                </p>
               </div>
             </div>
+          </div>
 
-            {/* Section: Route Details */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              <div className="lg:col-span-1 lg:sticky lg:top-[110px] self-start">
-                <h2 className="text-[48px] font-medium leading-[1.1] text-[#1c1c1c] tracking-[-0.02em]">
-                  Route details
-                </h2>
-              </div>
+          {/* Section: Route Details */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-1 lg:sticky lg:top-[110px] self-start">
+              <h2 className="text-[48px] font-medium leading-[1.1] text-[#1c1c1c] tracking-[-0.02em]">
+                Route details
+              </h2>
+            </div>
             <div className="lg:col-span-2">
               <div className="flex flex-col gap-8 text-[18px] leading-[1.6] text-[#1c1c1c]">
                 <div className="flex flex-col gap-4">
@@ -92,7 +92,7 @@ const MoreInformation = () => {
                       <span className="font-semibold">30km Route:</span> A balanced ride through key urban zones and vibrant districts.
                     </li>
                     <li>
-                      <span className="font-semibold">45km Route:</span> A deeper dive into the city’s rhythm — bridges, skyline views, and fast flats.
+                      <span className="font-semibold">45km Route:</span> A deeper dive into the city’s rhythm: bridges, skyline views, and fast flats.
                     </li>
                   </ul>
                 </div>
@@ -116,7 +116,7 @@ const MoreInformation = () => {
                   <ul className="list-disc pl-5 flex flex-col gap-2">
                     <li>The city skyline lit up behind hundreds of glowing riders.</li>
                     <li>Spontaneous dance breaks at neon checkpoints.</li>
-                    <li>New riders discovered a new side of their city — fast, alive, and open after dark.</li>
+                    <li>New riders discovered a new side of their city, fast, alive, and open after dark.</li>
                   </ul>
                 </div>
 

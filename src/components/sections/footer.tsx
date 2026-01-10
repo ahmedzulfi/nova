@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { ArrowRight, SquareArrowOutUpRight } from 'lucide-react';
+import { ArrowRight, Facebook, Twitter, Instagram } from 'lucide-react';
 
 /**
  * Footer Component
@@ -16,30 +16,30 @@ const footerLinks = {
     { label: 'Dog Zone', href: '/about-us#dog-zone' },
     { label: 'Cat Zone', href: '/about-us#cat-zone' },
   ],
-      schedule: [
-        { label: 'Registration', href: '/registration' },
-        { label: 'Sponsors', href: '/sponsorship' },
-      ],
-    resources: [
-      { label: 'Blog', href: '/blog' },
-      { label: 'Gallery', href: '/gallery' },
-      { label: 'Contact', href: '/contact' },
-    ],
+  schedule: [
+    { label: 'Registration', href: '/registration' },
+    { label: 'Sponsors', href: '/sponsorship' },
+  ],
+  resources: [
+    { label: 'Blog', href: '/blog' },
+    { label: 'Gallery', href: '/gallery' },
+    { label: 'Contact', href: '/contact' },
+  ],
 };
 
 const Footer = () => {
   return (
     <footer className="w-full bg-white relative overflow-hidden pt-[100px] pb-10">
       <div className="container max-w-[1280px] px-6 mx-auto relative z-10">
-        <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-20">
+        <div className="flex flex-col lg:flex-row justify-between gap-16 lg:gap-8 mb-20">
           {/* Link Columns Wrapper */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-12 flex-1">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12 flex-1">
             {/* About Column */}
             <div className="flex flex-col gap-6">
               <h6 className="text-[18px] font-semibold leading-[1.2] tracking-[-0.02em] text-black">
                 About
               </h6>
-              <ul className="flex flex-col gap-3">
+              <ul className="flex flex-col gap-4">
                 {footerLinks.about.map((link) => (
                   <li key={link.label}>
                     <a
@@ -58,7 +58,7 @@ const Footer = () => {
               <h6 className="text-[18px] font-semibold leading-[1.2] tracking-[-0.02em] text-black">
                 Festival
               </h6>
-              <ul className="flex flex-col gap-3">
+              <ul className="flex flex-col gap-4">
                 {footerLinks.schedule.map((link) => (
                   <li key={link.label}>
                     <a
@@ -77,7 +77,7 @@ const Footer = () => {
               <h6 className="text-[18px] font-semibold leading-[1.2] tracking-[-0.02em] text-black">
                 Contact
               </h6>
-              <ul className="flex flex-col gap-3">
+              <ul className="flex flex-col gap-4">
                 {footerLinks.resources.map((link) => (
                   <li key={link.label}>
                     <a
@@ -93,7 +93,7 @@ const Footer = () => {
           </div>
 
           {/* Subscription Section */}
-          <div className="flex flex-col gap-6 max-w-[440px] w-full">
+          <div className="flex flex-col gap-8 max-w-[360px] w-full lg:ml-auto">
             <h6 className="text-[18px] font-semibold leading-[1.2] tracking-[-0.02em] text-black">
               Subscribe for festival updates
             </h6>
@@ -126,45 +126,30 @@ const Footer = () => {
             <span>© Nova Paw Festival 2026. All rights reserved.</span>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4">
             <a
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:opacity-60 transition-opacity"
+              className="w-10 h-10 flex items-center justify-center rounded-full border border-[#e5e5e5] text-[#666666] hover:bg-black hover:text-white hover:border-black transition-all duration-300"
             >
-              <img
-                src="https://framerusercontent.com/images/JeGojbbHV8JYPdTg5x2JHklUKXY.svg"
-                alt="Facebook"
-                width={20}
-                height={20}
-              />
+              <Facebook size={18} />
             </a>
             <a
               href="https://x.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:opacity-60 transition-opacity"
+              className="w-10 h-10 flex items-center justify-center rounded-full border border-[#e5e5e5] text-[#666666] hover:bg-black hover:text-white hover:border-black transition-all duration-300"
             >
-              <img
-                src="https://framerusercontent.com/images/RflPtCkLer13F3tU5CxYwQBHNes.svg"
-                alt="X"
-                width={18}
-                height={18}
-              />
+              <Twitter size={18} />
             </a>
             <a
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:opacity-60 transition-opacity"
+              className="w-10 h-10 flex items-center justify-center rounded-full border border-[#e5e5e5] text-[#666666] hover:bg-black hover:text-white hover:border-black transition-all duration-300"
             >
-              <img
-                src="https://framerusercontent.com/images/mJ4B3sUua6gvwJ6rQYS23DLJ9c.svg"
-                alt="Instagram"
-                width={20}
-                height={20}
-              />
+              <Instagram size={18} />
             </a>
           </div>
         </div>

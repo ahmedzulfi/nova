@@ -20,7 +20,7 @@ const CoreValueCard = ({
 
   return (
     <div
-      className="flex flex-col flex-nowrap h-full justify-between items-stretch overflow-hidden p-[24px] relative rounded-[24px] bg-[#f7f07a]"
+      className="flex flex-col flex-nowrap h-full justify-between items-stretch overflow-hidden p-[24px] relative rounded-[24px] bg-accent/10"
       style={{
         boxShadow: "none",
         minHeight: "440px",
@@ -43,7 +43,7 @@ const CoreValueCard = ({
         </div>
       ) : (
         <div className="flex flex-col items-start justify-start flex-none">
-           <p className="font-sans font-normal text-[18px] leading-[1.6] text-[#666666]">
+          <p className="font-sans font-normal text-[18px] leading-[1.6] text-[#666666]">
             {description}
           </p>
         </div>
@@ -79,30 +79,30 @@ export default function CoreValuesSection() {
   const values: CardProps[] = [
     {
       number: "01",
-      title: "Scenic Routes",
-      description: "Our carefully curated routes let you explore breathtaking, stunning natural landscapes.",
-      imageUrl: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/images/rkAuWOc2uqbczacSJeKfT5o9b0-8.jpg",
+      title: "Animal Welfare",
+      description: "Promoting responsible pet ownership through education and dedicated adoption initiatives.",
+      imageUrl: "https://images.unsplash.com/photo-1541591419107-bb248ff6677a?q=80&w=1974&auto=format&fit=crop",
       layout: "image-bottom",
     },
     {
       number: "02",
-      title: "Strong Community",
-      description: "Join a cycling community, share your passion, explore new routes, and make friends.",
-      imageUrl: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/images/ERWMHvvPvKlBgf6GVzBtjyrr4-9.jpg",
+      title: "Safety First",
+      description: "Ensuring a safe and controlled environment for all pets and families to enjoy the festival.",
+      imageUrl: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2069&auto=format&fit=crop",
       layout: "image-center",
     },
     {
       number: "03",
-      title: "Organization",
-      description: "Our dedicated team of expert cyclists and planners ensures your safety and enjoyment.",
-      imageUrl: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/images/ENhmY5gWUIMHaAAWD65wT5X420Y-10.jpg",
+      title: "Education",
+      description: "Expert-led talks and interactive workshops designed to help you care for your beloved pets.",
+      imageUrl: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=2070&auto=format&fit=crop",
       layout: "image-bottom",
     },
     {
       number: "04",
-      title: "Expert Guidance",
-      description: "Our experienced staff are dedicated to ensuring your experience is safe and enjoyable.",
-      imageUrl: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/images/qLTk8vC88vXmeSSHkWZFyf0Q3M0-1.jpg",
+      title: "Strong Community",
+      description: "Connecting pet lovers to share experiences and celebrate the bond between humans and animals.",
+      imageUrl: "https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=2070&auto=format&fit=crop",
       layout: "image-center",
     },
   ];

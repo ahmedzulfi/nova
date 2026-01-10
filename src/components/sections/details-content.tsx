@@ -3,9 +3,9 @@ import Image from 'next/image';
 
 const DetailsContent = () => {
   return (
-    <section 
-      className="bg-white py-[120px]" 
-      style={{ 
+    <section
+      className="bg-white py-[120px]"
+      style={{
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
@@ -13,7 +13,7 @@ const DetailsContent = () => {
         justifyContent: 'center'
       }}
     >
-      <div 
+      <div
         className="container mx-auto px-8 max-w-[1280px]"
         style={{
           display: 'flex',
@@ -23,14 +23,14 @@ const DetailsContent = () => {
         }}
       >
         {/* Left Column: Text Content */}
-        <div 
+        <div
           className="flex-1"
           style={{
             maxWidth: '66.66%'
           }}
         >
           <div className="space-y-6">
-            <h2 
+            <h2
               className="font-semibold text-[#1c1c1c] tracking-[-0.03em]"
               style={{
                 fontSize: 'clamp(40px, 6vw, 64px)',
@@ -40,7 +40,7 @@ const DetailsContent = () => {
             >
               What we did
             </h2>
-            <p 
+            <p
               className="text-[#1c1c1c] font-normal"
               style={{
                 fontSize: '18px',
@@ -48,23 +48,23 @@ const DetailsContent = () => {
                 maxWidth: '600px'
               }}
             >
-              Urban Night transformed the city into a playground of lights, motion, and adrenaline. 
-              Cyclists rode through glowing streets, neon-lit alleyways, and iconic landmarks — 
-              all under the cover of darkness. With music pulsing at checkpoints and the hum 
-              of wheels on pavement, the ride was electric. It wasn’t just about distance — 
+              Urban Night transformed the city into a playground of lights, motion, and adrenaline.
+              Cyclists rode through glowing streets, neon-lit alleyways, and iconic landmarks
+              all under the cover of darkness. With music pulsing at checkpoints and the hum
+              of wheels on pavement, the ride was electric. It wasn’t just about distance
               it was about rhythm, style, and owning the night.
             </p>
           </div>
         </div>
 
         {/* Right Column: Image */}
-        <div 
+        <div
           className="flex-1 sticky top-[120px]"
           style={{
             maxWidth: '33.33%'
           }}
         >
-          <div 
+          <div
             className="overflow-hidden"
             style={{
               borderRadius: '24px',
@@ -86,7 +86,7 @@ const DetailsContent = () => {
       </div>
 
       {/* Vertical Text Overlay Element (As per High Level Design Visual Motif) */}
-      <div 
+      <div
         className="vertical-text absolute"
         style={{
           right: '50%',

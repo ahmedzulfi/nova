@@ -48,7 +48,7 @@ export default function TeamCarousel() {
 
   const scroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
-      const scrollAmount = 420; 
+      const scrollAmount = 420;
       scrollContainerRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
@@ -66,7 +66,7 @@ export default function TeamCarousel() {
               Festival competition highlights
             </h2>
           </div>
-          
+
           <div className="flex gap-4">
             <button
               onClick={() => scroll("left")}
@@ -77,10 +77,10 @@ export default function TeamCarousel() {
             </button>
             <button
               onClick={() => scroll("right")}
-              className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#F7F58E] flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm"
+              className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm"
               aria-label="Next team member"
             >
-              <ArrowRight className="w-5 h-5 text-[#111111]" />
+              <ArrowRight className="w-5 h-5 text-white" />
             </button>
           </div>
         </div>
@@ -104,14 +104,14 @@ export default function TeamCarousel() {
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                     sizes="(max-width: 768px) 300px, 400px"
                   />
-                  
+
                   <div className="absolute bottom-6 right-6">
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#F7F58E] flex items-center justify-center shadow-lg transition-transform duration-300 hover:rotate-90">
-                      <Plus className="w-5 h-5 text-[#111111]" />
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary flex items-center justify-center shadow-lg transition-transform duration-300 hover:rotate-90">
+                      <Plus className="w-5 h-5 text-white" />
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="space-y-1 ml-2">
                   <h6 className="text-[20px] md:text-[24px] font-display font-semibold text-[#111111]">
                     {member.name}

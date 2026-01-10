@@ -5,7 +5,7 @@ const EventDetails = () => {
     <section className="bg-white py-[120px]">
       <div className="container max-w-[1280px] mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-16">
-          
+
           {/* Event Overview */}
           <div className="flex flex-col gap-6">
             <h3 className="text-[32px] font-medium text-[#1A1A1A] leading-tight tracking-[-0.02em]">
@@ -65,7 +65,7 @@ const EventDetails = () => {
                 <span>Start for 15km route.</span>
               </p>
               <p className="flex flex-col sm:flex-row sm:gap-2">
-                <strong className="font-semibold whitespace-nowrap">9:00 PM – 11:30 PM:</strong>
+                <strong className="font-semibold whitespace-nowrap">9:00 PM - 11:30 PM:</strong>
                 <span>Neon checkpoints, live street performers, snack stops.</span>
               </p>
               <p className="flex flex-col sm:flex-row sm:gap-2">
@@ -94,7 +94,7 @@ const EventDetails = () => {
                   </li>
                   <li className="flex flex-col sm:flex-row sm:gap-1">
                     <strong className="font-semibold whitespace-nowrap">45km Route:</strong>
-                    <span>A deeper dive into the city’s rhythm — bridges, skyline views, and fast flats.</span>
+                    <span>A deeper dive into the city’s rhythm: bridges, skyline views, and fast flats.</span>
                   </li>
                 </ul>
               </div>

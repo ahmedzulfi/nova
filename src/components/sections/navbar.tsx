@@ -50,10 +50,10 @@ const Navbar: React.FC = () => {
               {link.name}
             </a>
           ))}
-          
+
           {/* Dropdown Link: All pages */}
           <div className="relative group flex items-center gap-1 cursor-pointer">
-            <span 
+            <span
               className="text-black font-medium"
               style={{
                 fontSize: '16px',
@@ -76,11 +76,10 @@ const Navbar: React.FC = () => {
         <div className="flex-shrink-0">
           <a
             href="/contact-us"
-            className="btn-pill inline-flex items-center justify-center bg-[#F7F170] text-black font-bold h-[53px] px-[26px] py-[15px] rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+            className="btn-pill inline-flex items-center justify-center bg-primary text-white font-bold h-[53px] px-[26px] py-[15px] rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
             style={{
               fontSize: '16px',
               fontFamily: 'Inter, sans-serif',
-              backgroundColor: '#F7F170',
             }}
           >
             Register now!

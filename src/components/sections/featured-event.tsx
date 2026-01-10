@@ -23,6 +23,7 @@ export default function FeaturedEvent() {
               alt="Ultimate cycling adventure background"
               fill
               className="object-cover"
+              sizes="100vw"
               priority
             />
           </div>
@@ -33,7 +34,7 @@ export default function FeaturedEvent() {
           {/* Content Card Overlay */}
           <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-10 lg:left-16 w-full max-w-[calc(100%-32px)] md:max-w-[480px]">
             <div className="bg-white p-8 md:p-12 rounded-[24px] lg:rounded-[32px] shadow-sm flex flex-col gap-6">
-              
+
               {/* Badge */}
               <div className="inline-flex self-start">
                 <span className="bg-[#F1F1F1] text-black text-[12px] font-medium py-1.5 px-3.5 rounded-full">
@@ -46,7 +47,7 @@ export default function FeaturedEvent() {
                 <h2 className="text-[32px] md:text-[48px] font-semibold leading-[1.1] text-black transition-colors duration-300">
                   Ultimate cycling adventure
                 </h2>
-                
+
                 {/* Date and Location */}
                 <div className="flex flex-col gap-1.5">
                   <p className="text-[#000000] text-[16px] font-semibold leading-relaxed m-0">
@@ -65,9 +66,9 @@ export default function FeaturedEvent() {
 
               {/* CTA Button */}
               <div className="pt-4">
-                <a 
+                <a
                   href="/contact-us"
-                  className="inline-flex items-center justify-between gap-4 bg-[#F7F07A] hover:bg-[#f5ec54] text-black font-semibold text-[16px] py-4 px-8 rounded-full transition-all duration-300 group w-full sm:w-auto"
+                  className="inline-flex items-center justify-between gap-4 bg-primary hover:bg-primary/90 text-white font-semibold text-[16px] py-4 px-8 rounded-full transition-all duration-300 group w-full sm:w-auto"
                 >
                   Register now
                   <div className="bg-black/5 rounded-full p-0.5 group-hover:translate-x-1 transition-transform">

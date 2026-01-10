@@ -68,15 +68,15 @@ const HeroBanner: React.FC = () => {
           {/* CTA Button */}
           <a
             href="/contact-us"
-            className="group flex items-center justify-center px-10 py-5 bg-[#F7F170] hover:bg-[#EEF05C] rounded-full transition-all duration-200"
+            className="group flex items-center justify-center px-10 py-5 bg-primary hover:bg-primary/90 rounded-full transition-all duration-200"
           >
-            <span className="text-[16px] font-semibold text-[#000000] mr-3">
+            <span className="text-[16px] font-semibold text-white mr-3">
               Let's get started
             </span>
             <div className="w-[22px] h-[22px] flex items-center justify-center">
-              <img 
-                src={arrowIcon} 
-                alt="Arrow" 
+              <img
+                src={arrowIcon}
+                alt="Arrow"
                 className="w-full h-full object-contain"
               />
             </div>

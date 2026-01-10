@@ -12,8 +12,8 @@ interface EventCardProps {
 
 const EventCard: React.FC<EventCardProps> = ({ month, day, title, description, imageUrl, href = "#" }) => {
   return (
-    <a 
-      href={href} 
+    <a
+      href={href}
       className="group flex flex-col bg-white overflow-hidden transition-all duration-300"
     >
       <div className="flex flex-col p-6 lg:p-10 border border-brand-border border-b-0 rounded-t-[1.5rem]">
@@ -44,16 +44,16 @@ const EventCard: React.FC<EventCardProps> = ({ month, day, title, description, i
         />
         {/* Hover Arrow Overlay */}
         <div className="absolute top-6 right-6 opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
-          <div className="bg-brand-yellow w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
-            <svg 
-              width="22" 
-              height="22" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2.5" 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
+          <div className="bg-primary w-12 h-12 rounded-full flex items-center justify-center shadow-sm">
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               className="text-brand-black"
             >
               <line x1="5" y1="12" x2="19" y2="12"></line>

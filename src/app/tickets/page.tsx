@@ -48,11 +48,11 @@ export default function TicketsPage() {
   return (
     <main className="min-h-screen bg-white">
       <Navigation />
-      
+
       <section className="pt-32 pb-20 lg:pt-48 lg:pb-40">
         <div className="container mx-auto px-6 max-w-[1280px]">
           <div className="text-center mb-16 lg:mb-24">
-            <h1 className="text-[48px] md:text-[72px] font-semibold font-display leading-[1.1] text-black mb-6">
+            <h1 className="text-[48px] md:text-[72px] text-black mb-6">
               Festival Tickets
             </h1>
             <p className="text-[18px] text-[#666666] leading-[1.6] max-w-[540px] mx-auto">
@@ -62,13 +62,12 @@ export default function TicketsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {ticketPlans.map((plan) => (
-              <div 
+              <div
                 key={plan.name}
-                className={`flex flex-col p-8 md:p-12 rounded-[40px] border-2 ${
-                  plan.highlight 
-                    ? "bg-black text-white border-black" 
-                    : "bg-[#F9F9F9] text-black border-transparent"
-                }`}
+                className={`flex flex-col p-8 md:p-12 rounded-[40px] border-2 ${plan.highlight
+                  ? "bg-black text-white border-black"
+                  : "bg-[#F9F9F9] text-black border-transparent"
+                  }`}
               >
                 <h3 className="text-[24px] font-semibold mb-2">{plan.name}</h3>
                 <div className="flex items-baseline gap-1 mb-8">
@@ -79,18 +78,17 @@ export default function TicketsPage() {
                 <ul className="flex flex-col gap-4 mb-12 flex-grow">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-3 text-[16px]">
-                      <div className={`w-1.5 h-1.5 rounded-full ${plan.highlight ? "bg-[#F7F56D]" : "bg-black"}`} />
+                      <div className={`w-1.5 h-1.5 rounded-full ${plan.highlight ? "bg-primary" : "bg-black"}`} />
                       {feature}
                     </li>
                   ))}
                 </ul>
 
-                <Button 
-                  className={`w-full h-14 rounded-full font-semibold text-[16px] transition-transform hover:scale-105 active:scale-95 ${
-                    plan.highlight 
-                      ? "bg-[#F7F56D] text-black hover:bg-[#F7F56D]/90" 
-                      : "bg-black text-white hover:bg-black/90"
-                  }`}
+                <Button
+                  className={`w-full h-14 rounded-full font-semibold text-[16px] transition-transform hover:scale-105 active:scale-95 ${plan.highlight
+                    ? "bg-primary text-white hover:bg-primary/90"
+                    : "bg-black text-white hover:bg-black/90"
+                    }`}
                 >
                   Buy Ticket
                 </Button>

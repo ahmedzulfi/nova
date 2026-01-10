@@ -38,7 +38,7 @@ const reviews: Review[] = [
   },
   {
     id: 3,
-    content: "The perfect blend of challenge and community—tough climbs, great connections, breathtaking scenery, shared laughs, inspiring stories, and an epic, unforgettable finish!",
+    content: "The perfect blend of challenge and community: tough climbs, great connections, breathtaking scenery, shared laughs, inspiring stories, and an epic, unforgettable finish!",
     author: "Leslie Alex",
     avatar: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/images/7ckekOZAa0J28C2T3IfYTvNDv5U-20.jpg",
     rating: 5,
@@ -73,22 +73,20 @@ export default function ReviewsSlider() {
         <div className="relative">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 items-center">
             {reviews.map((review) => (
-              <div 
+              <div
                 key={review.id}
-                className={`flex flex-col items-center text-center transition-opacity duration-300 ${
-                  review.isActive ? 'opacity-100 scale-100' : 'opacity-30 scale-[0.9]'
-                }`}
+                className={`flex flex-col items-center text-center transition-opacity duration-300 ${review.isActive ? 'opacity-100 scale-100' : 'opacity-30 scale-[0.9]'
+                  }`}
               >
                 {/* Stars */}
                 <StarRating count={review.rating} active={review.isActive} />
-                
+
                 {/* Review Text */}
-                <blockquote 
-                  className={`font-display font-semibold transition-all duration-300 ${
-                    review.isActive 
-                      ? 'text-[24px] leading-[1.3] text-[#111111] max-w-[540px]' 
+                <blockquote
+                  className={`font-display font-semibold transition-all duration-300 ${review.isActive
+                      ? 'text-[24px] leading-[1.3] text-[#111111] max-w-[540px]'
                       : 'text-[18px] leading-[1.5] text-[#666666] max-w-[400px]'
-                  }`}
+                    }`}
                 >
                   {review.content}
                 </blockquote>

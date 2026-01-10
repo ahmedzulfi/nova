@@ -38,11 +38,11 @@ export default function RegistrationPage() {
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
       <Navigation />
-      
+
       {/* Decorative Images */}
       <div className="absolute inset-0 pointer-events-none hidden xl:block">
         {images.map((img, index) => (
-          <div 
+          <div
             key={index}
             className={`absolute ${img.position} ${img.size} rounded-[24px] overflow-hidden shadow-2xl z-0 transition-transform duration-500 hover:scale-110`}
           >
@@ -71,39 +71,39 @@ export default function RegistrationPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-3">
                 <Label htmlFor="owner-name" className="text-[15px] font-medium text-black">Owner Name</Label>
-                <Input id="owner-name" placeholder="John Doe" className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-[#F7F56D] focus:border-transparent transition-all" />
+                <Input id="owner-name" placeholder="John Doe" className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary focus:border-transparent transition-all" />
               </div>
               <div className="space-y-3">
                 <Label htmlFor="phone" className="text-[15px] font-medium text-black">Phone Number</Label>
-                <Input id="phone" placeholder="+974 0000 0000" className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-[#F7F56D] focus:border-transparent transition-all" />
+                <Input id="phone" placeholder="+974 0000 0000" className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary focus:border-transparent transition-all" />
               </div>
             </div>
 
             <div className="space-y-3">
               <Label htmlFor="email" className="text-[15px] font-medium text-black">Email Address</Label>
-              <Input id="email" type="email" placeholder="john@example.com" className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-[#F7F56D] focus:border-transparent transition-all" />
+              <Input id="email" type="email" placeholder="john@example.com" className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary focus:border-transparent transition-all" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-3">
                 <Label htmlFor="pet-name" className="text-[15px] font-medium text-black">Pet Name</Label>
-                <Input id="pet-name" placeholder="Buddy" className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-[#F7F56D] focus:border-transparent transition-all" />
+                <Input id="pet-name" placeholder="Buddy" className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary focus:border-transparent transition-all" />
               </div>
               <div className="space-y-3">
                 <Label htmlFor="breed" className="text-[15px] font-medium text-black">Breed</Label>
-                <Input id="breed" placeholder="Golden Retriever" className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-[#F7F56D] focus:border-transparent transition-all" />
+                <Input id="breed" placeholder="Golden Retriever" className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary focus:border-transparent transition-all" />
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-3">
                 <Label htmlFor="age" className="text-[15px] font-medium text-black">Pet Age</Label>
-                <Input id="age" placeholder="2 years" className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-[#F7F56D] focus:border-transparent transition-all" />
+                <Input id="age" placeholder="2 years" className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary focus:border-transparent transition-all" />
               </div>
               <div className="space-y-3">
                 <Label htmlFor="competition" className="text-[15px] font-medium text-black">Select Competition</Label>
                 <Select>
-                  <SelectTrigger className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-[#F7F56D] focus:border-transparent transition-all">
+                  <SelectTrigger className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
                     <SelectValue placeholder="Choose a show" />
                   </SelectTrigger>
                   <SelectContent className="rounded-2xl border-[#E6E6E6]">
@@ -119,20 +119,20 @@ export default function RegistrationPage() {
 
             <div className="space-y-4 pt-4">
               <div className="flex items-center space-x-3">
-                <Checkbox id="vaccination" className="w-5 h-5 rounded-md border-[#E6E6E6] data-[state=checked]:bg-[#F7F56D] data-[state=checked]:text-black" />
+                <Checkbox id="vaccination" className="w-5 h-5 rounded-md border-[#E6E6E6] data-[state=checked]:bg-primary data-[state=checked]:text-white" />
                 <Label htmlFor="vaccination" className="text-[14px] text-[#666666] leading-none cursor-pointer">
                   I confirm that my pet is up to date with all vaccinations
                 </Label>
               </div>
               <div className="flex items-start space-x-3">
-                <Checkbox id="terms" className="mt-1 w-5 h-5 rounded-md border-[#E6E6E6] data-[state=checked]:bg-[#F7F56D] data-[state=checked]:text-black" />
+                <Checkbox id="terms" className="mt-1 w-5 h-5 rounded-md border-[#E6E6E6] data-[state=checked]:bg-primary data-[state=checked]:text-white" />
                 <Label htmlFor="terms" className="text-[14px] text-[#666666] leading-relaxed cursor-pointer">
                   I agree to the Nova Paw Festival Terms & Conditions and understand the rules of the selected competition.
                 </Label>
               </div>
             </div>
 
-            <Button className="w-full h-16 bg-[#F7F56D] hover:bg-[#ecea5b] text-black font-bold rounded-full text-[18px] mt-8 shadow-lg shadow-[#F7F56D]/20 transition-all active:scale-[0.98]">
+            <Button className="w-full h-16 bg-primary hover:bg-primary/90 text-white font-bold rounded-full text-[18px] mt-8 shadow-lg transition-all active:scale-[0.98]">
               Submit Registration
             </Button>
           </form>

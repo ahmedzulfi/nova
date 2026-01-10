@@ -20,7 +20,7 @@ const TrustedPartners = () => {
             <div>
               {/* Tab Filters */}
               <div className="flex flex-wrap gap-2 mb-12">
-                <button className="bg-[#f7f07a] text-black text-[14px] font-medium px-4 py-2 rounded-full cursor-pointer transition-colors duration-200">
+                <button className="bg-primary text-white text-[14px] font-medium px-4 py-2 rounded-full cursor-pointer transition-colors duration-200">
                   Partners
                 </button>
                 <button className="bg-[#f1f1f1] text-[#666666] text-[14px] font-medium px-4 py-2 rounded-full hover:bg-[#eaeaea] transition-colors duration-200">

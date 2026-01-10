@@ -73,9 +73,9 @@ const TeamCard = ({ member }: { member: TeamMember }) => {
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-        
+
         {/* Social Icons Overlay */}
-        <div 
+        <div
           className={`absolute inset-0 flex items-center justify-center gap-4 bg-black/40 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         >
           <a href={member.socials.facebook} className="flex h-10 w-10 items-center justify-center rounded-full bg-white transition-transform hover:scale-110">
@@ -90,13 +90,13 @@ const TeamCard = ({ member }: { member: TeamMember }) => {
         </div>
 
         {/* Interactive Plus Button */}
-        <button 
+        <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`absolute bottom-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-[#f7f170] shadow-sm transition-all duration-300 hover:scale-110 ${isOpen ? 'rotate-45' : 'rotate-0'}`}
+          className={`absolute bottom-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-primary shadow-sm transition-all duration-300 hover:scale-110 ${isOpen ? 'rotate-45' : 'rotate-0'}`}
         >
           <div className="relative h-4 w-4">
-            <div className="absolute top-1/2 left-0 h-[2px] w-full -translate-y-1/2 bg-black"></div>
-            <div className="absolute top-0 left-1/2 h-full w-[2px] -translate-x-1/2 bg-black"></div>
+            <div className="absolute top-1/2 left-0 h-[2px] w-full -translate-y-1/2 bg-white"></div>
+            <div className="absolute top-0 left-1/2 h-full w-[2px] -translate-x-1/2 bg-white"></div>
           </div>
         </button>
       </div>

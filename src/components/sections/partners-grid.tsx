@@ -67,11 +67,10 @@ export default function PartnersGrid() {
                   <button
                     key={category.id}
                     onClick={() => setActiveTab(category.id)}
-                    className={`px-6 py-2 rounded-full text-[14px] font-semibold transition-all duration-200 ${
-                      activeTab === category.id
-                        ? "bg-[#F7F58E] text-[#111111]"
-                        : "bg-[#FEFFD4] text-[#111111] opacity-70 hover:opacity-100"
-                    }`}
+                    className={`px-6 py-2 rounded-full text-[14px] font-semibold transition-all duration-200 ${activeTab === category.id
+                        ? "bg-primary text-white"
+                        : "bg-accent/10 text-accent hover:bg-accent/20"
+                      }`}
                   >
                     {category.label}
                   </button>
@@ -98,41 +97,39 @@ export default function PartnersGrid() {
             {[...Array(6)].map((_, idx) => (
               <div
                 key={idx}
-                className={`flex items-center justify-center p-8 border-b border-r last:border-r-0 border-[#E5E5E5] ${
-                  idx >= 4 ? "lg:border-b-0" : ""
-                } ${idx % 3 === 2 ? "lg:border-r-0" : ""} ${
-                  idx % 2 === 1 ? "md:border-r-0 lg:border-r" : ""
-                } min-h-[180px] hover:bg-[#F9F9F9] transition-colors`}
+                className={`flex items-center justify-center p-8 border-b border-r last:border-r-0 border-[#E5E5E5] ${idx >= 4 ? "lg:border-b-0" : ""
+                  } ${idx % 3 === 2 ? "lg:border-r-0" : ""} ${idx % 2 === 1 ? "md:border-r-0 lg:border-r" : ""
+                  } min-h-[180px] hover:bg-[#F9F9F9] transition-colors`}
               >
                 {/* Logo Placeholder - Implementing visual match for Logoipsum */}
                 <div className="flex items-center gap-2 grayscale opacity-80 hover:opacity-100 transition-opacity">
                   <div className="flex items-center gap-2">
                     {/* Simplified geometric representation of logoipsum marks */}
-                      <div className="w-6 h-6 flex items-center justify-center">
-                        <div className="flex items-center justify-center">
-                          {idx === 0 ? (
-                            <div className="border-l-2 border-t-2 border-[#111111] w-4 h-4" />
-                          ) : idx === 1 ? (
-                            <div className="rounded-full bg-[#111111] w-5 h-5" />
-                          ) : idx === 2 ? (
-                            <div className="border-2 border-[#111111] rounded-full w-5 h-5 flex items-center justify-center">
-                              <div className="w-2 h-2 bg-[#111111] rounded-full" />
-                            </div>
-                          ) : idx === 3 ? (
-                            <div className="flex items-end gap-0.5 h-6">
-                              <div className="w-1.5 h-6 bg-[#111111]" />
-                              <div className="w-1.5 h-4 bg-[#111111]" />
-                              <div className="w-1.5 h-6 bg-[#111111]" />
-                            </div>
-                          ) : idx === 4 ? (
-                            <div className="w-6 h-6 rounded-full border-4 border-[#111111] flex items-center justify-center">
-                              <div className="w-2 h-2 bg-[#111111] rounded-full" />
-                            </div>
-                          ) : idx === 5 ? (
-                            <div className="w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[18px] border-b-[#111111]" />
-                          ) : null}
-                        </div>
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <div className="flex items-center justify-center">
+                        {idx === 0 ? (
+                          <div className="border-l-2 border-t-2 border-[#111111] w-4 h-4" />
+                        ) : idx === 1 ? (
+                          <div className="rounded-full bg-[#111111] w-5 h-5" />
+                        ) : idx === 2 ? (
+                          <div className="border-2 border-[#111111] rounded-full w-5 h-5 flex items-center justify-center">
+                            <div className="w-2 h-2 bg-[#111111] rounded-full" />
+                          </div>
+                        ) : idx === 3 ? (
+                          <div className="flex items-end gap-0.5 h-6">
+                            <div className="w-1.5 h-6 bg-[#111111]" />
+                            <div className="w-1.5 h-4 bg-[#111111]" />
+                            <div className="w-1.5 h-6 bg-[#111111]" />
+                          </div>
+                        ) : idx === 4 ? (
+                          <div className="w-6 h-6 rounded-full border-4 border-[#111111] flex items-center justify-center">
+                            <div className="w-2 h-2 bg-[#111111] rounded-full" />
+                          </div>
+                        ) : idx === 5 ? (
+                          <div className="w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[18px] border-b-[#111111]" />
+                        ) : null}
                       </div>
+                    </div>
 
                     <span className="font-display font-bold text-[20px] tracking-tight text-[#111111]">
                       Logoipsum

@@ -109,7 +109,7 @@ export default function AboutVideoFeatures() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-[#FEFFD4] rounded-[32px] p-8 flex flex-col h-full min-h-[480px] justify-between"
+              className="bg-accent/10 rounded-[32px] p-8 flex flex-col h-full min-h-[480px] justify-between"
             >
               {feature.variant === "default" ? (
                 <>

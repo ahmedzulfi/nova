@@ -57,8 +57,8 @@ const Header = () => {
         {/* Call to Action Button */}
         <div className="flex-shrink-0">
           <a
-            href="/contact-us"
-            className="bg-[#f7f58e] text-[#111111] px-[32px] py-[16px] rounded-full text-[14px] font-bold transition-all duration-200 hover:scale-105 active:scale-95 inline-flex items-center justify-center whitespace-nowrap"
+            href="/registration"
+            className="bg-primary text-white px-[32px] py-[16px] rounded-full text-[14px] font-bold transition-all duration-200 hover:scale-105 active:scale-95 inline-flex items-center justify-center whitespace-nowrap"
           >
             Register now!
           </a>
