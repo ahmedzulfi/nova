@@ -1,0 +1,37 @@
+﻿
+> app@0.1.0 lint
+> next lint
+
+node.exe : Converting 
+circular structure to JSON
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" "C:\Us
+ers\GIGABYTE\AppData\Roami 
+...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
+    + CategoryInfo           
+   : NotSpecified: (Convert  
+  ing circular structure t   
+ o JSON:String) [], Remot    
+eException
+    + FullyQualifiedErrorId  
+   : NativeCommandError
+ 
+    --> starting at object 
+with constructor 'Object'
+    |     property 'configs' 
+-> object with constructor 
+'Object'
+    |     property 'flat' -> 
+object with constructor 
+'Object'
+    |     ...
+    |     property 'plugins' 
+-> object with constructor 
+'Object'
+    --- property 'react' 
+closes the circle
+Referenced from: 
