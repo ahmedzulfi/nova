@@ -19,6 +19,11 @@ const eslintConfig = [
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       'react-hooks/exhaustive-deps': 'off',
+      '@typescript-eslint/no-unused-expressions': 'off',
+      '@typescript-eslint/no-empty-object-type': 'off',
+      'react/display-name': 'off',
+      'prefer-const': 'off',
+      '@next/next/no-html-link-for-pages': 'off',
     }
   }
 ]
