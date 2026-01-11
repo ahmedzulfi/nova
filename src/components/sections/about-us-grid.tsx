@@ -20,7 +20,7 @@ const AboutUsGrid = () => {
               href="/about-us"
               className="mt-8 inline-flex items-center justify-center px-8 py-4 rounded-full bg-black text-white font-semibold transition-transform hover:scale-105 active:scale-95 text-[16px]"
             >
-              More about the festival
+              Learn More About the Festival
             </a>
           </div>
 

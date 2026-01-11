@@ -5,54 +5,55 @@ import { ArrowRight } from 'lucide-react';
 /**
  * CTA Banner Section component.
  * Features a large background image with a bold heading, supporting text, 
- * and a primary yellow pill-shaped button.
- * 
- * Based on the design instructions:
- * - Large background image of a cyclist.
- * - Bold heading "Join the ultimate cycling adventure".
- * - Yellow "Let's get started" button with an arrow icon.
+ * and dual CTA buttons for Registration and Tickets.
  */
 const CTABanner = () => {
-  // Asset validation: Using the provided background image and arrow SVG if available
-  const backgroundImage = "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2069&auto=format&fit=crop";
+  // Asset validation: Using high-quality pet festival imagery - Dog and Cat together
+  const backgroundImage = "https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?q=80&w=2070&auto=format&fit=crop";
   const arrowIcon = "https://framerusercontent.com/images/mJ4B3sUua6gvwJ6rQYS23DLJ9c.svg";
 
   return (
-    <section className="container px-6 my-20 lg:my-32 mx-auto max-w-[1280px]">
+    <section className="container px-6 my-20 lg:my-32 mx-auto max-w-[1400px]">
       <div
-        className="relative w-full rounded-[30px] overflow-hidden min-h-[500px] lg:h-[680px] flex items-center"
+        className="relative w-full rounded-[48px] overflow-hidden min-h-[500px] lg:h-[600px] flex items-center"
       >
-        {/* Background Image Container */}
+        {/* Background Image Container with Parallax-like effect */}
         <div className="absolute inset-0 z-0">
           <Image
             src={backgroundImage}
-            alt="Pet Festival Fun"
+            alt="Nova Paw Festival"
             fill
-            className="object-cover"
+            className="object-cover -scale-x-105"
             priority
           />
-          {/* Overlay to ensure text readability */}
-          <div className="absolute inset-0 bg-black/40" />
+          {/* Enhanced Gradient Overlay for better legibility and premium feel */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
         </div>
 
         {/* Content Wrapper */}
-        <div className="relative z-10 px-8 lg:px-16 py-12 lg:py-24 max-w-[800px]">
-          <h2 className="text-white text-[48px] lg:text-[72px] mb-6 drop-shadow-sm">
-            Join the Nova Paw <br />
+        <div className="relative z-10 px-8 lg:px-20 py-12 lg:py-24 max-w-[900px]">
+          <h2 className="text-white text-[48px] lg:text-[84px] font-bold font-display leading-[1] mb-8 tracking-tight drop-shadow-xl">
+            Join the Nova Paw <br className="hidden md:block" />
             Festival 2026
           </h2>
 
-          <p className="text-white text-lg lg:text-xl font-normal leading-[1.5] max-w-[480px] mb-10 drop-shadow-sm">
+          <p className="text-white/90 text-[18px] lg:text-[22px] font-medium leading-[1.6] max-w-[600px] mb-12 drop-shadow-md">
             Don’t miss out on this incredible opportunity to celebrate your pets, connect with fellow lovers, and experience the thrill of the festival!
           </p>
 
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-6">
             <a
               href="/registration"
-              className="inline-flex items-center gap-3 bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-full transition-transform duration-200 hover:-translate-y-1 active:translate-y-0"
+              className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-primary hover:bg-white hover:text-black text-white font-bold px-12 py-6 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-xl"
             >
-              <span className="text-[17px]">Register Your Pet Now</span>
-              <img src={arrowIcon} alt="" className="w-5 h-5 brightness-0 invert" aria-hidden="true" />
+              <span className="text-[18px]">Register Your Pet</span>
+              <img src={arrowIcon} alt="" className="w-5 h-5 brightness-0 invert group-hover:brightness-100 group-hover:invert-0" aria-hidden="true" />
+            </a>
+            <a
+              href="/tickets"
+              className="w-full sm:w-auto inline-flex items-center justify-center bg-white hover:bg-white/90 text-black font-bold px-12 py-6 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-xl"
+            >
+              <span className="text-[18px]">Buy Tickets</span>
             </a>
           </div>
         </div>

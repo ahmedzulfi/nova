@@ -1,11 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
+import logo from '@/media/Artboard 1@2x (1).png';
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full overflow-hidden bg-white pt-[120px] pb-[80px] md:pt-[160px] md:pb-[120px]">
+    <section className="relative w-full overflow-hidden bg-white pt-[100px] pb-[80px] md:pt-[140px] md:pb-[120px]">
       <div className="container mx-auto px-6 max-w-[1280px]">
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center mt-5">
+
+          {/* Logo */}
 
           {/* Badge */}
           <div
@@ -38,23 +41,24 @@ const HeroSection = () => {
           <div className="flex flex-wrap items-center justify-center gap-4 mb-16 lg:mb-24">
             <a
               href="/registration"
-              className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white rounded-full font-semibold text-[16px] transition-transform hover:scale-105 active:scale-95"
+              className="group inline-flex items-center justify-center gap-3 px-10 py-5 bg-primary text-white rounded-full font-bold text-[18px] transition-all hover:scale-105 active:scale-95"
             >
-              Register for Shows
+              <span>Register Your Pet</span>
               <div className="transition-transform group-hover:translate-x-1">
                 <Image
                   src="https://framerusercontent.com/images/mJ4B3sUua6gvwJ6rQYS23DLJ9c.svg"
                   alt="Arrow"
                   width={22}
                   height={22}
+                  className="brightness-0 invert"
                 />
               </div>
             </a>
             <a
-              href="/about-us"
-              className="inline-flex items-center justify-center px-8 py-4 bg-accent text-white rounded-full font-semibold text-[16px] transition-transform hover:scale-105 active:scale-95"
+              href="/tickets"
+              className="inline-flex items-center justify-center px-10 py-5 bg-black text-white rounded-full font-bold text-[18px] transition-all hover:scale-105 active:scale-95"
             >
-              Learn More
+              Buy Ticket
             </a>
           </div>
 

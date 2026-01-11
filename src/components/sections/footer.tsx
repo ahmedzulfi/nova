@@ -1,13 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
 import { ArrowRight, Facebook, Twitter, Instagram } from 'lucide-react';
+import logo from '@/media/Artboard 1@2x (1).png';
 
 /**
  * Footer Component
- * 
- * Clones the footer section of the Cyclix website with pixel-perfect accuracy.
- * Includes categorized link columns, newsletter signup, large ghosted branding watermark,
- * and bottom social/copyright bar.
  */
 
 const footerLinks = {
@@ -32,8 +29,21 @@ const Footer = () => {
     <footer className="w-full bg-white relative overflow-hidden pt-[100px] pb-10">
       <div className="container max-w-[1280px] px-6 mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row justify-between gap-16 lg:gap-8 mb-20">
+          {/* Logo and Brand Info */}
+          <div className="flex flex-col gap-8 max-w-[400px]">
+            <Image
+              src={logo}
+              alt="Nova Paw Festival"
+              height={100}
+              className="h-[100px] w-auto object-contain"
+            />
+            <p className="text-[16px] leading-[1.6] text-[#666666]">
+              Qatar’s first pet festival, bringing together pets, families, and professionals in a unique outdoor experience.
+            </p>
+          </div>
+
           {/* Link Columns Wrapper */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12 flex-1">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 flex-1 lg:ml-12">
             {/* About Column */}
             <div className="flex flex-col gap-6">
               <h6 className="text-[18px] font-semibold leading-[1.2] tracking-[-0.02em] text-black">
@@ -93,9 +103,9 @@ const Footer = () => {
           </div>
 
           {/* Subscription Section */}
-          <div className="flex flex-col gap-8 max-w-[360px] w-full lg:ml-auto">
+          <div className="flex flex-col gap-8 max-w-[360px] w-full lg:ml-auto text-right md:text-left">
             <h6 className="text-[18px] font-semibold leading-[1.2] tracking-[-0.02em] text-black">
-              Subscribe for festival updates
+              Subscribe for updates
             </h6>
             <div className="relative group">
               <input
@@ -114,14 +124,14 @@ const Footer = () => {
         </div>
 
         {/* Large Watermark Text */}
-        <div className="relative w-full overflow-hidden select-none pointer-events-none mt-10 md:mt-20">
-          <h2 className="watermark-footer text-center translate-y-[20%] text-[clamp(100px,15vw,280px)] font-bold text-[#e5e5e5] leading-[0.8] tracking-[-0.05em] uppercase">
-            NOVA PAW<sup className="text-[0.3em] font-normal top-[-0.5em] md:top-[-0.8em]">TM</sup>
+        <div className="relative w-full overflow-hidden select-none pointer-events-none mt-10 md:mt-16">
+          <h2 className="watermark-footer text-center translate-y-[15%] text-[clamp(100px,14vw,300px)] font-bold text-[#f0f0f0] leading-[0.8] tracking-[-0.05em] uppercase">
+            NOVA PAW
           </h2>
         </div>
 
         {/* Bottom Social & Copyright Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-[#e5e5e5] mt-[-20px] relative z-20">
+        <div className="flex flex-col md:flex-row items-center justify-between pt-8 mt-[-20px] relative z-20">
           <div className="flex items-center gap-1 text-[14px] text-[#999999] mb-4 md:mb-0">
             <span>© Nova Paw Festival 2026. All rights reserved.</span>
           </div>

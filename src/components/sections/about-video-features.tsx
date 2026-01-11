@@ -10,29 +10,29 @@ const videoThumb = "https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?q=
 const features = [
   {
     number: "01",
-    title: "Animal Welfare",
-    description: "Promoting responsible pet ownership through education and dedicated adoption initiatives.",
+    title: "Dedicated Zones",
+    description: "Experience specialized environments with our dedicated Dog Zone and Cat Zone, tailored for each pet's needs.",
     image: "https://images.unsplash.com/photo-1541591419107-bb248ff6677a?q=80&w=1974&auto=format&fit=crop",
     variant: "default",
   },
   {
     number: "02",
-    title: "Safety First",
-    description: "Ensuring a safe and controlled environment for all pets and families to enjoy the festival.",
+    title: "Global Shows",
+    description: "Watch world-class international competitions and shows featuring top-tier pets and professional judges.",
     image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2069&auto=format&fit=crop",
     variant: "image-center",
   },
   {
     number: "03",
-    title: "Education",
-    description: "Expert-led talks and interactive workshops designed to help you care for your beloved pets.",
+    title: "Entertainment",
+    description: "Enjoy a mix of live entertainment and expert-led educational sessions for the whole family.",
     image: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=2070&auto=format&fit=crop",
     variant: "default",
   },
   {
     number: "04",
-    title: "Strong Community",
-    description: "Connecting pet lovers to share experiences and celebrate the bond between humans and animals.",
+    title: "Welfare & Safety",
+    description: "We maintain a strong focus on animal welfare and safety, ensuring a positive experience for all.",
     image: "https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=2070&auto=format&fit=crop",
     variant: "image-center",
   },
@@ -59,10 +59,10 @@ export default function AboutVideoFeatures() {
         {/* Passion Statement Section */}
         <div className="flex flex-col items-center text-center space-y-6 mb-16 lg:mb-24">
           <span className="badge-label bg-[#f3f3f3] text-[#666666] px-4 py-1.5 rounded-full text-[12px] font-semibold uppercase tracking-wider">
-            Our values
+            Festival Concept
           </span>
           <h2 className="text-[40px] lg:text-[56px] font-display font-semibold text-[#111111] leading-[1.2] max-w-[900px] tracking-tight">
-            We&apos;re passionate pet lovers and advocates, creating unforgettable experiences for the animal community
+            Qatar’s Premiere Pet Experience Built for Excellence
           </h2>
         </div>
 
