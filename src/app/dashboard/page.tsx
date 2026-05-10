@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Navigation from "@/components/sections/navigation";
-import { Check, CreditCard, ArrowRight, Dog, Cat, User, Trophy } from 'lucide-react';
+import { Check, CreditCard, ArrowRight, Dog, Cat, User } from 'lucide-react';
 
 interface RegistrationData {
   fullName: string;
@@ -323,27 +323,57 @@ export default function DashboardPage() {
             {/* Right Sidebar */}
             <div className="lg:col-span-2 space-y-4">
               
-              {/* Competition Section (Conditional for Pet Owners) */}
-              {(data.tier === 'dog-owner' || data.tier === 'cat-owner') && (
-                <div className="bg-white rounded-sm border-2 border-primary p-8 space-y-6 animate-in zoom-in duration-700 delay-300">
-                  <div className="flex items-center justify-between">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">Competition Entry</p>
-                    <Trophy className="w-5 h-5 text-primary" />
+              {/* Competition Section (Dynamic) */}
+              <div className="bg-white rounded-sm border border-black/5 p-8 space-y-6">
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-black/30 mb-2">Exclusive For You</p>
+                  <h3 className="text-[20px] font-display font-bold text-black tracking-tight">Competitions</h3>
+                </div>
+
+                {/* Filtered Competitions */}
+                <div className="space-y-3">
+                  {data.tier === 'dog-owner' && (
+                    <div className="group p-4 bg-[#F5F5F0] rounded-sm border border-black/5 hover:border-primary transition-all cursor-pointer" onClick={() => window.location.href = '/registration?event=dog-fashion-show'}>
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center gap-2">
+                          <Dog className="w-4 h-4 text-primary" />
+                          <span className="text-[13px] font-bold">Dog Fashion Show</span>
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-black/20 group-hover:text-primary transition-all" />
+                      </div>
+                      <p className="text-[11px] text-black/40 leading-relaxed">Strut the runway in matching outfits with your dog.</p>
+                    </div>
+                  )}
+                  {data.tier === 'cat-owner' && (
+                    <div className="group p-4 bg-[#F5F5F0] rounded-sm border border-black/5 hover:border-primary transition-all cursor-pointer" onClick={() => window.location.href = '/registration?event=cat-fashion-show'}>
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center gap-2">
+                          <Cat className="w-4 h-4 text-primary" />
+                          <span className="text-[13px] font-bold">Cat Fashion Show</span>
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-black/20 group-hover:text-primary transition-all" />
+                      </div>
+                      <p className="text-[11px] text-black/40 leading-relaxed">Showcase your cat's style in the Cat Dome.</p>
+                    </div>
+                  )}
+                  <div className="group p-4 bg-[#F5F5F0] rounded-sm border border-black/5 hover:border-primary transition-all cursor-pointer" onClick={() => window.location.href = '/registration?event=cat-drawing-battle'}>
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        <User className="w-4 h-4 text-primary" />
+                        <span className="text-[13px] font-bold">Drawing Cat Battle</span>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-black/20 group-hover:text-primary transition-all" />
+                    </div>
+                    <p className="text-[11px] text-black/40 leading-relaxed">Live 1-hour creative battle for artists of all ages.</p>
                   </div>
-                  <div className="space-y-2">
-                    <h3 className="text-[20px] font-display font-bold tracking-tight">Enter the Spotlight</h3>
-                    <p className="text-[13px] text-black/50 leading-relaxed">
-                      As a {tierLabel}, you are eligible to enter {data.petName} into our international competitions judged by WKU & WCF officials.
-                    </p>
-                  </div>
-                  <button 
-                    onClick={() => window.location.href = `/registration?event=${data.tier === 'dog-owner' ? 'dog-fashion-show' : 'cat-fashion-show'}`}
-                    className="w-full py-4 bg-primary text-white rounded-sm font-bold text-[13px] uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2"
-                  >
-                    Start Registration <ArrowRight className="w-4 h-4" />
+                </div>
+
+                <div className="pt-4 border-t border-black/5">
+                  <button onClick={() => window.location.href = '/registration'} className="w-full py-4 bg-black text-white rounded-sm font-bold text-[11px] uppercase tracking-widest hover:bg-black/90 transition-all">
+                    Browse All Events
                   </button>
                 </div>
-              )}
+              </div>
 
               {/* Contact Card */}
               <div className="bg-white rounded-sm border border-black/5 p-8">
@@ -395,4 +425,3 @@ export default function DashboardPage() {
     </main>
   );
 }
-
