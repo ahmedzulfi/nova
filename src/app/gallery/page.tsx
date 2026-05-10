@@ -3,7 +3,7 @@
 import React from 'react';
 import Navigation from "@/components/sections/navigation";
 import Footer from "@/components/sections/footer";
-import GallerySection from "@/components/sections/gallery";
+
 import VenuesGrid from "@/components/sections/gallery/venues-grid";
 import HighlightsGrid from "@/components/sections/gallery/highlights-grid";
 import { Instagram, ArrowRight } from 'lucide-react';
@@ -34,10 +34,7 @@ export default function GalleryPage() {
       {/* Highlights Grid */}
       <HighlightsGrid />
 
-      {/* Visual Gallery */}
-      <div className="py-24">
-        <GallerySection />
-      </div>
+
 
       {/* Social CTA */}
       <section className="py-24 bg-black text-white overflow-hidden relative">
