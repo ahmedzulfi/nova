@@ -154,7 +154,7 @@ function DashboardContent() {
 
       {/* ─── Main Content Area ────────────────────────────────────────────────── */}
       <main className="flex-1 lg:ml-72 min-h-screen p-6 lg:p-12 transition-all duration-500">
-        <div className="max-w-[1100px] mx-auto">
+        <div className="max-w-[95%] mx-auto">
           
           <header className="mb-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
             <div className="flex items-center gap-4 mb-4">
