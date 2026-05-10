@@ -44,3 +44,9 @@
 - **Navbar:** Sticky, backdrop-blur, white background.
 - **Footer:** Deep black background, high-contrast white/primary text.
 - **Shared CTA:** High-fidelity image background banner with cinematic gradient.
+- **7-Step Wizard Pattern:**
+  - Layout: `Shell` component with persistent step indicator.
+  - Background: `#F5F5F0` (Bone/Off-white) for the section, `#FFFFFF` for the card.
+  - Progress: Monochromatic path with Primary (Yellow) highlights for completed steps.
+  - Typography: Large `font-display` headers, `9px` bold uppercase labels for inputs.
+  - Interaction: Mandatory verification steps (OTP), premium upload zones, and animated step transitions.
