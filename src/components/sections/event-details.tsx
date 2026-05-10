@@ -114,7 +114,7 @@ const EventDetails = () => {
                 <ul className="list-disc pl-5 flex flex-col gap-2">
                   <li>The city skyline lit up behind hundreds of glowing riders.</li>
                   <li>Spontaneous dance breaks at neon checkpoints.</li>
-                  <li>New riders discovered a new side of their city — fast, alive, and open after dark.</li>
+                  <li>New riders discovered a new side of their city   fast, alive, and open after dark.</li>
                 </ul>
               </div>
 

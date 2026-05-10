@@ -38,14 +38,14 @@ export default function ContactPage() {
                     <Label className="text-[#666666] uppercase text-[12px] font-bold tracking-widest pl-0">Location</Label>
                   </div>
                   <p className="text-[18px] font-bold text-black font-display">Pet’s Park,</p>
-                  <p className="text-[16px] text-[#666666]">The Pearl – Qatar</p>
+                  <p className="text-[16px] text-[#666666]">The Pearl   Qatar</p>
                 </div>
                 <div className="space-y-1">
                   <div className="flex items-center gap-3 text-primary mb-2">
                     <Phone className="w-5 h-5" />
                     <Label className="text-[#666666] uppercase text-[12px] font-bold tracking-widest pl-0">Phone</Label>
                   </div>
-                  <p className="text-[18px] font-bold text-black font-display">TBD</p>
+                  <p className="text-[18px] font-bold text-black font-display">+974 3302 2248</p>
                   <p className="text-[16px] text-[#666666]">Support Line</p>
                 </div>
                 <div className="space-y-1">
@@ -59,7 +59,7 @@ export default function ContactPage() {
               </div>
 
               {/* Google Maps Embed */}
-              <div className="w-full aspect-video rounded-[40px] overflow-hidden grayscale contrast-125 border border-[#F0F0F0]">
+              <div className="w-full aspect-video rounded-sm overflow-hidden grayscale contrast-125 border border-[#F0F0F0]">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d14421.7377561!2d51.5435!3d25.3725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45c4793f77df23%3A0xc669f379fa4d4bb!2sThe%20Pearl-Qatar!5e0!3m2!1sen!2sqa!4v1700000000000!5m2!1sen!2sqa"
                   width="100%"
@@ -75,14 +75,14 @@ export default function ContactPage() {
                 <h3 className="text-[24px] font-bold font-display">Follow the Journey</h3>
                 <div className="flex flex-wrap gap-4">
                   {[
-                    { name: 'Instagram', icon: Instagram, href: '#' },
-                    { name: 'TikTok', icon: Music2, href: '#' },
-                    { name: 'YouTube', icon: Youtube, href: '#' }
+                    { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/nova_paw_festival/' },
+                    { name: 'TikTok', icon: Music2, href: 'https://www.tiktok.com/@nova_paw_festival' },
+                    { name: 'YouTube', icon: Youtube, href: 'https://www.youtube.com/@paw_festival' }
                   ].map((social) => (
                     <a
                       key={social.name}
                       href={social.href}
-                      className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-[#F0F0F0] hover:bg-black hover:text-white transition-all duration-300 font-bold text-[15px]"
+                      className="inline-flex items-center gap-3 px-8 py-4 rounded-sm border border-[#F0F0F0] hover:bg-black hover:text-white transition-all duration-300 font-bold text-[15px]"
                     >
                       <social.icon className="w-5 h-5" />
                       {social.name}
@@ -93,7 +93,7 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-[#F9F9F9] p-8 md:p-16 rounded-[40px] border border-[#f0f0f0] sticky top-32">
+            <div className="bg-[#F9F9F9] p-8 md:p-16 rounded-sm border border-[#f0f0f0] sticky top-32 shadow-sm">
               <div className="mb-10 text-center">
                 <h3 className="text-[32px] font-bold font-display mb-4">Send us a Message</h3>
                 <p className="text-[#666666]">Drop us a line and we'll get back to you shortly.</p>
@@ -101,17 +101,27 @@ export default function ContactPage() {
               <form className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-[14px] font-bold uppercase tracking-wider pl-2">Full Name</Label>
-                  <Input id="name" placeholder="John Doe" className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary transition-all" />
+                  <Input id="name" placeholder="John Doe" className="   rounded-sm  border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary transition-all" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-[14px] font-bold uppercase tracking-wider pl-2">Email Address</Label>
-                  <Input id="email" type="email" placeholder="john@example.com" className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary transition-all" />
+                  <Input id="email" type="email" placeholder="john@example.com" className="   rounded-sm  border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary transition-all" />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="type" className="text-[14px] font-bold uppercase tracking-wider pl-2">Inquiry Type</Label>
+                  <select id="type" className="w-full    rounded-sm  border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary transition-all appearance-none cursor-pointer">
+                    <option>General Inquiry</option>
+                    <option>Sponsorship</option>
+                    <option>Press & Media</option>
+                    <option>Ticketing Support</option>
+                    <option>Pet Registration</option>
+                  </select>
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="message" className="text-[14px] font-bold uppercase tracking-wider pl-2">Your Message</Label>
-                  <Textarea id="message" placeholder="How can we help you?" className="rounded-2xl border-[#E6E6E6] bg-white min-h-[160px] p-6 focus:ring-2 focus:ring-primary transition-all" />
+                  <Textarea id="message" placeholder="How can we help you?" className="   rounded-sm  border-[#E6E6E6] bg-white min-h-[160px] p-6 focus:ring-2 focus:ring-primary transition-all" />
                 </div>
-                <Button className="w-full h-16 bg-primary hover:bg-primary/90 text-white font-bold rounded-full text-[18px] transition-all active:scale-[0.98] mt-4 shadow-none">
+                <Button className="w-full h-16 bg-primary hover:bg-primary/90 text-white font-bold rounded-sm text-[18px] transition-all active:scale-[0.98] mt-4 shadow-none">
                   Send Message
                 </Button>
               </form>
@@ -119,6 +129,24 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <div className="container mx-auto px-6 max-w-[1280px] pb-32">
+        <div className="bg-black rounded-[40px] p-12 md:p-20 flex flex-col items-center text-center text-white relative overflow-hidden group">
+          <div className="relative z-10">
+            <h2 className="text-[32px] md:text-[56px] font-bold font-display mb-8">Need Immediate Help?</h2>
+            <p className="text-white/70 text-[18px] mb-12 max-w-[600px] mx-auto">
+              Our support team is available via WhatsApp for quick questions regarding tickets and pet registrations.
+            </p>
+            <a
+              href="https://wa.me/97433022248"
+              className="inline-flex items-center gap-4 bg-primary text-white px-10 py-5 rounded-sm font-bold text-[18px] hover:bg-white hover:text-black transition-all active:scale-95"
+            >
+              Chat on WhatsApp
+            </a>
+          </div>
+          <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-700" />
+        </div>
+      </div>
 
       <Footer />
     </main>

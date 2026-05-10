@@ -90,7 +90,7 @@ const ProgramPreview = () => {
                                 <button
                                     key={index}
                                     onClick={() => setActiveDay(index)}
-                                    className={`text-left px-6 py-4 rounded-2xl transition-all duration-300 ${activeDay === index
+                                    className={`text-left px-6 py-4    rounded-sm  transition-all duration-300 ${activeDay === index
                                         ? 'bg-primary text-white'
                                         : 'bg-white text-black hover:bg-white/80'
                                         }`}
@@ -107,7 +107,7 @@ const ProgramPreview = () => {
 
                         {/* Static Image match to Advantage layout */}
                         <div className="hidden md:block w-full mt-8">
-                            <div className="relative aspect-[4/3] overflow-hidden rounded-[32px]">
+                            <div className="relative aspect-[4/3] overflow-hidden  rounded-sm">
                                 <Image
                                     src={programData[activeDay].image}
                                     alt="Program Preview"
@@ -120,7 +120,7 @@ const ProgramPreview = () => {
 
                     {/* Right Column: Schedule List */}
                     <div className="flex flex-col mt-12 md:mt-0">
-                        <h2 className="text-[40px] md:text-[64px] font-bold leading-[1] text-black mb-12 font-display tracking-tight">
+                        <h2 className="text-[28px] md:text-[64px] font-bold leading-[1] text-black mb-12 font-display tracking-tight">
                             Explore the <br className="hidden md:block" /> Festival Schedule
                         </h2>
 
@@ -151,7 +151,7 @@ const ProgramPreview = () => {
                         <div className="mt-12">
                             <a
                                 href="/about-us"
-                                className="inline-flex items-center justify-center px-10 py-5 bg-black text-white rounded-full font-bold text-[18px] transition-all hover:scale-105 active:scale-95"
+                                className="inline-flex items-center justify-center px-10 py-5 bg-black text-white  rounded-sm font-bold text-[18px] transition-all hover:scale-105 active:scale-95"
                             >
                                 Learn More About the Festival
                             </a>

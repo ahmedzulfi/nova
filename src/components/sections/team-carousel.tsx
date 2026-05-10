@@ -62,7 +62,7 @@ export default function TeamCarousel() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-6">
           <div className="space-y-4">
             <span className="badge-label bg-[#f3f3f3] text-[#666666] px-4 py-1.5 rounded-full text-[12px] font-semibold uppercase tracking-wider">Competitions</span>
-            <h2 className="text-[40px] md:text-[56px] font-display font-semibold text-[#111111] leading-[1.2] tracking-[-0.03em]">
+            <h2 className="text-[28px] md:text-[56px] font-display font-semibold text-[#111111] leading-[1.2] tracking-[-0.03em]">
               Festival competition highlights
             </h2>
           </div>

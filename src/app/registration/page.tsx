@@ -11,183 +11,421 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea";
 import Image from 'next/image';
 import EventSelectionGrid from "@/components/sections/event-selection-grid";
-import { ArrowLeft, ChevronRight, Check } from 'lucide-react';
+import { ArrowLeft, Check, Upload, Info } from 'lucide-react';
+
+type CompetitionType = 'dog-grooming' | 'dog-fashion-show' | 'cat-fashion-show' | 'dog-best-in-show' | 'cat-best-show' | 'cat-drawing-battle' | '';
 
 export default function RegistrationPage() {
   const [step, setStep] = useState(1);
+  const [selectedEventId, setSelectedEventId] = useState<CompetitionType>('');
   const [selectedEventName, setSelectedEventName] = useState("");
+  
   const [formData, setFormData] = useState({
-    ownerName: "",
+    fullName: "",
     phone: "",
     email: "",
+    address: "",
+    // Pet Info
     petName: "",
     breed: "",
     age: "",
-    competition: "",
+    // Competition Specific
+    groomerExperience: "",
+    groomingCategory: "",
+    outfitDescription: "",
+    drawingExperience: "",
+    drawingMaterials: "",
+    // Checkboxes (we'll handle these locally or in an object)
   });
 
   const handleEventSelect = (eventId: string, eventTitle: string) => {
-    setFormData({ ...formData, competition: eventId });
+    setSelectedEventId(eventId as CompetitionType);
     setSelectedEventName(eventTitle);
     setStep(2);
-    // Smooth scroll to top of form area
-    window.scrollTo({ top: 300, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const images = [
-    {
-      url: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=1974&auto=format&fit=crop",
-      position: "top-20 left-[5%] rotate-[-12deg]",
-      size: "w-[150px] h-[180px]"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2043&auto=format&fit=crop",
-      position: "top-40 right-[8%] rotate-[8deg]",
-      size: "w-[140px] h-[170px]"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?q=80&w=1988&auto=format&fit=crop",
-      position: "bottom-20 left-[8%] rotate-[5deg]",
-      size: "w-[160px] h-[200px]"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=2070&auto=format&fit=crop",
-      position: "bottom-40 right-[5%] rotate-[-10deg]",
-      size: "w-[150px] h-[180px]"
+  const handleBasicInfoSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setStep(3);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleCompetitionInfoSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setStep(4);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const renderCompetitionSpecificFields = () => {
+    switch (selectedEventId) {
+      case 'dog-grooming':
+        return (
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-3">
+                <Label className="text-[15px] font-bold">Competition Category</Label>
+                <Select onValueChange={(val) => setFormData({...formData, groomingCategory: val})}>
+                  <SelectTrigger className="h-14    rounded-sm ">
+                    <SelectValue placeholder="Select Category" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="dog-figure">Dog Figure Grooming (Artificial)</SelectItem>
+                    <SelectItem value="real-dog">Real Dog Grooming</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-3">
+                <Label className="text-[15px] font-bold">Groomer Experience Level</Label>
+                <Input 
+                  placeholder="e.g. 5 Years Professional" 
+                  className="h-14    rounded-sm "
+                  onChange={(e) => setFormData({...formData, groomerExperience: e.target.value})}
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="space-y-3">
+                <Label className="text-[15px] font-bold">Dog Name</Label>
+                <Input placeholder="Pet's name" className="h-14    rounded-sm " onChange={(e) => setFormData({...formData, petName: e.target.value})} />
+              </div>
+              <div className="space-y-3">
+                <Label className="text-[15px] font-bold">Dog Breed</Label>
+                <Input placeholder="e.g. Poodle" className="h-14    rounded-sm " onChange={(e) => setFormData({...formData, breed: e.target.value})} />
+              </div>
+              <div className="space-y-3">
+                <Label className="text-[15px] font-bold">Dog Age</Label>
+                <Input placeholder="e.g. 3 Years" className="h-14    rounded-sm " onChange={(e) => setFormData({...formData, age: e.target.value})} />
+              </div>
+            </div>
+          </div>
+        );
+
+      case 'dog-fashion-show':
+      case 'cat-fashion-show':
+        return (
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="space-y-3">
+                <Label className="text-[15px] font-bold">Pet Name</Label>
+                <Input placeholder="Pet's name" className="h-14    rounded-sm " onChange={(e) => setFormData({...formData, petName: e.target.value})} />
+              </div>
+              <div className="space-y-3">
+                <Label className="text-[15px] font-bold">Breed</Label>
+                <Input placeholder="e.g. Persian" className="h-14    rounded-sm " onChange={(e) => setFormData({...formData, breed: e.target.value})} />
+              </div>
+              <div className="space-y-3">
+                <Label className="text-[15px] font-bold">Age</Label>
+                <Input placeholder="e.g. 2 Years" className="h-14    rounded-sm " onChange={(e) => setFormData({...formData, age: e.target.value})} />
+              </div>
+            </div>
+            <div className="space-y-3">
+              <Label className="text-[15px] font-bold">Matching Owner/Pet Outfit Description</Label>
+              <Textarea 
+                placeholder="Describe your matching outfits..." 
+                className="   rounded-sm  min-h-[120px]" 
+                onChange={(e) => setFormData({...formData, outfitDescription: e.target.value})}
+              />
+            </div>
+          </div>
+        );
+
+      case 'dog-best-in-show':
+      case 'cat-best-show':
+        return (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="space-y-3">
+              <Label className="text-[15px] font-bold">Pet Name</Label>
+              <Input placeholder="Pet's name" className="h-14    rounded-sm " onChange={(e) => setFormData({...formData, petName: e.target.value})} />
+            </div>
+            <div className="space-y-3">
+              <Label className="text-[15px] font-bold">Breed</Label>
+              <Input placeholder="Breed" className="h-14    rounded-sm " onChange={(e) => setFormData({...formData, breed: e.target.value})} />
+            </div>
+            <div className="space-y-3">
+              <Label className="text-[15px] font-bold">Age</Label>
+              <Input placeholder="Age" className="h-14    rounded-sm " onChange={(e) => setFormData({...formData, age: e.target.value})} />
+            </div>
+          </div>
+        );
+
+      case 'cat-drawing-battle':
+        return (
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-3">
+                <Label className="text-[15px] font-bold">Age of Participant</Label>
+                <Input placeholder="Your age" className="h-14    rounded-sm " onChange={(e) => setFormData({...formData, age: e.target.value})} />
+              </div>
+              <div className="space-y-3">
+                <Label className="text-[15px] font-bold">Experience Level</Label>
+                <Input placeholder="e.g. Intermediate" className="h-14    rounded-sm " onChange={(e) => setFormData({...formData, drawingExperience: e.target.value})} />
+              </div>
+            </div>
+            <div className="space-y-3">
+              <Label className="text-[15px] font-bold">Materials Being Used</Label>
+              <Textarea 
+                placeholder="List the materials you will bring (pencils, canvas, etc.)" 
+                className="   rounded-sm  min-h-[100px]" 
+                onChange={(e) => setFormData({...formData, drawingMaterials: e.target.value})}
+              />
+            </div>
+          </div>
+        );
+      default: return null;
     }
-  ];
+  };
 
-  return (
-    <main className="min-h-screen bg-white relative overflow-hidden">
-      <Navigation />
+  const renderTermsAndConditions = () => {
+    const terms = {
+      'dog-grooming': [
+        "I confirm that all submitted information is correct.",
+        "I confirm that my dog's vaccination is up to date.",
+        "I confirm that I have uploaded a valid pet passport.",
+        "I confirm that my dog has completed a recent health checkup.",
+        "If no recent health checkup is available, I understand that I must complete a veterinary checkup with Nova Vet before final competition approval.",
+        "I understand that registration submission does not guarantee final acceptance into the competition.",
+        "I agree to attend on time for my assigned competition slot.",
+        "I understand that photography and videography will take place during the event and I agree to media coverage.",
+        "I accept all judging decisions as final."
+      ],
+      'dog-fashion-show': [
+        "I confirm that my dog's vaccination is up to date.",
+        "I confirm that I have uploaded a valid pet passport.",
+        "I confirm that my dog has completed a recent health checkup.",
+        "If no recent health checkup is available, I understand that I must complete a veterinary checkup with Nova Vet before final competition approval.",
+        "I understand that this is a matching fashion show and both owner and dog must participate together on the runway.",
+        "I confirm that all costumes and outfits respect local culture, public decency, and event guidelines.",
+        "I confirm that my dog will remain under my full supervision and control at all times.",
+        "I agree to arrive on time for rehearsal and competition schedule.",
+        "I understand that photography and videography will take place and I agree to media usage and promotion.",
+        "I understand that registration does not guarantee final selection.",
+        "I accept all judging decisions as final."
+      ],
+      'cat-fashion-show': [
+        "I confirm that my cat's vaccination is up to date.",
+        "I confirm that I have uploaded a valid pet passport.",
+        "I confirm that my cat has completed a recent health checkup.",
+        "If no recent health checkup is available, I understand that I must complete a veterinary checkup with Nova Vet before final competition approval.",
+        "I understand that my cat must remain inside its carrier/cage except during official runway participation.",
+        "I understand that this is a matching fashion show and both owner and cat must participate together.",
+        "I confirm that all costumes respect local culture and event guidelines.",
+        "I confirm that my cat will remain under my supervision at all times.",
+        "I agree to arrive on time for the competition schedule.",
+        "I understand that photography and videography will take place and I agree to media usage.",
+        "I understand that registration does not guarantee final selection.",
+        "I accept all judging decisions as final."
+      ],
+      'dog-best-in-show': [
+        "My dog is fully vaccinated.",
+        "My dog is not aggressive and is fully under control.",
+        "My dog is healthy and fit for participation.",
+        "My dog will remain under my supervision at all times.",
+        "I understand photography and videography will take place.",
+        "I understand registration does not guarantee final selection.",
+        "I accept all judging decisions as final."
+      ],
+      'cat-best-show': [
+        "My cat is fully vaccinated.",
+        "My cat is healthy and fit for participation.",
+        "My cat will remain inside its carrier except during judging.",
+        "My cat will remain under my supervision at all times.",
+        "I understand photography and videography will take place.",
+        "I understand registration does not guarantee final selection.",
+        "I accept all judging decisions as final."
+      ],
+      'cat-drawing-battle': [
+        "I understand that I must bring my own drawing materials and equipment.",
+        "I understand that all artwork must follow event guidelines and public decency standards.",
+        "I understand that the Drawing Cat Battle competition duration is strictly 1 hour only.",
+        "I agree to complete my artwork within the official competition time.",
+        "I understand that attendance is mandatory for the full competition period and I may not leave before completion unless approved by the organizer.",
+        "I agree to arrive on time for registration and competition briefing.",
+        "I understand that photography and videography will take place during the event and I agree to media coverage.",
+        "I understand that registration submission does not guarantee final selection.",
+        "I accept all judging decisions as final.",
+        "I confirm my attendance and understand the 3-week cancellation notice policy.",
+        "I understand that emergency absence must be reported immediately to the organizer."
+      ]
+    };
 
-      {/* Decorative Images */}
-      <div className="absolute inset-0 pointer-events-none hidden xl:block">
-        {images.map((img, index) => (
-          <div
-            key={index}
-            className={`absolute ${img.position} ${img.size} rounded-[24px] overflow-hidden z-0 transition-transform duration-500 hover:scale-110`}
-          >
-            <Image
-              src={img.url}
-              alt=""
-              fill
-              className="object-cover"
-            />
+    const currentTerms = terms[selectedEventId as keyof typeof terms] || [];
+
+    return (
+      <div className="space-y-4 pt-4 border-t border-black/5 mt-8">
+        <h4 className="text-[16px] font-black uppercase tracking-widest text-black/40 mb-6">Terms & Conditions</h4>
+        {currentTerms.map((term, i) => (
+          <div key={i} className="flex items-start space-x-3 group cursor-pointer">
+            <Checkbox id={`term-${i}`} className="mt-1 w-5 h-5    rounded-sm  border-black/10 data-[state=checked]:bg-primary data-[state=checked]:border-primary" required />
+            <Label htmlFor={`term-${i}`} className="text-[14px] text-black/60 leading-relaxed cursor-pointer group-hover:text-black transition-colors">
+              {term}
+            </Label>
           </div>
         ))}
       </div>
+    );
+  };
 
-      <section className="pt-32 pb-20 lg:pt-48 lg:pb-40 relative z-10">
-        <div className="container mx-auto px-6 max-w-[1000px]">
+  const getSuccessMessage = () => {
+    switch (selectedEventId) {
+      case 'dog-grooming':
+        return "Thank you for registering for the Grooming Competition. Your application has been successfully submitted for review. Congratulations on completing the first step. Our team will review your registration and contact you by email or phone regarding final approval and competition participation.";
+      case 'dog-fashion-show':
+        return "Thank you for registering for the Dog Fashion Show. Your application has been submitted successfully for review. Our team will contact you regarding final approval and participation details.";
+      case 'cat-fashion-show':
+        return "Thank you for registering for the Cat Fashion Show. Your application has been submitted successfully for review. Our team will contact you regarding final approval and participation details.";
+      default:
+        return "Thank you for registering! Your application is now pending review. Our team will contact you regarding final approval and competition participation details.";
+    }
+  };
+
+  return (
+    <main className="min-h-screen bg-white">
+      <Navigation />
+
+      <section className="pt-32 pb-24 lg:pt-48 lg:pb-32">
+        <div className="container mx-auto px-6 max-w-[900px]">
+          
+          {/* Header */}
           <div className="text-center mb-16">
-            <h1 className="text-[48px] md:text-[72px] font-bold font-display leading-[1.1] text-black mb-6 tracking-tight">
-              Register Your Pet
+            <h1 className="text-[40px] md:text-[84px] font-black font-display leading-[0.9] text-black mb-8 tracking-tighter">
+              {step === 4 ? "Registration Received" : "Register Your Pet"}
             </h1>
-            <p className="text-[18px] text-[#666666] leading-[1.6] max-w-[540px] mx-auto font-body">
-              {step === 1
-                ? "First, select the event your pet would like to participate in."
-                : `Great choice! Now, please provide the details for the ${selectedEventName}.`
-              }
+            <p className="text-[18px] md:text-[20px] text-black/50 leading-[1.6] max-w-[600px] mx-auto font-body">
+              {step === 1 && "Choose the competition you'd like to join and showcase your pet's talent."}
+              {step === 2 && `Tell us a bit about yourself. You are registering for the ${selectedEventName}.`}
+              {step === 3 && `Final step! Provide the specific details for the ${selectedEventName}.`}
+              {step === 4 && "Great job! Your application has been sent to our international judging panel for review."}
             </p>
           </div>
 
-          {/* Progress Indicator */}
-          <div className="flex items-center justify-center gap-4 mb-12">
-            <div className={`flex items-center gap-2 ${step >= 1 ? 'text-primary' : 'text-[#666666]'}`}>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-[14px] ${step >= 1 ? 'bg-primary text-white' : 'bg-[#E6E6E6]'}`}>
-                1
-              </div>
-              <span className="font-semibold text-[15px]">Select Event</span>
+          {/* Progress Steps */}
+          {step < 4 && (
+            <div className="flex items-center justify-center gap-6 mb-20">
+              {[1, 2, 3].map((i) => (
+                <React.Fragment key={i}>
+                  <div className={`flex items-center gap-4 transition-all duration-500 ${step >= i ? 'text-black' : 'text-black/20'}`}>
+                    <div className={`w-12 h-12 rounded-none flex items-center justify-center font-black text-[16px] transition-all duration-700 ease-[var(--ease-out)] ${
+                      step >= i ? 'bg-primary text-black border-2 border-primary shadow-sm shadow-primary/20' : 'bg-[#F9F9F9] border border-black/5'
+                    }`}>
+                      {i}
+                    </div>
+                    <span className="hidden sm:inline font-black text-[11px] uppercase tracking-[0.2em]">
+                      {i === 1 ? "Event" : i === 2 ? "Owner" : "Details"}
+                    </span>
+                  </div>
+                  {i < 3 && (
+                    <div className="w-16 h-[2px] bg-black/5 overflow-hidden">
+                      <div className={`h-full bg-primary transition-all duration-1000 ease-[var(--ease-in-out)] ${step > i ? 'w-full' : 'w-0'}`} />
+                    </div>
+                  )}
+                </React.Fragment>
+              ))}
             </div>
-            <div className="w-12 h-[2px] bg-[#E6E6E6]" />
-            <div className={`flex items-center gap-2 ${step >= 2 ? 'text-primary' : 'text-[#666666]'}`}>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-[14px] ${step >= 2 ? 'bg-primary text-white' : 'bg-[#E6E6E6]'}`}>
-                2
-              </div>
-              <span className="font-semibold text-[15px]">Pet Details</span>
-            </div>
-          </div>
+          )}
 
-          {step === 1 ? (
-            <div className="animate-in fade-in slide-in-from-bottom duration-500">
-              <EventSelectionGrid onSelect={handleEventSelect} selectedEventId={formData.competition} />
+          {/* Step 1: Event Selection */}
+          {step === 1 && (
+            <div className="animate-in fade-in slide-in-from-bottom duration-700">
+              <EventSelectionGrid onSelect={handleEventSelect} selectedEventId={selectedEventId} />
             </div>
-          ) : (
-            <div className="animate-in fade-in slide-in-from-right duration-500 max-w-[800px] mx-auto">
-              <button
-                onClick={() => setStep(1)}
-                className="flex items-center gap-2 text-[#666666] hover:text-primary transition-colors mb-8 font-semibold"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Back to event selection
+          )}
+
+          {/* Step 2: Owner Info */}
+          {step === 2 && (
+            <div className="animate-in fade-in slide-in-from-right duration-500 max-w-[700px] mx-auto">
+              <button onClick={() => setStep(1)} className="flex items-center gap-2 text-black/40 hover:text-black mb-8 font-bold transition-all active:scale-[0.97]">
+                <ArrowLeft className="w-4 h-4" /> Back to Selection
               </button>
 
-              <form className="space-y-8 bg-[#F9F9F9] p-8 md:p-12 rounded-[40px] border border-[#f0f0f0]">
-                {/* Pre-selected Event Display */}
-                <div className="p-6 bg-white rounded-2xl border border-primary/20 flex items-center justify-between mb-8">
-                  <div>
-                    <span className="text-[12px] font-bold text-primary uppercase tracking-wider block mb-1">Selected Competition</span>
-                    <span className="text-[20px] font-bold text-black font-display">{selectedEventName}</span>
-                  </div>
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                    <Check className="w-6 h-6" />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <form onSubmit={handleBasicInfoSubmit} className="space-y-12 bg-[#F9F9F9] p-8 md:p-16 rounded-none border border-black/5 shadow-sm shadow-black/5 animate-in fade-in slide-in-from-bottom-8 duration-700 ease-[var(--ease-out)]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-3">
-                    <Label htmlFor="owner-name" className="text-[15px] font-medium text-black">Owner Name</Label>
-                    <Input id="owner-name" placeholder="John Doe" className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary focus:border-transparent transition-all" />
+                    <Label className="text-[12px] font-black uppercase tracking-widest text-black/40 px-2">Full Name *</Label>
+                    <Input required placeholder="Your name" className="h-14    rounded-sm  border-black/5 bg-white focus:ring-primary" onChange={(e) => setFormData({...formData, fullName: e.target.value})} />
                   </div>
                   <div className="space-y-3">
-                    <Label htmlFor="phone" className="text-[15px] font-medium text-black">Phone Number</Label>
-                    <Input id="phone" placeholder="+974 0000 0000" className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary focus:border-transparent transition-all" />
-                  </div>
-                </div>
-
-                <div className="space-y-3">
-                  <Label htmlFor="email" className="text-[15px] font-medium text-black">Email Address</Label>
-                  <Input id="email" type="email" placeholder="john@example.com" className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary focus:border-transparent transition-all" />
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-3">
-                    <Label htmlFor="pet-name" className="text-[15px] font-medium text-black">Pet Name</Label>
-                    <Input id="pet-name" placeholder="Buddy" className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary focus:border-transparent transition-all" />
+                    <Label className="text-[12px] font-black uppercase tracking-widest text-black/40 px-2">Mobile Number *</Label>
+                    <Input required placeholder="+974 XXXX XXXX" className="h-14    rounded-sm  border-black/5 bg-white focus:ring-primary" onChange={(e) => setFormData({...formData, phone: e.target.value})} />
                   </div>
                   <div className="space-y-3">
-                    <Label htmlFor="breed" className="text-[15px] font-medium text-black">Breed</Label>
-                    <Input id="breed" placeholder="Golden Retriever" className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary focus:border-transparent transition-all" />
+                    <Label className="text-[12px] font-black uppercase tracking-widest text-black/40 px-2">Email Address *</Label>
+                    <Input required type="email" placeholder="email@example.com" className="h-14    rounded-sm  border-black/5 bg-white focus:ring-primary" onChange={(e) => setFormData({...formData, email: e.target.value})} />
+                  </div>
+                  <div className="space-y-3">
+                    <Label className="text-[12px] font-black uppercase tracking-widest text-black/40 px-2">Home Address *</Label>
+                    <Input required placeholder="Your address in Qatar" className="h-14    rounded-sm  border-black/5 bg-white focus:ring-primary" onChange={(e) => setFormData({...formData, address: e.target.value})} />
                   </div>
                 </div>
-
-                <div className="space-y-3">
-                  <Label htmlFor="age" className="text-[15px] font-medium text-black">Pet Age</Label>
-                  <Input id="age" placeholder="2 years" className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary focus:border-transparent transition-all" />
-                </div>
-
-                <div className="space-y-4 pt-4">
-                  <div className="flex items-center space-x-3">
-                    <Checkbox id="vaccination" className="w-5 h-5 rounded-md border-[#E6E6E6] data-[state=checked]:bg-primary data-[state=checked]:text-white" />
-                    <Label htmlFor="vaccination" className="text-[14px] text-[#666666] leading-none cursor-pointer">
-                      I confirm that my pet is up to date with all vaccinations
-                    </Label>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <Checkbox id="terms" className="mt-1 w-5 h-5 rounded-md border-[#E6E6E6] data-[state=checked]:bg-primary data-[state=checked]:text-white" />
-                    <Label htmlFor="terms" className="text-[14px] text-[#666666] leading-relaxed cursor-pointer">
-                      I agree to the Nova Paw Festival Terms & Conditions and understand the rules of the selected competition.
-                    </Label>
-                  </div>
-                </div>
-
-                <Button className="w-full h-16 bg-primary hover:bg-primary/90 text-white font-bold rounded-full text-[18px] mt-8 transition-all active:scale-[0.98]">
-                  Submit Registration
+                <Button type="submit" className="w-full h-20 bg-black text-white font-black rounded-none text-[14px] uppercase tracking-[0.2em] transition-all duration-300 ease-[var(--ease-out)] hover:scale-[1.01] active:scale-[0.98] shadow-sm">
+                  Continue Registration
                 </Button>
               </form>
             </div>
           )}
+
+          {/* Step 3: Competition Specific Info */}
+          {step === 3 && (
+            <div className="animate-in fade-in slide-in-from-right duration-500 max-w-[800px] mx-auto">
+              <button onClick={() => setStep(2)} className="flex items-center gap-2 text-black/40 hover:text-black mb-8 font-bold transition-all active:scale-[0.97]">
+                <ArrowLeft className="w-4 h-4" /> Back to Owner Info
+              </button>
+
+              <form onSubmit={handleCompetitionInfoSubmit} className="space-y-12 bg-[#F9F9F9] p-8 md:p-16 rounded-none border border-black/5 shadow-sm shadow-black/5 animate-in fade-in slide-in-from-right-8 duration-700 ease-[var(--ease-out)]">
+                
+                {renderCompetitionSpecificFields()}
+
+                {selectedEventId !== 'cat-drawing-battle' && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4 border-t border-black/5">
+                    <div className="space-y-3">
+                      <Label className="text-[12px] font-black uppercase tracking-widest text-black/40 px-2">Pet Passport *</Label>
+                      <div className="h-32 border-2 border-dashed border-black/5    rounded-sm  bg-white flex flex-col items-center justify-center text-black/20 hover:border-primary hover:text-primary transition-all cursor-pointer group">
+                        <Upload className="w-6 h-6 mb-2 group-hover:scale-110 transition-transform" />
+                        <span className="text-[13px] font-bold">Upload Passport</span>
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      <Label className="text-[12px] font-black uppercase tracking-widest text-black/40 px-2">Vaccination Record *</Label>
+                      <div className="h-32 border-2 border-dashed border-black/5    rounded-sm  bg-white flex flex-col items-center justify-center text-black/20 hover:border-primary hover:text-primary transition-all cursor-pointer group">
+                        <Upload className="w-6 h-6 mb-2 group-hover:scale-110 transition-transform" />
+                        <span className="text-[13px] font-bold">Upload Record</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {renderTermsAndConditions()}
+
+                <Button type="submit" className="w-full h-20 bg-primary text-black font-black rounded-none text-[14px] uppercase tracking-[0.2em] transition-all duration-300 ease-[var(--ease-out)] hover:scale-[1.01] active:scale-[0.98] shadow-sm shadow-primary/20">
+                  Submit Final Registration
+                </Button>
+              </form>
+            </div>
+          )}
+
+          {/* Step 4: Success Message */}
+          {step === 4 && (
+            <div className="animate-in zoom-in fade-in duration-700 max-w-[700px] mx-auto text-center">
+              <div className="w-24 h-24 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-10 shadow-2xl shadow-primary/40">
+                <Check className="w-12 h-12 stroke-[3px]" />
+              </div>
+              <div className="glass p-12 md:p-20 rounded-none border border-black/5 shadow-sm shadow-black/5 animate-in zoom-in-95 duration-1000 ease-[var(--ease-out)]">
+                <h2 className="text-[32px] font-black font-display mb-6 tracking-tight">Registration Submitted</h2>
+                <p className="text-[18px] text-black/60 leading-[1.7] mb-12 font-body">
+                  {getSuccessMessage()}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a href="/" className="inline-flex items-center justify-center px-10 py-5 bg-black text-white    rounded-sm  font-bold transition-all hover:scale-105 active:scale-0.95 shadow-xl shadow-black/20">
+                    Return to Home
+                  </a>
+                  <a href="/competitions" className="inline-flex items-center justify-center px-10 py-5 bg-white border border-black/5 text-black    rounded-sm  font-bold transition-all hover:scale-105 active:scale-0.95">
+                    View Other Events
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
+
         </div>
       </section>
 

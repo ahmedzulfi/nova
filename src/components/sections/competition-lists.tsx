@@ -8,10 +8,10 @@ const CompetitionLists = () => {
             <div className="container mx-auto px-6 max-w-[1280px]">
                 {/* Dog Zone Bento Block */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6">
-                    <div className="lg:col-span-7 bg-primary rounded-[40px] p-8 md:p-12 flex flex-col justify-between items-start min-h-[500px] relative overflow-hidden group">
+                    <div className="lg:col-span-7 bg-primary  rounded-sm p-8 md:p-12 flex flex-col justify-between items-start min-h-[500px] relative overflow-hidden group">
                         <div className="relative z-10 w-full">
                             <div className="flex items-center gap-4 mb-8">
-                                <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center backdrop-blur-sm">
+                                <div className="w-12 h-12    rounded-sm  bg-white/20 flex items-center justify-center backdrop-blur-sm">
                                     <Dog className="text-white w-7 h-7" />
                                 </div>
                                 <span className="text-white/80 font-semibold uppercase tracking-wider text-[14px]">Dog Zone</span>
@@ -52,7 +52,7 @@ const CompetitionLists = () => {
                         <Dog className="absolute -bottom-20 -right-20 w-80 h-80 text-white/5 -rotate-12 pointer-events-none group-hover:scale-110 transition-transform duration-1000" />
                     </div>
 
-                    <div className="lg:col-span-5 relative min-h-[400px] lg:min-h-0 rounded-[40px] overflow-hidden shadow-sm group">
+                    <div className="lg:col-span-5 relative min-h-[400px] lg:min-h-0  rounded-sm overflow-hidden shadow-sm group">
                         <Image
                             src="https://images.unsplash.com/photo-1534361960057-19889db9621e?q=80&w=2070&auto=format&fit=crop"
                             alt="International Dog Show"
@@ -65,7 +65,7 @@ const CompetitionLists = () => {
 
                 {/* Cat Zone Bento Block */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                    <div className="lg:col-span-5 relative min-h-[400px] lg:min-h-0 rounded-[40px] overflow-hidden shadow-sm group order-2 lg:order-1">
+                    <div className="lg:col-span-5 relative min-h-[400px] lg:min-h-0  rounded-sm overflow-hidden shadow-sm group order-2 lg:order-1">
                         <Image
                             src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2043&auto=format&fit=crop"
                             alt="International Cat Show"
@@ -75,10 +75,10 @@ const CompetitionLists = () => {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
 
-                    <div className="lg:col-span-7 bg-accent rounded-[40px] p-8 md:p-12 flex flex-col justify-between items-start min-h-[500px] relative overflow-hidden group order-1 lg:order-2">
+                    <div className="lg:col-span-7 bg-accent  rounded-sm p-8 md:p-12 flex flex-col justify-between items-start min-h-[500px] relative overflow-hidden group order-1 lg:order-2">
                         <div className="relative z-10 w-full">
                             <div className="flex items-center gap-4 mb-8">
-                                <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center backdrop-blur-sm">
+                                <div className="w-12 h-12    rounded-sm  bg-white/20 flex items-center justify-center backdrop-blur-sm">
                                     <Cat className="text-white w-7 h-7" />
                                 </div>
                                 <span className="text-white/80 font-semibold uppercase tracking-wider text-[14px]">Cat Zone</span>

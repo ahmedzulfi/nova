@@ -62,7 +62,7 @@ const GallerySection = () => {
                         <button
                             key={cat}
                             onClick={() => setActiveCategory(cat)}
-                            className={`px-8 py-3 rounded-full text-[15px] font-bold transition-all duration-300 ${activeCategory === cat
+                            className={`px-8 py-3  rounded-sm text-[15px] font-bold transition-all duration-300 ${activeCategory === cat
                                 ? 'bg-primary text-white'
                                 : 'bg-[#F3F3F3] text-black hover:bg-[#E6E6E6]'
                                 }`}
@@ -77,7 +77,7 @@ const GallerySection = () => {
                     {filteredImages.map((image, idx) => (
                         <div
                             key={idx}
-                            className="relative break-inside-avoid overflow-hidden rounded-[32px] group cursor-pointer"
+                            className="relative break-inside-avoid overflow-hidden  rounded-sm group cursor-pointer"
                             onClick={() => setSelectedImage(image.url)}
                         >
                             <div className={`${image.aspect} relative w-full`}>
@@ -99,7 +99,7 @@ const GallerySection = () => {
 
                             {/* Info Label */}
                             <div className="absolute bottom-6 left-6 right-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                                <span className="bg-white/90 backdrop-blur-md text-black text-[12px] font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                                <span className="bg-white/90 backdrop-blur-md text-black text-[12px] font-bold px-4 py-1.5 rounded-sm uppercase tracking-wider">
                                     {image.category}
                                 </span>
                             </div>

@@ -50,41 +50,41 @@ interface EventSelectionGridProps {
 
 const EventSelectionGrid = ({ onSelect, selectedEventId }: EventSelectionGridProps) => {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {events.map((event) => (
                 <button
                     key={event.id}
                     type="button"
                     onClick={() => onSelect(event.id, event.title)}
-                    className={`group relative aspect-[4/3] rounded-[24px] overflow-hidden transition-all duration-300 text-left ${selectedEventId === event.id
-                        ? 'ring-4 ring-primary ring-offset-4 ring-offset-white'
-                        : 'hover:ring-2 hover:ring-primary/50 hover:ring-offset-2 hover:ring-offset-white'
+                    className={`group relative aspect-[4/3] rounded-none overflow-hidden transition-all duration-500 ease-[var(--ease-out)] text-left active:scale-[0.98] ${selectedEventId === event.id
+                        ? 'border-4 border-primary'
+                        : 'border border-black/5'
                         }`}
                 >
                     <Image
                         src={event.image}
                         alt={event.title}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     {/* Overlay */}
-                    <div className={`absolute inset-0 transition-opacity duration-300 ${selectedEventId === event.id ? 'bg-primary/20' : 'bg-black/40 group-hover:bg-black/20'
+                    <div className={`absolute inset-0 transition-opacity duration-500 ${selectedEventId === event.id ? 'bg-primary/10' : 'bg-black/40 group-hover:bg-black/20'
                         }`} />
 
                     {/* Content */}
-                    <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                        <span className="text-[12px] font-bold text-white/80 uppercase tracking-widest mb-2">
+                    <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                        <span className="text-[11px] font-black text-white uppercase tracking-[0.2em] mb-3">
                             {event.category}
                         </span>
-                        <h3 className="text-[20px] md:text-[24px] font-bold text-white leading-tight font-display">
+                        <h3 className="text-[24px] md:text-[28px] font-black text-white leading-tight font-display tracking-tight">
                             {event.title}
                         </h3>
                     </div>
 
                     {/* Selected Badge */}
                     {selectedEventId === event.id && (
-                        <div className="absolute top-4 right-4 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center animate-in zoom-in duration-300">
-                            <Check className="w-5 h-5" />
+                        <div className="absolute top-6 right-6 w-10 h-10 bg-primary text-black rounded-none flex items-center justify-center animate-in zoom-in duration-300">
+                            <Check className="w-6 h-6 stroke-[3px]" />
                         </div>
                     )}
                 </button>

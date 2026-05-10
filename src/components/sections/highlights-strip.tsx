@@ -36,7 +36,7 @@ export default function HighlightsStrip() {
                             key={index}
                             className="flex items-center gap-3 group transition-all duration-300"
                         >
-                            <div className="p-2.5 rounded-xl bg-[#F9F9F9] text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                            <div className="p-2.5  rounded-sm bg-[#F9F9F9] text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                                 {item.icon}
                             </div>
                             <span className="text-[15px] font-bold text-black tracking-tight whitespace-nowrap">

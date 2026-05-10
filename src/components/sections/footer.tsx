@@ -1,190 +1,184 @@
 import React from 'react';
 import Image from 'next/image';
-import { ArrowRight, Facebook, Twitter, Instagram } from 'lucide-react';
+import {
+  ArrowRight,
+  Instagram,
+  Youtube,
+  Music2,
+  ExternalLink,
+  Mail,
+  Phone,
+  MapPin,
+  ChevronRight
+} from 'lucide-react';
 import logo from '@/media/Artboard 1@2x (1).png';
 
 /**
- * Footer Component
+ * Completely Redesigned Premium Footer
  */
 
 const footerLinks = {
-  about: [
-    { label: 'About Us', href: '/about-us' },
+  navigation: [
+    { label: 'Home', href: '/' },
+    { label: 'About', href: '#about-us' },
+    { label: 'Competitions', href: '#competitions' },
+    { label: 'Tickets', href: '#tickets' },
+    { label: 'Gallery', href: '/gallery' },
+    { label: 'Contact', href: '#contact' },
+  ],
+  explore: [
     { label: 'Dog Zone', href: '/about-us#dog-zone' },
     { label: 'Cat Zone', href: '/about-us#cat-zone' },
+    { label: 'Sponsorship', href: '/sponsorship' },
+    { label: 'Photo Gallery', href: '/gallery' },
   ],
-  schedule: [
-    { label: 'Registration', href: '/registration' },
-    { label: 'Sponsors', href: '/sponsorship' },
-  ],
-  resources: [
-    { label: 'Blog', href: '/blog' },
-    { label: 'Gallery', href: '/gallery' },
-    { label: 'Contact', href: '/contact' },
+  support: [
+    { label: 'Terms & Conditions', href: '/terms' },
+    { label: 'Privacy Policy', href: '/privacy' },
   ],
 };
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-white relative overflow-hidden pt-[100px] pb-10">
+    <footer className="w-full bg-[#050505] text-white pt-24 pb-12 overflow-hidden relative">
+      {/* Decorative Gradient Background */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -mr-64 -mt-64 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] -ml-48 -mb-48 pointer-events-none" />
+
       <div className="container max-w-[1280px] px-6 mx-auto relative z-10">
-        <div className="flex flex-col lg:flex-row justify-between gap-16 lg:gap-8 mb-20">
-          {/* Logo and Brand Info */}
-          <div className="flex flex-col gap-8 max-w-[400px]">
-            <Image
-              src={logo}
-              alt="Nova Paw Festival"
-              height={100}
-              className="h-[100px] w-auto object-contain"
-            />
-            <p className="text-[16px] leading-[1.6] text-[#666666]">
-              Qatar’s first pet festival, bringing together pets, families, and professionals in a unique outdoor experience.
+
+        {/* Top Section: High Impact Newsletter */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 pb-20 mb-20 border-b border-white/10">
+          <div className="max-w-[600px] text-center lg:text-left">
+            <h2 className="text-[28px] md:text-[48px] font-bold font-display leading-[1.1] mb-4 tracking-tight text-white">
+              Don’t miss a single <span className="text-primary italic">wag, purr, or roar.</span>
+            </h2>
+            <p className="text-white/60 text-[18px]">
+              Subscribe for exclusive festival updates, competition results, and early-bird ticket access.
             </p>
           </div>
 
-          {/* Link Columns Wrapper */}
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 flex-1 lg:ml-12">
-            {/* About Column */}
-            <div className="flex flex-col gap-6">
-              <h6 className="text-[18px] font-semibold leading-[1.2] tracking-[-0.02em] text-black">
-                About
-              </h6>
-              <ul className="flex flex-col gap-4">
-                {footerLinks.about.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-[16px] text-[#666666] hover:text-black transition-colors duration-200"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Schedule Column */}
-            <div className="flex flex-col gap-6">
-              <h6 className="text-[18px] font-semibold leading-[1.2] tracking-[-0.02em] text-black">
-                Festival
-              </h6>
-              <ul className="flex flex-col gap-4">
-                {footerLinks.schedule.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-[16px] text-[#666666] hover:text-black transition-colors duration-200"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Resources Column */}
-            <div className="flex flex-col gap-6">
-              <h6 className="text-[18px] font-semibold leading-[1.2] tracking-[-0.02em] text-black">
-                Contact
-              </h6>
-              <ul className="flex flex-col gap-4">
-                {footerLinks.resources.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-[16px] text-[#666666] hover:text-black transition-colors duration-200"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Subscription Section */}
-          <div className="flex flex-col gap-8 max-w-[360px] w-full lg:ml-auto text-right md:text-left">
-            <h6 className="text-[18px] font-semibold leading-[1.2] tracking-[-0.02em] text-black">
-              Subscribe for updates
-            </h6>
+          <div className="w-full lg:max-w-[440px]">
             <div className="relative group">
               <input
                 type="email"
-                placeholder="Email address"
-                className="w-full bg-[#f2f2f2] border-none rounded-[12px] px-5 py-4 text-[16px] text-black outline-none placeholder:text-[#999999] transition-all duration-200 focus:ring-1 focus:ring-black"
+                placeholder="Enter your email address"
+                className="w-full bg-white/5 border border-white/10    rounded-sm  px-6 py-5 text-[16px] text-white outline-none placeholder:text-white/30 focus:border-primary transition-all duration-300"
               />
               <button
                 type="button"
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center text-black hover:opacity-70 transition-opacity"
+                className="absolute right-3 top-1/2 -translate-y-1/2 bg-primary text-black h-12 px-6  rounded-sm font-bold flex items-center gap-2 hover:scale-[1.05] active:scale-[0.95] transition-all"
               >
-                <ArrowRight size={20} />
+                Join Now
+                <ArrowRight size={18} />
               </button>
             </div>
           </div>
         </div>
 
-        {/* Large Watermark Text */}
-        <div className="relative w-full overflow-hidden select-none pointer-events-none mt-10 md:mt-16">
-          <h2 className="watermark-footer text-center translate-y-[15%] text-[clamp(100px,14vw,300px)] font-bold text-[#f0f0f0] leading-[0.8] tracking-[-0.05em] uppercase">
-            NOVA PAW
-          </h2>
-        </div>
+        {/* Middle Section: Navigation Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-16 mb-24">
 
-        {/* Bottom Social & Copyright Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between pt-8 mt-[-20px] relative z-20">
-          <div className="flex items-center gap-1 text-[14px] text-[#999999] mb-4 md:mb-0">
-            <span>© Nova Paw Festival 2026. All rights reserved.</span>
+          {/* Brand Info */}
+          <div className="lg:col-span-2 space-y-8 text-white">
+            <Image
+              src={logo}
+              alt="Nova Paw"
+              height={80}
+              className="h-[80px] w-auto object-contain brightness-0 invert"
+            />
+            <p className="text-white/40 text-[15px] leading-relaxed max-w-[320px]">
+              Qatar's first international pet festival   WKU & WCF judged competitions, family fun, and celebration of our furry companions.
+            </p>
+
+            <div className="flex items-center gap-4">
+              <a href="https://www.instagram.com/nova_paw_festival/" target="_blank" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:text-black hover:border-primary transition-all duration-300 text-white">
+                <Instagram size={18} />
+              </a>
+              <a href="https://www.tiktok.com/@nova_paw_festival" target="_blank" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:text-black hover:border-primary transition-all duration-300 text-white">
+                <Music2 size={18} />
+              </a>
+              <a href="https://www.youtube.com/@paw_festival" target="_blank" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:text-black hover:border-primary transition-all duration-300 text-white">
+                <Youtube size={18} />
+              </a>
+            </div>
           </div>
 
-          <div className="flex items-center gap-4">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center rounded-full border border-[#e5e5e5] text-[#666666] hover:bg-black hover:text-white hover:border-black transition-all duration-300"
-            >
-              <Facebook size={18} />
-            </a>
-            <a
-              href="https://x.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center rounded-full border border-[#e5e5e5] text-[#666666] hover:bg-black hover:text-white hover:border-black transition-all duration-300"
-            >
-              <Twitter size={18} />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center rounded-full border border-[#e5e5e5] text-[#666666] hover:bg-black hover:text-white hover:border-black transition-all duration-300"
-            >
-              <Instagram size={18} />
-            </a>
+          {/* Quick Links */}
+          <div className="space-y-8">
+            <h4 className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary">Discover</h4>
+            <ul className="space-y-4">
+              {footerLinks.navigation.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="text-white/60 hover:text-white transition-colors flex items-center group font-medium">
+                    <ChevronRight size={14} className="mr-2 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact (Integrated Directly) */}
+          <div className="space-y-8">
+            <h4 className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary">Get in Touch</h4>
+            <ul className="space-y-6">
+              <li className="space-y-2">
+                <p className="text-[11px] font-bold uppercase tracking-wider text-white/30">Call Support</p>
+                <div className="flex items-center gap-3">
+                  <Phone size={14} className="text-primary" />
+                  <a href="tel:+97433022248" className="text-[15px] font-bold hover:text-primary transition-colors">+974 3302 2248</a>
+                </div>
+              </li>
+              <li className="space-y-2">
+                <p className="text-[11px] font-bold uppercase tracking-wider text-white/30">Email Us</p>
+                <div className="flex items-center gap-3">
+                  <Mail size={14} className="text-primary" />
+                  <a href="mailto:info@novapawfestival.com" className="text-[15px] font-bold hover:text-primary transition-colors">info@novapawfestival.com</a>
+                </div>
+              </li>
+              <li className="space-y-2">
+                <p className="text-[11px] font-bold uppercase tracking-wider text-white/30">Location & Date</p>
+                <div className="flex items-center gap-3">
+                  <MapPin size={14} className="text-primary" />
+                  <p className="text-[15px] font-bold">The Pearl Island, Qatar<br/><span className="text-[13px] text-white/60 font-normal mt-1 block">November 27–28, 2026</span></p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div className="space-y-8">
+            <h4 className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary">Resources</h4>
+            <ul className="space-y-4">
+              {footerLinks.support.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    target={link.external ? "_blank" : "_self"}
+                    className="text-white/60 hover:text-white transition-colors flex items-center group font-medium"
+                  >
+                    <ChevronRight size={14} className="mr-2 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                    <span className="flex items-center gap-2">
+                      {link.label}
+                      {link.external && <ExternalLink size={12} className="opacity-40" />}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between text-white/30 text-[13px] gap-6">
+          <div className="flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-2">
+            <span>© 2026 Nova Paw Festival · Organized by Esraa Hamoudah · All Rights Reserved</span>
           </div>
         </div>
+
       </div>
-
-      {/* Made with Framer Badge (Bottom Right) */}
-      <a
-        href="https://framer.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-4 right-4 bg-white border border-[#e5e5e5] rounded-[8px] px-3 py-1.5 flex items-center gap-2 shadow-sm hover:bg-[#f9f9f9] transition-colors z-[100] text-[12px] font-medium"
-      >
-        <svg
-          width="13"
-          height="19"
-          viewBox="0 0 13 19"
-          fill="black"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M0 0H12.5V6.25H6.25L0 0Z" />
-          <path d="M0 6.25H12.5V12.5H6.25L0 6.25Z" />
-          <path d="M0 12.5H6.25V18.75L0 12.5Z" />
-        </svg>
-        <span>Made in Framer</span>
-      </a>
     </footer>
   );
 };

@@ -1,8 +1,8 @@
 import Navbar from "@/components/sections/navbar";
+import Footer from "@/components/sections/footer";
 import HeroBanner from "@/components/sections/hero-banner";
 import EventsGrid from "@/components/sections/events-grid";
 import CTACard from "@/components/sections/cta-card";
-import Footer from "@/components/sections/footer";
 
 export default function EventsPage() {
   return (

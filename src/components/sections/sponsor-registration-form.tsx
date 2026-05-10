@@ -54,14 +54,14 @@ const SponsorRegistrationForm = () => {
                         <div className="space-y-2">
                             <Label htmlFor="company-name" className="text-[14px] font-semibold text-black uppercase tracking-wider pl-2">Company Name</Label>
                             <div className="relative">
-                                <Input id="company-name" required placeholder="Brand Name" className="rounded-2xl border-[#E6E6E6] bg-white h-14 pl-12 focus:ring-2 focus:ring-primary transition-all" />
+                                <Input id="company-name" required placeholder="Brand Name" className="   rounded-sm  border-[#E6E6E6] bg-white h-14 pl-12 focus:ring-2 focus:ring-primary transition-all" />
                                 <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#999999]" />
                             </div>
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="contact-person" className="text-[14px] font-semibold text-black uppercase tracking-wider pl-2">Contact Person</Label>
                             <div className="relative">
-                                <Input id="contact-person" required placeholder="John Doe" className="rounded-2xl border-[#E6E6E6] bg-white h-14 pl-12 focus:ring-2 focus:ring-primary transition-all" />
+                                <Input id="contact-person" required placeholder="John Doe" className="   rounded-sm  border-[#E6E6E6] bg-white h-14 pl-12 focus:ring-2 focus:ring-primary transition-all" />
                                 <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#999999]" />
                             </div>
                         </div>
@@ -71,14 +71,14 @@ const SponsorRegistrationForm = () => {
                         <div className="space-y-2">
                             <Label htmlFor="contact-email" className="text-[14px] font-semibold text-black uppercase tracking-wider pl-2">Email</Label>
                             <div className="relative">
-                                <Input id="contact-email" required type="email" placeholder="partners@company.com" className="rounded-2xl border-[#E6E6E6] bg-white h-14 pl-12 focus:ring-2 focus:ring-primary transition-all" />
+                                <Input id="contact-email" required type="email" placeholder="partners@company.com" className="   rounded-sm  border-[#E6E6E6] bg-white h-14 pl-12 focus:ring-2 focus:ring-primary transition-all" />
                                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#999999]" />
                             </div>
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="contact-phone" className="text-[14px] font-semibold text-black uppercase tracking-wider pl-2">Phone</Label>
                             <div className="relative">
-                                <Input id="contact-phone" required placeholder="+974 0000 0000" className="rounded-2xl border-[#E6E6E6] bg-white h-14 pl-12 focus:ring-2 focus:ring-primary transition-all" />
+                                <Input id="contact-phone" required placeholder="+974 0000 0000" className="   rounded-sm  border-[#E6E6E6] bg-white h-14 pl-12 focus:ring-2 focus:ring-primary transition-all" />
                                 <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#999999]" />
                             </div>
                         </div>
@@ -87,10 +87,10 @@ const SponsorRegistrationForm = () => {
                     <div className="space-y-2">
                         <Label htmlFor="sponsorship-interest" className="text-[14px] font-semibold text-black uppercase tracking-wider pl-2">Sponsorship Interest</Label>
                         <Select>
-                            <SelectTrigger className="rounded-2xl border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary transition-all">
+                            <SelectTrigger className="   rounded-sm  border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary transition-all">
                                 <SelectValue placeholder="Select Sponsorship Tier" />
                             </SelectTrigger>
-                            <SelectContent className="rounded-2xl">
+                            <SelectContent className="   rounded-sm ">
                                 <SelectItem value="platinum">Platinum Sponsor</SelectItem>
                                 <SelectItem value="gold">Gold Sponsor</SelectItem>
                                 <SelectItem value="silver">Silver Sponsor</SelectItem>
@@ -105,7 +105,7 @@ const SponsorRegistrationForm = () => {
                             <Textarea
                                 id="message"
                                 placeholder="Tell us about your brand and what kind of partnership you're looking for..."
-                                className="rounded-2xl border-[#E6E6E6] bg-white min-h-[140px] p-6 pl-12 focus:ring-2 focus:ring-primary transition-all"
+                                className="   rounded-sm  border-[#E6E6E6] bg-white min-h-[140px] p-6 pl-12 focus:ring-2 focus:ring-primary transition-all"
                             />
                             <MessageSquare className="absolute left-4 top-6 w-5 h-5 text-[#999999]" />
                         </div>

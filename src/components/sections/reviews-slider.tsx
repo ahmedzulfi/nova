@@ -93,7 +93,7 @@ export default function ReviewsSlider() {
 
                 {/* Author Info */}
                 <div className="mt-10 flex flex-col items-center">
-                  <div className="relative w-[56px] h-[56px] mb-4 rounded-xl overflow-hidden grayscale">
+                  <div className="relative w-[56px] h-[56px] mb-4  rounded-sm overflow-hidden grayscale">
                     <Image
                       src={review.avatar}
                       alt={review.author}

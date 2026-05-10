@@ -1,9 +1,9 @@
 import Navigation from "@/components/sections/navigation";
 import HeroSection from "@/components/sections/hero";
-import HighlightsStrip from "@/components/sections/highlights-strip";
 import AboutUsGrid from "@/components/sections/about-us-grid";
-import ZoneSplit from "@/components/sections/zone-split";
-import ProgramPreview from "@/components/sections/program-preview";
+import Competitions from "@/components/sections/competitions";
+import Tickets from "@/components/sections/tickets";
+import Venue from "@/components/sections/venue";
 import CTABanner from "@/components/sections/cta-banner";
 import Footer from "@/components/sections/footer";
 
@@ -12,10 +12,10 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       <Navigation />
       <HeroSection />
-      <HighlightsStrip />
       <AboutUsGrid />
-      <ZoneSplit />
-      <ProgramPreview />
+      <Competitions />
+      <Tickets />
+      <Venue />
       <CTABanner />
       <Footer />
     </main>

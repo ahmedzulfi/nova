@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Archivo, Cairo } from "next/font/google";
 import "./globals.css";
-import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import Script from "next/script";
@@ -37,12 +36,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${archivo.variable} ${cairo.variable}`}>
       <body className="antialiased">
-        <Script
-          id="orchids-browser-logs"
-          src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
-          strategy="afterInteractive"
-          data-orchids-project-id="cdeb881c-def5-4067-afdd-4b488b9b09d6"
-        />
         <ErrorReporter />
         <Script
           src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
@@ -57,7 +50,6 @@ export default function RootLayout({
         <SmoothScroll>
           {children}
         </SmoothScroll>
-        <VisualEditsMessenger />
       </body>
     </html>
   );

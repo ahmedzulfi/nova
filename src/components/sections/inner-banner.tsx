@@ -29,12 +29,12 @@ const InnerBanner = () => {
               </div>
 
               {/* Banner Title */}
-              <h1 className="text-[clamp(64px,10vw,120px)] font-semibold text-[#1C1C1C] leading-[0.95] tracking-[-0.04em] mt-2">
+              <h1 className="text-[clamp(32px,10vw,120px)] font-semibold text-[#1C1C1C] leading-[0.95] tracking-[-0.04em] mt-2">
                 Festival Zones
               </h1>
 
               {/* Description */}
-              <p className="max-w-[500px] text-[18px] text-[#1C1C1C] leading-[1.6] mt-4">
+              <p className="max-w-[500px] text-[16px] md:text-[18px] text-[#1C1C1C] leading-[1.6] mt-4">
                 Explore dedicated spaces for dogs and cats, featuring specialized arenas for shows, grooming, and play.
               </p>
             </div>

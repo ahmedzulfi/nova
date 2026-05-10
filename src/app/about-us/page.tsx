@@ -1,11 +1,11 @@
 import Navigation from "@/components/sections/navigation";
+import Footer from "@/components/sections/footer";
 import AboutHero from "@/components/sections/about-hero";
 import AboutVideoFeatures from "@/components/sections/about-video-features";
-import PartnersGrid from "@/components/sections/partners-grid";
+import WelfareSafety from "@/components/sections/welfare-safety";
+import CompetitionList from "@/components/sections/competition-list";
 import ZoneSplit from "@/components/sections/zone-split";
-import TeamCarousel from "@/components/sections/team-carousel";
 import CTABanner from "@/components/sections/cta-banner";
-import Footer from "@/components/sections/footer";
 
 export default function AboutUsPage() {
   return (
@@ -13,9 +13,9 @@ export default function AboutUsPage() {
       <Navigation />
       <AboutHero />
       <AboutVideoFeatures />
+      <WelfareSafety />
       <ZoneSplit />
-      <PartnersGrid />
-      <TeamCarousel />
+      <CompetitionList />
       <CTABanner />
       <Footer />
     </main>

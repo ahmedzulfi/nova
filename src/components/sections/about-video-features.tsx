@@ -4,7 +4,7 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { Play } from "lucide-react";
 
-const videoSrc = "https://videos.pexels.com/video-files/5790147/5790147-hd_1920_1080_30fps.mp4";
+const videoSrc = "";
 const videoThumb = "https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?q=80&w=2070&auto=format&fit=crop";
 
 const features = [
@@ -43,12 +43,14 @@ export default function AboutVideoFeatures() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const togglePlay = () => {
-    if (videoRef.current) {
+    if (videoRef.current && videoSrc) {
       if (isPlaying) {
         videoRef.current.pause();
       } else {
         videoRef.current.play();
       }
+      setIsPlaying(!isPlaying);
+    } else {
       setIsPlaying(!isPlaying);
     }
   };
@@ -58,17 +60,17 @@ export default function AboutVideoFeatures() {
       <div className="container mx-auto px-6 max-w-[1280px]">
         {/* Passion Statement Section */}
         <div className="flex flex-col items-center text-center space-y-6 mb-16 lg:mb-24">
-          <span className="badge-label bg-[#f3f3f3] text-[#666666] px-4 py-1.5 rounded-full text-[12px] font-semibold uppercase tracking-wider">
+          <span className="badge-label bg-primary/10 text-primary px-4 py-1.5 rounded-full text-[12px] font-semibold uppercase tracking-wider">
             Festival Concept
           </span>
-          <h2 className="text-[40px] lg:text-[56px] font-display font-semibold text-[#111111] leading-[1.2] max-w-[900px] tracking-tight">
+          <h2 className="text-[28px] lg:text-[56px] font-display font-semibold text-foreground leading-[1.2] max-w-[900px] tracking-tight">
             Qatar’s Premiere Pet Experience Built for Excellence
           </h2>
         </div>
 
         {/* Video Section */}
-        <div className="relative w-full aspect-video rounded-[32px] overflow-hidden bg-[#f3f3f3] group mb-24 lg:mb-32">
-          {!isPlaying && (
+        <div className="relative w-full aspect-video rounded-[32px] overflow-hidden bg-muted group mb-24 lg:mb-32">
+          {(!isPlaying || !videoSrc) && (
             <div className="absolute inset-0 z-10">
               <Image
                 src={videoThumb}
@@ -95,11 +97,11 @@ export default function AboutVideoFeatures() {
           >
             {isPlaying ? (
               <div className="flex gap-1.5">
-                <div className="w-1.5 h-6 bg-[#111111] rounded-full" />
-                <div className="w-1.5 h-6 bg-[#111111] rounded-full" />
+                <div className="w-1.5 h-6 bg-foreground rounded-full" />
+                <div className="w-1.5 h-6 bg-foreground rounded-full" />
               </div>
             ) : (
-              <Play className="fill-[#111111] text-[#111111] w-6 h-6 lg:w-8 lg:h-8 ml-1" />
+              <Play className="fill-foreground text-foreground w-6 h-6 lg:w-8 lg:h-8 ml-1" />
             )}
           </button>
         </div>
@@ -109,24 +111,24 @@ export default function AboutVideoFeatures() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-accent/10 rounded-[32px] p-8 flex flex-col h-full min-h-[480px] justify-between"
+              className="bg-muted rounded-[32px] p-8 flex flex-col h-full min-h-[400px] md:min-h-[480px] justify-between border border-transparent hover:border-primary/20 transition-all duration-300"
             >
               {feature.variant === "default" ? (
                 <>
                   <div className="space-y-4">
                     <div className="flex items-center gap-4">
-                      <h5 className="text-[24px] font-display font-semibold text-[#111111]">
+                      <h5 className="text-[20px] font-display font-semibold text-foreground">
                         {feature.number}
                       </h5>
-                      <h5 className="text-[24px] font-display font-semibold text-[#111111]">
+                      <h5 className="text-[20px] font-display font-semibold text-foreground">
                         {feature.title}
                       </h5>
                     </div>
-                    <p className="text-[16px] text-[#666666] leading-relaxed">
+                    <p className="text-[16px] text-muted-foreground leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
-                  <div className="relative w-full aspect-[4/3] mt-8 rounded-2xl overflow-hidden">
+                  <div className="relative w-full aspect-[4/3] mt-8    rounded-sm  overflow-hidden">
                     <Image
                       src={feature.image}
                       alt={feature.title}
@@ -138,11 +140,11 @@ export default function AboutVideoFeatures() {
               ) : (
                 <>
                   <div className="mb-6">
-                    <p className="text-[16px] text-[#666666] leading-relaxed">
+                    <p className="text-[16px] text-muted-foreground leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
-                  <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-6">
+                  <div className="relative w-full aspect-[4/3]    rounded-sm  overflow-hidden mb-6">
                     <Image
                       src={feature.image}
                       alt={feature.title}
@@ -151,10 +153,10 @@ export default function AboutVideoFeatures() {
                     />
                   </div>
                   <div className="flex items-center gap-4 mt-auto">
-                    <h5 className="text-[24px] font-display font-semibold text-[#111111]">
+                    <h5 className="text-[24px] font-display font-semibold text-foreground">
                       {feature.number}
                     </h5>
-                    <h5 className="text-[24px] font-display font-semibold text-[#111111]">
+                    <h5 className="text-[24px] font-display font-semibold text-foreground">
                       {feature.title}
                     </h5>
                   </div>
