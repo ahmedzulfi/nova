@@ -94,25 +94,34 @@ Nova Paw Festival is more than just an event, it is a destination where passion 
 
 ---
 
-## 🎟️ Ticket Purchase Flows & Rules
+## 🎟️ The Unified User Journey
 
-### Dog Owner Flow
-- **Rule:** Maximum 1 Dog per Adult ticket.
-- **Required Info:** Owner details, Pet name, Number of dogs.
-- **Mandatory Terms:** 16 individual checkboxes required (including muzzle rule for large dogs, secure leash, no females in heat, etc.).
+Nova Paw Festival uses a high-fidelity, unified dashboard system to manage the visitor experience.
 
-### Cat Owner Flow
-- **Rule:** Maximum 2 Cats per owner.
-- **Required Info:** Owner details, Pet names, Number of cats.
-- **Rules:** Cats must remain in carriers at all times except during activities.
+### Phase 1: Secure Your Entry (Tickets)
+- **High-Fidelity Checkout:** A premium 5-step wizard with real-time running totals and consistent "Back" navigation.
+- **Smart Flows:** Dynamic logic for Adults, Kids, Dog Owners, and Cat Owners.
+- **Safety Compliance:** Mandatory safety agreements integrated directly into the purchase flow.
+- **Outcome:** Instant QR code generation and access to the personal Dashboard.
 
-### Adult Ticket Flow
-- **Pricing:** Adults (25 QAR), Kids (15 QAR). *Note: Pricing in prompt varies from UI implementation (45 QAR). UI should follow current established prices unless changed.*
+### Phase 2: Manage & Participate (Dashboard)
+- **Digital Ticket:** High-fidelity ticket view with QR code, order breakdown, and venue details.
+- **Dynamic Invitations:** The dashboard intelligently offers competition entries based on your ticket tier (e.g., Dog Owners see Grooming contests).
+- **Session Sync:** Basic info (Name, Phone, Email) is saved and automatically synced across all festival flows.
 
-### Payment & Confirmation (All Flows)
-- **Methods:** Debit/Credit Card, Apple Pay, Google Pay, QPay.
-- **Verification:** OTP sent to mobile/email.
-- **Outcome:** QR codes generated and sent to email/mobile.
+### Phase 3: The Spotlight (Competitions)
+- **Elite Registration:** A specialized 7-step flow for international competitions (WKU/WCF).
+- **Health Compliance:** Integrated file uploads for mandatory Pet Passports and Vaccination Records.
+- **Expert Review:** All applications are held in a "Pending" state for official judge review.
+
+---
+
+## 🛠️ Design System (The "7-Step Wizard" Pattern)
+All interactive flows in Nova Paw Festival follow a standardized, premium design pattern:
+- **Layout Shell:** Persistent step indicators with monochromatic paths and primary accents.
+- **Typography:** Ultra-bold `font-display` headers and `9px` uppercase metadata labels.
+- **Micro-Interactions:** State preservation, auto-filling, and non-reloading transitions.
+- **Visual Style:** Minimalist "Sharp" aesthetic (`rounded-sm`) with a Bone-white (`#F5F5F0`) palette.
 
 ---
 
