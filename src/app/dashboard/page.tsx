@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Navigation from "@/components/sections/navigation";
-import { Check, CreditCard, ArrowRight, Dog, Cat, User } from 'lucide-react';
+import { Check, CreditCard, ArrowRight, Dog, Cat, User, Trophy } from 'lucide-react';
 
 interface RegistrationData {
   fullName: string;
@@ -323,6 +323,28 @@ export default function DashboardPage() {
             {/* Right Sidebar */}
             <div className="lg:col-span-2 space-y-4">
               
+              {/* Competition Section (Conditional for Pet Owners) */}
+              {(data.tier === 'dog-owner' || data.tier === 'cat-owner') && (
+                <div className="bg-white rounded-sm border-2 border-primary p-8 space-y-6 animate-in zoom-in duration-700 delay-300">
+                  <div className="flex items-center justify-between">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">Competition Entry</p>
+                    <Trophy className="w-5 h-5 text-primary" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-[20px] font-display font-bold tracking-tight">Enter the Spotlight</h3>
+                    <p className="text-[13px] text-black/50 leading-relaxed">
+                      As a {tierLabel}, you are eligible to enter {data.petName} into our international competitions judged by WKU & WCF officials.
+                    </p>
+                  </div>
+                  <button 
+                    onClick={() => window.location.href = `/registration?event=${data.tier === 'dog-owner' ? 'dog-fashion-show' : 'cat-fashion-show'}`}
+                    className="w-full py-4 bg-primary text-white rounded-sm font-bold text-[13px] uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2"
+                  >
+                    Start Registration <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              )}
+
               {/* Contact Card */}
               <div className="bg-white rounded-sm border border-black/5 p-8">
                 <p className="text-[10px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-6">Your Details</p>
@@ -373,3 +395,4 @@ export default function DashboardPage() {
     </main>
   );
 }
+
