@@ -54,6 +54,20 @@ function DashboardContent() {
     const savedData = localStorage.getItem('nova_registration');
     if (savedData) {
       setData(JSON.parse(savedData));
+    } else {
+      // Fallback mock data for preview purposes
+      setData({
+        fullName: "Ahmed Zulfi",
+        email: "ahmed@nova-studio.qa",
+        phone: "+974 5555 0123",
+        tier: "dog-owner",
+        adultQty: 2,
+        kidsQty: 1,
+        petQty: 1,
+        petName: "Maximus",
+        total: 175,
+        orderId: "ORD-987654321"
+      });
     }
   }, []);
 
