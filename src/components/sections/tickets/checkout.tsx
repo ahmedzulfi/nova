@@ -99,75 +99,9 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
   const toggleTerm = (i: number) =>
     setCheckedTerms((prev) => ({ ...prev, [i]: !prev[i] }));
 
-  // ─── Shared Layout Shell ───────────────────────────────────────────────────
-  const Shell = ({ children }: { children: React.ReactNode }) => (
-    <section className="py-20 md:py-32 bg-[#F5F5F0] min-h-screen">
-      <div className="container mx-auto px-6 max-w-[860px]">
-        {/* Step Indicator */}
-        <div className="flex items-center gap-0 mb-16">
-          {STEP_LABELS.map((label, idx) => {
-            const num = idx + 1;
-            const isActive = num === step;
-            const isDone = num < step;
-            return (
-              <React.Fragment key={num}>
-                <div className="flex flex-col items-center gap-2">
-                  <div
-                    className={`w-8 h-8 rounded-full text-[11px]  font-bold  flex items-center justify-center transition-all duration-500 ${
-                      isDone ? 'bg-primary text-white' : isActive ? 'bg-black text-white' : 'bg-black/10 text-black/30'
-                    }`}
-                  >
-                    {isDone ? '✓' : num}
-                  </div>
-                  <span
-                    className={`text-[9px]  font-bold  uppercase tracking-widest hidden md:block transition-colors duration-300 ${
-                      isActive ? 'text-black' : 'text-black/30'
-                    }`}
-                  >
-                    {label}
-                  </span>
-                </div>
-                {idx < STEP_LABELS.length - 1 && (
-                  <div className="flex-1 h-[2px] mx-2 mb-5 rounded-full overflow-hidden bg-black/10">
-                    <div
-                      className="h-full bg-primary transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"
-                      style={{ width: isDone ? '100%' : '0%' }}
-                    />
-                  </div>
-                )}
-              </React.Fragment>
-            );
-          })}
-        </div>
-
-        {/* Card */}
-        <div className="bg-white rounded-sm border border-black/5 shadow-sm overflow-hidden">
-          {/* Card Header */}
-          <div className="border-b border-black/5 px-10 pt-10 pb-8">
-            <p className="text-[9px]  font-bold  uppercase tracking-[0.3em] text-black/30 mb-3">
-              {selectedTier.replace('-', ' ')} · Step {step} of 5
-            </p>
-            <h2 className="text-[40px] md:text-[56px] font-display  font-bold  text-black leading-[0.9] tracking-tighter">
-              {step === 1 && 'Your Info'}
-              {step === 2 && 'Verify'}
-              {step === 3 && 'Tickets'}
-              {step === 4 && 'Safety'}
-              {step === 5 && 'Summary'}
-            </h2>
-          </div>
-
-          {/* Card Body */}
-          <div className="px-10 py-10">{children}</div>
-        </div>
-
-      
-      </div>
-    </section>
-  );
-
   // ─── Step 1: Owner Info ────────────────────────────────────────────────────
   if (step === 1) return (
-    <Shell>
+    <Shell step={step} selectedTier={selectedTier} adultQty={adultQty} kidsQty={kidsQty} petQty={petQty} total={total}>
       <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {/* Full Name */}
@@ -227,7 +161,7 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
 
   // ─── Step 2: OTP ──────────────────────────────────────────────────────────
   if (step === 2) return (
-    <Shell>
+    <Shell step={step} selectedTier={selectedTier} adultQty={adultQty} kidsQty={kidsQty} petQty={petQty} total={total}>
       <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-10">
         <div className="bg-[#F5F5F0] rounded-sm p-8 text-center space-y-6">
           <ShieldCheck className="w-12 h-12 mx-auto text-black/30" />
@@ -291,7 +225,7 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
 
   // ─── Step 3: Ticket Selection ─────────────────────────────────────────────
   if (step === 3) return (
-    <Shell>
+    <Shell step={step} selectedTier={selectedTier} adultQty={adultQty} kidsQty={kidsQty} petQty={petQty} total={total}>
       <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-6">
         
         {/* Pet Card (conditional) */}
@@ -392,7 +326,7 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
 
   // ─── Step 4: Terms ────────────────────────────────────────────────────────
   if (step === 4) return (
-    <Shell>
+    <Shell step={step} selectedTier={selectedTier} adultQty={adultQty} kidsQty={kidsQty} petQty={petQty} total={total}>
       <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-6">
         <div className="flex items-center justify-between mb-2">
           <p className="text-[12px] text-black/50 font-bold">All {currentTerms.length} items required</p>
@@ -451,7 +385,7 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
 
   // ─── Step 5: Summary ──────────────────────────────────────────────────────
   return (
-    <Shell>
+    <Shell step={step} selectedTier={selectedTier} adultQty={adultQty} kidsQty={kidsQty} petQty={petQty} total={total}>
       <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-6">
         {/* Attendee */}
         <div className="bg-[#F5F5F0] rounded-sm p-8 space-y-4">
@@ -518,6 +452,101 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
     </Shell>
   );
 };
+
+// ─── Shared Layout Shell ───────────────────────────────────────────────────
+const Shell = ({ 
+  children, 
+  step, 
+  selectedTier,
+  adultQty,
+  kidsQty,
+  petQty,
+  total
+}: { 
+  children: React.ReactNode; 
+  step: number; 
+  selectedTier: string;
+  adultQty: number;
+  kidsQty: number;
+  petQty: number;
+  total: number;
+}) => (
+  <section className="py-20 md:py-32 bg-[#F5F5F0] min-h-screen">
+    <div className="container mx-auto px-6 max-w-[860px]">
+      {/* Step Indicator */}
+      <div className="flex items-center gap-0 mb-16">
+        {STEP_LABELS.map((label, idx) => {
+          const num = idx + 1;
+          const isActive = num === step;
+          const isDone = num < step;
+          return (
+            <React.Fragment key={num}>
+              <div className="flex flex-col items-center gap-2">
+                <div
+                  className={`w-8 h-8 rounded-full text-[11px]  font-bold  flex items-center justify-center transition-all duration-500 ${
+                    isDone ? 'bg-primary text-white' : isActive ? 'bg-black text-white' : 'bg-black/10 text-black/30'
+                  }`}
+                >
+                  {isDone ? '✓' : num}
+                </div>
+                <span
+                  className={`text-[9px]  font-bold  uppercase tracking-widest hidden md:block transition-colors duration-300 ${
+                    isActive ? 'text-black' : 'text-black/30'
+                  }`}
+                >
+                  {label}
+                </span>
+              </div>
+              {idx < STEP_LABELS.length - 1 && (
+                <div className="flex-1 h-[2px] mx-2 mb-5 rounded-full overflow-hidden bg-black/10">
+                  <div
+                    className="h-full bg-primary transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                    style={{ width: isDone ? '100%' : '0%' }}
+                  />
+                </div>
+              )}
+            </React.Fragment>
+          );
+        })}
+      </div>
+
+      {/* Card */}
+      <div className="bg-white rounded-sm border border-black/5 shadow-sm overflow-hidden">
+        {/* Card Header */}
+        <div className="border-b border-black/5 px-10 pt-10 pb-8">
+          <p className="text-[9px]  font-bold  uppercase tracking-[0.3em] text-black/30 mb-3">
+            {selectedTier.replace('-', ' ')} · Step {step} of 5
+          </p>
+          <h2 className="text-[40px] md:text-[56px] font-display  font-bold  text-black leading-[0.9] tracking-tighter">
+            {step === 1 && 'Your Info'}
+            {step === 2 && 'Verify'}
+            {step === 3 && 'Tickets'}
+            {step === 4 && 'Safety'}
+            {step === 5 && 'Summary'}
+          </h2>
+        </div>
+
+        {/* Card Body */}
+        <div className="px-10 py-10">{children}</div>
+      </div>
+
+      {/* Running Total (steps 1-4) */}
+      {step < 5 && (
+        <div className="mt-6 flex items-center justify-between px-4 py-5 bg-black rounded-sm animate-in fade-in duration-300">
+          <div className="flex items-center gap-4">
+            <span className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-white/40">Running Total</span>
+            {adultQty > 0 && (
+              <span className="text-[10px] bg-white/10 text-white/70 px-3 py-1 rounded-full font-bold">
+                {adultQty}A {kidsQty > 0 ? `· ${kidsQty}K` : ''} {petQty > 0 ? `· ${petQty}P` : ''}
+              </span>
+            )}
+          </div>
+          <span className="text-primary  font-bold  text-[24px] leading-none">QAR {total}</span>
+        </div>
+      )}
+    </div>
+  </section>
+);
 
 // ─── Reusable Quantity Control ─────────────────────────────────────────────
 const QtyControl = ({
