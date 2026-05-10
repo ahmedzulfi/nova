@@ -46,9 +46,9 @@ export default function DashboardPage() {
         <Navigation />
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center space-y-6">
-            <p className="text-[13px] font-bold uppercase tracking-[0.2em] text-black/30">No Session Found</p>
-            <h1 className="text-[48px] font-display font-black tracking-tighter">Start Here</h1>
-            <a href="/tickets" className="inline-flex items-center gap-3 bg-black text-white px-10 py-5 rounded-sm font-black text-[16px] hover:bg-black/90 active:scale-[0.98] transition-all">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-black/30">No Session Found</p>
+            <h1 className="text-[32px] font-display  font-bold  tracking-tighter">Start Here</h1>
+            <a href="/tickets" className="inline-flex items-center gap-3 bg-black text-white px-8 py-4 rounded-sm  font-bold  text-[14px] hover:bg-black/90 active:scale-[0.98] transition-all">
               Get Tickets <ArrowRight className="w-5 h-5" />
             </a>
           </div>
@@ -69,8 +69,8 @@ export default function DashboardPage() {
             
             {/* Header */}
             <div className="mb-16 animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <p className="text-[11px] font-black uppercase tracking-[0.3em] text-black/30 mb-4">Final Step</p>
-              <h1 className="text-[56px] md:text-[80px] font-display font-black tracking-tighter leading-[0.9] text-black">
+              <p className="text-[10px]  font-bold  uppercase tracking-[0.3em] text-black/30 mb-4">Final Step</p>
+              <h1 className="text-[40px] md:text-[56px] font-display  font-bold  tracking-tighter leading-[0.9] text-black">
                 Review &<br />Complete
               </h1>
             </div>
@@ -86,11 +86,11 @@ export default function DashboardPage() {
                     <TierIcon className="w-8 h-8 text-primary" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[11px] font-black uppercase tracking-[0.2em] text-black/30 mb-1">Registered As</p>
-                    <p className="text-[22px] font-black tracking-tight truncate">{data.fullName}</p>
-                    <p className="text-[13px] text-black/40 font-medium">{data.email} · {data.phone}</p>
+                    <p className="text-[10px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-1">Registered As</p>
+                    <p className="text-[18px]  font-bold  tracking-tight truncate">{data.fullName}</p>
+                    <p className="text-[12px] text-black/40 font-medium">{data.email} · {data.phone}</p>
                   </div>
-                  <span className="flex-shrink-0 bg-primary text-white text-[11px] font-black uppercase tracking-widest px-3 py-1.5 rounded-sm">
+                  <span className="flex-shrink-0 bg-primary text-white text-[10px]  font-bold  uppercase tracking-widest px-3 py-1.5 rounded-sm">
                     {tierLabel}
                   </span>
                 </div>
@@ -98,38 +98,38 @@ export default function DashboardPage() {
                 {/* Ticket Breakdown */}
                 <div className="bg-white rounded-sm border border-black/5 overflow-hidden">
                   <div className="px-8 py-6 border-b border-black/5">
-                    <p className="text-[11px] font-black uppercase tracking-[0.2em] text-black/30">Ticket Breakdown</p>
+                    <p className="text-[10px]  font-bold  uppercase tracking-[0.2em] text-black/30">Ticket Breakdown</p>
                   </div>
                   <div className="divide-y divide-black/5">
                     <div className="px-8 py-5 flex items-center justify-between">
                       <div>
-                        <p className="font-black text-[16px]">Adult {data.tier === 'dog-owner' ? '(Dog Owner)' : data.tier === 'cat-owner' ? '(Cat Owner)' : ''}</p>
-                        <p className="text-[13px] text-black/40 font-medium">QAR 25 × {data.adultQty}</p>
+                        <p className=" font-bold  text-[14px]">Adult {data.tier === 'dog-owner' ? '(Dog Owner)' : data.tier === 'cat-owner' ? '(Cat Owner)' : ''}</p>
+                        <p className="text-[12px] text-black/40 font-medium">QAR 25 × {data.adultQty}</p>
                       </div>
-                      <span className="font-black text-[20px]">QAR {data.adultQty * 25}</span>
+                      <span className=" font-bold  text-[16px]">QAR {data.adultQty * 25}</span>
                     </div>
                     {data.kidsQty > 0 && (
                       <div className="px-8 py-5 flex items-center justify-between">
                         <div>
-                          <p className="font-black text-[16px]">Kids</p>
-                          <p className="text-[13px] text-black/40 font-medium">QAR 15 × {data.kidsQty}</p>
+                          <p className=" font-bold  text-[14px]">Kids</p>
+                          <p className="text-[12px] text-black/40 font-medium">QAR 15 × {data.kidsQty}</p>
                         </div>
-                        <span className="font-black text-[20px]">QAR {data.kidsQty * 15}</span>
+                        <span className=" font-bold  text-[16px]">QAR {data.kidsQty * 15}</span>
                       </div>
                     )}
                     {data.petQty > 0 && (
                       <div className="px-8 py-5 flex items-center justify-between">
                         <div>
-                          <p className="font-black text-[16px]">{data.tier === 'dog-owner' ? 'Dog' : 'Cat'} Registration — {data.petName}</p>
-                          <p className="text-[13px] text-black/40 font-medium">QAR 25 × {data.petQty}</p>
+                          <p className=" font-bold  text-[14px]">{data.tier === 'dog-owner' ? 'Dog' : 'Cat'} Registration — {data.petName}</p>
+                          <p className="text-[12px] text-black/40 font-medium">QAR 25 × {data.petQty}</p>
                         </div>
-                        <span className="font-black text-[20px]">QAR {data.petQty * 25}</span>
+                        <span className=" font-bold  text-[16px]">QAR {data.petQty * 25}</span>
                       </div>
                     )}
                   </div>
                   <div className="bg-black px-8 py-7 flex items-center justify-between">
-                    <p className="text-white text-[14px] font-black uppercase tracking-[0.2em]">Total</p>
-                    <p className="text-primary text-[40px] font-display font-black leading-none">QAR {data.total}</p>
+                    <p className="text-white text-[12px]  font-bold  uppercase tracking-[0.2em]">Total</p>
+                    <p className="text-primary text-[32px] font-display  font-bold  leading-none">QAR {data.total}</p>
                   </div>
                 </div>
 
@@ -140,7 +140,7 @@ export default function DashboardPage() {
               <div className="lg:col-span-2 space-y-4">
                 <div className="bg-white rounded-sm border border-black/5 p-8 space-y-8">
                   <div>
-                    <p className="text-[11px] font-black uppercase tracking-[0.2em] text-black/30 mb-4">Select Payment</p>
+                    <p className="text-[10px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-4">Select Payment</p>
                     <div className="space-y-3">
                       <label className="flex items-center gap-4 p-5 rounded-sm border-2 border-black bg-black/5 cursor-pointer">
                         <div className="w-5 h-5 rounded-full border-2 border-black flex items-center justify-center">
@@ -148,12 +148,12 @@ export default function DashboardPage() {
                         </div>
                         <div className="flex items-center gap-3 flex-1">
                           <CreditCard className="w-5 h-5" />
-                          <span className="font-black text-[15px]">Debit / Credit Card</span>
+                          <span className=" font-bold  text-[14px]">Debit / Credit Card</span>
                         </div>
                       </label>
                       <label className="flex items-center gap-4 p-5 rounded-sm border border-black/10 cursor-pointer hover:border-black/30 transition-colors">
                         <div className="w-5 h-5 rounded-full border-2 border-black/20" />
-                        <span className="font-black text-[15px] text-black/40">QPay Wallet</span>
+                        <span className=" font-bold  text-[14px] text-black/40">QPay Wallet</span>
                       </label>
                     </div>
                   </div>
@@ -161,17 +161,17 @@ export default function DashboardPage() {
                   {/* Card Details */}
                   <div className="space-y-4">
                     <div className="bg-[#F5F5F0] rounded-sm px-5 py-4">
-                      <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30 mb-2">Card Number</p>
-                      <input type="text" placeholder="0000 0000 0000 0000" className="bg-transparent w-full font-black text-[16px] tracking-widest outline-none placeholder:text-black/20" />
+                      <p className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-2">Card Number</p>
+                      <input type="text" placeholder="0000 0000 0000 0000" className="bg-transparent w-full  font-bold  text-[15px] tracking-widest outline-none placeholder:text-black/20" />
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="bg-[#F5F5F0] rounded-sm px-5 py-4">
-                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30 mb-2">Expiry</p>
-                        <input type="text" placeholder="MM / YY" className="bg-transparent w-full font-black text-[16px] outline-none placeholder:text-black/20" />
+                        <p className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-2">Expiry</p>
+                        <input type="text" placeholder="MM / YY" className="bg-transparent w-full  font-bold  text-[15px] outline-none placeholder:text-black/20" />
                       </div>
                       <div className="bg-[#F5F5F0] rounded-sm px-5 py-4">
-                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30 mb-2">CVV</p>
-                        <input type="text" placeholder="•••" className="bg-transparent w-full font-black text-[16px] outline-none placeholder:text-black/20" />
+                        <p className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-2">CVV</p>
+                        <input type="text" placeholder="•••" className="bg-transparent w-full  font-bold  text-[15px] outline-none placeholder:text-black/20" />
                       </div>
                     </div>
                   </div>
@@ -179,7 +179,7 @@ export default function DashboardPage() {
                   <button
                     onClick={handlePayment}
                     disabled={isProcessing}
-                    className={`w-full py-6 rounded-sm font-black text-[18px] flex items-center justify-center gap-3 transition-all active:scale-[0.98] ${
+                    className={`w-full py-5 rounded-sm  font-bold  text-[15px] flex items-center justify-center gap-3 transition-all active:scale-[0.98] ${
                       isProcessing ? 'bg-black/60 text-white cursor-wait' : 'bg-black text-white hover:bg-black/90'
                     }`}
                   >
@@ -189,14 +189,14 @@ export default function DashboardPage() {
                         Processing…
                       </>
                     ) : (
-                      <>Pay QAR {data.total} <ArrowRight className="w-5 h-5" /></>
+                      <>Pay QAR {data.total} <ArrowRight className="w-4 h-4" /></>
                     )}
                   </button>
                 </div>
 
                 <div className="bg-primary/10 border border-primary/20 rounded-sm p-6 flex items-start gap-4">
-                  <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <p className="text-[13px] font-bold text-black/60 leading-relaxed">Your ticket and QR code will be generated immediately after successful payment.</p>
+                  <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <p className="text-[12px] font-bold text-black/60 leading-relaxed">Your ticket and QR code will be generated immediately after successful payment.</p>
                 </div>
               </div>
             </div>
@@ -218,17 +218,17 @@ export default function DashboardPage() {
           {/* Header */}
           <div className="mb-16 animate-in fade-in slide-in-from-bottom-4 duration-500 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
-              <p className="text-[11px] font-black uppercase tracking-[0.3em] text-black/30 mb-4 flex items-center gap-2">
+              <p className="text-[10px]  font-bold  uppercase tracking-[0.3em] text-black/30 mb-4 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-green-500 inline-block animate-pulse" />
                 Booking Confirmed
               </p>
-              <h1 className="text-[56px] md:text-[80px] font-display font-black tracking-tighter leading-[0.9] text-black">
+              <h1 className="text-[40px] md:text-[56px] font-display  font-bold  tracking-tighter leading-[0.9] text-black">
                 You're In!
               </h1>
             </div>
             <div className="text-right">
-              <p className="text-[11px] font-black uppercase tracking-[0.2em] text-black/30 mb-1">Order ID</p>
-              <p className="font-black text-[20px] tracking-widest">{data.orderId}</p>
+              <p className="text-[10px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-1">Order ID</p>
+              <p className=" font-bold  text-[18px] tracking-widest">{data.orderId}</p>
             </div>
           </div>
 
@@ -241,12 +241,12 @@ export default function DashboardPage() {
                 {/* Ticket Header Bar */}
                 <div className="bg-black px-10 py-8 flex items-center justify-between">
                   <div>
-                    <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 mb-2">Nova Paw Festival</p>
-                    <p className="text-white text-[22px] font-black tracking-tight leading-tight">Official Entry Pass<br />Qatar · 2026</p>
+                    <p className="text-[9px]  font-bold  uppercase tracking-[0.3em] text-white/40 mb-2">Nova Paw Festival</p>
+                    <p className="text-white text-[18px]  font-bold  tracking-tight leading-tight">Official Entry Pass<br />Qatar · 2026</p>
                   </div>
                   <div className="text-right">
                     <div className="bg-primary px-4 py-2 rounded-sm inline-block">
-                      <p className="text-white text-[12px] font-black uppercase tracking-widest">{tierLabel}</p>
+                      <p className="text-white text-[11px]  font-bold  uppercase tracking-widest">{tierLabel}</p>
                     </div>
                   </div>
                 </div>
@@ -268,42 +268,42 @@ export default function DashboardPage() {
                       <img
                         src={QR_CODE_URL}
                         alt="Entry QR Code"
-                        width={180}
-                        height={180}
+                        width={150}
+                        height={150}
                         className="block"
                       />
                     </div>
-                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30 text-center">Scan at Entrance</p>
+                    <p className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/30 text-center">Scan at Entrance</p>
                   </div>
 
                   {/* Details */}
                   <div className="flex-1 grid grid-cols-2 gap-x-8 gap-y-8 content-start">
                     <div className="col-span-2">
-                      <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30 mb-1">Attendee Name</p>
-                      <p className="font-black text-[26px] tracking-tight leading-tight">{data.fullName}</p>
+                      <p className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-1">Attendee Name</p>
+                      <p className=" font-bold  text-[20px] tracking-tight leading-tight">{data.fullName}</p>
                     </div>
                     <div>
-                      <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30 mb-1">Adults</p>
-                      <p className="font-black text-[22px]">{data.adultQty}</p>
+                      <p className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-1">Adults</p>
+                      <p className=" font-bold  text-[18px]">{data.adultQty}</p>
                     </div>
                     <div>
-                      <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30 mb-1">Kids</p>
-                      <p className="font-black text-[22px]">{data.kidsQty > 0 ? data.kidsQty : '—'}</p>
+                      <p className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-1">Kids</p>
+                      <p className=" font-bold  text-[18px]">{data.kidsQty > 0 ? data.kidsQty : '—'}</p>
                     </div>
                     {data.petQty > 0 && (
                       <div className="col-span-2">
-                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30 mb-1">Registered Pet</p>
-                        <p className="font-black text-[22px]">{data.petName}</p>
+                        <p className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-1">Registered Pet</p>
+                        <p className=" font-bold  text-[18px]">{data.petName}</p>
                       </div>
                     )}
                     <div className="col-span-2 pt-6 border-t border-black/10 flex items-center justify-between">
                       <div>
-                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30 mb-1">Venue</p>
-                        <p className="font-black text-[16px]">The Pearl · Qatar</p>
+                        <p className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-1">Venue</p>
+                        <p className=" font-bold  text-[14px]">The Pearl · Qatar</p>
                       </div>
                       <div className="text-right">
-                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30 mb-1">Total Paid</p>
-                        <p className="font-black text-[20px] text-primary">QAR {data.total}</p>
+                        <p className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-1">Total Paid</p>
+                        <p className=" font-bold  text-[16px] text-primary">QAR {data.total}</p>
                       </div>
                     </div>
                   </div>
@@ -311,10 +311,10 @@ export default function DashboardPage() {
 
                 {/* Ticket Footer */}
                 <div className="border-t border-black/5 bg-[#F5F5F0] px-10 py-5 flex items-center justify-between">
-                  <p className="text-[11px] font-black uppercase tracking-[0.2em] text-black/30">Present QR at Main Gate</p>
+                  <p className="text-[10px]  font-bold  uppercase tracking-[0.2em] text-black/30">Present QR at Main Gate</p>
                   <div className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-green-500" />
-                    <p className="text-[11px] font-black uppercase tracking-[0.1em] text-green-600">Verified &amp; Confirmed</p>
+                    <p className="text-[10px]  font-bold  uppercase tracking-[0.1em] text-green-600">Verified &amp; Confirmed</p>
                   </div>
                 </div>
               </div>
@@ -325,22 +325,22 @@ export default function DashboardPage() {
               
               {/* Contact Card */}
               <div className="bg-white rounded-sm border border-black/5 p-8">
-                <p className="text-[11px] font-black uppercase tracking-[0.2em] text-black/30 mb-6">Your Details</p>
+                <p className="text-[10px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-6">Your Details</p>
                 <div className="space-y-5">
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-black/30 mb-1">Email</p>
-                    <p className="font-bold text-[15px]">{data.email}</p>
+                    <p className="text-[9px] font-bold uppercase tracking-widest text-black/30 mb-1">Email</p>
+                    <p className="font-bold text-[14px]">{data.email}</p>
                   </div>
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-black/30 mb-1">Phone</p>
-                    <p className="font-bold text-[15px]">{data.phone}</p>
+                    <p className="text-[9px] font-bold uppercase tracking-widest text-black/30 mb-1">Phone</p>
+                    <p className="font-bold text-[14px]">{data.phone}</p>
                   </div>
                 </div>
               </div>
 
               {/* Info Card */}
               <div className="bg-black rounded-sm p-8 space-y-6">
-                <p className="text-[11px] font-black uppercase tracking-[0.2em] text-white/40">What to Know</p>
+                <p className="text-[10px]  font-bold  uppercase tracking-[0.2em] text-white/40">What to Know</p>
                 <div className="space-y-4">
                   {[
                     "Arrive 30 mins before your competition slot",
@@ -350,7 +350,7 @@ export default function DashboardPage() {
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0 mt-2" />
-                      <p className="text-[13px] font-medium text-white/60 leading-relaxed">{item}</p>
+                      <p className="text-[12px] font-medium text-white/60 leading-relaxed">{item}</p>
                     </div>
                   ))}
                 </div>
@@ -358,10 +358,10 @@ export default function DashboardPage() {
 
               {/* Actions */}
               <div className="flex gap-3">
-                <button onClick={() => window.print()} className="flex-1 py-4 rounded-sm bg-white border border-black/10 font-black text-[12px] uppercase tracking-widest text-black/50 hover:text-black hover:border-black transition-all">
+                <button onClick={() => window.print()} className="flex-1 py-4 rounded-sm bg-white border border-black/10  font-bold  text-[11px] uppercase tracking-widest text-black/50 hover:text-black hover:border-black transition-all">
                   Download
                 </button>
-                <button onClick={() => window.location.href = '/'} className="flex-1 py-4 rounded-sm bg-primary text-white font-black text-[12px] uppercase tracking-widest hover:bg-primary/90 transition-all">
+                <button onClick={() => window.location.href = '/'} className="flex-1 py-4 rounded-sm bg-primary text-white  font-bold  text-[11px] uppercase tracking-widest hover:bg-primary/90 transition-all">
                   Home
                 </button>
               </div>

@@ -39,14 +39,14 @@ export default function GalleryPage() {
       {/* Social CTA */}
       <section className="py-24 bg-primary text-black overflow-hidden relative">
         <div className="container mx-auto px-6 max-w-[1280px] text-center relative z-10">
-          <h3 className="text-[32px] md:text-[56px] font-display font-black mb-8 tracking-tight">Share Your Moments</h3>
+          <h3 className="text-[32px] md:text-[56px] font-display  font-bold  mb-8 tracking-tight">Share Your Moments</h3>
           <p className="text-black/60 text-[18px] mb-12 max-w-[600px] mx-auto leading-relaxed font-medium">
-            Tag your photos with <span className="text-black font-black underline decoration-black/20">#NovaPawFestival2026</span> and follow us for updates!
+            Tag your photos with <span className="text-black  font-bold  underline decoration-black/20">#NovaPawFestival2026</span> and follow us for updates!
           </p>
           <a
             href="https://www.instagram.com/nova_paw_festival/"
             target="_blank"
-            className="inline-flex items-center gap-4 bg-black text-white px-10 py-5 rounded-sm font-black text-[18px] hover:bg-white hover:text-black transition-all duration-300 active:scale-95 shadow-2xl shadow-black/20"
+            className="inline-flex items-center gap-4 bg-black text-white px-10 py-5 rounded-sm  font-bold  text-[18px] hover:bg-white hover:text-black transition-all duration-300 active:scale-95 shadow-2xl shadow-black/20"
           >
             <Instagram className="w-6 h-6" />
             Follow on Instagram

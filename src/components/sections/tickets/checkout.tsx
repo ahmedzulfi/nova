@@ -111,14 +111,14 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
               <React.Fragment key={num}>
                 <div className="flex flex-col items-center gap-2">
                   <div
-                    className={`w-8 h-8 rounded-full text-[12px] font-black flex items-center justify-center transition-all duration-500 ${
+                    className={`w-8 h-8 rounded-full text-[11px]  font-bold  flex items-center justify-center transition-all duration-500 ${
                       isDone ? 'bg-primary text-white' : isActive ? 'bg-black text-white' : 'bg-black/10 text-black/30'
                     }`}
                   >
                     {isDone ? '✓' : num}
                   </div>
                   <span
-                    className={`text-[10px] font-black uppercase tracking-widest hidden md:block transition-colors duration-300 ${
+                    className={`text-[9px]  font-bold  uppercase tracking-widest hidden md:block transition-colors duration-300 ${
                       isActive ? 'text-black' : 'text-black/30'
                     }`}
                   >
@@ -142,10 +142,10 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
         <div className="bg-white rounded-sm border border-black/5 shadow-sm overflow-hidden">
           {/* Card Header */}
           <div className="border-b border-black/5 px-10 pt-10 pb-8">
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-black/30 mb-3">
+            <p className="text-[9px]  font-bold  uppercase tracking-[0.3em] text-black/30 mb-3">
               {selectedTier.replace('-', ' ')} · Step {step} of 5
             </p>
-            <h2 className="text-[48px] md:text-[64px] font-display font-black text-black leading-[0.9] tracking-tighter">
+            <h2 className="text-[40px] md:text-[56px] font-display  font-bold  text-black leading-[0.9] tracking-tighter">
               {step === 1 && 'Your Info'}
               {step === 2 && 'Verify'}
               {step === 3 && 'Tickets'}
@@ -158,20 +158,7 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
           <div className="px-10 py-10">{children}</div>
         </div>
 
-        {/* Running Total (steps 1-4) */}
-        {step < 5 && (
-          <div className="mt-6 flex items-center justify-between px-4 py-5 bg-black rounded-sm animate-in fade-in duration-300">
-            <div className="flex items-center gap-4">
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40">Running Total</span>
-              {adultQty > 0 && (
-                <span className="text-[11px] bg-white/10 text-white/70 px-3 py-1 rounded-full font-bold">
-                  {adultQty}A {kidsQty > 0 ? `· ${kidsQty}K` : ''} {petQty > 0 ? `· ${petQty}P` : ''}
-                </span>
-              )}
-            </div>
-            <span className="text-primary font-black text-[28px] leading-none">QAR {total}</span>
-          </div>
-        )}
+      
       </div>
     </section>
   );
@@ -183,7 +170,7 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {/* Full Name */}
           <div className="md:col-span-2 space-y-2">
-            <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-black/40">Full Name *</Label>
+            <Label className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/40">Full Name *</Label>
             <div className="relative">
               <User className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-black/20" />
               <input
@@ -191,13 +178,13 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
                 placeholder="Mohammed Al-Rashid"
                 value={ownerData.fullName}
                 onChange={(e) => setOwnerData({ ...ownerData, fullName: e.target.value })}
-                className="w-full bg-[#F5F5F0] border border-black/5 rounded-sm pl-12 pr-5 py-4 outline-none focus:border-black focus:bg-white transition-all font-bold text-black text-[16px] placeholder:text-black/20"
+                className="w-full bg-[#F5F5F0] border border-black/5 rounded-sm pl-12 pr-5 py-4 outline-none focus:border-black focus:bg-white transition-all font-bold text-black text-[14px] placeholder:text-black/20"
               />
             </div>
           </div>
           {/* Email */}
           <div className="space-y-2">
-            <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-black/40">Email *</Label>
+            <Label className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/40">Email *</Label>
             <div className="relative">
               <Mail className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-black/20" />
               <input
@@ -205,13 +192,13 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
                 placeholder="you@email.com"
                 value={ownerData.email}
                 onChange={(e) => setOwnerData({ ...ownerData, email: e.target.value })}
-                className="w-full bg-[#F5F5F0] border border-black/5 rounded-sm pl-12 pr-5 py-4 outline-none focus:border-black focus:bg-white transition-all font-bold text-black text-[16px] placeholder:text-black/20"
+                className="w-full bg-[#F5F5F0] border border-black/5 rounded-sm pl-12 pr-5 py-4 outline-none focus:border-black focus:bg-white transition-all font-bold text-black text-[14px] placeholder:text-black/20"
               />
             </div>
           </div>
           {/* Phone */}
           <div className="space-y-2">
-            <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-black/40">Mobile *</Label>
+            <Label className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/40">Mobile *</Label>
             <div className="relative">
               <Phone className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-black/20" />
               <input
@@ -219,7 +206,7 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
                 placeholder="+974 XXXX XXXX"
                 value={ownerData.phone}
                 onChange={(e) => setOwnerData({ ...ownerData, phone: e.target.value })}
-                className="w-full bg-[#F5F5F0] border border-black/5 rounded-sm pl-12 pr-5 py-4 outline-none focus:border-black focus:bg-white transition-all font-bold text-black text-[16px] placeholder:text-black/20"
+                className="w-full bg-[#F5F5F0] border border-black/5 rounded-sm pl-12 pr-5 py-4 outline-none focus:border-black focus:bg-white transition-all font-bold text-black text-[14px] placeholder:text-black/20"
               />
             </div>
           </div>
@@ -227,7 +214,7 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
 
         <button
           onClick={() => setStep(2)}
-          className="w-full bg-black text-white rounded-sm py-5 text-[16px] font-black flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-black/90 mt-4"
+          className="w-full bg-black text-white rounded-sm py-5 text-[14px]  font-bold  flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-black/90 mt-4"
         >
           Continue <ArrowRight className="w-5 h-5" />
         </button>
@@ -242,14 +229,14 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
         <div className="bg-[#F5F5F0] rounded-sm p-8 text-center space-y-6">
           <ShieldCheck className="w-12 h-12 mx-auto text-black/30" />
           <div>
-            <p className="text-[13px] font-bold text-black/50 mb-1">Code sent to</p>
-            <p className="font-black text-[20px] tracking-tight">{ownerData.phone || ownerData.email}</p>
+            <p className="text-[12px] font-bold text-black/50 mb-1">Code sent to</p>
+            <p className=" font-bold  text-[18px] tracking-tight">{ownerData.phone || ownerData.email}</p>
           </div>
           <div className="flex justify-center gap-3">
             {[0, 1, 2, 3, 4, 5].map((i) => (
               <div
                 key={i}
-                className={`w-12 h-16 md:w-14 md:h-20 rounded-sm border-2 flex items-center justify-center text-[28px] font-black transition-all ${
+                className={`w-12 h-16 md:w-14 md:h-20 rounded-sm border-2 flex items-center justify-center text-[24px]  font-bold  transition-all ${
                   otp[i] ? 'border-black bg-white' : 'border-black/10 bg-white'
                 }`}
               >
@@ -266,14 +253,14 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
             className="sr-only"
             autoFocus
           />
-          <p className="text-[11px] text-black/30 font-bold uppercase tracking-widest">Click above boxes then type your 6-digit code</p>
+          <p className="text-[10px] text-black/30 font-bold uppercase tracking-widest">Click above boxes then type your 6-digit code</p>
           {/* Clickable overlay to focus hidden input */}
           <button
             onClick={() => {
               const el = document.querySelector('input.sr-only') as HTMLInputElement;
               if (el) el.focus();
             }}
-            className="text-[12px] font-black uppercase tracking-widest text-black/40 hover:text-black transition-all"
+            className="text-[11px]  font-bold  uppercase tracking-widest text-black/40 hover:text-black transition-all"
           >
             Tap to enter code
           </button>
@@ -282,11 +269,11 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
         <div className="space-y-3">
           <button
             onClick={() => setStep(3)}
-            className="w-full bg-black text-white rounded-sm py-5 text-[16px] font-black transition-all active:scale-[0.97] hover:bg-black/90"
+            className="w-full bg-black text-white rounded-sm py-5 text-[14px]  font-bold  transition-all active:scale-[0.97] hover:bg-black/90"
           >
             Verify &amp; Continue
           </button>
-          <button onClick={() => setStep(1)} className="w-full py-3 text-[12px] font-black uppercase tracking-widest text-black/30 hover:text-black transition-all">
+          <button onClick={() => setStep(1)} className="w-full py-3 text-[11px]  font-bold  uppercase tracking-widest text-black/30 hover:text-black transition-all">
             ← Back
           </button>
         </div>
@@ -307,26 +294,26 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
                 {selectedTier === 'dog-owner' ? <Dog className="w-5 h-5 text-primary" /> : <Cat className="w-5 h-5 text-primary" />}
               </div>
               <div>
-                <p className="font-black text-white text-[16px] uppercase tracking-tight">
+                <p className=" font-bold  text-white text-[14px] uppercase tracking-tight">
                   {selectedTier === 'dog-owner' ? 'Dog' : 'Cat'} Details
                 </p>
-                <p className="text-[11px] text-white/70 font-bold">{selectedTier === 'dog-owner' ? '1 dog per adult · max' : 'Max 2 cats'}</p>
+                <p className="text-[10px] text-white/70 font-bold">{selectedTier === 'dog-owner' ? '1 dog per adult · max' : 'Max 2 cats'}</p>
               </div>
             </div>
             <div className="bg-white p-8 space-y-6">
               <div className="space-y-2">
-                <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-black/40">Pet Name *</Label>
+                <Label className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/40">Pet Name *</Label>
                 <input
                   value={petName}
                   onChange={(e) => setPetName(e.target.value)}
                   placeholder={selectedTier === 'dog-owner' ? 'Buddy' : 'Luna'}
-                  className="w-full bg-[#F5F5F0] border border-black/5 rounded-sm px-5 py-4 outline-none focus:border-black focus:bg-white transition-all font-bold text-[16px]"
+                  className="w-full bg-[#F5F5F0] border border-black/5 rounded-sm px-5 py-4 outline-none focus:border-black focus:bg-white transition-all font-bold text-[14px]"
                 />
               </div>
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-black text-[15px]">Number of {selectedTier === 'dog-owner' ? 'Dogs' : 'Cats'}</p>
-                  <p className="text-[12px] text-black/40 font-medium">QAR 25 registration fee each</p>
+                  <p className=" font-bold  text-[14px]">Number of {selectedTier === 'dog-owner' ? 'Dogs' : 'Cats'}</p>
+                  <p className="text-[11px] text-black/40 font-medium">QAR 25 registration fee each</p>
                 </div>
                 <QtyControl
                   value={petQty}
@@ -345,13 +332,13 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
         {/* Visitor Tickets */}
         <div className="border border-black/5 rounded-sm overflow-hidden">
           <div className="bg-black/5 px-8 py-5">
-            <p className="font-black text-[16px] uppercase tracking-tight">Visitor Tickets</p>
+            <p className=" font-bold  text-[13px] uppercase tracking-tight">Visitor Tickets</p>
           </div>
           <div className="bg-white divide-y divide-black/5">
             <div className="px-8 py-6 flex items-center justify-between">
               <div>
-                <p className="font-black text-[16px]">Adults</p>
-                <p className="text-[13px] text-black/40 font-medium">QAR 25 · min 1</p>
+                <p className=" font-bold  text-[13px]">Adults</p>
+                <p className="text-[10px] text-black/40 font-medium">QAR 25 · min 1</p>
               </div>
               <QtyControl
                 value={adultQty}
@@ -362,8 +349,8 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
             </div>
             <div className="px-8 py-6 flex items-center justify-between">
               <div>
-                <p className="font-black text-[16px]">Kids</p>
-                <p className="text-[13px] text-black/40 font-medium">QAR 15 · under 12</p>
+                <p className=" font-bold  text-[14px]">Kids</p>
+                <p className="text-[12px] text-black/40 font-medium">QAR 15 · under 12</p>
               </div>
               <QtyControl
                 value={kidsQty}
@@ -375,8 +362,8 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
           </div>
         </div>
 
-        <button onClick={() => setStep(4)} className="w-full bg-black text-white rounded-sm py-5 text-[16px] font-black flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-black/90">
-          Next: Safety Terms <ArrowRight className="w-5 h-5" />
+        <button onClick={() => setStep(4)} className="w-full bg-black text-white rounded-sm py-5 text-[14px]  font-bold  flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-black/90">
+          Next: Safety Terms <ArrowRight className="w-4 h-4" />
         </button>
       </div>
     </Shell>
@@ -387,9 +374,9 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
     <Shell>
       <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-6">
         <div className="flex items-center justify-between mb-2">
-          <p className="text-[13px] text-black/50 font-bold">All {currentTerms.length} items required</p>
+          <p className="text-[12px] text-black/50 font-bold">All {currentTerms.length} items required</p>
           <span
-            className={`text-[11px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full transition-all ${
+            className={`text-[10px]  font-bold  uppercase tracking-widest px-3 py-1.5 rounded-full transition-all ${
               allChecked ? 'bg-green-100 text-green-700' : 'bg-black/5 text-black/30'
             }`}
           >
@@ -410,9 +397,9 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
                 id={`term-${i}`}
                 checked={!!checkedTerms[i]}
                 onCheckedChange={() => toggleTerm(i)}
-                className="mt-0.5 w-5 h-5 rounded-sm flex-shrink-0 border-black/20 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
+                className="mt-0.5 w-4 h-4 rounded-sm flex-shrink-0 border-black/20 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
               />
-              <Label htmlFor={`term-${i}`} className="text-[13px] font-medium leading-relaxed cursor-pointer text-black/70">
+              <Label htmlFor={`term-${i}`} className="text-[12px] font-medium leading-relaxed cursor-pointer text-black/70">
                 {term}
               </Label>
             </div>
@@ -421,7 +408,7 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
 
         <button
           onClick={() => allChecked && setStep(5)}
-          className={`w-full rounded-sm py-5 text-[16px] font-black transition-all ${
+          className={`w-full rounded-sm py-5 text-[14px]  font-bold  transition-all ${
             allChecked ? 'bg-black text-white hover:bg-black/90 active:scale-[0.97]' : 'bg-black/10 text-black/20 cursor-not-allowed'
           }`}
         >
@@ -437,9 +424,9 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
       <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-6">
         {/* Attendee */}
         <div className="bg-[#F5F5F0] rounded-sm p-8 space-y-4">
-          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30">Attendee</p>
-          <p className="font-black text-[22px] tracking-tight">{ownerData.fullName}</p>
-          <p className="text-[14px] text-black/40 font-bold">{ownerData.email} · {ownerData.phone}</p>
+          <p className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/30">Attendee</p>
+          <p className=" font-bold  text-[18px] tracking-tight">{ownerData.fullName}</p>
+          <p className="text-[12px] text-black/40 font-bold">{ownerData.email} · {ownerData.phone}</p>
         </div>
 
         {/* Line Items */}
@@ -447,41 +434,41 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
           <div className="divide-y divide-black/5">
             <div className="flex justify-between items-center px-8 py-5">
               <div>
-                <p className="font-black text-[15px]">Adult Tickets</p>
-                <p className="text-[12px] text-black/40 font-medium">QAR 25 × {adultQty}</p>
+                <p className=" font-bold  text-[14px]">Adult Tickets</p>
+                <p className="text-[11px] text-black/40 font-medium">QAR 25 × {adultQty}</p>
               </div>
-              <p className="font-black text-[18px]">QAR {adultQty * ADULT_PRICE}</p>
+              <p className=" font-bold  text-[16px]">QAR {adultQty * ADULT_PRICE}</p>
             </div>
             {kidsQty > 0 && (
               <div className="flex justify-between items-center px-8 py-5">
                 <div>
-                  <p className="font-black text-[15px]">Kid Tickets</p>
-                  <p className="text-[12px] text-black/40 font-medium">QAR 15 × {kidsQty}</p>
+                  <p className=" font-bold  text-[14px]">Kid Tickets</p>
+                  <p className="text-[11px] text-black/40 font-medium">QAR 15 × {kidsQty}</p>
                 </div>
-                <p className="font-black text-[18px]">QAR {kidsQty * KID_PRICE}</p>
+                <p className=" font-bold  text-[16px]">QAR {kidsQty * KID_PRICE}</p>
               </div>
             )}
             {petQty > 0 && (
               <div className="flex justify-between items-center px-8 py-5">
                 <div>
-                  <p className="font-black text-[15px]">{selectedTier === 'dog-owner' ? 'Dog' : 'Cat'} — {petName}</p>
-                  <p className="text-[12px] text-black/40 font-medium">QAR 25 × {petQty}</p>
+                  <p className=" font-bold  text-[14px]">{selectedTier === 'dog-owner' ? 'Dog' : 'Cat'} — {petName}</p>
+                  <p className="text-[11px] text-black/40 font-medium">QAR 25 × {petQty}</p>
                 </div>
-                <p className="font-black text-[18px]">QAR {petQty * PET_FEE}</p>
+                <p className=" font-bold  text-[16px]">QAR {petQty * PET_FEE}</p>
               </div>
             )}
           </div>
           <div className="bg-black px-8 py-7 flex items-center justify-between">
-            <p className="text-[12px] font-black uppercase tracking-[0.2em] text-white/50">Total</p>
-            <p className="font-display font-black text-[44px] text-primary leading-none">QAR {total}</p>
+            <p className="text-[11px]  font-bold  uppercase tracking-[0.2em] text-white/50">Total</p>
+            <p className="font-display  font-bold  text-[32px] text-primary leading-none">QAR {total}</p>
           </div>
         </div>
 
         <button
           onClick={handleFinish}
-          className="w-full bg-black text-white rounded-sm py-6 text-[18px] font-black flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-black/90 shadow-2xl shadow-black/20"
+          className="w-full bg-black text-white rounded-sm py-5 text-[15px]  font-bold  flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-black/90 shadow-2xl shadow-black/20"
         >
-          Proceed to Payment <ArrowRight className="w-5 h-5" />
+          Proceed to Payment <ArrowRight className="w-4 h-4" />
         </button>
         <p className="text-[11px] text-center text-black/30 font-medium">
           Secure payment · Your QR ticket is generated after payment
@@ -500,15 +487,15 @@ const QtyControl = ({
   <div className="flex items-center gap-0 border border-black/10 rounded-sm overflow-hidden">
     <button
       onClick={onDecrement}
-      className="w-11 h-11 flex items-center justify-center text-black/40 hover:text-black hover:bg-black/5 transition-all active:scale-90"
+      className="w-10 h-10 flex items-center justify-center text-black/40 hover:text-black hover:bg-black/5 transition-all active:scale-90"
     >
       <Minus className="w-4 h-4" />
     </button>
-    <span className="w-12 text-center font-black text-[18px]">{value}</span>
+    <span className="w-10 text-center  font-bold  text-[16px]">{value}</span>
     <button
       onClick={onIncrement}
       disabled={!canIncrement}
-      className={`w-11 h-11 flex items-center justify-center transition-all active:scale-90 ${
+      className={`w-10 h-10 flex items-center justify-center transition-all active:scale-90 ${
         canIncrement ? 'bg-primary text-white hover:bg-primary/90' : 'bg-black/5 text-black/20 cursor-not-allowed'
       }`}
     >
