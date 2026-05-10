@@ -1,90 +1,31 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Dog, Cat, User, Mail, Phone, Plus, Minus, ArrowRight, ShieldCheck } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Progress } from '@/components/ui/progress';
+import { User, Mail, Phone, Plus, Minus, Dog, Cat, ArrowRight, ShieldCheck } from 'lucide-react';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Separator } from '@/components/ui/separator';
-import { Badge } from '@/components/ui/badge';
-import {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSlot,
-} from '@/components/ui/input-otp';
+import { Label } from '@/components/ui/label';
 
 interface TicketsCheckoutProps {
   selectedTier: string;
 }
 
-const STEPS = ['Your Info', 'Verify OTP', 'Ticket Selection', 'Safety Terms', 'Summary'];
+const STEP_LABELS = ['Your Info', 'Verify', 'Tickets', 'Safety', 'Summary'];
 
-const ADULT_PRICE = 25;
-const KID_PRICE = 15;
-const PET_FEE = 25;
-
-const DOG_TERMS = [
-  "I am fully responsible for my dog and children at all times during the event.",
-  "My dog's vaccination is up to date and I have a valid pet passport for verification.",
-  "If my dog is medium or large-sized, they will arrive wearing a muzzle.",
-  "My dog will be on a secure, non-extendable leash at all times.",
-  "My dog will wear a secure collar or harness at all times.",
-  "Female dogs in heat are not permitted to enter.",
-  "Aggressive dogs are strictly not allowed, even if wearing a muzzle.",
-  "Sick, injured, or visibly unwell dogs are not permitted to enter.",
-  "Food aggression or behavioral concerns have been reported before entry.",
-  "Shock chains, prong collars, or harmful training equipment are prohibited.",
-  "My dog's nails are trimmed for safety.",
-  "I will carry waste bags and clean up after my dog immediately.",
-  "No direct interaction with other dogs unless fully controlled.",
-  "I consent to photo and video coverage of myself, my family, and my dog.",
-  "Staff reserve the right to refuse entry to any dog considered unsafe.",
-  "I accept full responsibility for any injury or damage caused by my dog.",
-];
-
-const CAT_TERMS = [
-  "Cats must remain inside their carrier at all times unless in an official activity.",
-  "I am fully responsible for my cat's safety and supervision.",
-  "All cats must be vaccinated with records available for verification.",
-  "Entry may be denied if vaccination records are not provided.",
-  "I consent to photo and video coverage of myself and my pet.",
-  "Children must be supervised at all times.",
-  "No unauthorized touching or interacting with pets.",
-  "The organizer is not liable for lost pets or incidents due to negligence.",
-];
-
-const ADULT_TERMS = [
-  "I consent to photo and video coverage during the festival.",
-  "I will supervise my children at all times.",
-  "I will not touch or interact with any pet without the owner's explicit permission.",
-  "I will follow all staff guidance and safety instructions.",
-  "The organizer is not liable for incidents caused by failure to follow safety rules.",
-];
-
-export default function TicketsCheckout({ selectedTier }: TicketsCheckoutProps) {
+const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
   const [step, setStep] = useState(1);
   const [otp, setOtp] = useState('');
+  const [checkedTerms, setCheckedTerms] = useState<Record<number, boolean>>({});
+
   const [ownerData, setOwnerData] = useState({ fullName: '', email: '', phone: '' });
   const [adultQty, setAdultQty] = useState(1);
   const [kidsQty, setKidsQty] = useState(0);
   const [petQty, setPetQty] = useState(0);
   const [petName, setPetName] = useState('');
-  const [checkedTerms, setCheckedTerms] = useState<boolean[]>([]);
 
+  const ADULT_PRICE = 25;
+  const KID_PRICE = 15;
+  const PET_FEE = 25;
   const total = adultQty * ADULT_PRICE + kidsQty * KID_PRICE + petQty * PET_FEE;
-  const isPetOwner = selectedTier !== 'adult';
-  const tierLabel = selectedTier.replace('-owner', '').replace('-', ' ');
-
-  const currentTerms =
-    selectedTier === 'dog-owner' ? DOG_TERMS :
-    selectedTier === 'cat-owner' ? CAT_TERMS : ADULT_TERMS;
-
-  useEffect(() => {
-    setCheckedTerms(new Array(currentTerms.length).fill(false));
-  }, [selectedTier]);
 
   useEffect(() => {
     if (selectedTier === 'dog-owner') {
@@ -103,11 +44,8 @@ export default function TicketsCheckout({ selectedTier }: TicketsCheckoutProps) 
     setAdultQty(1);
     setKidsQty(0);
     setPetQty(selectedTier === 'adult' ? 0 : 1);
-    setOtp('');
-    setOwnerData({ fullName: '', email: '', phone: '' });
+    setCheckedTerms({});
   }, [selectedTier]);
-
-  const allTermsChecked = checkedTerms.every(Boolean);
 
   const handleFinish = () => {
     const registration = {
@@ -118,402 +56,465 @@ export default function TicketsCheckout({ selectedTier }: TicketsCheckoutProps) 
       petQty,
       petName,
       total,
-      orderId: `NPV-2026-${Math.random().toString(36).substr(2, 6).toUpperCase()}`,
+      orderId: `#NPV-2026-${Math.random().toString(36).substr(2, 6).toUpperCase()}`,
     };
     localStorage.setItem('nova_registration', JSON.stringify(registration));
     window.location.href = '/dashboard';
   };
 
-  const toggleTerm = (i: number) => {
-    const updated = [...checkedTerms];
-    updated[i] = !updated[i];
-    setCheckedTerms(updated);
-  };
+  const dogTerms = [
+    'I am fully responsible for my dog and children at all times during the event.',
+    "My dog's vaccination is up to date and I have a valid pet passport for verification.",
+    'If my dog is medium or large-sized, they will arrive wearing a muzzle.',
+    'My dog will be on a secure, non-extendable leash at all times.',
+    'My dog will wear a secure collar or harness at all times.',
+    'I understand female dogs in heat are strictly not allowed.',
+    'I understand aggressive dogs are not allowed, even if muzzled.',
+    'Sick, injured, or visibly unwell dogs are not allowed to enter.',
+    'Shock chains, prong collars, and harmful equipment are prohibited.',
+    'I will carry waste bags and clean after my dog immediately.',
+    'I agree to photo and video coverage during the event.',
+    'Staff reserve the right to refuse entry to any unsafe dog.',
+    'I accept full responsibility for any injury or damage caused by my dog.',
+  ];
+  const catTerms = [
+    'Cats must remain in their carrier unless participating in an official activity.',
+    'All cats must be vaccinated with a valid pet passport available.',
+    'Entry may be denied if vaccination records are not provided.',
+    'I agree to photo and video coverage during the event.',
+    'The organizer is not liable for incidents caused by negligence.',
+  ];
+  const adultTerms = [
+    'I agree to photo and video coverage during the festival.',
+    'I am fully responsible for supervising my children at all times.',
+    'Do not approach or touch pets without the owner\'s permission.',
+    'I will follow all staff guidance and safety instructions.',
+    'The organizer is not liable for incidents from rule violations.',
+  ];
+  const currentTerms = selectedTier === 'dog-owner' ? dogTerms : selectedTier === 'cat-owner' ? catTerms : adultTerms;
+  const allChecked = currentTerms.every((_, i) => checkedTerms[i]);
 
-  const QtyControl = ({
-    value,
-    onDecrement,
-    onIncrement,
-    canIncrement = true,
-  }: {
-    value: number;
-    onDecrement: () => void;
-    onIncrement: () => void;
-    canIncrement?: boolean;
-  }) => (
-    <div className="flex items-center gap-2">
-      <Button variant="outline" size="icon" onClick={onDecrement} className="h-9 w-9">
-        <Minus className="h-4 w-4" />
-      </Button>
-      <span className="w-8 text-center font-semibold text-base">{value}</span>
-      <Button
-        variant={canIncrement ? 'default' : 'outline'}
-        size="icon"
-        onClick={onIncrement}
-        disabled={!canIncrement}
-        className="h-9 w-9"
-      >
-        <Plus className="h-4 w-4" />
-      </Button>
-    </div>
-  );
+  const toggleTerm = (i: number) =>
+    setCheckedTerms((prev) => ({ ...prev, [i]: !prev[i] }));
 
-  return (
-    <section className="py-16 bg-muted/30">
-      <div className="container max-w-2xl mx-auto px-4">
-        {/* Step header */}
-        <div className="mb-8 space-y-3">
-          <div className="flex items-center justify-between text-sm text-muted-foreground">
-            <span className="font-medium">Step {step} of {STEPS.length}</span>
-            <Badge variant="secondary" className="capitalize">{tierLabel} ticket</Badge>
-          </div>
-          <Progress value={(step / STEPS.length) * 100} className="h-1.5" />
-          <div className="flex gap-1 pt-1">
-            {STEPS.map((s, i) => (
-              <span
-                key={i}
-                className={`text-xs font-medium flex-1 text-center truncate ${
-                  i + 1 === step ? 'text-foreground' : 'text-muted-foreground'
-                }`}
-              >
-                {s}
-              </span>
-            ))}
-          </div>
+  // ─── Shared Layout Shell ───────────────────────────────────────────────────
+  const Shell = ({ children }: { children: React.ReactNode }) => (
+    <section className="py-20 md:py-32 bg-[#F5F5F0] min-h-screen">
+      <div className="container mx-auto px-6 max-w-[860px]">
+        {/* Step Indicator */}
+        <div className="flex items-center gap-0 mb-16">
+          {STEP_LABELS.map((label, idx) => {
+            const num = idx + 1;
+            const isActive = num === step;
+            const isDone = num < step;
+            return (
+              <React.Fragment key={num}>
+                <div className="flex flex-col items-center gap-2">
+                  <div
+                    className={`w-8 h-8 rounded-full text-[12px] font-black flex items-center justify-center transition-all duration-500 ${
+                      isDone ? 'bg-primary text-white' : isActive ? 'bg-black text-white' : 'bg-black/10 text-black/30'
+                    }`}
+                  >
+                    {isDone ? '✓' : num}
+                  </div>
+                  <span
+                    className={`text-[10px] font-black uppercase tracking-widest hidden md:block transition-colors duration-300 ${
+                      isActive ? 'text-black' : 'text-black/30'
+                    }`}
+                  >
+                    {label}
+                  </span>
+                </div>
+                {idx < STEP_LABELS.length - 1 && (
+                  <div className="flex-1 h-[2px] mx-2 mb-5 rounded-full overflow-hidden bg-black/10">
+                    <div
+                      className="h-full bg-primary transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                      style={{ width: isDone ? '100%' : '0%' }}
+                    />
+                  </div>
+                )}
+              </React.Fragment>
+            );
+          })}
         </div>
 
-        {/* ── STEP 1: Owner Info ── */}
-        {step === 1 && (
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-xl">Your Information</CardTitle>
-              <CardDescription>We'll use this to send your ticket confirmation.</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-5">
-              <div className="space-y-2">
-                <Label htmlFor="fullName">Full Name</Label>
-                <div className="relative">
-                  <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <Input
-                    id="fullName"
-                    placeholder="Ahmed Al-Qassim"
-                    className="pl-9"
-                    value={ownerData.fullName}
-                    onChange={(e) => setOwnerData({ ...ownerData, fullName: e.target.value })}
-                  />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="email">Email Address</Label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="you@email.com"
-                    className="pl-9"
-                    value={ownerData.email}
-                    onChange={(e) => setOwnerData({ ...ownerData, email: e.target.value })}
-                  />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="phone">Mobile Number</Label>
-                <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <Input
-                    id="phone"
-                    type="tel"
-                    placeholder="+974 5555 0000"
-                    className="pl-9"
-                    value={ownerData.phone}
-                    onChange={(e) => setOwnerData({ ...ownerData, phone: e.target.value })}
-                  />
-                </div>
-              </div>
-              <Button
-                className="w-full mt-2"
-                size="lg"
-                onClick={() => setStep(2)}
-                disabled={!ownerData.fullName || !ownerData.email || !ownerData.phone}
-              >
-                Send Verification Code <ArrowRight className="ml-1 h-4 w-4" />
-              </Button>
-            </CardContent>
-          </Card>
-        )}
-
-        {/* ── STEP 2: OTP ── */}
-        {step === 2 && (
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-xl">Verify Your Number</CardTitle>
-              <CardDescription>
-                A 6-digit code was sent to{' '}
-                <span className="text-foreground font-semibold">{ownerData.phone || ownerData.email}</span>
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="flex justify-center py-4">
-                <InputOTP maxLength={6} value={otp} onChange={setOtp}>
-                  <InputOTPGroup>
-                    <InputOTPSlot index={0} className="h-14 w-12 text-xl" />
-                    <InputOTPSlot index={1} className="h-14 w-12 text-xl" />
-                    <InputOTPSlot index={2} className="h-14 w-12 text-xl" />
-                    <InputOTPSlot index={3} className="h-14 w-12 text-xl" />
-                    <InputOTPSlot index={4} className="h-14 w-12 text-xl" />
-                    <InputOTPSlot index={5} className="h-14 w-12 text-xl" />
-                  </InputOTPGroup>
-                </InputOTP>
-              </div>
-              <Button className="w-full" size="lg" onClick={() => setStep(3)} disabled={otp.length < 6}>
-                Verify & Continue <ArrowRight className="ml-1 h-4 w-4" />
-              </Button>
-              <button
-                onClick={() => setStep(1)}
-                className="w-full text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                ← Go back and edit info
-              </button>
-            </CardContent>
-          </Card>
-        )}
-
-        {/* ── STEP 3: Ticket Selection ── */}
-        {step === 3 && (
-          <div className="space-y-4">
-            {/* Pet Info */}
-            {isPetOwner && (
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-                      {selectedTier === 'dog-owner' ? <Dog className="h-5 w-5" /> : <Cat className="h-5 w-5" />}
-                    </div>
-                    <div>
-                      <CardTitle className="text-base capitalize">{tierLabel} Details</CardTitle>
-                      <CardDescription>Tell us about your pet</CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-5">
-                  <div className="space-y-2">
-                    <Label htmlFor="petName">Pet Name(s)</Label>
-                    <Input
-                      id="petName"
-                      placeholder={selectedTier === 'dog-owner' ? 'e.g. Buddy' : 'e.g. Luna, Simba'}
-                      value={petName}
-                      onChange={(e) => setPetName(e.target.value)}
-                    />
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm font-medium">
-                        Number of {selectedTier === 'dog-owner' ? 'Dogs' : 'Cats'}
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        {selectedTier === 'dog-owner' ? 'Max 1 per adult' : 'Max 2 per booking'}
-                      </p>
-                    </div>
-                    <QtyControl
-                      value={petQty}
-                      onDecrement={() => setPetQty(Math.max(1, petQty - 1))}
-                      onIncrement={() => {
-                        if (selectedTier === 'dog-owner' && petQty < adultQty) setPetQty(petQty + 1);
-                        if (selectedTier === 'cat-owner' && petQty < 2) setPetQty(petQty + 1);
-                      }}
-                      canIncrement={
-                        (selectedTier === 'dog-owner' && petQty < adultQty) ||
-                        (selectedTier === 'cat-owner' && petQty < 2)
-                      }
-                    />
-                  </div>
-                </CardContent>
-              </Card>
-            )}
-
-            {/* Visitor Tickets */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-base">Visitor Tickets</CardTitle>
-                <CardDescription>Select number of attendees</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-5">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm font-medium">Adults</p>
-                    <p className="text-xs text-muted-foreground">QAR 25 per person</p>
-                  </div>
-                  <QtyControl
-                    value={adultQty}
-                    onDecrement={() => setAdultQty(Math.max(1, adultQty - 1))}
-                    onIncrement={() => setAdultQty(adultQty + 1)}
-                  />
-                </div>
-                <Separator />
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm font-medium">Children</p>
-                    <p className="text-xs text-muted-foreground">QAR 15 · Under 12</p>
-                  </div>
-                  <QtyControl
-                    value={kidsQty}
-                    onDecrement={() => setKidsQty(Math.max(0, kidsQty - 1))}
-                    onIncrement={() => setKidsQty(kidsQty + 1)}
-                  />
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Order Preview */}
-            <Card className="bg-muted/40 border-dashed">
-              <CardContent className="pt-6 space-y-2">
-                <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Adults × {adultQty}</span>
-                  <span>QAR {adultQty * ADULT_PRICE}</span>
-                </div>
-                {kidsQty > 0 && (
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Children × {kidsQty}</span>
-                    <span>QAR {kidsQty * KID_PRICE}</span>
-                  </div>
-                )}
-                {petQty > 0 && (
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground capitalize">{tierLabel} registration</span>
-                    <span>QAR {petQty * PET_FEE}</span>
-                  </div>
-                )}
-                <Separator className="my-2" />
-                <div className="flex justify-between font-semibold">
-                  <span>Total</span>
-                  <span className="text-primary text-lg">QAR {total}</span>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Button className="w-full" size="lg" onClick={() => setStep(4)}>
-              Next: Safety Terms <ArrowRight className="ml-1 h-4 w-4" />
-            </Button>
-          </div>
-        )}
-
-        {/* ── STEP 4: Terms ── */}
-        {step === 4 && (
-          <Card>
-            <CardHeader>
-              <div className="flex items-center gap-3">
-                <ShieldCheck className="h-5 w-5 text-primary" />
-                <div>
-                  <CardTitle className="text-xl">Safety & Conduct</CardTitle>
-                  <CardDescription>
-                    Each item must be individually acknowledged before proceeding.
-                  </CardDescription>
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="max-h-[400px] overflow-y-auto space-y-3 pr-1">
-                {currentTerms.map((term, i) => (
-                  <div
-                    key={i}
-                    className="flex items-start gap-3 p-3 rounded-md border bg-background hover:border-primary/40 transition-colors cursor-pointer"
-                    onClick={() => toggleTerm(i)}
-                  >
-                    <Checkbox
-                      id={`term-${i}`}
-                      checked={checkedTerms[i] ?? false}
-                      onCheckedChange={() => toggleTerm(i)}
-                      className="mt-0.5 shrink-0"
-                    />
-                    <Label
-                      htmlFor={`term-${i}`}
-                      className="text-sm leading-relaxed cursor-pointer text-muted-foreground"
-                    >
-                      {term}
-                    </Label>
-                  </div>
-                ))}
-              </div>
-              <Button
-                className="w-full mt-2"
-                size="lg"
-                disabled={!allTermsChecked}
-                onClick={() => setStep(5)}
-              >
-                Proceed to Summary <ArrowRight className="ml-1 h-4 w-4" />
-              </Button>
-            </CardContent>
-          </Card>
-        )}
-
-        {/* ── STEP 5: Summary & Checkout ── */}
-        {step === 5 && (
-          <div className="space-y-4">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-xl">Order Summary</CardTitle>
-                <CardDescription>Review your booking before payment</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-2 gap-3 text-sm">
-                  <div>
-                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">Name</p>
-                    <p className="font-semibold mt-0.5">{ownerData.fullName}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">Email</p>
-                    <p className="font-semibold mt-0.5">{ownerData.email}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">Mobile</p>
-                    <p className="font-semibold mt-0.5">{ownerData.phone}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">Pass Type</p>
-                    <p className="font-semibold mt-0.5 capitalize">{tierLabel}</p>
-                  </div>
-                </div>
-
-                <Separator />
-
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Adults × {adultQty}</span>
-                    <span>QAR {adultQty * ADULT_PRICE}</span>
-                  </div>
-                  {kidsQty > 0 && (
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Children × {kidsQty}</span>
-                      <span>QAR {kidsQty * KID_PRICE}</span>
-                    </div>
-                  )}
-                  {petQty > 0 && (
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground capitalize">{tierLabel} registration × {petQty}</span>
-                      <span>QAR {petQty * PET_FEE}</span>
-                    </div>
-                  )}
-                </div>
-
-                <Separator />
-
-                <div className="flex justify-between items-center">
-                  <span className="font-semibold text-base">Total</span>
-                  <span className="text-2xl font-bold text-primary">QAR {total}</span>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Button className="w-full" size="lg" onClick={handleFinish}>
-              Proceed to Payment <ArrowRight className="ml-1 h-4 w-4" />
-            </Button>
-            <p className="text-center text-xs text-muted-foreground px-4">
-              You'll be taken to the payment portal and your ticket will be confirmed instantly.
+        {/* Card */}
+        <div className="bg-white rounded-sm border border-black/5 shadow-sm overflow-hidden">
+          {/* Card Header */}
+          <div className="border-b border-black/5 px-10 pt-10 pb-8">
+            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-black/30 mb-3">
+              {selectedTier.replace('-', ' ')} · Step {step} of 5
             </p>
+            <h2 className="text-[48px] md:text-[64px] font-display font-black text-black leading-[0.9] tracking-tighter">
+              {step === 1 && 'Your Info'}
+              {step === 2 && 'Verify'}
+              {step === 3 && 'Tickets'}
+              {step === 4 && 'Safety'}
+              {step === 5 && 'Summary'}
+            </h2>
+          </div>
+
+          {/* Card Body */}
+          <div className="px-10 py-10">{children}</div>
+        </div>
+
+        {/* Running Total (steps 1-4) */}
+        {step < 5 && (
+          <div className="mt-6 flex items-center justify-between px-4 py-5 bg-black rounded-sm animate-in fade-in duration-300">
+            <div className="flex items-center gap-4">
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40">Running Total</span>
+              {adultQty > 0 && (
+                <span className="text-[11px] bg-white/10 text-white/70 px-3 py-1 rounded-full font-bold">
+                  {adultQty}A {kidsQty > 0 ? `· ${kidsQty}K` : ''} {petQty > 0 ? `· ${petQty}P` : ''}
+                </span>
+              )}
+            </div>
+            <span className="text-primary font-black text-[28px] leading-none">QAR {total}</span>
           </div>
         )}
       </div>
     </section>
   );
-}
+
+  // ─── Step 1: Owner Info ────────────────────────────────────────────────────
+  if (step === 1) return (
+    <Shell>
+      <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {/* Full Name */}
+          <div className="md:col-span-2 space-y-2">
+            <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-black/40">Full Name *</Label>
+            <div className="relative">
+              <User className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-black/20" />
+              <input
+                type="text"
+                placeholder="Mohammed Al-Rashid"
+                value={ownerData.fullName}
+                onChange={(e) => setOwnerData({ ...ownerData, fullName: e.target.value })}
+                className="w-full bg-[#F5F5F0] border border-black/5 rounded-sm pl-12 pr-5 py-4 outline-none focus:border-black focus:bg-white transition-all font-bold text-black text-[16px] placeholder:text-black/20"
+              />
+            </div>
+          </div>
+          {/* Email */}
+          <div className="space-y-2">
+            <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-black/40">Email *</Label>
+            <div className="relative">
+              <Mail className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-black/20" />
+              <input
+                type="email"
+                placeholder="you@email.com"
+                value={ownerData.email}
+                onChange={(e) => setOwnerData({ ...ownerData, email: e.target.value })}
+                className="w-full bg-[#F5F5F0] border border-black/5 rounded-sm pl-12 pr-5 py-4 outline-none focus:border-black focus:bg-white transition-all font-bold text-black text-[16px] placeholder:text-black/20"
+              />
+            </div>
+          </div>
+          {/* Phone */}
+          <div className="space-y-2">
+            <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-black/40">Mobile *</Label>
+            <div className="relative">
+              <Phone className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-black/20" />
+              <input
+                type="tel"
+                placeholder="+974 XXXX XXXX"
+                value={ownerData.phone}
+                onChange={(e) => setOwnerData({ ...ownerData, phone: e.target.value })}
+                className="w-full bg-[#F5F5F0] border border-black/5 rounded-sm pl-12 pr-5 py-4 outline-none focus:border-black focus:bg-white transition-all font-bold text-black text-[16px] placeholder:text-black/20"
+              />
+            </div>
+          </div>
+        </div>
+
+        <button
+          onClick={() => setStep(2)}
+          className="w-full bg-black text-white rounded-sm py-5 text-[16px] font-black flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-black/90 mt-4"
+        >
+          Continue <ArrowRight className="w-5 h-5" />
+        </button>
+      </div>
+    </Shell>
+  );
+
+  // ─── Step 2: OTP ──────────────────────────────────────────────────────────
+  if (step === 2) return (
+    <Shell>
+      <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-10">
+        <div className="bg-[#F5F5F0] rounded-sm p-8 text-center space-y-6">
+          <ShieldCheck className="w-12 h-12 mx-auto text-black/30" />
+          <div>
+            <p className="text-[13px] font-bold text-black/50 mb-1">Code sent to</p>
+            <p className="font-black text-[20px] tracking-tight">{ownerData.phone || ownerData.email}</p>
+          </div>
+          <div className="flex justify-center gap-3">
+            {[0, 1, 2, 3, 4, 5].map((i) => (
+              <div
+                key={i}
+                className={`w-12 h-16 md:w-14 md:h-20 rounded-sm border-2 flex items-center justify-center text-[28px] font-black transition-all ${
+                  otp[i] ? 'border-black bg-white' : 'border-black/10 bg-white'
+                }`}
+              >
+                {otp[i] || <span className="text-black/10">·</span>}
+              </div>
+            ))}
+          </div>
+          {/* Hidden real input */}
+          <input
+            type="text"
+            maxLength={6}
+            value={otp}
+            onChange={(e) => setOtp(e.target.value.replace(/\D/g, ''))}
+            className="sr-only"
+            autoFocus
+          />
+          <p className="text-[11px] text-black/30 font-bold uppercase tracking-widest">Click above boxes then type your 6-digit code</p>
+          {/* Clickable overlay to focus hidden input */}
+          <button
+            onClick={() => {
+              const el = document.querySelector('input.sr-only') as HTMLInputElement;
+              if (el) el.focus();
+            }}
+            className="text-[12px] font-black uppercase tracking-widest text-black/40 hover:text-black transition-all"
+          >
+            Tap to enter code
+          </button>
+        </div>
+
+        <div className="space-y-3">
+          <button
+            onClick={() => setStep(3)}
+            className="w-full bg-black text-white rounded-sm py-5 text-[16px] font-black transition-all active:scale-[0.97] hover:bg-black/90"
+          >
+            Verify &amp; Continue
+          </button>
+          <button onClick={() => setStep(1)} className="w-full py-3 text-[12px] font-black uppercase tracking-widest text-black/30 hover:text-black transition-all">
+            ← Back
+          </button>
+        </div>
+      </div>
+    </Shell>
+  );
+
+  // ─── Step 3: Ticket Selection ─────────────────────────────────────────────
+  if (step === 3) return (
+    <Shell>
+      <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-6">
+        
+        {/* Pet Card (conditional) */}
+        {selectedTier !== 'adult' && (
+          <div className="border border-black/5 rounded-sm overflow-hidden">
+            <div className="bg-primary px-8 py-5 flex items-center gap-4">
+              <div className="w-10 h-10 bg-white rounded-sm flex items-center justify-center">
+                {selectedTier === 'dog-owner' ? <Dog className="w-5 h-5 text-primary" /> : <Cat className="w-5 h-5 text-primary" />}
+              </div>
+              <div>
+                <p className="font-black text-white text-[16px] uppercase tracking-tight">
+                  {selectedTier === 'dog-owner' ? 'Dog' : 'Cat'} Details
+                </p>
+                <p className="text-[11px] text-white/70 font-bold">{selectedTier === 'dog-owner' ? '1 dog per adult · max' : 'Max 2 cats'}</p>
+              </div>
+            </div>
+            <div className="bg-white p-8 space-y-6">
+              <div className="space-y-2">
+                <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-black/40">Pet Name *</Label>
+                <input
+                  value={petName}
+                  onChange={(e) => setPetName(e.target.value)}
+                  placeholder={selectedTier === 'dog-owner' ? 'Buddy' : 'Luna'}
+                  className="w-full bg-[#F5F5F0] border border-black/5 rounded-sm px-5 py-4 outline-none focus:border-black focus:bg-white transition-all font-bold text-[16px]"
+                />
+              </div>
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="font-black text-[15px]">Number of {selectedTier === 'dog-owner' ? 'Dogs' : 'Cats'}</p>
+                  <p className="text-[12px] text-black/40 font-medium">QAR 25 registration fee each</p>
+                </div>
+                <QtyControl
+                  value={petQty}
+                  onDecrement={() => setPetQty(Math.max(1, petQty - 1))}
+                  onIncrement={() => {
+                    if (selectedTier === 'dog-owner' && petQty < adultQty) setPetQty(petQty + 1);
+                    if (selectedTier === 'cat-owner' && petQty < 2) setPetQty(petQty + 1);
+                  }}
+                  canIncrement={selectedTier === 'dog-owner' ? petQty < adultQty : petQty < 2}
+                />
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Visitor Tickets */}
+        <div className="border border-black/5 rounded-sm overflow-hidden">
+          <div className="bg-black/5 px-8 py-5">
+            <p className="font-black text-[16px] uppercase tracking-tight">Visitor Tickets</p>
+          </div>
+          <div className="bg-white divide-y divide-black/5">
+            <div className="px-8 py-6 flex items-center justify-between">
+              <div>
+                <p className="font-black text-[16px]">Adults</p>
+                <p className="text-[13px] text-black/40 font-medium">QAR 25 · min 1</p>
+              </div>
+              <QtyControl
+                value={adultQty}
+                onDecrement={() => setAdultQty(Math.max(1, adultQty - 1))}
+                onIncrement={() => setAdultQty(adultQty + 1)}
+                canIncrement={true}
+              />
+            </div>
+            <div className="px-8 py-6 flex items-center justify-between">
+              <div>
+                <p className="font-black text-[16px]">Kids</p>
+                <p className="text-[13px] text-black/40 font-medium">QAR 15 · under 12</p>
+              </div>
+              <QtyControl
+                value={kidsQty}
+                onDecrement={() => setKidsQty(Math.max(0, kidsQty - 1))}
+                onIncrement={() => setKidsQty(kidsQty + 1)}
+                canIncrement={true}
+              />
+            </div>
+          </div>
+        </div>
+
+        <button onClick={() => setStep(4)} className="w-full bg-black text-white rounded-sm py-5 text-[16px] font-black flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-black/90">
+          Next: Safety Terms <ArrowRight className="w-5 h-5" />
+        </button>
+      </div>
+    </Shell>
+  );
+
+  // ─── Step 4: Terms ────────────────────────────────────────────────────────
+  if (step === 4) return (
+    <Shell>
+      <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-6">
+        <div className="flex items-center justify-between mb-2">
+          <p className="text-[13px] text-black/50 font-bold">All {currentTerms.length} items required</p>
+          <span
+            className={`text-[11px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full transition-all ${
+              allChecked ? 'bg-green-100 text-green-700' : 'bg-black/5 text-black/30'
+            }`}
+          >
+            {Object.values(checkedTerms).filter(Boolean).length}/{currentTerms.length} agreed
+          </span>
+        </div>
+
+        <div className="space-y-2 max-h-[420px] overflow-y-auto pr-1">
+          {currentTerms.map((term, i) => (
+            <div
+              key={i}
+              onClick={() => toggleTerm(i)}
+              className={`flex items-start gap-4 p-5 rounded-sm border cursor-pointer transition-all duration-200 ${
+                checkedTerms[i] ? 'bg-green-50 border-green-200' : 'bg-[#F5F5F0] border-black/5 hover:border-black/20'
+              }`}
+            >
+              <Checkbox
+                id={`term-${i}`}
+                checked={!!checkedTerms[i]}
+                onCheckedChange={() => toggleTerm(i)}
+                className="mt-0.5 w-5 h-5 rounded-sm flex-shrink-0 border-black/20 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
+              />
+              <Label htmlFor={`term-${i}`} className="text-[13px] font-medium leading-relaxed cursor-pointer text-black/70">
+                {term}
+              </Label>
+            </div>
+          ))}
+        </div>
+
+        <button
+          onClick={() => allChecked && setStep(5)}
+          className={`w-full rounded-sm py-5 text-[16px] font-black transition-all ${
+            allChecked ? 'bg-black text-white hover:bg-black/90 active:scale-[0.97]' : 'bg-black/10 text-black/20 cursor-not-allowed'
+          }`}
+        >
+          {allChecked ? 'Continue to Summary' : `Agree to all ${currentTerms.length} terms to proceed`}
+        </button>
+      </div>
+    </Shell>
+  );
+
+  // ─── Step 5: Summary ──────────────────────────────────────────────────────
+  return (
+    <Shell>
+      <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-6">
+        {/* Attendee */}
+        <div className="bg-[#F5F5F0] rounded-sm p-8 space-y-4">
+          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30">Attendee</p>
+          <p className="font-black text-[22px] tracking-tight">{ownerData.fullName}</p>
+          <p className="text-[14px] text-black/40 font-bold">{ownerData.email} · {ownerData.phone}</p>
+        </div>
+
+        {/* Line Items */}
+        <div className="bg-[#F5F5F0] rounded-sm overflow-hidden">
+          <div className="divide-y divide-black/5">
+            <div className="flex justify-between items-center px-8 py-5">
+              <div>
+                <p className="font-black text-[15px]">Adult Tickets</p>
+                <p className="text-[12px] text-black/40 font-medium">QAR 25 × {adultQty}</p>
+              </div>
+              <p className="font-black text-[18px]">QAR {adultQty * ADULT_PRICE}</p>
+            </div>
+            {kidsQty > 0 && (
+              <div className="flex justify-between items-center px-8 py-5">
+                <div>
+                  <p className="font-black text-[15px]">Kid Tickets</p>
+                  <p className="text-[12px] text-black/40 font-medium">QAR 15 × {kidsQty}</p>
+                </div>
+                <p className="font-black text-[18px]">QAR {kidsQty * KID_PRICE}</p>
+              </div>
+            )}
+            {petQty > 0 && (
+              <div className="flex justify-between items-center px-8 py-5">
+                <div>
+                  <p className="font-black text-[15px]">{selectedTier === 'dog-owner' ? 'Dog' : 'Cat'} — {petName}</p>
+                  <p className="text-[12px] text-black/40 font-medium">QAR 25 × {petQty}</p>
+                </div>
+                <p className="font-black text-[18px]">QAR {petQty * PET_FEE}</p>
+              </div>
+            )}
+          </div>
+          <div className="bg-black px-8 py-7 flex items-center justify-between">
+            <p className="text-[12px] font-black uppercase tracking-[0.2em] text-white/50">Total</p>
+            <p className="font-display font-black text-[44px] text-primary leading-none">QAR {total}</p>
+          </div>
+        </div>
+
+        <button
+          onClick={handleFinish}
+          className="w-full bg-black text-white rounded-sm py-6 text-[18px] font-black flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-black/90 shadow-2xl shadow-black/20"
+        >
+          Proceed to Payment <ArrowRight className="w-5 h-5" />
+        </button>
+        <p className="text-[11px] text-center text-black/30 font-medium">
+          Secure payment · Your QR ticket is generated after payment
+        </p>
+      </div>
+    </Shell>
+  );
+};
+
+// ─── Reusable Quantity Control ─────────────────────────────────────────────
+const QtyControl = ({
+  value, onDecrement, onIncrement, canIncrement,
+}: {
+  value: number; onDecrement: () => void; onIncrement: () => void; canIncrement: boolean;
+}) => (
+  <div className="flex items-center gap-0 border border-black/10 rounded-sm overflow-hidden">
+    <button
+      onClick={onDecrement}
+      className="w-11 h-11 flex items-center justify-center text-black/40 hover:text-black hover:bg-black/5 transition-all active:scale-90"
+    >
+      <Minus className="w-4 h-4" />
+    </button>
+    <span className="w-12 text-center font-black text-[18px]">{value}</span>
+    <button
+      onClick={onIncrement}
+      disabled={!canIncrement}
+      className={`w-11 h-11 flex items-center justify-center transition-all active:scale-90 ${
+        canIncrement ? 'bg-primary text-white hover:bg-primary/90' : 'bg-black/5 text-black/20 cursor-not-allowed'
+      }`}
+    >
+      <Plus className="w-4 h-4" />
+    </button>
+  </div>
+);
+
+export default TicketsCheckout;

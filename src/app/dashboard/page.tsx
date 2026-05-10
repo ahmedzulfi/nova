@@ -1,12 +1,8 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import Navigation from '@/components/sections/navigation';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
-import { CheckCircle2, QrCode, CreditCard, Printer, Home } from 'lucide-react';
+import Navigation from "@/components/sections/navigation";
+import { Check, CreditCard, ArrowRight, Dog, Cat, User } from 'lucide-react';
 
 interface RegistrationData {
   fullName: string;
@@ -21,189 +17,359 @@ interface RegistrationData {
   orderId: string;
 }
 
+const QR_CODE_URL = "https://public-api.qr-code-generator.com/v1/create/extended?image_format=PNG&image_width=300&qr_code_text=https%3A%2F%2Fvalidmvps.vercel.app%2F&foreground_color=%23000000&background_color=%23FFFFFF&frame_name=no-frame";
+
 export default function DashboardPage() {
   const [data, setData] = useState<RegistrationData | null>(null);
   const [isPaid, setIsPaid] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem('nova_registration');
-    if (saved) setData(JSON.parse(saved));
+    const savedData = localStorage.getItem('nova_registration');
+    if (savedData) {
+      setData(JSON.parse(savedData));
+    }
   }, []);
+
+  const handlePayment = () => {
+    setIsProcessing(true);
+    setTimeout(() => {
+      setIsProcessing(false);
+      setIsPaid(true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 1800);
+  };
 
   if (!data) {
     return (
-      <main className="min-h-screen bg-muted/30">
+      <main className="min-h-screen bg-white flex flex-col">
         <Navigation />
-        <div className="flex flex-col items-center justify-center min-h-[70vh] gap-4">
-          <p className="text-muted-foreground">No registration found.</p>
-          <Button variant="outline" onClick={() => (window.location.href = '/tickets')}>
-            Go to Tickets
-          </Button>
+        <div className="flex-1 flex items-center justify-center">
+          <div className="text-center space-y-6">
+            <p className="text-[13px] font-bold uppercase tracking-[0.2em] text-black/30">No Session Found</p>
+            <h1 className="text-[48px] font-display font-black tracking-tighter">Start Here</h1>
+            <a href="/tickets" className="inline-flex items-center gap-3 bg-black text-white px-10 py-5 rounded-sm font-black text-[16px] hover:bg-black/90 active:scale-[0.98] transition-all">
+              Get Tickets <ArrowRight className="w-5 h-5" />
+            </a>
+          </div>
         </div>
       </main>
     );
   }
 
-  const tierLabel = data.tier.replace('-owner', '').replace('-', ' ');
-  const ADULT_PRICE = 25;
-  const KID_PRICE = 15;
-  const PET_FEE = 25;
+  const tierLabel = data.tier === 'dog-owner' ? 'Dog Owner' : data.tier === 'cat-owner' ? 'Cat Owner' : 'Adult';
+  const TierIcon = data.tier === 'dog-owner' ? Dog : data.tier === 'cat-owner' ? Cat : User;
 
-  return (
-    <main className="min-h-screen bg-muted/30">
-      <Navigation />
-
-      <div className="container max-w-xl mx-auto px-4 pt-36 pb-20">
-
-        {!isPaid ? (
-          /* ── Payment Step ── */
-          <div className="space-y-5">
-            <div className="text-center space-y-1 mb-8">
-              <p className="text-sm text-muted-foreground font-medium uppercase tracking-widest">Almost there</p>
-              <h1 className="text-2xl font-bold tracking-tight">Complete Your Purchase</h1>
+  if (!isPaid) {
+    return (
+      <main className="min-h-screen bg-[#F5F5F0]">
+        <Navigation />
+        <section className="pt-36 pb-24">
+          <div className="container mx-auto px-6 max-w-[1100px]">
+            
+            {/* Header */}
+            <div className="mb-16 animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <p className="text-[11px] font-black uppercase tracking-[0.3em] text-black/30 mb-4">Final Step</p>
+              <h1 className="text-[56px] md:text-[80px] font-display font-black tracking-tighter leading-[0.9] text-black">
+                Review &<br />Complete
+              </h1>
             </div>
 
-            {/* Booking details */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-base">Booking Details</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-2 gap-y-3 text-sm">
-                  <div>
-                    <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium">Name</p>
-                    <p className="font-semibold">{data.fullName}</p>
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
+              
+              {/* Left: Order Breakdown */}
+              <div className="lg:col-span-3 space-y-4">
+                
+                {/* Attendee Card */}
+                <div className="bg-white rounded-sm border border-black/5 p-8 flex items-center gap-6">
+                  <div className="w-16 h-16 bg-black rounded-sm flex items-center justify-center flex-shrink-0">
+                    <TierIcon className="w-8 h-8 text-primary" />
                   </div>
-                  <div>
-                    <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium">Pass Type</p>
-                    <Badge variant="secondary" className="capitalize mt-0.5">{tierLabel}</Badge>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[11px] font-black uppercase tracking-[0.2em] text-black/30 mb-1">Registered As</p>
+                    <p className="text-[22px] font-black tracking-tight truncate">{data.fullName}</p>
+                    <p className="text-[13px] text-black/40 font-medium">{data.email} · {data.phone}</p>
                   </div>
-                  <div>
-                    <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium">Email</p>
-                    <p className="font-semibold">{data.email}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium">Mobile</p>
-                    <p className="font-semibold">{data.phone}</p>
-                  </div>
+                  <span className="flex-shrink-0 bg-primary text-white text-[11px] font-black uppercase tracking-widest px-3 py-1.5 rounded-sm">
+                    {tierLabel}
+                  </span>
                 </div>
 
-                <Separator />
-
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Adults × {data.adultQty}</span>
-                    <span>QAR {data.adultQty * ADULT_PRICE}</span>
+                {/* Ticket Breakdown */}
+                <div className="bg-white rounded-sm border border-black/5 overflow-hidden">
+                  <div className="px-8 py-6 border-b border-black/5">
+                    <p className="text-[11px] font-black uppercase tracking-[0.2em] text-black/30">Ticket Breakdown</p>
                   </div>
-                  {data.kidsQty > 0 && (
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Children × {data.kidsQty}</span>
-                      <span>QAR {data.kidsQty * KID_PRICE}</span>
+                  <div className="divide-y divide-black/5">
+                    <div className="px-8 py-5 flex items-center justify-between">
+                      <div>
+                        <p className="font-black text-[16px]">Adult {data.tier === 'dog-owner' ? '(Dog Owner)' : data.tier === 'cat-owner' ? '(Cat Owner)' : ''}</p>
+                        <p className="text-[13px] text-black/40 font-medium">QAR 25 × {data.adultQty}</p>
+                      </div>
+                      <span className="font-black text-[20px]">QAR {data.adultQty * 25}</span>
                     </div>
-                  )}
-                  {data.petQty > 0 && (
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground capitalize">{tierLabel} registration</span>
-                      <span>QAR {data.petQty * PET_FEE}</span>
-                    </div>
-                  )}
-                  <Separator />
-                  <div className="flex justify-between font-semibold text-base">
-                    <span>Total</span>
-                    <span className="text-primary text-xl">QAR {data.total}</span>
+                    {data.kidsQty > 0 && (
+                      <div className="px-8 py-5 flex items-center justify-between">
+                        <div>
+                          <p className="font-black text-[16px]">Kids</p>
+                          <p className="text-[13px] text-black/40 font-medium">QAR 15 × {data.kidsQty}</p>
+                        </div>
+                        <span className="font-black text-[20px]">QAR {data.kidsQty * 15}</span>
+                      </div>
+                    )}
+                    {data.petQty > 0 && (
+                      <div className="px-8 py-5 flex items-center justify-between">
+                        <div>
+                          <p className="font-black text-[16px]">{data.tier === 'dog-owner' ? 'Dog' : 'Cat'} Registration — {data.petName}</p>
+                          <p className="text-[13px] text-black/40 font-medium">QAR 25 × {data.petQty}</p>
+                        </div>
+                        <span className="font-black text-[20px]">QAR {data.petQty * 25}</span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="bg-black px-8 py-7 flex items-center justify-between">
+                    <p className="text-white text-[14px] font-black uppercase tracking-[0.2em]">Total</p>
+                    <p className="text-primary text-[40px] font-display font-black leading-none">QAR {data.total}</p>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
 
-            <Button className="w-full" size="lg" onClick={() => setIsPaid(true)}>
-              <CreditCard className="mr-2 h-4 w-4" />
-              Pay QAR {data.total} — Confirm Booking
-            </Button>
-
-            <p className="text-center text-xs text-muted-foreground">
-              Secure payment via QPay. Your ticket will be generated immediately after payment.
-            </p>
-          </div>
-        ) : (
-          /* ── Ticket / Digital Pass ── */
-          <div className="space-y-6">
-            {/* Success banner */}
-            <div className="flex flex-col items-center gap-2 text-center py-4">
-              <CheckCircle2 className="h-12 w-12 text-primary" />
-              <h1 className="text-2xl font-bold tracking-tight">Payment Confirmed!</h1>
-              <p className="text-sm text-muted-foreground">Your digital ticket is ready. Present the QR code at the gate.</p>
-            </div>
-
-            {/* Ticket card */}
-            <Card className="overflow-hidden border-2">
-              {/* Top stripe */}
-              <div className="bg-primary px-6 py-4 flex items-center justify-between">
-                <div>
-                  <p className="text-white/70 text-xs font-medium uppercase tracking-widest">Nova Paw Festival</p>
-                  <p className="text-white font-bold text-lg">Official Entry Pass</p>
-                </div>
-                <Badge className="bg-white/20 text-white border-white/30 hover:bg-white/30">
-                  {data.orderId}
-                </Badge>
+                <p className="text-[11px] text-black/30 font-medium px-2">Order ID: {data.orderId} · Secured by QPay Payment Gateway</p>
               </div>
 
-              <CardContent className="pt-6 space-y-6">
-                {/* QR Code */}
-                <div className="flex flex-col items-center py-4">
-                  <div className="border-2 border-dashed border-border p-6 rounded-lg bg-muted/30">
-                    <QrCode className="w-40 h-40 text-foreground" strokeWidth={1} />
+              {/* Right: Payment */}
+              <div className="lg:col-span-2 space-y-4">
+                <div className="bg-white rounded-sm border border-black/5 p-8 space-y-8">
+                  <div>
+                    <p className="text-[11px] font-black uppercase tracking-[0.2em] text-black/30 mb-4">Select Payment</p>
+                    <div className="space-y-3">
+                      <label className="flex items-center gap-4 p-5 rounded-sm border-2 border-black bg-black/5 cursor-pointer">
+                        <div className="w-5 h-5 rounded-full border-2 border-black flex items-center justify-center">
+                          <div className="w-2.5 h-2.5 rounded-full bg-black" />
+                        </div>
+                        <div className="flex items-center gap-3 flex-1">
+                          <CreditCard className="w-5 h-5" />
+                          <span className="font-black text-[15px]">Debit / Credit Card</span>
+                        </div>
+                      </label>
+                      <label className="flex items-center gap-4 p-5 rounded-sm border border-black/10 cursor-pointer hover:border-black/30 transition-colors">
+                        <div className="w-5 h-5 rounded-full border-2 border-black/20" />
+                        <span className="font-black text-[15px] text-black/40">QPay Wallet</span>
+                      </label>
+                    </div>
                   </div>
-                  <p className="text-xs text-muted-foreground mt-3">Scan at gate entry</p>
+                  
+                  {/* Card Details */}
+                  <div className="space-y-4">
+                    <div className="bg-[#F5F5F0] rounded-sm px-5 py-4">
+                      <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30 mb-2">Card Number</p>
+                      <input type="text" placeholder="0000 0000 0000 0000" className="bg-transparent w-full font-black text-[16px] tracking-widest outline-none placeholder:text-black/20" />
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="bg-[#F5F5F0] rounded-sm px-5 py-4">
+                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30 mb-2">Expiry</p>
+                        <input type="text" placeholder="MM / YY" className="bg-transparent w-full font-black text-[16px] outline-none placeholder:text-black/20" />
+                      </div>
+                      <div className="bg-[#F5F5F0] rounded-sm px-5 py-4">
+                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30 mb-2">CVV</p>
+                        <input type="text" placeholder="•••" className="bg-transparent w-full font-black text-[16px] outline-none placeholder:text-black/20" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={handlePayment}
+                    disabled={isProcessing}
+                    className={`w-full py-6 rounded-sm font-black text-[18px] flex items-center justify-center gap-3 transition-all active:scale-[0.98] ${
+                      isProcessing ? 'bg-black/60 text-white cursor-wait' : 'bg-black text-white hover:bg-black/90'
+                    }`}
+                  >
+                    {isProcessing ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        Processing…
+                      </>
+                    ) : (
+                      <>Pay QAR {data.total} <ArrowRight className="w-5 h-5" /></>
+                    )}
+                  </button>
                 </div>
 
-                <Separator />
-
-                {/* Ticket details */}
-                <div className="grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
-                  <div>
-                    <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium mb-0.5">Attendee</p>
-                    <p className="font-semibold">{data.fullName}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium mb-0.5">Pass Type</p>
-                    <p className="font-semibold capitalize">{tierLabel}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium mb-0.5">Guests</p>
-                    <p className="font-semibold">
-                      {data.adultQty} Adult{data.adultQty > 1 ? 's' : ''}
-                      {data.kidsQty > 0 ? `, ${data.kidsQty} Kid${data.kidsQty > 1 ? 's' : ''}` : ''}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium mb-0.5">Pet Name</p>
-                    <p className="font-semibold">{data.petName || '—'}</p>
-                  </div>
+                <div className="bg-primary/10 border border-primary/20 rounded-sm p-6 flex items-start gap-4">
+                  <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <p className="text-[13px] font-bold text-black/60 leading-relaxed">Your ticket and QR code will be generated immediately after successful payment.</p>
                 </div>
-
-                <Separator />
-
-                {/* Total */}
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">Amount Paid</span>
-                  <span className="text-xl font-bold text-primary">QAR {data.total}</span>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Actions */}
-            <div className="flex gap-3">
-              <Button variant="outline" className="flex-1" onClick={() => window.print()}>
-                <Printer className="mr-2 h-4 w-4" /> Print Pass
-              </Button>
-              <Button variant="outline" className="flex-1" onClick={() => (window.location.href = '/')}>
-                <Home className="mr-2 h-4 w-4" /> Back to Site
-              </Button>
+              </div>
             </div>
           </div>
-        )}
-      </div>
+        </section>
+      </main>
+    );
+  }
+
+  // ──────────────────────────────────────────────────────────
+  // CONFIRMED TICKET VIEW
+  // ──────────────────────────────────────────────────────────
+  return (
+    <main className="min-h-screen bg-[#F5F5F0]">
+      <Navigation />
+      <section className="pt-36 pb-24">
+        <div className="container mx-auto px-6 max-w-[1100px]">
+
+          {/* Header */}
+          <div className="mb-16 animate-in fade-in slide-in-from-bottom-4 duration-500 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div>
+              <p className="text-[11px] font-black uppercase tracking-[0.3em] text-black/30 mb-4 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-green-500 inline-block animate-pulse" />
+                Booking Confirmed
+              </p>
+              <h1 className="text-[56px] md:text-[80px] font-display font-black tracking-tighter leading-[0.9] text-black">
+                You're In!
+              </h1>
+            </div>
+            <div className="text-right">
+              <p className="text-[11px] font-black uppercase tracking-[0.2em] text-black/30 mb-1">Order ID</p>
+              <p className="font-black text-[20px] tracking-widest">{data.orderId}</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
+
+            {/* ── Ticket (hero) ── */}
+            <div className="lg:col-span-3">
+              <div className="bg-white rounded-sm border border-black/5 overflow-hidden shadow-sm">
+
+                {/* Ticket Header Bar */}
+                <div className="bg-black px-10 py-8 flex items-center justify-between">
+                  <div>
+                    <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 mb-2">Nova Paw Festival</p>
+                    <p className="text-white text-[22px] font-black tracking-tight leading-tight">Official Entry Pass<br />Qatar · 2026</p>
+                  </div>
+                  <div className="text-right">
+                    <div className="bg-primary px-4 py-2 rounded-sm inline-block">
+                      <p className="text-white text-[12px] font-black uppercase tracking-widest">{tierLabel}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Dashed Divider */}
+                <div className="flex items-center px-8 py-0">
+                  <div className="w-6 h-6 rounded-full bg-[#F5F5F0] border border-black/5 -ml-11 flex-shrink-0" />
+                  <div className="flex-1 border-t-2 border-dashed border-black/10 mx-4" />
+                  <div className="w-6 h-6 rounded-full bg-[#F5F5F0] border border-black/5 -mr-11 flex-shrink-0" />
+                </div>
+
+                {/* Ticket Body */}
+                <div className="px-10 py-10 flex flex-col md:flex-row gap-10">
+                  
+                  {/* QR Code */}
+                  <div className="flex flex-col items-center gap-4 flex-shrink-0">
+                    <div className="p-3 border-2 border-black rounded-sm bg-white">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={QR_CODE_URL}
+                        alt="Entry QR Code"
+                        width={180}
+                        height={180}
+                        className="block"
+                      />
+                    </div>
+                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30 text-center">Scan at Entrance</p>
+                  </div>
+
+                  {/* Details */}
+                  <div className="flex-1 grid grid-cols-2 gap-x-8 gap-y-8 content-start">
+                    <div className="col-span-2">
+                      <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30 mb-1">Attendee Name</p>
+                      <p className="font-black text-[26px] tracking-tight leading-tight">{data.fullName}</p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30 mb-1">Adults</p>
+                      <p className="font-black text-[22px]">{data.adultQty}</p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30 mb-1">Kids</p>
+                      <p className="font-black text-[22px]">{data.kidsQty > 0 ? data.kidsQty : '—'}</p>
+                    </div>
+                    {data.petQty > 0 && (
+                      <div className="col-span-2">
+                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30 mb-1">Registered Pet</p>
+                        <p className="font-black text-[22px]">{data.petName}</p>
+                      </div>
+                    )}
+                    <div className="col-span-2 pt-6 border-t border-black/10 flex items-center justify-between">
+                      <div>
+                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30 mb-1">Venue</p>
+                        <p className="font-black text-[16px]">The Pearl · Qatar</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30 mb-1">Total Paid</p>
+                        <p className="font-black text-[20px] text-primary">QAR {data.total}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Ticket Footer */}
+                <div className="border-t border-black/5 bg-[#F5F5F0] px-10 py-5 flex items-center justify-between">
+                  <p className="text-[11px] font-black uppercase tracking-[0.2em] text-black/30">Present QR at Main Gate</p>
+                  <div className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-green-500" />
+                    <p className="text-[11px] font-black uppercase tracking-[0.1em] text-green-600">Verified &amp; Confirmed</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Sidebar */}
+            <div className="lg:col-span-2 space-y-4">
+              
+              {/* Contact Card */}
+              <div className="bg-white rounded-sm border border-black/5 p-8">
+                <p className="text-[11px] font-black uppercase tracking-[0.2em] text-black/30 mb-6">Your Details</p>
+                <div className="space-y-5">
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-black/30 mb-1">Email</p>
+                    <p className="font-bold text-[15px]">{data.email}</p>
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-black/30 mb-1">Phone</p>
+                    <p className="font-bold text-[15px]">{data.phone}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Info Card */}
+              <div className="bg-black rounded-sm p-8 space-y-6">
+                <p className="text-[11px] font-black uppercase tracking-[0.2em] text-white/40">What to Know</p>
+                <div className="space-y-4">
+                  {[
+                    "Arrive 30 mins before your competition slot",
+                    "Valid pet passport required at the gate",
+                    data.tier === 'dog-owner' ? "Muzzle required for medium & large dogs" : data.tier === 'cat-owner' ? "Carrier required for your cat at all times" : "Tickets are non-transferable",
+                    "Photography & media coverage will be present"
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0 mt-2" />
+                      <p className="text-[13px] font-medium text-white/60 leading-relaxed">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex gap-3">
+                <button onClick={() => window.print()} className="flex-1 py-4 rounded-sm bg-white border border-black/10 font-black text-[12px] uppercase tracking-widest text-black/50 hover:text-black hover:border-black transition-all">
+                  Download
+                </button>
+                <button onClick={() => window.location.href = '/'} className="flex-1 py-4 rounded-sm bg-primary text-white font-black text-[12px] uppercase tracking-widest hover:bg-primary/90 transition-all">
+                  Home
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
