@@ -87,130 +87,133 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
   ];
 
   const renderStep1 = () => (
-    <div className="animate-in fade-in slide-in-from-right-8 duration-700 ease-[var(--ease-out)] space-y-12">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <div className="space-y-4">
-          <Label className="text-[11px] font-black uppercase tracking-[0.2em] text-black/40 px-2">Full Name *</Label>
+    <div className="animate-in fade-in slide-in-from-right duration-500 space-y-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="space-y-3">
+          <Label className="text-[12px] font-black uppercase tracking-widest text-black/40 px-2">Full Name *</Label>
           <div className="relative">
             <User className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-black/20" />
-            <input type="text" placeholder="Your full name" className="w-full bg-[#F9F9F9] border border-black/5 rounded-none px-14 py-6 outline-none focus:border-primary focus:bg-white transition-all duration-500 ease-[var(--ease-out)] font-body text-black" />
+            <input type="text" placeholder="Your full name" className="w-full bg-[#F9F9F9] border border-black/5    rounded-sm  px-14 py-5 outline-none focus:border-primary focus:bg-white transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] font-body text-black" />
           </div>
         </div>
-        <div className="space-y-4">
-          <Label className="text-[11px] font-black uppercase tracking-[0.2em] text-black/40 px-2">Email *</Label>
+        <div className="space-y-3">
+          <Label className="text-[12px] font-black uppercase tracking-widest text-black/40 px-2">Email *</Label>
           <div className="relative">
             <Mail className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-black/20" />
-            <input type="email" placeholder="your@email.com" className="w-full bg-[#F9F9F9] border border-black/5 rounded-none px-14 py-6 outline-none focus:border-primary focus:bg-white transition-all duration-500 ease-[var(--ease-out)] font-body text-black" />
+            <input type="email" placeholder="your@email.com" className="w-full bg-[#F9F9F9] border border-black/5    rounded-sm  px-14 py-5 outline-none focus:border-primary focus:bg-white transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] font-body text-black" />
           </div>
         </div>
-        <div className="space-y-4 md:col-span-2">
-          <Label className="text-[11px] font-black uppercase tracking-[0.2em] text-black/40 px-2">Mobile Number *</Label>
+        <div className="space-y-3 md:col-span-2">
+          <Label className="text-[12px] font-black uppercase tracking-widest text-black/40 px-2">Mobile Number *</Label>
           <div className="relative">
             <Phone className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-black/20" />
-            <input type="tel" placeholder="+974 XXXX XXXX" className="w-full bg-[#F9F9F9] border border-black/5 rounded-none px-14 py-6 outline-none focus:border-primary focus:bg-white transition-all duration-500 ease-[var(--ease-out)] font-body text-black" />
+            <input type="tel" placeholder="+974 XXXX XXXX" className="w-full bg-[#F9F9F9] border border-black/5    rounded-sm  px-14 py-5 outline-none focus:border-primary focus:bg-white transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] font-body text-black" />
           </div>
         </div>
       </div>
-      <button onClick={() => setStep(2)} className="w-full bg-black text-white rounded-none py-8 text-[14px] font-black uppercase tracking-[0.2em] flex items-center justify-center gap-4 transition-all duration-300 ease-[var(--ease-out)] hover:scale-[1.01] active:scale-[0.98] shadow-sm">
+      <button onClick={() => setStep(2)} className="w-full bg-black text-white    rounded-sm  py-6 text-[18px] font-bold flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-black/90  shadow-sm  shadow-black/10">
         Next: Selection <ArrowRight className="w-5 h-5" />
       </button>
     </div>
   );
 
   const renderStep2 = () => (
-    <div className="animate-in fade-in slide-in-from-right-8 duration-700 ease-[var(--ease-out)] space-y-12">
+    <div className="animate-in fade-in slide-in-from-right duration-500 space-y-10">
       
       {/* Pet Section */}
       {selectedTier !== 'adult' && (
-        <div className="space-y-10 bg-white border border-black/5 p-10 rounded-none shadow-sm">
-          <div className="flex items-center gap-6 mb-4">
-            <div className="w-16 h-16 bg-primary/10 rounded-none flex items-center justify-center text-primary">
-              {selectedTier === 'dog-owner' ? <Dog className="w-8 h-8" /> : <Cat className="w-8 h-8" />}
+        <div className="space-y-8 bg-white border border-black/5 p-8    rounded-sm  ">
+          <div className="flex items-center gap-4 mb-2">
+            <div className="w-12 h-12 bg-primary/10    rounded-sm  flex items-center justify-center text-primary">
+              {selectedTier === 'dog-owner' ? <Dog className="w-6 h-6" /> : <Cat className="w-6 h-6" />}
             </div>
             <div>
-              <h4 className="text-[20px] font-black uppercase tracking-tight leading-none mb-2">{selectedTier === 'dog-owner' ? 'Dog' : 'Cat'} Info</h4>
-              <p className="text-[13px] text-black/40 font-bold uppercase tracking-widest">Pet Registration details</p>
+              <h4 className="text-[18px] font-black uppercase tracking-tight">{selectedTier === 'dog-owner' ? 'Dog' : 'Cat'} Information</h4>
+              <p className="text-[13px] text-black/40 font-medium">Please provide your pet's details</p>
             </div>
           </div>
 
-          <div className="space-y-6">
-            <div className="space-y-4">
-              <Label className="text-[11px] font-black uppercase tracking-[0.2em] text-black/40 px-2">Pet Name(s) *</Label>
+          <div className="space-y-4">
+            <div className="space-y-3">
+              <Label className="text-[12px] font-black uppercase tracking-widest text-black/40 px-2">Pet Name(s) *</Label>
               <input 
                 value={petName} 
                 onChange={(e) => setPetName(e.target.value)}
                 placeholder={selectedTier === 'dog-owner' ? "Buddy" : "Luna, Simpa"} 
-                className="w-full bg-[#F9F9F9] border border-black/5 rounded-none px-8 py-6 outline-none focus:border-primary focus:bg-white transition-all duration-500 font-body font-bold" 
+                className="w-full bg-[#F9F9F9] border border-black/5    rounded-sm  px-6 py-5 outline-none focus:border-primary focus:bg-white transition-all font-body" 
               />
             </div>
 
-            <div className="flex items-center justify-between pt-6 border-t border-black/5">
+            <div className="flex items-center justify-between pt-4">
               <div>
-                <Label className="text-[14px] font-black uppercase tracking-widest text-black">Quantity *</Label>
-                <p className="text-[11px] text-black/30 font-bold uppercase tracking-widest mt-1">{selectedTier === 'dog-owner' ? 'Max 1 per Adult' : 'Max 2 Cats'}</p>
+                <Label className="text-[15px] font-bold text-black">Number of {selectedTier === 'dog-owner' ? 'Dogs' : 'Cats'} *</Label>
+                <p className="text-[13px] text-black/40">{selectedTier === 'dog-owner' ? '(Maximum: 1 Dog Per Adult Only)' : '(Maximum 2 Cats Only)'}</p>
               </div>
-              <div className="flex items-center gap-6 bg-[#F9F9F9] p-3 rounded-none border border-black/5">
-                <button onClick={() => setPetQty(Math.max(1, petQty - 1))} className="w-12 h-12 rounded-none bg-white border border-black/5 flex items-center justify-center shadow-sm active:scale-90 transition-all"><Minus className="w-5 h-5" /></button>
-                <span className="text-[20px] font-black w-8 text-center">{petQty}</span>
+              <div className="flex items-center gap-4 bg-[#F9F9F9] p-2    rounded-sm  border border-black/5">
+                <button onClick={() => setPetQty(Math.max(1, petQty - 1))} className="w-10 h-10  rounded-sm bg-white flex items-center justify-center shadow-sm active:scale-95 transition-all"><Minus className="w-4 h-4" /></button>
+                <span className="text-[18px] font-black w-8 text-center">{petQty}</span>
                 <button 
                   onClick={() => {
                     if (selectedTier === 'dog-owner' && petQty < adultQty) setPetQty(petQty + 1);
                     if (selectedTier === 'cat-owner' && petQty < 2) setPetQty(petQty + 1);
                   }} 
-                  className={`w-12 h-12 rounded-none flex items-center justify-center shadow-sm active:scale-90 transition-all ${
+                  className={`w-10 h-10  rounded-sm flex items-center justify-center shadow-sm active:scale-95 transition-all ${
                     (selectedTier === 'dog-owner' && petQty >= adultQty) || (selectedTier === 'cat-owner' && petQty >= 2)
-                    ? 'bg-black/5 text-black/20' : 'bg-primary text-black'
+                    ? 'bg-black/5 text-black/20' : 'bg-primary text-white'
                   }`}
                 >
-                  <Plus className="w-5 h-5" />
+                  <Plus className="w-4 h-4" />
                 </button>
               </div>
             </div>
+            {selectedTier === 'dog-owner' && petQty >= adultQty && (
+              <p className="text-[11px] text-primary font-bold px-2">* Add more Adult tickets to register more dogs.</p>
+            )}
           </div>
         </div>
       )}
 
       {/* Visitor Section */}
-      <div className="space-y-10 bg-white border border-black/5 p-10 rounded-none shadow-sm">
-        <div className="flex items-center gap-6 mb-4">
-          <div className="w-16 h-16 bg-black/5 rounded-none flex items-center justify-center text-black">
-            <User className="w-8 h-8" />
+      <div className="space-y-8 bg-white border border-black/5 p-8    rounded-sm  ">
+        <div className="flex items-center gap-4 mb-2">
+          <div className="w-12 h-12 bg-black/5    rounded-sm  flex items-center justify-center text-black">
+            <User className="w-6 h-6" />
           </div>
           <div>
-            <h4 className="text-[20px] font-black uppercase tracking-tight leading-none mb-2">Visitors</h4>
-            <p className="text-[13px] text-black/40 font-bold uppercase tracking-widest">Ticket Quantities</p>
+            <h4 className="text-[18px] font-black uppercase tracking-tight">Visitor Information</h4>
+            <p className="text-[13px] text-black/40 font-medium">Select ticket quantities</p>
           </div>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-6">
           <div className="flex items-center justify-between">
             <div>
-              <h4 className="text-[15px] font-black uppercase tracking-widest text-black">Adult Tickets</h4>
-              <p className="text-[12px] text-black/40 font-bold">QAR 25 / Person</p>
+              <h4 className="text-[16px] font-bold text-black">Adult Tickets</h4>
+              <p className="text-[13px] text-black/40">QAR 25 per person</p>
             </div>
-            <div className="flex items-center gap-6 bg-[#F9F9F9] p-3 rounded-none border border-black/5">
-              <button onClick={() => setAdultQty(Math.max(1, adultQty - 1))} className="w-12 h-12 rounded-none bg-white border border-black/5 flex items-center justify-center shadow-sm active:scale-90 transition-all"><Minus className="w-5 h-5" /></button>
-              <span className="text-[20px] font-black w-8 text-center">{adultQty}</span>
-              <button onClick={() => setAdultQty(adultQty + 1)} className="w-12 h-12 rounded-none bg-primary text-black flex items-center justify-center shadow-sm active:scale-90 transition-all"><Plus className="w-5 h-5" /></button>
+            <div className="flex items-center gap-4 bg-[#F9F9F9] p-2    rounded-sm  border border-black/5">
+              <button onClick={() => setAdultQty(Math.max(1, adultQty - 1))} className="w-10 h-10  rounded-sm bg-white flex items-center justify-center shadow-sm active:scale-95 transition-all"><Minus className="w-4 h-4" /></button>
+              <span className="text-[18px] font-black w-8 text-center">{adultQty}</span>
+              <button onClick={() => setAdultQty(adultQty + 1)} className="w-10 h-10  rounded-sm bg-primary text-white flex items-center justify-center shadow-sm active:scale-95 transition-all"><Plus className="w-4 h-4" /></button>
             </div>
           </div>
 
-          <div className="flex items-center justify-between pt-8 border-t border-black/5">
+          <div className="flex items-center justify-between">
             <div>
-              <h4 className="text-[15px] font-black uppercase tracking-widest text-black">Kid Tickets</h4>
-              <p className="text-[12px] text-black/40 font-bold">QAR 15 / Person</p>
+              <h4 className="text-[16px] font-bold text-black">Kid Tickets</h4>
+              <p className="text-[13px] text-black/40">QAR 15 per person (Under 12)</p>
             </div>
-            <div className="flex items-center gap-6 bg-[#F9F9F9] p-3 rounded-none border border-black/5">
-              <button onClick={() => setKidsQty(Math.max(0, kidsQty - 1))} className="w-12 h-12 rounded-none bg-white border border-black/5 flex items-center justify-center shadow-sm active:scale-90 transition-all"><Minus className="w-5 h-5" /></button>
-              <span className="text-[20px] font-black w-8 text-center">{kidsQty}</span>
-              <button onClick={() => setKidsQty(kidsQty + 1)} className="w-12 h-12 rounded-none bg-primary text-black flex items-center justify-center shadow-sm active:scale-90 transition-all"><Plus className="w-5 h-5" /></button>
+            <div className="flex items-center gap-4 bg-[#F9F9F9] p-2    rounded-sm  border border-black/5">
+              <button onClick={() => setKidsQty(Math.max(0, kidsQty - 1))} className="w-10 h-10  rounded-sm bg-white flex items-center justify-center shadow-sm active:scale-95 transition-all"><Minus className="w-4 h-4" /></button>
+              <span className="text-[18px] font-black w-8 text-center">{kidsQty}</span>
+              <button onClick={() => setKidsQty(kidsQty + 1)} className="w-10 h-10  rounded-sm bg-primary text-white flex items-center justify-center shadow-sm active:scale-95 transition-all"><Plus className="w-4 h-4" /></button>
             </div>
           </div>
         </div>
       </div>
 
-      <button onClick={() => setStep(3)} className="w-full bg-black text-white rounded-none py-8 text-[14px] font-black uppercase tracking-[0.2em] flex items-center justify-center gap-4 transition-all duration-300 ease-[var(--ease-out)] hover:scale-[1.01] active:scale-[0.98] shadow-sm">
-        Next: Safety Terms <ArrowRight className="w-5 h-5" />
+      <button onClick={() => setStep(3)} className="w-full bg-black text-white    rounded-sm  py-6 text-[18px] font-bold flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-black/90  shadow-sm  shadow-black/10">
+        Next: Terms & Conditions <ArrowRight className="w-5 h-5" />
       </button>
     </div>
   );
@@ -220,21 +223,21 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
     const isDog = selectedTier === 'dog-owner';
 
     return (
-      <div className="animate-in fade-in slide-in-from-right-8 duration-700 ease-[var(--ease-out)] space-y-12">
-        <div className="space-y-8">
-          <div className="flex items-center justify-between mb-10">
+      <div className="animate-in fade-in slide-in-from-right duration-500 space-y-10">
+        <div className="space-y-6">
+          <div className="flex items-center justify-between mb-8">
             <div>
-              <h4 className="text-[24px] font-black uppercase tracking-tight mb-2">Safety Terms</h4>
-              <p className="text-[13px] text-black/40 font-bold uppercase tracking-widest">{isDog ? "16 points individual check required" : "General event safety rules"}</p>
+              <h4 className="text-[18px] font-black uppercase tracking-tight">Terms & Conditions</h4>
+              <p className="text-[13px] text-black/40 font-medium">{isDog ? "16 items must be checked individually" : "Please agree to the terms below"}</p>
             </div>
-            {isDog && <span className="bg-primary text-black px-6 py-2 rounded-none text-[11px] font-black uppercase tracking-[0.2em]">Mandatory</span>}
+            {isDog && <span className="bg-primary/10 text-primary px-4 py-2 rounded-full text-[12px] font-black uppercase">Mandatory</span>}
           </div>
 
-          <div className={`grid grid-cols-1 gap-4 ${isDog ? 'max-h-[600px]' : ''} overflow-y-auto pr-6 custom-scrollbar`}>
+          <div className={`grid grid-cols-1 gap-4 ${isDog ? 'max-h-[500px]' : ''} overflow-y-auto pr-4 custom-scrollbar`}>
             {currentTerms.map((term, i) => (
-              <div key={i} className="flex items-start space-x-6 p-8 rounded-none bg-[#F9F9F9] border border-black/5 transition-all duration-300 hover:border-primary/50 group cursor-pointer">
-                <Checkbox id={`term-${i}`} className="mt-1 w-6 h-6 rounded-none border-black/10 data-[state=checked]:bg-primary data-[state=checked]:border-primary" required />
-                <Label htmlFor={`term-${i}`} className="text-[15px] text-black/50 leading-relaxed font-medium cursor-pointer group-hover:text-black transition-colors">
+              <div key={i} className="flex items-start space-x-4 p-5    rounded-sm  bg-[#F9F9F9] border border-black/5 transition-all hover:border-primary/30 group cursor-pointer">
+                <Checkbox id={`term-${i}`} className="mt-1 w-5 h-5    rounded-sm  border-black/10 data-[state=checked]:bg-primary data-[state=checked]:border-primary" required />
+                <Label htmlFor={`term-${i}`} className="text-[14px] text-black/60 leading-relaxed cursor-pointer group-hover:text-black transition-colors">
                   {term}
                 </Label>
               </div>
@@ -242,7 +245,7 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
           </div>
         </div>
 
-        <button onClick={() => setStep(4)} className="w-full bg-black text-white rounded-none py-8 text-[14px] font-black uppercase tracking-[0.2em] transition-all duration-300 ease-[var(--ease-out)] hover:scale-[1.01] active:scale-[0.98] shadow-sm">
+        <button onClick={() => setStep(4)} className="w-full bg-black text-white    rounded-sm  py-6 text-[18px] font-bold transition-all active:scale-[0.97] hover:bg-black/90  shadow-sm  shadow-black/10">
           Proceed to Payment
         </button>
       </div>
@@ -250,99 +253,100 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
   };
 
   const renderStep4 = () => (
-    <div className="animate-in fade-in slide-in-from-right-8 duration-700 ease-[var(--ease-out)] space-y-12">
-      <div className="space-y-10">
-        <h4 className="text-[24px] font-black uppercase tracking-tight text-center">Payment Method</h4>
-        <div className="grid grid-cols-2 gap-8">
-          <button className="p-10 rounded-none border-2 border-primary bg-primary/5 flex flex-col items-center gap-4 transition-all duration-300 hover:bg-primary/10 active:scale-[0.98]">
-            <CreditCard className="w-10 h-10 text-primary" />
-            <span className="font-black uppercase tracking-widest text-[13px]">Debit / Credit</span>
+    <div className="animate-in fade-in slide-in-from-right duration-500 space-y-10">
+      <div className="space-y-8">
+        <h4 className="text-[18px] font-black uppercase tracking-tight text-center">Payment Method</h4>
+        <div className="grid grid-cols-2 gap-4">
+          <button className="p-8 rounded-sm border border-primary bg-primary/5 flex flex-col items-center gap-3 transition-all active:scale-[0.95]">
+            <CreditCard className="w-8 h-8 text-primary" />
+            <span className="font-bold">Card</span>
           </button>
-          <button className="p-10 rounded-none border border-black/5 bg-[#F9F9F9] flex flex-col items-center gap-4 transition-all duration-300 hover:bg-black/5 active:scale-[0.98]">
-            <div className="w-10 h-10 bg-black text-white rounded-none flex items-center justify-center font-black text-[12px] uppercase">Pay</div>
-            <span className="font-black uppercase tracking-widest text-[13px]">Express Pay</span>
+          <button className="p-8 rounded-sm border border-black/5 bg-[#F9F9F9] flex flex-col items-center gap-3 transition-all active:scale-[0.95]">
+            <div className="w-8 h-8 bg-black text-white    rounded-sm  flex items-center justify-center font-bold text-[12px]">Pay</div>
+            <span className="font-bold">Apple/Google</span>
           </button>
         </div>
       </div>
-      <button onClick={() => setStep(5)} className="w-full bg-black text-white rounded-none py-8 text-[14px] font-black uppercase tracking-[0.2em] transition-all duration-300 ease-[var(--ease-out)] hover:scale-[1.01] active:scale-[0.98] shadow-sm">
+      <button onClick={() => setStep(5)} className="w-full bg-black text-white    rounded-sm  py-6 text-[18px] font-bold transition-all active:scale-[0.97] hover:bg-black/90  shadow-sm ">
         Submit Payment
       </button>
     </div>
   );
 
   const renderStep5 = () => (
-    <div className="animate-in fade-in slide-in-from-right-8 duration-700 ease-[var(--ease-out)] space-y-12 text-center">
-      <div className="space-y-8">
-        <h4 className="text-[24px] font-black uppercase tracking-tight">OTP Verification</h4>
-        <p className="text-black/40 font-bold uppercase tracking-widest text-[12px]">Verification code sent to your mobile</p>
+    <div className="animate-in fade-in slide-in-from-right duration-500 space-y-10 text-center">
+      <div className="space-y-6">
+        <h4 className="text-[18px] font-black uppercase tracking-tight">OTP Verification</h4>
+        <p className="text-black/50">We've sent a 6-digit code to your mobile/email.</p>
         <div className="flex justify-center">
           <input 
             type="text" 
             maxLength={6} 
             value={otp}
             onChange={(e) => setOtp(e.target.value)}
-            className="w-full max-w-[400px] h-24 text-center text-[48px] font-black tracking-[0.5em] rounded-none border-2 border-black/5 bg-[#F9F9F9] focus:bg-white focus:border-primary outline-none transition-all duration-500 ease-[var(--ease-out)]"
+            className="w-full max-w-[300px] h-20 text-center text-[32px] font-black tracking-[0.5em]    rounded-sm  border border-black/5 bg-[#F9F9F9] focus:bg-white focus:border-primary outline-none transition-all"
             placeholder="000000"
           />
         </div>
       </div>
-      <button onClick={() => setStep(6)} className="w-full bg-black text-white rounded-none py-8 text-[14px] font-black uppercase tracking-[0.2em] transition-all duration-300 ease-[var(--ease-out)] hover:scale-[1.01] active:scale-[0.98] shadow-sm">
+      <button onClick={() => setStep(6)} className="w-full bg-black text-white    rounded-sm  py-6 text-[18px] font-bold transition-all active:scale-[0.97] hover:bg-black/90  shadow-sm ">
         Verify & Generate Tickets
       </button>
     </div>
   );
 
   const renderStep6 = () => (
-    <div className="animate-in zoom-in-95 fade-in duration-1000 ease-[var(--ease-out)] space-y-12 text-center py-10">
-      <div className="w-28 h-28 bg-primary text-black rounded-none flex items-center justify-center mx-auto mb-10 shadow-sm shadow-primary/40 border-4 border-primary">
-        <Check className="w-14 h-14 stroke-[4px]" />
+    <div className="animate-in zoom-in fade-in duration-700 space-y-8 text-center py-10">
+      <div className="w-24 h-24 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-8  shadow-sm  shadow-primary/40">
+        <Check className="w-12 h-12 stroke-[3px]" />
       </div>
-      <div className="space-y-4">
-        <h3 className="text-[48px] md:text-[64px] font-black font-display mb-4 tracking-tighter leading-none">Purchase <br /> Successful!</h3>
-        <p className="text-[18px] text-black/40 font-bold uppercase tracking-widest leading-relaxed">
-          Your QR Tickets have been sent to your email.
+      <div>
+        <h3 className="text-[36px] font-black font-display mb-4 tracking-tight">Purchase Successful!</h3>
+        <p className="text-[18px] text-black/50 max-w-[500px] mx-auto leading-relaxed">
+          Your tickets have been purchased successfully. Your QR code has been sent to your email and mobile number. Please present your QR code at the entrance.
         </p>
       </div>
-      <div className="glass rounded-none p-12 space-y-6 text-left max-w-[500px] mx-auto border border-black/5">
-        <div className="flex justify-between border-b border-black/5 pb-6">
-          <span className="text-black/30 font-black uppercase text-[11px] tracking-[0.2em]">Reference ID</span>
-          <span className="font-black font-mono">NPV-2026-T8X</span>
+      <div className="bg-[#F9F9F9] rounded-sm p-10 space-y-5 text-left max-w-[450px] mx-auto border border-black/5">
+        <div className="flex justify-between border-b border-black/5 pb-4">
+          <span className="text-black/40 font-bold uppercase text-[12px] tracking-widest">Order ID</span>
+          <span className="font-black">#NPV-2026-T8X</span>
         </div>
         <div className="flex justify-between items-center pt-2">
-          <span className="text-black/30 font-black uppercase text-[11px] tracking-[0.2em]">Final Total</span>
-          <span className="text-[40px] font-display font-black text-primary">QAR {total}</span>
+          <span className="text-black/40 font-bold uppercase text-[12px] tracking-widest">Total Paid</span>
+          <span className="text-[32px] font-display font-black text-primary">QAR {total}</span>
         </div>
       </div>
-      <button onClick={() => window.location.href = '/'} className="inline-flex items-center justify-center px-16 py-8 bg-black text-white rounded-none font-black text-[14px] uppercase tracking-[0.2em] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-sm">
+      <button onClick={() => window.location.href = '/'} className="inline-flex items-center justify-center px-12 py-6 bg-black text-white    rounded-sm  font-black text-[18px] transition-all hover:scale-105 active:scale-95  shadow-sm  shadow-black/20">
         Return to Festival Home
       </button>
     </div>
   );
 
   return (
-    <section className="py-24 md:py-32 bg-white relative overflow-hidden">
-      <div className="container mx-auto px-6 max-w-[1000px]">
-        <div className="bg-white rounded-none p-8 md:p-20 shadow-sm border border-black/5 relative overflow-hidden">
+    <section className="py-20 md:py-32 bg-[#F9F9F9]">
+      <div className="container mx-auto px-6 max-w-[900px]">
+        <div className="bg-white rounded-sm p-8 md:p-20  shadow-sm  shadow-black/5 border border-black/5 relative overflow-hidden">
           
           {/* Header */}
           {step < 6 && (
-            <div className="mb-20">
-              <div className="flex items-center gap-4 mb-10">
-                <span className="px-6 py-2 bg-black text-white text-[11px] font-black uppercase tracking-[0.3em]">
-                  Step 0{step}
+            <div className="mb-16">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="px-4 py-1.5 rounded-full bg-black text-white text-[10px] font-black uppercase tracking-widest">
+                  Step {step} of 5
                 </span>
-                <span className="text-primary font-black uppercase text-[12px] tracking-[0.2em]">
-                  {selectedTier.replace('-', ' ')}
+                <span className="text-black/20 font-black">/</span>
+                <span className="text-black/60 font-bold uppercase text-[11px] tracking-widest">
+                  {selectedTier.replace('-', ' ')} flow
                 </span>
               </div>
-              <h2 className="text-[48px] md:text-[84px] font-display font-black text-black leading-[0.9] tracking-tighter mb-10">
-                {step === 1 ? "Owner Details" : step === 2 ? "Select Tickets" : step === 3 ? "Safety Check" : step === 4 ? "Checkout" : "Verification"}
+              <h2 className="text-[40px] md:text-[60px] font-display font-black text-black leading-[0.95] tracking-tighter mb-6">
+                {step === 1 ? "Owner Details" : step === 2 ? "Ticket Selection" : step === 3 ? "Safety Terms" : step === 4 ? "Payment" : "Verification"}
               </h2>
               
               {/* Progress Bar */}
-              <div className="w-full h-[4px] bg-black/5 rounded-none overflow-hidden relative">
+              <div className="w-full h-1.5 bg-black/5 rounded-full overflow-hidden">
                 <div 
-                  className="h-full bg-primary transition-all duration-1000 ease-[var(--ease-in-out)]" 
+                  className="h-full bg-primary transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]" 
                   style={{ width: `${(step / 5) * 100}%` }}
                 />
               </div>
@@ -357,31 +361,29 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
           {step === 6 && renderStep6()}
 
           {/* Summary Preview */}
-          {step < 6 && (
-            <div className="mt-20 pt-16 border-t border-black/5">
-              <div className="bg-[#F9F9F9] rounded-none p-12 space-y-6">
-                <h5 className="text-[11px] font-black uppercase tracking-[0.3em] text-black/30 mb-8">Booking Summary</h5>
-                <div className="space-y-4">
-                  <div className="flex justify-between text-[15px] font-bold text-black px-2">
-                    <span className="uppercase tracking-widest text-black/40">Adult x {adultQty}</span>
-                    <span>QAR {adultQty * ADULT_PRICE}</span>
+          {step < 4 && (
+            <div className="mt-16 bg-[#F9F9F9]    rounded-sm  p-10 space-y-5 border border-black/5">
+              <h5 className="text-[12px] font-black uppercase tracking-[0.2em] text-black/30 mb-4 px-2">Order Summary</h5>
+              <div className="space-y-4">
+                <div className="flex justify-between text-[16px] font-bold text-black/60 px-2">
+                  <span>Adult Tickets × {adultQty}</span>
+                  <span>QAR {adultQty * ADULT_PRICE}</span>
+                </div>
+                {kidsQty > 0 && (
+                  <div className="flex justify-between text-[16px] font-bold text-black/60 px-2">
+                    <span>Kids Tickets × {kidsQty}</span>
+                    <span>QAR {kidsQty * KID_PRICE}</span>
                   </div>
-                  {kidsQty > 0 && (
-                    <div className="flex justify-between text-[15px] font-bold text-black px-2">
-                      <span className="uppercase tracking-widest text-black/40">Kids x {kidsQty}</span>
-                      <span>QAR {kidsQty * KID_PRICE}</span>
-                    </div>
-                  )}
-                  {petQty > 0 && (
-                    <div className="flex justify-between text-[15px] font-bold text-black px-2">
-                      <span className="uppercase tracking-widest text-black/40">{selectedTier === 'dog-owner' ? 'Dog' : 'Cat'} x {petQty}</span>
-                      <span>QAR {petQty * PET_FEE}</span>
-                    </div>
-                  )}
-                  <div className="pt-8 mt-4 border-t-2 border-black/5 flex justify-between items-center px-2">
-                    <span className="text-[18px] font-black text-black uppercase tracking-[0.2em]">Total</span>
-                    <span className="text-[48px] font-display font-black text-primary leading-none">QAR {total}</span>
+                )}
+                {petQty > 0 && (
+                  <div className="flex justify-between text-[16px] font-bold text-black/60 px-2">
+                    <span>{selectedTier === 'dog-owner' ? 'Dog' : 'Cat'} Registration × {petQty}</span>
+                    <span>QAR {petQty * PET_FEE}</span>
                   </div>
+                )}
+                <div className="pt-6 border-t border-black/10 flex justify-between items-center px-2">
+                  <span className="text-[20px] font-black text-black uppercase tracking-widest">Total</span>
+                  <span className="text-[36px] font-display font-black text-primary">QAR {total}</span>
                 </div>
               </div>
             </div>

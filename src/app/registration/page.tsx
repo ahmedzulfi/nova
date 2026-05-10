@@ -301,24 +301,20 @@ export default function RegistrationPage() {
 
           {/* Progress Steps */}
           {step < 4 && (
-            <div className="flex items-center justify-center gap-6 mb-20">
+            <div className="flex items-center justify-center gap-4 mb-16">
               {[1, 2, 3].map((i) => (
                 <React.Fragment key={i}>
-                  <div className={`flex items-center gap-4 transition-all duration-500 ${step >= i ? 'text-black' : 'text-black/20'}`}>
-                    <div className={`w-12 h-12 rounded-none flex items-center justify-center font-black text-[16px] transition-all duration-700 ease-[var(--ease-out)] ${
-                      step >= i ? 'bg-primary text-black border-2 border-primary shadow-sm shadow-primary/20' : 'bg-[#F9F9F9] border border-black/5'
+                  <div className={`flex items-center gap-3 ${step >= i ? 'text-primary' : 'text-black/20'}`}>
+                    <div className={`w-10 h-10 rounded-sm flex items-center justify-center font-black text-[16px] transition-all duration-500 active:scale-[0.95] ${
+                      step >= i ? 'bg-primary text-white shadow-sm shadow-primary/20' : 'bg-[#F9F9F9] border border-black/5'
                     }`}>
                       {i}
                     </div>
-                    <span className="hidden sm:inline font-black text-[11px] uppercase tracking-[0.2em]">
+                    <span className="hidden sm:inline font-bold text-[14px] uppercase tracking-widest">
                       {i === 1 ? "Event" : i === 2 ? "Owner" : "Details"}
                     </span>
                   </div>
-                  {i < 3 && (
-                    <div className="w-16 h-[2px] bg-black/5 overflow-hidden">
-                      <div className={`h-full bg-primary transition-all duration-1000 ease-[var(--ease-in-out)] ${step > i ? 'w-full' : 'w-0'}`} />
-                    </div>
-                  )}
+                  {i < 3 && <div className={`w-12 h-[2px] transition-all duration-500 ${step > i ? 'bg-primary' : 'bg-black/5'}`} />}
                 </React.Fragment>
               ))}
             </div>
@@ -338,7 +334,7 @@ export default function RegistrationPage() {
                 <ArrowLeft className="w-4 h-4" /> Back to Selection
               </button>
 
-              <form onSubmit={handleBasicInfoSubmit} className="space-y-12 bg-[#F9F9F9] p-8 md:p-16 rounded-none border border-black/5 shadow-sm shadow-black/5 animate-in fade-in slide-in-from-bottom-8 duration-700 ease-[var(--ease-out)]">
+              <form onSubmit={handleBasicInfoSubmit} className="space-y-8 bg-[#F9F9F9] p-8 md:p-12 rounded-sm border border-black/5 shadow-sm shadow-black/5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-3">
                     <Label className="text-[12px] font-black uppercase tracking-widest text-black/40 px-2">Full Name *</Label>
@@ -357,7 +353,7 @@ export default function RegistrationPage() {
                     <Input required placeholder="Your address in Qatar" className="h-14    rounded-sm  border-black/5 bg-white focus:ring-primary" onChange={(e) => setFormData({...formData, address: e.target.value})} />
                   </div>
                 </div>
-                <Button type="submit" className="w-full h-20 bg-black text-white font-black rounded-none text-[14px] uppercase tracking-[0.2em] transition-all duration-300 ease-[var(--ease-out)] hover:scale-[1.01] active:scale-[0.98] shadow-sm">
+                <Button type="submit" className="w-full h-16 bg-black text-white font-black    rounded-sm  text-[18px] transition-all active:scale-[0.97] hover:bg-black/90 shadow-xl shadow-black/10">
                   Continue Registration
                 </Button>
               </form>
@@ -371,7 +367,7 @@ export default function RegistrationPage() {
                 <ArrowLeft className="w-4 h-4" /> Back to Owner Info
               </button>
 
-              <form onSubmit={handleCompetitionInfoSubmit} className="space-y-12 bg-[#F9F9F9] p-8 md:p-16 rounded-none border border-black/5 shadow-sm shadow-black/5 animate-in fade-in slide-in-from-right-8 duration-700 ease-[var(--ease-out)]">
+              <form onSubmit={handleCompetitionInfoSubmit} className="space-y-8 bg-[#F9F9F9] p-8 md:p-12 rounded-sm border border-black/5 shadow-sm shadow-black/5">
                 
                 {renderCompetitionSpecificFields()}
 
@@ -396,7 +392,7 @@ export default function RegistrationPage() {
 
                 {renderTermsAndConditions()}
 
-                <Button type="submit" className="w-full h-20 bg-primary text-black font-black rounded-none text-[14px] uppercase tracking-[0.2em] transition-all duration-300 ease-[var(--ease-out)] hover:scale-[1.01] active:scale-[0.98] shadow-sm shadow-primary/20">
+                <Button type="submit" className="w-full h-16 bg-primary text-white font-black    rounded-sm  text-[18px] transition-all active:scale-[0.97] hover:bg-primary/90 shadow-xl shadow-primary/20">
                   Submit Final Registration
                 </Button>
               </form>
@@ -409,7 +405,7 @@ export default function RegistrationPage() {
               <div className="w-24 h-24 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-10 shadow-2xl shadow-primary/40">
                 <Check className="w-12 h-12 stroke-[3px]" />
               </div>
-              <div className="glass p-12 md:p-20 rounded-none border border-black/5 shadow-sm shadow-black/5 animate-in zoom-in-95 duration-1000 ease-[var(--ease-out)]">
+              <div className="bg-[#F9F9F9] p-10 md:p-16 rounded-sm border border-black/5 shadow-sm shadow-black/5">
                 <h2 className="text-[32px] font-black font-display mb-6 tracking-tight">Registration Submitted</h2>
                 <p className="text-[18px] text-black/60 leading-[1.7] mb-12 font-body">
                   {getSuccessMessage()}

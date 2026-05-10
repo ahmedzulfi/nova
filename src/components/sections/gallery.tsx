@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { X, Maximize2 } from 'lucide-react';
+import { X, Maximize2, Camera } from 'lucide-react';
 
 const categories = ["All", "Event Highlights", "Dog Shows", "Cat Shows", "Entertainment", "Family Activities"];
 
@@ -54,17 +54,22 @@ const GallerySection = () => {
         : galleryImages.filter(img => img.category === activeCategory);
 
     return (
-        <section id="gallery" className="bg-white py-20 lg:py-32 overflow-hidden relative">
+        <section id="gallery" className="bg-white py-12 lg:py-20 overflow-hidden">
             <div className="container mx-auto px-6 max-w-[1280px]">
-                {/* Category Selection */}
-                <div className="flex flex-wrap items-center justify-center gap-4 mb-20">
+                
+                {/* Refined Filter Bar */}
+                <div className="flex flex-wrap items-center justify-start gap-3 mb-16 border-b border-black/5 pb-8">
+                  <div className="flex items-center gap-3 text-black/20 mr-4">
+                    <Camera className="w-4 h-4" />
+                    <span className="text-[11px] font-black uppercase tracking-[0.2em]">Filter</span>
+                  </div>
                     {categories.map((cat) => (
                         <button
                             key={cat}
                             onClick={() => setActiveCategory(cat)}
-                            className={`px-8 py-3  rounded-sm text-[15px] font-bold transition-all duration-300 ${activeCategory === cat
-                                ? 'bg-primary text-white'
-                                : 'bg-[#F3F3F3] text-black hover:bg-[#E6E6E6]'
+                            className={`px-6 py-2.5 rounded-sm text-[13px] font-bold uppercase tracking-wider transition-all duration-300 active:scale-[0.96] ${activeCategory === cat
+                                ? 'bg-black text-white shadow-sm'
+                                : 'bg-[#F9F9F9] text-black/40 hover:text-black hover:bg-[#F0F0F0]'
                                 }`}
                         >
                             {cat}
@@ -72,62 +77,81 @@ const GallerySection = () => {
                     ))}
                 </div>
 
-                {/* Gallery Grid - Masonry-like CSS columns */}
-                <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+                {/* Editorial Masonry Grid */}
+                <div className="columns-1 md:columns-2 lg:columns-3 gap-10 space-y-10">
                     {filteredImages.map((image, idx) => (
                         <div
                             key={idx}
-                            className="relative break-inside-avoid overflow-hidden  rounded-sm group cursor-pointer"
+                            className="relative break-inside-avoid overflow-hidden rounded-sm group cursor-pointer bg-[#F9F9F9]"
                             onClick={() => setSelectedImage(image.url)}
                         >
-                            <div className={`${image.aspect} relative w-full`}>
+                            <div className={`${image.aspect} relative w-full grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]`}>
                                 <Image
                                     src={image.url}
                                     alt={image.alt}
                                     fill
-                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                    className="object-cover transition-transform duration-1000 group-hover:scale-[1.03]"
                                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 />
-                            </div>
-
-                            {/* Hover Overlay */}
-                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center transform scale-90 group-hover:scale-100 transition-transform duration-300">
-                                    <Maximize2 className="w-6 h-6 text-black" />
+                                
+                                {/* Refined Overlay Effect */}
+                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-[2px]">
+                                    <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-sm border border-white/20 flex items-center justify-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                        <Maximize2 className="w-5 h-5 text-white" />
+                                    </div>
                                 </div>
                             </div>
 
-                            {/* Info Label */}
-                            <div className="absolute bottom-6 left-6 right-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                                <span className="bg-white/90 backdrop-blur-md text-black text-[12px] font-bold px-4 py-1.5 rounded-sm uppercase tracking-wider">
+                            {/* Minimal Label */}
+                            <div className="p-6 flex items-center justify-between border-t border-black/5 bg-white">
+                                <span className="text-[11px] font-black uppercase tracking-[0.15em] text-black/40">
                                     {image.category}
                                 </span>
+                                <div className="w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity" />
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
 
-            {/* Lightbox Modal */}
+            {/* Premium Lightbox */}
             {selectedImage && (
-                <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 animate-in fade-in duration-300 p-4">
+                <div 
+                  className="fixed inset-0 z-[200] flex items-center justify-center bg-black/95 backdrop-blur-xl transition-all duration-500 p-8"
+                  style={{ animation: 'fade-in 0.4s cubic-bezier(0.23, 1, 0.32, 1)' }}
+                >
                     <button
                         onClick={() => setSelectedImage(null)}
-                        className="absolute top-8 right-8 w-12 h-12 bg-white/10 hover:bg-white/20 text-white rounded-full flex items-center justify-center transition-colors border border-white/20"
+                        className="absolute top-10 right-10 w-14 h-14 bg-white text-black rounded-sm flex items-center justify-center transition-all hover:scale-110 active:scale-90 z-[210] shadow-2xl"
                     >
                         <X className="w-6 h-6" />
                     </button>
 
-                    <div className="relative w-full max-w-[1200px] aspect-video">
+                    <div 
+                      className="relative w-full h-full max-w-[1400px] flex items-center justify-center"
+                      style={{ animation: 'scale-up 0.5s cubic-bezier(0.23, 1, 0.32, 1)' }}
+                    >
                         <Image
                             src={selectedImage}
                             alt="Full View"
                             fill
                             className="object-contain"
+                            priority
                         />
                     </div>
                 </div>
             )}
+
+            <style jsx>{`
+              @keyframes fade-in {
+                from { opacity: 0; backdrop-filter: blur(0px); }
+                to { opacity: 1; backdrop-filter: blur(20px); }
+              }
+              @keyframes scale-up {
+                from { transform: scale(0.95) translateY(20px); opacity: 0; }
+                to { transform: scale(1) translateY(0); opacity: 1; }
+              }
+            `}</style>
         </section>
     );
 };

@@ -19,12 +19,12 @@ const Navigation = () => {
 
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 w-full z-[130] glass border-b border-[#F0F0F0]">
+      <div className="fixed top-0 left-0 right-0 w-full z-[130] bg-white/90 backdrop-blur-md border-b border-[#F0F0F0]">
         <nav className="flex items-center justify-center w-full min-h-[70px] md:min-h-[89px] py-[12px] md:py-[18px]">
           <div className="flex items-center justify-between w-full max-w-[1330px] px-[20px]">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <a href="/" className="block transition-transform duration-300 active:scale-[0.98]">
+              <a href="/" className="block">
                 <Image
                   src={logo}
                   alt="Nova Paw Festival"
@@ -44,10 +44,10 @@ const Navigation = () => {
                   href={link.href}
                   className="group relative flex flex-col items-center justify-center h-[30px]"
                 >
-                  <p className="text-[14px] xl:text-[15px] font-bold text-black transition-colors duration-300 group-hover:text-primary">
+                  <p className="text-[14px] xl:text-[15px] font-semibold text-black transition-colors group-hover:text-primary">
                     {link.name}
                   </p>
-                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-500 ease-[var(--ease-out)] group-hover:w-full" />
+                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
                 </a>
               ))}
             </div>
@@ -56,21 +56,21 @@ const Navigation = () => {
             <div className="hidden md:flex items-center gap-3 xl:gap-4 flex-shrink-0">
               <a
                 href="/login"
-                className="text-[14px] xl:text-[15px] font-black text-black hover:text-primary transition-colors duration-300 px-2 xl:px-4 uppercase tracking-widest"
+                className="text-[14px] xl:text-[15px] font-bold text-black hover:text-primary transition-colors px-2 xl:px-4"
               >
                 Log In
               </a>
               <a
                 href="/tickets"
-                className="hidden lg:inline-flex items-center justify-center px-5 xl:px-[28px] py-[13px] bg-black hover:bg-black/90 transition-all duration-300 ease-[var(--ease-out)] hover:scale-[1.02] active:scale-[0.98] rounded-none text-[12px] xl:text-[13px] font-black text-white uppercase tracking-widest"
+                className="hidden lg:inline-flex items-center justify-center px-5 xl:px-[28px] py-[13px] bg-black hover:bg-black/90 transition-all hover:scale-105 active:scale-95  rounded-sm text-[14px] xl:text-[15px] font-bold text-white"
               >
                 Get Tickets
               </a>
               <a
                 href="/competitions"
-                className="inline-flex items-center justify-center px-5 xl:px-[28px] py-[13px] bg-primary hover:bg-primary/90 transition-all duration-300 ease-[var(--ease-out)] hover:scale-[1.02] active:scale-[0.98] rounded-none text-[12px] xl:text-[13px] font-black text-black uppercase tracking-widest"
+                className="inline-flex items-center justify-center px-5 xl:px-[28px] py-[13px] bg-primary hover:bg-primary/90 transition-all hover:scale-105 active:scale-95  rounded-sm text-[14px] xl:text-[15px] font-bold text-white"
               >
-                Registration
+                Register for Competitions
               </a>
             </div>
 
