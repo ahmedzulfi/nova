@@ -12,19 +12,44 @@ import { Textarea } from "@/components/ui/textarea";
 import Image from 'next/image';
 import EventSelectionGrid from "@/components/sections/event-selection-grid";
 import { ArrowLeft, Check, Upload, Info, ShieldCheck, ArrowRight, Dog, Cat, User, Mail, Phone, Calendar } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
 type CompetitionType = 'dog-grooming' | 'dog-fashion-show' | 'cat-fashion-show' | 'dog-best-in-show' | 'cat-best-show' | 'cat-drawing-battle' | '';
 
 const STEP_LABELS = ['Selection', 'Owner', 'Pet Info', 'Specifics', 'Health', 'Safety', 'Done'];
 
-export default function RegistrationPage() {
+function RegistrationContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [step, setStep] = useState(1);
   const [selectedEventId, setSelectedEventId] = useState<CompetitionType>('');
   const [selectedEventName, setSelectedEventName] = useState("");
   const [otp, setOtp] = useState('');
   const [checkedTerms, setCheckedTerms] = useState<Record<number, boolean>>({});
+
+  useEffect(() => {
+    const eventParam = searchParams.get('event');
+    if (eventParam) {
+      // Map slug back to ID if needed, or just set it
+      const eventMap: Record<string, {id: CompetitionType, name: string}> = {
+        'dog-grooming': { id: 'dog-grooming', name: 'Grooming' },
+        'grooming-competition': { id: 'dog-grooming', name: 'Grooming' },
+        'dog-fashion-show': { id: 'dog-fashion-show', name: 'Fashion Show' },
+        'cat-fashion-show': { id: 'cat-fashion-show', name: 'Fashion Show' },
+        'best-dog-show': { id: 'dog-best-in-show', name: 'Best in Show' },
+        'best-cat-show': { id: 'cat-best-show', name: 'Best Cat Show' },
+        'cat-drawing-battle': { id: 'cat-drawing-battle', name: 'Drawing Cat Battle' },
+      };
+
+      const found = eventMap[eventParam];
+      if (found) {
+        setSelectedEventId(found.id);
+        setSelectedEventName(found.name);
+        setStep(2);
+      }
+    }
+  }, [searchParams]);
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -460,3 +485,11 @@ const Shell = ({ children, step, selectedEventName }: { children: React.ReactNod
     <Footer />
   </main>
 );
+
+export default function RegistrationPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#F5F5F0] flex items-center justify-center font-bold">Loading...</div>}>
+      <RegistrationContent />
+    </Suspense>
+  );
+}

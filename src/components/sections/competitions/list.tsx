@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Trophy, Clock, Users, Star } from 'lucide-react';
 
 const competitions = [
@@ -107,12 +108,12 @@ const CompetitionsList = () => {
                 </div>
 
                 <div className="pt-4">
-                  <a
-                    href={`/register/${comp.title.toLowerCase().replace(/ /g, '-')}`}
+                  <Link
+                    href={`/registration?event=${comp.title.toLowerCase().replace(/ /g, '-')}`}
                     className={`inline-flex items-center justify-center px-8 py-4  rounded-sm font-bold text-[16px] text-white transition-all hover:scale-105 active:scale-95 shadow-xl ${comp.color === 'bg-black' ? 'bg-black hover:bg-black/90 shadow-black/20' : comp.color === 'bg-accent' ? 'bg-accent hover:bg-accent/90 shadow-accent/20' : 'bg-primary hover:bg-primary/90 shadow-primary/20'}`}
                   >
                     Register for {comp.title}
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
