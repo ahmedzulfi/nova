@@ -33,7 +33,7 @@ const CTABanner = ({
           </div>
           
           <div className="relative z-10 px-8 lg:px-20 py-12 lg:py-24 max-w-[900px]">
-            <h2 className="text-white text-[32px] lg:text-[64px] font-black font-display leading-[0.95] mb-8 tracking-tighter drop-shadow-2xl">
+            <h2 className="text-white text-[32px] lg:text-[64px] font-bold font-display leading-[0.95] mb-8 tracking-tighter drop-shadow-2xl">
               {title}
             </h2>
             <p className="text-white/90 text-[18px] lg:text-[22px] font-medium leading-[1.6] max-w-[600px] mb-12 drop-shadow-md font-body">

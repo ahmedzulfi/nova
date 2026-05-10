@@ -66,7 +66,7 @@ const VenuesGrid = () => {
               
               {/* Badges */}
               <div className="absolute top-6 left-6 flex flex-col gap-2">
-                <span className="bg-white/90 backdrop-blur-md text-black text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-sm w-fit shadow-sm">
+                <span className="bg-white/90 backdrop-blur-md text-black text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm w-fit shadow-sm">
                   {venue.size}
                 </span>
               </div>
@@ -77,14 +77,14 @@ const VenuesGrid = () => {
                   <div className="w-10 h-10 bg-primary/90 backdrop-blur-md rounded-sm flex items-center justify-center text-white shadow-lg border border-white/20">
                     {venue.icon}
                   </div>
-                  <h3 className="text-[24px] md:text-[32px] font-display font-black text-white leading-tight tracking-tighter">
+                  <h3 className="text-[24px] md:text-[32px] font-display font-bold text-white leading-tight tracking-tighter">
                     {venue.title}
                   </h3>
                 </div>
                 <p className="text-white/70 text-[14px] md:text-[15px] max-w-[400px] line-clamp-2 font-body opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
                   {venue.description}
                 </p>
-                <div className="mt-4 flex items-center gap-2 text-primary font-black uppercase tracking-[0.2em] text-[10px] opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                <div className="mt-4 flex items-center gap-2 text-primary font-bold uppercase tracking-[0.2em] text-[10px] opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
                   Explore Details <ArrowUpRight className="w-4 h-4" />
                 </div>
               </div>

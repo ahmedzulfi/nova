@@ -54,7 +54,7 @@ const HighlightsGrid = () => {
       <div className="container mx-auto px-6 max-w-[1280px]">
         <div className="text-center mb-16 md:mb-24">
           <span className="text-primary font-bold uppercase tracking-[0.2em] text-[12px] mb-6 block">What Awaits You</span>
-          <h2 className="text-[40px] md:text-[72px] font-display font-black text-black tracking-tighter leading-[0.95] mb-8">
+          <h2 className="text-[40px] md:text-[72px] font-display font-bold text-black tracking-tighter leading-[0.95] mb-8">
             Festival Highlights
           </h2>
           <div className="w-20 h-1 bg-black mx-auto rounded-full" />
@@ -66,7 +66,7 @@ const HighlightsGrid = () => {
               <div className="text-[40px] mb-8 grayscale hover:grayscale-0 transition-all duration-500">
                 {item.emoji}
               </div>
-              <h3 className="text-[24px] font-display font-black mb-4 tracking-tight flex items-center gap-3">
+              <h3 className="text-[24px] font-display font-bold mb-4 tracking-tight flex items-center gap-3">
                 {item.title}
               </h3>
               <p className="text-[16px] text-black/50 leading-relaxed font-body">

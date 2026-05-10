@@ -36,17 +36,13 @@ export default function GalleryPage() {
 
       {/* Visual Gallery */}
       <div className="py-24">
-        <div className="container mx-auto px-6 max-w-[1280px] mb-16 text-center">
-          <h2 className="text-[40px] md:text-[60px] font-display font-black tracking-tighter mb-4">Event Moments</h2>
-          <p className="text-black/50 font-medium">Relive the highlights through our lens.</p>
-        </div>
         <GallerySection />
       </div>
 
       {/* Social CTA */}
       <section className="py-24 bg-black text-white overflow-hidden relative">
         <div className="container mx-auto px-6 max-w-[1280px] text-center relative z-10">
-          <h3 className="text-[32px] md:text-[56px] font-display font-black mb-8 tracking-tight">Share Your Moments</h3>
+          <h3 className="text-[32px] md:text-[56px] font-display font-bold mb-8 tracking-tight">Share Your Moments</h3>
           <p className="text-white/60 text-[18px] mb-12 max-w-[600px] mx-auto leading-relaxed">
             Tag your photos with <span className="text-primary font-bold">#NovaPawFestival2026</span> and follow us for updates!
           </p>

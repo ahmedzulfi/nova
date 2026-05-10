@@ -253,7 +253,7 @@ export default function RegistrationPage() {
 
     return (
       <div className="space-y-4 pt-4 border-t border-black/5 mt-8">
-        <h4 className="text-[16px] font-black uppercase tracking-widest text-black/40 mb-6">Terms & Conditions</h4>
+        <h4 className="text-[16px] font-bold uppercase tracking-widest text-black/40 mb-6">Terms & Conditions</h4>
         {currentTerms.map((term, i) => (
           <div key={i} className="flex items-start space-x-3 group cursor-pointer">
             <Checkbox id={`term-${i}`} className="mt-1 w-5 h-5    rounded-sm  border-black/10 data-[state=checked]:bg-primary data-[state=checked]:border-primary" required />
@@ -288,7 +288,7 @@ export default function RegistrationPage() {
           
           {/* Header */}
           <div className="text-center mb-16">
-            <h1 className="text-[40px] md:text-[84px] font-black font-display leading-[0.9] text-black mb-8 tracking-tighter">
+            <h1 className="text-[40px] md:text-[84px] font-bold font-display leading-[0.9] text-black mb-8 tracking-tighter">
               {step === 4 ? "Registration Received" : "Register Your Pet"}
             </h1>
             <p className="text-[18px] md:text-[20px] text-black/50 leading-[1.6] max-w-[600px] mx-auto font-body">
@@ -305,7 +305,7 @@ export default function RegistrationPage() {
               {[1, 2, 3].map((i) => (
                 <React.Fragment key={i}>
                   <div className={`flex items-center gap-3 ${step >= i ? 'text-primary' : 'text-black/20'}`}>
-                    <div className={`w-10 h-10 rounded-sm flex items-center justify-center font-black text-[16px] transition-all duration-500 active:scale-[0.95] ${
+                    <div className={`w-10 h-10 rounded-sm flex items-center justify-center font-bold text-[16px] transition-all duration-500 active:scale-[0.95] ${
                       step >= i ? 'bg-primary text-white shadow-sm shadow-primary/20' : 'bg-[#F9F9F9] border border-black/5'
                     }`}>
                       {i}
@@ -337,23 +337,23 @@ export default function RegistrationPage() {
               <form onSubmit={handleBasicInfoSubmit} className="space-y-8 bg-[#F9F9F9] p-8 md:p-12 rounded-sm border border-black/5 shadow-sm shadow-black/5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-3">
-                    <Label className="text-[12px] font-black uppercase tracking-widest text-black/40 px-2">Full Name *</Label>
+                    <Label className="text-[12px] font-bold uppercase tracking-widest text-black/40 px-2">Full Name *</Label>
                     <Input required placeholder="Your name" className="h-14    rounded-sm  border-black/5 bg-white focus:ring-primary" onChange={(e) => setFormData({...formData, fullName: e.target.value})} />
                   </div>
                   <div className="space-y-3">
-                    <Label className="text-[12px] font-black uppercase tracking-widest text-black/40 px-2">Mobile Number *</Label>
+                    <Label className="text-[12px] font-bold uppercase tracking-widest text-black/40 px-2">Mobile Number *</Label>
                     <Input required placeholder="+974 XXXX XXXX" className="h-14    rounded-sm  border-black/5 bg-white focus:ring-primary" onChange={(e) => setFormData({...formData, phone: e.target.value})} />
                   </div>
                   <div className="space-y-3">
-                    <Label className="text-[12px] font-black uppercase tracking-widest text-black/40 px-2">Email Address *</Label>
+                    <Label className="text-[12px] font-bold uppercase tracking-widest text-black/40 px-2">Email Address *</Label>
                     <Input required type="email" placeholder="email@example.com" className="h-14    rounded-sm  border-black/5 bg-white focus:ring-primary" onChange={(e) => setFormData({...formData, email: e.target.value})} />
                   </div>
                   <div className="space-y-3">
-                    <Label className="text-[12px] font-black uppercase tracking-widest text-black/40 px-2">Home Address *</Label>
+                    <Label className="text-[12px] font-bold uppercase tracking-widest text-black/40 px-2">Home Address *</Label>
                     <Input required placeholder="Your address in Qatar" className="h-14    rounded-sm  border-black/5 bg-white focus:ring-primary" onChange={(e) => setFormData({...formData, address: e.target.value})} />
                   </div>
                 </div>
-                <Button type="submit" className="w-full h-16 bg-black text-white font-black    rounded-sm  text-[18px] transition-all active:scale-[0.97] hover:bg-black/90 shadow-xl shadow-black/10">
+                <Button type="submit" className="w-full h-16 bg-black text-white font-bold    rounded-sm  text-[18px] transition-all active:scale-[0.97] hover:bg-black/90 shadow-xl shadow-black/10">
                   Continue Registration
                 </Button>
               </form>
@@ -374,14 +374,14 @@ export default function RegistrationPage() {
                 {selectedEventId !== 'cat-drawing-battle' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4 border-t border-black/5">
                     <div className="space-y-3">
-                      <Label className="text-[12px] font-black uppercase tracking-widest text-black/40 px-2">Pet Passport *</Label>
+                      <Label className="text-[12px] font-bold uppercase tracking-widest text-black/40 px-2">Pet Passport *</Label>
                       <div className="h-32 border-2 border-dashed border-black/5    rounded-sm  bg-white flex flex-col items-center justify-center text-black/20 hover:border-primary hover:text-primary transition-all cursor-pointer group">
                         <Upload className="w-6 h-6 mb-2 group-hover:scale-110 transition-transform" />
                         <span className="text-[13px] font-bold">Upload Passport</span>
                       </div>
                     </div>
                     <div className="space-y-3">
-                      <Label className="text-[12px] font-black uppercase tracking-widest text-black/40 px-2">Vaccination Record *</Label>
+                      <Label className="text-[12px] font-bold uppercase tracking-widest text-black/40 px-2">Vaccination Record *</Label>
                       <div className="h-32 border-2 border-dashed border-black/5    rounded-sm  bg-white flex flex-col items-center justify-center text-black/20 hover:border-primary hover:text-primary transition-all cursor-pointer group">
                         <Upload className="w-6 h-6 mb-2 group-hover:scale-110 transition-transform" />
                         <span className="text-[13px] font-bold">Upload Record</span>
@@ -392,7 +392,7 @@ export default function RegistrationPage() {
 
                 {renderTermsAndConditions()}
 
-                <Button type="submit" className="w-full h-16 bg-primary text-white font-black    rounded-sm  text-[18px] transition-all active:scale-[0.97] hover:bg-primary/90 shadow-xl shadow-primary/20">
+                <Button type="submit" className="w-full h-16 bg-primary text-white font-bold    rounded-sm  text-[18px] transition-all active:scale-[0.97] hover:bg-primary/90 shadow-xl shadow-primary/20">
                   Submit Final Registration
                 </Button>
               </form>
@@ -406,7 +406,7 @@ export default function RegistrationPage() {
                 <Check className="w-12 h-12 stroke-[3px]" />
               </div>
               <div className="bg-[#F9F9F9] p-10 md:p-16 rounded-sm border border-black/5 shadow-sm shadow-black/5">
-                <h2 className="text-[32px] font-black font-display mb-6 tracking-tight">Registration Submitted</h2>
+                <h2 className="text-[32px] font-bold font-display mb-6 tracking-tight">Registration Submitted</h2>
                 <p className="text-[18px] text-black/60 leading-[1.7] mb-12 font-body">
                   {getSuccessMessage()}
                 </p>
