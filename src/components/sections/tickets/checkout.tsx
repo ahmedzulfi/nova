@@ -530,20 +530,6 @@ const Shell = ({
         <div className="px-10 py-10">{children}</div>
       </div>
 
-      {/* Running Total (steps 1-4) */}
-      {step < 5 && (
-        <div className="mt-6 flex items-center justify-between px-4 py-5 bg-black rounded-sm animate-in fade-in duration-300">
-          <div className="flex items-center gap-4">
-            <span className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-white/40">Running Total</span>
-            {adultQty > 0 && (
-              <span className="text-[10px] bg-white/10 text-white/70 px-3 py-1 rounded-full font-bold">
-                {adultQty}A {kidsQty > 0 ? `· ${kidsQty}K` : ''} {petQty > 0 ? `· ${petQty}P` : ''}
-              </span>
-            )}
-          </div>
-          <span className="text-primary  font-bold  text-[24px] leading-none">QAR {total}</span>
-        </div>
-      )}
     </div>
   </section>
 );
