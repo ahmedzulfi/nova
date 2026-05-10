@@ -47,6 +47,7 @@ function DashboardContent() {
   const router = useRouter();
   const [data, setData] = useState<RegistrationData | null>(null);
   const [activeTab, setActiveTab] = useState<TabType>('overview');
+  const [activeDay, setActiveDay] = useState(0);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
@@ -152,14 +153,11 @@ function DashboardContent() {
       </aside>
 
       {/* ─── Main Content Area ────────────────────────────────────────────────── */}
-      <main className="flex-1 lg:ml-72 min-h-screen p-6 lg:p-12 transition-all duration-500">
+      <main className="flex-1 lg:ml-72 min-h-screen p-6 lg:p-12 lg:py-20 transition-all duration-500">
         <div className="max-w-[95%] mx-auto">
           
           <header className="mb-16">
-            <div className="flex items-center gap-4 mb-4">
-              <span className="h-px w-12 bg-black/10" />
-              <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-black/30">{activeTab}</p>
-            </div>
+       
             <h1 className="text-[48px] md:text-[80px] font-display font-bold tracking-tighter leading-[0.85] text-black">
               {filteredSidebar.find(i => i.id === activeTab)?.label}
             </h1>
@@ -248,19 +246,72 @@ function DashboardContent() {
 
           {/* ─── TAB: Schedule ─────────────────────────────────────────────── */}
           {activeTab === 'schedule' && (
-            <div className="space-y-6 animate-in fade-in slide-in-from-bottom-10 duration-1000">
-              {[
-                { time: "02:00 PM", event: "Grand Opening", zone: "Main Stage" },
-                { time: "05:00 PM", event: "Cat Parade", zone: "Cat Dome" }
-              ].map((s, i) => (
-                <div key={i} className="bg-white rounded-sm border border-black/5 p-8 flex justify-between items-center">
-                  <div className="flex items-center gap-10">
-                    <span className="font-display font-bold text-[24px] text-primary">{s.time}</span>
-                    <p className="font-bold text-[18px]">{s.event}</p>
+            <div className="bg-white rounded-sm border border-black/5 p-10 animate-in fade-in slide-in-from-bottom-10 duration-1000">
+              <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-x-12 items-start">
+                  {/* Left Column: Sticky Selection */}
+                  <div className="flex flex-col gap-8 sticky top-32">
+                      <div className="flex flex-col gap-4">
+                          {[
+                              { day: "Day 01", date: "Friday, April 3, 2026" },
+                              { day: "Day 02", date: "Saturday, April 4, 2026" }
+                          ].map((data, index) => (
+                              <button
+                                  key={index}
+                                  onClick={() => setActiveDay(index)}
+                                  className={`text-left px-6 py-4 rounded-sm transition-all duration-300 ${activeDay === index
+                                      ? 'bg-primary text-white shadow-lg shadow-primary/20'
+                                      : 'bg-[#F5F5F0] text-black hover:bg-[#E6E6E6]'
+                                      }`}
+                              >
+                                  <span className="block text-[14px] uppercase tracking-wider font-semibold opacity-80 mb-1">
+                                      {data.day}
+                                  </span>
+                                  <span className="block text-[18px] font-bold font-display leading-[1.2]">
+                                      {data.date}
+                                  </span>
+                              </button>
+                          ))}
+                      </div>
                   </div>
-                  <span className="text-[11px] font-bold text-black/30 uppercase tracking-[0.2em]">{s.zone}</span>
-                </div>
-              ))}
+
+                  {/* Right Column: Schedule List */}
+                  <div className="flex flex-col mt-12 lg:mt-0">
+                      <div className="flex flex-col">
+                          {(activeDay === 0 ? [
+                              { time: "10:00 AM", title: "Opening Ceremony", description: "Official kickoff of Qatar’s first pet festival at The Pearl." },
+                              { time: "11:30 AM", title: "International Dog Show - Preliminaries", description: "Watch purebred dogs from around the world compete." },
+                              { time: "02:00 PM", title: "K9 Speed & Agility Demo", description: "High-energy performance featuring professional service dogs." },
+                              { time: "04:30 PM", title: "Cat Dome: Expert Breed Talk", description: "Learn about rare cat breeds and specialized care." },
+                              { time: "07:00 PM", title: "Evening Live Music & Food Trucks", description: "Wind down with family-friendly performances." }
+                          ] : [
+                              { time: "10:30 AM", title: "Pet Fashion Show", description: "The most stylish pets hit the runway in custom-designed outfits." },
+                              { time: "12:00 PM", title: "International Cat Show - Finals", description: "Grand finale of the feline competition." },
+                              { time: "03:00 PM", title: "Community Adoption Parade", description: "A special showcase of pets looking for their forever homes." },
+                              { time: "05:30 PM", title: "Dog Show - Championship Finals", description: "The main event. Top-ranked dogs compete for the prestigious Nova Paw Trophy." },
+                              { time: "08:00 PM", title: "Closing Ceremony & Fireworks", description: "Farewell celebration with a synchronized drone show." }
+                          ]).map((event, index) => (
+                              <div
+                                  key={index}
+                                  className={`py-8 ${index !== 0 ? 'border-t border-black/5' : ''} group`}
+                              >
+                                  <div className="flex flex-col md:flex-row items-start gap-4 md:gap-8">
+                                      <span className="text-[18px] font-bold text-primary min-w-[100px] pt-1 font-body">
+                                          {event.time}
+                                      </span>
+                                      <div className="flex flex-col gap-3">
+                                          <h4 className="text-[20px] md:text-[24px] font-bold text-black font-display leading-[1.2] group-hover:text-primary transition-colors">
+                                              {event.title}
+                                          </h4>
+                                          <p className="text-[14px] md:text-[16px] leading-[1.6] text-black/60 max-w-[620px] font-body">
+                                              {event.description}
+                                          </p>
+                                      </div>
+                                  </div>
+                              </div>
+                          ))}
+                      </div>
+                  </div>
+              </div>
             </div>
           )}
 
