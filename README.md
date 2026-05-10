@@ -111,7 +111,6 @@ Nova Paw Festival uses a high-fidelity, unified dashboard system to manage the v
 
 ### Phase 3: The Spotlight (Competitions)
 - **Elite Registration:** A specialized 7-step flow for international competitions (WKU/WCF).
-- **All-in-One Pass:** Registration automatically includes a **General Entry Ticket** for the participant (registrant only).
 - **Health Compliance:** Integrated file uploads for mandatory Pet Passports and Vaccination Records.
 - **Expert Review:** All applications are held in a "Pending" state for official judge review.
 
