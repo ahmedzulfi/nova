@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { User, Mail, Phone, Plus, Minus, Dog, Cat, ArrowRight, ShieldCheck } from 'lucide-react';
+import { User, Mail, Phone, Plus, Minus, Dog, Cat, ArrowRight, ShieldCheck, ArrowLeft } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 
@@ -12,6 +13,7 @@ interface TicketsCheckoutProps {
 const STEP_LABELS = ['Your Info', 'Verify', 'Tickets', 'Safety', 'Summary'];
 
 const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
+  const router = useRouter();
   const [step, setStep] = useState(1);
   const [otp, setOtp] = useState('');
   const [checkedTerms, setCheckedTerms] = useState<Record<number, boolean>>({});
@@ -59,7 +61,7 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
       orderId: `#NPV-2026-${Math.random().toString(36).substr(2, 6).toUpperCase()}`,
     };
     localStorage.setItem('nova_registration', JSON.stringify(registration));
-    window.location.href = '/dashboard';
+    router.push('/dashboard');
   };
 
   const dogTerms = [
@@ -213,6 +215,7 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
         </div>
 
         <button
+          type="button"
           onClick={() => setStep(2)}
           className="w-full bg-black text-white rounded-sm py-5 text-[14px]  font-bold  flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-black/90 mt-4"
         >
@@ -268,13 +271,18 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
 
         <div className="space-y-3">
           <button
+            type="button"
             onClick={() => setStep(3)}
             className="w-full bg-black text-white rounded-sm py-5 text-[14px]  font-bold  transition-all active:scale-[0.97] hover:bg-black/90"
           >
             Verify &amp; Continue
           </button>
-          <button onClick={() => setStep(1)} className="w-full py-3 text-[11px]  font-bold  uppercase tracking-widest text-black/30 hover:text-black transition-all">
-            ← Back
+          <button 
+            type="button"
+            onClick={() => setStep(1)} 
+            className="w-full py-3 text-[11px]  font-bold  uppercase tracking-widest text-black/30 hover:text-black transition-all flex items-center justify-center gap-2"
+          >
+            <ArrowLeft className="w-3 h-3" /> Back to Info
           </button>
         </div>
       </div>
@@ -362,9 +370,22 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
           </div>
         </div>
 
-        <button onClick={() => setStep(4)} className="w-full bg-black text-white rounded-sm py-5 text-[14px]  font-bold  flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-black/90">
-          Next: Safety Terms <ArrowRight className="w-4 h-4" />
-        </button>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+          <button 
+            type="button"
+            onClick={() => setStep(2)}
+            className="md:col-span-1 bg-black/5 text-black/40 rounded-sm py-5 text-[11px] font-bold uppercase tracking-widest transition-all hover:bg-black/10 flex items-center justify-center gap-2"
+          >
+            <ArrowLeft className="w-3 h-3" /> Back
+          </button>
+          <button 
+            type="button"
+            onClick={() => setStep(4)} 
+            className="md:col-span-3 bg-black text-white rounded-sm py-5 text-[14px] font-bold flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-black/90"
+          >
+            Next: Safety Terms <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
       </div>
     </Shell>
   );
@@ -406,14 +427,24 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
           ))}
         </div>
 
-        <button
-          onClick={() => allChecked && setStep(5)}
-          className={`w-full rounded-sm py-5 text-[14px]  font-bold  transition-all ${
-            allChecked ? 'bg-black text-white hover:bg-black/90 active:scale-[0.97]' : 'bg-black/10 text-black/20 cursor-not-allowed'
-          }`}
-        >
-          {allChecked ? 'Continue to Summary' : `Agree to all ${currentTerms.length} terms to proceed`}
-        </button>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+          <button 
+            type="button"
+            onClick={() => setStep(3)}
+            className="md:col-span-1 bg-black/5 text-black/40 rounded-sm py-5 text-[11px] font-bold uppercase tracking-widest transition-all hover:bg-black/10 flex items-center justify-center gap-2"
+          >
+            <ArrowLeft className="w-3 h-3" /> Back
+          </button>
+          <button
+            type="button"
+            onClick={() => allChecked && setStep(5)}
+            className={`md:col-span-3 rounded-sm py-5 text-[14px]  font-bold  transition-all ${
+              allChecked ? 'bg-black text-white hover:bg-black/90 active:scale-[0.97]' : 'bg-black/10 text-black/20 cursor-not-allowed'
+            }`}
+          >
+            {allChecked ? 'Continue to Summary' : `Agree to all terms`}
+          </button>
+        </div>
       </div>
     </Shell>
   );
@@ -464,12 +495,22 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
           </div>
         </div>
 
-        <button
-          onClick={handleFinish}
-          className="w-full bg-black text-white rounded-sm py-5 text-[15px]  font-bold  flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-black/90 shadow-2xl shadow-black/20"
-        >
-          Proceed to Payment <ArrowRight className="w-4 h-4" />
-        </button>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+          <button 
+            type="button"
+            onClick={() => setStep(4)}
+            className="md:col-span-1 bg-black/5 text-black/40 rounded-sm py-5 text-[11px] font-bold uppercase tracking-widest transition-all hover:bg-black/10 flex items-center justify-center gap-2"
+          >
+            <ArrowLeft className="w-3 h-3" /> Back
+          </button>
+          <button
+            type="button"
+            onClick={handleFinish}
+            className="md:col-span-3 bg-black text-white rounded-sm py-5 text-[15px]  font-bold  flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-black/90 shadow-2xl shadow-black/20"
+          >
+            Proceed to Payment <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
         <p className="text-[11px] text-center text-black/30 font-medium">
           Secure payment · Your QR ticket is generated after payment
         </p>
@@ -486,6 +527,7 @@ const QtyControl = ({
 }) => (
   <div className="flex items-center gap-0 border border-black/10 rounded-sm overflow-hidden">
     <button
+      type="button"
       onClick={onDecrement}
       className="w-10 h-10 flex items-center justify-center text-black/40 hover:text-black hover:bg-black/5 transition-all active:scale-90"
     >
@@ -493,6 +535,7 @@ const QtyControl = ({
     </button>
     <span className="w-10 text-center  font-bold  text-[16px]">{value}</span>
     <button
+      type="button"
       onClick={onIncrement}
       disabled={!canIncrement}
       className={`w-10 h-10 flex items-center justify-center transition-all active:scale-90 ${

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Check } from 'lucide-react';
+import Link from 'next/link';
 
 const tiers = [
   {
@@ -92,6 +93,7 @@ const TicketsPricing = ({ onSelect, selectedTier }: TicketsPricingProps) => {
               </ul>
 
               <button 
+                type="button"
                 onClick={() => onSelect(tier.id)}
                 className={`inline-flex items-center justify-center w-full h-16  rounded-sm font-bold text-[18px] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] active:scale-[0.95] ${
                   selectedTier === tier.id

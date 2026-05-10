@@ -11,6 +11,7 @@ import {
   MapPin,
   ChevronRight
 } from 'lucide-react';
+import Link from 'next/link';
 import logo from '@/media/Artboard 1@2x (1).png';
 
 /**
@@ -110,10 +111,10 @@ const Footer = () => {
             <ul className="space-y-4">
               {footerLinks.navigation.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-white/60 hover:text-white transition-colors flex items-center group font-medium">
+                  <Link href={link.href} className="text-white/60 hover:text-white transition-colors flex items-center group font-medium">
                     <ChevronRight size={14} className="mr-2 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -153,17 +154,15 @@ const Footer = () => {
             <ul className="space-y-4">
               {footerLinks.support.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
-                    target={link.external ? "_blank" : "_self"}
                     className="text-white/60 hover:text-white transition-colors flex items-center group font-medium"
                   >
                     <ChevronRight size={14} className="mr-2 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                     <span className="flex items-center gap-2">
                       {link.label}
-                      {link.external && <ExternalLink size={12} className="opacity-40" />}
                     </span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
