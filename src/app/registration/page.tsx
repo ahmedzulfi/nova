@@ -68,6 +68,19 @@ function RegistrationContent() {
     drawingMaterials: "",
   });
 
+  useEffect(() => {
+    const savedData = localStorage.getItem('nova_registration');
+    if (savedData) {
+      const parsed = JSON.parse(savedData);
+      setFormData(prev => ({
+        ...prev,
+        fullName: parsed.fullName || "",
+        phone: parsed.phone || "",
+        email: parsed.email || "",
+      }));
+    }
+  }, []);
+
   const handleEventSelect = (eventId: string, eventTitle: string) => {
     setSelectedEventId(eventId as CompetitionType);
     setSelectedEventName(eventTitle);
