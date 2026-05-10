@@ -1,8 +1,27 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import Navigation from "@/components/sections/navigation";
-import { Check, CreditCard, ArrowRight, Dog, Cat, User } from 'lucide-react';
+import React, { useEffect, useState, Suspense } from 'react';
+import { 
+  Check, 
+  ArrowRight, 
+  Dog, 
+  Cat, 
+  User, 
+  Ticket, 
+  Trophy, 
+  Calendar, 
+  Map as MapIcon, 
+  Settings, 
+  LogOut, 
+  Menu, 
+  X, 
+  ShieldCheck, 
+  Info,
+  Clock,
+  Star
+} from 'lucide-react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 interface RegistrationData {
   fullName: string;
@@ -19,10 +38,13 @@ interface RegistrationData {
 
 const QR_CODE_URL = "https://public-api.qr-code-generator.com/v1/create/extended?image_format=PNG&image_width=300&qr_code_text=https%3A%2F%2Fvalidmvps.vercel.app%2F&foreground_color=%23000000&background_color=%23FFFFFF&frame_name=no-frame";
 
-export default function DashboardPage() {
+type TabType = 'overview' | 'competitions' | 'health' | 'schedule' | 'map' | 'settings';
+
+function DashboardContent() {
+  const router = useRouter();
   const [data, setData] = useState<RegistrationData | null>(null);
-  const [isPaid, setIsPaid] = useState(false);
-  const [isProcessing, setIsProcessing] = useState(false);
+  const [activeTab, setActiveTab] = useState<TabType>('overview');
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     const savedData = localStorage.getItem('nova_registration');
@@ -31,420 +53,211 @@ export default function DashboardPage() {
     }
   }, []);
 
-  const handlePayment = () => {
-    setIsProcessing(true);
-    setTimeout(() => {
-      setIsProcessing(false);
-      setIsPaid(true);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 1800);
-  };
-
   if (!data) {
     return (
-      <main className="min-h-screen bg-white flex flex-col">
-        <Navigation />
-        <div className="flex-1 flex items-center justify-center">
-          <div className="text-center space-y-6">
-            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-black/30">No Session Found</p>
-            <h1 className="text-[32px] font-display  font-bold  tracking-tighter">Start Here</h1>
-            <a href="/tickets" className="inline-flex items-center gap-3 bg-black text-white px-8 py-4 rounded-sm  font-bold  text-[14px] hover:bg-black/90 active:scale-[0.98] transition-all">
-              Get Tickets <ArrowRight className="w-5 h-5" />
-            </a>
+      <div className="min-h-screen bg-[#F5F5F0] flex items-center justify-center p-6">
+        <div className="text-center space-y-8 animate-in fade-in zoom-in duration-700">
+          <div className="w-24 h-24 bg-white rounded-sm border border-black/5 shadow-sm flex items-center justify-center mx-auto mb-8">
+            <Ticket className="w-12 h-12 text-primary" />
           </div>
+          <div className="space-y-4">
+            <h1 className="text-[32px] md:text-[48px] font-display font-bold tracking-tighter leading-none text-black">No Session Found</h1>
+            <p className="text-[16px] text-black/40 max-w-[400px] mx-auto leading-relaxed">Please complete your ticket purchase to access your personalized festival dashboard.</p>
+          </div>
+          <button onClick={() => router.push('/tickets')} className="inline-flex items-center gap-3 bg-black text-white px-10 py-5 rounded-sm font-bold text-[14px] hover:scale-105 transition-all">
+            Get Tickets <ArrowRight className="w-5 h-5" />
+          </button>
         </div>
-      </main>
+      </div>
     );
   }
 
-  const tierLabel = data.tier === 'dog-owner' ? 'Dog Owner' : data.tier === 'cat-owner' ? 'Cat Owner' : 'Adult';
+  const isPetOwner = data.tier === 'dog-owner' || data.tier === 'cat-owner';
   const TierIcon = data.tier === 'dog-owner' ? Dog : data.tier === 'cat-owner' ? Cat : User;
 
-  if (!isPaid) {
-    return (
-      <main className="min-h-screen bg-[#F5F5F0]">
-        <Navigation />
-        <section className="pt-36 pb-24">
-          <div className="container mx-auto px-6 max-w-[1100px]">
-            
-            {/* Header */}
-            <div className="mb-16 animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <p className="text-[10px]  font-bold  uppercase tracking-[0.3em] text-black/30 mb-4">Final Step</p>
-              <h1 className="text-[40px] md:text-[56px] font-display  font-bold  tracking-tighter leading-[0.9] text-black">
-                Review &<br />Complete
-              </h1>
-            </div>
+  const sidebarItems = [
+    { id: 'overview', label: 'My Tickets', icon: Ticket, roles: ['any'] },
+    { id: 'competitions', label: 'Competitions', icon: Trophy, roles: ['pet-owner'] },
+    { id: 'health', label: 'Health Docs', icon: ShieldCheck, roles: ['pet-owner'] },
+    { id: 'schedule', label: 'Schedule', icon: Calendar, roles: ['any'] },
+    { id: 'map', label: 'Festival Map', icon: MapIcon, roles: ['any'] },
+    { id: 'settings', label: 'Account', icon: Settings, roles: ['any'] },
+  ];
 
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
-              
-              {/* Left: Order Breakdown */}
-              <div className="lg:col-span-3 space-y-4">
-                
-                {/* Attendee Card */}
-                <div className="bg-white rounded-sm border border-black/5 p-8 flex items-center gap-6">
-                  <div className="w-16 h-16 bg-black rounded-sm flex items-center justify-center flex-shrink-0">
-                    <TierIcon className="w-8 h-8 text-primary" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-[10px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-1">Registered As</p>
-                    <p className="text-[18px]  font-bold  tracking-tight truncate">{data.fullName}</p>
-                    <p className="text-[12px] text-black/40 font-medium">{data.email} · {data.phone}</p>
-                  </div>
-                  <span className="flex-shrink-0 bg-primary text-white text-[10px]  font-bold  uppercase tracking-widest px-3 py-1.5 rounded-sm">
-                    {tierLabel}
-                  </span>
-                </div>
+  const filteredSidebar = sidebarItems.filter(item => 
+    item.roles.includes('any') || (item.roles.includes('pet-owner') && isPetOwner)
+  );
 
-                {/* Ticket Breakdown */}
-                <div className="bg-white rounded-sm border border-black/5 overflow-hidden">
-                  <div className="px-8 py-6 border-b border-black/5">
-                    <p className="text-[10px]  font-bold  uppercase tracking-[0.2em] text-black/30">Ticket Breakdown</p>
-                  </div>
-                  <div className="divide-y divide-black/5">
-                    <div className="px-8 py-5 flex items-center justify-between">
-                      <div>
-                        <p className=" font-bold  text-[14px]">Adult {data.tier === 'dog-owner' ? '(Dog Owner)' : data.tier === 'cat-owner' ? '(Cat Owner)' : ''}</p>
-                        <p className="text-[12px] text-black/40 font-medium">QAR 25 × {data.adultQty}</p>
-                      </div>
-                      <span className=" font-bold  text-[16px]">QAR {data.adultQty * 25}</span>
-                    </div>
-                    {data.kidsQty > 0 && (
-                      <div className="px-8 py-5 flex items-center justify-between">
-                        <div>
-                          <p className=" font-bold  text-[14px]">Kids</p>
-                          <p className="text-[12px] text-black/40 font-medium">QAR 15 × {data.kidsQty}</p>
-                        </div>
-                        <span className=" font-bold  text-[16px]">QAR {data.kidsQty * 15}</span>
-                      </div>
-                    )}
-                    {data.petQty > 0 && (
-                      <div className="px-8 py-5 flex items-center justify-between">
-                        <div>
-                          <p className=" font-bold  text-[14px]">{data.tier === 'dog-owner' ? 'Dog' : 'Cat'} Registration — {data.petName}</p>
-                          <p className="text-[12px] text-black/40 font-medium">QAR 25 × {data.petQty}</p>
-                        </div>
-                        <span className=" font-bold  text-[16px]">QAR {data.petQty * 25}</span>
-                      </div>
-                    )}
-                  </div>
-                  <div className="bg-black px-8 py-7 flex items-center justify-between">
-                    <p className="text-white text-[12px]  font-bold  uppercase tracking-[0.2em]">Total</p>
-                    <p className="text-primary text-[32px] font-display  font-bold  leading-none">QAR {data.total}</p>
-                  </div>
-                </div>
-
-                <p className="text-[11px] text-black/30 font-medium px-2">Order ID: {data.orderId} · Secured by QPay Payment Gateway</p>
-              </div>
-
-              {/* Right: Payment */}
-              <div className="lg:col-span-2 space-y-4">
-                <div className="bg-white rounded-sm border border-black/5 p-8 space-y-8">
-                  <div>
-                    <p className="text-[10px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-4">Select Payment</p>
-                    <div className="space-y-3">
-                      <label className="flex items-center gap-4 p-5 rounded-sm border-2 border-black bg-black/5 cursor-pointer">
-                        <div className="w-5 h-5 rounded-full border-2 border-black flex items-center justify-center">
-                          <div className="w-2.5 h-2.5 rounded-full bg-black" />
-                        </div>
-                        <div className="flex items-center gap-3 flex-1">
-                          <CreditCard className="w-5 h-5" />
-                          <span className=" font-bold  text-[14px]">Debit / Credit Card</span>
-                        </div>
-                      </label>
-                      <label className="flex items-center gap-4 p-5 rounded-sm border border-black/10 cursor-pointer hover:border-black/30 transition-colors">
-                        <div className="w-5 h-5 rounded-full border-2 border-black/20" />
-                        <span className=" font-bold  text-[14px] text-black/40">QPay Wallet</span>
-                      </label>
-                    </div>
-                  </div>
-                  
-                  {/* Card Details */}
-                  <div className="space-y-4">
-                    <div className="bg-[#F5F5F0] rounded-sm px-5 py-4">
-                      <p className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-2">Card Number</p>
-                      <input type="text" placeholder="0000 0000 0000 0000" className="bg-transparent w-full  font-bold  text-[15px] tracking-widest outline-none placeholder:text-black/20" />
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-[#F5F5F0] rounded-sm px-5 py-4">
-                        <p className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-2">Expiry</p>
-                        <input type="text" placeholder="MM / YY" className="bg-transparent w-full  font-bold  text-[15px] outline-none placeholder:text-black/20" />
-                      </div>
-                      <div className="bg-[#F5F5F0] rounded-sm px-5 py-4">
-                        <p className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-2">CVV</p>
-                        <input type="text" placeholder="•••" className="bg-transparent w-full  font-bold  text-[15px] outline-none placeholder:text-black/20" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={handlePayment}
-                    disabled={isProcessing}
-                    className={`w-full py-5 rounded-sm  font-bold  text-[15px] flex items-center justify-center gap-3 transition-all active:scale-[0.98] ${
-                      isProcessing ? 'bg-black/60 text-white cursor-wait' : 'bg-black text-white hover:bg-black/90'
-                    }`}
-                  >
-                    {isProcessing ? (
-                      <>
-                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        Processing…
-                      </>
-                    ) : (
-                      <>Pay QAR {data.total} <ArrowRight className="w-4 h-4" /></>
-                    )}
-                  </button>
-                </div>
-
-                <div className="bg-primary/10 border border-primary/20 rounded-sm p-6 flex items-start gap-4">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <p className="text-[12px] font-bold text-black/60 leading-relaxed">Your ticket and QR code will be generated immediately after successful payment.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-    );
-  }
-
-  // ──────────────────────────────────────────────────────────
-  // CONFIRMED TICKET VIEW
-  // ──────────────────────────────────────────────────────────
   return (
-    <main className="min-h-screen bg-[#F5F5F0]">
-      <Navigation />
-      <section className="pt-36 pb-24">
-        <div className="container mx-auto px-6 max-w-[1100px]">
+    <div className="min-h-screen bg-[#F5F5F0] flex">
+      {/* ─── Mobile Sidebar Toggle ────────────────────────────────────────── */}
+      <button 
+        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+        className="fixed top-6 right-6 z-[100] lg:hidden w-12 h-12 bg-white rounded-sm border border-black/5 shadow-sm flex items-center justify-center"
+      >
+        {isSidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+      </button>
 
-          {/* Header */}
-          <div className="mb-16 animate-in fade-in slide-in-from-bottom-4 duration-500 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <div>
-              <p className="text-[10px]  font-bold  uppercase tracking-[0.3em] text-black/30 mb-4 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-green-500 inline-block animate-pulse" />
-                Booking Confirmed
-              </p>
-              <h1 className="text-[40px] md:text-[56px] font-display  font-bold  tracking-tighter leading-[0.9] text-black">
-                You're In!
-              </h1>
-            </div>
-            <div className="text-right">
-              <p className="text-[10px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-1">Order ID</p>
-              <p className=" font-bold  text-[18px] tracking-widest">{data.orderId}</p>
-            </div>
+      {/* ─── Sidebar ────────────────────────────────────────────────────────── */}
+      <aside className={`
+        fixed inset-y-0 left-0 z-[90] w-72 bg-white border-r border-black/5 transition-transform duration-500 lg:translate-x-0
+        ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}
+      `}>
+        <div className="h-full flex flex-col p-8">
+          <div className="mb-12">
+            <Link href="/" className="inline-block">
+              <span className="text-[20px] font-display font-bold tracking-tighter text-black">NOVA<span className="text-primary">PAW</span></span>
+            </Link>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
+          <nav className="flex-1 space-y-2">
+            {filteredSidebar.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => { setActiveTab(item.id as TabType); setIsSidebarOpen(false); }}
+                className={`w-full flex items-center gap-4 px-5 py-4 rounded-sm font-bold text-[13px] uppercase tracking-widest transition-all ${
+                  activeTab === item.id 
+                    ? 'bg-black text-white' 
+                    : 'text-black/30 hover:bg-black/5 hover:text-black'
+                }`}
+              >
+                <item.icon className={`w-5 h-5 ${activeTab === item.id ? 'text-primary' : ''}`} />
+                {item.label}
+              </button>
+            ))}
+          </nav>
 
-            {/* ── Ticket (hero) ── */}
-            <div className="lg:col-span-3">
-              <div className="bg-white rounded-sm border border-black/5 overflow-hidden shadow-sm">
-
-                {/* Ticket Header Bar */}
-                <div className="bg-black px-10 py-8 flex items-center justify-between">
-                  <div>
-                    <p className="text-[9px]  font-bold  uppercase tracking-[0.3em] text-white/40 mb-2">Nova Paw Festival</p>
-                    <p className="text-white text-[18px]  font-bold  tracking-tight leading-tight">Official Entry Pass<br />Qatar · 2026</p>
-                  </div>
-                  <div className="text-right">
-                    <div className="bg-primary px-4 py-2 rounded-sm inline-block">
-                      <p className="text-white text-[11px]  font-bold  uppercase tracking-widest">{tierLabel}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Dashed Divider */}
-                <div className="flex items-center px-8 py-0">
-                  <div className="w-6 h-6 rounded-full bg-[#F5F5F0] border border-black/5 -ml-11 flex-shrink-0" />
-                  <div className="flex-1 border-t-2 border-dashed border-black/10 mx-4" />
-                  <div className="w-6 h-6 rounded-full bg-[#F5F5F0] border border-black/5 -mr-11 flex-shrink-0" />
-                </div>
-
-                {/* Ticket Body */}
-                <div className="px-10 py-10 flex flex-col md:flex-row gap-10">
-                  
-                  {/* QR Code */}
-                  <div className="flex flex-col items-center gap-4 flex-shrink-0">
-                    <div className="p-3 border-2 border-black rounded-sm bg-white">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={QR_CODE_URL}
-                        alt="Entry QR Code"
-                        width={150}
-                        height={150}
-                        className="block"
-                      />
-                    </div>
-                    <p className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/30 text-center">Scan at Entrance</p>
-                  </div>
-
-                  {/* Details */}
-                  <div className="flex-1 grid grid-cols-2 gap-x-8 gap-y-8 content-start">
-                    <div className="col-span-2">
-                      <p className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-1">Attendee Name</p>
-                      <p className=" font-bold  text-[20px] tracking-tight leading-tight">{data.fullName}</p>
-                    </div>
-                    <div>
-                      <p className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-1">Adults</p>
-                      <p className=" font-bold  text-[18px]">{data.adultQty}</p>
-                    </div>
-                    <div>
-                      <p className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-1">Kids</p>
-                      <p className=" font-bold  text-[18px]">{data.kidsQty > 0 ? data.kidsQty : '—'}</p>
-                    </div>
-                    {data.petQty > 0 && (
-                      <div className="col-span-2">
-                        <p className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-1">Registered Pet</p>
-                        <p className=" font-bold  text-[18px]">{data.petName}</p>
-                      </div>
-                    )}
-                    <div className="col-span-2 pt-6 border-t border-black/10 flex items-center justify-between">
-                      <div>
-                        <p className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-1">Venue</p>
-                        <p className=" font-bold  text-[14px]">The Pearl · Qatar</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-1">Total Paid</p>
-                        <p className=" font-bold  text-[16px] text-primary">QAR {data.total}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Ticket Footer */}
-                <div className="border-t border-black/5 bg-[#F5F5F0] px-10 py-5 flex items-center justify-between">
-                  <p className="text-[10px]  font-bold  uppercase tracking-[0.2em] text-black/30">Present QR at Main Gate</p>
-                  <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-500" />
-                    <p className="text-[10px]  font-bold  uppercase tracking-[0.1em] text-green-600">Verified &amp; Confirmed</p>
-                  </div>
-                </div>
+          <div className="pt-8 border-t border-black/5 mt-auto">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-10 h-10 bg-black rounded-sm flex items-center justify-center flex-shrink-0">
+                <TierIcon className="w-5 h-5 text-primary" />
+              </div>
+              <div className="min-w-0">
+                <p className="font-bold text-[14px] truncate">{data.fullName}</p>
+                <p className="text-[10px] font-bold text-black/30 uppercase tracking-widest">{data.tier.replace('-', ' ')}</p>
               </div>
             </div>
-
-            {/* Right Sidebar */}
-            <div className="lg:col-span-2 space-y-4">
-              
-              {/* Competition Section (EXCLUSIVE TO PET OWNERS) */}
-              {(data.tier === 'dog-owner' || data.tier === 'cat-owner') ? (
-                <div className="bg-white rounded-sm border border-black/5 p-8 space-y-6 animate-in fade-in slide-in-from-right-4 duration-700">
-                  <div>
-                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-2">Pet Owner Exclusive</p>
-                    <h3 className="text-[20px] font-display font-bold text-black tracking-tight">Competitions</h3>
-                    <p className="text-[12px] text-black/40 mt-1">Register your pet for international judging.</p>
-                  </div>
-
-                  {/* Filtered Competitions */}
-                  <div className="space-y-3">
-                    {data.tier === 'dog-owner' && (
-                      <>
-                        <div className="group p-4 bg-[#F5F5F0] rounded-sm border border-black/5 hover:border-primary transition-all cursor-pointer" onClick={() => window.location.href = '/registration?event=dog-fashion-show'}>
-                          <div className="flex items-center justify-between mb-2">
-                            <div className="flex items-center gap-2">
-                              <Dog className="w-4 h-4 text-primary" />
-                              <span className="text-[13px] font-bold">Dog Fashion Show</span>
-                            </div>
-                            <ArrowRight className="w-4 h-4 text-black/20 group-hover:text-primary transition-all" />
-                          </div>
-                          <p className="text-[11px] text-black/40 leading-relaxed">Strut the runway in matching outfits with your dog.</p>
-                        </div>
-                        <div className="group p-4 bg-[#F5F5F0] rounded-sm border border-black/5 hover:border-primary transition-all cursor-pointer" onClick={() => window.location.href = '/registration?event=dog-grooming'}>
-                          <div className="flex items-center justify-between mb-2">
-                            <div className="flex items-center gap-2">
-                              <Star className="w-4 h-4 text-primary" />
-                              <span className="text-[13px] font-bold">Grooming Competition</span>
-                            </div>
-                            <ArrowRight className="w-4 h-4 text-black/20 group-hover:text-primary transition-all" />
-                          </div>
-                          <p className="text-[11px] text-black/40 leading-relaxed">Showcase your grooming skills to WKU judges.</p>
-                        </div>
-                      </>
-                    )}
-                    {data.tier === 'cat-owner' && (
-                      <>
-                        <div className="group p-4 bg-[#F5F5F0] rounded-sm border border-black/5 hover:border-primary transition-all cursor-pointer" onClick={() => window.location.href = '/registration?event=cat-fashion-show'}>
-                          <div className="flex items-center justify-between mb-2">
-                            <div className="flex items-center gap-2">
-                              <Cat className="w-4 h-4 text-primary" />
-                              <span className="text-[13px] font-bold">Cat Fashion Show</span>
-                            </div>
-                            <ArrowRight className="w-4 h-4 text-black/20 group-hover:text-primary transition-all" />
-                          </div>
-                          <p className="text-[11px] text-black/40 leading-relaxed">Showcase your cat's style in the Cat Dome.</p>
-                        </div>
-                        <div className="group p-4 bg-[#F5F5F0] rounded-sm border border-black/5 hover:border-primary transition-all cursor-pointer" onClick={() => window.location.href = '/registration?event=cat-drawing-battle'}>
-                          <div className="flex items-center justify-between mb-2">
-                            <div className="flex items-center gap-2">
-                              <User className="w-4 h-4 text-primary" />
-                              <span className="text-[13px] font-bold">Drawing Cat Battle</span>
-                            </div>
-                            <ArrowRight className="w-4 h-4 text-black/20 group-hover:text-primary transition-all" />
-                          </div>
-                          <p className="text-[11px] text-black/40 leading-relaxed">Live 1-hour creative battle for artists.</p>
-                        </div>
-                      </>
-                    )}
-                  </div>
-                </div>
-              ) : (
-                /* VISITOR ONLY VIEW: No Competitions, maybe just Festival Info */
-                <div className="bg-black rounded-sm p-8 space-y-6">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">Festival Guide</p>
-                  <div className="space-y-4">
-                    <p className="text-[14px] text-white font-display font-bold">Ready for the Pearl?</p>
-                    <p className="text-[12px] text-white/60 leading-relaxed">As a general visitor, you have access to all festival zones, food trucks, and live stage performances.</p>
-                    <button className="w-full py-4 bg-primary text-white rounded-sm font-bold text-[11px] uppercase tracking-widest hover:bg-primary/90 transition-all">
-                      View Event Schedule
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {/* Contact Card */}
-              <div className="bg-white rounded-sm border border-black/5 p-8">
-                <p className="text-[10px]  font-bold  uppercase tracking-[0.2em] text-black/30 mb-6">Your Details</p>
-                <div className="space-y-5">
-                  <div>
-                    <p className="text-[9px] font-bold uppercase tracking-widest text-black/30 mb-1">Email</p>
-                    <p className="font-bold text-[14px]">{data.email}</p>
-                  </div>
-                  <div>
-                    <p className="text-[9px] font-bold uppercase tracking-widest text-black/30 mb-1">Phone</p>
-                    <p className="font-bold text-[14px]">{data.phone}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Info Card */}
-              <div className="bg-black rounded-sm p-8 space-y-6">
-                <p className="text-[10px]  font-bold  uppercase tracking-[0.2em] text-white/40">What to Know</p>
-                <div className="space-y-4">
-                  {[
-                    "Arrive 30 mins before your competition slot",
-                    "Valid pet passport required at the gate",
-                    data.tier === 'dog-owner' ? "Muzzle required for medium & large dogs" : data.tier === 'cat-owner' ? "Carrier required for your cat at all times" : "Tickets are non-transferable",
-                    "Photography & media coverage will be present"
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0 mt-2" />
-                      <p className="text-[12px] font-medium text-white/60 leading-relaxed">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Actions */}
-              <div className="flex gap-3">
-                <button onClick={() => window.print()} className="flex-1 py-4 rounded-sm bg-white border border-black/10  font-bold  text-[11px] uppercase tracking-widest text-black/50 hover:text-black hover:border-black transition-all">
-                  Download
-                </button>
-                <button onClick={() => window.location.href = '/'} className="flex-1 py-4 rounded-sm bg-primary text-white  font-bold  text-[11px] uppercase tracking-widest hover:bg-primary/90 transition-all">
-                  Home
-                </button>
-              </div>
-            </div>
-
+            <button 
+              onClick={() => { localStorage.removeItem('nova_registration'); router.push('/tickets'); }}
+              className="w-full flex items-center gap-4 px-5 py-4 rounded-sm font-bold text-[13px] uppercase tracking-widest text-red-500 hover:bg-red-50 transition-all"
+            >
+              <LogOut className="w-5 h-5" />
+              Sign Out
+            </button>
           </div>
         </div>
-      </section>
-    </main>
+      </aside>
+
+      {/* ─── Main Content ───────────────────────────────────────────────────── */}
+      <main className="flex-1 lg:ml-72 min-h-screen p-6 lg:p-12">
+        <div className="max-w-[1000px] mx-auto">
+          <header className="mb-12">
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-black/30 mb-4">Dashboard / {activeTab}</p>
+            <h1 className="text-[48px] md:text-[64px] font-display font-bold tracking-tighter leading-none text-black">
+              {filteredSidebar.find(i => i.id === activeTab)?.label}
+            </h1>
+          </header>
+
+          {activeTab === 'overview' && (
+            <div className="grid grid-cols-1 xl:grid-cols-5 gap-8">
+              <div className="xl:col-span-3 space-y-6">
+                <div className="bg-white rounded-sm border border-black/5 overflow-hidden shadow-sm">
+                  <div className="bg-black p-8 flex items-center justify-between">
+                    <div className="space-y-1">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/40">Festival Pass</p>
+                      <p className="text-white text-[20px] font-display font-bold tracking-tight">Qatar 2026</p>
+                    </div>
+                    <div className="bg-primary px-4 py-2 rounded-sm text-white text-[10px] font-bold uppercase tracking-widest">
+                      {data.tier.replace('-', ' ')}
+                    </div>
+                  </div>
+                  <div className="p-8 flex flex-col md:flex-row gap-10">
+                    <div className="flex flex-col items-center gap-3">
+                      <img src={QR_CODE_URL} alt="QR" className="w-32 h-32 border border-black/5 p-2 rounded-sm" />
+                      <p className="text-[9px] font-bold uppercase tracking-widest text-black/30">ID: {data.orderId}</p>
+                    </div>
+                    <div className="flex-1 grid grid-cols-2 gap-6">
+                      <div className="col-span-2">
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-black/30 mb-1">Attendee</p>
+                        <p className="font-bold text-[18px]">{data.fullName}</p>
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-black/30 mb-1">Adults</p>
+                        <p className="font-bold text-[18px]">{data.adultQty}</p>
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-black/30 mb-1">Kids</p>
+                        <p className="font-bold text-[18px]">{data.kidsQty || '—'}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="xl:col-span-2 space-y-6">
+                <div className="bg-white rounded-sm border border-black/5 p-8">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-black/30 mb-6">Payment Summary</p>
+                  <p className="font-bold text-[24px] mb-8">QAR {data.total}</p>
+                  <button className="w-full py-4 border border-black/10 rounded-sm font-bold text-[11px] uppercase tracking-widest hover:border-black transition-all">
+                    Download Receipt
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'competitions' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                { title: "Dog Fashion Show", desc: "Matching owner/pet outfits.", slug: "dog-fashion-show", role: 'dog-owner' },
+                { title: "Grooming Contest", desc: "Artistry under WKU judges.", slug: "dog-grooming", role: 'dog-owner' },
+                { title: "Best Cat Show", desc: "Grand judging of breed standards.", slug: "cat-best-show", role: 'cat-owner' },
+                { title: "Drawing Battle", desc: "Live creative battle.", slug: "cat-drawing-battle", role: 'any' }
+              ].filter(c => c.role === 'any' || (data.tier === c.role)).map((comp, i) => (
+                <div key={i} className="bg-white rounded-sm border border-black/5 p-8 hover:border-primary transition-all">
+                  <Trophy className="w-10 h-10 text-primary mb-6" />
+                  <h3 className="text-[20px] font-display font-bold mb-2">{comp.title}</h3>
+                  <p className="text-[13px] text-black/40 mb-8">{comp.desc}</p>
+                  <button onClick={() => router.push(`/registration?event=${comp.slug}`)} className="text-black font-bold text-[12px] uppercase tracking-widest flex items-center gap-2">
+                    Register <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {activeTab === 'health' && (
+            <div className="bg-white rounded-sm border border-black/5 p-12 text-center">
+              <ShieldCheck className="w-16 h-16 text-primary mx-auto mb-8" />
+              <h2 className="text-[24px] font-display font-bold mb-4">Health Compliance</h2>
+              <p className="text-black/40 max-w-[400px] mx-auto mb-8">Required for all international competitions.</p>
+              <button className="px-8 py-4 bg-black text-white rounded-sm font-bold text-[12px] uppercase tracking-widest">View Rules</button>
+            </div>
+          )}
+
+          {activeTab === 'schedule' && (
+            <div className="space-y-4">
+              {[
+                { time: "02:00 PM", event: "Grand Opening", zone: "Main Stage" },
+                { time: "04:00 PM", event: "Pet Fashion Parade", zone: "Arena" }
+              ].map((s, i) => (
+                <div key={i} className="bg-white rounded-sm border border-black/5 p-6 flex justify-between">
+                  <span className="font-display font-bold text-primary">{s.time}</span>
+                  <span className="font-bold">{s.event}</span>
+                  <span className="text-black/30 uppercase text-[10px] font-bold tracking-widest">{s.zone}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </main>
+    </div>
+  );
+}
+
+export default function DashboardPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <DashboardContent />
+    </Suspense>
   );
 }
