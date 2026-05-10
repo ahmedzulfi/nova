@@ -37,24 +37,24 @@ export default function GalleryPage() {
 
 
       {/* Social CTA */}
-      <section className="py-24 bg-black text-white overflow-hidden relative">
+      <section className="py-24 bg-primary text-black overflow-hidden relative">
         <div className="container mx-auto px-6 max-w-[1280px] text-center relative z-10">
-          <h3 className="text-[32px] md:text-[56px] font-display font-bold mb-8 tracking-tight">Share Your Moments</h3>
-          <p className="text-white/60 text-[18px] mb-12 max-w-[600px] mx-auto leading-relaxed">
-            Tag your photos with <span className="text-primary font-bold">#NovaPawFestival2026</span> and follow us for updates!
+          <h3 className="text-[32px] md:text-[56px] font-display font-black mb-8 tracking-tight">Share Your Moments</h3>
+          <p className="text-black/60 text-[18px] mb-12 max-w-[600px] mx-auto leading-relaxed font-medium">
+            Tag your photos with <span className="text-black font-black underline decoration-black/20">#NovaPawFestival2026</span> and follow us for updates!
           </p>
           <a
             href="https://www.instagram.com/nova_paw_festival/"
             target="_blank"
-            className="inline-flex items-center gap-4 bg-primary text-white px-10 py-5 rounded-sm font-bold text-[18px] hover:bg-white hover:text-black transition-all active:scale-95"
+            className="inline-flex items-center gap-4 bg-black text-white px-10 py-5 rounded-sm font-black text-[18px] hover:bg-white hover:text-black transition-all duration-300 active:scale-95 shadow-2xl shadow-black/20"
           >
             <Instagram className="w-6 h-6" />
             Follow on Instagram
           </a>
         </div>
-        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary rounded-full blur-[120px] -mr-64 -mt-64" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary rounded-full blur-[100px] -ml-48 -mb-48" />
+        <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white rounded-full blur-[120px] -mr-64 -mt-64" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-white rounded-full blur-[100px] -ml-48 -mb-48" />
         </div>
       </section>
 
