@@ -1,233 +1,205 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import Navigation from "@/components/sections/navigation";
-import { QrCode, Check, CreditCard, Download, Share2, MapPin, Calendar, User, Ticket, Info } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Navigation from '@/components/sections/navigation';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Separator } from '@/components/ui/separator';
+import { CheckCircle2, QrCode, CreditCard, Printer, Home } from 'lucide-react';
+
+interface RegistrationData {
+  fullName: string;
+  email: string;
+  phone: string;
+  tier: string;
+  adultQty: number;
+  kidsQty: number;
+  petQty: number;
+  petName: string;
+  total: number;
+  orderId: string;
+}
 
 export default function DashboardPage() {
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<RegistrationData | null>(null);
   const [isPaid, setIsPaid] = useState(false);
 
   useEffect(() => {
-    const savedData = localStorage.getItem('nova_registration');
-    if (savedData) {
-      setData(JSON.parse(savedData));
-    }
+    const saved = localStorage.getItem('nova_registration');
+    if (saved) setData(JSON.parse(saved));
   }, []);
 
-  if (!data) return null;
+  if (!data) {
+    return (
+      <main className="min-h-screen bg-muted/30">
+        <Navigation />
+        <div className="flex flex-col items-center justify-center min-h-[70vh] gap-4">
+          <p className="text-muted-foreground">No registration found.</p>
+          <Button variant="outline" onClick={() => (window.location.href = '/tickets')}>
+            Go to Tickets
+          </Button>
+        </div>
+      </main>
+    );
+  }
+
+  const tierLabel = data.tier.replace('-owner', '').replace('-', ' ');
+  const ADULT_PRICE = 25;
+  const KID_PRICE = 15;
+  const PET_FEE = 25;
 
   return (
-    <main className="min-h-screen bg-slate-50/50">
+    <main className="min-h-screen bg-muted/30">
       <Navigation />
-      
-      <div className="pt-32 pb-20 container mx-auto px-6 max-w-[1000px]">
+
+      <div className="container max-w-xl mx-auto px-4 pt-36 pb-20">
+
         {!isPaid ? (
-          /* Professional Payment Review */
-          <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 max-w-[600px] mx-auto space-y-8">
-            <div className="space-y-2 text-center mb-10">
-              <h1 className="text-4xl font-bold tracking-tight text-slate-900">Complete Your Order</h1>
-              <p className="text-slate-500 font-medium">Please review your registration details before payment.</p>
+          /* ── Payment Step ── */
+          <div className="space-y-5">
+            <div className="text-center space-y-1 mb-8">
+              <p className="text-sm text-muted-foreground font-medium uppercase tracking-widest">Almost there</p>
+              <h1 className="text-2xl font-bold tracking-tight">Complete Your Purchase</h1>
             </div>
 
-            <Card className="border-slate-200 shadow-xl shadow-slate-200/50 overflow-hidden rounded-2xl bg-white">
-              <CardHeader className="bg-slate-50/50 border-b border-slate-100 p-8">
-                <div className="flex justify-between items-center">
-                  <div className="space-y-1">
-                    <CardTitle className="text-lg font-bold">Order Summary</CardTitle>
-                    <CardDescription className="text-xs font-semibold uppercase tracking-widest text-slate-400">{data.orderId}</CardDescription>
-                  </div>
-                  <Badge variant="secondary" className="bg-amber-100 text-amber-700 border-amber-200 px-3 py-1 text-[10px] uppercase font-bold tracking-wider">Pending Payment</Badge>
-                </div>
+            {/* Booking details */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-base">Booking Details</CardTitle>
               </CardHeader>
-              <CardContent className="p-8 space-y-6">
-                <div className="grid grid-cols-2 gap-8 text-sm">
-                  <div className="space-y-1">
-                    <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Registrant</p>
-                    <p className="font-bold text-slate-900">{data.fullName}</p>
+              <CardContent className="space-y-4">
+                <div className="grid grid-cols-2 gap-y-3 text-sm">
+                  <div>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium">Name</p>
+                    <p className="font-semibold">{data.fullName}</p>
                   </div>
-                  <div className="space-y-1">
-                    <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Access Tier</p>
-                    <p className="font-bold text-slate-900 uppercase">{data.tier.replace('-', ' ')}</p>
+                  <div>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium">Pass Type</p>
+                    <Badge variant="secondary" className="capitalize mt-0.5">{tierLabel}</Badge>
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium">Email</p>
+                    <p className="font-semibold">{data.email}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium">Mobile</p>
+                    <p className="font-semibold">{data.phone}</p>
                   </div>
                 </div>
-                
-                <Separator className="bg-slate-100" />
-                
-                <div className="space-y-4">
-                  <div className="flex justify-between text-sm font-medium text-slate-600">
-                    <span>Adult Tickets × {data.adultQty}</span>
-                    <span className="font-bold text-slate-900">QAR {data.adultQty * 25}.00</span>
+
+                <Separator />
+
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Adults × {data.adultQty}</span>
+                    <span>QAR {data.adultQty * ADULT_PRICE}</span>
                   </div>
                   {data.kidsQty > 0 && (
-                    <div className="flex justify-between text-sm font-medium text-slate-600">
-                      <span>Kids Tickets × {data.kidsQty}</span>
-                      <span className="font-bold text-slate-900">QAR {data.kidsQty * 15}.00</span>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Children × {data.kidsQty}</span>
+                      <span>QAR {data.kidsQty * KID_PRICE}</span>
                     </div>
                   )}
                   {data.petQty > 0 && (
-                    <div className="flex justify-between text-sm font-medium text-slate-600">
-                      <span>{data.tier.replace('-owner', '')} Registration × {data.petQty}</span>
-                      <span className="font-bold text-slate-900">QAR {data.petQty * 25}.00</span>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground capitalize">{tierLabel} registration</span>
+                      <span>QAR {data.petQty * PET_FEE}</span>
                     </div>
                   )}
-                </div>
-                
-                <div className="pt-6 border-t border-slate-100 flex justify-between items-center">
-                  <span className="text-lg font-bold text-slate-900 uppercase tracking-tighter">Amount Due</span>
-                  <span className="text-5xl font-bold tracking-tighter text-slate-900">QAR {data.total}</span>
+                  <Separator />
+                  <div className="flex justify-between font-semibold text-base">
+                    <span>Total</span>
+                    <span className="text-primary text-xl">QAR {data.total}</span>
+                  </div>
                 </div>
               </CardContent>
-              <CardFooter className="p-8 bg-slate-50/50 border-t border-slate-100">
-                <div className="w-full space-y-4">
-                  <Button 
-                    onClick={() => setIsPaid(true)}
-                    className="w-full h-16 text-lg font-bold bg-slate-900 hover:bg-slate-800 transition-all rounded-xl shadow-xl shadow-slate-900/20"
-                  >
-                    <CreditCard className="mr-3 w-5 h-5" /> Pay Now
-                  </Button>
-                  <p className="text-[10px] text-center text-slate-400 font-bold uppercase tracking-widest">Encrypted Checkout · Guaranteed Security</p>
-                </div>
-              </CardFooter>
             </Card>
+
+            <Button className="w-full" size="lg" onClick={() => setIsPaid(true)}>
+              <CreditCard className="mr-2 h-4 w-4" />
+              Pay QAR {data.total} — Confirm Booking
+            </Button>
+
+            <p className="text-center text-xs text-muted-foreground">
+              Secure payment via QPay. Your ticket will be generated immediately after payment.
+            </p>
           </div>
         ) : (
-          /* Professional Attendee Dashboard */
-          <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 space-y-10">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 border-b border-slate-200 pb-10">
-              <div className="space-y-2">
-                <div className="flex items-center gap-3">
-                   <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 hover:bg-emerald-100 px-3 py-1 text-[10px] uppercase font-bold tracking-wider">Booking Confirmed</Badge>
-                   <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">{data.orderId}</span>
-                </div>
-                <h1 className="text-5xl font-bold tracking-tight text-slate-900">Hi, {data.fullName.split(' ')[0]}</h1>
-                <p className="text-slate-500 font-medium">Your tickets are ready. See you at The Pearl!</p>
-              </div>
-              <div className="flex items-center gap-3">
-                 <Button variant="outline" className="rounded-lg font-bold text-xs uppercase tracking-widest h-11"><Download className="mr-2 w-4 h-4" /> Save PDF</Button>
-                 <Button variant="outline" className="rounded-lg font-bold text-xs uppercase tracking-widest h-11"><Share2 className="mr-2 w-4 h-4" /> Share</Button>
-              </div>
+          /* ── Ticket / Digital Pass ── */
+          <div className="space-y-6">
+            {/* Success banner */}
+            <div className="flex flex-col items-center gap-2 text-center py-4">
+              <CheckCircle2 className="h-12 w-12 text-primary" />
+              <h1 className="text-2xl font-bold tracking-tight">Payment Confirmed!</h1>
+              <p className="text-sm text-muted-foreground">Your digital ticket is ready. Present the QR code at the gate.</p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-              <div className="lg:col-span-2 space-y-10">
-                <Card className="border-slate-200 shadow-2xl shadow-slate-200/50 rounded-3xl overflow-hidden bg-white">
-                  <div className="grid grid-cols-1 md:grid-cols-5 h-full">
-                    <div className="md:col-span-3 p-10 space-y-10">
-                      <div className="space-y-6">
-                        <div className="space-y-1">
-                          <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Event</p>
-                          <h3 className="text-2xl font-bold text-slate-900 leading-tight">Nova Paw Festival 2026</h3>
-                        </div>
-                        <div className="grid grid-cols-2 gap-8">
-                          <div className="space-y-1">
-                            <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Date</p>
-                            <div className="flex items-center gap-2 font-bold text-slate-900">
-                              <Calendar className="w-4 h-4 text-slate-400" />
-                              <span>Oct 14-15, 2026</span>
-                            </div>
-                          </div>
-                          <div className="space-y-1">
-                            <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Venue</p>
-                            <div className="flex items-center gap-2 font-bold text-slate-900">
-                              <MapPin className="w-4 h-4 text-slate-400" />
-                              <span>The Pearl, Qatar</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <Separator className="bg-slate-100" />
-                      
-                      <div className="grid grid-cols-2 gap-8">
-                         <div className="space-y-1">
-                            <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Attendee</p>
-                            <p className="font-bold text-slate-900">{data.fullName}</p>
-                         </div>
-                         <div className="space-y-1">
-                            <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Access</p>
-                            <p className="font-bold text-slate-900">{data.adultQty} Adult{data.adultQty > 1 && 's'}{data.kidsQty > 0 && `, ${data.kidsQty} Kid${data.kidsQty > 1 && 's'}`}</p>
-                         </div>
-                      </div>
-                    </div>
-                    
-                    <div className="md:col-span-2 bg-slate-900 flex flex-col items-center justify-center p-10 text-center space-y-6">
-                      <div className="p-4 bg-white rounded-2xl shadow-2xl">
-                        <QrCode className="w-36 h-36 text-slate-900" />
-                      </div>
-                      <div className="space-y-1">
-                        <p className="text-white font-bold uppercase tracking-widest text-[10px] opacity-60">Scan Pass</p>
-                        <p className="text-white text-xs font-medium">Valid for Single Entry</p>
-                      </div>
-                    </div>
+            {/* Ticket card */}
+            <Card className="overflow-hidden border-2">
+              {/* Top stripe */}
+              <div className="bg-primary px-6 py-4 flex items-center justify-between">
+                <div>
+                  <p className="text-white/70 text-xs font-medium uppercase tracking-widest">Nova Paw Festival</p>
+                  <p className="text-white font-bold text-lg">Official Entry Pass</p>
+                </div>
+                <Badge className="bg-white/20 text-white border-white/30 hover:bg-white/30">
+                  {data.orderId}
+                </Badge>
+              </div>
+
+              <CardContent className="pt-6 space-y-6">
+                {/* QR Code */}
+                <div className="flex flex-col items-center py-4">
+                  <div className="border-2 border-dashed border-border p-6 rounded-lg bg-muted/30">
+                    <QrCode className="w-40 h-40 text-foreground" strokeWidth={1} />
                   </div>
-                </Card>
+                  <p className="text-xs text-muted-foreground mt-3">Scan at gate entry</p>
+                </div>
 
-                {data.petQty > 0 && (
-                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <Card className="border-slate-200 shadow-lg rounded-2xl overflow-hidden group hover:border-slate-900 transition-all cursor-pointer">
-                        <CardContent className="p-8 flex items-center gap-6">
-                           <div className="w-14 h-14 bg-slate-100 rounded-xl flex items-center justify-center text-slate-900 group-hover:bg-slate-900 group-hover:text-white transition-all">
-                              {data.tier === 'dog-owner' ? <Dog className="w-7 h-7" /> : <Cat className="w-7 h-7" />}
-                           </div>
-                           <div>
-                              <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px] mb-1">Registered Pet</p>
-                              <h4 className="text-lg font-bold text-slate-900">{data.petName}</h4>
-                           </div>
-                        </CardContent>
-                      </Card>
-                      <Card className="border-slate-200 shadow-lg rounded-2xl overflow-hidden group hover:border-slate-900 transition-all cursor-pointer bg-slate-900 text-white border-none">
-                        <CardContent className="p-8 flex items-center gap-6">
-                           <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center">
-                              <Ticket className="w-7 h-7" />
-                           </div>
-                           <div>
-                              <p className="text-white/40 font-bold uppercase tracking-widest text-[10px] mb-1">Competition</p>
-                              <h4 className="text-lg font-bold">Sign Up Now</h4>
-                           </div>
-                        </CardContent>
-                      </Card>
-                   </div>
-                )}
-              </div>
+                <Separator />
 
-              <div className="space-y-8">
-                 <Card className="border-slate-200 shadow-lg rounded-2xl overflow-hidden bg-white">
-                   <CardHeader className="p-8 pb-4">
-                     <CardTitle className="text-sm font-bold uppercase tracking-widest flex items-center gap-2 text-slate-400">
-                        <Info className="w-4 h-4" /> Guidelines
-                     </CardTitle>
-                   </CardHeader>
-                   <CardContent className="p-8 pt-0 space-y-6">
-                      <div className="space-y-4">
-                         <div className="flex items-start gap-3">
-                            <div className="w-1.5 h-1.5 rounded-full bg-slate-900 mt-1.5 shrink-0" />
-                            <p className="text-sm text-slate-600 font-medium">Please arrive 30 mins early for check-in.</p>
-                         </div>
-                         <div className="flex items-start gap-3">
-                            <div className="w-1.5 h-1.5 rounded-full bg-slate-900 mt-1.5 shrink-0" />
-                            <p className="text-sm text-slate-600 font-medium">Keep your pet on a leash at all times.</p>
-                         </div>
-                         <div className="flex items-start gap-3">
-                            <div className="w-1.5 h-1.5 rounded-full bg-slate-900 mt-1.5 shrink-0" />
-                            <p className="text-sm text-slate-600 font-medium">Carry your pet's vaccination record.</p>
-                         </div>
-                      </div>
-                      <Button variant="outline" className="w-full rounded-lg font-bold text-xs uppercase tracking-widest h-11 border-slate-200">View Full Policy</Button>
-                   </CardContent>
-                 </Card>
-                 
-                 <div className="p-8 bg-slate-900 rounded-3xl text-white space-y-6">
-                    <h4 className="text-xl font-bold tracking-tight">Need help?</h4>
-                    <p className="text-sm text-white/60 font-medium leading-relaxed">Our support team is available 24/7 to assist with your booking.</p>
-                    <Button className="w-full bg-white text-slate-900 hover:bg-slate-100 font-bold rounded-xl h-12">Contact Support</Button>
-                 </div>
-              </div>
+                {/* Ticket details */}
+                <div className="grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
+                  <div>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium mb-0.5">Attendee</p>
+                    <p className="font-semibold">{data.fullName}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium mb-0.5">Pass Type</p>
+                    <p className="font-semibold capitalize">{tierLabel}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium mb-0.5">Guests</p>
+                    <p className="font-semibold">
+                      {data.adultQty} Adult{data.adultQty > 1 ? 's' : ''}
+                      {data.kidsQty > 0 ? `, ${data.kidsQty} Kid${data.kidsQty > 1 ? 's' : ''}` : ''}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium mb-0.5">Pet Name</p>
+                    <p className="font-semibold">{data.petName || '—'}</p>
+                  </div>
+                </div>
+
+                <Separator />
+
+                {/* Total */}
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-muted-foreground">Amount Paid</span>
+                  <span className="text-xl font-bold text-primary">QAR {data.total}</span>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Actions */}
+            <div className="flex gap-3">
+              <Button variant="outline" className="flex-1" onClick={() => window.print()}>
+                <Printer className="mr-2 h-4 w-4" /> Print Pass
+              </Button>
+              <Button variant="outline" className="flex-1" onClick={() => (window.location.href = '/')}>
+                <Home className="mr-2 h-4 w-4" /> Back to Site
+              </Button>
             </div>
           </div>
         )}

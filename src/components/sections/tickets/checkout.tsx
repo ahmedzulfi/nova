@@ -1,28 +1,91 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Progress } from "@/components/ui/progress";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
+'use client';
 
-const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
+import React, { useState, useEffect } from 'react';
+import { Dog, Cat, User, Mail, Phone, Plus, Minus, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Progress } from '@/components/ui/progress';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Separator } from '@/components/ui/separator';
+import { Badge } from '@/components/ui/badge';
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from '@/components/ui/input-otp';
+
+interface TicketsCheckoutProps {
+  selectedTier: string;
+}
+
+const STEPS = ['Your Info', 'Verify OTP', 'Ticket Selection', 'Safety Terms', 'Summary'];
+
+const ADULT_PRICE = 25;
+const KID_PRICE = 15;
+const PET_FEE = 25;
+
+const DOG_TERMS = [
+  "I am fully responsible for my dog and children at all times during the event.",
+  "My dog's vaccination is up to date and I have a valid pet passport for verification.",
+  "If my dog is medium or large-sized, they will arrive wearing a muzzle.",
+  "My dog will be on a secure, non-extendable leash at all times.",
+  "My dog will wear a secure collar or harness at all times.",
+  "Female dogs in heat are not permitted to enter.",
+  "Aggressive dogs are strictly not allowed, even if wearing a muzzle.",
+  "Sick, injured, or visibly unwell dogs are not permitted to enter.",
+  "Food aggression or behavioral concerns have been reported before entry.",
+  "Shock chains, prong collars, or harmful training equipment are prohibited.",
+  "My dog's nails are trimmed for safety.",
+  "I will carry waste bags and clean up after my dog immediately.",
+  "No direct interaction with other dogs unless fully controlled.",
+  "I consent to photo and video coverage of myself, my family, and my dog.",
+  "Staff reserve the right to refuse entry to any dog considered unsafe.",
+  "I accept full responsibility for any injury or damage caused by my dog.",
+];
+
+const CAT_TERMS = [
+  "Cats must remain inside their carrier at all times unless in an official activity.",
+  "I am fully responsible for my cat's safety and supervision.",
+  "All cats must be vaccinated with records available for verification.",
+  "Entry may be denied if vaccination records are not provided.",
+  "I consent to photo and video coverage of myself and my pet.",
+  "Children must be supervised at all times.",
+  "No unauthorized touching or interacting with pets.",
+  "The organizer is not liable for lost pets or incidents due to negligence.",
+];
+
+const ADULT_TERMS = [
+  "I consent to photo and video coverage during the festival.",
+  "I will supervise my children at all times.",
+  "I will not touch or interact with any pet without the owner's explicit permission.",
+  "I will follow all staff guidance and safety instructions.",
+  "The organizer is not liable for incidents caused by failure to follow safety rules.",
+];
+
+export default function TicketsCheckout({ selectedTier }: TicketsCheckoutProps) {
   const [step, setStep] = useState(1);
-  const [otp, setOtp] = useState("");
-  
-  // Selection State
-  const [ownerData, setOwnerData] = useState({ fullName: "", email: "", phone: "" });
+  const [otp, setOtp] = useState('');
+  const [ownerData, setOwnerData] = useState({ fullName: '', email: '', phone: '' });
   const [adultQty, setAdultQty] = useState(1);
   const [kidsQty, setKidsQty] = useState(0);
   const [petQty, setPetQty] = useState(0);
-  const [petName, setPetName] = useState("");
+  const [petName, setPetName] = useState('');
+  const [checkedTerms, setCheckedTerms] = useState<boolean[]>([]);
 
-  const ADULT_PRICE = 25;
-  const KID_PRICE = 15;
-  const PET_FEE = 25;
+  const total = adultQty * ADULT_PRICE + kidsQty * KID_PRICE + petQty * PET_FEE;
+  const isPetOwner = selectedTier !== 'adult';
+  const tierLabel = selectedTier.replace('-owner', '').replace('-', ' ');
 
-  const total = (adultQty * ADULT_PRICE) + (kidsQty * KID_PRICE) + (petQty * PET_FEE);
+  const currentTerms =
+    selectedTier === 'dog-owner' ? DOG_TERMS :
+    selectedTier === 'cat-owner' ? CAT_TERMS : ADULT_TERMS;
 
-  // Rules & Validation
+  useEffect(() => {
+    setCheckedTerms(new Array(currentTerms.length).fill(false));
+  }, [selectedTier]);
+
   useEffect(() => {
     if (selectedTier === 'dog-owner') {
       if (petQty > adultQty) setPetQty(adultQty);
@@ -40,7 +103,11 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
     setAdultQty(1);
     setKidsQty(0);
     setPetQty(selectedTier === 'adult' ? 0 : 1);
+    setOtp('');
+    setOwnerData({ fullName: '', email: '', phone: '' });
   }, [selectedTier]);
+
+  const allTermsChecked = checkedTerms.every(Boolean);
 
   const handleFinish = () => {
     const registration = {
@@ -51,290 +118,402 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
       petQty,
       petName,
       total,
-      orderId: `#NPV-2026-${Math.random().toString(36).substr(2, 6).toUpperCase()}`
+      orderId: `NPV-2026-${Math.random().toString(36).substr(2, 6).toUpperCase()}`,
     };
     localStorage.setItem('nova_registration', JSON.stringify(registration));
     window.location.href = '/dashboard';
   };
 
-  const stepsHeader = (
-    <div className="mb-10 space-y-6">
-      <div className="flex items-center justify-between">
-        <Badge variant="outline" className="px-3 py-1 text-[10px] uppercase tracking-widest font-semibold border-slate-200 text-slate-500">
-          Step {step} of 5
-        </Badge>
-        <span className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">{selectedTier.replace('-', ' ')} Registration</span>
-      </div>
-      <div className="space-y-2">
-        <h2 className="text-3xl font-semibold tracking-tight text-slate-900">
-          {step === 1 && "Personal Information"}
-          {step === 2 && "Security Verification"}
-          {step === 3 && "Ticket Selection"}
-          {step === 4 && "Terms of Service"}
-          {step === 5 && "Review & Complete"}
-        </h2>
-        <p className="text-sm text-slate-500">
-          {step === 1 && "Enter your contact details to start your registration."}
-          {step === 2 && "We've sent a code to verify your identity."}
-          {step === 3 && "Select your tickets and register your pets."}
-          {step === 4 && "Please review and accept our event policies."}
-          {step === 5 && "Verify your order details before proceeding to payment."}
-        </p>
-      </div>
-      <Progress value={(step / 5) * 100} className="h-1.5 bg-slate-100" />
-    </div>
-  );
-
-  const renderStep1 = () => (
-    <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-8">
-      <div className="grid gap-6">
-        <div className="grid gap-2">
-          <Label htmlFor="name" className="text-xs font-bold uppercase tracking-wider text-slate-500">Full Name</Label>
-          <div className="relative">
-            <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-            <Input 
-              id="name"
-              placeholder="John Doe" 
-              value={ownerData.fullName}
-              onChange={(e) => setOwnerData({...ownerData, fullName: e.target.value})}
-              className="pl-10 h-12 border-slate-200 focus-visible:ring-slate-900" 
-            />
-          </div>
-        </div>
-        <div className="grid gap-2">
-          <Label htmlFor="email" className="text-xs font-bold uppercase tracking-wider text-slate-500">Email Address</Label>
-          <div className="relative">
-            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-            <Input 
-              id="email"
-              type="email"
-              placeholder="john@example.com" 
-              value={ownerData.email}
-              onChange={(e) => setOwnerData({...ownerData, email: e.target.value})}
-              className="pl-10 h-12 border-slate-200 focus-visible:ring-slate-900" 
-            />
-          </div>
-        </div>
-        <div className="grid gap-2">
-          <Label htmlFor="phone" className="text-xs font-bold uppercase tracking-wider text-slate-500">Mobile Number</Label>
-          <div className="relative">
-            <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-            <Input 
-              id="phone"
-              type="tel"
-              placeholder="+974 XXXX XXXX" 
-              value={ownerData.phone}
-              onChange={(e) => setOwnerData({...ownerData, phone: e.target.value})}
-              className="pl-10 h-12 border-slate-200 focus-visible:ring-slate-900" 
-            />
-          </div>
-        </div>
-      </div>
-      <Button onClick={() => setStep(2)} className="w-full h-14 text-base font-semibold bg-slate-900 hover:bg-slate-800 transition-all">
-        Continue to Verification <ArrowRight className="ml-2 w-4 h-4" />
-      </Button>
-    </div>
-  );
-
-  const renderStep2 = () => (
-    <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-8">
-      <div className="grid gap-6 text-center">
-        <div className="p-6 bg-slate-50 border border-dashed border-slate-200 rounded-lg">
-          <p className="text-sm text-slate-600">Verification code sent to</p>
-          <p className="text-base font-bold text-slate-900 mt-1">{ownerData.phone || ownerData.email}</p>
-        </div>
-        <div className="grid gap-4">
-          <Input 
-            type="text" 
-            maxLength={6} 
-            value={otp}
-            onChange={(e) => setOtp(e.target.value)}
-            className="h-20 text-center text-3xl font-bold tracking-[0.5em] border-slate-200 focus-visible:ring-slate-900"
-            placeholder="000000"
-          />
-          <p className="text-xs text-slate-400 font-medium italic">Enter the 6-digit code to proceed</p>
-        </div>
-      </div>
-      <div className="space-y-4">
-        <Button onClick={() => setStep(3)} className="w-full h-14 text-base font-semibold bg-slate-900 hover:bg-slate-800 transition-all shadow-lg shadow-slate-900/10">
-          Verify Account
-        </Button>
-        <Button variant="ghost" onClick={() => setStep(1)} className="w-full text-slate-400 hover:text-slate-900 font-semibold text-xs uppercase tracking-widest">
-          Change Contact Info
-        </Button>
-      </div>
-    </div>
-  );
-
-  const renderStep3 = () => (
-    <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-8">
-      {selectedTier !== 'adult' && (
-        <div className="grid gap-6 p-6 rounded-xl border border-slate-100 bg-slate-50/50">
-          <div className="flex items-center gap-4">
-            <div className="w-10 h-10 bg-slate-900 text-white rounded-lg flex items-center justify-center">
-              {selectedTier === 'dog-owner' ? <Dog className="w-5 h-5" /> : <Cat className="w-5 h-5" />}
-            </div>
-            <div>
-              <h4 className="text-sm font-bold text-slate-900">{selectedTier === 'dog-owner' ? 'Dog' : 'Cat'} Details</h4>
-              <p className="text-[11px] text-slate-500 font-medium">Register your pets for the festival</p>
-            </div>
-          </div>
-          <div className="grid gap-4">
-            <div className="grid gap-2">
-              <Label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-1">Pet Names</Label>
-              <Input 
-                value={petName} 
-                onChange={(e) => setPetName(e.target.value)}
-                placeholder={selectedTier === 'dog-owner' ? "Buddy, Max" : "Luna"} 
-                className="h-11 border-slate-200"
-              />
-            </div>
-            <div className="flex items-center justify-between p-4 bg-white border border-slate-100 rounded-lg">
-              <span className="text-sm font-semibold text-slate-700">Quantity</span>
-              <div className="flex items-center gap-3">
-                <Button variant="outline" size="icon" onClick={() => setPetQty(Math.max(1, petQty - 1))} className="h-8 w-8 rounded-md"><Minus className="w-3 h-3" /></Button>
-                <span className="text-base font-bold w-4 text-center">{petQty}</span>
-                <Button 
-                  variant="outline" 
-                  size="icon"
-                  onClick={() => {
-                    if (selectedTier === 'dog-owner' && petQty < adultQty) setPetQty(petQty + 1);
-                    if (selectedTier === 'cat-owner' && petQty < 2) setPetQty(petQty + 1);
-                  }} 
-                  className="h-8 w-8 rounded-md border-slate-900 bg-slate-900 text-white hover:bg-slate-800"
-                >
-                  <Plus className="w-3 h-3" />
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      <div className="grid gap-6 p-6 rounded-xl border border-slate-100 bg-slate-50/50">
-        <div className="flex items-center gap-4">
-          <div className="w-10 h-10 bg-slate-900 text-white rounded-lg flex items-center justify-center">
-            <User className="w-5 h-5" />
-          </div>
-          <div>
-            <h4 className="text-sm font-bold text-slate-900">Tickets</h4>
-            <p className="text-[11px] text-slate-500 font-medium">Choose number of attendees</p>
-          </div>
-        </div>
-        <div className="space-y-4">
-          <div className="flex items-center justify-between p-4 bg-white border border-slate-100 rounded-lg">
-            <div>
-              <p className="text-sm font-bold text-slate-800">Adults</p>
-              <p className="text-[10px] font-bold text-slate-400">QAR 25.00</p>
-            </div>
-            <div className="flex items-center gap-3">
-              <Button variant="outline" size="icon" onClick={() => setAdultQty(Math.max(1, adultQty - 1))} className="h-8 w-8 rounded-md"><Minus className="w-3 h-3" /></Button>
-              <span className="text-base font-bold w-4 text-center">{adultQty}</span>
-              <Button variant="outline" size="icon" onClick={() => setAdultQty(adultQty + 1)} className="h-8 w-8 rounded-md border-slate-900 bg-slate-900 text-white hover:bg-slate-800"><Plus className="w-3 h-3" /></Button>
-            </div>
-          </div>
-          <div className="flex items-center justify-between p-4 bg-white border border-slate-100 rounded-lg">
-            <div>
-              <p className="text-sm font-bold text-slate-800">Kids</p>
-              <p className="text-[10px] font-bold text-slate-400">QAR 15.00</p>
-            </div>
-            <div className="flex items-center gap-3">
-              <Button variant="outline" size="icon" onClick={() => setKidsQty(Math.max(0, kidsQty - 1))} className="h-8 w-8 rounded-md"><Minus className="w-3 h-3" /></Button>
-              <span className="text-base font-bold w-4 text-center">{kidsQty}</span>
-              <Button variant="outline" size="icon" onClick={() => setKidsQty(kidsQty + 1)} className="h-8 w-8 rounded-md border-slate-900 bg-slate-900 text-white hover:bg-slate-800"><Plus className="w-3 h-3" /></Button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <Button onClick={() => setStep(4)} className="w-full h-14 text-base font-semibold bg-slate-900 hover:bg-slate-800 transition-all">
-        Continue to Terms <ArrowRight className="ml-2 w-4 h-4" />
-      </Button>
-    </div>
-  );
-
-  const renderStep4 = () => {
-    const terms = [
-      "I accept the event code of conduct and safety regulations.",
-      "I confirm that all pet health records are valid and up to date.",
-      "I agree to follow all instructions from event staff and safety personnel.",
-      "I understand that photography and videography will be taken for media purposes."
-    ];
-
-    return (
-      <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-8">
-        <div className="grid gap-4">
-          {terms.map((term, i) => (
-            <div key={i} className="flex items-start gap-4 p-5 rounded-xl border border-slate-100 bg-slate-50/30 group hover:border-slate-200 transition-all cursor-pointer">
-              <Checkbox id={`term-${i}`} className="mt-1 border-slate-300" required />
-              <Label htmlFor={`term-${i}`} className="text-sm text-slate-600 leading-relaxed font-medium cursor-pointer group-hover:text-slate-900">
-                {term}
-              </Label>
-            </div>
-          ))}
-        </div>
-        <Button onClick={() => setStep(5)} className="w-full h-14 text-base font-semibold bg-slate-900 hover:bg-slate-800 transition-all shadow-lg shadow-slate-900/10">
-          Confirm Policies & Review
-        </Button>
-      </div>
-    );
+  const toggleTerm = (i: number) => {
+    const updated = [...checkedTerms];
+    updated[i] = !updated[i];
+    setCheckedTerms(updated);
   };
 
-  const renderStep5 = () => (
-    <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-8">
-      <div className="p-8 rounded-2xl border border-slate-200 bg-white shadow-sm space-y-6">
-        <div className="space-y-4">
-          <div className="flex justify-between items-center text-sm">
-            <span className="text-slate-400 font-semibold uppercase tracking-widest text-[10px]">Adult Tickets</span>
-            <span className="font-bold text-slate-900">QAR {adultQty * ADULT_PRICE}.00</span>
-          </div>
-          {kidsQty > 0 && (
-            <div className="flex justify-between items-center text-sm">
-              <span className="text-slate-400 font-semibold uppercase tracking-widest text-[10px]">Kids Tickets</span>
-              <span className="font-bold text-slate-900">QAR {kidsQty * KID_PRICE}.00</span>
-            </div>
-          )}
-          {petQty > 0 && (
-            <div className="flex justify-between items-center text-sm">
-              <span className="text-slate-400 font-semibold uppercase tracking-widest text-[10px]">{selectedTier.replace('-owner', '')} Entry</span>
-              <span className="font-bold text-slate-900">QAR {petQty * PET_FEE}.00</span>
-            </div>
-          )}
-        </div>
-        <Separator className="bg-slate-100" />
-        <div className="flex justify-between items-center pt-2">
-          <span className="text-base font-bold text-slate-900">Total Amount</span>
-          <span className="text-4xl font-bold tracking-tighter text-slate-900">QAR {total}</span>
-        </div>
-      </div>
-      
-      <div className="space-y-4">
-        <Button onClick={handleFinish} className="w-full h-16 text-lg font-bold bg-slate-900 hover:bg-slate-800 transition-all rounded-xl shadow-xl shadow-slate-900/20">
-          Proceed to Dashboard <ArrowRight className="ml-2 w-5 h-5" />
-        </Button>
-        <p className="text-[10px] text-center text-slate-400 font-bold uppercase tracking-widest px-8">Secure encryption · 256-bit SSL</p>
-      </div>
+  const QtyControl = ({
+    value,
+    onDecrement,
+    onIncrement,
+    canIncrement = true,
+  }: {
+    value: number;
+    onDecrement: () => void;
+    onIncrement: () => void;
+    canIncrement?: boolean;
+  }) => (
+    <div className="flex items-center gap-2">
+      <Button variant="outline" size="icon" onClick={onDecrement} className="h-9 w-9">
+        <Minus className="h-4 w-4" />
+      </Button>
+      <span className="w-8 text-center font-semibold text-base">{value}</span>
+      <Button
+        variant={canIncrement ? 'default' : 'outline'}
+        size="icon"
+        onClick={onIncrement}
+        disabled={!canIncrement}
+        className="h-9 w-9"
+      >
+        <Plus className="h-4 w-4" />
+      </Button>
     </div>
   );
 
   return (
-    <section className="py-24 md:py-40 bg-slate-50/50">
-      <div className="container mx-auto px-6">
-        <Card className="max-w-[650px] mx-auto border-slate-200/60 shadow-2xl shadow-slate-200/40 rounded-[2rem] overflow-hidden bg-white/80 backdrop-blur-xl">
-          <CardHeader className="pt-12 px-12 pb-0">
-             {stepsHeader}
-          </CardHeader>
-          <CardContent className="px-12 pb-16 pt-2">
-            {step === 1 && renderStep1()}
-            {step === 2 && renderStep2()}
-            {step === 3 && renderStep3()}
-            {step === 4 && renderStep4()}
-            {step === 5 && renderStep5()}
-          </CardContent>
-        </Card>
+    <section className="py-16 bg-muted/30">
+      <div className="container max-w-2xl mx-auto px-4">
+        {/* Step header */}
+        <div className="mb-8 space-y-3">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
+            <span className="font-medium">Step {step} of {STEPS.length}</span>
+            <Badge variant="secondary" className="capitalize">{tierLabel} ticket</Badge>
+          </div>
+          <Progress value={(step / STEPS.length) * 100} className="h-1.5" />
+          <div className="flex gap-1 pt-1">
+            {STEPS.map((s, i) => (
+              <span
+                key={i}
+                className={`text-xs font-medium flex-1 text-center truncate ${
+                  i + 1 === step ? 'text-foreground' : 'text-muted-foreground'
+                }`}
+              >
+                {s}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* ── STEP 1: Owner Info ── */}
+        {step === 1 && (
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-xl">Your Information</CardTitle>
+              <CardDescription>We'll use this to send your ticket confirmation.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-5">
+              <div className="space-y-2">
+                <Label htmlFor="fullName">Full Name</Label>
+                <div className="relative">
+                  <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Input
+                    id="fullName"
+                    placeholder="Ahmed Al-Qassim"
+                    className="pl-9"
+                    value={ownerData.fullName}
+                    onChange={(e) => setOwnerData({ ...ownerData, fullName: e.target.value })}
+                  />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="email">Email Address</Label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="you@email.com"
+                    className="pl-9"
+                    value={ownerData.email}
+                    onChange={(e) => setOwnerData({ ...ownerData, email: e.target.value })}
+                  />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="phone">Mobile Number</Label>
+                <div className="relative">
+                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Input
+                    id="phone"
+                    type="tel"
+                    placeholder="+974 5555 0000"
+                    className="pl-9"
+                    value={ownerData.phone}
+                    onChange={(e) => setOwnerData({ ...ownerData, phone: e.target.value })}
+                  />
+                </div>
+              </div>
+              <Button
+                className="w-full mt-2"
+                size="lg"
+                onClick={() => setStep(2)}
+                disabled={!ownerData.fullName || !ownerData.email || !ownerData.phone}
+              >
+                Send Verification Code <ArrowRight className="ml-1 h-4 w-4" />
+              </Button>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* ── STEP 2: OTP ── */}
+        {step === 2 && (
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-xl">Verify Your Number</CardTitle>
+              <CardDescription>
+                A 6-digit code was sent to{' '}
+                <span className="text-foreground font-semibold">{ownerData.phone || ownerData.email}</span>
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="flex justify-center py-4">
+                <InputOTP maxLength={6} value={otp} onChange={setOtp}>
+                  <InputOTPGroup>
+                    <InputOTPSlot index={0} className="h-14 w-12 text-xl" />
+                    <InputOTPSlot index={1} className="h-14 w-12 text-xl" />
+                    <InputOTPSlot index={2} className="h-14 w-12 text-xl" />
+                    <InputOTPSlot index={3} className="h-14 w-12 text-xl" />
+                    <InputOTPSlot index={4} className="h-14 w-12 text-xl" />
+                    <InputOTPSlot index={5} className="h-14 w-12 text-xl" />
+                  </InputOTPGroup>
+                </InputOTP>
+              </div>
+              <Button className="w-full" size="lg" onClick={() => setStep(3)} disabled={otp.length < 6}>
+                Verify & Continue <ArrowRight className="ml-1 h-4 w-4" />
+              </Button>
+              <button
+                onClick={() => setStep(1)}
+                className="w-full text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                ← Go back and edit info
+              </button>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* ── STEP 3: Ticket Selection ── */}
+        {step === 3 && (
+          <div className="space-y-4">
+            {/* Pet Info */}
+            {isPetOwner && (
+              <Card>
+                <CardHeader>
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      {selectedTier === 'dog-owner' ? <Dog className="h-5 w-5" /> : <Cat className="h-5 w-5" />}
+                    </div>
+                    <div>
+                      <CardTitle className="text-base capitalize">{tierLabel} Details</CardTitle>
+                      <CardDescription>Tell us about your pet</CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-5">
+                  <div className="space-y-2">
+                    <Label htmlFor="petName">Pet Name(s)</Label>
+                    <Input
+                      id="petName"
+                      placeholder={selectedTier === 'dog-owner' ? 'e.g. Buddy' : 'e.g. Luna, Simba'}
+                      value={petName}
+                      onChange={(e) => setPetName(e.target.value)}
+                    />
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-medium">
+                        Number of {selectedTier === 'dog-owner' ? 'Dogs' : 'Cats'}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        {selectedTier === 'dog-owner' ? 'Max 1 per adult' : 'Max 2 per booking'}
+                      </p>
+                    </div>
+                    <QtyControl
+                      value={petQty}
+                      onDecrement={() => setPetQty(Math.max(1, petQty - 1))}
+                      onIncrement={() => {
+                        if (selectedTier === 'dog-owner' && petQty < adultQty) setPetQty(petQty + 1);
+                        if (selectedTier === 'cat-owner' && petQty < 2) setPetQty(petQty + 1);
+                      }}
+                      canIncrement={
+                        (selectedTier === 'dog-owner' && petQty < adultQty) ||
+                        (selectedTier === 'cat-owner' && petQty < 2)
+                      }
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+
+            {/* Visitor Tickets */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-base">Visitor Tickets</CardTitle>
+                <CardDescription>Select number of attendees</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-5">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium">Adults</p>
+                    <p className="text-xs text-muted-foreground">QAR 25 per person</p>
+                  </div>
+                  <QtyControl
+                    value={adultQty}
+                    onDecrement={() => setAdultQty(Math.max(1, adultQty - 1))}
+                    onIncrement={() => setAdultQty(adultQty + 1)}
+                  />
+                </div>
+                <Separator />
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium">Children</p>
+                    <p className="text-xs text-muted-foreground">QAR 15 · Under 12</p>
+                  </div>
+                  <QtyControl
+                    value={kidsQty}
+                    onDecrement={() => setKidsQty(Math.max(0, kidsQty - 1))}
+                    onIncrement={() => setKidsQty(kidsQty + 1)}
+                  />
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Order Preview */}
+            <Card className="bg-muted/40 border-dashed">
+              <CardContent className="pt-6 space-y-2">
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">Adults × {adultQty}</span>
+                  <span>QAR {adultQty * ADULT_PRICE}</span>
+                </div>
+                {kidsQty > 0 && (
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Children × {kidsQty}</span>
+                    <span>QAR {kidsQty * KID_PRICE}</span>
+                  </div>
+                )}
+                {petQty > 0 && (
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground capitalize">{tierLabel} registration</span>
+                    <span>QAR {petQty * PET_FEE}</span>
+                  </div>
+                )}
+                <Separator className="my-2" />
+                <div className="flex justify-between font-semibold">
+                  <span>Total</span>
+                  <span className="text-primary text-lg">QAR {total}</span>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Button className="w-full" size="lg" onClick={() => setStep(4)}>
+              Next: Safety Terms <ArrowRight className="ml-1 h-4 w-4" />
+            </Button>
+          </div>
+        )}
+
+        {/* ── STEP 4: Terms ── */}
+        {step === 4 && (
+          <Card>
+            <CardHeader>
+              <div className="flex items-center gap-3">
+                <ShieldCheck className="h-5 w-5 text-primary" />
+                <div>
+                  <CardTitle className="text-xl">Safety & Conduct</CardTitle>
+                  <CardDescription>
+                    Each item must be individually acknowledged before proceeding.
+                  </CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="max-h-[400px] overflow-y-auto space-y-3 pr-1">
+                {currentTerms.map((term, i) => (
+                  <div
+                    key={i}
+                    className="flex items-start gap-3 p-3 rounded-md border bg-background hover:border-primary/40 transition-colors cursor-pointer"
+                    onClick={() => toggleTerm(i)}
+                  >
+                    <Checkbox
+                      id={`term-${i}`}
+                      checked={checkedTerms[i] ?? false}
+                      onCheckedChange={() => toggleTerm(i)}
+                      className="mt-0.5 shrink-0"
+                    />
+                    <Label
+                      htmlFor={`term-${i}`}
+                      className="text-sm leading-relaxed cursor-pointer text-muted-foreground"
+                    >
+                      {term}
+                    </Label>
+                  </div>
+                ))}
+              </div>
+              <Button
+                className="w-full mt-2"
+                size="lg"
+                disabled={!allTermsChecked}
+                onClick={() => setStep(5)}
+              >
+                Proceed to Summary <ArrowRight className="ml-1 h-4 w-4" />
+              </Button>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* ── STEP 5: Summary & Checkout ── */}
+        {step === 5 && (
+          <div className="space-y-4">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-xl">Order Summary</CardTitle>
+                <CardDescription>Review your booking before payment</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="grid grid-cols-2 gap-3 text-sm">
+                  <div>
+                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">Name</p>
+                    <p className="font-semibold mt-0.5">{ownerData.fullName}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">Email</p>
+                    <p className="font-semibold mt-0.5">{ownerData.email}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">Mobile</p>
+                    <p className="font-semibold mt-0.5">{ownerData.phone}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">Pass Type</p>
+                    <p className="font-semibold mt-0.5 capitalize">{tierLabel}</p>
+                  </div>
+                </div>
+
+                <Separator />
+
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Adults × {adultQty}</span>
+                    <span>QAR {adultQty * ADULT_PRICE}</span>
+                  </div>
+                  {kidsQty > 0 && (
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Children × {kidsQty}</span>
+                      <span>QAR {kidsQty * KID_PRICE}</span>
+                    </div>
+                  )}
+                  {petQty > 0 && (
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground capitalize">{tierLabel} registration × {petQty}</span>
+                      <span>QAR {petQty * PET_FEE}</span>
+                    </div>
+                  )}
+                </div>
+
+                <Separator />
+
+                <div className="flex justify-between items-center">
+                  <span className="font-semibold text-base">Total</span>
+                  <span className="text-2xl font-bold text-primary">QAR {total}</span>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Button className="w-full" size="lg" onClick={handleFinish}>
+              Proceed to Payment <ArrowRight className="ml-1 h-4 w-4" />
+            </Button>
+            <p className="text-center text-xs text-muted-foreground px-4">
+              You'll be taken to the payment portal and your ticket will be confirmed instantly.
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );
-};
-
-export default TicketsCheckout;
+}
