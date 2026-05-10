@@ -420,6 +420,24 @@ function RegistrationContent() {
   );
 
   // ─── Step 7: Success ───────────────────────────────────────────────────────
+  useEffect(() => {
+    if (step === 7) {
+      // Save to localStorage so dashboard can see it
+      const competitionData = {
+        fullName: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        tier: selectedEventId.includes('dog') ? 'dog-owner' : 'cat-owner',
+        petName: formData.petName,
+        isCompetitionPass: true,
+        eventName: selectedEventName,
+        orderId: `NOV-COMP-${Math.random().toString(36).substr(2, 9).toUpperCase()}`,
+        total: 0 // Competition might be free entry for competitors
+      };
+      localStorage.setItem('nova_registration', JSON.stringify(competitionData));
+    }
+  }, [step, formData, selectedEventId, selectedEventName]);
+
   return (
     <Shell step={step} selectedEventName={selectedEventName}>
       <div className="animate-in zoom-in fade-in duration-700 text-center space-y-10">
@@ -428,16 +446,24 @@ function RegistrationContent() {
         </div>
         <div className="space-y-4">
           <h2 className="text-[32px] font-bold font-display tracking-tight text-black">Registration Received</h2>
-          <p className="text-[15px] text-black/60 leading-relaxed max-w-[500px] mx-auto">
-            Your application for the <strong>{selectedEventName}</strong> has been submitted. Our international panel will review your details and contact you regarding final approval.
+          <div className="bg-primary/10 border border-primary/20 rounded-sm p-6 mb-6">
+            <p className="text-[14px] font-bold text-black/80">
+              🎟️ Your Competitor Pass is Ready!
+            </p>
+            <p className="text-[12px] text-black/60 mt-2">
+              As a registered participant for <strong>{selectedEventName}</strong>, your pass automatically includes your <strong>General Entry Ticket</strong> to the festival.
+            </p>
+          </div>
+          <p className="text-[14px] text-black/60 leading-relaxed max-w-[500px] mx-auto">
+            Our international panel will review your pet's documents. You can now view your entry QR code in your dashboard.
           </p>
         </div>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button onClick={() => router.push('/')} className="px-10 py-5 bg-black text-white rounded-sm font-bold text-[14px] hover:scale-105 transition-all">
-            Return to Home
-          </button>
-          <button onClick={() => router.push('/dashboard')} className="px-10 py-5 border border-black/10 rounded-sm font-bold text-[14px] hover:bg-black/5 transition-all">
+          <button onClick={() => router.push('/dashboard')} className="px-10 py-5 bg-black text-white rounded-sm font-bold text-[14px] hover:scale-105 transition-all">
             Go to Dashboard
+          </button>
+          <button onClick={() => router.push('/')} className="px-10 py-5 border border-black/10 rounded-sm font-bold text-[14px] hover:bg-black/5 transition-all">
+            Return to Home
           </button>
         </div>
       </div>

@@ -15,6 +15,8 @@ interface RegistrationData {
   petName: string;
   total: number;
   orderId: string;
+  isCompetitionPass?: boolean;
+  eventName?: string;
 }
 
 const QR_CODE_URL = "https://public-api.qr-code-generator.com/v1/create/extended?image_format=PNG&image_width=300&qr_code_text=https%3A%2F%2Fvalidmvps.vercel.app%2F&foreground_color=%23000000&background_color=%23FFFFFF&frame_name=no-frame";
@@ -27,7 +29,12 @@ export default function DashboardPage() {
   useEffect(() => {
     const savedData = localStorage.getItem('nova_registration');
     if (savedData) {
-      setData(JSON.parse(savedData));
+      const parsed = JSON.parse(savedData);
+      setData(parsed);
+      // If it's a competition pass, it's already "paid" (issued)
+      if (parsed.isCompetitionPass) {
+        setIsPaid(true);
+      }
     }
   }, []);
 
@@ -57,10 +64,11 @@ export default function DashboardPage() {
     );
   }
 
-  const tierLabel = data.tier === 'dog-owner' ? 'Dog Owner' : data.tier === 'cat-owner' ? 'Cat Owner' : 'Adult';
+  const tierLabel = data.isCompetitionPass ? 'Competitor' : data.tier === 'dog-owner' ? 'Dog Owner' : data.tier === 'cat-owner' ? 'Cat Owner' : 'Adult';
   const TierIcon = data.tier === 'dog-owner' ? Dog : data.tier === 'cat-owner' ? Cat : User;
 
   if (!isPaid) {
+    // ... (rest of the unpaid view remains the same)
     return (
       <main className="min-h-screen bg-[#F5F5F0]">
         <Navigation />
@@ -323,57 +331,71 @@ export default function DashboardPage() {
             {/* Right Sidebar */}
             <div className="lg:col-span-2 space-y-4">
               
-              {/* Competition Section (Dynamic) */}
-              <div className="bg-white rounded-sm border border-black/5 p-8 space-y-6">
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-black/30 mb-2">Exclusive For You</p>
-                  <h3 className="text-[20px] font-display font-bold text-black tracking-tight">Competitions</h3>
-                </div>
+              {/* Competition Section (Only if not already registered) */}
+              {!data.isCompetitionPass && (
+                <div className="bg-white rounded-sm border border-black/5 p-8 space-y-6">
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-black/30 mb-2">Exclusive For You</p>
+                    <h3 className="text-[20px] font-display font-bold text-black tracking-tight">Competitions</h3>
+                  </div>
 
-                {/* Filtered Competitions */}
-                <div className="space-y-3">
-                  {data.tier === 'dog-owner' && (
-                    <div className="group p-4 bg-[#F5F5F0] rounded-sm border border-black/5 hover:border-primary transition-all cursor-pointer" onClick={() => window.location.href = '/registration?event=dog-fashion-show'}>
+                  {/* Filtered Competitions */}
+                  <div className="space-y-3">
+                    {data.tier === 'dog-owner' && (
+                      <div className="group p-4 bg-[#F5F5F0] rounded-sm border border-black/5 hover:border-primary transition-all cursor-pointer" onClick={() => window.location.href = '/registration?event=dog-fashion-show'}>
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <Dog className="w-4 h-4 text-primary" />
+                            <span className="text-[13px] font-bold">Dog Fashion Show</span>
+                          </div>
+                          <ArrowRight className="w-4 h-4 text-black/20 group-hover:text-primary transition-all" />
+                        </div>
+                        <p className="text-[11px] text-black/40 leading-relaxed">Strut the runway in matching outfits with your dog.</p>
+                      </div>
+                    )}
+                    {data.tier === 'cat-owner' && (
+                      <div className="group p-4 bg-[#F5F5F0] rounded-sm border border-black/5 hover:border-primary transition-all cursor-pointer" onClick={() => window.location.href = '/registration?event=cat-fashion-show'}>
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <Cat className="w-4 h-4 text-primary" />
+                            <span className="text-[13px] font-bold">Cat Fashion Show</span>
+                          </div>
+                          <ArrowRight className="w-4 h-4 text-black/20 group-hover:text-primary transition-all" />
+                        </div>
+                        <p className="text-[11px] text-black/40 leading-relaxed">Showcase your cat's style in the Cat Dome.</p>
+                      </div>
+                    )}
+                    <div className="group p-4 bg-[#F5F5F0] rounded-sm border border-black/5 hover:border-primary transition-all cursor-pointer" onClick={() => window.location.href = '/registration?event=cat-drawing-battle'}>
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center gap-2">
-                          <Dog className="w-4 h-4 text-primary" />
-                          <span className="text-[13px] font-bold">Dog Fashion Show</span>
+                          <User className="w-4 h-4 text-primary" />
+                          <span className="text-[13px] font-bold">Drawing Cat Battle</span>
                         </div>
                         <ArrowRight className="w-4 h-4 text-black/20 group-hover:text-primary transition-all" />
                       </div>
-                      <p className="text-[11px] text-black/40 leading-relaxed">Strut the runway in matching outfits with your dog.</p>
+                      <p className="text-[11px] text-black/40 leading-relaxed">Live 1-hour creative battle for artists of all ages.</p>
                     </div>
-                  )}
-                  {data.tier === 'cat-owner' && (
-                    <div className="group p-4 bg-[#F5F5F0] rounded-sm border border-black/5 hover:border-primary transition-all cursor-pointer" onClick={() => window.location.href = '/registration?event=cat-fashion-show'}>
-                      <div className="flex items-center justify-between mb-2">
-                        <div className="flex items-center gap-2">
-                          <Cat className="w-4 h-4 text-primary" />
-                          <span className="text-[13px] font-bold">Cat Fashion Show</span>
-                        </div>
-                        <ArrowRight className="w-4 h-4 text-black/20 group-hover:text-primary transition-all" />
-                      </div>
-                      <p className="text-[11px] text-black/40 leading-relaxed">Showcase your cat's style in the Cat Dome.</p>
-                    </div>
-                  )}
-                  <div className="group p-4 bg-[#F5F5F0] rounded-sm border border-black/5 hover:border-primary transition-all cursor-pointer" onClick={() => window.location.href = '/registration?event=cat-drawing-battle'}>
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-2">
-                        <User className="w-4 h-4 text-primary" />
-                        <span className="text-[13px] font-bold">Drawing Cat Battle</span>
-                      </div>
-                      <ArrowRight className="w-4 h-4 text-black/20 group-hover:text-primary transition-all" />
-                    </div>
-                    <p className="text-[11px] text-black/40 leading-relaxed">Live 1-hour creative battle for artists of all ages.</p>
+                  </div>
+
+                  <div className="pt-4 border-t border-black/5">
+                    <button onClick={() => window.location.href = '/registration'} className="w-full py-4 bg-black text-white rounded-sm font-bold text-[11px] uppercase tracking-widest hover:bg-black/90 transition-all">
+                      Browse All Events
+                    </button>
                   </div>
                 </div>
+              )}
 
-                <div className="pt-4 border-t border-black/5">
-                  <button onClick={() => window.location.href = '/registration'} className="w-full py-4 bg-black text-white rounded-sm font-bold text-[11px] uppercase tracking-widest hover:bg-black/90 transition-all">
-                    Browse All Events
-                  </button>
+              {/* Status Badge for Competitors */}
+              {data.isCompetitionPass && (
+                <div className="bg-primary rounded-sm p-8 text-white space-y-2 shadow-xl shadow-primary/20">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-60">Competition Status</p>
+                  <h3 className="text-[20px] font-display font-bold leading-tight">{data.eventName}</h3>
+                  <div className="flex items-center gap-2 pt-2">
+                    <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                    <p className="text-[12px] font-bold">Awaiting Document Approval</p>
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Contact Card */}
               <div className="bg-white rounded-sm border border-black/5 p-8">
@@ -395,7 +417,7 @@ export default function DashboardPage() {
                 <p className="text-[10px]  font-bold  uppercase tracking-[0.2em] text-white/40">What to Know</p>
                 <div className="space-y-4">
                   {[
-                    "Arrive 30 mins before your competition slot",
+                    data.isCompetitionPass ? "Present this pass at the Competitor Entrance" : "Present QR at the Main Gate",
                     "Valid pet passport required at the gate",
                     data.tier === 'dog-owner' ? "Muzzle required for medium & large dogs" : data.tier === 'cat-owner' ? "Carrier required for your cat at all times" : "Tickets are non-transferable",
                     "Photography & media coverage will be present"
