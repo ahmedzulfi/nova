@@ -41,7 +41,7 @@ interface RegistrationData {
 
 const QR_CODE_URL = "https://public-api.qr-code-generator.com/v1/create/extended?image_format=PNG&image_width=300&qr_code_text=https%3A%2F%2Fvalidmvps.vercel.app%2F&foreground_color=%23000000&background_color=%23FFFFFF&frame_name=no-frame";
 
-type TabType = 'overview' | 'competitions' | 'health' | 'schedule' | 'map' | 'settings';
+type TabType = 'overview' | 'competitions' | 'health' | 'schedule' | 'settings';
 
 function DashboardContent() {
   const router = useRouter();
@@ -98,7 +98,6 @@ function DashboardContent() {
     { id: 'competitions', label: 'Competitions', icon: Trophy, roles: ['pet-owner'] },
     { id: 'health', label: 'Health Docs', icon: ShieldCheck, roles: ['pet-owner'] },
     { id: 'schedule', label: 'Schedule', icon: Calendar, roles: ['any'] },
-    { id: 'map', label: 'Festival Map', icon: MapIcon, roles: ['any'] },
     { id: 'settings', label: 'Account', icon: Settings, roles: ['any'] },
   ];
 
@@ -329,15 +328,6 @@ function DashboardContent() {
             </div>
           )}
 
-          {/* ─── TAB: Map ─────────────────────────────────────────────────── */}
-          {activeTab === 'map' && (
-            <div className="bg-white rounded-sm border border-black/5 p-10 animate-in fade-in slide-in-from-bottom-10 duration-1000">
-              <div className="aspect-video bg-[#F5F5F0] rounded-sm flex flex-col items-center justify-center border-2 border-dashed border-black/5">
-                <MapIcon className="w-16 h-16 text-black/10 mb-4" />
-                <p className="font-bold text-black/20 text-[20px]">Interactive Map Coming Soon</p>
-              </div>
-            </div>
-          )}
 
           {/* ─── TAB: Account / Settings ──────────────────────────────────── */}
           {activeTab === 'settings' && (
