@@ -8,6 +8,14 @@ import Link from 'next/link';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isRegistered, setIsRegistered] = useState(false);
+
+  React.useEffect(() => {
+    const registration = localStorage.getItem('nova_registration');
+    if (registration) {
+      setIsRegistered(true);
+    }
+  }, []);
 
   const navLinks = [
     { name: 'Home', href: '/' },
@@ -45,7 +53,7 @@ const Navigation = () => {
                   href={link.href}
                   className="group relative flex flex-col items-center justify-center h-[30px]"
                 >
-                  <p className="text-[14px] xl:text-[15px] font-semibold text-black transition-colors group-hover:text-primary">
+                  <p className="text-[14px] xl:text-[15px] font-semibold text-black transition-colors group-hover:text-primary uppercase tracking-widest">
                     {link.name}
                   </p>
                   <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
@@ -55,24 +63,29 @@ const Navigation = () => {
 
             {/* CTA Buttons - Desktop */}
             <div className="hidden md:flex items-center gap-3 xl:gap-4 flex-shrink-0">
-              <Link
-                href="/login"
-                className="text-[14px] xl:text-[15px] font-bold text-black hover:text-primary transition-colors px-2 xl:px-4"
-              >
-                Log In
-              </Link>
-              <Link
-                href="/tickets"
-                className="hidden lg:inline-flex items-center justify-center px-5 xl:px-[28px] py-[13px] bg-black hover:bg-black/90 transition-all hover:scale-105 active:scale-95  rounded-sm text-[14px] xl:text-[15px] font-bold text-white"
-              >
-                Get Tickets
-              </Link>
-              <Link
-                href="/competitions"
-                className="inline-flex items-center justify-center px-5 xl:px-[28px] py-[13px] bg-primary hover:bg-primary/90 transition-all hover:scale-105 active:scale-95  rounded-sm text-[14px] xl:text-[15px] font-bold text-white"
-              >
-                Register for Competitions
-              </Link>
+              {isRegistered ? (
+                <Link
+                  href="/dashboard"
+                  className="inline-flex items-center justify-center px-6 xl:px-[32px] py-[14px] bg-black hover:bg-primary transition-all hover:scale-105 active:scale-95 rounded-sm text-[12px] font-bold text-white uppercase tracking-[0.2em]"
+                >
+                  Go to Dashboard
+                </Link>
+              ) : (
+                <>
+                  <Link
+                    href="/dashboard"
+                    className="text-[13px] font-bold text-black hover:text-primary transition-colors px-2 xl:px-4 uppercase tracking-widest"
+                  >
+                    Log In
+                  </Link>
+                  <Link
+                    href="/tickets"
+                    className="inline-flex items-center justify-center px-5 xl:px-[28px] py-[13px] bg-primary hover:bg-black transition-all hover:scale-105 active:scale-95 rounded-sm text-[12px] font-bold text-white uppercase tracking-widest"
+                  >
+                    Get Tickets
+                  </Link>
+                </>
+              )}
             </div>
 
             {/* Mobile Menu Toggle */}
@@ -97,34 +110,39 @@ const Navigation = () => {
             <Link
               key={link.name}
               href={link.href}
-              className="text-[28px] font-bold text-black hover:text-primary transition-colors border-b border-[#F0F0F0] pb-4"
+              className="text-[28px] font-display font-bold text-black hover:text-primary transition-colors border-b border-[#F0F0F0] pb-4 tracking-tighter"
               onClick={() => setIsOpen(false)}
             >
               {link.name}
             </Link>
           ))}
           <div className="flex flex-col gap-4 pt-8">
-            <Link
-              href="/login"
-              className="flex items-center justify-center w-full py-4 text-[18px] font-bold text-black border-2 border-black  rounded-sm"
-              onClick={() => setIsOpen(false)}
-            >
-              Log In
-            </Link>
-            <Link
-              href="/tickets"
-              className="flex items-center justify-center w-full py-4 text-[18px] font-bold text-white bg-black  rounded-sm"
-              onClick={() => setIsOpen(false)}
-            >
-              Get Tickets
-            </Link>
-            <Link
-              href="/competitions"
-              className="flex items-center justify-center w-full py-4 text-[18px] font-bold text-white bg-primary  rounded-sm"
-              onClick={() => setIsOpen(false)}
-            >
-              Register for Competitions
-            </Link>
+            {isRegistered ? (
+              <Link
+                href="/dashboard"
+                className="flex items-center justify-center w-full py-5 text-[16px] font-bold text-white bg-black rounded-sm uppercase tracking-widest"
+                onClick={() => setIsOpen(false)}
+              >
+                Go to Dashboard
+              </Link>
+            ) : (
+              <>
+                <Link
+                  href="/dashboard"
+                  className="flex items-center justify-center w-full py-5 text-[16px] font-bold text-black border-2 border-black rounded-sm uppercase tracking-widest"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Log In
+                </Link>
+                <Link
+                  href="/tickets"
+                  className="flex items-center justify-center w-full py-5 text-[16px] font-bold text-white bg-primary rounded-sm uppercase tracking-widest"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Get Tickets
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>
