@@ -55,18 +55,18 @@ function DashboardContent() {
     if (savedData) {
       setData(JSON.parse(savedData));
     } else {
-      // Fallback mock data for preview purposes
+      // Inject Mock Data for previewing
       setData({
         fullName: "Ahmed Zulfi",
-        email: "ahmed@nova-studio.qa",
-        phone: "+974 5555 0123",
+        email: "ahmed@nova.com",
+        phone: "+974 5555 1234",
         tier: "dog-owner",
         adultQty: 2,
         kidsQty: 1,
         petQty: 1,
         petName: "Maximus",
-        total: 175,
-        orderId: "ORD-987654321"
+        total: 225,
+        orderId: "NP-2026-X8Y1"
       });
     }
   }, []);
