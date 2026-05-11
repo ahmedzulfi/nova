@@ -1,7 +1,9 @@
-import React from 'react';
+"use client";
+
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Trophy, Clock, Users, Star } from 'lucide-react';
+import { Trophy, Clock, Users, Star, ArrowRight } from 'lucide-react';
 
 const competitions = [
   {
@@ -62,6 +64,15 @@ const competitions = [
 ];
 
 const CompetitionsList = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const registration = localStorage.getItem('nova_registration');
+    if (registration) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
   return (
     <section className="py-20 md:py-32 bg-[#F9F9F9]">
       <div className="container mx-auto px-6 max-w-[1280px]">
@@ -107,13 +118,17 @@ const CompetitionsList = () => {
                   ))}
                 </div>
 
-                <div className="pt-4">
-                  <Link
-                    href={`/registration?event=${comp.title.toLowerCase().replace(/ /g, '-')}`}
-                    className={`inline-flex items-center justify-center px-8 py-4  rounded-sm font-bold text-[16px] text-white transition-all hover:scale-105 active:scale-95 shadow-xl ${comp.color === 'bg-black' ? 'bg-black hover:bg-black/90 shadow-black/20' : comp.color === 'bg-accent' ? 'bg-accent hover:bg-accent/90 shadow-accent/20' : 'bg-primary hover:bg-primary/90 shadow-primary/20'}`}
+                <div className="pt-4 flex flex-col gap-6">
+                  <Link 
+                    href={isLoggedIn ? "/dashboard" : "/tickets"}
+                    className="inline-flex items-center justify-center gap-3 bg-black text-white px-10 py-5 rounded-sm font-bold text-[14px] uppercase tracking-widest hover:bg-primary transition-all active:scale-95 w-fit"
                   >
-                    Register for {comp.title}
+                    {isLoggedIn ? "Manage My Entry" : "Register Now"} <ArrowRight className="w-5 h-5" />
                   </Link>
+                  
+                  <p className="text-[11px] font-bold text-black/30 uppercase tracking-widest italic flex items-center gap-2">
+                    <Star className="w-3 h-3 text-primary" /> Participation requires a Pet Owner Ticket
+                  </p>
                 </div>
               </div>
             </div>
