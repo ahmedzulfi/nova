@@ -14,7 +14,10 @@
     "subtitle": "International Pet Festival, First Time in Qatar",
     "description": "Judged by WKU World Kennel Union & WCF World Cat Federation international judges. The world comes to Qatar, and your pet takes center stage.",
     "cta_competitions": "Competitions",
-    "cta_tickets": "Get Tickets"
+    "cta_tickets": "Get Tickets",
+    "badge": "27-28 Nov 2026 · The Pearl · Qatar",
+    "video_badge_top": "International Shows",
+    "video_badge_bottom": "Experience the largest pet gathering in Qatar."
   },
   "AboutGrid": {
     "badge": "About the Festival",
@@ -167,6 +170,651 @@
       }
     }
   },
+  "GalleryPage": {
+    "badge": "Gallery & Venues",
+    "title": "Explore the\nFestival Magic",
+    "desc": "A glimpse into the incredible spaces and experiences awaiting you at Nova Paw Festival 2026.",
+    "social_title": "Share Your Moments",
+    "social_desc": "Tag your photos with {hashtag} and follow us for updates!",
+    "social_cta": "Follow on Instagram",
+    "venues": {
+      "cta": "Explore Details",
+      "list": {
+        "dog-arena": {
+          "title": "Dog Arena",
+          "desc": "WDF shows, races, and K9 demonstrations with professional ring setup.",
+          "size": "18m × 14m"
+        },
+        "cat-dome": {
+          "title": "Cat Dome",
+          "desc": "10m geodesic dome with 180° projection and grooming shows.",
+          "size": "10m Geodesic"
+        },
+        "main-stage": {
+          "title": "Main Stage",
+          "desc": "6m × 4m stage with 5m LED screen and runway ramp.",
+          "size": "6m × 4m"
+        },
+        "photo-zone": {
+          "title": "Photo Zone",
+          "desc": "3D letter installation and mascot photo booths.",
+          "size": "8m Wide 3D"
+        }
+      }
+    },
+    "highlights": {
+      "badge": "What Awaits You",
+      "title": "Festival Highlights",
+      "list": {
+        "dog": {
+          "title": "Dog Space",
+          "desc": "Main stage, dog arena, vet booth, adoption area, sponsor booths, and food trucks."
+        },
+        "cat": {
+          "title": "Cat Space",
+          "desc": "Cat Dome with projection shows, grooming zone, fashion runway, and cat statue landmark."
+        },
+        "carnival": {
+          "title": "Carnival Zone",
+          "desc": "Fetch & Win, Spin-A-Treat, Smash-A-Cat, Pawspin Ruffle, and the Paw Shot Challenge."
+        },
+        "food": {
+          "title": "Food Trucks",
+          "desc": "6 food trucks: Baker St, Karak Signature, Amora Pizza, Seven Lives, Burgeri, Pasta To Go."
+        },
+        "vet": {
+          "title": "Vet & Adoption",
+          "desc": "NovaVet free consultations, QAWS dog adoption, Paws Rescue cat adoption, and pharmacy booth."
+        },
+        "landmarks": {
+          "title": "Landmarks",
+          "desc": "10m helium paw balloon, 3.5m dog & cat statues, 3D letter installation, and mascot walkabouts."
+        }
+      }
+    }
+  },
+      }
+    }
+  },
+  "Competitions": {
+    "badge": "Compete & Shine",
+    "title": "International\nCompetitions",
+    "desc": "Judged by WKU & WCF international judges. Compete for championship titles, cups, and medals in Qatar's premier pet event.",
+    "cta": "Register Now",
+    "items": [
+      {
+        "title": "Dog Fashion Show",
+        "desc": "Owners and dogs strut the runway in matching themed outfits. Judged on creativity and charm."
+      },
+      {
+        "title": "Grooming Competition",
+        "desc": "Professional groomers showcase precision trimming and styling under live judging."
+      },
+      {
+        "title": "Best Dog Show",
+        "desc": "Evaluating breed structure, temperament, and presentation across multiple classes."
+      },
+      {
+        "title": "Best Cat Show",
+        "desc": "Licensed grand judging inside the Cat Dome evaluating body type, coat, and condition."
+      },
+      {
+        "title": "Cat Drawing Battle",
+        "desc": "A live creative battle where artists compete to draw cats in real-time under the spotlight."
+      }
+    ]
+  },
+  "CompetitionsPage": {
+    "hero": {
+      "badge": "Compete & Shine",
+      "title": "Join or Participate Now in One of the 5 International Competitions",
+      "desc": "Judged by {wku} & {wcf} international judges  register your pet or yourself and compete for champion cups, medals, and certificates."
+    },
+    "cta": {
+      "title": "Ready to Take the Spotlight?",
+      "subtitle": "Register your pet for one of our international competitions and compete for championship titles, cups, and medals.",
+      "primary": "Register Now",
+      "manage": "Manage My Entry",
+      "warning": "Participation requires a Pet Owner Ticket"
+    },
+    "list": {
+      "labels": {
+        "contestants": "Contestants",
+        "duration": "Duration",
+        "awards": "Awards",
+        "provided": "Provided",
+        "classes": "Classes",
+        "grand_prize": "Grand Prize",
+        "judges": "Judges",
+        "eligibility": "Eligibility",
+        "prizes": "Prizes"
+      },
+      "values": {
+        "8_per_day": "8 per day",
+        "50_min": "50 min show",
+        "60_min": "60 min show",
+        "cups": "Gold/Silver/Rose Cups",
+        "tables": "Grooming tables",
+        "40_dogs": "40 dogs per day",
+        "3_classes": "3 Classes",
+        "best_in_show": "Best in Show Trophy",
+        "20_cats": "20 cats per day",
+        "wcf_intl": "WCF International",
+        "best_cat": "Best Cat of Show",
+        "all_ages": "Open to all ages",
+        "materials": "All Materials",
+        "top_3": "Top 3 artists"
+      },
+      "items": {
+        "fashion": {
+          "title": "Dog Fashion Show",
+          "desc": "Owners and dogs strut the runway in matching themed outfits. Judged on creativity, coordination, fit, presentation, and overall charm by WKU international judges."
+        },
+        "grooming": {
+          "title": "Grooming Competition",
+          "desc": "Professional groomers showcase precision trimming, styling, and finishing under live judging by WKU officials. Evaluated on technique, cleanliness, creativity, handling, and final appearance."
+        },
+        "dog_show": {
+          "title": "Best Dog Show",
+          "desc": "The prestigious WKU-recognized event evaluating breed structure, temperament, and presentation across Puppy, Youth, and Adult classes in a double-ring setup."
+        },
+        "cat_show": {
+          "title": "Best Cat Show",
+          "desc": "WCF-licensed grand judging inside the immersive Cat Dome. Cats evaluated on body type, head, ears, eyes, coat, and overall condition according to WCF international standards."
+        },
+        "drawing": {
+          "title": "Cat Drawing Battle",
+          "desc": "A live creative battle where artists compete to draw cats in real-time under the spotlight. Judged on speed, style, imagination, and artistic technique  the ultimate feline art showdown."
+        }
+      }
+    },
+    "awards": {
+      "badge": "Victory & Recognition",
+      "title": "Awards & Prizes",
+      "items": {
+        "cups": {
+          "title": "Champion Cups",
+          "count": "48 Cups Total",
+          "desc": "16 Gold, 16 Silver, 16 Rose across all competitions and both days."
+        },
+        "medals": {
+          "title": "Medals",
+          "count": "32 Medals",
+          "desc": "Awarded for 4th and 5th place finishers in the Silver and Rose categories."
+        },
+        "certificates": {
+          "title": "Certificates",
+          "count": "For All Competitors",
+          "desc": "Official WKU/WCF certificates of participation for everyone who competes."
+        }
+      }
+    }
+  },
+  "RegistrationPage": {
+    "steps": {
+      "selection": "Selection",
+      "owner": "Owner",
+      "pet_info": "Pet Info",
+      "specifics": "Specifics",
+      "health": "Health",
+      "safety": "Safety",
+      "done": "Done"
+    },
+    "selection": {
+      "title": "Competition Selection",
+      "desc": "Choose your event",
+      "dog": "Dogs",
+      "cat": "Cats"
+    },
+    "owner": {
+      "title": "Owner Details",
+      "labels": {
+        "full_name": "Full Name *",
+        "mobile": "Mobile *",
+        "placeholder_name": "Mohammed Al-Rashid",
+        "placeholder_phone": "+974 XXXX XXXX"
+      },
+      "verification": {
+        "title": "Enter 6-digit Verification Code",
+        "cta": "Verify & Continue",
+        "change_comp": "Change Competition"
+      }
+    },
+    "pet": {
+      "title": "Pet Information",
+      "labels": {
+        "name": "Pet Name *",
+        "breed": "Breed *",
+        "age": "Age *",
+        "placeholder_name": "Buddy",
+        "placeholder_breed": "Golden Retriever",
+        "placeholder_age": "3 Years"
+      }
+    },
+    "specifics": {
+      "title": "Competition Details",
+      "grooming": {
+        "label_category": "Grooming Category *",
+        "label_experience": "Years of Experience *",
+        "placeholder_experience": "e.g. 5 Years",
+        "cat_figure": "Figure Grooming",
+        "cat_real": "Real Dog Grooming",
+        "placeholder_cat": "Select Category"
+      },
+      "fashion": {
+        "label_theme": "Outfit Theme Description *",
+        "placeholder_theme": "Describe your matching theme and coordination..."
+      },
+      "drawing": {
+        "label_exp": "Artist Experience *",
+        "label_materials": "Materials You'll Bring *",
+        "placeholder_exp": "e.g. Professional / Hobbyist",
+        "placeholder_materials": "Pencils, charcoal, tablets, etc."
+      },
+      "none": {
+        "title": "No additional specifics required for this category.",
+        "desc": "Proceed to Health Compliance"
+      }
+    },
+    "health": {
+      "title": "Health Compliance",
+      "passport": "Pet Passport *",
+      "vaccination": "Vaccination Record *",
+      "cta_passport": "Upload Passport",
+      "cta_vaccination": "Upload Record",
+      "hint": "PDF, JPG or PNG"
+    },
+    "safety": {
+      "title": "Safety Terms",
+      "cta": "Submit Final Registration",
+      "terms": {
+        "grooming": [
+          "I confirm that all submitted information is correct.",
+          "I confirm that my dog's vaccination is up to date.",
+          "I confirm that I have uploaded a valid pet passport.",
+          "I confirm that my dog has completed a recent health checkup.",
+          "I understand that I must complete a veterinary checkup with Nova Vet before final approval.",
+          "I understand that registration submission does not guarantee final acceptance.",
+          "I agree to attend on time for my assigned competition slot.",
+          "I accept all judging decisions as final."
+        ],
+        "dog_fashion": [
+          "I confirm that my dog's vaccination is up to date.",
+          "I confirm that I have uploaded a valid pet passport.",
+          "I understand that both owner and dog must participate together.",
+          "I confirm that all costumes respect local culture and decency.",
+          "I confirm that my dog will remain under my control at all times.",
+          "I understand that registration does not guarantee final selection.",
+          "I accept all judging decisions as final."
+        ],
+        "cat_fashion": [
+          "I confirm that my cat's vaccination is up to date.",
+          "I confirm that I have uploaded a valid pet passport.",
+          "I understand that my cat must remain inside its carrier except during runway participation.",
+          "I confirm that all costumes respect local culture and decency.",
+          "I confirm that my cat will remain under my supervision at all times.",
+          "I understand that registration does not guarantee final selection.",
+          "I accept all judging decisions as final."
+        ],
+        "dog_show": [
+          "My dog is fully vaccinated.",
+          "My dog is not aggressive and is fully under control.",
+          "My dog is healthy and fit for participation.",
+          "I understand registration does not guarantee final selection.",
+          "I accept all judging decisions as final."
+        ],
+        "cat_show": [
+          "My cat is fully vaccinated.",
+          "My cat is healthy and fit for participation.",
+          "My cat will remain inside its carrier except during judging.",
+          "I understand registration does not guarantee final selection.",
+          "I accept all judging decisions as final."
+        ],
+        "drawing": [
+          "I understand that I must bring my own drawing materials.",
+          "I understand that all artwork must follow event guidelines.",
+          "I understand that the competition duration is strictly 1 hour.",
+          "I agree to complete my artwork within the official time.",
+          "I accept all judging decisions as final.",
+          "I confirm my attendance and understand the 3-week cancellation policy."
+        ]
+      }
+    },
+    "success": {
+      "title": "Registration Received",
+      "desc": "Your application for the {event} has been submitted. Our international panel will review your details and contact you regarding final approval.",
+      "cta_home": "Return to Home",
+      "cta_dashboard": "Go to Dashboard"
+    },
+    "navigation": {
+      "back": "Back",
+      "next_pet": "Next: Pet Information",
+      "next_details": "Next: Competition Details",
+      "next_health": "Next: Health Compliance",
+      "next_safety": "Next: Safety Terms"
+    }
+  },
+  "ContactPage": {
+    "badge": "Contact Center",
+    "title": "Let's Connect\nwith Nova Paw",
+    "desc": "Whether you're an attendee, a potential sponsor, or a member of the press, our team is ready to assist you.",
+    "info": {
+      "location": "Location",
+      "phone": "Phone",
+      "email": "Email",
+      "support": "Support Line",
+      "inquiries": "Inquiries & Media",
+      "val_location": "Pet’s Park,\nThe Pearl   Qatar",
+      "val_phone": "+974 3302 2248",
+      "val_email": "TBD"
+    },
+    "social": {
+      "title": "Follow the Journey"
+    },
+    "form": {
+      "title": "Send us a Message",
+      "desc": "Drop us a line and we'll get back to you shortly.",
+      "label_name": "Full Name",
+      "label_email": "Email Address",
+      "label_type": "Inquiry Type",
+      "label_message": "Your Message",
+      "placeholder_name": "John Doe",
+      "placeholder_email": "john@example.com",
+      "placeholder_message": "How can we help you?",
+      "cta": "Send Message",
+      "types": {
+        "general": "General Inquiry",
+        "sponsorship": "Sponsorship",
+        "media": "Press & Media",
+        "ticketing": "Ticketing Support",
+        "registration": "Pet Registration"
+      }
+    },
+    "whatsapp": {
+      "title": "Need Immediate Help?",
+      "desc": "Our support team is available via WhatsApp for quick questions regarding tickets and pet registrations.",
+      "cta": "Chat on WhatsApp"
+    }
+  },
+  "TermsPage": {
+    "title": "Terms & Conditions",
+    "last_updated": "Last updated: November 2026",
+    "sections": {
+      "acceptance": {
+        "title": "1. Acceptance of Terms",
+        "content": "By accessing and using Nova Paw Festival's website and services, you agree to be bound by these Terms and Conditions."
+      },
+      "registration": {
+        "title": "2. Pet Registration",
+        "content": "All pet registrations are subject to verification of health and vaccination records. Nova Paw reserves the right to refuse entry to any pet that does not meet our safety standards."
+      },
+      "tickets": {
+        "title": "3. Ticketing and Refunds",
+        "content": "All ticket sales are final. Refunds are only issued in the event of festival cancellation by the organizers."
+      },
+      "conduct": {
+        "title": "4. Attendee Conduct",
+        "content": "Visitors must follow all safety protocols and instructions from festival staff. Pets must be kept in designated areas at all times."
+      }
+    }
+  },
+  "PrivacyPage": {
+    "title": "Privacy Policy",
+    "last_updated": "Last updated: November 2026",
+    "sections": {
+      "collection": {
+        "title": "1. Information We Collect",
+        "content": "We collect information you provide during registration, including owner contact details and pet health records."
+      },
+      "usage": {
+        "title": "2. How We Use Your Information",
+        "content": "Your information is used to process registrations, issue tickets, and ensure the safety of all participants."
+      },
+      "security": {
+        "title": "3. Data Security",
+        "content": "We implement industry-standard security measures to protect your personal and pet information from unauthorized access."
+      }
+    }
+  },
+  "BlogPage": {
+    "hero": {
+      "title": "Nova Paw Blog",
+      "desc": "Stay updated with the latest pet care tips, festival news, and community stories. From preparation guides to heartwarming adoption success stories."
+    },
+    "items": {
+      "preparation": {
+        "title": "Preparing Your Pet for Festival Crowds",
+        "desc": "Learn essential training tips to help your dog or cat stay calm and happy amidst the excitement of Nova Paw Festival.",
+        "month": "Mar",
+        "day": "15"
+      },
+      "hydration": {
+        "title": "The Importance of Pet Hydration in Qatar",
+        "desc": "Keep your furry friends safe and hydrated during the festival with our guide to pet health in the Pearl's climate.",
+        "month": "Mar",
+        "day": "10"
+      },
+      "cat_dome": {
+        "title": "Inside the Cat Dome Experience",
+        "desc": "A sneak peek into the immersive world of the Nova Paw Cat Dome, featuring interactive play zones and relaxation areas.",
+        "month": "Feb",
+        "day": "28"
+      },
+      "adoption": {
+        "title": "Adoption Stories: Finding Forever Homes",
+        "desc": "Heartwarming success stories from previous local initiatives and what to expect at our festival's adoption center.",
+        "month": "Feb",
+        "day": "14"
+      },
+      "training": {
+        "title": "Best in Show: Training Your Champion",
+        "desc": "Top tips from professional judges on how to prepare your dog for the prestigious international competitions at Pet's Park.",
+        "month": "Jan",
+        "day": "30"
+      },
+      "fashion": {
+        "title": "Festival Fashion: The Cutest Trends",
+        "desc": "Explore the latest in pet accessories and fashion as we get ready for the Dog and Cat Fashion Shows.",
+        "month": "Jan",
+        "day": "15"
+      }
+    }
+  },
+  "EventsPage": {
+    "hero": {
+      "title": "Experience the\nMagic of Pets",
+      "desc": "From prestigious international competitions to interactive workshops, discover the full lineup of events at Nova Paw Festival."
+    },
+    "items": {
+      "dog_show": {
+        "title": "Dog Best in Show",
+        "desc": "The ultimate competition featuring international WKU judges and Qatar's finest canines.",
+        "date": "Nov 22",
+        "month": "Nov",
+        "day": "22"
+      },
+      "cat_show": {
+        "title": "Cat Best in Show",
+        "desc": "A prestigious WCF-sanctioned all-breed competition showcasing feline elegance and standard.",
+        "date": "Nov 23",
+        "month": "Nov",
+        "day": "23"
+      },
+      "grooming": {
+        "title": "Master Grooming",
+        "desc": "Live demonstrations and competitions featuring master groomers from around the world.",
+        "date": "Nov 22",
+        "month": "Nov",
+        "day": "22"
+      },
+      "fashion": {
+        "title": "Pet Fashion Show",
+        "desc": "Where style meets wag! A fun-filled showcase of the most fashionable pets in Qatar.",
+        "date": "Nov 23",
+        "month": "Nov",
+        "day": "23"
+      },
+      "drawing": {
+        "title": "Cat Drawing Battle",
+        "desc": "An interactive creative session where artists and pet lovers celebrate feline beauty.",
+        "date": "Nov 22",
+        "month": "Nov",
+        "day": "22"
+      },
+      "agility": {
+        "title": "Agility Run",
+        "desc": "Watch pets navigate complex obstacle courses in a display of speed and intelligence.",
+        "date": "Nov 23",
+        "month": "Nov",
+        "day": "23"
+      }
+    }
+  },
+  "SponsorshipPage": {
+    "badge": "Partnership Program",
+    "title": "Our Visionary\nFestival Partners",
+    "desc": "Nova Paw Festival offers brands premium visibility and engagement with a highly targeted audience of pet owners and families.",
+    "tiers": {
+      "platinum": "Platinum",
+      "gold": "Gold",
+      "silver": "Silver",
+      "suffix": "Sponsors"
+    },
+    "form": {
+      "title": "Become a Partner",
+      "desc": "Interested in showcasing your brand at Qatar's premier pet event? Join us as a sponsor and connect with thousands of pet lovers.",
+      "label_company": "Company Name",
+      "label_person": "Contact Person",
+      "label_email": "Email",
+      "label_phone": "Phone",
+      "label_interest": "Sponsorship Interest",
+      "placeholder_company": "Brand Name",
+      "placeholder_person": "John Doe",
+      "placeholder_email": "partners@company.com",
+      "placeholder_phone": "+974 0000 0000",
+      "placeholder_tier": "Select Sponsorship Tier",
+      "placeholder_message": "Tell us about your brand and what kind of partnership you're looking for...",
+      "label_message": "Message",
+      "cta": "Send Interest Inquiry",
+      "success_title": "Thank You for Your Interest!",
+      "success_desc": "Our partnership team has received your inquiry and will be in touch within 24-48 hours with our sponsorship prospectus.",
+      "success_cta": "Send another inquiry",
+      "tiers": {
+        "platinum": "Platinum Sponsor",
+        "gold": "Gold Sponsor",
+        "silver": "Silver Sponsor",
+        "other": "Other"
+      }
+    }
+  },
+  "TeamPage": {
+    "hero": {
+      "title": "The Experts Behind\nNova Paw",
+      "desc": "Meet the international judges, industry leaders, and passionate organizers dedicated to celebrating the world of pets in Qatar."
+    },
+    "members": {
+      "founder": {
+        "name": "Ahmed Zulfikar",
+        "role": "Founder & Visionary"
+      },
+      "judge_wku": {
+        "name": "Prof. Natalia Mashkina",
+        "role": "WKU International Judge"
+      },
+      "judge_wcf": {
+        "name": "Dr. Elena Gushchina",
+        "role": "WCF All-Breed Judge"
+      },
+      "director": {
+        "name": "Sarah Miller",
+        "role": "Event Director"
+      },
+      "vet": {
+        "name": "Dr. Karim Hassan",
+        "role": "Lead Veterinarian"
+      },
+      "groomer": {
+        "name": "Marco Rossi",
+        "role": "Master Groomer"
+      }
+    },
+    "quote": {
+      "text": "Nova Paw Festival isn't just an event; it's a global celebration of the deep bond between humans and their animal companions. Our mission is to set new standards for pet events in the Middle East, one wag and one purr at a time.",
+      "author": "Ahmed Zulfikar",
+      "role": "Founder"
+    }
+  },
+  "LoginPage": {
+    "title_step1": "Welcome Back",
+    "title_step2": "Check Your Email",
+    "desc_step1": "Enter your email to access your festival dashboard.",
+    "desc_step2": "We've sent a 6-digit code to {email}",
+    "label_email": "Email Address",
+    "placeholder_email": "your@email.com",
+    "cta_continue": "Continue",
+    "label_otp": "Enter OTP Code",
+    "placeholder_otp": "000 000",
+    "cta_verify": "Verify & Login",
+    "cta_change_email": "Use a different email",
+    "resend_prompt": "Didn't receive it?",
+    "resend_cta": "Resend Code",
+    "no_account": "Don't have an account?",
+    "register_cta": "Register your pet now"
+  },
+  "PetOwnerDashboard": {
+    "badge": "Competitor Hub",
+    "title": "Welcome, Pet Owner",
+    "desc": "Track your pet's registration progress and manage your competition details for Nova Paw 2026.",
+    "add_pet": "Add Another Pet",
+    "journey_title": "{name}'s Journey",
+    "journey_ref": "Ref: #{ref}",
+    "status": "Status: {status}",
+    "action_required": "Action Required:",
+    "action_desc": "Please ensure behavioral records are uploaded 72 hours before the event. You are currently at **{phase}** phase.",
+    "upload_cta": "Upload Now",
+    "pets_title": "My Registered Pets",
+    "new_pet": "Register New Pet",
+    "new_pet_desc": "Join other competitions",
+    "handbook_badge": "Digital Kit",
+    "handbook_title": "Competitor Handbook",
+    "handbook_desc": "Everything you need to know about show rules, arena arrival, and behavioral standards.",
+    "handbook_cta": "Download Kit (PDF)",
+    "security_title": "Security Notices",
+    "security_note1": "Pet passports must be valid for at least 6 months post-event.",
+    "security_note2": "Behavioral screening starts online next week. Keep an eye on your inbox.",
+    "links": {
+      "profile": "Owner Profile",
+      "verification": "Verification Status",
+      "notifications": "Notification Settings",
+      "logout": "Secure Log Out"
+    }
+  },
+  "AttendeeDashboard": {
+    "title": "My Festival Pass",
+    "welcome": "Welcome back, {name}! Your adventure at The Pearl awaits.",
+    "search_placeholder": "Search events...",
+    "valid_badge": "Valid Entry",
+    "ticket_ref": "Ticket #{ref}",
+    "download_pdf": "Download PDF",
+    "add_wallet": "Add to Wallet",
+    "schedule_title": "Living Schedule",
+    "day_badge": "Day {num}",
+    "full_schedule": "View Full Schedule",
+    "map_title": "Interactive Map",
+    "map_locate": "Locate Your Spot",
+    "map_desc": "Navigate through the 5 festival zones at The Pearl.",
+    "map_cta": "Open Full Map",
+    "member_badge": "Festival Member",
+    "links": {
+      "tickets": "Manage Tickets",
+      "schedule": "My Schedule",
+      "profile": "Profile Settings",
+      "logout": "Secure Log Out"
+    },
+    "help_title": "Questions?",
+    "help_desc": "Check our FAQ or join the live chat for help with your tickets or the festival schedule.",
+    "help_cta": "Help Center"
+  },
   "Dashboard": {
     "loading": "Loading Nova Studio...",
     "no_session": {
@@ -266,6 +914,121 @@
     "contact_location": "Location & Date",
     "location_val": "The Pearl Island, Qatar",
     "date_val": "November 27–28, 2026",
-    "rights": "All Rights Reserved"
+    "rights": "All Rights Reserved",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "val_email": "info@novapawfestival.com"
+  },
+  "Tickets": {
+    "currency": "QAR",
+    "purchase": "Purchase Ticket",
+    "view_pass": "View Ticket Details",
+    "tiers": {
+      "dog": {
+        "name": "Dog Owner Pass",
+        "desc": "Entry for 1 Adult and 1 Dog for international competitions.",
+        "features": [
+          "WKU International Judging",
+          "Dog Arena Access",
+          "Competition Entry Slot",
+          "Nova Vet Health Check",
+          "Festival Giveaway Bag"
+        ]
+      },
+      "cat": {
+        "name": "Cat Owner Pass",
+        "desc": "Entry for 1 Adult and up to 2 Cats for local & intl shows.",
+        "features": [
+          "WCF International Judging",
+          "Cat Dome Priority Access",
+          "Grooming Zone Entry",
+          "Drawing Battle Participation",
+          "Festival Giveaway Bag"
+        ]
+      },
+      "adult": {
+        "name": "Visitor Pass",
+        "desc": "General admission for families and pet enthusiasts.",
+        "features": [
+          "Access to All Festival Zones",
+          "Main Stage Performances",
+          "Carnival & Food Court",
+          "Interactive Photo Zones",
+          "Kids Zone Activities"
+        ]
+      }
+    }
+  },
+  "Checkout": {
+    "steps": ["ID", "Verify", "Selection", "Safety", "Summary"],
+    "form": {
+      "name": "Full Legal Name",
+      "name_placeholder": "John Doe",
+      "email": "Email Address",
+      "email_placeholder": "john@example.com",
+      "mobile": "Mobile Number",
+      "mobile_placeholder": "+974 XXXX XXXX",
+      "continue": "Continue to Verify",
+      "verify_btn": "Verify & Choose Tickets",
+      "back": "Back",
+      "next_safety": "Next: Safety & Terms",
+      "agree_btn": "Agree & Continue",
+      "continue_summary": "View Order Summary",
+      "finish": "Complete Payment",
+      "secure_msg": "Secure Payment processing powered by Nova Studio"
+    },
+    "otp": {
+      "sent_to": "We've sent a 6-digit code to",
+      "tap": "Didn't receive it? Tap to resend"
+    },
+    "tickets_sec": {
+      "pet_details": "{type} Registration",
+      "pet_helper": "International Competition Entry",
+      "cat_helper": "Local & International Shows",
+      "num_pets": "Number of {type}",
+      "fee_msg": "QAR 25 per additional pet (max 2)",
+      "visitor_tickets": "Visitor Tickets",
+      "adults": "Adult Visitors",
+      "adult_helper": "Age 12 and above",
+      "kids": "Kids (Under 12)",
+      "kids_helper": "Free entry for children"
+    },
+    "safety": {
+      "required": "You must accept all {count} terms to proceed.",
+      "agreed": "{count} of {total} terms agreed"
+    },
+    "terms": {
+      "dog": [
+        "I confirm my dog is fully vaccinated and healthy.",
+        "I understand Nova Vet check is mandatory before arena entry.",
+        "I agree to keep my dog leashed at all times.",
+        "I take responsibility for my dog's behavior and cleanup.",
+        "I understand that judging decisions are final."
+      ],
+      "cat": [
+        "I confirm my cat is fully vaccinated and healthy.",
+        "I agree to keep my cat in its carrier except during shows.",
+        "I understand my cat must stay within the Cat Dome area.",
+        "I take responsibility for my cat's comfort and safety.",
+        "I understand that judging decisions are final."
+      ],
+      "adult": [
+        "I agree to follow all festival safety guidelines.",
+        "I understand that animals have priority in designated zones.",
+        "I agree to follow staff instructions at all times.",
+        "I accept that some zones may have high noise/activity levels.",
+        "I agree to event photography for promotional use."
+      ]
+    },
+    "summary": {
+      "attendee": "Official Attendee",
+      "adult_tickets": "Adult Visitor Pass",
+      "kid_tickets": "Kids Pass",
+      "total": "Grand Total"
+    }
+  },
+  "Metadata": {
+    "title": "Nova Paw Festival | Qatar's First Pet Festival",
+    "description": "A two-day celebration of dogs and cats featuring international shows, live entertainment, and family experiences."
   }
 }

@@ -30,8 +30,8 @@ const Footer = () => {
       { label: nt('contact'), href: '/#contact' },
     ],
     support: [
-      { label: 'Terms & Conditions', href: '/terms' },
-      { label: 'Privacy Policy', href: '/privacy' },
+      { label: t('terms'), href: '/terms' },
+      { label: t('privacy'), href: '/privacy' },
     ],
   };
 
@@ -134,7 +134,7 @@ const Footer = () => {
                   <div className="w-8 h-8 rounded-sm bg-white/5 flex items-center justify-center">
                     <Mail size={14} className="text-primary" />
                   </div>
-                  <a href="mailto:info@novapawfestival.com" className="text-[16px] font-bold hover:text-primary transition-colors">info@novapawfestival.com</a>
+                  <a href={`mailto:${t('val_email')}`} className="text-[16px] font-bold hover:text-primary transition-colors">{t('val_email')}</a>
                 </div>
               </li>
               <li className="space-y-3">

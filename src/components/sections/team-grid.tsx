@@ -2,111 +2,79 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 interface TeamMember {
-  id: number;
-  name: string;
-  role: string;
+  id: string;
+  key: string;
   image: string;
   socials: {
-    facebook: string;
     instagram: string;
-    twitter: string;
+    linkedin: string;
   };
 }
 
 const teamMembers: TeamMember[] = [
   {
-    id: 1,
-    name: "Naomy Horther",
-    role: "CEO & Founder",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/images/qO6J2g9CARsBhWEEQMTdRZOlJU-1.jpg",
-    socials: { facebook: "#", instagram: "#", twitter: "#" }
+    id: "1",
+    key: "founder",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop",
+    socials: { instagram: "#", linkedin: "#" }
   },
   {
-    id: 2,
-    name: "Emma Ghonson",
-    role: "Assistant Coach",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/images/AIej7rWhwm5xBS4wzFjrMS4QGsg-2.jpg",
-    socials: { facebook: "#", instagram: "#", twitter: "#" }
+    id: "2",
+    key: "judge_wku",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop",
+    socials: { instagram: "#", linkedin: "#" }
   },
   {
-    id: 3,
-    name: "Lyra Voss",
-    role: "Senior Instructor",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/images/bLBpoj3L2TyYHtbi4PZacvlc1Wk-3.jpg",
-    socials: { facebook: "#", instagram: "#", twitter: "#" }
+    id: "3",
+    key: "judge_wcf",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop",
+    socials: { instagram: "#", linkedin: "#" }
   },
   {
-    id: 4,
-    name: "Axel Raze",
-    role: "Assistant Coach",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/images/zWBbANox8Z8HofkKJVP6JkMEZo-4.jpg",
-    socials: { facebook: "#", instagram: "#", twitter: "#" }
+    id: "4",
+    key: "director",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop",
+    socials: { instagram: "#", linkedin: "#" }
   },
   {
-    id: 5,
-    name: "Karl May",
-    role: "Instructor",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/images/j1ZnIvzF8liXtp00oQpovvUD68A-5.jpg",
-    socials: { facebook: "#", instagram: "#", twitter: "#" }
+    id: "5",
+    key: "vet",
+    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop",
+    socials: { instagram: "#", linkedin: "#" }
   },
   {
-    id: 6,
-    name: "Damon Cross",
-    role: "Instructor",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/images/iClHdzCFpIaFRm0su9eyqlXey5s-6.jpg",
-    socials: { facebook: "#", instagram: "#", twitter: "#" }
+    id: "6",
+    key: "groomer",
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop",
+    socials: { instagram: "#", linkedin: "#" }
   }
 ];
 
-const TeamCard = ({ member }: { member: TeamMember }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const TeamCard = ({ member, t }: { member: TeamMember, t: any }) => {
   return (
-    <div className="flex flex-col gap-[12px]">
-      <div className="group relative aspect-[4/5] w-full overflow-hidden rounded-[12px] bg-[#f2f2f2]">
+    <div className="flex flex-col gap-6 group">
+      <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[2.5rem] bg-[#F5F5F0] border border-black/5">
         <Image
           src={member.image}
-          alt={member.name}
+          alt={t(`members.${member.key}.name`)}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-cover transition-transform duration-1000 group-hover:scale-110"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-
-        {/* Social Icons Overlay */}
-        <div
-          className={`absolute inset-0 flex items-center justify-center gap-4 bg-black/40 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-        >
-          <a href={member.socials.facebook} className="flex h-10 w-10 items-center justify-center rounded-full bg-white transition-transform hover:scale-110">
-            <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/svgs/G4dbdCCFmaS4ZEf8nvsxgbyNQMc-3.svg" alt="Facebook" className="w-5 h-5" />
-          </a>
-          <a href={member.socials.instagram} className="flex h-10 w-10 items-center justify-center rounded-full bg-white transition-transform hover:scale-110">
-            <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/svgs/xM8Vm3gENNTennsSPmjyxyv8a14-4.svg" alt="Instagram" className="w-5 h-5" />
-          </a>
-          <a href={member.socials.twitter} className="flex h-10 w-10 items-center justify-center rounded-full bg-white transition-transform hover:scale-110">
-            <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/svgs/zvxHdkmzMIrpVrnNgVGWUZ9Rw-5.svg" alt="Twitter" className="w-5 h-5" />
-          </a>
-        </div>
-
-        {/* Interactive Plus Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className={`absolute bottom-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-primary shadow-sm transition-all duration-300 hover:scale-110 ${isOpen ? 'rotate-45' : 'rotate-0'}`}
-        >
-          <div className="relative h-4 w-4">
-            <div className="absolute top-1/2 left-0 h-[2px] w-full -translate-y-1/2 bg-white"></div>
-            <div className="absolute top-0 left-1/2 h-full w-[2px] -translate-x-1/2 bg-white"></div>
-          </div>
-        </button>
+        
+        {/* Subtle Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
       </div>
 
-      <div className="flex flex-col">
-        <h6 className="text-[24px] font-semibold leading-[1.2] tracking-[-0.02em] text-black">
-          {member.name}
-        </h6>
-        <p className="role-text text-[16px] leading-[1.4] text-[#666666]">
-          {member.role}
+      <div className="flex flex-col items-center text-center">
+        <h3 className="text-[28px] font-bold font-display tracking-tight text-black leading-tight mb-2">
+          {t(`members.${member.key}.name`)}
+        </h3>
+        <p className="text-[14px] font-bold uppercase tracking-[0.2em] text-primary">
+          {t(`members.${member.key}.role`)}
         </p>
       </div>
     </div>
@@ -114,12 +82,14 @@ const TeamCard = ({ member }: { member: TeamMember }) => {
 };
 
 export default function TeamGrid() {
+  const t = useTranslations('TeamPage');
+
   return (
-    <section className="bg-white py-[140px]">
+    <section className="bg-white py-24 md:py-40">
       <div className="container mx-auto max-w-[1280px] px-6">
-        <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-x-12 gap-y-20 sm:grid-cols-2 lg:grid-cols-3">
           {teamMembers.map((member) => (
-            <TeamCard key={member.id} member={member} />
+            <TeamCard key={member.id} member={member} t={t} />
           ))}
         </div>
       </div>

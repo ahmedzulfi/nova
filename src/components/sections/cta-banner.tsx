@@ -5,7 +5,23 @@ import Image from 'next/image';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 
-const CTABanner = () => {
+interface CTABannerProps {
+  title?: string;
+  subtitle?: string;
+  primaryBtnText?: string;
+  primaryBtnHref?: string;
+  secondaryBtnText?: string;
+  secondaryBtnHref?: string;
+}
+
+const CTABanner = ({
+  title,
+  subtitle,
+  primaryBtnText,
+  primaryBtnHref,
+  secondaryBtnText,
+  secondaryBtnHref
+}: CTABannerProps) => {
   const [isRegistered, setIsRegistered] = useState(false);
   const t = useTranslations('CTABanner');
 
@@ -32,18 +48,20 @@ const CTABanner = () => {
           
           <div className="relative z-10 px-8 lg:px-24 py-16 lg:py-24 max-w-[950px] text-start">
             <h2 className="text-white text-[44px] lg:text-[84px] font-bold font-display leading-[0.9] mb-10 tracking-tighter drop-shadow-2xl whitespace-pre-line">
-              {t('title')}
+              {title || t('title')}
             </h2>
             <p className="text-white/80 text-[18px] lg:text-[22px] font-medium leading-[1.6] max-w-[640px] mb-14 drop-shadow-md font-body">
-              {t('subtitle')}
+              {subtitle || t('subtitle')}
             </p>
             
             <div className="flex flex-col sm:flex-row items-center gap-6">
               <Link
                 className="group w-full sm:w-auto inline-flex items-center justify-center gap-4 bg-primary text-white font-bold px-12 py-6 rounded-sm transition-all duration-300 hover:bg-white hover:text-black hover:scale-105 active:scale-95 shadow-2xl shadow-primary/30"
-                href={isRegistered ? "/dashboard" : "/tickets"}
+                href={primaryBtnHref || (isRegistered ? "/dashboard" : "/tickets")}
               >
-                <span className="text-[14px] uppercase tracking-[0.2em]">{isRegistered ? t('registered') : t('primary')}</span>
+                <span className="text-[14px] uppercase tracking-[0.2em]">
+                  {primaryBtnText || (isRegistered ? t('registered') : t('primary'))}
+                </span>
                 <svg
                   className="w-5 h-5 group-hover:translate-x-1 transition-transform rtl:rotate-180"
                   fill="none"
@@ -56,9 +74,9 @@ const CTABanner = () => {
               </Link>
               <Link
                 className="w-full sm:w-auto inline-flex items-center justify-center bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white text-white hover:text-black font-bold px-12 py-6 rounded-sm transition-all duration-300 hover:scale-105 active:scale-95 shadow-xl"
-                href="/about"
+                href={secondaryBtnHref || "/about"}
               >
-                <span className="text-[14px] uppercase tracking-[0.2em]">{t('secondary')}</span>
+                <span className="text-[14px] uppercase tracking-[0.2em]">{secondaryBtnText || t('secondary')}</span>
               </Link>
             </div>
           </div>

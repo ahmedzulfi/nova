@@ -20,7 +20,8 @@ const HeroSection = () => {
               className="group mb-8 inline-flex items-center gap-2 px-5 py-2 bg-black rounded-sm transition-all hover:bg-primary"
             >
               <span className="text-[12px] font-bold text-white uppercase tracking-[0.2em]">
-                27-28 Nov 2026 · The Pearl · Qatar
+              <span className="text-[12px] font-bold text-white uppercase tracking-[0.2em]">
+                {t('badge')}
               </span>
             </div>
 
@@ -84,14 +85,14 @@ const HeroSection = () => {
             {/* Floating Badges on Video */}
             <div className="absolute top-6 left-6 z-20">
               <div className="px-5 py-2 bg-white rounded-sm shadow-xl">
-                <span className="text-black font-display text-[12px] font-bold uppercase tracking-widest">International Shows</span>
+                <span className="text-black font-display text-[12px] font-bold uppercase tracking-widest">{t('video_badge_top')}</span>
               </div>
             </div>
 
             <div className="absolute bottom-8 left-8 right-8 z-20">
               <div className="p-8 bg-white/10 backdrop-blur-xl rounded-sm border border-white/20 shadow-2xl">
                 <p className="text-white font-display text-[18px] md:text-[20px] font-bold leading-tight tracking-tight">
-                  Experience the largest pet gathering in Qatar.
+                  {t('video_badge_bottom')}
                 </p>
               </div>
             </div>

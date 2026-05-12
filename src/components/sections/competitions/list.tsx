@@ -2,68 +2,13 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Trophy, Clock, Users, Star, ArrowRight } from 'lucide-react';
-
-const competitions = [
-  {
-    title: "Dog Fashion Show",
-    desc: "Owners and dogs strut the runway in matching themed outfits. Judged on creativity, coordination, fit, presentation, and overall charm by WKU international judges.",
-    stats: [
-      { label: "Contestants", value: "8 per day", icon: <Users className="w-4 h-4" /> },
-      { label: "Duration", value: "50 min show", icon: <Clock className="w-4 h-4" /> },
-      { label: "Awards", value: "Gold/Silver/Rose Cups", icon: <Trophy className="w-4 h-4" /> }
-    ],
-    image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2068&auto=format&fit=crop",
-    color: "bg-primary"
-  },
-  {
-    title: "Grooming Competition",
-    desc: "Professional groomers showcase precision trimming, styling, and finishing under live judging by WKU officials. Evaluated on technique, cleanliness, creativity, handling, and final appearance.",
-    stats: [
-      { label: "Contestants", value: "8 per day", icon: <Users className="w-4 h-4" /> },
-      { label: "Duration", value: "60 min show", icon: <Clock className="w-4 h-4" /> },
-      { label: "Provided", value: "Grooming tables", icon: <Star className="w-4 h-4" /> }
-    ],
-    image: "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=2071&auto=format&fit=crop",
-    color: "bg-accent"
-  },
-  {
-    title: "Best Dog Show",
-    desc: "The prestigious WKU-recognized event evaluating breed structure, temperament, and presentation across Puppy, Youth, and Adult classes in a double-ring setup.",
-    stats: [
-      { label: "Contestants", value: "40 dogs per day", icon: <Users className="w-4 h-4" /> },
-      { label: "Classes", value: "3 Classes", icon: <Star className="w-4 h-4" /> },
-      { label: "Grand Prize", value: "Best in Show Trophy", icon: <Trophy className="w-4 h-4" /> }
-    ],
-    image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2069&auto=format&fit=crop",
-    color: "bg-primary"
-  },
-  {
-    title: "Best Cat Show",
-    desc: "WCF-licensed grand judging inside the immersive Cat Dome. Cats evaluated on body type, head, ears, eyes, coat, and overall condition according to WCF international standards.",
-    stats: [
-      { label: "Contestants", value: "20 cats per day", icon: <Users className="w-4 h-4" /> },
-      { label: "Judges", value: "WCF International", icon: <Star className="w-4 h-4" /> },
-      { label: "Grand Prize", value: "Best Cat of Show", icon: <Trophy className="w-4 h-4" /> }
-    ],
-    image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2043&auto=format&fit=crop",
-    color: "bg-accent"
-  },
-  {
-    title: "Cat Drawing Battle",
-    desc: "A live creative battle where artists compete to draw cats in real-time under the spotlight. Judged on speed, style, imagination, and artistic technique  the ultimate feline art showdown.",
-    stats: [
-      { label: "Eligibility", value: "Open to all ages", icon: <Users className="w-4 h-4" /> },
-      { label: "Provided", value: "All Materials", icon: <Star className="w-4 h-4" /> },
-      { label: "Prizes", value: "Top 3 artists", icon: <Trophy className="w-4 h-4" /> }
-    ],
-    image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=2071&auto=format&fit=crop",
-    color: "bg-black"
-  }
-];
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
 
 const CompetitionsList = () => {
+  const t = useTranslations('CompetitionsPage.list');
+  const tCTA = useTranslations('CompetitionsPage.cta');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -73,61 +18,91 @@ const CompetitionsList = () => {
     }
   }, []);
 
+  const competitions = [
+    { key: "fashion", icon: <Users className="w-4 h-4" />, timeIcon: <Clock className="w-4 h-4" />, awardIcon: <Trophy className="w-4 h-4" />, image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2068&auto=format&fit=crop" },
+    { key: "grooming", icon: <Users className="w-4 h-4" />, timeIcon: <Clock className="w-4 h-4" />, awardIcon: <Star className="w-4 h-4" />, image: "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=2071&auto=format&fit=crop" },
+    { key: "dog_show", icon: <Users className="w-4 h-4" />, timeIcon: <Star className="w-4 h-4" />, awardIcon: <Trophy className="w-4 h-4" />, image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2069&auto=format&fit=crop" },
+    { key: "cat_show", icon: <Users className="w-4 h-4" />, timeIcon: <Star className="w-4 h-4" />, awardIcon: <Trophy className="w-4 h-4" />, image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2043&auto=format&fit=crop" },
+    { key: "drawing", icon: <Users className="w-4 h-4" />, timeIcon: <Star className="w-4 h-4" />, awardIcon: <Trophy className="w-4 h-4" />, image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=2071&auto=format&fit=crop" }
+  ];
+
   return (
-    <section className="py-20 md:py-32 bg-[#F9F9F9]">
+    <section className="py-24 md:py-40 bg-[#F5F5F0]">
       <div className="container mx-auto px-6 max-w-[1280px]">
-        <div className="space-y-12 md:space-y-24">
+        <div className="space-y-24 md:space-y-40">
           {competitions.map((comp, index) => (
             <div 
               key={index} 
-              className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-24 items-center`}
+              className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-16 lg:gap-32 items-center`}
             >
               {/* Image Side */}
               <div className="w-full lg:w-1/2">
-                <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl group">
+                <div className="relative aspect-[4/3] rounded-[3rem] overflow-hidden shadow-2xl group border-8 border-white">
                   <Image
                     src={comp.image}
-                    alt={comp.title}
+                    alt={t(`items.${comp.key}.title`)}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-700" />
                 </div>
               </div>
 
               {/* Content Side */}
-              <div className="w-full lg:w-1/2 space-y-8">
-                <div className="space-y-6">
-                  <h3 className="text-[32px] md:text-[48px] font-display   font-bold  text-black leading-tight tracking-tighter">
-                    {comp.title}
+              <div className="w-full lg:w-1/2 space-y-10">
+                <div className="space-y-8">
+                  <h3 className="text-[40px] md:text-[64px] font-display font-bold text-black leading-[0.95] tracking-tighter">
+                    {t(`items.${comp.key}.title`)}
                   </h3>
-                  <p className="text-[18px] md:text-[20px] text-black/60 font-body leading-relaxed">
-                    {comp.desc}
+                  <p className="text-[18px] md:text-[22px] text-black/40 font-body font-medium leading-relaxed rtl:text-right">
+                    {t(`items.${comp.key}.desc`)}
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                  {comp.stats.map((stat, i) => (
-                    <div key={i} className="flex flex-col gap-2">
-                      <div className="flex items-center gap-2 text-primary">
-                        {stat.icon}
-                        <span className="text-[12px] font-bold uppercase tracking-wider">{stat.label}</span>
-                      </div>
-                      <span className="text-[16px] font-bold text-black">{stat.value}</span>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                  <div className="flex flex-col gap-3">
+                    <div className="flex items-center gap-3 text-primary rtl:flex-row-reverse rtl:justify-end">
+                      {comp.icon}
+                      <span className="text-[11px] font-bold uppercase tracking-[0.2em]">{t('labels.contestants')}</span>
                     </div>
-                  ))}
+                    <span className="text-[17px] font-bold text-black rtl:text-right">
+                      {t(`values.${comp.key === 'dog_show' ? '40_dogs' : comp.key === 'cat_show' ? '20_cats' : '8_per_day'}`)}
+                    </span>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    <div className="flex items-center gap-3 text-primary rtl:flex-row-reverse rtl:justify-end">
+                      {comp.timeIcon}
+                      <span className="text-[11px] font-bold uppercase tracking-[0.2em]">
+                        {t(`labels.${comp.key === 'fashion' || comp.key === 'grooming' ? 'duration' : comp.key === 'dog_show' ? 'classes' : comp.key === 'cat_show' ? 'judges' : 'eligibility'}`)}
+                      </span>
+                    </div>
+                    <span className="text-[17px] font-bold text-black rtl:text-right">
+                      {t(`values.${comp.key === 'fashion' ? '50_min' : comp.key === 'grooming' ? '60_min' : comp.key === 'dog_show' ? '3_classes' : comp.key === 'cat_show' ? 'wcf_intl' : 'all_ages'}`)}
+                    </span>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    <div className="flex items-center gap-3 text-primary rtl:flex-row-reverse rtl:justify-end">
+                      {comp.awardIcon}
+                      <span className="text-[11px] font-bold uppercase tracking-[0.2em]">
+                        {t(`labels.${comp.key === 'grooming' || comp.key === 'drawing' ? 'provided' : comp.key === 'dog_show' || comp.key === 'cat_show' ? 'grand_prize' : 'awards'}`)}
+                      </span>
+                    </div>
+                    <span className="text-[17px] font-bold text-black rtl:text-right">
+                      {t(`values.${comp.key === 'fashion' ? 'cups' : comp.key === 'grooming' ? 'tables' : comp.key === 'dog_show' ? 'best_in_show' : comp.key === 'cat_show' ? 'best_cat' : 'materials'}`)}
+                    </span>
+                  </div>
                 </div>
 
-                <div className="pt-4 flex flex-col gap-6">
+                <div className="pt-8 flex flex-col gap-8">
                   <Link 
                     href={isLoggedIn ? "/dashboard" : "/tickets"}
-                    className="inline-flex items-center justify-center gap-3 bg-black text-white px-10 py-5 rounded-sm font-bold text-[14px] uppercase tracking-widest hover:bg-primary transition-all active:scale-95 w-fit"
+                    className="inline-flex items-center justify-center h-18 px-12 bg-black text-white rounded-full font-bold text-[14px] uppercase tracking-[0.3em] hover:bg-primary transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl shadow-black/10 w-fit"
                   >
-                    {isLoggedIn ? "Manage My Entry" : "Register Now"} <ArrowRight className="w-5 h-5" />
+                    {isLoggedIn ? tCTA('manage') : tCTA('primary')} <ArrowRight className="w-6 h-6 rtl:rotate-180" />
                   </Link>
                   
-                  <p className="text-[11px] font-bold text-black/30 uppercase tracking-widest italic flex items-center gap-2">
-                    <Star className="w-3 h-3 text-primary" /> Participation requires a Pet Owner Ticket
+                  <p className="text-[12px] font-bold text-black/20 uppercase tracking-[0.2em] italic flex items-center gap-3 rtl:flex-row-reverse rtl:justify-end">
+                    <Star className="w-4 h-4 text-primary" /> {tCTA('warning')}
                   </p>
                 </div>
               </div>

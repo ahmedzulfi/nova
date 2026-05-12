@@ -31,8 +31,8 @@ export async function generateMetadata({ params }: { params: { locale: string } 
   const t = await getTranslations({ locale, namespace: 'Metadata' });
 
   return {
-    title: "Nova Paw Festival | Qatar's First Pet Festival",
-    description: "A two-day celebration of dogs and cats featuring international shows, live entertainment, and family experiences.",
+    title: t('title'),
+    description: t('description'),
   };
 }
 

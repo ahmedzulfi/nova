@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslations } from 'next-intl';
 import Navigation from '@/components/sections/navigation';
 import Footer from '@/components/sections/footer';
 import CompetitionsHero from '@/components/sections/competitions/hero';
@@ -7,6 +8,8 @@ import AwardsSection from '@/components/sections/competitions/prizes';
 import CTABanner from '@/components/sections/cta-banner';
 
 export default function CompetitionsPage() {
+  const t = useTranslations('CompetitionsPage.cta');
+
   return (
     <main className="min-h-screen bg-white">
       <Navigation />
@@ -15,9 +18,9 @@ export default function CompetitionsPage() {
       <AwardsSection />
       
       <CTABanner 
-        title="Ready to Take the Spotlight?"
-        subtitle="Register your pet for one of our international competitions and compete for championship titles, cups, and medals."
-        primaryBtnText="Register Now"
+        title={t('title')}
+        subtitle={t('subtitle')}
+        primaryBtnText={t('primary')}
         primaryBtnHref="/registration"
       />
 

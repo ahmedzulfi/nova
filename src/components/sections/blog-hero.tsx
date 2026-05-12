@@ -1,7 +1,14 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
+import { ArrowRight } from 'lucide-react';
 
 const BlogHero: React.FC = () => {
+  const t = useTranslations('BlogPage.hero');
+
   const avatars = [
     {
       url: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=1974&auto=format&fit=crop",
@@ -29,23 +36,21 @@ const BlogHero: React.FC = () => {
     },
   ];
 
-  const arrowIcon = "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/svgs/mJ4B3sUua6gvwJ6rQYS23DLJ9c-3.svg";
-
   return (
-    <section className="relative overflow-hidden pt-[160px] pb-[120px] bg-[#FFFFFF]">
+    <section className="relative overflow-hidden pt-[180px] pb-[100px] md:pt-[220px] md:pb-[140px] bg-white">
       {/* Floating Images */}
-      <div className="absolute inset-0 z-0 pointer-events-none hidden md:block">
+      <div className="absolute inset-0 z-0 pointer-events-none hidden lg:block">
         {avatars.map((avatar, index) => (
           <div
             key={index}
-            className={`absolute rounded-full overflow-hidden border-4 border-white shadow-sm ${avatar.className}`}
+            className={`absolute rounded-full overflow-hidden border-4 border-white shadow-2xl transition-transform duration-1000 hover:scale-110 ${avatar.className}`}
           >
             <Image
               src={avatar.url}
               alt="Pet"
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 100px, 120px"
+              sizes="120px"
               priority
             />
           </div>
@@ -53,33 +58,32 @@ const BlogHero: React.FC = () => {
       </div>
 
       <div className="container relative z-10 px-6 mx-auto">
-        <div className="flex flex-col items-center justify-center text-center max-w-[800px] mx-auto">
+        <div className="flex flex-col items-center justify-center text-center max-w-[1000px] mx-auto">
+          {/* Badge */}
+          <span className="inline-block bg-[#F5F5F0] text-black text-[12px] font-bold px-6 py-2 rounded-full uppercase tracking-[0.3em] mb-10 animate-in fade-in slide-in-from-bottom-4 duration-500 shadow-sm border border-black/5">
+            Stories & Guides
+          </span>
+
           {/* Headline */}
-          <h1 className="mb-6 text-[48px] md:text-[88px] font-semibold leading-[1.1] tracking-tight text-[#000000]">
-            Nova Paw Blog
+          <h1 className="mb-8 text-[48px] md:text-[94px] font-bold font-display leading-[0.9] tracking-tighter text-black animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
+            {t('title')}
           </h1>
 
           {/* Descriptive Paragraph */}
-          <p className="mb-10 text-[18px] md:text-[20px] leading-[1.6] text-[#666666] max-w-[640px]">
-            Stay updated with the latest pet care tips, festival news, and community stories. From preparation guides to heartwarming adoption success stories.
+          <p className="mb-12 text-[18px] md:text-[22px] leading-[1.6] text-black/40 max-w-[720px] font-medium font-body animate-in fade-in slide-in-from-bottom-10 duration-700 delay-200">
+            {t('desc')}
           </p>
 
           {/* CTA Button */}
-          <a
+          <Link
             href="/registration"
-            className="group flex items-center justify-center px-10 py-5 bg-primary hover:bg-primary/90 rounded-full transition-all duration-200"
+            className="group flex items-center justify-center px-12 py-6 bg-black hover:bg-black/90 rounded-2xl transition-all duration-300 animate-in fade-in slide-in-from-bottom-12 duration-700 delay-300 shadow-2xl hover:scale-105 active:scale-95"
           >
-            <span className="text-[16px] font-semibold text-white mr-3">
+            <span className="text-[18px] font-bold text-white mr-4 rtl:mr-0 rtl:ml-4">
               Register Your Pet
             </span>
-            <div className="w-[22px] h-[22px] flex items-center justify-center">
-              <img
-                src={arrowIcon}
-                alt="Arrow"
-                className="w-full h-full object-contain"
-              />
-            </div>
-          </a>
+            <ArrowRight className="w-6 h-6 text-white transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
+          </Link>
         </div>
       </div>
     </section>

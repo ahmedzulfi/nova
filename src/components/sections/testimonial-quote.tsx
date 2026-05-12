@@ -1,39 +1,42 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 const TestimonialQuote = () => {
+  const t = useTranslations('TeamPage.quote');
+
   return (
-    <section className="bg-white py-[140px] px-6">
-      <div className="container mx-auto max-w-[1280px]">
-        {/* Quote Container */}
+    <section className="bg-[#F5F5F0] py-24 md:py-40 px-6 overflow-hidden relative">
+      {/* Decorative Marks */}
+      <div className="absolute top-20 left-10 text-[200px] font-display text-black/5 leading-none select-none pointer-events-none">“</div>
+      <div className="absolute bottom-0 right-10 text-[200px] font-display text-black/5 leading-none select-none pointer-events-none translate-y-20">”</div>
+
+      <div className="container mx-auto max-w-[1000px] relative z-10">
         <div className="flex flex-col items-center">
-          <blockquote className="quote-text text-black mb-12">
-            &ldquo;Cycling is more than just a sport &mdash; it&apos;s a journey of discovery, 
-            connection, and growth. Our mission is to inspire every rider to 
-            push their limits, explore new horizons, and be part of a community 
-            that moves the world forward, one pedal at a time.&rdquo;
+          <blockquote className="text-[28px] md:text-[44px] font-bold font-display text-black text-center leading-[1.2] tracking-tighter mb-16 italic rtl:text-right">
+            &ldquo;{t('text')}&rdquo;
           </blockquote>
 
-          {/* Author Details */}
-          <div className="flex flex-col items-center gap-4">
+          <div className="flex flex-col items-center gap-6">
             {/* Avatar */}
-            <div className="relative w-14 h-14 overflow-hidden rounded-full border-2 border-white shadow-sm">
+            <div className="relative w-20 h-20 overflow-hidden rounded-full border-4 border-white shadow-2xl">
               <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/images/Jqayfjs2tuO7Zr58zNE6U1qsQ-7.jpg"
-                alt="Jaxon Cole"
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop"
+                alt={t('author')}
                 fill
                 className="object-cover"
-                sizes="56px"
+                sizes="80px"
               />
             </div>
 
-            {/* Name and Title */}
             <div className="text-center">
-              <h6 className="text-[24px] font-semibold leading-[1.2] tracking-[-0.02em] text-black m-0">
-                Jaxon Cole
+              <h6 className="text-[24px] font-bold font-display tracking-tight text-black mb-1">
+                {t('author')}
               </h6>
-              <p className="role-text text-[#666666] text-[16px] leading-[1.4] m-0">
-                CEO & Founder
+              <p className="text-[12px] font-bold uppercase tracking-[0.3em] text-primary">
+                {t('role')}
               </p>
             </div>
           </div>

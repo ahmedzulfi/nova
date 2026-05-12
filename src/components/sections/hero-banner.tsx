@@ -1,86 +1,46 @@
+'use client';
+
 import React from 'react';
-import Image from 'next/image';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
+import { ArrowRight } from 'lucide-react';
 
 const HeroBanner: React.FC = () => {
-  // Asset URLs from the provided list
-  const avatars = [
-    {
-      url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/images/Bnjmt6ispxsHDmXpka9YksPYB0-1.jpg",
-      className: "top-[15%] left-[22%] w-[84px] h-[84px] md:w-[100px] md:h-[100px]",
-    },
-    {
-      url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/images/ravDLcbIxz2CPKB2ZifsYAjN2ac-2.jpg",
-      className: "top-[12%] right-[22%] w-[84px] h-[84px] md:w-[100px] md:h-[100px]",
-    },
-    {
-      url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/images/hVawiHfWaJYKjIPAUTLtzJpgad8-3.jpg",
-      className: "top-[40%] left-[10%] w-[90px] h-[90px] md:w-[110px] md:h-[110px]",
-    },
-    {
-      url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/images/kaofChT0ChjJb76ClKauaOyof8-4.jpg",
-      className: "top-[40%] right-[10%] w-[88px] h-[88px] md:w-[108px] md:h-[108px]",
-    },
-    {
-      url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/images/t8invdbJezsYKxGg3I06JAU18Ng-5.jpg",
-      className: "bottom-[12%] left-[22%] w-[94px] h-[94px] md:w-[114px] md:h-[114px]",
-    },
-    {
-      url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/images/ERWMHvvPvKlBgf6GVzBtjyrr4-6.jpg",
-      className: "bottom-[15%] right-[22%] w-[94px] h-[94px] md:w-[114px] md:h-[114px]",
-    },
-  ];
-
-  const arrowIcon = "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/svgs/mJ4B3sUua6gvwJ6rQYS23DLJ9c-3.svg";
+  const t = useTranslations('EventsPage.hero');
 
   return (
-    <section className="relative overflow-hidden pt-[160px] pb-[120px] bg-[#FFFFFF]">
-      {/* Floating Images */}
-      <div className="absolute inset-0 z-0 pointer-events-none hidden md:block">
-        {avatars.map((avatar, index) => (
-          <div
-            key={index}
-            className={`absolute rounded-full overflow-hidden border-4 border-white shadow-sm ${avatar.className}`}
-          >
-            <Image
-              src={avatar.url}
-              alt="Cyclist"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100px, 120px"
-              priority
-            />
-          </div>
-        ))}
-      </div>
-
+    <section className="relative overflow-hidden pt-[180px] pb-[100px] md:pt-[220px] md:pb-[140px] bg-white">
+      {/* Premium Decorative Elements */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -mr-40 -mt-40 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px] -ml-40 -mb-40 pointer-events-none" />
+      
       <div className="container relative z-10 px-6 mx-auto">
-        <div className="flex flex-col items-center justify-center text-center max-w-[800px] mx-auto">
+        <div className="flex flex-col items-center justify-center text-center max-w-[1000px] mx-auto">
+          {/* Badge */}
+          <span className="inline-block bg-[#F5F5F0] text-black text-[12px] font-bold px-6 py-2 rounded-full uppercase tracking-[0.3em] mb-10 animate-in fade-in slide-in-from-bottom-4 duration-500 shadow-sm border border-black/5">
+            2026 Season Lineup
+          </span>
+
           {/* Headline */}
-          <h1 className="mb-6 text-[48px] md:text-[88px] font-semibold leading-[1.1] tracking-tight text-[#000000]">
-            Join the ride of a lifetime!
+          <h1 className="mb-8 text-[48px] md:text-[94px] font-bold font-display leading-[0.9] tracking-tighter text-black whitespace-pre-line animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
+            {t('title')}
           </h1>
 
           {/* Descriptive Paragraph */}
-          <p className="mb-10 text-[18px] md:text-[20px] leading-[1.6] text-[#666666] max-w-[640px]">
-            Explore our exciting lineup of cycling events designed for riders of all levels. From challenging mountain trails and scenic coastal rides to community-focused charity rides and vibrant cycling festivals.
+          <p className="mb-12 text-[18px] md:text-[22px] leading-[1.6] text-black/40 max-w-[720px] font-medium font-body animate-in fade-in slide-in-from-bottom-10 duration-700 delay-200">
+            {t('desc')}
           </p>
 
           {/* CTA Button */}
-          <a
-            href="/contact-us"
-            className="group flex items-center justify-center px-10 py-5 bg-primary hover:bg-primary/90 rounded-full transition-all duration-200"
+          <Link
+            href="/registration"
+            className="group flex items-center justify-center px-12 py-6 bg-black hover:bg-black/90 rounded-2xl transition-all duration-300 animate-in fade-in slide-in-from-bottom-12 duration-700 delay-300 shadow-2xl hover:scale-105 active:scale-95"
           >
-            <span className="text-[16px] font-semibold text-white mr-3">
-              Let's get started
+            <span className="text-[18px] font-bold text-white mr-4 rtl:mr-0 rtl:ml-4">
+              Register Your Pet
             </span>
-            <div className="w-[22px] h-[22px] flex items-center justify-center">
-              <img
-                src={arrowIcon}
-                alt="Arrow"
-                className="w-full h-full object-contain"
-              />
-            </div>
-          </a>
+            <ArrowRight className="w-6 h-6 text-white transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
+          </Link>
         </div>
       </div>
     </section>

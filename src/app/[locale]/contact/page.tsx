@@ -8,8 +8,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Instagram, Youtube, Music2 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export default function ContactPage() {
+  const t = useTranslations('ContactPage');
+
   return (
     <main className="min-h-screen bg-white">
       <Navigation />
@@ -17,49 +20,50 @@ export default function ContactPage() {
       <section className="pt-32 pb-20 lg:pt-48 lg:pb-32">
         <div className="container mx-auto px-6 max-w-[1280px]">
           <div className="text-center mb-16 lg:mb-32">
-            <span className="inline-block bg-[#F3F3F3] text-black text-[12px] font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider mb-8">
-              Contact Center
+            <span className="inline-block bg-[#F5F5F0] text-black text-[12px] font-bold px-6 py-2 rounded-full uppercase tracking-[0.3em] mb-8 animate-in fade-in slide-in-from-bottom-4 duration-500 shadow-sm border border-black/5">
+              {t('badge')}
             </span>
-            <h1 className="text-[48px] md:text-[84px] font-bold font-display leading-[1] text-black mb-10 tracking-tight">
-              Let's Connect <br className="hidden md:block" /> with Nova Paw
+            <h1 className="text-[48px] md:text-[84px] font-bold font-display leading-[0.85] text-black mb-10 tracking-tighter animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100 whitespace-pre-line">
+              {t('title')}
             </h1>
-            <p className="text-[18px] md:text-[20px] text-[#666666] leading-[1.6] max-w-[700px] mx-auto font-body">
-              Whether you're an attendee, a potential sponsor, or a member of the press, our team is ready to assist you.
+            <p className="text-[18px] md:text-[22px] text-black/40 leading-[1.6] max-w-[760px] mx-auto font-medium font-body animate-in fade-in slide-in-from-bottom-10 duration-700 delay-200">
+              {t('desc')}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-start">
             {/* Contact Info & Map */}
-            <div className="space-y-12">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-1">
-                  <div className="flex items-center gap-3 text-primary mb-2">
-                    <MapPin className="w-5 h-5" />
-                    <Label className="text-[#666666] uppercase text-[12px] font-bold tracking-widest pl-0">Location</Label>
+            <div className="space-y-16 animate-in fade-in slide-in-from-left-8 duration-1000">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-4 text-primary mb-2 rtl:flex-row-reverse rtl:justify-end">
+                    <MapPin className="w-6 h-6" />
+                    <Label className="text-black/30 uppercase text-[11px] font-bold tracking-[0.2em] pl-0">{t('info.location')}</Label>
                   </div>
-                  <p className="text-[18px] font-bold text-black font-display">Pet’s Park,</p>
-                  <p className="text-[16px] text-[#666666]">The Pearl   Qatar</p>
+                  <p className="text-[22px] font-bold text-black font-display tracking-tight whitespace-pre-line rtl:text-right">
+                    {t('info.val_location')}
+                  </p>
                 </div>
-                <div className="space-y-1">
-                  <div className="flex items-center gap-3 text-primary mb-2">
-                    <Phone className="w-5 h-5" />
-                    <Label className="text-[#666666] uppercase text-[12px] font-bold tracking-widest pl-0">Phone</Label>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-4 text-primary mb-2 rtl:flex-row-reverse rtl:justify-end">
+                    <Phone className="w-6 h-6" />
+                    <Label className="text-black/30 uppercase text-[11px] font-bold tracking-[0.2em] pl-0">{t('info.phone')}</Label>
                   </div>
-                  <p className="text-[18px] font-bold text-black font-display">+974 3302 2248</p>
-                  <p className="text-[16px] text-[#666666]">Support Line</p>
+                  <p className="text-[22px] font-bold text-black font-display tracking-tight rtl:text-right">{t('info.val_phone')}</p>
+                  <p className="text-[15px] text-black/40 font-medium rtl:text-right">{t('info.support')}</p>
                 </div>
-                <div className="space-y-1">
-                  <div className="flex items-center gap-3 text-primary mb-2">
-                    <Mail className="w-5 h-5" />
-                    <Label className="text-[#666666] uppercase text-[12px] font-bold tracking-widest pl-0">Email</Label>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-4 text-primary mb-2 rtl:flex-row-reverse rtl:justify-end">
+                    <Mail className="w-6 h-6" />
+                    <Label className="text-black/30 uppercase text-[11px] font-bold tracking-[0.2em] pl-0">{t('info.email')}</Label>
                   </div>
-                  <p className="text-[18px] font-bold text-black font-display">TBD</p>
-                  <p className="text-[16px] text-[#666666]">Inquiries & Media</p>
+                  <p className="text-[22px] font-bold text-black font-display tracking-tight rtl:text-right">{t('info.val_email')}</p>
+                  <p className="text-[15px] text-black/40 font-medium rtl:text-right">{t('info.inquiries')}</p>
                 </div>
               </div>
 
               {/* Google Maps Embed */}
-              <div className="w-full aspect-video rounded-sm overflow-hidden grayscale contrast-125 border border-[#F0F0F0]">
+              <div className="w-full aspect-video rounded-[2rem] overflow-hidden grayscale contrast-[1.1] border border-black/5 shadow-2xl shadow-black/5 hover:grayscale-0 transition-all duration-1000">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d14421.7377561!2d51.5435!3d25.3725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45c4793f77df23%3A0xc669f379fa4d4bb!2sThe%20Pearl-Qatar!5e0!3m2!1sen!2sqa!4v1700000000000!5m2!1sen!2sqa"
                   width="100%"
@@ -71,9 +75,9 @@ export default function ContactPage() {
                 ></iframe>
               </div>
 
-              <div className="space-y-6 pt-8">
-                <h3 className="text-[24px] font-bold font-display">Follow the Journey</h3>
-                <div className="flex flex-wrap gap-4">
+              <div className="space-y-8 pt-8">
+                <h3 className="text-[28px] font-bold font-display tracking-tight rtl:text-right">{t('social.title')}</h3>
+                <div className="flex flex-wrap gap-4 rtl:flex-row-reverse">
                   {[
                     { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/nova_paw_festival/' },
                     { name: 'TikTok', icon: Music2, href: 'https://www.tiktok.com/@nova_paw_festival' },
@@ -82,7 +86,7 @@ export default function ContactPage() {
                     <a
                       key={social.name}
                       href={social.href}
-                      className="inline-flex items-center gap-3 px-8 py-4 rounded-sm border border-[#F0F0F0] hover:bg-black hover:text-white transition-all duration-300 font-bold text-[15px]"
+                      className="inline-flex items-center gap-4 px-10 py-5 rounded-full border border-black/5 bg-[#F5F5F0] hover:bg-black hover:text-white transition-all duration-500 font-bold text-[14px] uppercase tracking-widest"
                     >
                       <social.icon className="w-5 h-5" />
                       {social.name}
@@ -93,36 +97,36 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-[#F9F9F9] p-8 md:p-16 rounded-sm border border-[#f0f0f0] sticky top-32 shadow-sm">
-              <div className="mb-10 text-center">
-                <h3 className="text-[32px] font-bold font-display mb-4">Send us a Message</h3>
-                <p className="text-[#666666]">Drop us a line and we'll get back to you shortly.</p>
+            <div className="bg-[#F5F5F0] p-10 md:p-16 rounded-[3rem] border border-black/5 sticky top-32 shadow-2xl shadow-black/5 animate-in fade-in slide-in-from-right-8 duration-1000">
+              <div className="mb-12 text-center">
+                <h3 className="text-[36px] font-bold font-display mb-4 tracking-tighter">{t('form.title')}</h3>
+                <p className="text-black/40 font-medium">{t('form.desc')}</p>
               </div>
-              <form className="space-y-6">
-                <div className="space-y-2">
-                  <Label htmlFor="name" className="text-[14px] font-bold uppercase tracking-wider pl-2">Full Name</Label>
-                  <Input id="name" placeholder="John Doe" className="   rounded-sm  border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary transition-all" />
+              <form className="space-y-8">
+                <div className="space-y-3">
+                  <Label htmlFor="name" className="text-[11px] font-bold uppercase tracking-[0.2em] pl-4 rtl:pl-0 rtl:pr-4 block rtl:text-right">{t('form.label_name')}</Label>
+                  <Input id="name" placeholder={t('form.placeholder_name')} className="rounded-full border-black/5 bg-white h-16 px-8 focus:ring-4 focus:ring-primary/20 transition-all font-bold text-black rtl:text-right" />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-[14px] font-bold uppercase tracking-wider pl-2">Email Address</Label>
-                  <Input id="email" type="email" placeholder="john@example.com" className="   rounded-sm  border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary transition-all" />
+                <div className="space-y-3">
+                  <Label htmlFor="email" className="text-[11px] font-bold uppercase tracking-[0.2em] pl-4 rtl:pl-0 rtl:pr-4 block rtl:text-right">{t('form.label_email')}</Label>
+                  <Input id="email" type="email" placeholder={t('form.placeholder_email')} className="rounded-full border-black/5 bg-white h-16 px-8 focus:ring-4 focus:ring-primary/20 transition-all font-bold text-black rtl:text-right" />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="type" className="text-[14px] font-bold uppercase tracking-wider pl-2">Inquiry Type</Label>
-                  <select id="type" className="w-full    rounded-sm  border-[#E6E6E6] bg-white h-14 px-6 focus:ring-2 focus:ring-primary transition-all appearance-none cursor-pointer">
-                    <option>General Inquiry</option>
-                    <option>Sponsorship</option>
-                    <option>Press & Media</option>
-                    <option>Ticketing Support</option>
-                    <option>Pet Registration</option>
+                <div className="space-y-3">
+                  <Label htmlFor="type" className="text-[11px] font-bold uppercase tracking-[0.2em] pl-4 rtl:pl-0 rtl:pr-4 block rtl:text-right">{t('form.label_type')}</Label>
+                  <select id="type" className="w-full rounded-full border border-black/5 bg-white h-16 px-8 focus:ring-4 focus:ring-primary/20 transition-all appearance-none cursor-pointer font-bold text-black rtl:text-right">
+                    <option>{t('form.types.general')}</option>
+                    <option>{t('form.types.sponsorship')}</option>
+                    <option>{t('form.types.media')}</option>
+                    <option>{t('form.types.ticketing')}</option>
+                    <option>{t('form.types.registration')}</option>
                   </select>
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="message" className="text-[14px] font-bold uppercase tracking-wider pl-2">Your Message</Label>
-                  <Textarea id="message" placeholder="How can we help you?" className="   rounded-sm  border-[#E6E6E6] bg-white min-h-[160px] p-6 focus:ring-2 focus:ring-primary transition-all" />
+                <div className="space-y-3">
+                  <Label htmlFor="message" className="text-[11px] font-bold uppercase tracking-[0.2em] pl-4 rtl:pl-0 rtl:pr-4 block rtl:text-right">{t('form.label_message')}</Label>
+                  <Textarea id="message" placeholder={t('form.placeholder_message')} className="rounded-[2rem] border-black/5 bg-white min-h-[180px] p-8 focus:ring-4 focus:ring-primary/20 transition-all font-bold text-black rtl:text-right" />
                 </div>
-                <Button className="w-full h-16 bg-primary hover:bg-primary/90 text-white font-bold rounded-sm text-[18px] transition-all active:scale-[0.98] mt-4 shadow-none">
-                  Send Message
+                <Button className="w-full h-18 bg-black hover:bg-primary text-white font-bold rounded-full text-[16px] uppercase tracking-[0.2em] transition-all duration-500 active:scale-[0.98] mt-6 shadow-2xl shadow-black/10">
+                  {t('form.cta')}
                 </Button>
               </form>
             </div>
@@ -130,21 +134,23 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <div className="container mx-auto px-6 max-w-[1280px] pb-32">
-        <div className="bg-black rounded-[40px] p-12 md:p-20 flex flex-col items-center text-center text-white relative overflow-hidden group">
+      <div className="container mx-auto px-6 max-w-[1280px] pb-32 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
+        <div className="bg-black rounded-[4rem] p-16 md:p-24 flex flex-col items-center text-center text-white relative overflow-hidden group shadow-2xl shadow-black/20">
           <div className="relative z-10">
-            <h2 className="text-[32px] md:text-[56px] font-bold font-display mb-8">Need Immediate Help?</h2>
-            <p className="text-white/70 text-[18px] mb-12 max-w-[600px] mx-auto">
-              Our support team is available via WhatsApp for quick questions regarding tickets and pet registrations.
+            <h2 className="text-[40px] md:text-[72px] font-bold font-display mb-8 leading-[0.9] tracking-tighter">{t('whatsapp.title')}</h2>
+            <p className="text-white/40 text-[18px] md:text-[22px] mb-12 max-w-[700px] mx-auto font-medium leading-relaxed">
+              {t('whatsapp.desc')}
             </p>
             <a
               href="https://wa.me/97433022248"
-              className="inline-flex items-center gap-4 bg-primary text-white px-10 py-5 rounded-sm font-bold text-[18px] hover:bg-white hover:text-black transition-all active:scale-95"
+              className="inline-flex items-center gap-6 bg-primary text-white px-14 py-6 rounded-full font-bold text-[18px] uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-500 active:scale-95 shadow-2xl shadow-primary/20"
             >
-              Chat on WhatsApp
+              {t('whatsapp.cta')}
             </a>
           </div>
-          <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-700" />
+          {/* Decorative elements */}
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] group-hover:bg-primary/20 transition-all duration-1000 -mr-64 -mt-64" />
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -ml-64 -mb-64" />
         </div>
       </div>
 
