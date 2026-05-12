@@ -135,6 +135,151 @@
       }
     }
   },
+  "Checkout": {
+    "steps": ["Your Info", "Verify", "Tickets", "Safety", "Summary"],
+    "info_title": "Your Info",
+    "verify_title": "Verify",
+    "tickets_title": "Tickets",
+    "safety_title": "Safety",
+    "summary_title": "Summary",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "mobile": "Mobile",
+      "pet_name": "Pet Name",
+      "name_placeholder": "Mohammed Al-Rashid",
+      "email_placeholder": "you@email.com",
+      "mobile_placeholder": "+974 XXXX XXXX",
+      "pet_placeholder": "Buddy",
+      "continue": "Continue",
+      "back": "Back",
+      "next_safety": "Next: Safety Terms",
+      "verify_btn": "Verify & Continue",
+      "finish": "Proceed to Payment",
+      "secure_msg": "Secure payment · Your QR ticket is generated after payment"
+    },
+    "otp": {
+      "sent_to": "Code sent to",
+      "helper": "Click above boxes then type your 6-digit code",
+      "tap": "Tap to enter code"
+    },
+    "tickets_sec": {
+      "pet_details": "{type} Details",
+      "pet_helper": "1 dog per adult · max",
+      "cat_helper": "Max 2 cats",
+      "num_pets": "Number of {type}",
+      "fee_msg": "QAR 25 registration fee each",
+      "visitor_tickets": "Visitor Tickets",
+      "adults": "Adults",
+      "kids": "Kids",
+      "adult_helper": "QAR 25 · min 1",
+      "kids_helper": "QAR 15 · under 12"
+    },
+    "safety": {
+      "required": "All {count} items required",
+      "agreed": "{count}/{total} agreed",
+      "agree_btn": "Agree to all terms",
+      "continue_summary": "Continue to Summary"
+    },
+    "summary": {
+      "attendee": "Attendee",
+      "adult_tickets": "Adult Tickets",
+      "kid_tickets": "Kid Tickets",
+      "total": "Total"
+    },
+    "terms": {
+      "dog": [
+        "I am fully responsible for my dog and children at all times during the event.",
+        "My dog's vaccination is up to date and I have a valid pet passport for verification.",
+        "If my dog is medium or large-sized, they will arrive wearing a muzzle.",
+        "My dog will be on a secure, non-extendable leash at all times.",
+        "My dog will wear a secure collar or harness at all times.",
+        "I understand female dogs in heat are strictly not allowed.",
+        "I understand aggressive dogs are not allowed, even if muzzled.",
+        "Sick, injured, or visibly unwell dogs are not allowed to enter.",
+        "Shock chains, prong collars, and harmful equipment are prohibited.",
+        "I will carry waste bags and clean after my dog immediately.",
+        "I agree to photo and video coverage during the event.",
+        "Staff reserve the right to refuse entry to any unsafe dog.",
+        "I accept full responsibility for any injury or damage caused by my dog."
+      ],
+      "cat": [
+        "Cats must remain in their carrier unless participating in an official activity.",
+        "All cats must be vaccinated with a valid pet passport available.",
+        "Entry may be denied if vaccination records are not provided.",
+        "I agree to photo and video coverage during the event.",
+        "The organizer is not liable for incidents caused by negligence."
+      ],
+      "adult": [
+        "I agree to photo and video coverage during the festival.",
+        "I am fully responsible for supervising my children at all times.",
+        "Do not approach or touch pets without the owner's permission.",
+        "I will follow all staff guidance and safety instructions.",
+        "The organizer is not liable for incidents from rule violations."
+      ]
+    }
+  },
+  "Dashboard": {
+    "loading": "Loading Nova Studio...",
+    "no_session": {
+      "title": "No Session Found",
+      "desc": "Please complete your ticket purchase to access your personalized festival dashboard.",
+      "cta": "Get Tickets"
+    },
+    "sidebar": {
+      "overview": "My Tickets",
+      "competitions": "Competitions",
+      "health": "Health Docs",
+      "schedule": "Schedule",
+      "settings": "Account",
+      "sign_out": "Sign Out"
+    },
+    "overview": {
+      "badge": "Official Entrance Pass",
+      "location": "QATAR 2026",
+      "id": "ID",
+      "attendee": "Attendee",
+      "adults": "Adults",
+      "kids": "Kids",
+      "payment": "Payment Summary",
+      "download": "Download Receipt",
+      "entry_spotlight": "Entry Spotlight",
+      "review_pending": "Expert Review Pending"
+    },
+    "competitions": {
+      "badge": "Current Application",
+      "received": "Received",
+      "pending": "Pending Judge Review",
+      "panel": "WKU International Panel",
+      "register": "Register Now",
+      "entered": "Already Entered",
+      "list": [
+        { "title": "Dog Fashion Show", "desc": "Showcase themed coordination with your dog." },
+        { "title": "Grooming World Cup", "desc": "Expert styling judged by international masters." },
+        { "title": "WCF Best In Show", "desc": "Ultimate cat beauty arena." },
+        { "title": "Drawing Battle", "desc": "Live creative clash for all levels." }
+      ]
+    },
+    "health": {
+      "title": "Health Compliance",
+      "desc": "Pet Passport and Vaccination Records are required for arena entry.",
+      "cta": "View Rules"
+    },
+    "settings": {
+      "profile_title": "Visitor Profile",
+      "data_title": "Festival Data",
+      "name": "Legal Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "tier": "Ticket Tier",
+      "pet_name": "Pet Name"
+    }
+  },
+  "TicketsPage": {
+    "hero_badge": "Official Tickets",
+    "hero_title": "Join the Global\nPet Celebration",
+    "hero_desc": "Choose your tier and prepare for an unforgettable weekend at The Pearl Island. Limited early-bird slots available."
+  },
   "Venue": {
     "badge": "The Venue",
     "title": "A World-Class Destination for Pets",
@@ -142,6 +287,14 @@
     "cta": "Get Directions & Contact Us",
     "location_badge": "Location",
     "location_val": "The Pearl Island, Qatar"
+  },
+  "Gallery": {
+    "badge": "Gallery & Venues",
+    "title": "Explore the\nFestival Magic",
+    "desc": "A glimpse into the incredible spaces and experiences awaiting you at Nova Paw Festival 2026.",
+    "social_title": "Share Your Moments",
+    "social_desc": "Tag your photos with {hashtag} and follow us for updates!",
+    "social_cta": "Follow on Instagram"
   },
   "CTABanner": {
     "title": "Join the Nova Paw\nFestival 2026",

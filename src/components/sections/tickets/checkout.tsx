@@ -5,15 +5,17 @@ import { User, Mail, Phone, Plus, Minus, Dog, Cat, ArrowRight, ShieldCheck, Arro
 import { useRouter } from 'next/navigation';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
+import { useTranslations } from 'next-intl';
 
 interface TicketsCheckoutProps {
   selectedTier: string;
 }
 
-const STEP_LABELS = ['Your Info', 'Verify', 'Tickets', 'Safety', 'Summary'];
-
 const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
   const router = useRouter();
+  const t = useTranslations('Checkout');
+  const tTickets = useTranslations('Tickets');
+  
   const [step, setStep] = useState(1);
   const [otp, setOtp] = useState('');
   const [checkedTerms, setCheckedTerms] = useState<Record<number, boolean>>({});
@@ -28,6 +30,8 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
   const KID_PRICE = 15;
   const PET_FEE = 25;
   const total = adultQty * ADULT_PRICE + kidsQty * KID_PRICE + petQty * PET_FEE;
+
+  const STEP_LABELS = t.raw('steps') as string[];
 
   useEffect(() => {
     if (selectedTier === 'dog-owner') {
@@ -64,35 +68,10 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
     router.push('/dashboard');
   };
 
-  const dogTerms = [
-    'I am fully responsible for my dog and children at all times during the event.',
-    "My dog's vaccination is up to date and I have a valid pet passport for verification.",
-    'If my dog is medium or large-sized, they will arrive wearing a muzzle.',
-    'My dog will be on a secure, non-extendable leash at all times.',
-    'My dog will wear a secure collar or harness at all times.',
-    'I understand female dogs in heat are strictly not allowed.',
-    'I understand aggressive dogs are not allowed, even if muzzled.',
-    'Sick, injured, or visibly unwell dogs are not allowed to enter.',
-    'Shock chains, prong collars, and harmful equipment are prohibited.',
-    'I will carry waste bags and clean after my dog immediately.',
-    'I agree to photo and video coverage during the event.',
-    'Staff reserve the right to refuse entry to any unsafe dog.',
-    'I accept full responsibility for any injury or damage caused by my dog.',
-  ];
-  const catTerms = [
-    'Cats must remain in their carrier unless participating in an official activity.',
-    'All cats must be vaccinated with a valid pet passport available.',
-    'Entry may be denied if vaccination records are not provided.',
-    'I agree to photo and video coverage during the event.',
-    'The organizer is not liable for incidents caused by negligence.',
-  ];
-  const adultTerms = [
-    'I agree to photo and video coverage during the festival.',
-    'I am fully responsible for supervising my children at all times.',
-    'Do not approach or touch pets without the owner\'s permission.',
-    'I will follow all staff guidance and safety instructions.',
-    'The organizer is not liable for incidents from rule violations.',
-  ];
+  const dogTerms = t.raw('terms.dog') as string[];
+  const catTerms = t.raw('terms.cat') as string[];
+  const adultTerms = t.raw('terms.adult') as string[];
+  
   const currentTerms = selectedTier === 'dog-owner' ? dogTerms : selectedTier === 'cat-owner' ? catTerms : adultTerms;
   const allChecked = currentTerms.every((_, i) => checkedTerms[i]);
 
@@ -101,48 +80,45 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
 
   // ─── Step 1: Owner Info ────────────────────────────────────────────────────
   if (step === 1) return (
-    <Shell step={step} selectedTier={selectedTier} adultQty={adultQty} kidsQty={kidsQty} petQty={petQty} total={total}>
-      <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {/* Full Name */}
-          <div className="md:col-span-2 space-y-2">
-            <Label className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/40">Full Name *</Label>
+    <Shell step={step} labels={STEP_LABELS} selectedTier={selectedTier} total={total}>
+      <div className="space-y-8 animate-in fade-in slide-in-from-right-4 duration-500">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="md:col-span-2 space-y-3">
+            <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-black/40">{t('form.name')} *</Label>
             <div className="relative">
-              <User className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-black/20" />
+              <User className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-black/20 rtl:right-5 rtl:left-auto" />
               <input
                 type="text"
-                placeholder="Mohammed Al-Rashid"
+                placeholder={t('form.name_placeholder')}
                 value={ownerData.fullName}
                 onChange={(e) => setOwnerData({ ...ownerData, fullName: e.target.value })}
-                className="w-full bg-[#F5F5F0] border border-black/5 rounded-sm pl-12 pr-5 py-4 outline-none focus:border-black focus:bg-white transition-all font-bold text-black text-[14px] placeholder:text-black/20"
+                className="w-full bg-[#F5F5F0] border border-black/5 rounded-sm pl-12 pr-5 py-5 outline-none focus:border-black focus:bg-white transition-all font-bold text-black text-[14px] placeholder:text-black/20 rtl:pr-12 rtl:pl-5"
               />
             </div>
           </div>
-          {/* Email */}
-          <div className="space-y-2">
-            <Label className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/40">Email *</Label>
+          <div className="space-y-3">
+            <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-black/40">{t('form.email')} *</Label>
             <div className="relative">
-              <Mail className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-black/20" />
+              <Mail className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-black/20 rtl:right-5 rtl:left-auto" />
               <input
                 type="email"
-                placeholder="you@email.com"
+                placeholder={t('form.email_placeholder')}
                 value={ownerData.email}
                 onChange={(e) => setOwnerData({ ...ownerData, email: e.target.value })}
-                className="w-full bg-[#F5F5F0] border border-black/5 rounded-sm pl-12 pr-5 py-4 outline-none focus:border-black focus:bg-white transition-all font-bold text-black text-[14px] placeholder:text-black/20"
+                className="w-full bg-[#F5F5F0] border border-black/5 rounded-sm pl-12 pr-5 py-5 outline-none focus:border-black focus:bg-white transition-all font-bold text-black text-[14px] placeholder:text-black/20 rtl:pr-12 rtl:pl-5"
               />
             </div>
           </div>
-          {/* Phone */}
-          <div className="space-y-2">
-            <Label className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/40">Mobile *</Label>
+          <div className="space-y-3">
+            <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-black/40">{t('form.mobile')} *</Label>
             <div className="relative">
-              <Phone className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-black/20" />
+              <Phone className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-black/20 rtl:right-5 rtl:left-auto" />
               <input
                 type="tel"
-                placeholder="+974 XXXX XXXX"
+                placeholder={t('form.mobile_placeholder')}
                 value={ownerData.phone}
                 onChange={(e) => setOwnerData({ ...ownerData, phone: e.target.value })}
-                className="w-full bg-[#F5F5F0] border border-black/5 rounded-sm pl-12 pr-5 py-4 outline-none focus:border-black focus:bg-white transition-all font-bold text-black text-[14px] placeholder:text-black/20"
+                className="w-full bg-[#F5F5F0] border border-black/5 rounded-sm pl-12 pr-5 py-5 outline-none focus:border-black focus:bg-white transition-all font-bold text-black text-[14px] placeholder:text-black/20 rtl:pr-12 rtl:pl-5"
               />
             </div>
           </div>
@@ -151,9 +127,9 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
         <button
           type="button"
           onClick={() => setStep(2)}
-          className="w-full bg-black text-white rounded-sm py-5 text-[14px]  font-bold  flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-black/90 mt-4"
+          className="w-full bg-black text-white rounded-sm py-6 text-[14px] font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-primary shadow-xl shadow-black/10 mt-6"
         >
-          Continue <ArrowRight className="w-5 h-5" />
+          {t('form.continue')} <ArrowRight className="w-5 h-5 rtl:rotate-180" />
         </button>
       </div>
     </Shell>
@@ -161,27 +137,26 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
 
   // ─── Step 2: OTP ──────────────────────────────────────────────────────────
   if (step === 2) return (
-    <Shell step={step} selectedTier={selectedTier} adultQty={adultQty} kidsQty={kidsQty} petQty={petQty} total={total}>
+    <Shell step={step} labels={STEP_LABELS} selectedTier={selectedTier} total={total}>
       <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-10">
-        <div className="bg-[#F5F5F0] rounded-sm p-8 text-center space-y-6">
-          <ShieldCheck className="w-12 h-12 mx-auto text-black/30" />
+        <div className="bg-[#F5F5F0] rounded-sm p-10 text-center space-y-8">
+          <ShieldCheck className="w-16 h-16 mx-auto text-primary" />
           <div>
-            <p className="text-[12px] font-bold text-black/50 mb-1">Code sent to</p>
-            <p className=" font-bold  text-[18px] tracking-tight">{ownerData.phone || ownerData.email}</p>
+            <p className="text-[12px] font-bold text-black/40 uppercase tracking-[0.1em] mb-2">{t('otp.sent_to')}</p>
+            <p className="font-bold text-[24px] tracking-tight text-black">{ownerData.phone || ownerData.email}</p>
           </div>
           <div className="flex justify-center gap-3">
             {[0, 1, 2, 3, 4, 5].map((i) => (
               <div
                 key={i}
-                className={`w-12 h-16 md:w-14 md:h-20 rounded-sm border-2 flex items-center justify-center text-[24px]  font-bold  transition-all ${
-                  otp[i] ? 'border-black bg-white' : 'border-black/10 bg-white'
+                className={`w-12 h-16 md:w-16 md:h-20 rounded-sm border-2 flex items-center justify-center text-[28px] font-bold transition-all ${
+                  otp[i] ? 'border-primary bg-white text-black' : 'border-black/5 bg-white text-black/10'
                 }`}
               >
-                {otp[i] || <span className="text-black/10">·</span>}
+                {otp[i] || '·'}
               </div>
             ))}
           </div>
-          {/* Hidden real input */}
           <input
             type="text"
             maxLength={6}
@@ -190,33 +165,31 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
             className="sr-only"
             autoFocus
           />
-          <p className="text-[10px] text-black/30 font-bold uppercase tracking-widest">Click above boxes then type your 6-digit code</p>
-          {/* Clickable overlay to focus hidden input */}
           <button
             onClick={() => {
               const el = document.querySelector('input.sr-only') as HTMLInputElement;
               if (el) el.focus();
             }}
-            className="text-[11px]  font-bold  uppercase tracking-widest text-black/40 hover:text-black transition-all"
+            className="text-[11px] font-bold uppercase tracking-[0.2em] text-black/40 hover:text-primary transition-all"
           >
-            Tap to enter code
+            {t('otp.tap')}
           </button>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-4">
           <button
             type="button"
             onClick={() => setStep(3)}
-            className="w-full bg-black text-white rounded-sm py-5 text-[14px]  font-bold  transition-all active:scale-[0.97] hover:bg-black/90"
+            className="w-full bg-black text-white rounded-sm py-6 text-[14px] font-bold uppercase tracking-[0.2em] transition-all active:scale-[0.97] hover:bg-primary shadow-xl shadow-black/10"
           >
-            Verify &amp; Continue
+            {t('form.verify_btn')}
           </button>
           <button 
             type="button"
             onClick={() => setStep(1)} 
-            className="w-full py-3 text-[11px]  font-bold  uppercase tracking-widest text-black/30 hover:text-black transition-all flex items-center justify-center gap-2"
+            className="w-full py-3 text-[11px] font-bold uppercase tracking-[0.2em] text-black/30 hover:text-black transition-all flex items-center justify-center gap-2"
           >
-            <ArrowLeft className="w-3 h-3" /> Back to Info
+            <ArrowLeft className="w-4 h-4 rtl:rotate-180" /> {t('form.back')}
           </button>
         </div>
       </div>
@@ -225,37 +198,38 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
 
   // ─── Step 3: Ticket Selection ─────────────────────────────────────────────
   if (step === 3) return (
-    <Shell step={step} selectedTier={selectedTier} adultQty={adultQty} kidsQty={kidsQty} petQty={petQty} total={total}>
-      <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-6">
+    <Shell step={step} labels={STEP_LABELS} selectedTier={selectedTier} total={total}>
+      <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-8">
         
-        {/* Pet Card (conditional) */}
         {selectedTier !== 'adult' && (
-          <div className="border border-black/5 rounded-sm overflow-hidden">
-            <div className="bg-primary px-8 py-5 flex items-center gap-4">
-              <div className="w-10 h-10 bg-white rounded-sm flex items-center justify-center">
-                {selectedTier === 'dog-owner' ? <Dog className="w-5 h-5 text-primary" /> : <Cat className="w-5 h-5 text-primary" />}
+          <div className="border border-black/5 rounded-sm overflow-hidden shadow-sm">
+            <div className="bg-primary px-10 py-6 flex items-center gap-5">
+              <div className="w-12 h-12 bg-white rounded-sm flex items-center justify-center shadow-lg">
+                {selectedTier === 'dog-owner' ? <Dog className="w-6 h-6 text-primary" /> : <Cat className="w-6 h-6 text-primary" />}
               </div>
               <div>
-                <p className=" font-bold  text-white text-[14px] uppercase tracking-tight">
-                  {selectedTier === 'dog-owner' ? 'Dog' : 'Cat'} Details
+                <p className="font-bold text-white text-[16px] uppercase tracking-tight leading-none mb-1">
+                  {t('tickets_sec.pet_details', { type: selectedTier === 'dog-owner' ? tTickets('tiers.dog.name') : tTickets('tiers.cat.name') })}
                 </p>
-                <p className="text-[10px] text-white/70 font-bold">{selectedTier === 'dog-owner' ? '1 dog per adult · max' : 'Max 2 cats'}</p>
+                <p className="text-[11px] text-white/70 font-bold uppercase tracking-wider">
+                  {selectedTier === 'dog-owner' ? t('tickets_sec.pet_helper') : t('tickets_sec.cat_helper')}
+                </p>
               </div>
             </div>
-            <div className="bg-white p-8 space-y-6">
-              <div className="space-y-2">
-                <Label className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/40">Pet Name *</Label>
+            <div className="bg-[#F5F5F0]/30 p-10 space-y-8">
+              <div className="space-y-3">
+                <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-black/40">{t('form.pet_name')} *</Label>
                 <input
                   value={petName}
                   onChange={(e) => setPetName(e.target.value)}
-                  placeholder={selectedTier === 'dog-owner' ? 'Buddy' : 'Luna'}
-                  className="w-full bg-[#F5F5F0] border border-black/5 rounded-sm px-5 py-4 outline-none focus:border-black focus:bg-white transition-all font-bold text-[14px]"
+                  placeholder={t('form.pet_placeholder')}
+                  className="w-full bg-white border border-black/5 rounded-sm px-6 py-5 outline-none focus:border-black transition-all font-bold text-[15px] shadow-sm"
                 />
               </div>
               <div className="flex items-center justify-between">
                 <div>
-                  <p className=" font-bold  text-[14px]">Number of {selectedTier === 'dog-owner' ? 'Dogs' : 'Cats'}</p>
-                  <p className="text-[11px] text-black/40 font-medium">QAR 25 registration fee each</p>
+                  <p className="font-bold text-[16px] text-black tracking-tight">{t('tickets_sec.num_pets', { type: selectedTier === 'dog-owner' ? tTickets('tiers.dog.name') : tTickets('tiers.cat.name') })}</p>
+                  <p className="text-[12px] text-black/30 font-bold">{t('tickets_sec.fee_msg')}</p>
                 </div>
                 <QtyControl
                   value={petQty}
@@ -271,16 +245,15 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
           </div>
         )}
 
-        {/* Visitor Tickets */}
-        <div className="border border-black/5 rounded-sm overflow-hidden">
-          <div className="bg-black/5 px-8 py-5">
-            <p className=" font-bold  text-[13px] uppercase tracking-tight">Visitor Tickets</p>
+        <div className="border border-black/5 rounded-sm overflow-hidden shadow-sm">
+          <div className="bg-black/5 px-10 py-5">
+            <p className="font-bold text-[12px] uppercase tracking-[0.2em] text-black/60">{t('tickets_sec.visitor_tickets')}</p>
           </div>
           <div className="bg-white divide-y divide-black/5">
-            <div className="px-8 py-6 flex items-center justify-between">
+            <div className="px-10 py-8 flex items-center justify-between group">
               <div>
-                <p className=" font-bold  text-[13px]">Adults</p>
-                <p className="text-[10px] text-black/40 font-medium">QAR 25 · min 1</p>
+                <p className="font-bold text-[16px] text-black tracking-tight">{t('tickets_sec.adults')}</p>
+                <p className="text-[12px] text-black/30 font-bold uppercase tracking-tight">{t('tickets_sec.adult_helper')}</p>
               </div>
               <QtyControl
                 value={adultQty}
@@ -289,10 +262,10 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
                 canIncrement={true}
               />
             </div>
-            <div className="px-8 py-6 flex items-center justify-between">
+            <div className="px-10 py-8 flex items-center justify-between group">
               <div>
-                <p className=" font-bold  text-[14px]">Kids</p>
-                <p className="text-[12px] text-black/40 font-medium">QAR 15 · under 12</p>
+                <p className="font-bold text-[16px] text-black tracking-tight">{t('tickets_sec.kids')}</p>
+                <p className="text-[12px] text-black/30 font-bold uppercase tracking-tight">{t('tickets_sec.kids_helper')}</p>
               </div>
               <QtyControl
                 value={kidsQty}
@@ -304,20 +277,20 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <button 
             type="button"
             onClick={() => setStep(2)}
-            className="md:col-span-1 bg-black/5 text-black/40 rounded-sm py-5 text-[11px] font-bold uppercase tracking-widest transition-all hover:bg-black/10 flex items-center justify-center gap-2"
+            className="md:col-span-1 bg-[#F5F5F0] text-black/40 rounded-sm py-6 text-[11px] font-bold uppercase tracking-[0.2em] transition-all hover:bg-black hover:text-white flex items-center justify-center gap-2"
           >
-            <ArrowLeft className="w-3 h-3" /> Back
+            <ArrowLeft className="w-4 h-4 rtl:rotate-180" /> {t('form.back')}
           </button>
           <button 
             type="button"
             onClick={() => setStep(4)} 
-            className="md:col-span-3 bg-black text-white rounded-sm py-5 text-[14px] font-bold flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-black/90"
+            className="md:col-span-3 bg-black text-white rounded-sm py-6 text-[14px] font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-primary shadow-xl shadow-black/10"
           >
-            Next: Safety Terms <ArrowRight className="w-4 h-4" />
+            {t('form.next_safety')} <ArrowRight className="w-5 h-5 rtl:rotate-180" />
           </button>
         </div>
       </div>
@@ -326,57 +299,59 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
 
   // ─── Step 4: Terms ────────────────────────────────────────────────────────
   if (step === 4) return (
-    <Shell step={step} selectedTier={selectedTier} adultQty={adultQty} kidsQty={kidsQty} petQty={petQty} total={total}>
-      <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-6">
-        <div className="flex items-center justify-between mb-2">
-          <p className="text-[12px] text-black/50 font-bold">All {currentTerms.length} items required</p>
+    <Shell step={step} labels={STEP_LABELS} selectedTier={selectedTier} total={total}>
+      <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-8">
+        <div className="flex items-center justify-between px-2">
+          <p className="text-[12px] text-black/40 font-bold uppercase tracking-widest">
+            {t('safety.required', { count: currentTerms.length })}
+          </p>
           <span
-            className={`text-[10px]  font-bold  uppercase tracking-widest px-3 py-1.5 rounded-full transition-all ${
+            className={`text-[11px] font-bold uppercase tracking-[0.2em] px-4 py-2 rounded-sm transition-all shadow-sm ${
               allChecked ? 'bg-green-100 text-green-700' : 'bg-black/5 text-black/30'
             }`}
           >
-            {Object.values(checkedTerms).filter(Boolean).length}/{currentTerms.length} agreed
+            {t('safety.agreed', { count: Object.values(checkedTerms).filter(Boolean).length, total: currentTerms.length })}
           </span>
         </div>
 
-        <div className="space-y-2 max-h-[420px] overflow-y-auto pr-1">
+        <div className="space-y-3 max-h-[440px] overflow-y-auto pr-2 custom-scrollbar">
           {currentTerms.map((term, i) => (
             <div
               key={i}
               onClick={() => toggleTerm(i)}
-              className={`flex items-start gap-4 p-5 rounded-sm border cursor-pointer transition-all duration-200 ${
-                checkedTerms[i] ? 'bg-green-50 border-green-200' : 'bg-[#F5F5F0] border-black/5 hover:border-black/20'
+              className={`flex items-start gap-5 p-6 rounded-sm border cursor-pointer transition-all duration-300 ${
+                checkedTerms[i] ? 'bg-green-50/50 border-green-200 shadow-sm' : 'bg-[#F5F5F0] border-black/5 hover:border-black/20'
               }`}
             >
               <Checkbox
                 id={`term-${i}`}
                 checked={!!checkedTerms[i]}
                 onCheckedChange={() => toggleTerm(i)}
-                className="mt-0.5 w-4 h-4 rounded-sm flex-shrink-0 border-black/20 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
+                className="mt-1 w-5 h-5 rounded-sm flex-shrink-0 border-black/10 data-[state=checked]:bg-green-600 data-[state=checked]:border-green-600"
               />
-              <Label htmlFor={`term-${i}`} className="text-[12px] font-medium leading-relaxed cursor-pointer text-black/70">
+              <Label htmlFor={`term-${i}`} className="text-[13px] md:text-[14px] font-bold leading-relaxed cursor-pointer text-black/70 tracking-tight">
                 {term}
               </Label>
             </div>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <button 
             type="button"
             onClick={() => setStep(3)}
-            className="md:col-span-1 bg-black/5 text-black/40 rounded-sm py-5 text-[11px] font-bold uppercase tracking-widest transition-all hover:bg-black/10 flex items-center justify-center gap-2"
+            className="md:col-span-1 bg-[#F5F5F0] text-black/40 rounded-sm py-6 text-[11px] font-bold uppercase tracking-[0.2em] transition-all hover:bg-black hover:text-white flex items-center justify-center gap-2"
           >
-            <ArrowLeft className="w-3 h-3" /> Back
+            <ArrowLeft className="w-4 h-4 rtl:rotate-180" /> {t('form.back')}
           </button>
           <button
             type="button"
             onClick={() => allChecked && setStep(5)}
-            className={`md:col-span-3 rounded-sm py-5 text-[14px]  font-bold  transition-all ${
-              allChecked ? 'bg-black text-white hover:bg-black/90 active:scale-[0.97]' : 'bg-black/10 text-black/20 cursor-not-allowed'
+            className={`md:col-span-3 rounded-sm py-6 text-[14px] font-bold uppercase tracking-[0.2em] transition-all shadow-xl ${
+              allChecked ? 'bg-black text-white hover:bg-primary active:scale-[0.97]' : 'bg-black/5 text-black/20 cursor-not-allowed shadow-none'
             }`}
           >
-            {allChecked ? 'Continue to Summary' : `Agree to all terms`}
+            {allChecked ? t('safety.continue_summary') : t('safety.agree_btn')}
           </button>
         </div>
       </div>
@@ -385,68 +360,73 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
 
   // ─── Step 5: Summary ──────────────────────────────────────────────────────
   return (
-    <Shell step={step} selectedTier={selectedTier} adultQty={adultQty} kidsQty={kidsQty} petQty={petQty} total={total}>
-      <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-6">
-        {/* Attendee */}
-        <div className="bg-[#F5F5F0] rounded-sm p-8 space-y-4">
-          <p className="text-[9px]  font-bold  uppercase tracking-[0.2em] text-black/30">Attendee</p>
-          <p className=" font-bold  text-[18px] tracking-tight">{ownerData.fullName}</p>
-          <p className="text-[12px] text-black/40 font-bold">{ownerData.email} · {ownerData.phone}</p>
+    <Shell step={step} labels={STEP_LABELS} selectedTier={selectedTier} total={total}>
+      <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-8">
+        <div className="bg-[#F5F5F0] rounded-sm p-10 space-y-4 border border-black/5 shadow-sm">
+          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-black/30 leading-none">{t('summary.attendee')}</p>
+          <p className="font-bold text-[28px] tracking-tighter text-black leading-none">{ownerData.fullName}</p>
+          <div className="flex flex-wrap gap-4 pt-2">
+            <span className="px-3 py-1 bg-white rounded-sm text-[11px] font-bold text-black/40 uppercase border border-black/5">{ownerData.email}</span>
+            <span className="px-3 py-1 bg-white rounded-sm text-[11px] font-bold text-black/40 uppercase border border-black/5">{ownerData.phone}</span>
+          </div>
         </div>
 
-        {/* Line Items */}
-        <div className="bg-[#F5F5F0] rounded-sm overflow-hidden">
-          <div className="divide-y divide-black/5">
-            <div className="flex justify-between items-center px-8 py-5">
+        <div className="bg-white rounded-sm overflow-hidden border border-black/5 shadow-sm">
+          <div className="divide-y divide-black/5 bg-[#F5F5F0]/20">
+            <div className="flex justify-between items-center px-10 py-7">
               <div>
-                <p className=" font-bold  text-[14px]">Adult Tickets</p>
-                <p className="text-[11px] text-black/40 font-medium">QAR 25 × {adultQty}</p>
+                <p className="font-bold text-[16px] text-black tracking-tight">{t('summary.adult_tickets')}</p>
+                <p className="text-[12px] text-black/30 font-bold">QAR 25 × {adultQty}</p>
               </div>
-              <p className=" font-bold  text-[16px]">QAR {adultQty * ADULT_PRICE}</p>
+              <p className="font-bold text-[20px] tracking-tight">QAR {adultQty * ADULT_PRICE}</p>
             </div>
             {kidsQty > 0 && (
-              <div className="flex justify-between items-center px-8 py-5">
+              <div className="flex justify-between items-center px-10 py-7">
                 <div>
-                  <p className=" font-bold  text-[14px]">Kid Tickets</p>
-                  <p className="text-[11px] text-black/40 font-medium">QAR 15 × {kidsQty}</p>
+                  <p className="font-bold text-[16px] text-black tracking-tight">{t('summary.kid_tickets')}</p>
+                  <p className="text-[12px] text-black/30 font-bold">QAR 15 × {kidsQty}</p>
                 </div>
-                <p className=" font-bold  text-[16px]">QAR {kidsQty * KID_PRICE}</p>
+                <p className="font-bold text-[20px] tracking-tight">QAR {kidsQty * KID_PRICE}</p>
               </div>
             )}
             {petQty > 0 && (
-              <div className="flex justify-between items-center px-8 py-5">
+              <div className="flex justify-between items-center px-10 py-7">
                 <div>
-                  <p className=" font-bold  text-[14px]">{selectedTier === 'dog-owner' ? 'Dog' : 'Cat'} — {petName}</p>
-                  <p className="text-[11px] text-black/40 font-medium">QAR 25 × {petQty}</p>
+                  <p className="font-bold text-[16px] text-black tracking-tight">
+                    {selectedTier === 'dog-owner' ? tTickets('tiers.dog.name') : tTickets('tiers.cat.name')} — {petName}
+                  </p>
+                  <p className="text-[12px] text-black/30 font-bold">QAR 25 × {petQty}</p>
                 </div>
-                <p className=" font-bold  text-[16px]">QAR {petQty * PET_FEE}</p>
+                <p className="font-bold text-[20px] tracking-tight">QAR {petQty * PET_FEE}</p>
               </div>
             )}
           </div>
-          <div className="bg-black px-8 py-7 flex items-center justify-between">
-            <p className="text-[11px]  font-bold  uppercase tracking-[0.2em] text-white/50">Total</p>
-            <p className="font-display  font-bold  text-[32px] text-primary leading-none">QAR {total}</p>
+          <div className="bg-black px-10 py-10 flex items-center justify-between">
+            <p className="text-[12px] font-bold uppercase tracking-[0.3em] text-white/40">{t('summary.total')}</p>
+            <div className="flex items-baseline gap-2">
+              <span className="font-display font-bold text-[48px] text-primary tracking-tighter leading-none">QAR {total}</span>
+            </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <button 
             type="button"
             onClick={() => setStep(4)}
-            className="md:col-span-1 bg-black/5 text-black/40 rounded-sm py-5 text-[11px] font-bold uppercase tracking-widest transition-all hover:bg-black/10 flex items-center justify-center gap-2"
+            className="md:col-span-1 bg-[#F5F5F0] text-black/40 rounded-sm py-6 text-[11px] font-bold uppercase tracking-[0.2em] transition-all hover:bg-black hover:text-white flex items-center justify-center gap-2"
           >
-            <ArrowLeft className="w-3 h-3" /> Back
+            <ArrowLeft className="w-4 h-4 rtl:rotate-180" /> {t('form.back')}
           </button>
           <button
             type="button"
             onClick={handleFinish}
-            className="md:col-span-3 bg-black text-white rounded-sm py-5 text-[15px]  font-bold  flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-black/90 shadow-2xl shadow-black/20"
+            className="md:col-span-3 bg-black text-white rounded-sm py-6 text-[15px] font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-primary shadow-2xl shadow-black/20"
           >
-            Proceed to Payment <ArrowRight className="w-4 h-4" />
+            {t('form.finish')} <ArrowRight className="w-5 h-5 rtl:rotate-180" />
           </button>
         </div>
-        <p className="text-[11px] text-center text-black/30 font-medium">
-          Secure payment · Your QR ticket is generated after payment
+        <p className="text-[11px] text-center text-black/30 font-bold uppercase tracking-widest">
+          {t('form.secure_msg')}
         </p>
       </div>
     </Shell>
@@ -457,50 +437,46 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
 const Shell = ({ 
   children, 
   step, 
+  labels,
   selectedTier,
-  adultQty,
-  kidsQty,
-  petQty,
   total
 }: { 
   children: React.ReactNode; 
   step: number; 
+  labels: string[];
   selectedTier: string;
-  adultQty: number;
-  kidsQty: number;
-  petQty: number;
   total: number;
 }) => (
   <section className="py-20 md:py-32 bg-[#F5F5F0] min-h-screen">
     <div className="container mx-auto px-6 max-w-[860px]">
       {/* Step Indicator */}
-      <div className="flex items-center gap-0 mb-16">
-        {STEP_LABELS.map((label, idx) => {
+      <div className="flex items-center gap-0 mb-16 px-4">
+        {labels.map((label, idx) => {
           const num = idx + 1;
           const isActive = num === step;
           const isDone = num < step;
           return (
             <React.Fragment key={num}>
-              <div className="flex flex-col items-center gap-2">
+              <div className="flex flex-col items-center gap-3">
                 <div
-                  className={`w-8 h-8 rounded-full text-[11px]  font-bold  flex items-center justify-center transition-all duration-500 ${
-                    isDone ? 'bg-primary text-white' : isActive ? 'bg-black text-white' : 'bg-black/10 text-black/30'
+                  className={`w-10 h-10 rounded-full text-[13px] font-bold flex items-center justify-center transition-all duration-700 shadow-sm ${
+                    isDone ? 'bg-primary text-white' : isActive ? 'bg-black text-white shadow-lg' : 'bg-black/5 text-black/20'
                   }`}
                 >
                   {isDone ? '✓' : num}
                 </div>
                 <span
-                  className={`text-[9px]  font-bold  uppercase tracking-widest hidden md:block transition-colors duration-300 ${
+                  className={`text-[10px] font-bold uppercase tracking-[0.15em] hidden md:block transition-colors duration-300 ${
                     isActive ? 'text-black' : 'text-black/30'
                   }`}
                 >
                   {label}
                 </span>
               </div>
-              {idx < STEP_LABELS.length - 1 && (
-                <div className="flex-1 h-[2px] mx-2 mb-5 rounded-full overflow-hidden bg-black/10">
+              {idx < labels.length - 1 && (
+                <div className="flex-1 h-[3px] mx-3 mb-7 rounded-full overflow-hidden bg-black/5">
                   <div
-                    className="h-full bg-primary transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                    className="h-full bg-primary transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]"
                     style={{ width: isDone ? '100%' : '0%' }}
                   />
                 </div>
@@ -511,53 +487,44 @@ const Shell = ({
       </div>
 
       {/* Card */}
-      <div className="bg-white rounded-sm border border-black/5 shadow-sm overflow-hidden">
-        {/* Card Header */}
-        <div className="border-b border-black/5 px-10 pt-10 pb-8">
-          <p className="text-[9px]  font-bold  uppercase tracking-[0.3em] text-black/30 mb-3">
-            {selectedTier.replace('-', ' ')} · Step {step} of 5
+      <div className="bg-white rounded-sm border border-black/5 shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-700">
+        <div className="border-b border-black/5 px-10 pt-12 pb-10">
+          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-black/30 mb-4 leading-none">
+            {selectedTier.replace('-', ' ')} · {step} / 5
           </p>
-          <h2 className="text-[40px] md:text-[56px] font-display  font-bold  text-black leading-[0.9] tracking-tighter">
-            {step === 1 && 'Your Info'}
-            {step === 2 && 'Verify'}
-            {step === 3 && 'Tickets'}
-            {step === 4 && 'Safety'}
-            {step === 5 && 'Summary'}
+          <h2 className="text-[44px] md:text-[72px] font-display font-bold text-black leading-[0.9] tracking-tighter">
+            {labels[step - 1]}
           </h2>
         </div>
-
-        {/* Card Body */}
-        <div className="px-10 py-10">{children}</div>
+        <div className="px-10 py-12">{children}</div>
       </div>
-
     </div>
   </section>
 );
 
-// ─── Reusable Quantity Control ─────────────────────────────────────────────
 const QtyControl = ({
   value, onDecrement, onIncrement, canIncrement,
 }: {
   value: number; onDecrement: () => void; onIncrement: () => void; canIncrement: boolean;
 }) => (
-  <div className="flex items-center gap-0 border border-black/10 rounded-sm overflow-hidden">
+  <div className="flex items-center gap-0 border border-black/5 bg-[#F5F5F0] rounded-sm overflow-hidden shadow-inner">
     <button
       type="button"
       onClick={onDecrement}
-      className="w-10 h-10 flex items-center justify-center text-black/40 hover:text-black hover:bg-black/5 transition-all active:scale-90"
+      className="w-12 h-12 flex items-center justify-center text-black/40 hover:text-black hover:bg-black/5 transition-all active:scale-90"
     >
-      <Minus className="w-4 h-4" />
+      <Minus className="w-5 h-5" />
     </button>
-    <span className="w-10 text-center  font-bold  text-[16px]">{value}</span>
+    <span className="w-14 text-center font-bold text-[18px] text-black">{value}</span>
     <button
       type="button"
       onClick={onIncrement}
       disabled={!canIncrement}
-      className={`w-10 h-10 flex items-center justify-center transition-all active:scale-90 ${
-        canIncrement ? 'bg-primary text-white hover:bg-primary/90' : 'bg-black/5 text-black/20 cursor-not-allowed'
+      className={`w-12 h-12 flex items-center justify-center transition-all active:scale-90 ${
+        canIncrement ? 'bg-primary text-white shadow-lg' : 'bg-black/5 text-black/10 cursor-not-allowed shadow-none'
       }`}
     >
-      <Plus className="w-4 h-4" />
+      <Plus className="w-5 h-5" />
     </button>
   </div>
 );
