@@ -1,48 +1,53 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 const Venue = () => {
+  const t = useTranslations('Venue');
+
   return (
-    <section className="bg-[#F9F9F9] py-[120px] md:py-[160px]" id="venue">
+    <section className="bg-white py-[120px] md:py-[160px]" id="venue">
       <div className="container max-w-[1280px] mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           
           {/* Image Side */}
-          <div className="relative h-[400px] md:h-[600px] w-full    rounded-sm  overflow-hidden shadow-2xl">
+          <div className="relative h-[440px] md:h-[640px] w-full rounded-sm overflow-hidden shadow-2xl border border-black/5 group">
             <Image
               src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=2070&auto=format&fit=crop"
               alt="The Pearl Island Qatar"
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-1000 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-            <div className="absolute bottom-8 left-8 right-8">
-              <div className="inline-block px-4 py-1.5 bg-white/20 backdrop-blur-md rounded-full text-white text-[14px] font-bold tracking-wider mb-3">
-                Location
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            <div className="absolute bottom-10 left-10 right-10">
+              <div className="inline-block px-5 py-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-sm text-white text-[12px] font-bold tracking-[0.2em] uppercase mb-4">
+                {t('location_badge')}
               </div>
-              <h3 className="text-white text-[32px] md:text-[40px] font-bold leading-tight font-display">
-                The Pearl Island, Qatar
+              <h3 className="text-white text-[36px] md:text-[48px] font-bold leading-none font-display tracking-tight">
+                {t('location_val')}
               </h3>
             </div>
           </div>
 
           {/* Content Side */}
-          <div className="flex flex-col items-start">
-            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#E6E6E6] text-black text-[12px] font-semibold uppercase tracking-[0.05em] font-body mb-6">
-              The Venue
+          <div className="flex flex-col items-start text-start">
+            <span className="inline-flex items-center px-5 py-2 rounded-sm bg-black text-white text-[11px] font-bold uppercase tracking-[0.2em] mb-8">
+              {t('badge')}
             </span>
-            <h2 className="text-[32px] sm:text-[48px] md:text-[64px] font-bold leading-[1.1] text-black mb-8 font-display tracking-tight">
-              A World-Class Destination for Pets
+            <h2 className="text-[40px] md:text-[72px] font-bold leading-[1] text-black mb-8 font-display tracking-tighter">
+              {t('title')}
             </h2>
-            <p className="text-[16px] md:text-[20px] leading-[1.6] text-black/70 mb-12 font-body max-w-[600px]">
-              Set against the stunning waterfront of The Pearl Island, Qatar, the festival spans a 270-meter venue featuring the Dog Arena, the immersive Cat Dome, main stage, food trucks, adoption zones, and carnival areas   all designed for maximum fun and comfort for pets and families.
+            <p className="text-[18px] md:text-[20px] leading-[1.6] text-black/50 mb-12 font-medium font-body max-w-[640px]">
+              {t('desc')}
             </p>
 
             <a
               href="#contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-black text-white  rounded-sm font-bold text-[16px] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-black/20"
+              className="inline-flex items-center justify-center h-16 px-10 bg-black text-white rounded-sm font-bold text-[14px] uppercase tracking-[0.2em] transition-all hover:bg-primary active:scale-95 shadow-xl shadow-black/10"
             >
-              Get Directions & Contact Us
+              {t('cta')}
             </a>
           </div>
 

@@ -46,6 +46,110 @@
       "Cat Dome Experience"
     ]
   },
+  "Schedule": {
+    "badge": "Program Preview",
+    "title": "Explore the\nFestival Schedule",
+    "cta": "Detailed Festival Guide",
+    "day_label": "Day",
+    "days": {
+      "day1": {
+        "label": "Day 01",
+        "date": "Friday, April 3, 2026",
+        "events": [
+          { "time": "10:00 AM", "title": "Opening Ceremony", "desc": "Official kickoff of Qatar’s first pet festival at The Pearl. Welcome speech and parade." },
+          { "time": "11:30 AM", "title": "International Dog Show - Preliminaries", "desc": "Watch purebred dogs from around the world compete in the first round of judging." },
+          { "time": "02:00 PM", "title": "K9 Speed & Agility Demo", "desc": "High-energy performance featuring professional service dogs navigating complex obstacle courses." },
+          { "time": "04:30 PM", "title": "Cat Dome: Expert Breed Talk", "desc": "Learn about rare cat breeds and specialized care from international feline experts." },
+          { "time": "07:00 PM", "title": "Evening Live Music & Food Trucks", "desc": "Wind down with family-friendly performances and a curated selection of gourmet pet-themed snacks." }
+        ]
+      },
+      "day2": {
+        "label": "Day 02",
+        "date": "Saturday, April 4, 2026",
+        "events": [
+          { "time": "10:30 AM", "title": "Pet Fashion Show", "desc": "The most stylish pets hit the runway in custom-designed outfits. Prizes for most creative duo!" },
+          { "time": "12:00 PM", "title": "International Cat Show - Finals", "desc": "Grand finale of the feline competition. Crowning the 'Best in Show' cat." },
+          { "time": "03:00 PM", "title": "Community Adoption Parade", "desc": "A special showcase of pets looking for their forever homes. Meet rescue groups and experts." },
+          { "time": "05:30 PM", "title": "Dog Show - Championship Finals", "desc": "The main event. Top-ranked dogs compete for the prestigious Nova Paw Trophy." },
+          { "time": "08:00 PM", "title": "Closing Ceremony & Fireworks", "desc": "Farewell celebration with a synchronized drone show and final prize distributions." }
+        ]
+      }
+    }
+  },
+  "Competitions": {
+    "badge": "Compete & Shine",
+    "title": "Join or Participate Now in One of the 6 International Competitions",
+    "desc": "Judged by WKU World Kennel Union & WCF World Cat Federation international judges   your chance to compete on the world stage.",
+    "cta": "Get Tickets to Participate",
+    "items": [
+      { "title": "Dog Fashion Show", "desc": "Owners and dogs strut the runway in matching themed outfits   judged on creativity, coordination, and charm." },
+      { "title": "Grooming Competition", "desc": "Professional groomers showcase their artistry   precision trimming, styling, and finishing under WKU supervision." },
+      { "title": "Best Dog Show", "desc": "The prestigious WKU-recognized event evaluating breed structure, temperament, and presentation across three classes." },
+      { "title": "Best Cat Show", "desc": "WCF-licensed grand judging of elegance, breed standards, and feline grace inside the immersive Cat Dome." },
+      { "title": "Cat Drawing Battle", "desc": "A live creative battle where artists compete to draw cats in real-time   speed, style, and imagination under the spotlight." },
+      { "title": "Painting Competition", "desc": "Live painting session where artists create cat and dog inspired works projected across the Cat Dome walls." }
+    ]
+  },
+  "Tickets": {
+    "badge": "Secure Your Spot",
+    "title": "Ticket Tiers",
+    "currency": "QAR",
+    "purchase": "Purchase",
+    "view_pass": "View Your Pass",
+    "tiers": {
+      "dog": {
+        "name": "Dog Owner",
+        "desc": "Includes adult entry and registration for one dog.",
+        "features": [
+          "Full Festival Grounds Access",
+          "Dog Entry (Max 1 per Adult)",
+          "Competition Eligibility",
+          "Premium Dog Goodie Bag",
+          "Vet Checkup Priority",
+          "All Live Shows & Music"
+        ]
+      },
+      "cat": {
+        "name": "Cat Owner",
+        "desc": "Includes adult entry and registration for up to two cats.",
+        "features": [
+          "Full Festival Grounds Access",
+          "Cat Entry (Max 2 per Owner)",
+          "Competition Eligibility",
+          "Premium Cat Goodie Bag",
+          "Vet Checkup Priority",
+          "All Live Shows & Music"
+        ]
+      },
+      "adult": {
+        "name": "Adult",
+        "desc": "General admission for adults and pet enthusiasts.",
+        "features": [
+          "Full Festival Grounds Access",
+          "All Live Shows & Music",
+          "Workshops & Expert Talks",
+          "Shopping & Food Village",
+          "Community Engagement",
+          "Family Friendly Experience"
+        ]
+      }
+    }
+  },
+  "Venue": {
+    "badge": "The Venue",
+    "title": "A World-Class Destination for Pets",
+    "desc": "Set against the stunning waterfront of The Pearl Island, Qatar, the festival spans a 270-meter venue featuring the Dog Arena, the immersive Cat Dome, main stage, food trucks, adoption zones, and carnival areas   all designed for maximum fun and comfort for pets and families.",
+    "cta": "Get Directions & Contact Us",
+    "location_badge": "Location",
+    "location_val": "The Pearl Island, Qatar"
+  },
+  "CTABanner": {
+    "title": "Join the Nova Paw\nFestival 2026",
+    "subtitle": "Don’t miss out on this incredible opportunity to celebrate your pets, connect with fellow lovers, and experience the thrill of the festival!",
+    "primary": "Get Tickets Now",
+    "secondary": "Learn More",
+    "registered": "View Your Studio"
+  },
   "Footer": {
     "newsletter_title": "Don’t miss a single",
     "newsletter_italic": "wag, purr, or roar.",
