@@ -2,39 +2,47 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { Star, ArrowRight } from 'lucide-react';
 
 const ticketTiers = [
   {
+    id: "dog-owner",
+    name: "Dog Owner",
+    price: "50",
+    description: "Includes adult entry and registration for one dog.",
+    popular: true,
+    features: [
+      "Full Festival Grounds Access",
+      "Dog Entry (Max 1 per Adult)",
+      "Competition Eligibility",
+      "Premium Dog Goodie Bag",
+      "Priority Vet Checkup"
+    ]
+  },
+  {
+    id: "cat-owner",
+    name: "Cat Owner",
+    price: "50",
+    description: "Includes adult entry and registration for two cats.",
+    features: [
+      "Full Festival Grounds Access",
+      "Cat Entry (Max 2 per Owner)",
+      "Competition Eligibility",
+      "Premium Cat Goodie Bag",
+      "Priority Vet Checkup"
+    ]
+  },
+  {
+    id: "adult",
     name: "Adult",
     price: "25",
-    description: "Full festival access for individuals.",
+    description: "General admission for pet enthusiasts.",
     features: [
-      "Full festival access both zones",
-      "All shows & competitions",
-      "Food truck zone",
-      "Giveaway bag"
-    ]
-  },
-  {
-    name: "Pet Owner",
-    price: "50",
-    description: "Complete package including pet entry.",
-    features: [
-      "Full festival access",
-      "Pet entry (max 2 dogs)",
-      "Competition eligibility",
-      "Premium giveaway bag"
-    ]
-  },
-  {
-    name: "Kid",
-    price: "15",
-    description: "Special entry for children under 12 years old.",
-    features: [
-      "All kids activities",
-      "Carnival games",
-      "Petting zones",
-      "Kids giveaway"
+      "Full Festival Grounds Access",
+      "All Live Shows & Music",
+      "Workshops & Expert Talks",
+      "Shopping & Food Village",
+      "Family Friendly Experience"
     ]
   }
 ];
@@ -59,7 +67,7 @@ const Tickets = () => {
             Secure Your Spot
           </span>
           <h2 className="text-[40px] md:text-[72px] font-bold leading-[1] text-black font-display tracking-tighter">
-            Ticket Tiers
+            Choose Your Tier
           </h2>
         </div>
 
@@ -68,8 +76,16 @@ const Tickets = () => {
           {ticketTiers.map((tier, index) => (
             <div 
               key={index} 
-              className="flex flex-col p-10 md:p-12 rounded-sm border border-black/5 bg-[#F9F9F9] text-black transition-all duration-300 hover:scale-[1.02] hover:border-black/20 h-full shadow-sm"
+              className={`flex flex-col p-10 md:p-12 rounded-sm border transition-all duration-500 hover:scale-[1.02] h-full shadow-sm relative ${
+                tier.popular ? 'border-primary bg-white ring-1 ring-primary/20' : 'border-black/5 bg-[#F9F9F9]'
+              }`}
             >
+              {tier.popular && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-2 shadow-lg shadow-primary/20">
+                  <Star className="w-3 h-3 fill-current" /> Most Popular
+                </div>
+              )}
+
               <h3 className="text-[28px] font-bold mb-2 font-display text-black tracking-tight">
                 {tier.name}
               </h3>
@@ -87,21 +103,21 @@ const Tickets = () => {
               <ul className="flex flex-col gap-5 mb-12 flex-grow">
                 {tier.features.map((feature, idx) => (
                   <li key={idx} className="flex items-center gap-4 text-[15px] font-bold font-body">
-                    <div className="w-1.5 h-1.5 rounded-full shrink-0 bg-primary shadow-sm shadow-primary/40" />
+                    <div className={`w-1.5 h-1.5 rounded-full shrink-0 ${tier.popular ? 'bg-primary' : 'bg-black/20'}`} />
                     {feature}
                   </li>
                 ))}
               </ul>
 
               <Link
-                href={isRegistered ? "/dashboard" : "/tickets"}
-                className={`inline-flex items-center justify-center w-full h-16 rounded-sm font-bold text-[14px] uppercase tracking-widest transition-all active:scale-95 ${
+                href={isRegistered ? "/dashboard" : `/tickets?tier=${tier.id}`}
+                className={`inline-flex items-center justify-center w-full h-16 rounded-sm font-bold text-[14px] uppercase tracking-widest transition-all active:scale-95 group ${
                   isRegistered 
                   ? "bg-primary text-white hover:bg-black" 
-                  : "bg-black text-white hover:bg-primary"
+                  : tier.popular ? "bg-primary text-white hover:bg-black" : "bg-black text-white hover:bg-primary"
                 }`}
               >
-                {isRegistered ? "View Your Pass" : "Purchase"}
+                {isRegistered ? "View Your Pass" : "Purchase Now"} <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           ))}
