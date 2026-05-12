@@ -241,23 +241,27 @@
     "items": [
       {
         "title": "Dog Fashion Show",
-        "desc": "Owners and dogs strut the runway in matching themed outfits. Judged on creativity and charm."
+        "desc": "Owners and dogs strut the runway in matching themed outfits judged on creativity, coordination, and charm."
       },
       {
         "title": "Grooming Competition",
-        "desc": "Professional groomers showcase precision trimming and styling under live judging."
+        "desc": "Professional groomers showcase their artistry precision trimming, styling, and finishing under WKU supervision."
       },
       {
         "title": "Best Dog Show",
-        "desc": "Evaluating breed structure, temperament, and presentation across multiple classes."
+        "desc": "The prestigious WKU-recognized event evaluating breed structure, temperament, and presentation across three classes."
       },
       {
         "title": "Best Cat Show",
-        "desc": "Licensed grand judging inside the Cat Dome evaluating body type, coat, and condition."
+        "desc": "WCF-licensed grand judging of elegance, breed standards, and feline grace inside the immersive Cat Dome."
       },
       {
         "title": "Cat Drawing Battle",
-        "desc": "A live creative battle where artists compete to draw cats in real-time under the spotlight."
+        "desc": "A live creative battle where artists compete to draw cats in real-time speed, style, and imagination under the spotlight."
+      },
+      {
+        "title": "Painting Competition",
+        "desc": "Live painting session where artists create cat and dog inspired works projected across the Cat Dome walls."
       }
     ]
   },
