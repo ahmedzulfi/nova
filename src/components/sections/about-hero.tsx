@@ -49,7 +49,7 @@ const AboutHero = () => {
         {floatingImages.map((img, index) => (
           <div
             key={index}
-            className={`absolute ${img.position} ${img.size} rounded-full overflow-hidden border-4 border-white shadow-2xl animate-float hidden md:block`}
+            className={`absolute ${img.position} ${img.size} rounded-sm overflow-hidden border-[6px] border-white shadow-2xl animate-float hidden md:block`}
             style={{ animationDelay: img.delay }}
           >
             <Image
@@ -64,14 +64,14 @@ const AboutHero = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
-          <h1 className="text-[32px] sm:text-[48px] md:text-[64px] lg:text-[84px] font-bold leading-[1.1] tracking-[-0.04em] text-black mb-6 md:mb-8 font-display px-4">
+          <h1 className="text-[40px] sm:text-[54px] md:text-[72px] lg:text-[84px] font-bold leading-[1] tracking-tighter text-black mb-8 font-display px-4">
             United by passion for <br className="hidden md:block" /> animals and community
           </h1>
-          <p className="text-[16px] md:text-[20px] leading-[1.6] text-muted-foreground max-w-[640px] font-body mb-8 md:mb-12 px-4">
+          <p className="text-[18px] md:text-[22px] leading-[1.6] text-black/40 max-w-[640px] font-body mb-12 px-4 font-medium">
             Nova Paw Festival   Pearl 2026 is Qatar&apos;s first pet festival, designed to bring together pets, families, professionals, and global partners in an outdoor experience.
           </p>
 
-          <button className="group bg-primary hover:bg-primary/90 text-white font-bold h-14 md:h-16 px-8 md:px-10 rounded-full flex items-center gap-3 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-primary/20">
+          <button className="group bg-primary hover:bg-black text-white font-bold h-16 px-12 rounded-sm flex items-center gap-4 transition-all duration-300 transform hover:scale-105 shadow-xl shadow-primary/20 uppercase tracking-[0.2em] text-[13px]">
             Let&apos;s get started
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
