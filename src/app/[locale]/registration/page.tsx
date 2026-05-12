@@ -407,7 +407,19 @@ function RegistrationContent() {
           </button>
           <button
             disabled={!allChecked}
-            onClick={() => setStep(7)}
+            onClick={() => {
+              // Save competition entry to localStorage
+              const existingData = localStorage.getItem('nova_registration');
+              if (existingData) {
+                const parsed = JSON.parse(existingData);
+                localStorage.setItem('nova_registration', JSON.stringify({
+                  ...parsed,
+                  competitionEntry: selectedEventName,
+                  entryDate: new Date().toISOString()
+                }));
+              }
+              setStep(7);
+            }}
             className={`md:col-span-3 rounded-sm py-5 text-[14px] font-bold transition-all ${
               allChecked ? 'bg-black text-white hover:bg-black/90' : 'bg-black/10 text-black/20 cursor-not-allowed'
             }`}

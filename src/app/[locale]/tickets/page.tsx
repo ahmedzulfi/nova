@@ -15,12 +15,12 @@ function TicketsContent() {
 
   useEffect(() => {
     const tier = searchParams.get('tier');
-    if (tier && ["dog-owner", "cat-owner", "adult"].includes(tier)) {
+    if (tier && ["adult", "dog-owner", "cat-owner"].includes(tier)) {
       setSelectedTier(tier);
       // Wait for components to mount before scrolling
       setTimeout(() => {
         checkoutRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 500);
+      }, 100);
     }
   }, [searchParams]);
 
@@ -44,7 +44,7 @@ function TicketsContent() {
 
 export default function TicketsPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-white flex items-center justify-center font-bold">Initializing Nova Studio...</div>}>
+    <Suspense fallback={<div>Loading tickets...</div>}>
       <TicketsContent />
     </Suspense>
   );

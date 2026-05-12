@@ -1,0 +1,36 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "competitions": "Competitions",
+    "tickets": "Tickets",
+    "gallery": "Gallery",
+    "dashboard": "Dashboard",
+    "login": "Log In",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "title": "Nova Paw Festival",
+    "subtitle": "International Pet Festival, First Time in Qatar",
+    "description": "Judged by WKU World Kennel Union & WCF World Cat Federation international judges. The world comes to Qatar, and your pet takes center stage.",
+    "cta_competitions": "Competitions",
+    "cta_tickets": "Get Tickets"
+  },
+  "Footer": {
+    "newsletter_title": "Don’t miss a single",
+    "newsletter_italic": "wag, purr, or roar.",
+    "newsletter_desc": "Subscribe for exclusive festival updates, competition results, and early-bird ticket access.",
+    "newsletter_placeholder": "Enter your email address",
+    "newsletter_btn": "Join Now",
+    "brand_desc": "Qatar's first international pet festival   WKU & WCF judged competitions, family fun, and celebration of our furry companions.",
+    "col_discover": "Discover",
+    "col_contact": "Get in Touch",
+    "col_resources": "Resources",
+    "contact_call": "Call Support",
+    "contact_email": "Email Us",
+    "contact_location": "Location & Date",
+    "location_val": "The Pearl Island, Qatar",
+    "date_val": "November 27–28, 2026",
+    "rights": "All Rights Reserved"
+  }
+}

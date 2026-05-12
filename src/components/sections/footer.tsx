@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import {
@@ -5,43 +7,36 @@ import {
   Instagram,
   Youtube,
   Music2,
-  ExternalLink,
   Mail,
   Phone,
   MapPin,
   ChevronRight
 } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 import logo from '@/media/Artboard 1@2x (1).png';
 
-/**
- * Completely Redesigned Premium Footer
- */
-
-const footerLinks = {
-  navigation: [
-    { label: 'Home', href: '/' },
-    { label: 'About', href: '#about-us' },
-    { label: 'Competitions', href: '#competitions' },
-    { label: 'Tickets', href: '#tickets' },
-    { label: 'Gallery', href: '/gallery' },
-    { label: 'Contact', href: '#contact' },
-  ],
-  explore: [
-    { label: 'Dog Zone', href: '/about-us#dog-zone' },
-    { label: 'Cat Zone', href: '/about-us#cat-zone' },
-    { label: 'Sponsorship', href: '/sponsorship' },
-    { label: 'Photo Gallery', href: '/gallery' },
-  ],
-  support: [
-    { label: 'Terms & Conditions', href: '/terms' },
-    { label: 'Privacy Policy', href: '/privacy' },
-  ],
-};
-
 const Footer = () => {
+  const t = useTranslations('Footer');
+  const nt = useTranslations('Navigation');
+
+  const footerLinks = {
+    navigation: [
+      { label: nt('home'), href: '/' },
+      { label: nt('about'), href: '/about' },
+      { label: nt('competitions'), href: '/competitions' },
+      { label: nt('tickets'), href: '/tickets' },
+      { label: nt('gallery'), href: '/gallery' },
+      { label: nt('contact'), href: '/#contact' },
+    ],
+    support: [
+      { label: 'Terms & Conditions', href: '/terms' },
+      { label: 'Privacy Policy', href: '/privacy' },
+    ],
+  };
+
   return (
-    <footer className="w-full bg-[#050505] text-white pt-24 pb-12 overflow-hidden relative">
+    <footer className="w-full bg-[#050505] text-white pt-24 pb-12 overflow-hidden relative border-t border-white/5">
       {/* Decorative Gradient Background */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -mr-64 -mt-64 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] -ml-48 -mb-48 pointer-events-none" />
@@ -50,28 +45,28 @@ const Footer = () => {
 
         {/* Top Section: High Impact Newsletter */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 pb-20 mb-20 border-b border-white/10">
-          <div className="max-w-[600px] text-center lg:text-left">
-            <h2 className="text-[28px] md:text-[48px] font-bold font-display leading-[1.1] mb-4 tracking-tight text-white">
-              Don’t miss a single <span className="text-primary italic">wag, purr, or roar.</span>
+          <div className="max-w-[640px] text-center lg:text-start">
+            <h2 className="text-[32px] md:text-[54px] font-bold font-display leading-[1.1] mb-6 tracking-tighter text-white">
+              {t('newsletter_title')} <span className="text-primary italic">{t('newsletter_italic')}</span>
             </h2>
-            <p className="text-white/60 text-[18px]">
-              Subscribe for exclusive festival updates, competition results, and early-bird ticket access.
+            <p className="text-white/50 text-[18px] md:text-[20px] font-medium leading-relaxed">
+              {t('newsletter_desc')}
             </p>
           </div>
 
-          <div className="w-full lg:max-w-[440px]">
+          <div className="w-full lg:max-w-[460px]">
             <div className="relative group">
               <input
                 type="email"
-                placeholder="Enter your email address"
-                className="w-full bg-white/5 border border-white/10    rounded-sm  px-6 py-5 text-[16px] text-white outline-none placeholder:text-white/30 focus:border-primary transition-all duration-300"
+                placeholder={t('newsletter_placeholder')}
+                className="w-full bg-white/5 border border-white/10 rounded-sm px-8 py-6 text-[16px] text-white outline-none placeholder:text-white/20 focus:border-primary transition-all duration-500"
               />
               <button
                 type="button"
-                className="absolute right-3 top-1/2 -translate-y-1/2 bg-primary text-black h-12 px-6  rounded-sm font-bold flex items-center gap-2 hover:scale-[1.05] active:scale-[0.95] transition-all"
+                className="absolute ltr:right-3 rtl:left-3 top-1/2 -translate-y-1/2 bg-primary text-white h-14 px-8 rounded-sm font-bold uppercase tracking-[0.2em] text-[12px] flex items-center gap-3 hover:bg-white hover:text-black transition-all shadow-xl shadow-primary/20"
               >
-                Join Now
-                <ArrowRight size={18} />
+                {t('newsletter_btn')}
+                <ArrowRight size={18} className="rtl:rotate-180" />
               </button>
             </div>
           </div>
@@ -81,38 +76,38 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-16 mb-24">
 
           {/* Brand Info */}
-          <div className="lg:col-span-2 space-y-8 text-white">
+          <div className="lg:col-span-2 space-y-10">
             <Image
               src={logo}
               alt="Nova Paw"
               height={80}
-              className="h-[80px] w-auto object-contain brightness-0 invert"
+              className="h-[70px] md:h-[90px] w-auto object-contain brightness-0 invert"
             />
-            <p className="text-white/40 text-[15px] leading-relaxed max-w-[320px]">
-              Qatar's first international pet festival   WKU & WCF judged competitions, family fun, and celebration of our furry companions.
+            <p className="text-white/40 text-[16px] leading-relaxed max-w-[340px] font-medium">
+              {t('brand_desc')}
             </p>
 
-            <div className="flex items-center gap-4">
-              <a href="https://www.instagram.com/nova_paw_festival/" target="_blank" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:text-black hover:border-primary transition-all duration-300 text-white">
-                <Instagram size={18} />
+            <div className="flex items-center gap-5">
+              <a href="https://www.instagram.com/nova_paw_festival/" target="_blank" className="w-12 h-12 rounded-sm border border-white/10 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 text-white shadow-lg">
+                <Instagram size={20} />
               </a>
-              <a href="https://www.tiktok.com/@nova_paw_festival" target="_blank" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:text-black hover:border-primary transition-all duration-300 text-white">
-                <Music2 size={18} />
+              <a href="https://www.tiktok.com/@nova_paw_festival" target="_blank" className="w-12 h-12 rounded-sm border border-white/10 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 text-white shadow-lg">
+                <Music2 size={20} />
               </a>
-              <a href="https://www.youtube.com/@paw_festival" target="_blank" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:text-black hover:border-primary transition-all duration-300 text-white">
-                <Youtube size={18} />
+              <a href="https://www.youtube.com/@paw_festival" target="_blank" className="w-12 h-12 rounded-sm border border-white/10 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 text-white shadow-lg">
+                <Youtube size={20} />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-8">
-            <h4 className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary">Discover</h4>
-            <ul className="space-y-4">
+          <div className="space-y-10">
+            <h4 className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary">{t('col_discover')}</h4>
+            <ul className="space-y-5">
               {footerLinks.navigation.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-white/60 hover:text-white transition-colors flex items-center group font-medium">
-                    <ChevronRight size={14} className="mr-2 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                  <Link href={link.href as any} className="text-white/50 hover:text-white transition-all flex items-center group font-bold text-[14px] uppercase tracking-widest">
+                    <ChevronRight size={14} className="ltr:mr-2 rtl:ml-2 opacity-0 ltr:-ml-4 rtl:-mr-4 group-hover:opacity-100 ltr:group-hover:ml-0 rtl:group-hover:mr-0 transition-all" />
                     {link.label}
                   </Link>
                 </li>
@@ -121,47 +116,54 @@ const Footer = () => {
           </div>
 
           {/* Contact (Integrated Directly) */}
-          <div className="space-y-8">
-            <h4 className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary">Get in Touch</h4>
-            <ul className="space-y-6">
-              <li className="space-y-2">
-                <p className="text-[11px] font-bold uppercase tracking-wider text-white/30">Call Support</p>
-                <div className="flex items-center gap-3">
-                  <Phone size={14} className="text-primary" />
-                  <a href="tel:+97433022248" className="text-[15px] font-bold hover:text-primary transition-colors">+974 3302 2248</a>
+          <div className="space-y-10">
+            <h4 className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary">{t('col_contact')}</h4>
+            <ul className="space-y-8">
+              <li className="space-y-3">
+                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/20">{t('contact_call')}</p>
+                <div className="flex items-center gap-4">
+                  <div className="w-8 h-8 rounded-sm bg-white/5 flex items-center justify-center">
+                    <Phone size={14} className="text-primary" />
+                  </div>
+                  <a href="tel:+97433022248" className="text-[16px] font-bold hover:text-primary transition-colors tracking-tight">+974 3302 2248</a>
                 </div>
               </li>
-              <li className="space-y-2">
-                <p className="text-[11px] font-bold uppercase tracking-wider text-white/30">Email Us</p>
-                <div className="flex items-center gap-3">
-                  <Mail size={14} className="text-primary" />
-                  <a href="mailto:info@novapawfestival.com" className="text-[15px] font-bold hover:text-primary transition-colors">info@novapawfestival.com</a>
+              <li className="space-y-3">
+                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/20">{t('contact_email')}</p>
+                <div className="flex items-center gap-4">
+                  <div className="w-8 h-8 rounded-sm bg-white/5 flex items-center justify-center">
+                    <Mail size={14} className="text-primary" />
+                  </div>
+                  <a href="mailto:info@novapawfestival.com" className="text-[16px] font-bold hover:text-primary transition-colors">info@novapawfestival.com</a>
                 </div>
               </li>
-              <li className="space-y-2">
-                <p className="text-[11px] font-bold uppercase tracking-wider text-white/30">Location & Date</p>
-                <div className="flex items-center gap-3">
-                  <MapPin size={14} className="text-primary" />
-                  <p className="text-[15px] font-bold">The Pearl Island, Qatar<br/><span className="text-[13px] text-white/60 font-normal mt-1 block">November 27–28, 2026</span></p>
+              <li className="space-y-3">
+                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/20">{t('contact_location')}</p>
+                <div className="flex items-center gap-4">
+                  <div className="w-8 h-8 rounded-sm bg-white/5 flex items-center justify-center">
+                    <MapPin size={14} className="text-primary" />
+                  </div>
+                  <p className="text-[16px] font-bold leading-tight">
+                    {t('location_val')}<br/>
+                    <span className="text-[13px] text-white/40 font-medium mt-1 block">{t('date_val')}</span>
+                  </p>
                 </div>
               </li>
             </ul>
           </div>
 
           {/* Resources */}
-          <div className="space-y-8">
-            <h4 className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary">Resources</h4>
-            <ul className="space-y-4">
+          <div className="space-y-10">
+            <h4 className="text-[12px] font-bold uppercase tracking-[0.2em] text-primary">{t('col_resources')}</h4>
+            <ul className="space-y-5">
               {footerLinks.support.map((link) => (
                 <li key={link.label}>
                   <Link
-                    href={link.href}
-                    className="text-white/60 hover:text-white transition-colors flex items-center group font-medium"
+                    href={link.href as any}
+                    className="text-white/50 hover:text-white transition-all flex items-center group font-bold text-[14px] uppercase tracking-widest"
                   >
-                    <ChevronRight size={14} className="mr-2 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
-                    <span className="flex items-center gap-2">
-                      {link.label}
-                    </span>
+                    <ChevronRight size={14} className="ltr:mr-2 rtl:ml-2 opacity-0 ltr:-ml-4 rtl:-mr-4 group-hover:opacity-100 ltr:group-hover:ml-0 rtl:group-hover:mr-0 transition-all" />
+                    {link.label}
                   </Link>
                 </li>
               ))}
@@ -171,9 +173,13 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between text-white/30 text-[13px] gap-6">
+        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between text-white/20 text-[13px] font-medium gap-6">
           <div className="flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-2">
-            <span>© 2026 Nova Paw Festival · Organized by Esraa Hamoudah · All Rights Reserved</span>
+            <span>© 2026 Nova Paw Festival · {t('rights')}</span>
+          </div>
+          <div className="flex items-center gap-6">
+             <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+             <span className="uppercase tracking-[0.2em] text-[11px]">Doha, Qatar</span>
           </div>
         </div>
 
