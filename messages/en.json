@@ -16,6 +16,36 @@
     "cta_competitions": "Competitions",
     "cta_tickets": "Get Tickets"
   },
+  "AboutGrid": {
+    "badge": "About the Festival",
+    "title": "Where Paws Meet Celebration",
+    "cta": "The Nova Story",
+    "story": "The {bold_nova} is Qatar's first international pet festival, bringing together families and animal enthusiasts from around the world for an unforgettable two-day celebration at The Pearl Island. Featuring {bold_wku} and {bold_wcf} international judges, this landmark event sets a new global standard.",
+    "stat_competitions": "International\nCompetitions",
+    "stat_visitors": "Expected\nVisitors",
+    "stat_days": "Festival\nDays",
+    "stat_cups": "Champion\nCups"
+  },
+  "ZoneSplit": {
+    "badge": "Explore Our Zones",
+    "title": "Dedicated Experiences for Every Pet & Owner",
+    "dog_title": "Dog Zone",
+    "dog_cta": "Explore Dog Competitions",
+    "cat_title": "Cat Zone",
+    "cat_cta": "Explore Cat Competitions",
+    "dog_items": [
+      "Best in Show",
+      "Grooming Competition",
+      "Fashion Show",
+      "K9 Demonstrations"
+    ],
+    "cat_items": [
+      "Best Cat Show",
+      "Drawing Cat Battle",
+      "Fashion Show",
+      "Cat Dome Experience"
+    ]
+  },
   "Footer": {
     "newsletter_title": "Don’t miss a single",
     "newsletter_italic": "wag, purr, or roar.",
