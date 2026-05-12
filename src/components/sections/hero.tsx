@@ -20,7 +20,6 @@ const HeroSection = () => {
               className="group mb-8 inline-flex items-center gap-2 px-5 py-2 bg-black rounded-sm transition-all hover:bg-primary"
             >
               <span className="text-[12px] font-bold text-white uppercase tracking-[0.2em]">
-              <span className="text-[12px] font-bold text-white uppercase tracking-[0.2em]">
                 {t('badge')}
               </span>
             </div>
