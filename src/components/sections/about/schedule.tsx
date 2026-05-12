@@ -2,120 +2,83 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 const AboutSchedule = () => {
+  const t = useTranslations('AboutPage.schedule');
   const [activeDay, setActiveDay] = useState(1);
 
-  const schedule = {
-    day1: {
-      date: "Friday, Nov 27, 2026",
-      events: [
-        { time: "10:00 AM", title: "Gates Open & Welcome", desc: "Festival opens    collect your passport and giveaway bag at the entrance." },
-        { time: "10:30 AM", title: "Opening Ceremony", desc: "Grand opening on the Main Stage with mascot reveal and sponsor introductions." },
-        { time: "11:00 AM", title: "Best Dog Show    Round 1", desc: "WKU international judges evaluate Puppy and Youth classes in the Dog Arena." },
-        { time: "11:00 AM", title: "Cat Drawing Battle    Session 1", desc: "Live creative battle in the Cat Dome    artists compete in real-time." },
-        { time: "12:30 PM", title: "Dog Fashion Show", desc: "Owners and dogs strut the runway in matching themed outfits." },
-        { time: "1:00 PM", title: "Lunch Break & Food Trucks", desc: "Enjoy cuisine from 6 food trucks across both zones." },
-        { time: "2:00 PM", title: "Grooming Competition", desc: "Professional groomers showcase precision trimming and styling." },
-        { time: "3:00 PM", title: "Best Cat Show    Round 1", desc: "WCF international judges evaluate cats inside the Cat Dome." },
-        { time: "4:00 PM", title: "Painting Competition", desc: "Live painting session with artworks projected across the Cat Dome walls." },
-        { time: "5:30 PM", title: "Carnival Games & Activities", desc: "Fetch & Win, Spin-A-Treat, Paw Shot Challenge, and more." },
-        { time: "7:00 PM", title: "Day 1 Awards Ceremony", desc: "Champion cups, medals, and certificates presented on the Main Stage." }
-      ]
-    },
-    day2: {
-      date: "Saturday, Nov 28, 2026",
-      events: [
-        { time: "10:00 AM", title: "Gates Open", desc: "Second day kicks off with new competitions and activities." },
-        { time: "10:30 AM", title: "Best Dog Show    Round 2", desc: "Adult class judging and Best in Show finale by WKU judges." },
-        { time: "11:00 AM", title: "Cat Drawing Battle    Session 2", desc: "Second round of the live creative drawing battle." },
-        { time: "12:00 PM", title: "Best Cat Show    Round 2", desc: "WCF judges select the Best Cat of Show." },
-        { time: "1:00 PM", title: "Lunch Break & Food Trucks", desc: "Enjoy cuisine from 6 food trucks across both zones." },
-        { time: "2:00 PM", title: "Dog Fashion Show    Day 2", desc: "New contestants take the runway with their dogs." },
-        { time: "3:00 PM", title: "Grooming Competition    Day 2", desc: "Second round of professional grooming artistry." },
-        { time: "4:00 PM", title: "Painting Competition    Day 2", desc: "New artists create live works in the Cat Dome." },
-        { time: "5:00 PM", title: "Adoption & Vet Zone", desc: "Final chance to visit QAWS, Paws Rescue, and NovaVet booths." },
-        { time: "6:30 PM", title: "Grand Closing Ceremony", desc: "Final awards, Best in Show, Best Cat of Show, and closing celebration." }
-      ]
-    }
-  };
+  const days = [
+    { id: 1, key: 'day1' },
+    { id: 2, key: 'day2' }
+  ];
 
-  const currentEvents = activeDay === 1 ? schedule.day1.events : schedule.day2.events;
+  const currentEvents = t.raw(`days.day${activeDay}.events`) as any[];
 
   return (
-    <section className="py-20 md:py-32 bg-white">
+    <section className="py-24 md:py-40 bg-white" id="schedule">
       <div className="container mx-auto px-6 max-w-[1350px]">
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_2.5fr] gap-x-32 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_2.5fr] gap-x-32 items-start">
           
           {/* Left Column: Sticky Navigation */}
-          <div className="flex flex-col gap-8 md:sticky md:top-32">
+          <div className="flex flex-col gap-10 md:sticky md:top-32">
             <div>
-              <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#E6E6E6] text-black text-[12px] font-semibold uppercase tracking-[0.05em] font-body">
-                Program Preview
+              <span className="inline-flex items-center px-6 py-2 rounded-full bg-[#F5F5F0] text-black text-[11px] font-bold uppercase tracking-[0.3em] border border-black/5 shadow-sm">
+                {t('badge')}
               </span>
             </div>
             
-            <div className="flex flex-row md:flex-col gap-4 overflow-x-auto md:overflow-x-visible pb-4 md:pb-0 no-scrollbar">
-              <button 
-                onClick={() => setActiveDay(1)}
-                className={`text-left px-6 py-4    rounded-sm  transition-all duration-300 min-w-[200px] md:min-w-0 ${
-                  activeDay === 1 ? 'bg-primary text-black' : 'bg-[#F9F9F9] text-black hover:bg-black/5'
-                }`}
-              >
-                <span className="block text-[14px] uppercase tracking-wider font-semibold opacity-60 mb-1">
-                  Day 01
-                </span>
-                <span className="block text-[18px] font-bold font-display leading-[1.2]">
-                  November 27, 2026
-                </span>
-              </button>
-              <button 
-                onClick={() => setActiveDay(2)}
-                className={`text-left px-6 py-4    rounded-sm  transition-all duration-300 min-w-[200px] md:min-w-0 ${
-                  activeDay === 2 ? 'bg-primary text-black' : 'bg-[#F9F9F9] text-black hover:bg-black/5'
-                }`}
-              >
-                <span className="block text-[14px] uppercase tracking-wider font-semibold opacity-60 mb-1">
-                  Day 02
-                </span>
-                <span className="block text-[18px] font-bold font-display leading-[1.2]">
-                  November 28, 2026
-                </span>
-              </button>
+            <div className="flex flex-row lg:flex-col gap-5 overflow-x-auto lg:overflow-x-visible pb-6 lg:pb-0 no-scrollbar">
+              {days.map((day) => (
+                <button 
+                  key={day.id}
+                  onClick={() => setActiveDay(day.id)}
+                  className={`text-left rtl:text-right px-8 py-6 rounded-sm transition-all duration-500 min-w-[260px] lg:min-w-0 shadow-sm border ${
+                    activeDay === day.id 
+                      ? 'bg-black text-white border-black scale-[1.02] shadow-2xl shadow-black/20' 
+                      : 'bg-[#F5F5F0] text-black border-black/5 hover:bg-black/5'
+                  }`}
+                >
+                  <span className={`block text-[12px] uppercase tracking-[0.3em] font-bold mb-2 transition-opacity ${activeDay === day.id ? 'opacity-40' : 'opacity-20'}`}>
+                    {t(`days.${day.key}.label`)}
+                  </span>
+                  <span className="block text-[22px] font-bold font-display leading-[1.1] tracking-tight whitespace-nowrap">
+                    {t(`days.${day.key}.date`)}
+                  </span>
+                </button>
+              ))}
             </div>
-
           </div>
 
           {/* Right Column: Events List */}
-          <div className="flex flex-col mt-12 md:mt-0">
-            <h2 className="text-[40px] md:text-[72px]   font-bold  leading-[0.95] text-black mb-12 font-display tracking-tighter">
-              Explore the <br className="hidden md:block" /> Festival Schedule
+          <div className="flex flex-col mt-16 lg:mt-0">
+            <h2 className="text-[48px] md:text-[84px] font-display font-bold leading-[0.85] text-black mb-16 tracking-tighter">
+              {t('title')}
             </h2>
             
-            <div className="flex flex-col relative min-h-[600px]">
+            <div className="flex flex-col relative min-h-[700px]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeDay}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 >
                   {currentEvents.map((item, index) => (
                     <div 
                       key={index} 
-                      className={`py-10 group ${index !== 0 ? 'border-t border-black/5' : ''}`}
+                      className={`py-12 group ${index !== 0 ? 'border-t border-black/5' : ''}`}
                     >
-                      <div className="flex flex-col md:flex-row items-start gap-4 md:gap-16">
-                        <span className="text-[18px]   font-bold  text-primary min-w-[100px] font-display">
+                      <div className="flex flex-col md:flex-row items-start gap-6 md:gap-16">
+                        <span className="text-[20px] font-bold text-primary min-w-[120px] font-display tracking-tight pt-1">
                           {item.time}
                         </span>
-                        <div className="flex flex-col gap-3">
-                          <h4 className="text-[24px] md:text-[32px]   font-bold  text-black font-display leading-[1.2] group-hover:text-primary transition-colors duration-300">
+                        <div className="flex flex-col gap-4">
+                          <h4 className="text-[28px] md:text-[36px] font-display font-bold text-black leading-none tracking-tighter group-hover:text-primary transition-all duration-500">
                             {item.title}
                           </h4>
-                          <p className="text-[16px] md:text-[18px] leading-[1.6] text-black/50 max-w-[620px] font-body">
+                          <p className="text-[17px] md:text-[19px] leading-[1.6] text-black/40 max-w-[680px] font-body font-medium">
                             {item.desc}
                           </p>
                         </div>
@@ -126,12 +89,12 @@ const AboutSchedule = () => {
               </AnimatePresence>
             </div>
 
-            <div className="mt-16 pt-12 border-t border-black/5">
+            <div className="mt-20 pt-16 border-t border-black/5">
               <a
-                className="inline-flex items-center justify-center px-10 py-5 bg-black text-white rounded-full font-bold text-[18px] transition-all hover:bg-black/90 active:scale-95 shadow-xl shadow-black/10"
+                className="inline-flex items-center justify-center h-18 px-12 bg-black text-white rounded-full font-bold text-[14px] uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary hover:scale-105 active:scale-95 shadow-2xl shadow-black/10"
                 href="/tickets"
               >
-                Get Your Tickets Now
+                {t('cta')}
               </a>
             </div>
           </div>
