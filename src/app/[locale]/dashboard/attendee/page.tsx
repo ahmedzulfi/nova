@@ -7,14 +7,12 @@ import {
     Calendar,
     Map as MapIcon,
     Download,
-    ChevronRight,
-    User,
-    LogOut,
     Search,
-    Bell
+    MessageSquare,
+    Clock,
+    ExternalLink,
+    Info
 } from 'lucide-react';
-import Navigation from "@/components/sections/navigation";
-import Footer from "@/components/sections/footer";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from 'next-intl';
 
@@ -33,172 +31,180 @@ export default function AttendeeDashboard() {
     const t = useTranslations('AttendeeDashboard');
 
     return (
-        <main className="min-h-screen bg-[#FAFAFA]">
-            <Navigation />
-
-            <section className="pt-32 pb-20 lg:pt-40 lg:pb-32">
-                <div className="container mx-auto px-6 max-w-[1400px]">
-
-                    {/* Header with Search and Notifications */}
-                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6 rtl:flex-row-reverse">
-                        <div className="rtl:text-right">
-                            <h1 className="text-[32px] md:text-[48px] font-bold font-display leading-tight">{t('title')}</h1>
-                            <p className="text-[#666666] mt-2 text-[18px]">{t('welcome', { name: 'Ahmed' })}</p>
-                        </div>
-                        <div className="flex items-center gap-4 w-full md:w-auto rtl:flex-row-reverse">
-                            <div className="relative flex-1 md:w-64">
-                                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#999999] rtl:left-auto rtl:right-4" />
-                                <input
-                                    type="text"
-                                    placeholder={t('search_placeholder')}
-                                    className="w-full h-12 pl-12 pr-4 rounded-sm border border-[#F0F0F0] bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-[14px] rtl:pl-4 rtl:pr-12 rtl:text-right"
-                                />
-                            </div>
-                            <button className="w-12 h-12 rounded-sm bg-white border border-[#F0F0F0] flex items-center justify-center text-[#666666] hover:text-black transition-colors relative">
-                                <Bell className="w-5 h-5" />
-                                <span className="absolute top-3 right-3 w-2 h-2 bg-primary rounded-full border-2 border-white rtl:right-auto rtl:left-3" />
-                            </button>
-                        </div>
+        <div className="animate-in fade-in duration-700">
+            {/* Notion Page Header */}
+            <div className="mb-12">
+                <div className="text-[78px] mb-4">🎫</div>
+                <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">
+                    {t('title')}
+                </h1>
+                <div className="flex items-center gap-6 text-[14px] text-[#91918E] border-b border-[#E9E9E7] pb-6">
+                    <div className="flex items-center gap-2">
+                        <MessageSquare size={14} />
+                        <span>Add comment</span>
                     </div>
+                    <div className="flex items-center gap-2">
+                        <Clock size={14} />
+                        <span>Last updated Nov 13, 2026</span>
+                    </div>
+                </div>
+            </div>
 
-                    <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
+            <div className="space-y-12">
+                {/* Introduction Callout */}
+                <div className="flex gap-4 p-4 bg-[#F1F1EF] rounded-sm text-[16px] text-[#37352F] leading-relaxed">
+                    <div className="text-[20px]">✨</div>
+                    <div>{t('welcome', { name: 'Ahmed' })}</div>
+                </div>
 
-                        {/* Left Column: Tickets & Schedule */}
-                        <div className="xl:col-span-8 space-y-8">
-
-                            {/* Featured Ticket Card */}
-                            <div className="bg-black rounded-sm p-8 md:p-12 text-white relative overflow-hidden group">
-                                <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-700" />
-
-                                <div className="relative z-10 flex flex-col md:flex-row items-center gap-10 rtl:flex-row-reverse">
-                                    <div className="w-48 h-48 bg-white rounded-sm flex items-center justify-center p-4 shrink-0 shadow-2xl">
-                                        <QrCode className="w-full h-full text-black" />
+                <div className="grid grid-cols-1 xl:grid-cols-5 gap-12">
+                    {/* Main Content: Ticket & Schedule */}
+                    <div className="xl:col-span-3 space-y-12">
+                        {/* Ticket Block */}
+                        <div className="space-y-4">
+                            <h3 className="text-[14px] font-bold text-[#91918E] uppercase tracking-wider">ACTIVE TICKET</h3>
+                            <div className="bg-[#FBFAFB] border border-[#E9E9E7] rounded-sm p-8">
+                                <div className="flex flex-col md:flex-row gap-8 items-center">
+                                    <div className="p-3 bg-white border border-[#E9E9E7] rounded-sm shadow-sm shrink-0">
+                                        <QrCode size={140} className="text-[#37352F]" />
                                     </div>
-                                    <div className="flex-1 text-center md:text-left rtl:md:text-right">
-                                        <div className="flex flex-wrap justify-center md:justify-start gap-3 mb-6 rtl:md:justify-end">
-                                            <span className="bg-primary text-black px-4 py-1.5 rounded-full text-[12px] font-bold uppercase tracking-wider">{t('valid_badge')}</span>
-                                            <span className="bg-white/10 backdrop-blur-md text-white px-4 py-1.5 rounded-full text-[12px] font-bold uppercase tracking-wider">{t('ticket_ref', { ref: mockTickets[0].id })}</span>
+                                    <div className="flex-1 space-y-4 text-center md:text-left rtl:text-right">
+                                        <div>
+                                            <span className="px-2 py-0.5 bg-green-100 text-green-700 rounded-sm text-[11px] font-bold uppercase tracking-wider mb-2 inline-block">
+                                                {t('valid_badge')}
+                                            </span>
+                                            <h4 className="text-[24px] font-bold text-[#37352F]">{mockTickets[0].type}</h4>
+                                            <p className="text-[14px] text-[#91918E]">{t('ticket_ref', { ref: mockTickets[0].id })}</p>
                                         </div>
-                                        <h2 className="text-[32px] md:text-[40px] font-bold font-display mb-2">{mockTickets[0].type}</h2>
-                                        <p className="text-white/60 text-[18px] mb-8">{mockTickets[0].date} @ The Pearl, Qatar</p>
-                                        <div className="flex flex-wrap justify-center md:justify-start gap-4 rtl:md:justify-end">
-                                            <Button className="bg-white text-black hover:bg-white/90 rounded-sm px-8 h-12 font-bold transition-all">
-                                                <Download className="w-4 h-4 mr-2 rtl:mr-0 rtl:ml-2" /> {t('download_pdf')}
+                                        <div className="grid grid-cols-2 gap-4 pt-4 border-t border-[#E9E9E7]">
+                                            <div>
+                                                <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-wider">DATE</p>
+                                                <p className="text-[13px] font-medium">{mockTickets[0].date}</p>
+                                            </div>
+                                            <div>
+                                                <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-wider">LOCATION</p>
+                                                <p className="text-[13px] font-medium">The Pearl, Qatar</p>
+                                            </div>
+                                        </div>
+                                        <div className="flex gap-2 justify-center md:justify-start pt-4">
+                                            <Button variant="outline" size="sm" className="h-9 gap-2 border-[#E9E9E7] text-[12px]">
+                                                <Download size={14} />
+                                                {t('download_pdf')}
                                             </Button>
-                                            <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 rounded-sm px-8 h-12 font-bold transition-all">
+                                            <Button variant="outline" size="sm" className="h-9 gap-2 border-[#E9E9E7] text-[12px]">
+                                                <Ticket size={14} />
                                                 {t('add_wallet')}
                                             </Button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            {/* Schedule & Map Preview */}
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                                <div className="bg-white rounded-sm p-8 border border-[#F0F0F0] shadow-sm">
-                                    <div className="flex justify-between items-center mb-8 rtl:flex-row-reverse">
-                                        <h3 className="text-[24px] font-bold font-display">{t('schedule_title')}</h3>
-                                        <span className="text-primary font-bold text-[14px]">{t('day_badge', { num: 1 })}</span>
-                                    </div>
-                                    <div className="space-y-8">
-                                        {[
-                                            { time: "10:00 AM", event: "Festival Grand Opening", loc: "Main Gateway", type: "Ceremony" },
-                                            { time: "11:30 AM", event: "Dog Agility Prelims", loc: "Arena A", type: "Competition" },
-                                            { time: "01:00 PM", event: "Feline Grooming Expo", loc: "Cat Dome", type: "Exhibition" },
-                                            { time: "02:30 PM", event: "Pet Care Masterclass", loc: "Workshop Zone", type: "Learning" }
-                                        ].map((item, idx) => (
-                                            <div key={idx} className="flex gap-6 items-start group cursor-pointer rtl:flex-row-reverse">
-                                                <div className="w-16 text-primary font-bold text-[14px] pt-1 rtl:text-right">{item.time}</div>
-                                                <div className="flex-1 pb-6 border-b border-[#F5F5F5] group-last:border-0 group-last:pb-0 rtl:text-right">
-                                                    <p className="font-bold text-[17px] mb-1 group-hover:text-primary transition-colors">{item.event}</p>
-                                                    <div className="flex items-center justify-between rtl:flex-row-reverse">
-                                                        <p className="text-[14px] text-[#999999]">{item.loc}</p>
-                                                        <span className="text-[11px] font-bold uppercase tracking-widest text-[#CCCCCC]">{item.type}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <Button variant="ghost" className="w-full mt-8 rounded-sm font-bold text-[#666666] hover:text-black">
-                                        {t('full_schedule')} <ChevronRight className="w-4 h-4 ml-1 rtl:rotate-180" />
-                                    </Button>
+                        {/* Living Schedule Section */}
+                        <div className="space-y-6">
+                            <div className="flex items-center justify-between border-b border-[#E9E9E7] pb-2">
+                                <h3 className="text-[18px] font-semibold text-[#37352F]">{t('schedule_title')}</h3>
+                                <div className="flex items-center gap-2 px-2 py-1 bg-[#F1F1EF] rounded-sm text-[12px] font-medium">
+                                    <Calendar size={14} />
+                                    {t('day_badge', { num: 1 })}
                                 </div>
-
-                                <div className="bg-white rounded-sm p-8 border border-[#F0F0F0] shadow-sm flex flex-col">
-                                    <h3 className="text-[24px] font-bold font-display mb-8 rtl:text-right">{t('map_title')}</h3>
-                                    <div className="flex-1 bg-[#F9F9F9] rounded-sm border border-[#F0F0F0] relative overflow-hidden group cursor-pointer">
-                                        <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors" />
-                                        <div className="absolute inset-0 flex items-center justify-center p-8">
-                                            <MapIcon className="w-24 h-24 text-[#E0E0E0] group-hover:scale-110 transition-transform duration-700" />
+                            </div>
+                            
+                            <div className="divide-y divide-[#E9E9E7]">
+                                {[
+                                    { time: "10:00 AM", event: "Festival Grand Opening", loc: "Main Gateway", emoji: "🎊" },
+                                    { time: "11:30 AM", event: "Dog Agility Prelims", loc: "Arena A", emoji: "🐕" },
+                                    { time: "01:00 PM", event: "Feline Grooming Expo", loc: "Cat Dome", emoji: "🐱" },
+                                    { time: "02:30 PM", event: "Pet Care Masterclass", loc: "Workshop Zone", emoji: "🎓" }
+                                ].map((item, idx) => (
+                                    <div key={idx} className="py-4 flex gap-6 hover:bg-[#F7F6F3] transition-colors px-2 rounded-sm cursor-pointer group">
+                                        <div className="w-20 text-[13px] font-medium text-[#91918E] pt-1">{item.time}</div>
+                                        <div className="flex-1">
+                                            <div className="flex items-center gap-2">
+                                                <span className="text-[16px]">{item.emoji}</span>
+                                                <p className="font-bold text-[15px] text-[#37352F]">{item.event}</p>
+                                            </div>
+                                            <p className="text-[13px] text-[#91918E] mt-1">{item.loc}</p>
                                         </div>
-                                        <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-white via-white/80 to-transparent rtl:text-right">
-                                            <p className="font-bold text-[18px] mb-1">{t('map_locate')}</p>
-                                            <p className="text-[14px] text-[#666666]">{t('map_desc')}</p>
-                                        </div>
+                                        <ChevronRight size={16} className="text-[#E9E9E7] group-hover:text-[#91918E] self-center" />
                                     </div>
-                                    <Button className="mt-8 bg-black text-white hover:bg-black/90 rounded-sm h-14 font-bold shadow-lg shadow-black/10">
+                                ))}
+                            </div>
+                            <Button variant="ghost" className="w-full text-[#91918E] hover:text-[#37352F] text-[13px] h-10 border border-dashed border-[#E9E9E7] mt-4">
+                                {t('full_schedule')}
+                            </Button>
+                        </div>
+                    </div>
+
+                    {/* Sidebar: Map & Help */}
+                    <div className="xl:col-span-2 space-y-12">
+                        {/* Map Block */}
+                        <div className="space-y-4">
+                            <h3 className="text-[14px] font-bold text-[#91918E] uppercase tracking-wider">{t('map_title')}</h3>
+                            <div className="group relative border border-[#E9E9E7] rounded-sm overflow-hidden bg-[#FBFAFB] cursor-pointer">
+                                <div className="aspect-square flex items-center justify-center p-8 opacity-20 group-hover:opacity-30 transition-opacity">
+                                    <MapIcon size={80} className="text-[#37352F]" />
+                                </div>
+                                <div className="absolute inset-x-0 bottom-0 p-4 bg-white/90 backdrop-blur-sm border-t border-[#E9E9E7]">
+                                    <p className="font-bold text-[14px]">{t('map_locate')}</p>
+                                    <p className="text-[12px] text-[#91918E]">{t('map_desc')}</p>
+                                    <Button size="sm" className="w-full mt-3 bg-[#37352F] text-white hover:bg-black text-[12px] h-8">
                                         {t('map_cta')}
                                     </Button>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Right Column: Profile & Navigation */}
-                        <div className="xl:col-span-4 space-y-8">
-
-                            {/* Profile Card */}
-                            <div className="bg-white rounded-sm p-8 border border-[#F0F0F0] shadow-sm">
-                                <div className="flex items-center gap-6 mb-8 pb-8 border-b border-[#F5F5F5] rtl:flex-row-reverse">
-                                    <div className="w-20 h-20 bg-primary rounded-sm flex items-center justify-center text-white p-4 shrink-0 shadow-lg shadow-primary/20">
-                                        <User className="w-full h-full" />
-                                    </div>
-                                    <div className="rtl:text-right">
-                                        <h4 className="text-[22px] font-bold font-display">{mockTickets[0].holder}</h4>
-                                        <p className="text-[#999999]">{t('member_badge')}</p>
-                                    </div>
-                                </div>
-
-                                <div className="space-y-2">
-                                    {[
-                                        { icon: Ticket, label: t('links.tickets'), active: true },
-                                        { icon: Calendar, label: t('links.schedule'), active: false },
-                                        { icon: User, label: t('links.profile'), active: false },
-                                        { icon: LogOut, label: t('links.logout'), active: false, danger: true }
-                                    ].map((link, idx) => (
-                                        <button
-                                            key={idx}
-                                            className={`w-full flex items-center gap-4 px-6 py-4 rounded-sm font-bold transition-all rtl:flex-row-reverse ${link.active
-                                                ? 'bg-black text-white shadow-xl shadow-black/10'
-                                                : link.danger
-                                                    ? 'text-red-500 hover:bg-red-50'
-                                                    : 'text-[#666666] hover:bg-[#F9F9F9] hover:text-black'
-                                                }`}
-                                        >
-                                            <link.icon className="w-5 h-5" />
-                                            <span className="flex-1 rtl:text-right">{link.label}</span>
-                                        </button>
-                                    ))}
-                                </div>
+                        {/* Help Callout */}
+                        <div className="p-6 border border-[#E9E9E7] rounded-sm bg-[#FBFAFB] space-y-4">
+                            <div className="flex items-center gap-2 text-[#37352F]">
+                                <Info size={18} />
+                                <span className="font-bold text-[14px]">{t('help_title')}</span>
                             </div>
-
-                            {/* Help & Support Banner */}
-                            <div className="bg-primary/5 border border-primary/10 rounded-sm p-8 rtl:text-right">
-                                <h4 className="font-bold text-[18px] mb-3">{t('help_title')}</h4>
-                                <p className="text-[14px] text-[#666666] leading-relaxed mb-6">
-                                    {t('help_desc')}
-                                </p>
-                                <Button variant="outline" className="w-full rounded-sm border-primary/20 text-primary hover:bg-primary/5 font-bold h-12">
-                                    {t('help_cta')}
-                                </Button>
-                            </div>
+                            <p className="text-[13px] text-[#666666] leading-relaxed">
+                                {t('help_desc')}
+                            </p>
+                            <Button variant="outline" className="w-full border-[#E9E9E7] text-[12px] font-bold h-9">
+                                {t('help_cta')}
+                            </Button>
                         </div>
 
+                        {/* Quick Settings Link */}
+                        <div className="pt-6 border-t border-[#E9E9E7]">
+                            <div className="flex items-center gap-3 p-3 hover:bg-[#F7F6F3] rounded-sm transition-colors cursor-pointer text-[#37352F]">
+                                <div className="w-8 h-8 bg-[#37352F] rounded-sm flex items-center justify-center text-white">
+                                    <span className="text-[12px]">AZ</span>
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <p className="text-[13px] font-bold truncate">Ahmed Zulfi</p>
+                                    <p className="text-[11px] text-[#91918E]">{t('member_badge')}</p>
+                                </div>
+                                <ExternalLink size={14} className="text-[#E9E9E7]" />
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    );
+}
 
-            <Footer />
-
-        </main>
+// Minimalist Chevron for sections
+function ChevronRight({ size, className }: { size: number, className?: string }) {
+    return (
+        <svg
+            width={size}
+            height={size}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className={className}
+        >
+            <path d="m9 18 6-6-6-6" />
+        </svg>
     );
 }
