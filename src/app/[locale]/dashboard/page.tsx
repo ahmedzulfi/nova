@@ -15,7 +15,8 @@ import {
   ChevronRight,
   Download,
   Info,
-  ExternalLink
+  ExternalLink,
+  PawPrint
 } from 'lucide-react';
 import { Link, useRouter } from '@/i18n/routing';
 import { useTranslations, useLocale } from 'next-intl';
@@ -39,7 +40,7 @@ interface RegistrationData {
 
 const QR_CODE_URL = "https://public-api.qr-code-generator.com/v1/create/extended?image_format=PNG&image_width=300&qr_code_text=https%3A%2F%2Fvalidmvps.vercel.app%2F&foreground_color=%23000000&background_color=%23FFFFFF&frame_name=no-frame";
 
-type TabType = 'overview' | 'competitions' | 'health' | 'schedule' | 'settings';
+type TabType = 'overview' | 'competitions' | 'receipt' | 'health' | 'schedule' | 'settings';
 
 function DashboardContent() {
   const router = useRouter();
@@ -108,19 +109,21 @@ function DashboardContent() {
         <div className="text-[78px] mb-4">
             {activeTab === 'overview' ? '👋' : 
              activeTab === 'competitions' ? '🏆' :
+             activeTab === 'receipt' ? '📄' :
              activeTab === 'health' ? '🏥' :
              activeTab === 'schedule' ? '📅' : '⚙️'}
         </div>
         <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">
             {activeTab === 'overview' ? `Welcome, ${data.fullName.split(' ')[0]}` : 
              activeTab === 'competitions' ? t('sidebar.competitions') :
+             activeTab === 'receipt' ? 'Order Receipt' :
              activeTab === 'health' ? t('sidebar.health') :
              activeTab === 'schedule' ? t('sidebar.schedule') : t('sidebar.settings')}
         </h1>
         
         {/* Simple Tab Switcher (Notion Style) */}
         <div className="flex items-center gap-1 mt-6 border-b border-[#E9E9E7]">
-            {['overview', 'competitions', 'health', 'schedule', 'settings'].map((tab) => {
+            {['overview', 'competitions', 'receipt', 'health', 'schedule', 'settings'].map((tab) => {
                 if (!isPetOwner && (tab === 'competitions' || tab === 'health')) return null;
                 return (
                     <button
@@ -130,7 +133,7 @@ function DashboardContent() {
                             activeTab === tab ? 'border-[#37352F] text-[#37352F]' : 'border-transparent text-[#91918E] hover:text-[#37352F]'
                         }`}
                     >
-                        {t(`sidebar.${tab}`)}
+                        {tab === 'receipt' ? 'Receipt' : t(`sidebar.${tab}`)}
                     </button>
                 );
             })}
@@ -191,12 +194,14 @@ function DashboardContent() {
                                 <span className="font-bold text-[#37352F]">{data.total} {tTickets('currency')}</span>
                             </div>
                         </div>
-                        <Link href="/dashboard/attendee">
-                            <Button variant="outline" className="w-full border-[#E9E9E7] h-10 text-[13px] gap-2 mt-4">
-                                <ExternalLink size={14} />
-                                View Full Pass
-                            </Button>
-                        </Link>
+                        <Button 
+                            onClick={() => setActiveTab('receipt')}
+                            variant="outline" 
+                            className="w-full border-[#E9E9E7] h-10 text-[13px] gap-2 mt-4"
+                        >
+                            <ExternalLink size={14} />
+                            View Full Receipt
+                        </Button>
                     </div>
                 </div>
 
@@ -241,6 +246,136 @@ function DashboardContent() {
                     </div>
                     );
                 })}
+                </div>
+            </div>
+          )}
+
+          {/* ─── TAB: Receipt ──────────────────────────────────────────────── */}
+          {activeTab === 'receipt' && (
+            <div className="max-w-3xl mx-auto">
+                <div className="p-12 border border-[#E9E9E7] rounded-sm bg-white shadow-sm space-y-12">
+                    {/* Receipt Header */}
+                    <div className="flex justify-between items-start border-b border-[#E9E9E7] pb-8">
+                        <div>
+                            <div className="w-12 h-12 bg-[#37352F] rounded-sm flex items-center justify-center text-white text-[20px] font-bold mb-4">
+                                N
+                            </div>
+                            <h2 className="text-[24px] font-bold text-[#37352F]">Official Receipt</h2>
+                            <p className="text-[14px] text-[#91918E]">Nova Paw Festival 2026</p>
+                        </div>
+                        <div className="text-right">
+                            <p className="text-[12px] font-bold text-[#91918E] uppercase tracking-wider">Order ID</p>
+                            <p className="text-[18px] font-bold text-[#37352F]">{data.orderId}</p>
+                            <p className="text-[12px] text-[#91918E] mt-2">{new Date(data.entryDate || '').toLocaleDateString()}</p>
+                        </div>
+                    </div>
+
+                    {/* Receipt Content */}
+                    <div className="space-y-8">
+                        {/* Customer Info */}
+                        <div className="grid grid-cols-2 gap-8">
+                            <div>
+                                <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-wider mb-2">Billed To</p>
+                                <p className="text-[15px] font-bold text-[#37352F]">{data.fullName}</p>
+                                <p className="text-[14px] text-[#666666]">{data.email}</p>
+                                <p className="text-[14px] text-[#666666]">{data.phone}</p>
+                            </div>
+                            <div className="text-right">
+                                <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-wider mb-2">Venue</p>
+                                <p className="text-[15px] font-bold text-[#37352F]">The Pearl Island</p>
+                                <p className="text-[14px] text-[#666666]">Doha, Qatar</p>
+                            </div>
+                        </div>
+
+                        {/* Order Details Table */}
+                        <div className="border border-[#E9E9E7] rounded-sm overflow-hidden">
+                            <table className="w-full text-left border-collapse">
+                                <thead className="bg-[#F7F6F3] border-b border-[#E9E9E7]">
+                                    <tr>
+                                        <th className="px-6 py-3 text-[11px] font-bold text-[#91918E] uppercase tracking-wider">Description</th>
+                                        <th className="px-6 py-3 text-[11px] font-bold text-[#91918E] uppercase tracking-wider text-right">Quantity</th>
+                                        <th className="px-6 py-3 text-[11px] font-bold text-[#91918E] uppercase tracking-wider text-right">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-[#E9E9E7]">
+                                    <tr>
+                                        <td className="px-6 py-4">
+                                            <p className="font-bold text-[14px] text-[#37352F]">{getTierName(data.tier)}</p>
+                                            <p className="text-[12px] text-[#91918E]">Full Access Pass</p>
+                                        </td>
+                                        <td className="px-6 py-4 text-right text-[14px]">1</td>
+                                        <td className="px-6 py-4 text-right text-[14px]">Included</td>
+                                    </tr>
+                                    {data.adultQty > 0 && (
+                                        <tr>
+                                            <td className="px-6 py-4">
+                                                <p className="font-bold text-[14px] text-[#37352F]">Additional Adult Pass</p>
+                                                <p className="text-[12px] text-[#91918E]">Standard Entry</p>
+                                            </td>
+                                            <td className="px-6 py-4 text-right text-[14px]">{data.adultQty}</td>
+                                            <td className="px-6 py-4 text-right text-[14px]">Calculated</td>
+                                        </tr>
+                                    )}
+                                    {data.kidsQty > 0 && (
+                                        <tr>
+                                            <td className="px-6 py-4">
+                                                <p className="font-bold text-[14px] text-[#37352F]">Kids Pass</p>
+                                                <p className="text-[12px] text-[#91918E]">Under 12 Years</p>
+                                            </td>
+                                            <td className="px-6 py-4 text-right text-[14px]">{data.kidsQty}</td>
+                                            <td className="px-6 py-4 text-right text-[14px]">Free</td>
+                                        </tr>
+                                    )}
+                                    {data.competitionEntry && (
+                                        <tr>
+                                            <td className="px-6 py-4">
+                                                <p className="font-bold text-[14px] text-[#37352F]">Competition Registration</p>
+                                                <p className="text-[12px] text-[#91918E]">{data.competitionEntry}</p>
+                                            </td>
+                                            <td className="px-6 py-4 text-right text-[14px]">1</td>
+                                            <td className="px-6 py-4 text-right text-[14px]">Included</td>
+                                        </tr>
+                                    )}
+                                </tbody>
+                            </table>
+                        </div>
+
+                        {/* Pet Info */}
+                        {isPetOwner && (
+                            <div className="p-4 bg-[#F7F6F3] rounded-sm border border-[#E9E9E7]">
+                                <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-wider mb-2">Registered Pet</p>
+                                <div className="flex items-center gap-2">
+                                    <PawPrint size={14} className="text-[#37352F]" />
+                                    <p className="text-[15px] font-bold text-[#37352F]">{data.petName}</p>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Summary */}
+                        <div className="flex justify-end pt-4">
+                            <div className="w-48 space-y-2">
+                                <div className="flex justify-between text-[14px]">
+                                    <span className="text-[#91918E]">Total Paid</span>
+                                    <span className="font-bold text-[#37352F]">{data.total} QAR</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Footer / PDF Style CTA */}
+                    <div className="pt-12 border-t border-[#E9E9E7] flex items-center justify-between">
+                        <div className="flex items-center gap-2 text-[12px] text-[#91918E]">
+                            <ShieldCheck size={14} />
+                            <span>Verified by Nova Studio</span>
+                        </div>
+                        <Button 
+                            className="bg-[#37352F] text-white hover:bg-black gap-2 h-10 px-6 font-bold rounded-sm shadow-sm"
+                            onClick={() => window.print()}
+                        >
+                            <Download size={14} />
+                            Download PDF
+                        </Button>
+                    </div>
                 </div>
             </div>
           )}
