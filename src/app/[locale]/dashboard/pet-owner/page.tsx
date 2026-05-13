@@ -99,15 +99,6 @@ export default function PetOwnerDashboard() {
                             ))}
                         </div>
 
-                        <div className="mt-6 flex items-center gap-3 p-4 bg-blue-50/50 border border-blue-100 rounded-sm">
-                            <ShieldCheck size={18} className="text-blue-600" />
-                            <p className="text-[13px] text-blue-800 flex-1">
-                                <strong>{t('action_required')}</strong> {t('action_desc', { phase: 'Security Check' })}
-                            </p>
-                            <Button variant="outline" size="sm" className="bg-white border-[#E9E9E7] text-[12px] h-8">
-                                {t('upload_cta')}
-                            </Button>
-                        </div>
                     </div>
                 </div>
 
