@@ -23,7 +23,7 @@
     "badge": "About the Festival",
     "title": "Where Paws Meet Celebration",
     "cta": "The Nova Story",
-    "story": "The {bold_nova} is Qatar's first international pet festival, bringing together families and animal enthusiasts from around the world for an unforgettable two-day celebration at The Pearl Island. Featuring {bold_wku} and {bold_wcf} international judges, this landmark event sets a new global standard.",
+    "story": "The <bold_nova>Nova Paw Festival</bold_nova> is Qatar's first international pet festival, bringing together families and animal enthusiasts from around the world for an unforgettable two-day celebration at The Pearl Island. Featuring <bold_wku>WKU</bold_wku> and <bold_wcf>WCF</bold_wcf> international judges, this landmark event sets a new global standard.",
     "stat_competitions": "International\nCompetitions",
     "stat_visitors": "Expected\nVisitors",
     "stat_days": "Festival\nDays",
@@ -32,15 +32,15 @@
   "AboutPage": {
     "hero": {
       "title": "About the Festival",
-      "desc": "Qatar's first international pet festival   two days of world-class competitions, entertainment, and family fun. Experience a complete pet ecosystem featuring {nova_vet}, {adoption_zones}, and a curated selection of {food_trucks} at The Pearl Island.",
+      "desc": "Qatar's first international pet festival   two days of world-class competitions, entertainment, and family fun. Experience a complete pet ecosystem featuring <nova_vet>NovaVet</nova_vet>, <adoption_zones>Adoption Zones</adoption_zones>, and a curated selection of <food_trucks>Food Trucks</food_trucks> at The Pearl Island.",
       "cta": "Learn more"
     },
     "story": {
       "badge": "Festival Overview",
       "title": "Groundbreaking Debut in Qatar",
-      "p1": "The Nova Paw Festival is a groundbreaking international pet event making its debut in Qatar on {date} at the stunning The Pearl Island, Qatar.",
+      "p1": "The Nova Paw Festival is a groundbreaking international pet event making its debut in Qatar on <date>27-28 Nov 2026</date> at the stunning The Pearl Island, Qatar.",
       "p2": "This festival brings together pet lovers, families, breeders, and animal enthusiasts from across the globe for an unforgettable celebration of our furry companions.",
-      "quote": "What sets Nova Paw apart is its international judging panel    {wku} judge all dog competitions, while {wcf} evaluate the cat shows.",
+      "quote": "What sets Nova Paw apart is its international judging panel    <wku>WKU</wku> judge all dog competitions, while <wcf>WCF</wcf> evaluate the cat shows.",
       "p3": "The festival spans a 270-meter venue divided into three main zones: the Dog Space, the Cat Space, and the Carnival Zone    each offering unique experiences, competitions, and activities.",
       "p4": "From the 18m × 14m Dog Arena hosting WDF/WKU-sanctioned shows to the 10m geodesic Cat Dome with immersive 180° projection, every space is designed for maximum engagement and comfort.",
       "stats": {
@@ -175,7 +175,7 @@
     "title": "Explore the\nFestival Magic",
     "desc": "A glimpse into the incredible spaces and experiences awaiting you at Nova Paw Festival 2026.",
     "social_title": "Share Your Moments",
-    "social_desc": "Tag your photos with {hashtag} and follow us for updates!",
+    "social_desc": "Tag your photos with <hashtag>#NovaPaw2026</hashtag> and follow us for updates!",
     "social_cta": "Follow on Instagram",
     "venues": {
       "cta": "Explore Details",
@@ -269,7 +269,7 @@
     "hero": {
       "badge": "Compete & Shine",
       "title": "Join or Participate Now in One of the 5 International Competitions",
-      "desc": "Judged by {wku} & {wcf} international judges  register your pet or yourself and compete for champion cups, medals, and certificates."
+      "desc": "Judged by <wku>WKU</wku> & <wcf>WCF</wcf> international judges  register your pet or yourself and compete for champion cups, medals, and certificates."
     },
     "cta": {
       "title": "Ready to Take the Spotlight?",
@@ -483,7 +483,7 @@
     },
     "success": {
       "title": "Registration Received",
-      "desc": "Your application for the {event} has been submitted. Our international panel will review your details and contact you regarding final approval.",
+      "desc": "Your application for the <event>Competition</event> has been submitted. Our international panel will review your details and contact you regarding final approval.",
       "cta_home": "Return to Home",
       "cta_dashboard": "Go to Dashboard"
     },
