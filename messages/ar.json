@@ -921,6 +921,8 @@
     "val_email": "info@novapawfestival.com"
   },
   "Tickets": {
+    "badge": "عش التجربة السحرية",
+    "title": "احصل على تذاكرك",
     "currency": "ر.ق",
     "purchase": "شراء التذكرة",
     "view_pass": "عرض تفاصيل التذكرة",

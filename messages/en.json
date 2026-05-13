@@ -921,6 +921,8 @@
     "val_email": "info@novapawfestival.com"
   },
   "Tickets": {
+    "badge": "Experience the Magic",
+    "title": "Get Your Tickets",
     "currency": "QAR",
     "purchase": "Purchase Ticket",
     "view_pass": "View Ticket Details",
