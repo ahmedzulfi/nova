@@ -49,4 +49,21 @@
   - Background: `#F5F5F0` (Bone/Off-white) for the section, `#FFFFFF` for the card.
   - Progress: Monochromatic path with Primary (Yellow) highlights for completed steps.
   - Typography: Large `font-display` headers, `9px` bold uppercase labels for inputs.
-  - Interaction: Mandatory verification steps (OTP), premium upload zones, and animated step transitions.
+## 🏢 Dashboard (Notion Style)
+
+- **Workspace Shell:**
+  - Sidebar: `#F7F6F3` background, `1px solid #E9E9E7` right border.
+  - Sidebar Typography: `14px` Medium, text `#37352F`.
+  - Layout: Persistent left sidebar on desktop, clean workspace-style header with emoji page icons.
+- **Content Blocks:**
+  - Background: `#FFFFFF` main page.
+  - Callouts: `#F1F1EF` background, `rounded-sm`, with large emojis.
+  - Section Dividers: `1px solid #E9E9E7` with uppercase bold labels (`#91918E`).
+  - Cards: High-contrast white cards, subtle shadow/border, minimalist icons (Lucide).
+- **Interactive States:**
+  - Hover: Subtle background change to `#F7F6F3`.
+  - Tabs: Minimalist bottom border (`#37352F`) for active state.
+- **Typography:**
+  - Main Heading: `40px` Bold, tracking-tight, `#37352F`.
+  - Subheaders: `18px` Semibold.
+  - Body: `14px` to `16px` for optimal readability in productivity views.
