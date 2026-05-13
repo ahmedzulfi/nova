@@ -38,7 +38,6 @@ export default function AttendeeDashboard() {
                 <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">
                     {t('title')}
                 </h1>
-                </h1>
             </div>
 
             <div className="space-y-12">
