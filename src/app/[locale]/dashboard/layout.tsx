@@ -73,18 +73,6 @@ export default function DashboardLayout({
           </button>
         </div>
 
-        {/* Search and Quick Actions */}
-        <div className={`px-2 mb-4 space-y-0.5 transition-opacity ${isSidebarOpen ? 'opacity-100' : 'opacity-0'}`}>
-          <button className="w-full flex items-center gap-2 px-2 py-1 hover:bg-[#E9E9E7] rounded-sm text-[14px] text-[#91918E]">
-            <Search size={16} />
-            <span>Search</span>
-          </button>
-          <button className="w-full flex items-center gap-2 px-2 py-1 hover:bg-[#E9E9E7] rounded-sm text-[14px] text-[#91918E]">
-            <Bell size={16} />
-            <span>Notifications</span>
-          </button>
-        </div>
-
         {/* Navigation */}
         <nav className={`flex-1 px-2 space-y-0.5 transition-opacity ${isSidebarOpen ? 'opacity-100' : 'opacity-0'}`}>
           {navItems.map((item) => (

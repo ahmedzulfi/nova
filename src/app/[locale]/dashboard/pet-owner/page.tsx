@@ -43,16 +43,7 @@ export default function PetOwnerDashboard() {
                 <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">
                     {t('title')}
                 </h1>
-                <div className="flex items-center gap-6 text-[14px] text-[#91918E] border-b border-[#E9E9E7] pb-6">
-                    <div className="flex items-center gap-2">
-                        <MessageSquare size={14} />
-                        <span>Add comment</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <Clock size={14} />
-                        <span>Last edited Nov 13, 2026</span>
-                    </div>
-                </div>
+                </h1>
             </div>
 
             <div className="space-y-12">

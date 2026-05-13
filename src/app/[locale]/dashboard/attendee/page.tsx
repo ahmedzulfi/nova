@@ -38,16 +38,7 @@ export default function AttendeeDashboard() {
                 <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">
                     {t('title')}
                 </h1>
-                <div className="flex items-center gap-6 text-[14px] text-[#91918E] border-b border-[#E9E9E7] pb-6">
-                    <div className="flex items-center gap-2">
-                        <MessageSquare size={14} />
-                        <span>Add comment</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <Clock size={14} />
-                        <span>Last updated Nov 13, 2026</span>
-                    </div>
-                </div>
+                </h1>
             </div>
 
             <div className="space-y-12">
@@ -99,41 +90,6 @@ export default function AttendeeDashboard() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        {/* Living Schedule Section */}
-                        <div className="space-y-6">
-                            <div className="flex items-center justify-between border-b border-[#E9E9E7] pb-2">
-                                <h3 className="text-[18px] font-semibold text-[#37352F]">{t('schedule_title')}</h3>
-                                <div className="flex items-center gap-2 px-2 py-1 bg-[#F1F1EF] rounded-sm text-[12px] font-medium">
-                                    <Calendar size={14} />
-                                    {t('day_badge', { num: 1 })}
-                                </div>
-                            </div>
-                            
-                            <div className="divide-y divide-[#E9E9E7]">
-                                {[
-                                    { time: "10:00 AM", event: "Festival Grand Opening", loc: "Main Gateway", emoji: "🎊" },
-                                    { time: "11:30 AM", event: "Dog Agility Prelims", loc: "Arena A", emoji: "🐕" },
-                                    { time: "01:00 PM", event: "Feline Grooming Expo", loc: "Cat Dome", emoji: "🐱" },
-                                    { time: "02:30 PM", event: "Pet Care Masterclass", loc: "Workshop Zone", emoji: "🎓" }
-                                ].map((item, idx) => (
-                                    <div key={idx} className="py-4 flex gap-6 hover:bg-[#F7F6F3] transition-colors px-2 rounded-sm cursor-pointer group">
-                                        <div className="w-20 text-[13px] font-medium text-[#91918E] pt-1">{item.time}</div>
-                                        <div className="flex-1">
-                                            <div className="flex items-center gap-2">
-                                                <span className="text-[16px]">{item.emoji}</span>
-                                                <p className="font-bold text-[15px] text-[#37352F]">{item.event}</p>
-                                            </div>
-                                            <p className="text-[13px] text-[#91918E] mt-1">{item.loc}</p>
-                                        </div>
-                                        <ChevronRight size={16} className="text-[#E9E9E7] group-hover:text-[#91918E] self-center" />
-                                    </div>
-                                ))}
-                            </div>
-                            <Button variant="ghost" className="w-full text-[#91918E] hover:text-[#37352F] text-[13px] h-10 border border-dashed border-[#E9E9E7] mt-4">
-                                {t('full_schedule')}
-                            </Button>
                         </div>
                     </div>
 
