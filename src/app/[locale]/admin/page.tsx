@@ -75,8 +75,8 @@ export default function AdminOverviewPage() {
         <div className="space-y-12 animate-in fade-in duration-700">
             {/* Notion Page Header */}
             <div className="mb-12">
-                <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">Command Center</h1>
-                <p className="text-[16px] text-[#91918E] max-w-2xl">Operational overview and real-time management of the Nova Paw Festival 2026.</p>
+                <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">Dashboard Overview</h1>
+                <p className="text-[16px] text-[#91918E] max-w-2xl">Manage registrations and festival operations.</p>
                 
                 <div className="flex items-center gap-2 mt-8">
                     <Button variant="outline" className="h-9 rounded-sm border-[#E9E9E7] bg-white text-[13px] font-semibold text-[#37352F] hover:bg-[#F7F6F3] transition-all active:scale-[0.98]">
@@ -105,7 +105,7 @@ export default function AdminOverviewPage() {
                     {/* Activity Feed */}
                     <div className="space-y-4">
                         <div className="flex items-center justify-between border-b border-[#E9E9E7] pb-2">
-                            <h2 className="font-bold text-[#37352F] text-[16px] uppercase tracking-wider">Real-time Stream</h2>
+                            <h2 className="font-bold text-[#37352F] text-[16px] uppercase tracking-wider">Recent Activity</h2>
                             <Button variant="ghost" className="text-[12px] font-bold text-[#91918E] hover:text-[#37352F] h-8 px-2">
                                 View Full Log
                             </Button>
@@ -148,7 +148,7 @@ export default function AdminOverviewPage() {
                     {/* Registration Trends Chart */}
                     <div className="space-y-4">
                         <div className="flex items-center justify-between border-b border-[#E9E9E7] pb-2">
-                            <h3 className="font-bold text-[#37352F] text-[12px] uppercase tracking-widest">Entry Velocity</h3>
+                            <h3 className="font-bold text-[#37352F] text-[12px] uppercase tracking-widest">Registration Trends</h3>
                             <Activity className="w-3.5 h-3.5 text-[#FACC15]" />
                         </div>
                         <div className="p-4 bg-white border border-[#E9E9E7] rounded-sm">
