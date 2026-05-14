@@ -11,7 +11,8 @@ import {
     Bell,
     CheckCircle2,
     Clock,
-    Shield
+    Shield,
+    Plus
 } from 'lucide-react';
 import {
     Card,
