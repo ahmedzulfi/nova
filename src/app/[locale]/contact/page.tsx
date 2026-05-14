@@ -63,7 +63,7 @@ export default function ContactPage() {
               </div>
 
               {/* Google Maps Embed */}
-              <div className="w-full aspect-video rounded-[2rem] overflow-hidden grayscale contrast-[1.1] border border-black/5 shadow-2xl shadow-black/5 hover:grayscale-0 transition-all duration-1000">
+              <div className="w-full aspect-video  rounded-sm  overflow-hidden grayscale contrast-[1.1] border border-black/5 shadow-2xl shadow-black/5 hover:grayscale-0 transition-all duration-1000">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d14421.7377561!2d51.5435!3d25.3725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45c4793f77df23%3A0xc669f379fa4d4bb!2sThe%20Pearl-Qatar!5e0!3m2!1sen!2sqa!4v1700000000000!5m2!1sen!2sqa"
                   width="100%"
@@ -97,7 +97,7 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-[#F5F5F0] p-10 md:p-16 rounded-[3rem] border border-black/5 sticky top-32 shadow-2xl shadow-black/5 animate-in fade-in slide-in-from-right-8 duration-1000">
+            <div className="bg-[#F5F5F0] p-10 md:p-16  rounded-sm  border border-black/5 sticky top-32 shadow-2xl shadow-black/5 animate-in fade-in slide-in-from-right-8 duration-1000">
               <div className="mb-12 text-center">
                 <h3 className="text-[36px] font-bold font-display mb-4 tracking-tighter">{t('form.title')}</h3>
                 <p className="text-black/40 font-medium">{t('form.desc')}</p>
@@ -123,7 +123,7 @@ export default function ContactPage() {
                 </div>
                 <div className="space-y-3">
                   <Label htmlFor="message" className="text-[11px] font-bold uppercase tracking-[0.2em] pl-4 rtl:pl-0 rtl:pr-4 block rtl:text-right">{t('form.label_message')}</Label>
-                  <Textarea id="message" placeholder={t('form.placeholder_message')} className="rounded-[2rem] border-black/5 bg-white min-h-[180px] p-8 focus:ring-4 focus:ring-primary/20 transition-all font-bold text-black rtl:text-right" />
+                  <Textarea id="message" placeholder={t('form.placeholder_message')} className=" rounded-sm  border-black/5 bg-white min-h-[180px] p-8 focus:ring-4 focus:ring-primary/20 transition-all font-bold text-black rtl:text-right" />
                 </div>
                 <Button className="w-full h-18 bg-black hover:bg-primary text-white font-bold rounded-full text-[16px] uppercase tracking-[0.2em] transition-all duration-500 active:scale-[0.98] mt-6 shadow-2xl shadow-black/10">
                   {t('form.cta')}
@@ -135,7 +135,7 @@ export default function ContactPage() {
       </section>
 
       <div className="container mx-auto px-6 max-w-[1280px] pb-32 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
-        <div className="bg-black rounded-[4rem] p-16 md:p-24 flex flex-col items-center text-center text-white relative overflow-hidden group shadow-2xl shadow-black/20">
+        <div className="bg-black  rounded-sm  p-16 md:p-24 flex flex-col items-center text-center text-white relative overflow-hidden group shadow-2xl shadow-black/20">
           <div className="relative z-10">
             <h2 className="text-[40px] md:text-[72px] font-bold font-display mb-8 leading-[0.9] tracking-tighter">{t('whatsapp.title')}</h2>
             <p className="text-white/40 text-[18px] md:text-[22px] mb-12 max-w-[700px] mx-auto font-medium leading-relaxed">

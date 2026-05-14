@@ -10,7 +10,7 @@ const EventCardSection = () => {
   return (
     <section className="relative w-full py-20 px-4 md:px-0 flex justify-center items-center">
       {/* Background Container with rounded corners */}
-      <div className="container relative overflow-hidden rounded-[32px] min-h-[600px] flex items-center">
+      <div className="container relative overflow-hidden  rounded-sm  min-h-[600px] flex items-center">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -24,7 +24,7 @@ const EventCardSection = () => {
 
         {/* Content Card Wrapper */}
         <div className="container relative z-10 px-6 md:px-12">
-          <div className="bg-white max-w-[480px] rounded-[24px] p-8 md:p-12 shadow-sm flex flex-col gap-6">
+          <div className="bg-white max-w-[480px]  rounded-sm  p-8 md:p-12 shadow-sm flex flex-col gap-6">
             {/* Category Badge */}
             <div>
               <span className="inline-block bg-[#E6E6E6] text-[#000000] px-4 py-1.5 rounded-full text-[12px] font-semibold uppercase tracking-wider font-body">

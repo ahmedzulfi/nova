@@ -31,13 +31,13 @@ const CompetitionsList = () => {
       <div className="container mx-auto px-6 max-w-[1280px]">
         <div className="space-y-24 md:space-y-40">
           {competitions.map((comp, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-16 lg:gap-32 items-center`}
             >
               {/* Image Side */}
               <div className="w-full lg:w-1/2">
-                <div className="relative aspect-[4/3] rounded-[3rem] overflow-hidden shadow-2xl group border-8 border-white">
+                <div className="relative aspect-[4/3]  rounded-sm  overflow-hidden shadow-2xl group border-8 border-white">
                   <Image
                     src={comp.image}
                     alt={t(`items.${comp.key}.title`)}
@@ -94,13 +94,13 @@ const CompetitionsList = () => {
                 </div>
 
                 <div className="pt-8 flex flex-col gap-8">
-                  <Link 
+                  <Link
                     href={isLoggedIn ? "/dashboard" : "/tickets"}
                     className="inline-flex items-center justify-center h-18 px-12 bg-black text-white rounded-full font-bold text-[14px] uppercase tracking-[0.3em] hover:bg-primary transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl shadow-black/10 w-fit"
                   >
                     {isLoggedIn ? tCTA('manage') : tCTA('primary')} <ArrowRight className="w-6 h-6 rtl:rotate-180" />
                   </Link>
-                  
+
                   <p className="text-[12px] font-bold text-black/20 uppercase tracking-[0.2em] italic flex items-center gap-3 rtl:flex-row-reverse rtl:justify-end">
                     <Star className="w-4 h-4 text-primary" /> {tCTA('warning')}
                   </p>

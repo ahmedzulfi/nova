@@ -6,7 +6,7 @@ const EventHighlight = () => {
   return (
     <section className="w-full py-20 px-4 md:px-10 bg-white">
       <div className="container mx-auto">
-        <div className="relative w-full rounded-[2rem] overflow-hidden min-h-[600px] flex items-center md:items-end">
+        <div className="relative w-full  rounded-sm  overflow-hidden min-h-[600px] flex items-center md:items-end">
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
             <Image
@@ -20,7 +20,7 @@ const EventHighlight = () => {
 
           {/* Floating Card Content Wrapper */}
           <div className="relative z-10 w-full max-w-full md:max-w-7xl mx-auto px-4 md:px-8 pb-8 md:pb-12">
-            <div className="bg-white rounded-[2rem] p-8 md:p-12 max-w-[500px] shadow-sm">
+            <div className="bg-white  rounded-sm  p-8 md:p-12 max-w-[500px] shadow-sm">
               <div className="mb-6">
                 <span className="inline-block bg-[#F3F3F3] text-[#111111] text-[12px] font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-6">
                   Festival Zones

@@ -77,7 +77,7 @@ const Testimonials = () => {
             {testimonials.map((person, index) => (
               <div
                 key={index}
-                className={`flex min-w-[150px] flex-col items-center justify-center rounded-[24px] p-6 transition-colors duration-300 md:w-[180px] ${person.isActive ? 'bg-primary' : 'bg-muted'
+                className={`flex min-w-[150px] flex-col items-center justify-center  rounded-sm  p-6 transition-colors duration-300 md:w-[180px] ${person.isActive ? 'bg-primary' : 'bg-muted'
                   }`}
               >
                 <div className="relative mb-4 h-20 w-20 overflow-hidden rounded-full border-2 border-white/20 shadow-sm md:h-24 md:w-24">

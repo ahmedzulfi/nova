@@ -87,7 +87,7 @@ export default function SchedulePage() {
                                 <button
                                     key={day}
                                     className={cn(
-                                        "w-full text-left p-3.5 rounded-lg font-bold text-[14px] transition-all border",
+                                        "w-full text-left p-3.5  rounded-sm  font-bold text-[14px] transition-all border",
                                         i === 0
                                             ? "bg-[#37352F] text-white border-[#37352F] shadow-lg shadow-black/10"
                                             : "hover:bg-[#F7F6F3] text-[#37352F]/60 border-transparent hover:border-[#E9E9E7]"
@@ -102,7 +102,7 @@ export default function SchedulePage() {
                     <div className="p-5 bg-[#F1F1EF]  rounded-sm  border border-[#E9E9E7]">
                         <h4 className="font-display font-bold text-[#37352F] text-[13px] mb-2">Venue Map</h4>
                         <p className="text-[12px] text-[#91918E] leading-relaxed mb-4">Quick access to stage technical requirements and arena layouts.</p>
-                        <Button variant="outline" className="w-full h-8 rounded-md border-[#E9E9E7] bg-white text-[11px] font-bold text-[#37352F]">
+                        <Button variant="outline" className="w-full h-8  rounded-sm  border-[#E9E9E7] bg-white text-[11px] font-bold text-[#37352F]">
                             Open Floor Plan
                         </Button>
                     </div>
@@ -128,7 +128,7 @@ export default function SchedulePage() {
                                 <div className="flex items-start justify-between gap-4">
                                     <div className="space-y-3">
                                         <div className="flex items-center gap-3">
-                                            <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-md bg-[#F1F1EF] text-[#37352F]/70 border border-[#E9E9E7]/50">
+                                            <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5  rounded-sm  bg-[#F1F1EF] text-[#37352F]/70 border border-[#E9E9E7]/50">
                                                 {item.type}
                                             </span>
                                             <span className={cn(
@@ -154,15 +154,15 @@ export default function SchedulePage() {
 
                                     <DropdownMenu>
                                         <DropdownMenuTrigger asChild>
-                                            <Button variant="ghost" size="icon" className="h-8 w-8 rounded-md hover:bg-[#F7F6F3] transition-all duration-100 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.90]">
+                                            <Button variant="ghost" size="icon" className="h-8 w-8  rounded-sm  hover:bg-[#F7F6F3] transition-all duration-100 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.90]">
                                                 <MoreHorizontal className="w-4.5 h-4.5 text-[#91918E]" />
                                             </Button>
                                         </DropdownMenuTrigger>
-                                        <DropdownMenuContent align="end" className="w-48 rounded-lg p-1.5 border-[#E9E9E7] shadow-xl bg-white">
-                                            <DropdownMenuItem className="rounded-md text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">Edit Activity</DropdownMenuItem>
-                                            <DropdownMenuItem className="rounded-md text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">Relocate Session</DropdownMenuItem>
+                                        <DropdownMenuContent align="end" className="w-48  rounded-sm  p-1.5 border-[#E9E9E7] shadow-xl bg-white">
+                                            <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">Edit Activity</DropdownMenuItem>
+                                            <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">Relocate Session</DropdownMenuItem>
                                             <DropdownMenuSeparator className="bg-[#F1F1EF] my-1" />
-                                            <DropdownMenuItem className="rounded-md text-[13px] font-medium py-2 cursor-pointer text-red-600 focus:bg-red-50 focus:text-red-600">Cancel Slot</DropdownMenuItem>
+                                            <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer text-red-600 focus:bg-red-50 focus:text-red-600">Cancel Slot</DropdownMenuItem>
                                         </DropdownMenuContent>
                                     </DropdownMenu>
                                 </div>

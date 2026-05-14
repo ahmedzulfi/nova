@@ -67,8 +67,8 @@ export default function SettingsPage() {
 
             <Tabs defaultValue="general" className="w-full">
                 <TabsList className="bg-transparent border-b border-[#F1F1EF] w-full justify-start h-auto p-0 rounded-none gap-8 mb-8">
-                    <TabsTrigger 
-                        value="general" 
+                    <TabsTrigger
+                        value="general"
                         className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#FACC15] data-[state=active]:bg-transparent data-[state=active]:shadow-none px-0 py-3 text-[14px] font-medium text-[#91918E] data-[state=active]:text-[#37352F] transition-all"
                     >
                         General
@@ -112,14 +112,14 @@ export default function SettingsPage() {
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="grid gap-2">
                                     <Label className="text-[13px] font-bold text-[#91918E] uppercase tracking-widest">Timezone</Label>
-                                    <div className="px-3 py-2 bg-[#F7F6F3] border border-[#E9E9E7] rounded-md text-[14px] text-[#37352F] flex items-center gap-2">
+                                    <div className="px-3 py-2 bg-[#F7F6F3] border border-[#E9E9E7]  rounded-sm  text-[14px] text-[#37352F] flex items-center gap-2">
                                         <Globe className="w-4 h-4 text-[#91918E]" />
                                         Asia/Qatar (GMT+3)
                                     </div>
                                 </div>
                                 <div className="grid gap-2">
                                     <Label className="text-[13px] font-bold text-[#91918E] uppercase tracking-widest">Currency</Label>
-                                    <div className="px-3 py-2 bg-[#F7F6F3] border border-[#E9E9E7] rounded-md text-[14px] text-[#37352F] flex items-center gap-2">
+                                    <div className="px-3 py-2 bg-[#F7F6F3] border border-[#E9E9E7]  rounded-sm  text-[14px] text-[#37352F] flex items-center gap-2">
                                         QAR (Qatari Riyal)
                                     </div>
                                 </div>
@@ -207,7 +207,7 @@ export default function SettingsPage() {
                                         </TableCell>
                                         <TableCell className="px-6 py-4">
                                             <span className={cn(
-                                                "text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-md",
+                                                "text-[10px] font-bold uppercase tracking-wider px-2 py-1  rounded-sm ",
                                                 member.status === 'Active' ? 'bg-green-50 text-green-600' : 'bg-yellow-50 text-yellow-600'
                                             )}>
                                                 {member.status}
@@ -230,7 +230,7 @@ export default function SettingsPage() {
                     {/* Stripe */}
                     <div className="bg-white border border-[#E9E9E7]  rounded-sm  p-6 flex items-center justify-between hover:border-[#37352F]/20 transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] hover:shadow-sm">
                         <div className="flex items-start gap-4">
-                            <div className="w-10 h-10 rounded-lg bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+                            <div className="w-10 h-10  rounded-sm  bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
                                 <CreditCard className="w-5 h-5" />
                             </div>
                             <div>
@@ -248,7 +248,7 @@ export default function SettingsPage() {
                     {/* Resend */}
                     <div className="bg-white border border-[#E9E9E7]  rounded-sm  p-6 flex items-center justify-between hover:border-[#37352F]/20 transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] hover:shadow-sm">
                         <div className="flex items-start gap-4">
-                            <div className="w-10 h-10 rounded-lg bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-900">
+                            <div className="w-10 h-10  rounded-sm  bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-900">
                                 <Mail className="w-5 h-5" />
                             </div>
                             <div>
@@ -266,7 +266,7 @@ export default function SettingsPage() {
                     {/* Turso */}
                     <div className="bg-white border border-[#E9E9E7]  rounded-sm  p-6 flex items-center justify-between hover:border-[#37352F]/20 transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] hover:shadow-sm">
                         <div className="flex items-start gap-4">
-                            <div className="w-10 h-10 rounded-lg bg-teal-50 border border-teal-100 flex items-center justify-center text-teal-600">
+                            <div className="w-10 h-10  rounded-sm  bg-teal-50 border border-teal-100 flex items-center justify-center text-teal-600">
                                 <Database className="w-5 h-5" />
                             </div>
                             <div>

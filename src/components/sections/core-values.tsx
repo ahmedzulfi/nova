@@ -20,7 +20,7 @@ const CoreValueCard = ({
 
   return (
     <div
-      className="flex flex-col flex-nowrap h-full justify-between items-stretch overflow-hidden p-[24px] relative rounded-[24px] bg-accent/10"
+      className="flex flex-col flex-nowrap h-full justify-between items-stretch overflow-hidden p-[24px] relative  rounded-sm  bg-accent/10"
       style={{
         boxShadow: "none",
         minHeight: "440px",
@@ -50,7 +50,7 @@ const CoreValueCard = ({
       )}
 
       {/* Image Section */}
-      <div className={`relative w-full overflow-hidden rounded-[16px] aspect-[1.33/1] ${isImageCenter ? "my-[24px]" : "mt-[24px]"}`}>
+      <div className={`relative w-full overflow-hidden  rounded-sm  aspect-[1.33/1] ${isImageCenter ? "my-[24px]" : "mt-[24px]"}`}>
         <Image
           src={imageUrl}
           alt={title}

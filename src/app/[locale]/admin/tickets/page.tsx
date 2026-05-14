@@ -54,8 +54,8 @@ export default function TicketsPage() {
                 <div className="flex items-center gap-2 flex-1 max-w-md">
                     <div className="relative flex-1 group">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#91918E] group-focus-within:text-[#37352F] transition-colors" />
-                        <Input 
-                            placeholder="Search by ID, buyer or type..." 
+                        <Input
+                            placeholder="Search by ID, buyer or type..."
                             className="pl-10 h-9 bg-[#F7F6F3] border-none rounded-sm text-[13px] focus-visible:ring-1 focus-visible:ring-[#E9E9E7] placeholder:text-[#91918E]"
                         />
                     </div>
@@ -93,7 +93,7 @@ export default function TicketsPage() {
                 <div className="px-6 py-4 border-b border-[#E9E9E7] bg-[#F7F6F3]/30">
                     <div className="relative max-w-md">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#91918E]" />
-                        <Input placeholder="Search ledger by ID or Buyer..." className="pl-10 h-9 bg-white border-[#E9E9E7] rounded-lg text-[13px]" />
+                        <Input placeholder="Search ledger by ID or Buyer..." className="pl-10 h-9 bg-white border-[#E9E9E7]  rounded-sm  text-[13px]" />
                     </div>
                 </div>
                 <Table>
@@ -114,7 +114,7 @@ export default function TicketsPage() {
                                 <TableCell className="px-6 py-5 font-bold text-[#37352F] text-[13px]">{ticket.id}</TableCell>
                                 <TableCell className="px-6 py-5 font-bold text-[#37352F] text-[14px]">{ticket.buyer}</TableCell>
                                 <TableCell className="px-6 py-5">
-                                    <span className="text-[12px] font-bold text-[#37352F] bg-[#F1F1EF] px-2 py-1 rounded-md border border-[#E9E9E7]/50">
+                                    <span className="text-[12px] font-bold text-[#37352F] bg-[#F1F1EF] px-2 py-1  rounded-sm  border border-[#E9E9E7]/50">
                                         {ticket.type}
                                     </span>
                                 </TableCell>
@@ -122,7 +122,7 @@ export default function TicketsPage() {
                                 <TableCell className="px-6 py-5 font-bold text-[#37352F] text-[13px]">{ticket.price}</TableCell>
                                 <TableCell className="px-6 py-5">
                                     <span className={cn(
-                                        "text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border",
+                                        "text-[10px] font-bold uppercase tracking-wider px-2.5 py-1  rounded-sm  border",
                                         ticket.status === 'Active' ? 'bg-green-50 text-green-600 border-green-100/50' :
                                             ticket.status === 'Used' ? 'bg-[#F1F1EF] text-[#91918E] border-[#E9E9E7]/50' : 'bg-red-50 text-red-600 border-red-100/50'
                                     )}>
@@ -132,15 +132,15 @@ export default function TicketsPage() {
                                 <TableCell className="px-6 py-5">
                                     <DropdownMenu>
                                         <DropdownMenuTrigger asChild>
-                                            <Button variant="ghost" size="icon" className="h-8 w-8 rounded-md hover:bg-[#EBEBE9] transition-all duration-100 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.90]">
+                                            <Button variant="ghost" size="icon" className="h-8 w-8  rounded-sm  hover:bg-[#EBEBE9] transition-all duration-100 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.90]">
                                                 <MoreHorizontal className="w-4.5 h-4.5 text-[#91918E]" />
                                             </Button>
                                         </DropdownMenuTrigger>
-                                        <DropdownMenuContent align="end" className="w-48 rounded-lg p-1.5 border-[#E9E9E7] shadow-xl bg-white">
-                                            <DropdownMenuItem className="rounded-md text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">View Ticket</DropdownMenuItem>
-                                            <DropdownMenuItem className="rounded-md text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">Resend Confirmation</DropdownMenuItem>
+                                        <DropdownMenuContent align="end" className="w-48  rounded-sm  p-1.5 border-[#E9E9E7] shadow-xl bg-white">
+                                            <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">View Ticket</DropdownMenuItem>
+                                            <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">Resend Confirmation</DropdownMenuItem>
                                             <DropdownMenuSeparator className="bg-[#F1F1EF] my-1" />
-                                            <DropdownMenuItem className="rounded-md text-[13px] font-medium py-2 cursor-pointer text-red-600 focus:bg-red-50 focus:text-red-600">Refund Sale</DropdownMenuItem>
+                                            <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer text-red-600 focus:bg-red-50 focus:text-red-600">Refund Sale</DropdownMenuItem>
                                         </DropdownMenuContent>
                                     </DropdownMenu>
                                 </TableCell>

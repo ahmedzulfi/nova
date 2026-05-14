@@ -27,7 +27,7 @@ export default function PassionVideo() {
         </div>
 
         {/* Video Player Section */}
-        <div className="relative w-full aspect-video rounded-[24px] overflow-hidden group">
+        <div className="relative w-full aspect-video  rounded-sm  overflow-hidden group">
           {/* Video element - Using Pexels asset from provided list */}
           <video
             className="w-full h-full object-cover"
@@ -55,7 +55,7 @@ export default function PassionVideo() {
         {/* Benefit Cards Wrapper (as shown in HTML structure and screenshots following the video) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 lg:mt-24">
           {/* Card 01 */}
-          <div className="bg-accent/10 rounded-[24px] p-6 lg:p-8 flex flex-col justify-between min-h-[400px]">
+          <div className="bg-accent/10  rounded-sm  p-6 lg:p-8 flex flex-col justify-between min-h-[400px]">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <h5 className="text-[24px] font-semibold text-black opacity-40">01</h5>
@@ -65,7 +65,7 @@ export default function PassionVideo() {
                 Our carefully curated routes let you explore breathtaking, stunning natural landscapes.
               </p>
             </div>
-            <div className="mt-8 rounded-[16px] overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 relative h-[180px]">
+            <div className="mt-8  rounded-sm  overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 relative h-[180px]">
               <Image
                 src="https://framerusercontent.com/images/rkAuWOc2uqbczacSJeKfT5o9b0.jpg?scale-down-to=512"
                 alt="Scenic Routes"
@@ -77,7 +77,7 @@ export default function PassionVideo() {
           </div>
 
           {/* Card 02 */}
-          <div className="bg-accent/10 rounded-[24px] p-6 lg:p-8 flex flex-col justify-between min-h-[400px]">
+          <div className="bg-accent/10  rounded-sm  p-6 lg:p-8 flex flex-col justify-between min-h-[400px]">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <h5 className="text-[24px] font-semibold text-black opacity-40">02</h5>
@@ -87,7 +87,7 @@ export default function PassionVideo() {
                 Join a cycling community, share your passion, explore new routes, and make friends.
               </p>
             </div>
-            <div className="mt-8 rounded-[16px] overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 relative h-[180px]">
+            <div className="mt-8  rounded-sm  overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 relative h-[180px]">
               <Image
                 src="https://framerusercontent.com/images/ERWMHvvPvKlBgf6GVzBtjyrr4.jpg"
                 alt="Strong Community"
@@ -99,7 +99,7 @@ export default function PassionVideo() {
           </div>
 
           {/* Card 03 */}
-          <div className="bg-accent/10 rounded-[24px] p-6 lg:p-8 flex flex-col justify-between min-h-[400px]">
+          <div className="bg-accent/10  rounded-sm  p-6 lg:p-8 flex flex-col justify-between min-h-[400px]">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <h5 className="text-[24px] font-semibold text-black opacity-40">03</h5>
@@ -109,7 +109,7 @@ export default function PassionVideo() {
                 Our dedicated team of expert cyclists and planners ensures your safety and enjoyment.
               </p>
             </div>
-            <div className="mt-8 rounded-[16px] overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 relative h-[180px]">
+            <div className="mt-8  rounded-sm  overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 relative h-[180px]">
               <Image
                 src="https://framerusercontent.com/images/ENhmY5gWUIMHaAAWD65wT5X420Y.jpg"
                 alt="Organization"
@@ -121,7 +121,7 @@ export default function PassionVideo() {
           </div>
 
           {/* Card 04 */}
-          <div className="bg-accent/10 rounded-[24px] p-6 lg:p-8 flex flex-col justify-between min-h-[400px]">
+          <div className="bg-accent/10  rounded-sm  p-6 lg:p-8 flex flex-col justify-between min-h-[400px]">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <h5 className="text-[24px] font-semibold text-black opacity-40">04</h5>
@@ -131,7 +131,7 @@ export default function PassionVideo() {
                 Our experienced staff are dedicated to ensuring your experience is safe and enjoyable.
               </p>
             </div>
-            <div className="mt-8 rounded-[16px] overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 relative h-[180px]">
+            <div className="mt-8  rounded-sm  overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 relative h-[180px]">
               <Image
                 src="https://framerusercontent.com/images/qLTk8vC88vXmeSSHkWZFyf0Q3M0.jpg"
                 alt="Expert Guidance"

@@ -31,7 +31,7 @@ function RegistrationContent() {
   useEffect(() => {
     const eventParam = searchParams.get('event');
     if (eventParam) {
-      const eventMap: Record<string, {id: CompetitionType, key: string}> = {
+      const eventMap: Record<string, { id: CompetitionType, key: string }> = {
         'dog-grooming': { id: 'dog-grooming', key: 'grooming' },
         'grooming-competition': { id: 'dog-grooming', key: 'grooming' },
         'dog-fashion-show': { id: 'dog-fashion-show', key: 'fashion' },
@@ -137,7 +137,7 @@ function RegistrationContent() {
           </div>
         </div>
 
-        <div className="bg-[#F5F5F0] rounded-[2.5rem] p-10 text-center space-y-8 border border-black/5">
+        <div className="bg-[#F5F5F0]  rounded-sm  p-10 text-center space-y-8 border border-black/5">
           <ShieldCheck className="w-14 h-14 mx-auto text-primary" />
           <p className="text-[12px] font-bold uppercase tracking-[0.3em] text-black/40">{t('owner.verification.title')}</p>
           <div className="flex justify-center gap-4 rtl:flex-row-reverse">
@@ -225,7 +225,7 @@ function RegistrationContent() {
                 <SelectTrigger className="w-full h-16 bg-[#F5F5F0] border-black/5 rounded-full px-8 font-bold text-[15px] rtl:flex-row-reverse">
                   <SelectValue placeholder={t('specifics.grooming.placeholder_cat')} />
                 </SelectTrigger>
-                <SelectContent className="rounded-[1.5rem] border-black/5 p-2">
+                <SelectContent className=" rounded-sm  border-black/5 p-2">
                   <SelectItem value="dog-figure" className="rounded-full py-3">{t('specifics.grooming.cat_figure')}</SelectItem>
                   <SelectItem value="real-dog" className="rounded-full py-3">{t('specifics.grooming.cat_real')}</SelectItem>
                 </SelectContent>
@@ -250,7 +250,7 @@ function RegistrationContent() {
               value={formData.outfitDescription}
               onChange={(e) => setFormData({ ...formData, outfitDescription: e.target.value })}
               placeholder={t('specifics.fashion.placeholder_theme')}
-              className="w-full bg-[#F5F5F0] border-black/5 rounded-[2rem] min-h-[180px] font-bold text-[15px] p-8 focus:border-black focus:bg-white transition-all rtl:text-right"
+              className="w-full bg-[#F5F5F0] border-black/5  rounded-sm  min-h-[180px] font-bold text-[15px] p-8 focus:border-black focus:bg-white transition-all rtl:text-right"
             />
           </div>
         )}
@@ -272,14 +272,14 @@ function RegistrationContent() {
                 value={formData.drawingMaterials}
                 onChange={(e) => setFormData({ ...formData, drawingMaterials: e.target.value })}
                 placeholder={t('specifics.drawing.placeholder_materials')}
-                className="w-full bg-[#F5F5F0] border-black/5 rounded-[2rem] min-h-[150px] font-bold text-[15px] p-8 focus:border-black focus:bg-white transition-all rtl:text-right"
+                className="w-full bg-[#F5F5F0] border-black/5  rounded-sm  min-h-[150px] font-bold text-[15px] p-8 focus:border-black focus:bg-white transition-all rtl:text-right"
               />
             </div>
           </div>
         )}
 
         {selectedEventId.includes('best-') && (
-          <div className="bg-[#F5F5F0] p-12 rounded-[2.5rem] text-center border border-black/5">
+          <div className="bg-[#F5F5F0] p-12  rounded-sm  text-center border border-black/5">
             <Info className="w-12 h-12 mx-auto text-primary mb-6" />
             <p className="text-[18px] font-bold text-black tracking-tight">{t('specifics.none.title')}</p>
             <p className="text-[12px] text-black/30 uppercase tracking-[0.3em] mt-4">{t('specifics.none.desc')}</p>
@@ -305,7 +305,7 @@ function RegistrationContent() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="space-y-4">
             <Label className="text-[11px] font-bold uppercase tracking-[0.2em] text-black/30 block rtl:text-right">{t('health.passport')}</Label>
-            <div className="h-60 border-2 border-dashed border-black/10 rounded-[2rem] bg-[#F5F5F0] flex flex-col items-center justify-center text-black/20 hover:border-primary hover:text-primary transition-all cursor-pointer group">
+            <div className="h-60 border-2 border-dashed border-black/10  rounded-sm  bg-[#F5F5F0] flex flex-col items-center justify-center text-black/20 hover:border-primary hover:text-primary transition-all cursor-pointer group">
               <Upload className="w-10 h-10 mb-4 group-hover:scale-110 transition-transform" />
               <span className="text-[12px] font-bold uppercase tracking-[0.3em]">{t('health.cta_passport')}</span>
               <p className="text-[10px] mt-3 opacity-50 uppercase tracking-widest">{t('health.hint')}</p>
@@ -313,7 +313,7 @@ function RegistrationContent() {
           </div>
           <div className="space-y-4">
             <Label className="text-[11px] font-bold uppercase tracking-[0.2em] text-black/30 block rtl:text-right">{t('health.vaccination')}</Label>
-            <div className="h-60 border-2 border-dashed border-black/10 rounded-[2rem] bg-[#F5F5F0] flex flex-col items-center justify-center text-black/20 hover:border-primary hover:text-primary transition-all cursor-pointer group">
+            <div className="h-60 border-2 border-dashed border-black/10  rounded-sm  bg-[#F5F5F0] flex flex-col items-center justify-center text-black/20 hover:border-primary hover:text-primary transition-all cursor-pointer group">
               <Upload className="w-10 h-10 mb-4 group-hover:scale-110 transition-transform" />
               <span className="text-[12px] font-bold uppercase tracking-[0.3em]">{t('health.cta_vaccination')}</span>
               <p className="text-[10px] mt-3 opacity-50 uppercase tracking-widest">{t('health.hint')}</p>
@@ -342,9 +342,8 @@ function RegistrationContent() {
             <div
               key={i}
               onClick={() => setCheckedTerms(prev => ({ ...prev, [i]: !prev[i] }))}
-              className={`flex items-start gap-5 p-8 rounded-[1.5rem] border cursor-pointer transition-all ${
-                checkedTerms[i] ? 'bg-primary/5 border-primary/20' : 'bg-[#F5F5F0] border-black/5 hover:border-black/20'
-              } rtl:flex-row-reverse`}
+              className={`flex items-start gap-5 p-8  rounded-sm  border cursor-pointer transition-all ${checkedTerms[i] ? 'bg-primary/5 border-primary/20' : 'bg-[#F5F5F0] border-black/5 hover:border-black/20'
+                } rtl:flex-row-reverse`}
             >
               <Checkbox checked={!!checkedTerms[i]} className="mt-1 w-6 h-6 rounded-sm border-black/10" />
               <Label className="text-[15px] font-bold leading-relaxed text-black/60 cursor-pointer flex-1 rtl:text-right">
@@ -372,9 +371,8 @@ function RegistrationContent() {
               }
               setStep(7);
             }}
-            className={`md:col-span-3 rounded-full py-6 text-[14px] font-bold uppercase tracking-[0.2em] transition-all shadow-2xl ${
-              allChecked ? 'bg-black text-white hover:bg-primary shadow-black/10' : 'bg-black/10 text-black/20 cursor-not-allowed shadow-none'
-            }`}
+            className={`md:col-span-3 rounded-full py-6 text-[14px] font-bold uppercase tracking-[0.2em] transition-all shadow-2xl ${allChecked ? 'bg-black text-white hover:bg-primary shadow-black/10' : 'bg-black/10 text-black/20 cursor-not-allowed shadow-none'
+              }`}
           >
             {t('safety.cta')}
           </button>
@@ -425,14 +423,12 @@ const Shell = ({ children, step, selectedEventName, stepLabels, t }: { children:
             return (
               <React.Fragment key={num}>
                 <div className="flex flex-col items-center gap-3">
-                  <div className={`w-10 h-10 rounded-full text-[12px] font-bold flex items-center justify-center transition-all duration-700 shadow-sm ${
-                    isDone ? 'bg-primary text-white scale-90' : isActive ? 'bg-black text-white scale-110 shadow-2xl' : 'bg-black/5 text-black/20'
-                  }`}>
+                  <div className={`w-10 h-10 rounded-full text-[12px] font-bold flex items-center justify-center transition-all duration-700 shadow-sm ${isDone ? 'bg-primary text-white scale-90' : isActive ? 'bg-black text-white scale-110 shadow-2xl' : 'bg-black/5 text-black/20'
+                    }`}>
                     {isDone ? '✓' : num}
                   </div>
-                  <span className={`text-[10px] font-bold uppercase tracking-[0.2em] hidden md:block transition-all duration-500 ${
-                    isActive ? 'text-black opacity-100 scale-105' : 'text-black/20 opacity-40'
-                  }`}>
+                  <span className={`text-[10px] font-bold uppercase tracking-[0.2em] hidden md:block transition-all duration-500 ${isActive ? 'text-black opacity-100 scale-105' : 'text-black/20 opacity-40'
+                    }`}>
                     {label}
                   </span>
                 </div>
@@ -447,7 +443,7 @@ const Shell = ({ children, step, selectedEventName, stepLabels, t }: { children:
         </div>
 
         {/* Card */}
-        <div className="bg-white rounded-[4rem] border border-black/5 shadow-2xl shadow-black/5 overflow-hidden animate-in fade-in zoom-in-95 duration-1000">
+        <div className="bg-white  rounded-sm  border border-black/5 shadow-2xl shadow-black/5 overflow-hidden animate-in fade-in zoom-in-95 duration-1000">
           <div className="border-b border-black/5 px-12 pt-16 pb-12 bg-white relative overflow-hidden">
             <div className="relative z-10">
               <p className="text-[11px] font-bold uppercase tracking-[0.4em] text-black/20 mb-4 block rtl:text-right">

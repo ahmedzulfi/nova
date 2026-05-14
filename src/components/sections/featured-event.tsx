@@ -15,7 +15,7 @@ export default function FeaturedEvent() {
     <section className="relative w-full py-[120px] px-5 lg:px-10 bg-white">
       <div className="container mx-auto">
         {/* Main Background Container */}
-        <div className="relative w-full h-[600px] lg:h-[800px] overflow-hidden rounded-[24px] lg:rounded-[40px]">
+        <div className="relative w-full h-[600px] lg:h-[800px] overflow-hidden  rounded-sm  lg:rounded-[40px]">
           {/* Background Image */}
           <div className="absolute inset-0 w-full h-full">
             <Image
@@ -33,7 +33,7 @@ export default function FeaturedEvent() {
 
           {/* Content Card Overlay */}
           <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-10 lg:left-16 w-full max-w-[calc(100%-32px)] md:max-w-[480px]">
-            <div className="bg-white p-8 md:p-12 rounded-[24px] lg:rounded-[32px] shadow-sm flex flex-col gap-6">
+            <div className="bg-white p-8 md:p-12  rounded-sm  lg: rounded-sm  shadow-sm flex flex-col gap-6">
 
               {/* Badge */}
               <div className="inline-flex self-start">

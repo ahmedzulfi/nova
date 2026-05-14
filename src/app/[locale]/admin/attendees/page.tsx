@@ -53,8 +53,8 @@ export default function AttendeesPage() {
                 <div className="flex items-center gap-2 flex-1 max-w-md">
                     <div className="relative flex-1 group">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#91918E] group-focus-within:text-[#37352F] transition-colors" />
-                        <Input 
-                            placeholder="Search by name, email or location..." 
+                        <Input
+                            placeholder="Search by name, email or location..."
                             className="pl-10 h-9 bg-[#F7F6F3] border-none rounded-sm text-[13px] focus-visible:ring-1 focus-visible:ring-[#E9E9E7] placeholder:text-[#91918E]"
                         />
                     </div>
@@ -88,7 +88,7 @@ export default function AttendeesPage() {
                             <TableRow key={person.id} className="hover:bg-[#F7F6F3]/30 border-b border-[#F1F1EF] last:border-0 transition-colors duration-100 [transition-timing-function:var(--ease-emil-out)]">
                                 <TableCell className="px-6 py-5">
                                     <div className="flex items-center gap-3">
-                                        <Avatar className="w-9 h-9 border border-[#E9E9E7] rounded-lg">
+                                        <Avatar className="w-9 h-9 border border-[#E9E9E7]  rounded-sm ">
                                             <AvatarFallback className="bg-[#FACC15]/20 text-[#854d0e] font-bold text-xs">{person.name.charAt(0)}</AvatarFallback>
                                         </Avatar>
                                         <div className="flex flex-col">
@@ -126,15 +126,15 @@ export default function AttendeesPage() {
                                 <TableCell className="px-6 py-5">
                                     <DropdownMenu>
                                         <DropdownMenuTrigger asChild>
-                                            <Button variant="ghost" size="icon" className="h-8 w-8 rounded-md hover:bg-[#EBEBE9] transition-all duration-100 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.90]">
+                                            <Button variant="ghost" size="icon" className="h-8 w-8  rounded-sm  hover:bg-[#EBEBE9] transition-all duration-100 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.90]">
                                                 <MoreHorizontal className="w-4.5 h-4.5 text-[#91918E]" />
                                             </Button>
                                         </DropdownMenuTrigger>
-                                        <DropdownMenuContent align="end" className="w-48 rounded-lg p-1.5 border-[#E9E9E7] shadow-xl bg-white">
-                                            <DropdownMenuItem className="rounded-md text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">View Dossier</DropdownMenuItem>
-                                            <DropdownMenuItem className="rounded-md text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">Transaction History</DropdownMenuItem>
+                                        <DropdownMenuContent align="end" className="w-48  rounded-sm  p-1.5 border-[#E9E9E7] shadow-xl bg-white">
+                                            <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">View Dossier</DropdownMenuItem>
+                                            <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">Transaction History</DropdownMenuItem>
                                             <DropdownMenuSeparator className="bg-[#F1F1EF] my-1" />
-                                            <DropdownMenuItem className="rounded-md text-[13px] font-medium py-2 cursor-pointer text-red-600 focus:bg-red-50 focus:text-red-600">Suspend Account</DropdownMenuItem>
+                                            <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer text-red-600 focus:bg-red-50 focus:text-red-600">Suspend Account</DropdownMenuItem>
                                         </DropdownMenuContent>
                                     </DropdownMenu>
                                 </TableCell>

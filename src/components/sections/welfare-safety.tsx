@@ -57,7 +57,7 @@ export default function WelfareSafety() {
                         {welfarePoints.map((point, index) => (
                             <div
                                 key={index}
-                                className="bg-white p-8 rounded-[32px] border border-border hover:border-primary/20 transition-all duration-300 group shadow-sm"
+                                className="bg-white p-8  rounded-sm  border border-border hover:border-primary/20 transition-all duration-300 group shadow-sm"
                             >
                                 <div className="w-16 h-16    rounded-sm  bg-primary/5 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                                     {point.icon}

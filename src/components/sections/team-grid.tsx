@@ -56,7 +56,7 @@ const teamMembers: TeamMember[] = [
 const TeamCard = ({ member, t }: { member: TeamMember, t: any }) => {
   return (
     <div className="flex flex-col gap-6 group">
-      <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[2.5rem] bg-[#F5F5F0] border border-black/5">
+      <div className="relative aspect-[3/4] w-full overflow-hidden  rounded-sm  bg-[#F5F5F0] border border-black/5">
         <Image
           src={member.image}
           alt={t(`members.${member.key}.name`)}
@@ -64,7 +64,7 @@ const TeamCard = ({ member, t }: { member: TeamMember, t: any }) => {
           className="object-cover transition-transform duration-1000 group-hover:scale-110"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-        
+
         {/* Subtle Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
       </div>

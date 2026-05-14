@@ -13,7 +13,7 @@ const HeroBanner: React.FC = () => {
       {/* Premium Decorative Elements */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -mr-40 -mt-40 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px] -ml-40 -mb-40 pointer-events-none" />
-      
+
       <div className="container relative z-10 px-6 mx-auto">
         <div className="flex flex-col items-center justify-center text-center max-w-[1000px] mx-auto">
           {/* Badge */}
@@ -34,7 +34,7 @@ const HeroBanner: React.FC = () => {
           {/* CTA Button */}
           <Link
             href="/registration"
-            className="group flex items-center justify-center px-12 py-6 bg-black hover:bg-black/90 rounded-2xl transition-all duration-300 animate-in fade-in slide-in-from-bottom-12 duration-700 delay-300 shadow-2xl hover:scale-105 active:scale-95"
+            className="group flex items-center justify-center px-12 py-6 bg-black hover:bg-black/90  rounded-sm  transition-all duration-300 animate-in fade-in slide-in-from-bottom-12 duration-700 delay-300 shadow-2xl hover:scale-105 active:scale-95"
           >
             <span className="text-[18px] font-bold text-white mr-4 rtl:mr-0 rtl:ml-4">
               Register Your Pet

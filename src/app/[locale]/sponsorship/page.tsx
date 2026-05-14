@@ -32,7 +32,7 @@ const SponsorTier = ({ title, sponsors, cardHeight, gridCols, t }: { title: stri
       {sponsors.map((sponsor, idx) => (
         <div
           key={idx}
-          className={`relative flex items-center justify-center w-full p-4 md:p-8 bg-[#F5F5F0] rounded-[3rem] border border-black/5 hover:border-primary/20 transition-all duration-700 group ${cardHeight}`}
+          className={`relative flex items-center justify-center w-full p-4 md:p-8 bg-[#F5F5F0]  rounded-sm  border border-black/5 hover:border-primary/20 transition-all duration-700 group ${cardHeight}`}
         >
           <Image
             src={sponsor.logo}

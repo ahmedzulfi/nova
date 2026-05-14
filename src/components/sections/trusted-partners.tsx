@@ -14,7 +14,7 @@ const TrustedPartners = () => {
   return (
     <section className="bg-white py-[60px] lg:py-[120px]">
       <div className="container mx-auto px-5 lg:px-10">
-        <div className="flex flex-col lg:flex-row border border-[#E5E5E5] rounded-[24px] overflow-hidden">
+        <div className="flex flex-col lg:flex-row border border-[#E5E5E5]  rounded-sm  overflow-hidden">
           {/* Left Content Area */}
           <div className="w-full lg:w-[45%] p-8 lg:p-12 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[#E5E5E5]">
             <div>

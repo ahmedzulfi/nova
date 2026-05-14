@@ -41,8 +41,8 @@ export default function EventGallery() {
   ];
 
   return (
-    <section 
-      id="gallery" 
+    <section
+      id="gallery"
       className="bg-white py-[120px] md:py-[120px]"
       style={{ isolation: 'isolate' }}
     >
@@ -57,7 +57,7 @@ export default function EventGallery() {
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[200px]">
           {/* Item 1 - Left Column Tall */}
-          <div className="relative overflow-hidden rounded-[24px] md:row-span-3 group bg-[#f2f2f2]">
+          <div className="relative overflow-hidden  rounded-sm  md:row-span-3 group bg-[#f2f2f2]">
             <Image
               src={images[0].src}
               alt={images[0].alt}
@@ -68,7 +68,7 @@ export default function EventGallery() {
           </div>
 
           {/* Item 2 - Middle Column Extra Tall */}
-          <div className="relative overflow-hidden rounded-[24px] md:row-span-4 group bg-[#f2f2f2]">
+          <div className="relative overflow-hidden  rounded-sm  md:row-span-4 group bg-[#f2f2f2]">
             <Image
               src={images[1].src}
               alt={images[1].alt}
@@ -79,7 +79,7 @@ export default function EventGallery() {
           </div>
 
           {/* Item 3 - Right Column Top Small */}
-          <div className="relative overflow-hidden rounded-[24px] md:row-span-2 group bg-[#f2f2f2]">
+          <div className="relative overflow-hidden  rounded-sm  md:row-span-2 group bg-[#f2f2f2]">
             <Image
               src={images[2].src}
               alt={images[2].alt}
@@ -90,7 +90,7 @@ export default function EventGallery() {
           </div>
 
           {/* Item 4 - Bottom Left/Right Column */}
-          <div className="relative overflow-hidden rounded-[24px] md:row-span-3 group bg-[#f2f2f2]">
+          <div className="relative overflow-hidden  rounded-sm  md:row-span-3 group bg-[#f2f2f2]">
             <Image
               src={images[3].src}
               alt={images[3].alt}

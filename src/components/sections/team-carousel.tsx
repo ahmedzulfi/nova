@@ -96,7 +96,7 @@ export default function TeamCarousel() {
                 key={index}
                 className="flex-shrink-0 w-[300px] md:w-[400px] snap-start group"
               >
-                <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden mb-6 bg-[#F3F3F3]">
+                <div className="relative aspect-[3/4]  rounded-sm  overflow-hidden mb-6 bg-[#F3F3F3]">
                   <Image
                     src={member.image}
                     alt={member.name}

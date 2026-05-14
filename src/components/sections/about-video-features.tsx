@@ -69,7 +69,7 @@ export default function AboutVideoFeatures() {
         </div>
 
         {/* Video Section */}
-        <div className="relative w-full aspect-video rounded-[32px] overflow-hidden bg-muted group mb-24 lg:mb-32">
+        <div className="relative w-full aspect-video  rounded-sm  overflow-hidden bg-muted group mb-24 lg:mb-32">
           {(!isPlaying || !videoSrc) && (
             <div className="absolute inset-0 z-10">
               <Image
@@ -111,7 +111,7 @@ export default function AboutVideoFeatures() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-muted rounded-[32px] p-8 flex flex-col h-full min-h-[400px] md:min-h-[480px] justify-between border border-transparent hover:border-primary/20 transition-all duration-300"
+              className="bg-muted  rounded-sm  p-8 flex flex-col h-full min-h-[400px] md:min-h-[480px] justify-between border border-transparent hover:border-primary/20 transition-all duration-300"
             >
               {feature.variant === "default" ? (
                 <>

@@ -46,10 +46,10 @@ const Advantages = () => {
                 Festival Highlights
               </span>
             </div>
-            
+
             {/* Thumbnail Image for 01 Scenic Routes */}
             <div className="hidden md:block w-full max-w-[220px]">
-              <div className="relative aspect-[3/2] overflow-hidden rounded-[24px]">
+              <div className="relative aspect-[3/2] overflow-hidden  rounded-sm ">
                 <Image
                   src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=2069&auto=format&fit=crop"
                   alt="Pet Show"
@@ -68,8 +68,8 @@ const Advantages = () => {
 
             <div className="flex flex-col">
               {advantagesData.map((item, index) => (
-                <div 
-                  key={item.id} 
+                <div
+                  key={item.id}
                   className={`py-8 ${index !== 0 ? 'border-t border-[#E6E6E6]' : ''}`}
                 >
                   <div className="flex items-start gap-6 group cursor-pointer">
@@ -88,11 +88,11 @@ const Advantages = () => {
                       )}
                     </div>
                   </div>
-                  
+
                   {/* Mobile Mobile Thumbnail for Scenic Routes if active */}
                   {index === 0 && (
                     <div className="md:hidden mt-6 w-full max-w-[280px]">
-                      <div className="relative aspect-[3/2] overflow-hidden rounded-[24px]">
+                      <div className="relative aspect-[3/2] overflow-hidden  rounded-sm ">
                         <Image
                           src={item.image!}
                           alt={item.title}

@@ -63,7 +63,7 @@ const ProfilesSection: React.FC = () => {
           {/* Surrounding Images - Positioned relative to the container based on desktop layout */}
           <div className="hidden lg:block">
             {/* Top Left Image */}
-            <div className="absolute -left-10 top-20 w-[180px] h-[180px] rounded-[32px] overflow-hidden shadow-sm">
+            <div className="absolute -left-10 top-20 w-[180px] h-[180px]  rounded-sm  overflow-hidden shadow-sm">
               <img
                 src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2043&auto=format&fit=crop"
                 alt="Cat Show"
@@ -72,7 +72,7 @@ const ProfilesSection: React.FC = () => {
             </div>
 
             {/* Top Right Image */}
-            <div className="absolute -right-10 top-40 w-[180px] h-[220px] rounded-[32px] overflow-hidden shadow-sm">
+            <div className="absolute -right-10 top-40 w-[180px] h-[220px]  rounded-sm  overflow-hidden shadow-sm">
               <img
                 src="https://images.unsplash.com/photo-1573865662567-57ef7b73392a?q=80&w=1915&auto=format&fit=crop"
                 alt="Elegant Cat"
@@ -81,7 +81,7 @@ const ProfilesSection: React.FC = () => {
             </div>
 
             {/* Bottom Left Image */}
-            <div className="absolute -left-4 bottom-10 w-[180px] h-[200px] rounded-[32px] overflow-hidden shadow-sm">
+            <div className="absolute -left-4 bottom-10 w-[180px] h-[200px]  rounded-sm  overflow-hidden shadow-sm">
               <img
                 src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?q=80&w=1935&auto=format&fit=crop"
                 alt="Cat Fashion"
@@ -90,7 +90,7 @@ const ProfilesSection: React.FC = () => {
             </div>
 
             {/* Bottom Right Image */}
-            <div className="absolute -right-4 bottom-20 w-[180px] h-[160px] rounded-[32px] overflow-hidden shadow-sm">
+            <div className="absolute -right-4 bottom-20 w-[180px] h-[160px]  rounded-sm  overflow-hidden shadow-sm">
               <img
                 src="https://images.unsplash.com/photo-1513245543132-31f507417b26?q=80&w=1935&auto=format&fit=crop"
                 alt="Cat Play"
@@ -104,12 +104,12 @@ const ProfilesSection: React.FC = () => {
             <img
               src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2043&auto=format&fit=crop"
               alt="Cat Show"
-              className="w-full aspect-square rounded-[24px] object-cover"
+              className="w-full aspect-square  rounded-sm  object-cover"
             />
             <img
               src="https://images.unsplash.com/photo-1573865662567-57ef7b73392a?q=80&w=1915&auto=format&fit=crop"
               alt="Elegant Cat"
-              className="w-full aspect-square rounded-[24px] object-cover"
+              className="w-full aspect-square  rounded-sm  object-cover"
             />
           </div>
         </div>

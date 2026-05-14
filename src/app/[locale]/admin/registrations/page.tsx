@@ -49,9 +49,9 @@ export default function RegistrationsPage() {
     const getStatusBadge = (status: string) => {
         switch (status) {
             case 'Completed':
-                return <span className="text-[11px] font-bold uppercase tracking-wider text-green-600 bg-green-50 px-2 py-0.5 rounded-md border border-green-100/50 flex items-center gap-1.5 w-fit"><CheckCircle2 className="w-3 h-3" /> Completed</span>;
+                return <span className="text-[11px] font-bold uppercase tracking-wider text-green-600 bg-green-50 px-2 py-0.5  rounded-sm  border border-green-100/50 flex items-center gap-1.5 w-fit"><CheckCircle2 className="w-3 h-3" /> Completed</span>;
             case 'Pending':
-                return <span className="text-[11px] font-bold uppercase tracking-wider text-yellow-600 bg-yellow-50 px-2 py-0.5 rounded-md border border-yellow-100/50 flex items-center gap-1.5 w-fit"><Clock className="w-3 h-3" /> Pending</span>;
+                return <span className="text-[11px] font-bold uppercase tracking-wider text-yellow-600 bg-yellow-50 px-2 py-0.5  rounded-sm  border border-yellow-100/50 flex items-center gap-1.5 w-fit"><Clock className="w-3 h-3" /> Pending</span>;
             default:
                 return null;
         }
@@ -70,8 +70,8 @@ export default function RegistrationsPage() {
                 <div className="flex items-center gap-2 flex-1 max-w-md">
                     <div className="relative flex-1 group">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#91918E] group-focus-within:text-[#37352F] transition-colors" />
-                        <Input 
-                            placeholder="Search by owner, email or pet name..." 
+                        <Input
+                            placeholder="Search by owner, email or pet name..."
                             className="pl-10 h-9 bg-[#F7F6F3] border-none rounded-sm text-[13px] focus-visible:ring-1 focus-visible:ring-[#E9E9E7] placeholder:text-[#91918E]"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
@@ -86,10 +86,6 @@ export default function RegistrationsPage() {
                     <Button variant="outline" className="h-9 px-3 rounded-sm border-[#E9E9E7] text-[13px] font-medium text-[#37352F] hover:bg-[#F7F6F3]">
                         <Download className="w-3.5 h-3.5 mr-2 text-[#91918E]" />
                         Export
-                    </Button>
-                    <Button className="h-9 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[13px] font-bold px-4 shadow-sm border border-black/5">
-                        <Plus className="w-4 h-4 mr-1.5" />
-                        New Entry
                     </Button>
                 </div>
             </div>
@@ -119,7 +115,7 @@ export default function RegistrationsPage() {
                                 </TableCell>
                                 <TableCell className="px-6 py-5">
                                     <div className="flex items-center gap-3">
-                                        <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center text-orange-600 border border-orange-100/50">
+                                        <div className="w-8 h-8  rounded-sm  bg-orange-50 flex items-center justify-center text-orange-600 border border-orange-100/50">
                                             <PawPrint className="w-4 h-4" />
                                         </div>
                                         <div className="flex flex-col">
@@ -135,18 +131,18 @@ export default function RegistrationsPage() {
                                 <TableCell className="px-6 py-5">
                                     <DropdownMenu>
                                         <DropdownMenuTrigger asChild>
-                                            <Button variant="ghost" className="w-8 h-8 p-0 rounded-md hover:bg-[#EBEBE9] transition-all duration-100 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.90]">
+                                            <Button variant="ghost" className="w-8 h-8 p-0  rounded-sm  hover:bg-[#EBEBE9] transition-all duration-100 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.90]">
                                                 <MoreHorizontal className="w-4.5 h-4.5 text-[#91918E]" />
                                             </Button>
                                         </DropdownMenuTrigger>
-                                        <DropdownMenuContent align="end" className="w-48 rounded-lg p-1.5 border-[#E9E9E7] shadow-xl bg-white">
+                                        <DropdownMenuContent align="end" className="w-48  rounded-sm  p-1.5 border-[#E9E9E7] shadow-xl bg-white">
                                             <DropdownMenuLabel className="px-2 py-1.5 text-[10px] text-[#91918E] uppercase font-bold tracking-widest">Manage</DropdownMenuLabel>
                                             <Link href={`/admin/registrations/${reg.id}`}>
-                                                <DropdownMenuItem className="rounded-md text-[13px] font-medium text-[#37352F] focus:bg-[#F7F6F3] cursor-pointer">View Details</DropdownMenuItem>
+                                                <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium text-[#37352F] focus:bg-[#F7F6F3] cursor-pointer">View Details</DropdownMenuItem>
                                             </Link>
-                                            <DropdownMenuItem className="rounded-md text-[13px] font-medium text-[#37352F] focus:bg-[#F7F6F3] cursor-pointer">Edit Data</DropdownMenuItem>
+                                            <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium text-[#37352F] focus:bg-[#F7F6F3] cursor-pointer">Edit Data</DropdownMenuItem>
                                             <DropdownMenuSeparator className="bg-[#F1F1EF] my-1" />
-                                            <DropdownMenuItem className="rounded-md text-[13px] font-medium text-red-600 focus:bg-red-50 focus:text-red-600 cursor-pointer">Delete Record</DropdownMenuItem>
+                                            <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium text-red-600 focus:bg-red-50 focus:text-red-600 cursor-pointer">Delete Record</DropdownMenuItem>
                                         </DropdownMenuContent>
                                     </DropdownMenu>
                                 </TableCell>
@@ -161,15 +157,15 @@ export default function RegistrationsPage() {
                         Showing <span className="font-bold text-[#37352F]">8</span> of <span className="font-bold text-[#37352F]">124</span> records
                     </p>
                     <div className="flex items-center gap-2">
-                        <Button variant="outline" size="sm" className="h-8 rounded-md border-[#E9E9E7] bg-white text-[11px] font-bold text-[#37352F] px-3 disabled:opacity-50">
+                        <Button variant="outline" size="sm" className="h-8  rounded-sm  border-[#E9E9E7] bg-white text-[11px] font-bold text-[#37352F] px-3 disabled:opacity-50">
                             Previous
                         </Button>
                         <div className="flex items-center gap-1">
-                            <Button size="sm" className="w-8 h-8 rounded-md bg-[#FACC15] text-black text-[11px] font-bold shadow-sm border border-black/5">1</Button>
-                            <Button variant="ghost" size="sm" className="w-8 h-8 rounded-md text-[11px] font-bold text-[#91918E] hover:text-[#37352F]">2</Button>
-                            <Button variant="ghost" size="sm" className="w-8 h-8 rounded-md text-[11px] font-bold text-[#91918E] hover:text-[#37352F]">3</Button>
+                            <Button size="sm" className="w-8 h-8  rounded-sm  bg-[#FACC15] text-black text-[11px] font-bold shadow-sm border border-black/5">1</Button>
+                            <Button variant="ghost" size="sm" className="w-8 h-8  rounded-sm  text-[11px] font-bold text-[#91918E] hover:text-[#37352F]">2</Button>
+                            <Button variant="ghost" size="sm" className="w-8 h-8  rounded-sm  text-[11px] font-bold text-[#91918E] hover:text-[#37352F]">3</Button>
                         </div>
-                        <Button variant="outline" size="sm" className="h-8 rounded-md border-[#E9E9E7] bg-white text-[11px] font-bold text-[#37352F] px-3">
+                        <Button variant="outline" size="sm" className="h-8  rounded-sm  border-[#E9E9E7] bg-white text-[11px] font-bold text-[#37352F] px-3">
                             Next
                         </Button>
                     </div>

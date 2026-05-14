@@ -57,7 +57,7 @@ export default function PartnersGrid() {
   return (
     <section className="py-[160px] bg-white">
       <div className="container mx-auto px-6 lg:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 min-h-[500px] border border-[#E5E5E5] rounded-[32px] overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 min-h-[500px] border border-[#E5E5E5]  rounded-sm  overflow-hidden">
           {/* Left Content Column */}
           <div className="lg:col-span-5 p-10 md:p-14 border-b md:border-b-0 md:border-r border-[#E5E5E5] flex flex-col justify-between">
             <div>
@@ -68,8 +68,8 @@ export default function PartnersGrid() {
                     key={category.id}
                     onClick={() => setActiveTab(category.id)}
                     className={`px-6 py-2 rounded-full text-[14px] font-semibold transition-all duration-200 ${activeTab === category.id
-                        ? "bg-primary text-white"
-                        : "bg-accent/10 text-accent hover:bg-accent/20"
+                      ? "bg-primary text-white"
+                      : "bg-accent/10 text-accent hover:bg-accent/20"
                       }`}
                   >
                     {category.label}

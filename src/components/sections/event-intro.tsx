@@ -43,7 +43,7 @@ export default function EventIntro() {
 
           {/* Right Image Column */}
           <div className="relative w-full flex justify-center md:justify-end">
-            <div className="relative w-full max-w-[540px] aspect-[4381/5652] overflow-hidden rounded-[24px]">
+            <div className="relative w-full max-w-[540px] aspect-[4381/5652] overflow-hidden  rounded-sm ">
               <Image
                 src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cdeb881c-def5-4067-afdd-4b488b9b09d6-cyclix-template-framer-website/assets/images/YMFIn97OUJJLFQjNRbPJFQgfumQ-1.jpg"
                 alt="Cyclist riding at night"

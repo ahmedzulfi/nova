@@ -71,8 +71,8 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
     return (
         <div className="space-y-8 animate-in fade-in duration-700">
             {/* Back Navigation */}
-            <Link 
-                href="/admin/registrations" 
+            <Link
+                href="/admin/registrations"
                 className="flex items-center gap-2 text-[#91918E] hover:text-[#37352F] text-[13px] font-medium transition-colors mb-8 group"
             >
                 <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
@@ -138,7 +138,7 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
                             </div>
 
                             <div className="mt-8 space-y-4">
-                                <div className="bg-blue-50/50 p-4 rounded-lg border border-blue-100">
+                                <div className="bg-blue-50/50 p-4  rounded-sm  border border-blue-100">
                                     <p className="text-[11px] font-bold text-blue-800 uppercase tracking-widest mb-1 flex items-center gap-1.5">
                                         <FileText className="w-3.5 h-3.5" /> Medical Notes
                                     </p>
@@ -160,7 +160,7 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
                             <div className="grid gap-6">
                                 <div>
                                     <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Selected Category</p>
-                                    <div className="inline-flex items-center px-3 py-1.5 rounded-md bg-[#F7F6F3] border border-[#E9E9E7] text-[14px] font-semibold text-[#37352F]">
+                                    <div className="inline-flex items-center px-3 py-1.5  rounded-sm  bg-[#F7F6F3] border border-[#E9E9E7] text-[14px] font-semibold text-[#37352F]">
                                         {data.competition.category}
                                     </div>
                                 </div>
@@ -189,9 +189,9 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
                         <CardContent className="p-6">
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 {data.documents.map((doc, idx) => (
-                                    <div key={idx} className="flex items-center justify-between p-3 border border-[#E9E9E7] rounded-lg hover:border-[#37352F]/20 transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] hover:bg-[#F7F6F3]/50 active:scale-[0.98] group cursor-pointer">
+                                    <div key={idx} className="flex items-center justify-between p-3 border border-[#E9E9E7]  rounded-sm  hover:border-[#37352F]/20 transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] hover:bg-[#F7F6F3]/50 active:scale-[0.98] group cursor-pointer">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-8 h-8 rounded-md bg-[#F7F6F3] flex items-center justify-center text-[#91918E]">
+                                            <div className="w-8 h-8  rounded-sm  bg-[#F7F6F3] flex items-center justify-center text-[#91918E]">
                                                 {doc.type === 'image' ? <ImageIcon className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
                                             </div>
                                             <div>
