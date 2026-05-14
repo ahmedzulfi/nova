@@ -62,7 +62,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} className={`${inter.variable} ${archivo.variable} ${cairo.variable} ${archivoBlack.variable}`} suppressHydrationWarning>
+    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} className={`${inter.variable} ${archivo.variable} ${cairo.variable} ${archivoBlack.variable}`}>
       <body className="antialiased">
         <NextIntlClientProvider messages={messages}>
           <ErrorReporter />
