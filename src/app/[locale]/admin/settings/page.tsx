@@ -58,54 +58,38 @@ export default function SettingsPage() {
     };
 
     return (
-        <div className="space-y-8 max-w-5xl">
-            {/* Header */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                <div className="space-y-1">
-                    <h1 className="text-4xl font-display font-bold text-[#37352F] tracking-tight">Workspace Settings</h1>
-                    <p className="text-[#91918E] text-[15px]">Manage preferences, integrations, and team access for Nova Paw.</p>
-                </div>
-                <div className="flex items-center gap-2">
-                    <Button 
-                        onClick={handleSave}
-                        disabled={isSaving}
-                        className="h-9 bg-[#37352F] hover:bg-[#37352F]/90 text-white rounded-md text-[13px] font-semibold px-5"
-                    >
-                        {isSaving ? 'Saving...' : (
-                            <>
-                                <Save className="w-4 h-4 mr-2" />
-                                Save Changes
-                            </>
-                        )}
-                    </Button>
-                </div>
+        <div className="space-y-8 animate-in fade-in duration-700">
+            {/* Notion Page Header */}
+            <div className="mb-10">
+                <div className="text-[78px] mb-4">⚙️</div>
+                <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">Settings</h1>
+                <p className="text-[16px] text-[#91918E] max-w-2xl">Manage workspace configurations, team permissions, and platform integrations.</p>
             </div>
 
             <Tabs defaultValue="general" className="w-full">
-                <TabsList className="bg-transparent border-b border-[#E9E9E7] w-full justify-start rounded-none p-0 h-auto space-x-6">
+                <TabsList className="bg-transparent border-b border-[#F1F1EF] w-full justify-start h-auto p-0 rounded-none gap-8 mb-8">
                     <TabsTrigger 
                         value="general" 
-                        className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-[#37352F] rounded-none px-0 py-3 text-[14px] font-medium text-[#91918E] data-[state=active]:text-[#37352F]"
+                        className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#37352F] data-[state=active]:bg-transparent data-[state=active]:shadow-none px-0 py-3 text-[14px] font-medium text-[#91918E] data-[state=active]:text-[#37352F] transition-all"
                     >
-                        <Settings className="w-4 h-4 mr-2" />
                         General
                     </TabsTrigger>
-                    <TabsTrigger 
-                        value="features" 
+                    <TabsTrigger
+                        value="features"
                         className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-[#37352F] rounded-none px-0 py-3 text-[14px] font-medium text-[#91918E] data-[state=active]:text-[#37352F]"
                     >
                         <ToggleLeft className="w-4 h-4 mr-2" />
                         Features
                     </TabsTrigger>
-                    <TabsTrigger 
-                        value="team" 
+                    <TabsTrigger
+                        value="team"
                         className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-[#37352F] rounded-none px-0 py-3 text-[14px] font-medium text-[#91918E] data-[state=active]:text-[#37352F]"
                     >
                         <Users className="w-4 h-4 mr-2" />
                         Team
                     </TabsTrigger>
-                    <TabsTrigger 
-                        value="integrations" 
+                    <TabsTrigger
+                        value="integrations"
                         className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-[#37352F] rounded-none px-0 py-3 text-[14px] font-medium text-[#91918E] data-[state=active]:text-[#37352F]"
                     >
                         <Plug className="w-4 h-4 mr-2" />
@@ -115,7 +99,7 @@ export default function SettingsPage() {
 
                 {/* General Tab */}
                 <TabsContent value="general" className="pt-6 space-y-6">
-                    <div className="bg-white border border-[#E9E9E7] rounded-xl p-6">
+                    <div className="bg-white border border-[#E9E9E7]  rounded-sm  p-6">
                         <h3 className="font-display font-bold text-[#37352F] text-lg mb-6">Workspace Details</h3>
                         <div className="space-y-6 max-w-2xl">
                             <div className="grid gap-2">
@@ -144,7 +128,7 @@ export default function SettingsPage() {
                         </div>
                     </div>
 
-                    <div className="bg-red-50 border border-red-100 rounded-xl p-6">
+                    <div className="bg-red-50 border border-red-100  rounded-sm  p-6">
                         <h3 className="font-display font-bold text-red-600 text-lg mb-2">Danger Zone</h3>
                         <p className="text-[13px] text-red-600/80 mb-4">Permanent actions that affect the entire workspace.</p>
                         <Button variant="destructive" className="bg-red-600 hover:bg-red-700 text-white text-[13px] font-semibold">
@@ -155,7 +139,7 @@ export default function SettingsPage() {
 
                 {/* Features Tab */}
                 <TabsContent value="features" className="pt-6 space-y-6">
-                    <div className="bg-white border border-[#E9E9E7] rounded-xl overflow-hidden">
+                    <div className="bg-white border border-[#E9E9E7]  rounded-sm  overflow-hidden">
                         <div className="px-6 py-5 border-b border-[#E9E9E7]">
                             <h3 className="font-display font-bold text-[#37352F] text-lg">Public Facing Features</h3>
                             <p className="text-[13px] text-[#91918E]">Toggle what users can see and interact with on the main website.</p>
@@ -188,7 +172,7 @@ export default function SettingsPage() {
 
                 {/* Team Tab */}
                 <TabsContent value="team" className="pt-6 space-y-6">
-                    <div className="bg-white border border-[#E9E9E7] rounded-xl overflow-hidden shadow-sm">
+                    <div className="bg-white border border-[#E9E9E7]  rounded-sm  overflow-hidden shadow-sm">
                         <div className="px-6 py-5 border-b border-[#E9E9E7] flex items-center justify-between bg-[#F7F6F3]/30">
                             <div>
                                 <h3 className="font-display font-bold text-[#37352F] text-lg">Team Members</h3>
@@ -245,7 +229,7 @@ export default function SettingsPage() {
                 {/* Integrations Tab */}
                 <TabsContent value="integrations" className="pt-6 space-y-4">
                     {/* Stripe */}
-                    <div className="bg-white border border-[#E9E9E7] rounded-xl p-6 flex items-center justify-between hover:border-[#37352F]/20 transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] hover:shadow-sm">
+                    <div className="bg-white border border-[#E9E9E7]  rounded-sm  p-6 flex items-center justify-between hover:border-[#37352F]/20 transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] hover:shadow-sm">
                         <div className="flex items-start gap-4">
                             <div className="w-10 h-10 rounded-lg bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
                                 <CreditCard className="w-5 h-5" />
@@ -263,7 +247,7 @@ export default function SettingsPage() {
                     </div>
 
                     {/* Resend */}
-                    <div className="bg-white border border-[#E9E9E7] rounded-xl p-6 flex items-center justify-between hover:border-[#37352F]/20 transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] hover:shadow-sm">
+                    <div className="bg-white border border-[#E9E9E7]  rounded-sm  p-6 flex items-center justify-between hover:border-[#37352F]/20 transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] hover:shadow-sm">
                         <div className="flex items-start gap-4">
                             <div className="w-10 h-10 rounded-lg bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-900">
                                 <Mail className="w-5 h-5" />
@@ -281,7 +265,7 @@ export default function SettingsPage() {
                     </div>
 
                     {/* Turso */}
-                    <div className="bg-white border border-[#E9E9E7] rounded-xl p-6 flex items-center justify-between hover:border-[#37352F]/20 transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] hover:shadow-sm">
+                    <div className="bg-white border border-[#E9E9E7]  rounded-sm  p-6 flex items-center justify-between hover:border-[#37352F]/20 transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] hover:shadow-sm">
                         <div className="flex items-start gap-4">
                             <div className="w-10 h-10 rounded-lg bg-teal-50 border border-teal-100 flex items-center justify-center text-teal-600">
                                 <Database className="w-5 h-5" />

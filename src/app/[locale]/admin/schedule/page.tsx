@@ -42,25 +42,37 @@ const scheduleItems = [
 
 export default function SchedulePage() {
     return (
-        <div className="space-y-12">
-            {/* Header */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                <div className="space-y-1">
-                    <h1 className="text-4xl font-display font-bold text-[#37352F] tracking-tight">Living Schedule</h1>
-                    <p className="text-[#91918E] text-[15px]">Coordinate arena timings and session blocks for Nova Paw 2026.</p>
-                </div>
-                <div className="flex items-center gap-2">
-                    <div className="bg-[#F1F1EF] p-1 rounded-lg flex items-center border border-[#E9E9E7]">
-                        <Button variant="ghost" size="icon" className="w-8 h-8 rounded-md bg-white shadow-sm text-[#37352F]">
+        <div className="space-y-8 animate-in fade-in duration-700">
+            {/* Notion Page Header */}
+            <div className="mb-10">
+                <div className="text-[78px] mb-4">📅</div>
+                <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">Living Schedule</h1>
+                <p className="text-[16px] text-[#91918E] max-w-2xl">Coordinate arena timings and session blocks for the Nova Paw Festival 2026.</p>
+            </div>
+
+            {/* Actions Bar */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#F1F1EF] pb-6">
+                <div className="flex items-center gap-4">
+                    <div className="bg-[#F1F1EF] p-1 rounded-sm flex items-center border border-[#E9E9E7]">
+                        <Button variant="ghost" size="icon" className="w-8 h-8 rounded-sm bg-white shadow-sm text-[#37352F]">
                             <List className="w-4 h-4" />
                         </Button>
-                        <Button variant="ghost" size="icon" className="w-8 h-8 rounded-md text-[#91918E] hover:text-[#37352F]">
+                        <Button variant="ghost" size="icon" className="w-8 h-8 rounded-sm text-[#91918E] hover:text-[#37352F]">
                             <LayoutGrid className="w-4 h-4" />
                         </Button>
                     </div>
-                    <Button className="h-9 bg-[#37352F] hover:bg-[#37352F]/90 text-white rounded-md text-[13px] font-semibold px-5 shadow-lg shadow-[#37352F]/20">
-                        <Plus className="w-4 h-4 mr-2" />
-                        Add Event
+                    <div className="text-[13px] font-medium text-[#37352F]">
+                        <span className="text-[#91918E]">Showing:</span> Today
+                    </div>
+                </div>
+                <div className="flex items-center gap-2">
+                    <Button variant="outline" className="h-9 px-3 rounded-sm border-[#E9E9E7] text-[13px] font-medium text-[#37352F] hover:bg-[#F7F6F3]">
+                        <Star className="w-3.5 h-3.5 mr-2 text-[#91918E]" />
+                        Key Events
+                    </Button>
+                    <Button className="h-9 bg-[#37352F] hover:bg-black text-white rounded-sm text-[13px] font-bold px-4">
+                        <Plus className="w-4 h-4 mr-1.5" />
+                        Add Slot
                     </Button>
                 </div>
             </div>
@@ -76,8 +88,8 @@ export default function SchedulePage() {
                                     key={day}
                                     className={cn(
                                         "w-full text-left p-3.5 rounded-lg font-bold text-[14px] transition-all border",
-                                        i === 0 
-                                            ? "bg-[#37352F] text-white border-[#37352F] shadow-lg shadow-black/10" 
+                                        i === 0
+                                            ? "bg-[#37352F] text-white border-[#37352F] shadow-lg shadow-black/10"
                                             : "hover:bg-[#F7F6F3] text-[#37352F]/60 border-transparent hover:border-[#E9E9E7]"
                                     )}
                                 >
@@ -87,7 +99,7 @@ export default function SchedulePage() {
                         </div>
                     </div>
 
-                    <div className="p-5 bg-[#F1F1EF] rounded-xl border border-[#E9E9E7]">
+                    <div className="p-5 bg-[#F1F1EF]  rounded-sm  border border-[#E9E9E7]">
                         <h4 className="font-display font-bold text-[#37352F] text-[13px] mb-2">Venue Map</h4>
                         <p className="text-[12px] text-[#91918E] leading-relaxed mb-4">Quick access to stage technical requirements and arena layouts.</p>
                         <Button variant="outline" className="w-full h-8 rounded-md border-[#E9E9E7] bg-white text-[11px] font-bold text-[#37352F]">
@@ -99,20 +111,20 @@ export default function SchedulePage() {
                 {/* Timeline Area */}
                 <div className="md:col-span-5 space-y-2 relative">
                     <div className="absolute left-[39px] top-4 bottom-4 w-px bg-[#F1F1EF]" />
-                    
+
                     {scheduleItems.map((item) => (
                         <div key={item.id} className="group flex items-start gap-8 relative pb-8 last:pb-0">
                             <div className="w-20 pt-1 text-right">
                                 <span className="text-[12px] font-bold text-[#91918E] group-hover:text-[#37352F] transition-colors duration-100 [transition-timing-function:var(--ease-emil-out)]">{item.time}</span>
                             </div>
-                            
+
                             {/* Connector dot */}
                             <div className={cn(
                                 "w-2.5 h-2.5 rounded-full mt-2 relative z-10 border-2 border-white ring-4 ring-transparent transition-all group-hover:ring-[#F1F1EF]",
                                 item.color.replace('bg-', 'bg-')
                             )} />
 
-                            <div className="flex-1 bg-white border border-[#E9E9E7] rounded-xl p-6 hover:border-[#37352F]/20 hover:shadow-sm transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] group-hover:translate-x-1">
+                            <div className="flex-1 bg-white border border-[#E9E9E7]  rounded-sm  p-6 hover:border-[#37352F]/20 hover:shadow-sm transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] group-hover:translate-x-1">
                                 <div className="flex items-start justify-between gap-4">
                                     <div className="space-y-3">
                                         <div className="flex items-center gap-3">

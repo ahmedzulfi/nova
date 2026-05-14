@@ -42,28 +42,40 @@ const tickets = [
 
 export default function TicketsPage() {
     return (
-        <div className="space-y-12">
-            {/* Header */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                <div className="space-y-1">
-                    <h1 className="text-4xl font-display font-bold text-[#37352F] tracking-tight">Ticket Ledger</h1>
-                    <p className="text-[#91918E] text-[15px]">Issuance tracking and inventory management for festival passes.</p>
+        <div className="space-y-8 animate-in fade-in duration-700">
+            {/* Notion Page Header */}
+            <div className="mb-10">
+                <div className="text-[78px] mb-4">🎫</div>
+                <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">Ticket Ledger</h1>
+                <p className="text-[16px] text-[#91918E] max-w-2xl">Issuance tracking and inventory management for festival passes.</p>
+            </div>
+
+            {/* Actions Bar */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#F1F1EF] pb-6">
+                <div className="flex items-center gap-2 flex-1 max-w-md">
+                    <div className="relative flex-1 group">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#91918E] group-focus-within:text-[#37352F] transition-colors" />
+                        <Input 
+                            placeholder="Search by ID, buyer or type..." 
+                            className="pl-10 h-9 bg-[#F7F6F3] border-none rounded-sm text-[13px] focus-visible:ring-1 focus-visible:ring-[#E9E9E7] placeholder:text-[#91918E]"
+                        />
+                    </div>
                 </div>
                 <div className="flex items-center gap-2">
-                    <Button variant="outline" className="h-9 rounded-md border-[#E9E9E7] bg-white text-[13px] font-semibold text-[#37352F] hover:bg-[#F7F6F3]">
-                        <Download className="w-4 h-4 mr-2 text-[#91918E]" />
-                        Export CSV
+                    <Button variant="outline" className="h-9 px-3 rounded-sm border-[#E9E9E7] text-[13px] font-medium text-[#37352F] hover:bg-[#F7F6F3]">
+                        <Download className="w-3.5 h-3.5 mr-2 text-[#91918E]" />
+                        Export
                     </Button>
-                    <Button className="h-9 bg-[#37352F] hover:bg-[#37352F]/90 text-white rounded-md text-[13px] font-semibold px-5">
-                        <Plus className="w-4 h-4 mr-2" />
-                        Create Type
+                    <Button className="h-9 bg-[#37352F] hover:bg-black text-white rounded-sm text-[13px] font-bold px-4">
+                        <Plus className="w-4 h-4 mr-1.5" />
+                        New Type
                     </Button>
                 </div>
             </div>
 
             {/* Quick Metrics */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-[#F7F6F3]/50 p-6 rounded-xl border border-[#E9E9E7] transition-all hover:border-[#37352F]/20">
+                <div className="bg-[#F7F6F3]/50 p-6  rounded-sm  border border-[#E9E9E7] transition-all hover:border-[#37352F]/20">
                     <div className="flex items-center gap-3 mb-4">
                         <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600 border border-blue-100/50">
                             <Ticket className="w-4 h-4" />
@@ -76,7 +88,7 @@ export default function TicketsPage() {
                         <span className="text-[#91918E] text-[11px]">vs last month</span>
                     </div>
                 </div>
-                <div className="bg-[#F7F6F3]/50 p-6 rounded-xl border border-[#E9E9E7] transition-all hover:border-[#37352F]/20">
+                <div className="bg-[#F7F6F3]/50 p-6  rounded-sm  border border-[#E9E9E7] transition-all hover:border-[#37352F]/20">
                     <div className="flex items-center gap-3 mb-4">
                         <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center text-orange-600 border border-orange-100/50">
                             <Tag className="w-4 h-4" />
@@ -91,7 +103,7 @@ export default function TicketsPage() {
                         <span className="text-[#37352F] font-bold">85% Sold</span>
                     </div>
                 </div>
-                <div className="bg-[#F7F6F3]/50 p-6 rounded-xl border border-[#E9E9E7] transition-all hover:border-[#37352F]/20">
+                <div className="bg-[#F7F6F3]/50 p-6  rounded-sm  border border-[#E9E9E7] transition-all hover:border-[#37352F]/20">
                     <div className="flex items-center gap-3 mb-4">
                         <div className="w-8 h-8 rounded-lg bg-teal-50 flex items-center justify-center text-teal-600 border border-teal-100/50">
                             <Calendar className="w-4 h-4" />
@@ -104,7 +116,7 @@ export default function TicketsPage() {
             </div>
 
             {/* Main Listing */}
-            <div className="bg-white border border-[#E9E9E7] rounded-xl overflow-hidden shadow-sm">
+            <div className="bg-white border border-[#E9E9E7]  rounded-sm  overflow-hidden shadow-sm">
                 <div className="px-6 py-4 border-b border-[#E9E9E7] bg-[#F7F6F3]/30">
                     <div className="relative max-w-md">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#91918E]" />

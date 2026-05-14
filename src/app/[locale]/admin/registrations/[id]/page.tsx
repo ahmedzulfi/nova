@@ -69,37 +69,41 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
     const data = mockGetRegistrationDetails(resolvedParams.id);
 
     return (
-        <div className="w-full mx-auto ">
-            {/* Header & Back Navigation */}
-            <div className="space-y-4">
-                <Link href="/admin/registrations" className="inline-flex items-center text-[13px] font-bold text-[#91918E] hover:text-[#37352F] transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.98]">
-                    <ArrowLeft className="w-4 h-4 mr-1.5" />
-                    Back to Registrations
-                </Link>
-                <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
-                    <div>
-                        <div className="flex items-center gap-3 mb-1">
-                            <h1 className="text-3xl font-display font-bold text-[#37352F] tracking-tight">Registration {data.id}</h1>
-                            <span className="text-[11px] font-bold uppercase tracking-wider text-yellow-600 bg-yellow-50 px-2 py-0.5 rounded-md border border-yellow-100/50 flex items-center gap-1.5">
-                                <Clock className="w-3 h-3" /> {data.status}
-                            </span>
-                        </div>
-                        <p className="text-[#91918E] text-[14px]">Submitted on {new Date(data.submissionDate).toLocaleDateString()}</p>
+        <div className="space-y-8 animate-in fade-in duration-700">
+            {/* Back Navigation */}
+            <Link 
+                href="/admin/registrations" 
+                className="flex items-center gap-2 text-[#91918E] hover:text-[#37352F] text-[13px] font-medium transition-colors mb-8 group"
+            >
+                <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
+                Back to registrations
+            </Link>
+
+            {/* Notion Page Header */}
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#F1F1EF]">
+                <div>
+                    <div className="text-[64px] mb-4">📜</div>
+                    <div className="flex items-center gap-3 mb-2">
+                        <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight">{data.id}</h1>
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-yellow-600 bg-yellow-50 px-2 py-0.5 rounded-sm border border-yellow-100/50 flex items-center gap-1.5 h-fit mt-3">
+                            <Clock className="w-3 h-3" /> {data.status}
+                        </span>
                     </div>
-                    <div className="flex items-center gap-3">
-                        <Button variant="outline" className="h-9 border-red-200 text-red-600 hover:bg-red-50 hover:text-red-700 font-semibold text-[13px]">
-                            <XCircle className="w-4 h-4 mr-2" />
-                            Decline
-                        </Button>
-                        <Button className="h-9 bg-green-600 hover:bg-green-700 text-white font-semibold text-[13px]">
-                            <CheckCircle2 className="w-4 h-4 mr-2" />
-                            Approve Registration
-                        </Button>
-                    </div>
+                    <p className="text-[16px] text-[#91918E]">Submitted on {new Date(data.submissionDate).toLocaleDateString()} at {new Date(data.submissionDate).toLocaleTimeString()}</p>
+                </div>
+                <div className="flex items-center gap-3">
+                    <Button variant="outline" className="h-10 px-6 rounded-sm border-red-200 text-red-600 hover:bg-red-50 text-[13px] font-bold transition-all active:scale-[0.98]">
+                        <XCircle className="w-4 h-4 mr-2" />
+                        Decline Entry
+                    </Button>
+                    <Button className="h-10 px-8 bg-[#37352F] hover:bg-black text-white rounded-sm text-[13px] font-bold transition-all active:scale-[0.98]">
+                        <CheckCircle2 className="w-4 h-4 mr-2" />
+                        Approve Registration
+                    </Button>
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 pt-8">
                 {/* Main Content Area */}
                 <div className="lg:col-span-2 space-y-8">
                     {/* Pet Details */}

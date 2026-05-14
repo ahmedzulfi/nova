@@ -41,40 +41,38 @@ const attendees = [
 
 export default function AttendeesPage() {
     return (
-        <div className="space-y-10">
-            {/* Header */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                <div className="space-y-1">
-                    <h1 className="text-4xl font-display font-bold text-[#37352F] tracking-tight">Attendee Directory</h1>
-                    <p className="text-[#91918E] text-[15px]">Comprehensive database of festival guests and ticket holders.</p>
+        <div className="space-y-8 animate-in fade-in duration-700">
+            {/* Notion Page Header */}
+            <div className="mb-10">
+                <div className="text-[78px] mb-4">👥</div>
+                <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">Attendee Directory</h1>
+                <p className="text-[16px] text-[#91918E] max-w-2xl">Comprehensive database of festival guests and ticket holders.</p>
+            </div>
+
+            {/* Actions Bar */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#F1F1EF] pb-6">
+                <div className="flex items-center gap-2 flex-1 max-w-md">
+                    <div className="relative flex-1 group">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#91918E] group-focus-within:text-[#37352F] transition-colors" />
+                        <Input 
+                            placeholder="Search by name, email or location..." 
+                            className="pl-10 h-9 bg-[#F7F6F3] border-none rounded-sm text-[13px] focus-visible:ring-1 focus-visible:ring-[#E9E9E7] placeholder:text-[#91918E]"
+                        />
+                    </div>
                 </div>
                 <div className="flex items-center gap-2">
-                    <Button variant="outline" className="h-9 rounded-md border-[#E9E9E7] bg-white text-[13px] font-semibold text-[#37352F] hover:bg-[#F7F6F3]">
-                        <Mail className="w-4 h-4 mr-2 text-[#91918E]" />
+                    <Button variant="outline" className="h-9 px-3 rounded-sm border-[#E9E9E7] text-[13px] font-medium text-[#37352F] hover:bg-[#F7F6F3]">
+                        <Mail className="w-3.5 h-3.5 mr-2 text-[#91918E]" />
                         Email All
                     </Button>
-                    <Button className="h-9 bg-[#37352F] hover:bg-[#37352F]/90 text-white rounded-md text-[13px] font-semibold px-5">
+                    <Button className="h-9 bg-[#37352F] hover:bg-black text-white rounded-sm text-[13px] font-bold px-4">
                         Add Guest
                     </Button>
                 </div>
             </div>
 
-            {/* Search & Filter */}
-            <div className="flex flex-col md:flex-row gap-4">
-                <div className="relative flex-1">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#91918E]" />
-                    <Input 
-                        placeholder="Search by name, email, or ticket ID..." 
-                        className="pl-10 h-10 bg-[#F7F6F3] border-[#E9E9E7] rounded-lg text-[14px] focus:ring-primary/20" 
-                    />
-                </div>
-                <Button variant="outline" className="h-10 rounded-lg border-[#E9E9E7] bg-white text-[13px] font-semibold text-[#37352F] px-4">
-                    Filter Parameters
-                </Button>
-            </div>
-
             {/* Table Area */}
-            <div className="bg-white border border-[#E9E9E7] rounded-xl overflow-hidden shadow-sm">
+            <div className="border border-[#E9E9E7] rounded-sm overflow-hidden bg-white">
                 <Table>
                     <TableHeader className="bg-[#F7F6F3]/50">
                         <TableRow className="hover:bg-transparent border-b border-[#E9E9E7]">
