@@ -58,7 +58,7 @@ export default function AdminLayout({
                 <Sidebar className="border-r border-[#E9E9E7] bg-[#F7F6F3]">
                     <SidebarHeader className="p-6">
                         <Link href="/admin" className="flex items-center gap-3 group px-2">
-                            <div className="w-8 h-8 bg-[#37352F] rounded-md flex items-center justify-center text-white transition-transform group-hover:scale-105">
+                            <div className="w-8 h-8 bg-[#37352F] rounded-md flex items-center justify-center text-white transition-transform duration-200 [transition-timing-function:var(--ease-emil-out)] group-hover:scale-105 group-active:scale-95">
                                 <Shield className="w-5 h-5 text-primary" />
                             </div>
                             <div className="flex flex-col">
@@ -79,7 +79,7 @@ export default function AdminLayout({
                                             <Link
                                                 href={item.href}
                                                 className={cn(
-                                                    "flex items-center gap-2.5 px-3 py-2 rounded-md transition-colors group",
+                                                    "flex items-center gap-2.5 px-3 py-2 rounded-md transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.97] group",
                                                     isActive
                                                         ? "bg-[#EBEBE9] text-[#37352F]"
                                                         : "text-[#37352F]/70 hover:bg-[#EBEBE9] hover:text-[#37352F]"
@@ -100,13 +100,13 @@ export default function AdminLayout({
                         <div className="mt-8 mb-4 px-4 py-2 text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Resources</div>
                         <SidebarMenu>
                             <SidebarMenuItem>
-                                <Link href="#" className="flex items-center gap-2.5 px-3 py-2 rounded-md text-[#37352F]/70 hover:bg-[#EBEBE9] hover:text-[#37352F] transition-colors">
+                                <Link href="#" className="flex items-center gap-2.5 px-3 py-2 rounded-md text-[#37352F]/70 hover:bg-[#EBEBE9] hover:text-[#37352F] transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.97]">
                                     <div className="w-4.5 h-4.5 flex items-center justify-center">📄</div>
                                     <span className="font-medium text-[14px]">Show Manual</span>
                                 </Link>
                             </SidebarMenuItem>
                             <SidebarMenuItem>
-                                <Link href="#" className="flex items-center gap-2.5 px-3 py-2 rounded-md text-[#37352F]/70 hover:bg-[#EBEBE9] hover:text-[#37352F] transition-colors">
+                                <Link href="#" className="flex items-center gap-2.5 px-3 py-2 rounded-md text-[#37352F]/70 hover:bg-[#EBEBE9] hover:text-[#37352F] transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.97]">
                                     <div className="w-4.5 h-4.5 flex items-center justify-center">🎫</div>
                                     <span className="font-medium text-[14px]">Ticket Templates</span>
                                 </Link>
@@ -116,7 +116,7 @@ export default function AdminLayout({
 
                     <SidebarFooter className="p-4 mt-auto">
                         <div className="flex flex-col gap-2">
-                            <div className="flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-[#EBEBE9] cursor-pointer transition-colors group">
+                            <div className="flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-[#EBEBE9] cursor-pointer transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.97] group">
                                 <div className="w-7 h-7 rounded-md bg-primary/20 flex items-center justify-center text-primary font-bold text-[10px]">
                                     AD
                                 </div>
@@ -127,7 +127,7 @@ export default function AdminLayout({
                             </div>
                             <Link
                                 href="/admin/login"
-                                className="flex items-center gap-2.5 px-3 py-2 rounded-md text-red-600/70 hover:bg-red-50 hover:text-red-600 transition-colors"
+                                className="flex items-center gap-2.5 px-3 py-2 rounded-md text-red-600/70 hover:bg-red-50 hover:text-red-600 transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.97]"
                             >
                                 <LogOut className="w-4 h-4" />
                                 <span className="font-medium text-[13px]">Log Out</span>
@@ -154,10 +154,10 @@ export default function AdminLayout({
                                 <div className="w-1.5 h-1.5 rounded-full bg-green-500 mr-2 shadow-[0_0_8px_rgba(34,197,94,0.4)]" />
                                 System Live
                             </div>
-                            <button className="w-8 h-8 rounded-md flex items-center justify-center hover:bg-[#F1F1EF] transition-colors">
+                            <button className="w-8 h-8 rounded-md flex items-center justify-center hover:bg-[#F1F1EF] transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.92]">
                                 <Bell className="w-4 h-4 text-[#37352F]" />
                             </button>
-                            <button className="w-8 h-8 rounded-md flex items-center justify-center hover:bg-[#F1F1EF] transition-colors">
+                            <button className="w-8 h-8 rounded-md flex items-center justify-center hover:bg-[#F1F1EF] transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.92]">
                                 <Settings className="w-4 h-4 text-[#37352F]" />
                             </button>
                         </div>

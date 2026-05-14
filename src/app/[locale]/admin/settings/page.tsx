@@ -161,21 +161,21 @@ export default function SettingsPage() {
                             <p className="text-[13px] text-[#91918E]">Toggle what users can see and interact with on the main website.</p>
                         </div>
                         <div className="divide-y divide-[#F1F1EF]">
-                            <div className="p-6 flex items-center justify-between hover:bg-[#F7F6F3] transition-colors">
+                            <div className="p-6 flex items-center justify-between hover:bg-[#F7F6F3] transition-colors duration-100 [transition-timing-function:var(--ease-emil-out)]">
                                 <div className="space-y-1">
                                     <h4 className="font-bold text-[#37352F] text-[15px]">Ticket Sales</h4>
                                     <p className="text-[13px] text-[#91918E]">Allow users to purchase tickets online.</p>
                                 </div>
                                 <Switch defaultChecked className="data-[state=checked]:bg-[#37352F]" />
                             </div>
-                            <div className="p-6 flex items-center justify-between hover:bg-[#F7F6F3] transition-colors">
+                            <div className="p-6 flex items-center justify-between hover:bg-[#F7F6F3] transition-colors duration-100 [transition-timing-function:var(--ease-emil-out)]">
                                 <div className="space-y-1">
                                     <h4 className="font-bold text-[#37352F] text-[15px]">Pet Registration</h4>
                                     <p className="text-[13px] text-[#91918E]">Open registration forms for competitions and shows.</p>
                                 </div>
                                 <Switch defaultChecked className="data-[state=checked]:bg-[#37352F]" />
                             </div>
-                            <div className="p-6 flex items-center justify-between hover:bg-[#F7F6F3] transition-colors">
+                            <div className="p-6 flex items-center justify-between hover:bg-[#F7F6F3] transition-colors duration-100 [transition-timing-function:var(--ease-emil-out)]">
                                 <div className="space-y-1">
                                     <h4 className="font-bold text-[#37352F] text-[15px]">Public Schedule</h4>
                                     <p className="text-[13px] text-[#91918E]">Display the event timeline on the website.</p>
@@ -210,7 +210,7 @@ export default function SettingsPage() {
                             </TableHeader>
                             <TableBody>
                                 {teamMembers.map((member) => (
-                                    <TableRow key={member.id} className="hover:bg-[#F7F6F3]/50 border-b border-[#F1F1EF] last:border-0">
+                                    <TableRow key={member.id} className="hover:bg-[#F7F6F3]/50 border-b border-[#F1F1EF] last:border-0 transition-colors duration-100 [transition-timing-function:var(--ease-emil-out)]">
                                         <TableCell className="px-6 py-4">
                                             <div className="flex flex-col">
                                                 <span className="font-bold text-[#37352F] text-[14px]">{member.name}</span>
@@ -231,7 +231,7 @@ export default function SettingsPage() {
                                             </span>
                                         </TableCell>
                                         <TableCell className="px-6 py-4">
-                                            <Button variant="ghost" size="icon" className="h-8 w-8 text-[#91918E] hover:text-[#37352F] hover:bg-[#EBEBE9]">
+                                            <Button variant="ghost" size="icon" className="h-8 w-8 text-[#91918E] hover:text-[#37352F] hover:bg-[#EBEBE9] transition-all duration-100 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.90]">
                                                 <MoreHorizontal className="w-4 h-4" />
                                             </Button>
                                         </TableCell>
@@ -245,7 +245,7 @@ export default function SettingsPage() {
                 {/* Integrations Tab */}
                 <TabsContent value="integrations" className="pt-6 space-y-4">
                     {/* Stripe */}
-                    <div className="bg-white border border-[#E9E9E7] rounded-xl p-6 flex items-center justify-between hover:border-[#37352F]/20 transition-all">
+                    <div className="bg-white border border-[#E9E9E7] rounded-xl p-6 flex items-center justify-between hover:border-[#37352F]/20 transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] hover:shadow-sm">
                         <div className="flex items-start gap-4">
                             <div className="w-10 h-10 rounded-lg bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
                                 <CreditCard className="w-5 h-5" />
@@ -263,7 +263,7 @@ export default function SettingsPage() {
                     </div>
 
                     {/* Resend */}
-                    <div className="bg-white border border-[#E9E9E7] rounded-xl p-6 flex items-center justify-between hover:border-[#37352F]/20 transition-all">
+                    <div className="bg-white border border-[#E9E9E7] rounded-xl p-6 flex items-center justify-between hover:border-[#37352F]/20 transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] hover:shadow-sm">
                         <div className="flex items-start gap-4">
                             <div className="w-10 h-10 rounded-lg bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-900">
                                 <Mail className="w-5 h-5" />
@@ -281,7 +281,7 @@ export default function SettingsPage() {
                     </div>
 
                     {/* Turso */}
-                    <div className="bg-white border border-[#E9E9E7] rounded-xl p-6 flex items-center justify-between hover:border-[#37352F]/20 transition-all">
+                    <div className="bg-white border border-[#E9E9E7] rounded-xl p-6 flex items-center justify-between hover:border-[#37352F]/20 transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] hover:shadow-sm">
                         <div className="flex items-start gap-4">
                             <div className="w-10 h-10 rounded-lg bg-teal-50 border border-teal-100 flex items-center justify-center text-teal-600">
                                 <Database className="w-5 h-5" />

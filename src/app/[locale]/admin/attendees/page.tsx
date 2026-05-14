@@ -88,7 +88,7 @@ export default function AttendeesPage() {
                     </TableHeader>
                     <TableBody>
                         {attendees.map((person) => (
-                            <TableRow key={person.id} className="hover:bg-[#F7F6F3]/30 border-b border-[#F1F1EF] last:border-0 transition-colors">
+                            <TableRow key={person.id} className="hover:bg-[#F7F6F3]/30 border-b border-[#F1F1EF] last:border-0 transition-colors duration-100 [transition-timing-function:var(--ease-emil-out)]">
                                 <TableCell className="px-6 py-5">
                                     <div className="flex items-center gap-3">
                                         <Avatar className="w-9 h-9 border border-[#E9E9E7] rounded-lg">
@@ -129,7 +129,7 @@ export default function AttendeesPage() {
                                 <TableCell className="px-6 py-5">
                                     <DropdownMenu>
                                         <DropdownMenuTrigger asChild>
-                                            <Button variant="ghost" size="icon" className="h-8 w-8 rounded-md hover:bg-[#EBEBE9]">
+                                            <Button variant="ghost" size="icon" className="h-8 w-8 rounded-md hover:bg-[#EBEBE9] transition-all duration-100 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.90]">
                                                 <MoreHorizontal className="w-4.5 h-4.5 text-[#91918E]" />
                                             </Button>
                                         </DropdownMenuTrigger>

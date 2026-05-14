@@ -14,7 +14,8 @@ import {
     Calendar,
     FileText,
     Image as ImageIcon,
-    Download
+    Download,
+    Clock
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -68,10 +69,10 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
     const data = mockGetRegistrationDetails(resolvedParams.id);
 
     return (
-        <div className="space-y-8 max-w-5xl">
+        <div className="w-full mx-auto ">
             {/* Header & Back Navigation */}
             <div className="space-y-4">
-                <Link href="/admin/registrations" className="inline-flex items-center text-[13px] font-bold text-[#91918E] hover:text-[#37352F] transition-colors">
+                <Link href="/admin/registrations" className="inline-flex items-center text-[13px] font-bold text-[#91918E] hover:text-[#37352F] transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.98]">
                     <ArrowLeft className="w-4 h-4 mr-1.5" />
                     Back to Registrations
                 </Link>
@@ -102,7 +103,7 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
                 {/* Main Content Area */}
                 <div className="lg:col-span-2 space-y-8">
                     {/* Pet Details */}
-                    <Card className="border-[#E9E9E7] shadow-sm">
+                    <Card className="border-[#E9E9E7] shadow-sm hover:shadow-md transition-all duration-300 [transition-timing-function:var(--ease-emil-out)]">
                         <CardHeader className="border-b border-[#E9E9E7] bg-[#F7F6F3]/50 pb-4">
                             <CardTitle className="text-lg font-display font-bold text-[#37352F] flex items-center gap-2">
                                 <PawPrint className="w-5 h-5 text-primary" />
@@ -145,7 +146,7 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
                     </Card>
 
                     {/* Competition Details */}
-                    <Card className="border-[#E9E9E7] shadow-sm">
+                    <Card className="border-[#E9E9E7] shadow-sm hover:shadow-md transition-all duration-300 [transition-timing-function:var(--ease-emil-out)]">
                         <CardHeader className="border-b border-[#E9E9E7] bg-[#F7F6F3]/50 pb-4">
                             <CardTitle className="text-lg font-display font-bold text-[#37352F] flex items-center gap-2">
                                 <Calendar className="w-5 h-5 text-teal-600" />
@@ -175,7 +176,7 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
                     </Card>
 
                     {/* Documents */}
-                    <Card className="border-[#E9E9E7] shadow-sm">
+                    <Card className="border-[#E9E9E7] shadow-sm hover:shadow-md transition-all duration-300 [transition-timing-function:var(--ease-emil-out)]">
                         <CardHeader className="border-b border-[#E9E9E7] bg-[#F7F6F3]/50 pb-4">
                             <CardTitle className="text-lg font-display font-bold text-[#37352F] flex items-center gap-2">
                                 <FileText className="w-5 h-5 text-[#91918E]" />
@@ -185,7 +186,7 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
                         <CardContent className="p-6">
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 {data.documents.map((doc, idx) => (
-                                    <div key={idx} className="flex items-center justify-between p-3 border border-[#E9E9E7] rounded-lg hover:border-[#37352F]/20 transition-colors group">
+                                    <div key={idx} className="flex items-center justify-between p-3 border border-[#E9E9E7] rounded-lg hover:border-[#37352F]/20 transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] hover:bg-[#F7F6F3]/50 active:scale-[0.98] group cursor-pointer">
                                         <div className="flex items-center gap-3">
                                             <div className="w-8 h-8 rounded-md bg-[#F7F6F3] flex items-center justify-center text-[#91918E]">
                                                 {doc.type === 'image' ? <ImageIcon className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
@@ -207,7 +208,7 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
 
                 {/* Sidebar (Attendee Profile) */}
                 <div className="space-y-6">
-                    <Card className="border-[#E9E9E7] shadow-sm">
+                    <Card className="border-[#E9E9E7] shadow-sm hover:shadow-md transition-all duration-300 [transition-timing-function:var(--ease-emil-out)]">
                         <CardHeader className="border-b border-[#E9E9E7] bg-[#F7F6F3]/50 pb-4">
                             <CardTitle className="text-lg font-display font-bold text-[#37352F] flex items-center gap-2">
                                 <User className="w-5 h-5 text-indigo-500" />

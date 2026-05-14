@@ -109,7 +109,7 @@ export default function RegistrationsPage() {
                     </TableHeader>
                     <TableBody>
                         {registrations.map((reg) => (
-                            <TableRow key={reg.id} className="hover:bg-[#F7F6F3]/30 transition-colors border-b border-[#F1F1EF] last:border-0">
+                            <TableRow key={reg.id} className="hover:bg-[#F7F6F3]/30 transition-colors duration-100 [transition-timing-function:var(--ease-emil-out)] border-b border-[#F1F1EF] last:border-0">
                                 <TableCell className="px-6 py-5 font-bold text-[#37352F] text-[13px]">{reg.id}</TableCell>
                                 <TableCell className="px-6 py-5">
                                     <div className="flex flex-col">
@@ -135,7 +135,7 @@ export default function RegistrationsPage() {
                                 <TableCell className="px-6 py-5">
                                     <DropdownMenu>
                                         <DropdownMenuTrigger asChild>
-                                            <Button variant="ghost" className="w-8 h-8 p-0 rounded-md hover:bg-[#EBEBE9]">
+                                            <Button variant="ghost" className="w-8 h-8 p-0 rounded-md hover:bg-[#EBEBE9] transition-all duration-100 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.90]">
                                                 <MoreHorizontal className="w-4.5 h-4.5 text-[#91918E]" />
                                             </Button>
                                         </DropdownMenuTrigger>

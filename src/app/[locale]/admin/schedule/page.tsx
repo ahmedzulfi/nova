@@ -103,7 +103,7 @@ export default function SchedulePage() {
                     {scheduleItems.map((item) => (
                         <div key={item.id} className="group flex items-start gap-8 relative pb-8 last:pb-0">
                             <div className="w-20 pt-1 text-right">
-                                <span className="text-[12px] font-bold text-[#91918E] group-hover:text-[#37352F] transition-colors">{item.time}</span>
+                                <span className="text-[12px] font-bold text-[#91918E] group-hover:text-[#37352F] transition-colors duration-100 [transition-timing-function:var(--ease-emil-out)]">{item.time}</span>
                             </div>
                             
                             {/* Connector dot */}
@@ -112,7 +112,7 @@ export default function SchedulePage() {
                                 item.color.replace('bg-', 'bg-')
                             )} />
 
-                            <div className="flex-1 bg-white border border-[#E9E9E7] rounded-xl p-6 hover:border-[#37352F]/20 hover:shadow-sm transition-all group-hover:translate-x-1 duration-300">
+                            <div className="flex-1 bg-white border border-[#E9E9E7] rounded-xl p-6 hover:border-[#37352F]/20 hover:shadow-sm transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] group-hover:translate-x-1">
                                 <div className="flex items-start justify-between gap-4">
                                     <div className="space-y-3">
                                         <div className="flex items-center gap-3">
@@ -142,7 +142,7 @@ export default function SchedulePage() {
 
                                     <DropdownMenu>
                                         <DropdownMenuTrigger asChild>
-                                            <Button variant="ghost" size="icon" className="h-8 w-8 rounded-md hover:bg-[#F7F6F3]">
+                                            <Button variant="ghost" size="icon" className="h-8 w-8 rounded-md hover:bg-[#F7F6F3] transition-all duration-100 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.90]">
                                                 <MoreHorizontal className="w-4.5 h-4.5 text-[#91918E]" />
                                             </Button>
                                         </DropdownMenuTrigger>

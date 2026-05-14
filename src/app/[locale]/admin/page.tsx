@@ -66,7 +66,7 @@ export default function AdminOverviewPage() {
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {stats.map((stat) => (
-                    <div key={stat.name} className="group p-6 bg-white border border-[#E9E9E7] rounded-xl hover:border-[#37352F]/20 hover:shadow-sm transition-all">
+                    <div key={stat.name} className="group p-6 bg-white border border-[#E9E9E7] rounded-xl hover:border-[#37352F]/20 hover:shadow-sm transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.98] cursor-default">
                         <div className="flex items-center justify-between mb-4">
                             <div className={cn("w-9 h-9 rounded-lg flex items-center justify-center", stat.bg)}>
                                 <stat.icon className={cn("w-5 h-5", stat.color)} />
@@ -94,10 +94,10 @@ export default function AdminOverviewPage() {
                         </div>
                         <div className="divide-y divide-[#F1F1EF]">
                             {recentActivity.map((activity) => (
-                                <div key={activity.id} className="group p-5 flex items-center justify-between hover:bg-[#F7F6F3] transition-colors cursor-pointer">
+                                <div key={activity.id} className="group p-5 flex items-center justify-between hover:bg-[#F7F6F3] transition-colors duration-150 [transition-timing-function:var(--ease-emil-out)] cursor-pointer">
                                     <div className="flex items-center gap-4">
                                         <div className={cn(
-                                            "w-9 h-9 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105",
+                                            "w-9 h-9 rounded-lg flex items-center justify-center transition-transform duration-200 [transition-timing-function:var(--ease-emil-out)] group-hover:scale-105",
                                             activity.type === 'registration' ? 'bg-orange-50 text-orange-600' : 'bg-blue-50 text-blue-600'
                                         )}>
                                             {activity.type === 'registration' ? <PawPrint className="w-4.5 h-4.5" /> : <Ticket className="w-4.5 h-4.5" />}
