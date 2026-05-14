@@ -50,24 +50,27 @@
   - Background: `#F5F5F0` (Bone/Off-white) for the section, `#FFFFFF` for the card.
   - Progress: Monochromatic path with Primary (Yellow) highlights for completed steps.
   - Typography: Large `font-display` headers, `9px` bold uppercase labels for inputs.
-## 🏢 Dashboard (Notion Style)
+## 🏢 Unified Dashboard System (Notion Style)
+
+Both User and Admin dashboards share a consistent **Notion-inspired minimalist architecture**, focused on focus, block-based content, and premium tactile interactions.
 
 - **Workspace Shell:**
-  - Sidebar: `#F7F6F3` background, `1px solid #E9E9E7` right border.
-  - Sidebar Typography: `14px` Medium, text `#37352F`.
-  - Layout: Persistent left sidebar on desktop, clean workspace-style header with emoji page icons.
-- **Content Blocks:**
-  - Background: `#FFFFFF` main page.
-  - Callouts: `#F1F1EF` background, `rounded-sm`, with large emojis.
-  - Section Dividers: `1px solid #E9E9E7` with uppercase bold labels (`#91918E`).
-  - Cards: High-contrast white cards, subtle shadow/border, minimalist icons (Lucide).
+  - **Sidebar:** `#F7F6F3` background, `1px solid #E9E9E7` right border. Fixed height, collapsible.
+  - **Workspace Header:** Small `rounded-sm` initial/emoji icon, bold `14px` workspace name.
+  - **Sidebar Typography:** `14px` Medium, text `#37352F`. Hover state: `bg-[#EBEBE9]`.
+  - **Layout:** Persistent left sidebar on desktop, sticky glassmorphism header with thin breadcrumbs.
+- **Page Content:**
+  - **Typography:** Main Heading `40px` Bold, tracking-tight, `#37352F`. Large emojis (`78px`) as page icons.
+  - **Blocks:** Content organized into cards with `rounded-sm` corners and `#E9E9E7` borders.
+  - **Tables:** Minimalist, border-only, `#F7F6F3` headers, hover rows using `--ease-emil-out`.
+  - **Callouts:** `#F1F1EF` background, `rounded-sm`.
+- **Emil Kowalski Design Engineering:**
+  - **Easing:** Physics-based easing variables (`--ease-emil-out`, `--ease-emil-in-out`) for all state changes.
+  - **Tactile Feedback:** Buttons and interactive rows use `active:scale-[0.97]` or `active:scale-[0.98]` with `duration-150`.
+  - **Animations:** Subtle `animate-in fade-in duration-700` for page entries.
 - **Interactive States:**
-  - Hover: Subtle background change to `#F7F6F3`.
-  - Tabs: Minimalist bottom border (`#37352F`) for active state.
-- **Typography:**
-  - Main Heading: `40px` Bold, tracking-tight, `#37352F`.
-  - Subheaders: `18px` Semibold.
-  - Body: `14px` to `16px` for optimal readability in productivity views.
+  - **Tabs:** Minimalist underline style. Border-bottom 2px `#37352F` for active state, zero background color.
+  - **Inputs:** `bg-[#F7F6F3]`, `border-none`, `rounded-sm`. focus-ring `1px #E9E9E7`.
 
 ## 🛠️ Tech Stack & Infrastructure
 
