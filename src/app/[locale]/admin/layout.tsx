@@ -162,7 +162,7 @@ export default function AdminLayout({
                             </button>
                         </div>
                     </header>
-                    <main className="max-w-7xl mx-auto p-8 lg:p-12">
+                    <main className=" w-full  mx-auto p-8 lg:p-12">
                         {children}
                     </main>
                 </SidebarInset>

@@ -128,30 +128,7 @@ export default function AdminOverviewPage() {
 
                 {/* Sidebar area */}
                 <div className="space-y-6">
-                    {/* Quick Actions */}
-                    <div className="bg-white border border-[#E9E9E7] rounded-xl p-6">
-                        <h3 className="font-display font-bold text-[#37352F] text-sm mb-4 uppercase tracking-wider">Quick Actions</h3>
-                        <div className="grid grid-cols-1 gap-2">
-                            <button className="flex items-center gap-3 w-full p-2.5 rounded-lg hover:bg-[#F7F6F3] transition-colors text-left group">
-                                <div className="w-8 h-8 rounded-md bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                                    <Plus className="w-4 h-4" />
-                                </div>
-                                <span className="text-[13px] font-bold text-[#37352F]">Manual Registration</span>
-                            </button>
-                            <button className="flex items-center gap-3 w-full p-2.5 rounded-lg hover:bg-[#F7F6F3] transition-colors text-left group">
-                                <div className="w-8 h-8 rounded-md bg-[#37352F]/10 flex items-center justify-center text-[#37352F] group-hover:bg-[#37352F] group-hover:text-white transition-colors">
-                                    <Bell className="w-4 h-4" />
-                                </div>
-                                <span className="text-[13px] font-bold text-[#37352F]">Broadcast Alert</span>
-                            </button>
-                            <button className="flex items-center gap-3 w-full p-2.5 rounded-lg hover:bg-[#F7F6F3] transition-colors text-left group">
-                                <div className="w-8 h-8 rounded-md bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                                    <CheckCircle2 className="w-4 h-4" />
-                                </div>
-                                <span className="text-[13px] font-bold text-[#37352F]">Validate Tickets</span>
-                            </button>
-                        </div>
-                    </div>
+
 
                     {/* System Status */}
                     <div className="bg-[#F1F1EF] border border-[#E9E9E7] rounded-xl p-6">
