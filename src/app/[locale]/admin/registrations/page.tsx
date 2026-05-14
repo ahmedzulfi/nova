@@ -34,13 +34,13 @@ import {
 import { Badge } from "@/components/ui/badge";
 
 const registrations = [
-    { id: 'REG-001', owner: 'Sarah Johnson', email: 'sarah.j@example.com', pet: 'Luna', category: 'Dog (Golden Retriever)', date: '2026-01-15', status: 'Completed' },
-    { id: 'REG-002', owner: 'Michael Chen', email: 'm.chen@example.com', pet: 'Noodle', category: 'Cat (Persian)', date: '2026-01-14', status: 'Pending' },
-    { id: 'REG-003', owner: 'Emma Wilson', email: 'emma.w@example.com', pet: 'Oliver', category: 'Dog (Beagle)', date: '2026-01-14', status: 'Completed' },
-    { id: 'REG-005', owner: 'Lisa Garcia', email: 'lisa.g@example.com', pet: 'Charlie', category: 'Cat (Siamese)', date: '2026-01-13', status: 'Completed' },
-    { id: 'REG-006', owner: 'Robert Brown', email: 'r.brown@example.com', pet: 'Cooper', category: 'Dog (Poodle)', date: '2026-01-12', status: 'Pending' },
-    { id: 'REG-007', owner: 'Emily Davis', email: 'e.davis@example.com', pet: 'Daisy', category: 'Dog (Dachshund)', date: '2026-01-12', status: 'Completed' },
-    { id: 'REG-008', owner: 'William Taylor', email: 'w.taylor@example.com', pet: 'Finn', category: 'Dog (Husky)', date: '2026-01-11', status: 'Completed' },
+    { id: 'REG-001', owner: 'Sarah Johnson', email: 'sarah.j@example.com', pet: 'Luna', category: 'Grooming Competition', date: '2026-01-15', status: 'Completed' },
+    { id: 'REG-002', owner: 'Michael Chen', email: 'm.chen@example.com', pet: 'Noodle', category: 'Cat Fashion Show', date: '2026-01-14', status: 'Pending' },
+    { id: 'REG-003', owner: 'Emma Wilson', email: 'emma.w@example.com', pet: 'Oliver', category: 'Dog Fashion Show', date: '2026-01-14', status: 'Completed' },
+    { id: 'REG-005', owner: 'Lisa Garcia', email: 'lisa.g@example.com', pet: 'Charlie', category: 'Best Looking Cat Show', date: '2026-01-13', status: 'Completed' },
+    { id: 'REG-006', owner: 'Robert Brown', email: 'r.brown@example.com', pet: 'Cooper', category: 'Best Looking Dog Show', date: '2026-01-12', status: 'Pending' },
+    { id: 'REG-007', owner: 'Emily Davis', email: 'e.davis@example.com', pet: 'Daisy', category: 'Drawing Cat Battle', date: '2026-01-12', status: 'Completed' },
+    { id: 'REG-008', owner: 'William Taylor', email: 'w.taylor@example.com', pet: 'Finn', category: 'Grooming Competition', date: '2026-01-11', status: 'Completed' },
 ];
 
 export default function RegistrationsPage() {

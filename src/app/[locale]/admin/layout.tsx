@@ -25,7 +25,6 @@ const navItems = [
     { id: 'overview', name: 'Overview', href: '/admin', icon: LayoutDashboard },
     { id: 'registrations', name: 'Registrations', href: '/admin/registrations', icon: PawPrint },
     { id: 'tickets', name: 'Tickets', href: '/admin/tickets', icon: Ticket },
-    { id: 'attendees', name: 'Attendees', href: '/admin/attendees', icon: Users },
     { id: 'settings', name: 'Settings', href: '/admin/settings', icon: Settings },
 ];
 

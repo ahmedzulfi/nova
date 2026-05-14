@@ -53,7 +53,7 @@ const mockGetRegistrationDetails = (id: string) => {
             specialNeeds: 'None',
         },
         competition: {
-            category: 'Agility Course (Large Dogs)',
+            category: 'Grooming Competition',
             experienceLevel: 'Intermediate',
             previousTitles: 'Best in Show 2025 (Local)',
         },
@@ -254,9 +254,9 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
                                     </div>
                                 </div>
                             </div>
-                            <Link href={`/admin/attendees/AT-5842`} className="block w-full">
+                            <Link href={`/admin/tickets/NP-2026-X8Y1`} className="block w-full">
                                 <Button variant="outline" className="w-full mt-6 text-[13px] font-semibold border-[#E9E9E7] hover:bg-[#F7F6F3] transition-all">
-                                    View Full Profile
+                                    View Guest Ticket
                                 </Button>
                             </Link>
                         </CardContent>

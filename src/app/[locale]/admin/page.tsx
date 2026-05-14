@@ -46,11 +46,11 @@ const stats = [
 ];
 
 const recentActivity = [
-    { id: 1, type: 'registration', user: 'Sarah Johnson', pet: 'Luna (Golden Retriever)', time: '2 mins ago', status: 'completed' },
-    { id: 2, type: 'ticket', user: 'Michael Chen', quantity: '3 Tickets', time: '15 mins ago', status: 'completed' },
-    { id: 3, type: 'registration', user: 'Emma Wilson', pet: 'Oliver (Tabby Cat)', time: '45 mins ago', status: 'pending' },
-    { id: 4, type: 'ticket', user: 'David Rodriguez', quantity: '1 Ticket', time: '1 hour ago', status: 'completed' },
-    { id: 5, type: 'registration', user: 'James Thompson', pet: 'Max (Beagle)', time: '2 hours ago', status: 'completed' },
+    { id: 1, type: 'registration', user: 'Sarah Johnson', pet: 'Grooming Competition', time: '2 mins ago', status: 'completed' },
+    { id: 2, type: 'ticket', user: 'Michael Chen', quantity: '2 Adults, 1 Kid', time: '15 mins ago', status: 'completed' },
+    { id: 3, type: 'registration', user: 'Emma Wilson', pet: 'Dog Fashion Show', time: '45 mins ago', status: 'pending' },
+    { id: 4, type: 'ticket', user: 'David Rodriguez', quantity: 'Dog Owner Pass', time: '1 hour ago', status: 'completed' },
+    { id: 5, type: 'registration', user: 'James Thompson', pet: 'Best Looking Dog Show', time: '2 hours ago', status: 'completed' },
 ];
 
 const chartData = [
@@ -79,13 +79,7 @@ export default function AdminOverviewPage() {
                 <p className="text-[16px] text-[#91918E] max-w-2xl">Manage registrations and festival operations.</p>
                 
                 <div className="flex items-center gap-2 mt-8">
-                    <Button variant="outline" className="h-9 rounded-sm border-[#E9E9E7] bg-white text-[13px] font-semibold text-[#37352F] hover:bg-[#F7F6F3] transition-all active:scale-[0.98]">
-                        <Plus className="w-4 h-4 mr-2 text-[#91918E]" />
-                        New Registration
-                    </Button>
-                    <Button className="h-9 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[13px] font-bold px-6 transition-all active:scale-[0.98] shadow-sm border border-black/5">
-                        Generate Report
-                    </Button>
+                    {/* Simplified Header Actions */}
                 </div>
             </div>
 

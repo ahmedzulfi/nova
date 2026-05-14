@@ -34,6 +34,7 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
+import { cn } from '@/lib/utils';
 
 // Mock data fetching based on ID
 const mockGetAttendeeDetails = (id: string) => {
@@ -64,8 +65,8 @@ export default function AttendeeDetailsPage({ params }: { params: Promise<{ id: 
     return (
         <div className="space-y-8 animate-in fade-in duration-700">
             {/* Back Navigation */}
-            <Link 
-                href="/admin/attendees" 
+            <Link
+                href="/admin/attendees"
                 className="flex items-center gap-2 text-[#91918E] hover:text-[#37352F] text-[13px] font-medium transition-colors mb-8 group"
             >
                 <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
