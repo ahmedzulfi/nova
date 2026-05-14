@@ -26,7 +26,6 @@ const navItems = [
     { id: 'registrations', name: 'Registrations', href: '/admin/registrations', icon: PawPrint },
     { id: 'tickets', name: 'Tickets', href: '/admin/tickets', icon: Ticket },
     { id: 'attendees', name: 'Attendees', href: '/admin/attendees', icon: Users },
-    { id: 'schedule', name: 'Schedule', href: '/admin/schedule', icon: Calendar },
     { id: 'settings', name: 'Settings', href: '/admin/settings', icon: Settings },
 ];
 
@@ -58,7 +57,7 @@ export default function AdminLayout({
                         "flex items-center gap-2 overflow-hidden transition-opacity",
                         isSidebarOpen ? "opacity-100" : "opacity-0"
                     )}>
-                        <div className="w-6 h-6 bg-[#37352F] rounded-sm flex items-center justify-center text-white text-[12px] font-bold">
+                        <div className="w-6 h-6 bg-[#FACC15] rounded-sm flex items-center justify-center text-black text-[12px] font-bold">
                             N
                         </div>
                         <span className="font-semibold text-[14px] truncate">Nova Admin</span>
@@ -84,11 +83,13 @@ export default function AdminLayout({
                             key={item.id}
                             href={item.href}
                             className={cn(
-                                "flex items-center gap-2 px-2 py-1.5 rounded-sm text-[14px] transition-colors",
-                                pathname === item.href ? "bg-[#EBEBE9] font-semibold" : "hover:bg-[#EBEBE9] text-[#37352F]"
+                                "flex items-center gap-2 px-2 py-1.5 rounded-sm text-[14px] transition-all duration-150",
+                                pathname === item.href 
+                                    ? "bg-[#FACC15] text-black font-bold shadow-sm" 
+                                    : "hover:bg-[#EBEBE9] text-[#37352F]"
                             )}
                         >
-                            <item.icon size={18} className="text-[#91918E]" />
+                            <item.icon size={18} className={cn(pathname === item.href ? "text-black" : "text-[#91918E]")} />
                             <span>{item.name}</span>
                         </Link>
                     ))}

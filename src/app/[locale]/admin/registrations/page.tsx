@@ -61,7 +61,6 @@ export default function RegistrationsPage() {
         <div className="space-y-8 animate-in fade-in duration-700">
             {/* Notion Page Header */}
             <div className="mb-10">
-                <div className="text-[78px] mb-4">🐾</div>
                 <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">Registrations</h1>
                 <p className="text-[16px] text-[#91918E] max-w-2xl">Manage and review all pet competition entries for the festival.</p>
             </div>
@@ -88,7 +87,7 @@ export default function RegistrationsPage() {
                         <Download className="w-3.5 h-3.5 mr-2 text-[#91918E]" />
                         Export
                     </Button>
-                    <Button className="h-9 bg-[#37352F] hover:bg-black text-white rounded-sm text-[13px] font-bold px-4">
+                    <Button className="h-9 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[13px] font-bold px-4 shadow-sm border border-black/5">
                         <Plus className="w-4 h-4 mr-1.5" />
                         New Entry
                     </Button>
@@ -166,7 +165,7 @@ export default function RegistrationsPage() {
                             Previous
                         </Button>
                         <div className="flex items-center gap-1">
-                            <Button size="sm" className="w-8 h-8 rounded-md bg-[#37352F] text-white text-[11px] font-bold">1</Button>
+                            <Button size="sm" className="w-8 h-8 rounded-md bg-[#FACC15] text-black text-[11px] font-bold shadow-sm border border-black/5">1</Button>
                             <Button variant="ghost" size="sm" className="w-8 h-8 rounded-md text-[11px] font-bold text-[#91918E] hover:text-[#37352F]">2</Button>
                             <Button variant="ghost" size="sm" className="w-8 h-8 rounded-md text-[11px] font-bold text-[#91918E] hover:text-[#37352F]">3</Button>
                         </div>

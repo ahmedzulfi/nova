@@ -45,7 +45,6 @@ export default function TicketsPage() {
         <div className="space-y-8 animate-in fade-in duration-700">
             {/* Notion Page Header */}
             <div className="mb-10">
-                <div className="text-[78px] mb-4">🎫</div>
                 <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">Ticket Ledger</h1>
                 <p className="text-[16px] text-[#91918E] max-w-2xl">Issuance tracking and inventory management for festival passes.</p>
             </div>
@@ -66,7 +65,7 @@ export default function TicketsPage() {
                         <Download className="w-3.5 h-3.5 mr-2 text-[#91918E]" />
                         Export
                     </Button>
-                    <Button className="h-9 bg-[#37352F] hover:bg-black text-white rounded-sm text-[13px] font-bold px-4">
+                    <Button className="h-9 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[13px] font-bold px-4 shadow-sm border border-black/5">
                         <Plus className="w-4 h-4 mr-1.5" />
                         New Type
                     </Button>
@@ -75,43 +74,17 @@ export default function TicketsPage() {
 
             {/* Quick Metrics */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-[#F7F6F3]/50 p-6  rounded-sm  border border-[#E9E9E7] transition-all hover:border-[#37352F]/20">
-                    <div className="flex items-center gap-3 mb-4">
-                        <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600 border border-blue-100/50">
-                            <Ticket className="w-4 h-4" />
-                        </div>
-                        <span className="font-bold text-[#91918E] uppercase tracking-widest text-[10px]">Total Revenue</span>
-                    </div>
-                    <h3 className="text-3xl font-display font-bold text-[#37352F] tracking-tight">$42,500.00</h3>
-                    <div className="flex items-center gap-1.5 mt-1">
-                        <span className="text-green-600 text-[11px] font-bold">+12.4%</span>
-                        <span className="text-[#91918E] text-[11px]">vs last month</span>
-                    </div>
+                <div className="bg-white p-6 rounded-sm border border-[#E9E9E7] transition-all hover:border-[#FACC15]/50 active:scale-[0.98]">
+                    <span className="font-bold text-[#91918E] uppercase tracking-widest text-[11px]">Total Revenue</span>
+                    <h3 className="text-[32px] font-bold text-[#37352F] mt-2 tracking-tight">$42,500.00</h3>
                 </div>
-                <div className="bg-[#F7F6F3]/50 p-6  rounded-sm  border border-[#E9E9E7] transition-all hover:border-[#37352F]/20">
-                    <div className="flex items-center gap-3 mb-4">
-                        <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center text-orange-600 border border-orange-100/50">
-                            <Tag className="w-4 h-4" />
-                        </div>
-                        <span className="font-bold text-[#91918E] uppercase tracking-widest text-[10px]">Utilization</span>
-                    </div>
-                    <h3 className="text-3xl font-display font-bold text-[#37352F] tracking-tight">3,420</h3>
-                    <div className="flex items-center gap-1.5 mt-1 text-[11px]">
-                        <div className="w-16 h-1.5 bg-[#E9E9E7] rounded-full overflow-hidden">
-                            <div className="h-full bg-orange-500 w-[85%]" />
-                        </div>
-                        <span className="text-[#37352F] font-bold">85% Sold</span>
-                    </div>
+                <div className="bg-white p-6 rounded-sm border border-[#E9E9E7] transition-all hover:border-[#FACC15]/50 active:scale-[0.98]">
+                    <span className="font-bold text-[#91918E] uppercase tracking-widest text-[11px]">Utilization</span>
+                    <h3 className="text-[32px] font-bold text-[#37352F] mt-2 tracking-tight">3,420</h3>
                 </div>
-                <div className="bg-[#F7F6F3]/50 p-6  rounded-sm  border border-[#E9E9E7] transition-all hover:border-[#37352F]/20">
-                    <div className="flex items-center gap-3 mb-4">
-                        <div className="w-8 h-8 rounded-lg bg-teal-50 flex items-center justify-center text-teal-600 border border-teal-100/50">
-                            <Calendar className="w-4 h-4" />
-                        </div>
-                        <span className="font-bold text-[#91918E] uppercase tracking-widest text-[10px]">Time to Event</span>
-                    </div>
-                    <h3 className="text-3xl font-display font-bold text-[#37352F] tracking-tight">45 Days</h3>
-                    <p className="text-[#91918E] text-[11px] font-medium mt-1">Counting down to showtime</p>
+                <div className="bg-white p-6 rounded-sm border border-[#E9E9E7] transition-all hover:border-[#FACC15]/50 active:scale-[0.98]">
+                    <span className="font-bold text-[#91918E] uppercase tracking-widest text-[11px]">Time to Event</span>
+                    <h3 className="text-[32px] font-bold text-[#37352F] mt-2 tracking-tight">45 Days</h3>
                 </div>
             </div>
 

@@ -106,13 +106,6 @@ function DashboardContent() {
     <div className="animate-in fade-in duration-700">
       {/* Notion Page Header */}
       <div className="mb-12">
-        <div className="text-[78px] mb-4">
-            {activeTab === 'overview' ? '👋' : 
-             activeTab === 'competitions' ? '🏆' :
-             activeTab === 'receipt' ? '📄' :
-             activeTab === 'health' ? '🏥' :
-             activeTab === 'schedule' ? '📅' : '⚙️'}
-        </div>
         <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">
             {activeTab === 'overview' ? `Welcome, ${data.fullName.split(' ')[0]}` : 
              activeTab === 'competitions' ? t('sidebar.competitions') :

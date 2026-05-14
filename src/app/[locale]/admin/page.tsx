@@ -25,10 +25,10 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const stats = [
-    { name: 'Total Registrations', value: '1,284', change: '+12%', icon: PawPrint, color: 'text-orange-500', bg: 'bg-orange-50' },
-    { name: 'Tickets Sold', value: '3,420', change: '+8%', icon: Ticket, color: 'text-blue-500', bg: 'bg-blue-50' },
-    { name: 'Total Attendees', value: '5,842', change: '+24%', icon: Users, color: 'text-teal-500', bg: 'bg-teal-50' },
-    { name: 'Revenue', value: '$42,500', change: '+15%', icon: TrendingUp, color: 'text-green-500', bg: 'bg-green-50' },
+    { name: 'Total Registrations', value: '1,284' },
+    { name: 'Tickets Sold', value: '3,420' },
+    { name: 'Total Attendees', value: '5,842' },
+    { name: 'Revenue', value: '$42,500' },
 ];
 
 const recentActivity = [
@@ -44,16 +44,15 @@ export default function AdminOverviewPage() {
         <div className="space-y-12 animate-in fade-in duration-700">
             {/* Notion Page Header */}
             <div className="mb-12">
-                <div className="text-[78px] mb-4">🕹️</div>
                 <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">Command Center</h1>
                 <p className="text-[16px] text-[#91918E] max-w-2xl">Operational overview and real-time management of the Nova Paw Festival 2026.</p>
                 
                 <div className="flex items-center gap-2 mt-8">
                     <Button variant="outline" className="h-9 rounded-sm border-[#E9E9E7] bg-white text-[13px] font-semibold text-[#37352F] hover:bg-[#F7F6F3] transition-all active:scale-[0.98]">
-                        <Calendar className="w-4 h-4 mr-2 text-[#91918E]" />
-                        Event Schedule
+                        <Plus className="w-4 h-4 mr-2 text-[#91918E]" />
+                        New Registration
                     </Button>
-                    <Button className="h-9 bg-[#37352F] hover:bg-black text-white rounded-sm text-[13px] font-bold px-6 transition-all active:scale-[0.98]">
+                    <Button className="h-9 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[13px] font-bold px-6 transition-all active:scale-[0.98] shadow-sm border border-black/5">
                         Generate Report
                     </Button>
                 </div>
@@ -62,17 +61,9 @@ export default function AdminOverviewPage() {
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {stats.map((stat) => (
-                    <div key={stat.name} className="group p-6 bg-white border border-[#E9E9E7] rounded-sm hover:bg-[#F7F6F3]/50 transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.98] cursor-default">
-                        <div className="flex items-center justify-between mb-4">
-                            <div className={cn("w-8 h-8 rounded-sm flex items-center justify-center", stat.bg)}>
-                                <stat.icon className={cn("w-4.5 h-4.5", stat.color)} />
-                            </div>
-                            <div className="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-sm border border-green-100/30">
-                                {stat.change}
-                            </div>
-                        </div>
+                    <div key={stat.name} className="group p-6 bg-white border border-[#E9E9E7] rounded-sm hover:border-[#FACC15]/50 transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] active:scale-[0.98] cursor-default">
                         <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">{stat.name}</p>
-                        <h3 className="text-[24px] font-bold text-[#37352F] mt-1 tracking-tight">{stat.value}</h3>
+                        <h3 className="text-[32px] font-bold text-[#37352F] mt-2 tracking-tight">{stat.value}</h3>
                     </div>
                 ))}
             </div>

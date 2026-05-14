@@ -82,7 +82,6 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
             {/* Notion Page Header */}
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#F1F1EF]">
                 <div>
-                    <div className="text-[64px] mb-4">📜</div>
                     <div className="flex items-center gap-3 mb-2">
                         <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight">{data.id}</h1>
                         <span className="text-[11px] font-bold uppercase tracking-wider text-yellow-600 bg-yellow-50 px-2 py-0.5 rounded-sm border border-yellow-100/50 flex items-center gap-1.5 h-fit mt-3">
@@ -96,7 +95,7 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
                         <XCircle className="w-4 h-4 mr-2" />
                         Decline Entry
                     </Button>
-                    <Button className="h-10 px-8 bg-[#37352F] hover:bg-black text-white rounded-sm text-[13px] font-bold transition-all active:scale-[0.98]">
+                    <Button className="h-10 px-8 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[13px] font-bold transition-all active:scale-[0.98] shadow-sm border border-black/5">
                         <CheckCircle2 className="w-4 h-4 mr-2" />
                         Approve Registration
                     </Button>
@@ -223,7 +222,7 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
                             <div className="flex items-center gap-4 mb-6">
                                 <Avatar className="w-16 h-16 border border-[#E9E9E7]">
                                     <AvatarImage src={data.attendee.avatarUrl} />
-                                    <AvatarFallback className="bg-indigo-50 text-indigo-700 font-bold text-xl">
+                                    <AvatarFallback className="bg-[#FACC15]/20 text-[#854d0e] font-bold text-xl">
                                         {data.attendee.name.charAt(0)}
                                     </AvatarFallback>
                                 </Avatar>

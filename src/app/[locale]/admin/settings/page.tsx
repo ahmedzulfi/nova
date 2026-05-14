@@ -61,7 +61,6 @@ export default function SettingsPage() {
         <div className="space-y-8 animate-in fade-in duration-700">
             {/* Notion Page Header */}
             <div className="mb-10">
-                <div className="text-[78px] mb-4">⚙️</div>
                 <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">Settings</h1>
                 <p className="text-[16px] text-[#91918E] max-w-2xl">Manage workspace configurations, team permissions, and platform integrations.</p>
             </div>
@@ -70,27 +69,27 @@ export default function SettingsPage() {
                 <TabsList className="bg-transparent border-b border-[#F1F1EF] w-full justify-start h-auto p-0 rounded-none gap-8 mb-8">
                     <TabsTrigger 
                         value="general" 
-                        className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#37352F] data-[state=active]:bg-transparent data-[state=active]:shadow-none px-0 py-3 text-[14px] font-medium text-[#91918E] data-[state=active]:text-[#37352F] transition-all"
+                        className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#FACC15] data-[state=active]:bg-transparent data-[state=active]:shadow-none px-0 py-3 text-[14px] font-medium text-[#91918E] data-[state=active]:text-[#37352F] transition-all"
                     >
                         General
                     </TabsTrigger>
                     <TabsTrigger
                         value="features"
-                        className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-[#37352F] rounded-none px-0 py-3 text-[14px] font-medium text-[#91918E] data-[state=active]:text-[#37352F]"
+                        className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-[#FACC15] rounded-none px-0 py-3 text-[14px] font-medium text-[#91918E] data-[state=active]:text-[#37352F]"
                     >
                         <ToggleLeft className="w-4 h-4 mr-2" />
                         Features
                     </TabsTrigger>
                     <TabsTrigger
                         value="team"
-                        className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-[#37352F] rounded-none px-0 py-3 text-[14px] font-medium text-[#91918E] data-[state=active]:text-[#37352F]"
+                        className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-[#FACC15] rounded-none px-0 py-3 text-[14px] font-medium text-[#91918E] data-[state=active]:text-[#37352F]"
                     >
                         <Users className="w-4 h-4 mr-2" />
                         Team
                     </TabsTrigger>
                     <TabsTrigger
                         value="integrations"
-                        className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-[#37352F] rounded-none px-0 py-3 text-[14px] font-medium text-[#91918E] data-[state=active]:text-[#37352F]"
+                        className="data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-[#FACC15] rounded-none px-0 py-3 text-[14px] font-medium text-[#91918E] data-[state=active]:text-[#37352F]"
                     >
                         <Plug className="w-4 h-4 mr-2" />
                         Integrations
@@ -178,7 +177,7 @@ export default function SettingsPage() {
                                 <h3 className="font-display font-bold text-[#37352F] text-lg">Team Members</h3>
                                 <p className="text-[13px] text-[#91918E]">Manage admin access to this workspace.</p>
                             </div>
-                            <Button className="h-8 bg-[#37352F] hover:bg-[#37352F]/90 text-white rounded-md text-[12px] font-semibold">
+                            <Button className="h-8 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[12px] font-bold shadow-sm border border-black/5">
                                 <Plus className="w-3.5 h-3.5 mr-1.5" />
                                 Invite Member
                             </Button>

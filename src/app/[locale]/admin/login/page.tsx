@@ -28,15 +28,15 @@ export default function AdminLoginPage() {
         <main className="min-h-screen bg-black flex items-center justify-center p-6 relative overflow-hidden">
             {/* Dark Aesthetic Background Elements */}
             <div className="absolute top-0 left-0 w-full h-full">
-                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[120px]" />
-                <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-accent/20 rounded-full blur-[120px]" />
+                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#FACC15]/20 rounded-full blur-[120px]" />
+                <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#FACC15]/20 rounded-full blur-[120px]" />
             </div>
 
             <div className="w-full max-w-[450px] relative z-10">
                 <div className="bg-[#111111] border border-white/10    rounded-sm  p-8 md:p-12 backdrop-blur-3xl">
                     <div className="flex justify-center mb-8">
-                        <div className="w-16 h-16 bg-primary/10    rounded-sm  flex items-center justify-center border border-primary/20">
-                            <Shield className="w-8 h-8 text-primary" />
+                        <div className="w-16 h-16 bg-[#FACC15]/10    rounded-sm  flex items-center justify-center border border-[#FACC15]/20">
+                            <Shield className="w-8 h-8 text-[#FACC15]" />
                         </div>
                     </div>
 
@@ -81,7 +81,7 @@ export default function AdminLoginPage() {
                         <Button
                             disabled={isLoading}
                             type="submit"
-                            className="w-full h-14 bg-primary hover:bg-primary/90 text-white font-bold  rounded-sm text-lg transition-all group"
+                            className="w-full h-14 bg-[#FACC15] hover:bg-[#EAB308] text-black font-bold  rounded-sm text-lg transition-all group"
                         >
                             {isLoading ? (
                                 <Loader2 className="w-6 h-6 animate-spin" />

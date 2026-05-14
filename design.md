@@ -29,7 +29,7 @@
   - Hover: `scale-[1.01]` or `shadow-md`
 - **Buttons:**
   - Primary: Black background, white text, `rounded-sm`, `h-16`.
-  - Alternative: Primary yellow background for active/selected states, `rounded-sm`.
+  - Alternative: Primary yellow (`#FACC15`) background for active/selected states and primary dashboard actions, `rounded-sm`.
 - **Inputs:**
   - `rounded-sm`, border-black/5, focus-primary.
 - **Bento Grid:** Used for the Festival Zones section (3x3 grid).
@@ -60,10 +60,15 @@ Both User and Admin dashboards share a consistent **Notion-inspired minimalist a
   - **Sidebar Typography:** `14px` Medium, text `#37352F`. Hover state: `bg-[#EBEBE9]`.
   - **Layout:** Persistent left sidebar on desktop, sticky glassmorphism header with thin breadcrumbs.
 - **Page Content:**
-  - **Typography:** Main Heading `40px` Bold, tracking-tight, `#37352F`. Large emojis (`78px`) as page icons.
+  - **Typography:** Main Heading `40px` Bold, tracking-tight, `#37352F`. Decorative page-top emojis have been removed for a cleaner workspace.
+  - **Analytical Cards:** Simple grid-based cards focusing on raw data. Removed top icons and percentage indicators to minimize visual noise.
   - **Blocks:** Content organized into cards with `rounded-sm` corners and `#E9E9E7` borders.
   - **Tables:** Minimalist, border-only, `#F7F6F3` headers, hover rows using `--ease-emil-out`.
   - **Callouts:** `#F1F1EF` background, `rounded-sm`.
+- **Primary Accents:**
+  - **Workspace Icon:** Primary yellow (`#FACC15`) background with black text.
+  - **Active Navigation:** Primary yellow (`#FACC15`) background for active links in sidebars and active tab highlights.
+  - **Action Buttons:** Use primary yellow for high-impact buttons (e.g., "Generate Report", "Approve Entry").
 - **Emil Kowalski Design Engineering:**
   - **Easing:** Physics-based easing variables (`--ease-emil-out`, `--ease-emil-in-out`) for all state changes.
   - **Tactile Feedback:** Buttons and interactive rows use `active:scale-[0.97]` or `active:scale-[0.98]` with `duration-150`.

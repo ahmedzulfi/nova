@@ -44,7 +44,6 @@ export default function AttendeesPage() {
         <div className="space-y-8 animate-in fade-in duration-700">
             {/* Notion Page Header */}
             <div className="mb-10">
-                <div className="text-[78px] mb-4">👥</div>
                 <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">Attendee Directory</h1>
                 <p className="text-[16px] text-[#91918E] max-w-2xl">Comprehensive database of festival guests and ticket holders.</p>
             </div>
@@ -65,7 +64,7 @@ export default function AttendeesPage() {
                         <Mail className="w-3.5 h-3.5 mr-2 text-[#91918E]" />
                         Email All
                     </Button>
-                    <Button className="h-9 bg-[#37352F] hover:bg-black text-white rounded-sm text-[13px] font-bold px-4">
+                    <Button className="h-9 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[13px] font-bold px-4 shadow-sm border border-black/5">
                         Add Guest
                     </Button>
                 </div>
@@ -90,7 +89,7 @@ export default function AttendeesPage() {
                                 <TableCell className="px-6 py-5">
                                     <div className="flex items-center gap-3">
                                         <Avatar className="w-9 h-9 border border-[#E9E9E7] rounded-lg">
-                                            <AvatarFallback className="bg-primary/10 text-primary font-bold text-xs">{person.name.charAt(0)}</AvatarFallback>
+                                            <AvatarFallback className="bg-[#FACC15]/20 text-[#854d0e] font-bold text-xs">{person.name.charAt(0)}</AvatarFallback>
                                         </Avatar>
                                         <div className="flex flex-col">
                                             <span className="font-bold text-[14px] text-[#37352F]">{person.name}</span>
@@ -117,7 +116,7 @@ export default function AttendeesPage() {
                                     </div>
                                 </TableCell>
                                 <TableCell className="px-6 py-5">
-                                    <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-md bg-[#37352F] text-white">
+                                    <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-sm bg-[#FACC15] text-black border border-black/5">
                                         {person.tickets} Passes
                                     </span>
                                 </TableCell>
