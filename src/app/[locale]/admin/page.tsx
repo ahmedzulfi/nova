@@ -12,8 +12,22 @@ import {
     CheckCircle2,
     Clock,
     Shield,
-    Plus
+    Plus,
+    Activity
 } from 'lucide-react';
+import {
+    Area,
+    AreaChart,
+    CartesianGrid,
+    XAxis,
+    ResponsiveContainer
+} from "recharts";
+import {
+    ChartConfig,
+    ChartContainer,
+    ChartTooltip,
+    ChartTooltipContent,
+} from "@/components/ui/chart";
 import {
     Card,
     CardContent,
@@ -38,6 +52,23 @@ const recentActivity = [
     { id: 4, type: 'ticket', user: 'David Rodriguez', quantity: '1 Ticket', time: '1 hour ago', status: 'completed' },
     { id: 5, type: 'registration', user: 'James Thompson', pet: 'Max (Beagle)', time: '2 hours ago', status: 'completed' },
 ];
+
+const chartData = [
+    { day: "Mon", registrations: 45 },
+    { day: "Tue", registrations: 52 },
+    { day: "Wed", registrations: 38 },
+    { day: "Thu", registrations: 65 },
+    { day: "Fri", registrations: 48 },
+    { day: "Sat", registrations: 82 },
+    { day: "Sun", registrations: 70 },
+];
+
+const chartConfig = {
+    registrations: {
+        label: "Registrations",
+        color: "#FACC15",
+    },
+} satisfies ChartConfig;
 
 export default function AdminOverviewPage() {
     return (
@@ -114,23 +145,54 @@ export default function AdminOverviewPage() {
 
                 {/* Sidebar area */}
                 <div className="space-y-8">
-                    {/* System Status */}
+                    {/* Registration Trends Chart */}
                     <div className="space-y-4">
-                        <h3 className="font-bold text-[#37352F] text-[12px] uppercase tracking-widest border-b border-[#E9E9E7] pb-2">System Health</h3>
-                        <div className="p-6 bg-[#F7F6F3] border border-[#E9E9E7] rounded-sm space-y-4">
-                            {[
-                                { label: 'API Gateway', status: 'Stable' },
-                                { label: 'Auth Service', status: 'Stable' },
-                                { label: 'DB Cluster', status: 'Stable' },
-                            ].map((s) => (
-                                <div key={s.label} className="flex items-center justify-between">
-                                    <span className="text-[13px] text-[#37352F] font-medium">{s.label}</span>
-                                    <div className="flex items-center gap-2">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                                        <span className="text-[11px] font-bold text-green-600 uppercase tracking-widest">{s.status}</span>
-                                    </div>
+                        <div className="flex items-center justify-between border-b border-[#E9E9E7] pb-2">
+                            <h3 className="font-bold text-[#37352F] text-[12px] uppercase tracking-widest">Entry Velocity</h3>
+                            <Activity className="w-3.5 h-3.5 text-[#FACC15]" />
+                        </div>
+                        <div className="p-4 bg-white border border-[#E9E9E7] rounded-sm">
+                            <ChartContainer config={chartConfig} className="h-[200px] w-full">
+                                <AreaChart
+                                    data={chartData}
+                                    margin={{
+                                        left: -20,
+                                        right: 12,
+                                        top: 10,
+                                        bottom: 0
+                                    }}
+                                >
+                                    <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="#F1F1EF" />
+                                    <XAxis
+                                        dataKey="day"
+                                        tickLine={false}
+                                        axisLine={false}
+                                        tickMargin={8}
+                                        tickFormatter={(value) => value}
+                                        fontSize={10}
+                                        fontWeight={600}
+                                        tick={{ fill: '#91918E' }}
+                                    />
+                                    <ChartTooltip
+                                        cursor={false}
+                                        content={<ChartTooltipContent hideLabel />}
+                                    />
+                                    <Area
+                                        dataKey="registrations"
+                                        type="natural"
+                                        fill="#FACC15"
+                                        fillOpacity={0.1}
+                                        stroke="#FACC15"
+                                        strokeWidth={2}
+                                    />
+                                </AreaChart>
+                            </ChartContainer>
+                            <div className="mt-4 pt-4 border-t border-[#F1F1EF]">
+                                <div className="flex items-center justify-between text-[11px] font-bold">
+                                    <span className="text-[#91918E] uppercase tracking-widest">Total this week</span>
+                                    <span className="text-[#37352F]">400 Entries</span>
                                 </div>
-                            ))}
+                            </div>
                         </div>
                     </div>
                 </div>
