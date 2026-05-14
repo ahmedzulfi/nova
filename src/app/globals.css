@@ -156,7 +156,9 @@
   }
 
   [lang="ar"] {
-    @apply font-arabic;
+    --font-display: var(--font-archivo-black), var(--font-cairo), sans-serif;
+    --font-sans: var(--font-archivo-black), var(--font-cairo), sans-serif;
+    --font-arabic: var(--font-archivo-black), var(--font-cairo), sans-serif;
     direction: rtl;
   }
 

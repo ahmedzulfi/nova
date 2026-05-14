@@ -1,6 +1,6 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
-import { Inter, Archivo, Cairo } from "next/font/google";
+import { Inter, Archivo, Cairo, Archivo_Black } from "next/font/google";
 import "../globals.css";
 import ErrorReporter from "@/components/ErrorReporter";
 import SmoothScroll from "@/components/providers/SmoothScroll";
@@ -17,6 +17,13 @@ const inter = Inter({
 const archivo = Archivo({
   subsets: ["latin"],
   variable: "--font-archivo",
+  display: "swap",
+});
+
+const archivoBlack = Archivo_Black({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-archivo-black",
   display: "swap",
 });
 
@@ -55,7 +62,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} className={`${inter.variable} ${archivo.variable} ${cairo.variable}`}>
+    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} className={`${inter.variable} ${archivo.variable} ${cairo.variable} ${archivoBlack.variable}`}>
       <body className="antialiased">
         <NextIntlClientProvider messages={messages}>
           <ErrorReporter />

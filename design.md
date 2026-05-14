@@ -16,6 +16,7 @@
 
 - **Display Font:** Bold, high-impact sans-serif for headings (tracking-tighter).
 - **Body Font:** Clean, readable sans-serif for descriptions and lists.
+- **Arabic Locale Font:** Specialized stack using `Archivo Black` for Latin/Numbers and `Cairo` for Arabic characters to maintain high-impact visuals.
 - **Hero Headings:** Up to `84px` or `72px` for maximum impact.
 - **Section Titles:** `48px` to `64px`.
 
