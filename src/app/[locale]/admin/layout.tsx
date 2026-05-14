@@ -13,7 +13,8 @@ import {
     LogOut,
     Menu,
     X,
-    Shield
+    Shield,
+    Bell
 } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import {
