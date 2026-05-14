@@ -67,3 +67,27 @@
   - Main Heading: `40px` Bold, tracking-tight, `#37352F`.
   - Subheaders: `18px` Semibold.
   - Body: `14px` to `16px` for optimal readability in productivity views.
+
+## 🛠️ Tech Stack & Infrastructure
+
+### Frontend (Modern & Immersive)
+- **Framework:** Next.js 15 (App Router, Turbopack)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS 4 + CSS Modules
+- **Animations:** Framer Motion, Motion, Lenis (Smooth Scroll)
+- **3D/Graphics:** Three.js, React Three Fiber, Drei, Cobe (Globe)
+- **UI Components:** Radix UI (Headless), Lucide/Tabler Icons
+- **I18n:** `next-intl` (Internationalization)
+
+### Backend (Scalable & Secure)
+- **Database:** Turso (libSQL) - Distributed Edge Database
+- **ORM:** Drizzle ORM - Type-safe database operations
+- **Authentication:** Better Auth - Secure session & social auth
+- **Payments:** Stripe - Ticket sales & merchant processing
+- **File Storage:** Uploadthing - High-performance asset uploads
+- **Emails:** Resend - Transactional & event notifications
+
+### Deployment & DevOps
+- **Platform:** Vercel (Edge Functions & Optimized Hosting)
+- **Monitoring:** Sentry (Error tracking)
+- **CI/CD:** GitHub Actions integration
