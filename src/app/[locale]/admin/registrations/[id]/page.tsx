@@ -254,9 +254,11 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
                                     </div>
                                 </div>
                             </div>
-                            <Button variant="outline" className="w-full mt-6 text-[13px] font-semibold border-[#E9E9E7]">
-                                View Full Profile
-                            </Button>
+                            <Link href={`/admin/attendees/AT-5842`} className="block w-full">
+                                <Button variant="outline" className="w-full mt-6 text-[13px] font-semibold border-[#E9E9E7] hover:bg-[#F7F6F3] transition-all">
+                                    View Full Profile
+                                </Button>
+                            </Link>
                         </CardContent>
                     </Card>
                 </div>

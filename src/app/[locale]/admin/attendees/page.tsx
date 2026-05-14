@@ -131,7 +131,9 @@ export default function AttendeesPage() {
                                             </Button>
                                         </DropdownMenuTrigger>
                                         <DropdownMenuContent align="end" className="w-48  rounded-sm  p-1.5 border-[#E9E9E7] shadow-xl bg-white">
-                                            <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">View Dossier</DropdownMenuItem>
+                                            <Link href={`/admin/attendees/AT-${person.id + 1000}`}>
+                                                <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">View Profile</DropdownMenuItem>
+                                            </Link>
                                             <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">Transaction History</DropdownMenuItem>
                                             <DropdownMenuSeparator className="bg-[#F1F1EF] my-1" />
                                             <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer text-red-600 focus:bg-red-50 focus:text-red-600">Suspend Account</DropdownMenuItem>
