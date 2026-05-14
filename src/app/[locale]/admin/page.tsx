@@ -124,30 +124,6 @@ export default function AdminOverviewPage() {
                         </div>
                     </div>
 
-                    {/* Revenue Snapshot (Mock Chart representation) */}
-                    <div className="p-8 bg-[#F7F6F3] border border-[#E9E9E7] rounded-xl relative overflow-hidden group">
-                        <div className="relative z-10">
-                            <h3 className="font-display font-bold text-[#37352F] text-lg mb-1">Revenue Trend</h3>
-                            <p className="text-[#91918E] text-[13px] mb-8">Daily performance across all ticket categories.</p>
-                            
-                            <div className="flex items-end gap-1.5 h-32 mb-4">
-                                {[40, 60, 45, 90, 65, 80, 55, 75, 95, 70, 85, 100].map((h, i) => (
-                                    <div 
-                                        key={i} 
-                                        className="flex-1 bg-[#37352F]/10 hover:bg-primary rounded-t-sm transition-all duration-300"
-                                        style={{ height: `${h}%` }}
-                                    />
-                                ))}
-                            </div>
-                            <div className="flex justify-between text-[10px] font-bold text-[#91918E] uppercase tracking-widest pt-4 border-t border-[#E9E9E7]">
-                                <span>May 01</span>
-                                <span>May 14 (Today)</span>
-                            </div>
-                        </div>
-                        <div className="absolute top-0 right-0 p-8 opacity-5 transition-opacity group-hover:opacity-10">
-                            <TrendingUp className="w-32 h-32" />
-                        </div>
-                    </div>
                 </div>
 
                 {/* Sidebar area */}
@@ -197,19 +173,7 @@ export default function AdminOverviewPage() {
                         </div>
                     </div>
 
-                    {/* Pro Tip */}
-                    <div className="bg-primary p-6 rounded-xl text-white relative overflow-hidden group">
-                        <div className="relative z-10">
-                            <h4 className="font-display font-bold text-[15px] mb-2 flex items-center gap-2">
-                                <Shield className="w-4 h-4" />
-                                Pro Tip
-                            </h4>
-                            <p className="text-[12px] text-white/80 leading-relaxed">
-                                Use the <code className="bg-white/20 px-1 rounded">CMD + K</code> shortcut to search anything across the admin workspace.
-                            </p>
-                        </div>
-                        <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
-                    </div>
+
                 </div>
             </div>
         </div>
