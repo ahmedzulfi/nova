@@ -41,101 +41,119 @@ const scheduleItems = [
 
 export default function SchedulePage() {
     return (
-        <div className="space-y-8">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div>
-                    <h1 className="text-3xl font-display font-bold">Event Schedule</h1>
-                    <p className="text-gray-500">Plan and coordinate festival activities and sessions.</p>
+        <div className="space-y-12">
+            {/* Header */}
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div className="space-y-1">
+                    <h1 className="text-4xl font-display font-bold text-[#37352F] tracking-tight">Living Schedule</h1>
+                    <p className="text-[#91918E] text-[15px]">Coordinate arena timings and session blocks for Nova Paw 2026.</p>
                 </div>
-                <div className="flex items-center gap-3">
-                    <div className="bg-black/5 p-1  rounded-sm flex items-center">
-                        <Button variant="ghost" size="icon" className="w-10 h-10    rounded-sm  bg-white shadow-sm text-black">
+                <div className="flex items-center gap-2">
+                    <div className="bg-[#F1F1EF] p-1 rounded-lg flex items-center border border-[#E9E9E7]">
+                        <Button variant="ghost" size="icon" className="w-8 h-8 rounded-md bg-white shadow-sm text-[#37352F]">
                             <List className="w-4 h-4" />
                         </Button>
-                        <Button variant="ghost" size="icon" className="w-10 h-10    rounded-sm  text-gray-400">
+                        <Button variant="ghost" size="icon" className="w-8 h-8 rounded-md text-[#91918E] hover:text-[#37352F]">
                             <LayoutGrid className="w-4 h-4" />
                         </Button>
                     </div>
-                    <Button className="bg-primary hover:bg-primary/90 text-white  rounded-sm shadow-lg shadow-primary/20">
+                    <Button className="h-9 bg-[#37352F] hover:bg-[#37352F]/90 text-white rounded-md text-[13px] font-semibold px-5 shadow-lg shadow-[#37352F]/20">
                         <Plus className="w-4 h-4 mr-2" />
                         Add Event
                     </Button>
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-7 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-7 gap-10">
                 {/* Days Navigation */}
-                <Card className="md:col-span-2 border-black/5 shadow-sm    rounded-sm  h-fit">
-                    <CardHeader className="p-6">
-                        <CardTitle className="text-lg font-display font-bold">Festival Dates</CardTitle>
-                        <CardDescription>Select a day to manage its schedule</CardDescription>
-                    </CardHeader>
-                    <CardContent className="p-4 pt-0 space-y-2">
-                        {['Day 1: Friday, Feb 20', 'Day 2: Saturday, Feb 21', 'Day 3: Sunday, Feb 22'].map((day, i) => (
-                            <button
-                                key={day}
-                                className={cn(
-                                    "w-full text-left p-4  rounded-sm font-bold transition-all",
-                                    i === 0 ? "bg-black text-white shadow-lg shadow-black/10" : "hover:bg-black/5 text-gray-500"
-                                )}
-                            >
-                                {day}
-                            </button>
-                        ))}
-                    </CardContent>
-                </Card>
+                <div className="md:col-span-2 space-y-6">
+                    <div className="space-y-4">
+                        <h3 className="font-display font-bold text-[#37352F] text-[13px] uppercase tracking-wider">Festival Days</h3>
+                        <div className="space-y-1.5">
+                            {['Day 1: Friday, Feb 20', 'Day 2: Saturday, Feb 21', 'Day 3: Sunday, Feb 22'].map((day, i) => (
+                                <button
+                                    key={day}
+                                    className={cn(
+                                        "w-full text-left p-3.5 rounded-lg font-bold text-[14px] transition-all border",
+                                        i === 0 
+                                            ? "bg-[#37352F] text-white border-[#37352F] shadow-lg shadow-black/10" 
+                                            : "hover:bg-[#F7F6F3] text-[#37352F]/60 border-transparent hover:border-[#E9E9E7]"
+                                    )}
+                                >
+                                    {day}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
 
-                {/* Timeline */}
-                <div className="md:col-span-5 space-y-4">
+                    <div className="p-5 bg-[#F1F1EF] rounded-xl border border-[#E9E9E7]">
+                        <h4 className="font-display font-bold text-[#37352F] text-[13px] mb-2">Venue Map</h4>
+                        <p className="text-[12px] text-[#91918E] leading-relaxed mb-4">Quick access to stage technical requirements and arena layouts.</p>
+                        <Button variant="outline" className="w-full h-8 rounded-md border-[#E9E9E7] bg-white text-[11px] font-bold text-[#37352F]">
+                            Open Floor Plan
+                        </Button>
+                    </div>
+                </div>
+
+                {/* Timeline Area */}
+                <div className="md:col-span-5 space-y-2 relative">
+                    <div className="absolute left-[39px] top-4 bottom-4 w-px bg-[#F1F1EF]" />
+                    
                     {scheduleItems.map((item) => (
-                        <div key={item.id} className="group flex items-start gap-6 relative">
-                            <div className="flex flex-col items-center gap-2 pt-2">
-                                <span className="text-sm font-bold text-gray-400 whitespace-nowrap">{item.time}</span>
-                                <div className="w-px h-full bg-black/5 group-last:bg-transparent" />
+                        <div key={item.id} className="group flex items-start gap-8 relative pb-8 last:pb-0">
+                            <div className="w-20 pt-1 text-right">
+                                <span className="text-[12px] font-bold text-[#91918E] group-hover:text-[#37352F] transition-colors">{item.time}</span>
                             </div>
+                            
+                            {/* Connector dot */}
+                            <div className={cn(
+                                "w-2.5 h-2.5 rounded-full mt-2 relative z-10 border-2 border-white ring-4 ring-transparent transition-all group-hover:ring-[#F1F1EF]",
+                                item.color.replace('bg-', 'bg-')
+                            )} />
 
-                            <Card className="flex-1 border-black/5 shadow-sm    rounded-sm  overflow-hidden hover:shadow-md transition-shadow relative">
-                                <div className={cn("absolute left-0 top-0 bottom-0 w-1.5", item.color)} />
-                                <CardContent className="p-6">
-                                    <div className="flex items-start justify-between">
-                                        <div className="space-y-3">
-                                            <div className="flex items-center gap-3">
-                                                <Badge variant="outline" className="rounded-full border-black/10 font-bold text-[10px] uppercase tracking-wider">{item.type}</Badge>
-                                                <span className={cn(
-                                                    "text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-full",
-                                                    item.status === 'Confirmed' ? 'text-green-600' : 'text-yellow-600'
-                                                )}>
-                                                    • {item.status}
-                                                </span>
+                            <div className="flex-1 bg-white border border-[#E9E9E7] rounded-xl p-6 hover:border-[#37352F]/20 hover:shadow-sm transition-all group-hover:translate-x-1 duration-300">
+                                <div className="flex items-start justify-between gap-4">
+                                    <div className="space-y-3">
+                                        <div className="flex items-center gap-3">
+                                            <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-md bg-[#F1F1EF] text-[#37352F]/70 border border-[#E9E9E7]/50">
+                                                {item.type}
+                                            </span>
+                                            <span className={cn(
+                                                "text-[10px] font-bold uppercase tracking-widest flex items-center gap-1.5",
+                                                item.status === 'Confirmed' ? 'text-green-600' : 'text-yellow-600'
+                                            )}>
+                                                <div className={cn("w-1 h-1 rounded-full", item.status === 'Confirmed' ? 'bg-green-600' : 'bg-yellow-600')} />
+                                                {item.status}
+                                            </span>
+                                        </div>
+                                        <h3 className="text-xl font-display font-bold text-[#37352F] tracking-tight">{item.event}</h3>
+                                        <div className="flex items-center gap-6">
+                                            <div className="flex items-center gap-2 text-[12px] text-[#91918E] font-medium">
+                                                <Clock className="w-3.5 h-3.5" />
+                                                60 Mins
                                             </div>
-                                            <h3 className="text-xl font-display font-bold">{item.event}</h3>
-                                            <div className="flex items-center gap-6">
-                                                <div className="flex items-center gap-2 text-sm text-gray-500 font-medium">
-                                                    <Clock className="w-4 h-4 text-gray-300" />
-                                                    60 Minutes
-                                                </div>
-                                                <div className="flex items-center gap-2 text-sm text-gray-500 font-medium">
-                                                    <MapPin className="w-4 h-4 text-gray-300" />
-                                                    {item.location}
-                                                </div>
+                                            <div className="flex items-center gap-2 text-[12px] text-[#91918E] font-medium">
+                                                <MapPin className="w-3.5 h-3.5" />
+                                                {item.location}
                                             </div>
                                         </div>
-
-                                        <DropdownMenu>
-                                            <DropdownMenuTrigger asChild>
-                                                <Button variant="ghost" size="icon" className="rounded-full">
-                                                    <MoreHorizontal className="w-5 h-5 text-gray-400" />
-                                                </Button>
-                                            </DropdownMenuTrigger>
-                                            <DropdownMenuContent align="end" className="w-48  rounded-sm border-black/5 shadow-xl">
-                                                <DropdownMenuItem className="py-2 cursor-pointer font-medium">Edit Event</DropdownMenuItem>
-                                                <DropdownMenuItem className="py-2 cursor-pointer font-medium">Reschedule</DropdownMenuItem>
-                                                <DropdownMenuItem className="py-2 cursor-pointer font-medium text-red-500">Cancel Event</DropdownMenuItem>
-                                            </DropdownMenuContent>
-                                        </DropdownMenu>
                                     </div>
-                                </CardContent>
-                            </Card>
+
+                                    <DropdownMenu>
+                                        <DropdownMenuTrigger asChild>
+                                            <Button variant="ghost" size="icon" className="h-8 w-8 rounded-md hover:bg-[#F7F6F3]">
+                                                <MoreHorizontal className="w-4.5 h-4.5 text-[#91918E]" />
+                                            </Button>
+                                        </DropdownMenuTrigger>
+                                        <DropdownMenuContent align="end" className="w-48 rounded-lg p-1.5 border-[#E9E9E7] shadow-xl bg-white">
+                                            <DropdownMenuItem className="rounded-md text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">Edit Activity</DropdownMenuItem>
+                                            <DropdownMenuItem className="rounded-md text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">Relocate Session</DropdownMenuItem>
+                                            <DropdownMenuSeparator className="bg-[#F1F1EF] my-1" />
+                                            <DropdownMenuItem className="rounded-md text-[13px] font-medium py-2 cursor-pointer text-red-600 focus:bg-red-50 focus:text-red-600">Cancel Slot</DropdownMenuItem>
+                                        </DropdownMenuContent>
+                                    </DropdownMenu>
+                                </div>
+                            </div>
                         </div>
                     ))}
                 </div>
