@@ -140,152 +140,119 @@ function DashboardContent() {
                 >
                     {/* ─── TAB: Overview ─────────────────────────────────────────────── */}
                     {activeTab === 'overview' && (
-                        <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                {/* Digital Pass Block - Soft Notion Style */}
-                                <div className="p-10 bg-[#F7F6F3] border border-[#E9E9E7] rounded-sm space-y-10 relative overflow-hidden group">
-                                    <div className="flex items-center justify-between relative z-10">
+                        <div className="max-w-3xl mx-auto space-y-12 pb-12 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+                            {/* 1. Official Digital Entrance Pass - Main Block */}
+                            <div className="bg-white border border-[#E9E9E7] rounded-sm overflow-hidden shadow-sm">
+                                <div className="p-8 md:p-12 space-y-12">
+                                    {/* Header Section */}
+                                    <div className="flex items-center justify-between border-b border-black/5 pb-8">
                                         <div className="space-y-1">
-                                            <p className="text-[10px] font-bold text-black/30 uppercase tracking-[0.2em] leading-none">Official Entrance Pass</p>
-                                            <h3 className="text-[32px] font-bold text-[#37352F] tracking-tighter leading-none">{data.orderId}</h3>
+                                            <p className="text-[10px] font-bold text-[#91918E] uppercase tracking-[0.2em]">Official Entrance Pass</p>
+                                            <h2 className="text-[32px] font-bold text-[#37352F] tracking-tighter">{data.orderId}</h2>
                                         </div>
-                                        <div className="w-12 h-12 bg-[#37352F] rounded-sm flex items-center justify-center text-white">
-                                            <Ticket size={24} />
-                                        </div>
-                                    </div>
-
-                                    <div className="flex flex-col md:flex-row gap-10 items-start relative z-10">
-                                        <div className="bg-white p-4 border border-[#E9E9E7] rounded-sm shadow-sm transition-transform group-hover:scale-[1.02] duration-500">
-                                            <img src={QR_CODE_URL} alt="QR" className="w-28 h-28" />
-                                        </div>
-                                        <div className="grid grid-cols-2 gap-x-12 gap-y-6 flex-1">
-                                            <div className="space-y-1">
-                                                <p className="text-[10px] font-bold text-black/30 uppercase tracking-[0.2em]">Attendee</p>
-                                                <p className="font-bold text-[16px] text-[#37352F] leading-tight">{data.fullName}</p>
-                                            </div>
-                                            <div className="space-y-1">
-                                                <p className="text-[10px] font-bold text-black/30 uppercase tracking-[0.2em]">Tier</p>
-                                                <p className="font-bold text-[16px] text-primary leading-tight uppercase">{getTierName(data.tier)}</p>
-                                            </div>
-                                            <div className="space-y-1">
-                                                <p className="text-[10px] font-bold text-black/30 uppercase tracking-[0.2em]">Adults</p>
-                                                <p className="font-bold text-[16px] text-[#37352F] leading-tight">{data.adultQty}</p>
-                                            </div>
-                                            <div className="space-y-1">
-                                                <p className="text-[10px] font-bold text-black/30 uppercase tracking-[0.2em]">Kids</p>
-                                                <p className="font-bold text-[16px] text-[#37352F] leading-tight">{data.kidsQty || 0}</p>
-                                            </div>
+                                        <div className="w-14 h-14 bg-[#F7F6F3] border border-[#E9E9E7] rounded-sm flex items-center justify-center text-[#37352F]">
+                                            <Ticket size={28} strokeWidth={1.5} />
                                         </div>
                                     </div>
 
-                                    <div className="pt-6 border-t border-black/5">
-                                        <Button className="w-full bg-white hover:bg-[#E9E9E7] text-[#37352F] border border-[#E9E9E7] rounded-sm h-12 text-[13px] font-bold uppercase tracking-[0.2em] gap-2 transition-all active:scale-[0.98]">
-                                            <Download size={16} className="opacity-40" />
-                                            {t('overview.download')}
+                                    {/* Main Content Area - Single Column Flow */}
+                                    <div className="space-y-12">
+                                        {/* QR Code & Scan Instructions */}
+                                        <div className="flex flex-col items-center justify-center space-y-6 py-4">
+                                            <div className="bg-white p-6 border border-[#E9E9E7] rounded-sm shadow-sm hover:scale-[1.02] transition-transform duration-500 cursor-zoom-in">
+                                                <img src={QR_CODE_URL} alt="Scan to Verify" className="w-48 h-48" />
+                                            </div>
+                                            <div className="text-center space-y-2">
+                                                <p className="text-[13px] font-bold text-[#37352F]">Unique Identification QR</p>
+                                                <p className="text-[11px] text-[#91918E] max-w-[240px]">Present this code to the scanner at the festival entrance gate.</p>
+                                            </div>
+                                        </div>
+
+                                        {/* Property List - Notion Style (Single Column) */}
+                                        <div className="space-y-0 border-t border-black/5 pt-12">
+                                            <div className="flex items-center justify-between py-5 border-b border-black/[0.03]">
+                                                <span className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Main Attendee</span>
+                                                <span className="text-[15px] font-bold text-[#37352F]">{data.fullName}</span>
+                                            </div>
+                                            <div className="flex items-center justify-between py-5 border-b border-black/[0.03]">
+                                                <span className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Ticket Tier</span>
+                                                <div className="flex items-center gap-2">
+                                                    <span className="w-2 h-2 bg-primary rounded-full" />
+                                                    <span className="text-[14px] font-bold text-primary uppercase">{getTierName(data.tier)}</span>
+                                                </div>
+                                            </div>
+                                            <div className="flex items-center justify-between py-5 border-b border-black/[0.03]">
+                                                <span className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Guest Count</span>
+                                                <span className="text-[14px] font-bold text-[#37352F]">{data.adultQty} Adults · {data.kidsQty || 0} Kids</span>
+                                            </div>
+                                            <div className="flex items-center justify-between py-5 border-b border-black/[0.03]">
+                                                <span className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Event Dates</span>
+                                                <span className="text-[14px] font-bold text-[#37352F]">November 15 - 16, 2026</span>
+                                            </div>
+                                            <div className="flex items-center justify-between py-5">
+                                                <span className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Gate Status</span>
+                                                <span className="px-3 py-1 bg-green-50 text-green-700 border border-green-100 rounded-sm text-[11px] font-bold uppercase tracking-widest">Active & Verified</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Action Footer */}
+                                    <div className="pt-8 flex flex-col gap-3">
+                                        <Button className="w-full h-14 bg-[#37352F] hover:bg-black text-white text-[14px] font-bold uppercase tracking-[0.2em] rounded-sm gap-3 shadow-xl shadow-black/5 transition-all active:scale-[0.98]">
+                                            <Download size={18} />
+                                            Download Digital Pass
                                         </Button>
-                                    </div>
-                                </div>
-
-                                {/* Event Summary / Status */}
-                                <div className="p-10 border border-[#E9E9E7] rounded-sm space-y-10 bg-white shadow-sm">
-                                    <div className="flex items-center justify-between">
-                                        <div className="space-y-1">
-                                            <p className="text-[10px] font-bold text-[#91918E] uppercase tracking-[0.2em] leading-none">Gate Status</p>
-                                            <h3 className="text-[20px] font-bold text-[#37352F] tracking-tight italic">Active Access</h3>
-                                        </div>
-                                        <div className="flex items-center gap-2 px-3 py-1 bg-[#F7F6F3] text-[#37352F] border border-[#E9E9E7] rounded-sm text-[11px] font-bold uppercase tracking-wider">
-                                            <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-                                            Valid Entry
-                                        </div>
-                                    </div>
-
-                                    <div className="space-y-6">
-                                        <div className="flex items-center justify-between border-b border-black/[0.03] pb-4">
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-8 h-8 bg-[#F7F6F3] rounded-sm flex items-center justify-center text-[#91918E]">
-                                                    <Calendar size={16} />
-                                                </div>
-                                                <span className="text-[14px] font-medium text-[#666666]">Event Dates</span>
-                                            </div>
-                                            <span className="text-[14px] font-bold text-[#37352F]">Nov 15-16, 2026</span>
-                                        </div>
-                                        <div className="flex items-center justify-between border-b border-black/[0.03] pb-4">
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-8 h-8 bg-[#F7F6F3] rounded-sm flex items-center justify-center text-[#91918E]">
-                                                    <PawPrint size={16} />
-                                                </div>
-                                                <span className="text-[14px] font-medium text-[#666666]">Location</span>
-                                            </div>
-                                            <span className="text-[14px] font-bold text-[#37352F]">The Pearl, Qatar</span>
-                                        </div>
-                                        <div className="flex items-center justify-between">
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-8 h-8 bg-[#F7F6F3] rounded-sm flex items-center justify-center text-[#91918E]">
-                                                    <Clock size={16} />
-                                                </div>
-                                                <span className="text-[14px] font-medium text-[#666666]">Gate Open</span>
-                                            </div>
-                                            <span className="text-[14px] font-bold text-[#37352F]">09:00 AM AST</span>
-                                        </div>
-                                    </div>
-
-                                    <div className="pt-4">
-                                        <Button
-                                            onClick={() => setActiveTab('receipt')}
-                                            variant="ghost"
-                                            className="w-full text-[#37352F] hover:bg-[#F7F6F3] border border-transparent hover:border-[#E9E9E7] h-12 text-[12px] font-bold uppercase tracking-[0.2em] gap-2 transition-all"
-                                        >
-                                            <ExternalLink size={16} className="opacity-40" />
-                                            {t('overview.view_receipt') || 'View Billing Details'}
+                                        <Button variant="ghost" className="w-full h-12 text-[#91918E] hover:text-[#37352F] text-[12px] font-bold uppercase tracking-widest" onClick={() => window.print()}>
+                                            Print Physical Copy
                                         </Button>
                                     </div>
                                 </div>
                             </div>
 
-                            {/* Competition Status / Invitation Block */}
+                            {/* 2. Competition & Event Status - Single Column Integration */}
                             <div className="space-y-6">
-                                <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] border-b border-black/5 pb-4">Competitions & Events</h3>
+                                <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] px-2 border-l-2 border-primary">Event Registration</h3>
                                 {data.competitionEntry ? (
-                                    <div className="p-8 bg-white border border-[#E9E9E7] rounded-sm flex flex-col md:flex-row md:items-center justify-between gap-8 shadow-sm">
-                                        <div className="flex items-center gap-6">
-                                            <div className="w-16 h-16 bg-[#F7F6F3] border border-[#E9E9E7] rounded-sm flex items-center justify-center text-[32px] shadow-sm">
+                                    <div className="p-8 bg-[#F7F6F3] border border-[#E9E9E7] rounded-sm space-y-8">
+                                        <div className="flex items-center gap-5">
+                                            <div className="w-14 h-14 bg-white border border-[#E9E9E7] rounded-sm flex items-center justify-center text-[28px] shadow-sm">
                                                 🏅
                                             </div>
                                             <div className="space-y-1">
-                                                <p className="text-[10px] font-bold text-[#91918E] uppercase tracking-[0.2em]">Registered Application</p>
-                                                <p className="font-bold text-[24px] text-[#37352F] tracking-tighter italic">{data.competitionEntry}</p>
+                                                <p className="text-[10px] font-bold text-[#91918E] uppercase tracking-[0.2em]">Registered Activity</p>
+                                                <p className="text-[20px] font-bold text-[#37352F] tracking-tight">{data.competitionEntry}</p>
                                             </div>
                                         </div>
-                                        <div className="flex items-center gap-4 px-6 py-4 bg-[#F7F6F3] border border-[#E9E9E7] rounded-sm">
+                                        <div className="flex items-center gap-4 p-5 bg-white border border-[#E9E9E7] rounded-sm">
                                             <Clock size={18} className="text-[#37352F] opacity-40" />
                                             <div className="space-y-0.5">
-                                                <p className="text-[13px] font-bold text-[#37352F] leading-none">{t('overview.review_pending')}</p>
-                                                <p className="text-[11px] text-[#91918E] font-medium">Standard approval window: 24-48h</p>
+                                                <p className="text-[13px] font-bold text-[#37352F] leading-none">Application Under Review</p>
+                                                <p className="text-[11px] text-[#91918E] font-medium italic">Our panel is currently verifying your pet's credentials. Status will update shortly.</p>
                                             </div>
                                         </div>
                                     </div>
                                 ) : isPetOwner && (
-                                    <div className="p-10 bg-[#FBFAFB] border border-[#E9E9E7] rounded-sm relative overflow-hidden group">
+                                    <div className="p-10 bg-[#FBFAFB] border border-[#E9E9E7] rounded-sm space-y-8 group relative overflow-hidden">
                                         <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none group-hover:opacity-10 transition-opacity">
                                             <Trophy size={140} className="rotate-12 translate-x-8 -translate-y-4" />
                                         </div>
-                                        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-10">
-                                            <div className="space-y-4 max-w-xl">
-                                                <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary text-black rounded-sm text-[9px] font-bold uppercase tracking-widest">
-                                                    Competition Eligible
-                                                </div>
+                                        <div className="space-y-6 relative z-10">
+                                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary text-black rounded-sm text-[9px] font-bold uppercase tracking-widest">
+                                                Elite Invitation
+                                            </div>
+                                            <div className="space-y-3">
                                                 <h3 className="text-[28px] font-bold text-[#37352F] tracking-tight leading-tight">
-                                                    {data.tier === 'dog-owner' ? "Register Maximus for the Dog Fashion Star?" : "Showcase the elegance of your feline."}
+                                                    {data.tier === 'dog-owner' ? "Register for the Dog Fashion Star?" : "Showcase the elegance of your feline."}
                                                 </h3>
-                                                <p className="text-[14px] text-[#666666] leading-relaxed">
-                                                    Your <span className="font-bold text-primary">{getTierName(data.tier)}</span> pass includes a complimentary entry to our elite pet showcase.
+                                                <p className="text-[14px] text-[#666666] leading-relaxed max-w-lg">
+                                                    As a <span className="font-bold text-primary italic">{getTierName(data.tier)}</span> pass holder, you are invited to join the main stage showcase.
                                                 </p>
                                             </div>
                                             <Button 
                                                 onClick={() => router.push('/dashboard/register-pet')}
                                                 className="h-12 bg-[#37352F] hover:bg-black text-white px-10 text-[12px] font-bold uppercase tracking-[0.2em] rounded-sm shadow-xl shadow-black/10 flex items-center gap-3 active:scale-[0.98] transition-all"
                                             >
-                                                Register Entry
+                                                Secure Registration
                                                 <ArrowRight size={16} />
                                             </Button>
                                         </div>
