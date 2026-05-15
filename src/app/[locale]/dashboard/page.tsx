@@ -210,9 +210,9 @@ function DashboardContent() {
                             </div>
 
                             {/* 2. Competition & Event Status - Single Column Integration */}
-                            <div className="space-y-6">
-                                <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] px-2 border-l-2 border-primary">Event Registration</h3>
-                                {data.competitionEntry ? (
+                            {data.competitionEntry && (
+                                <div className="space-y-6">
+                                    <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] px-2 border-l-2 border-primary">Event Registration</h3>
                                     <div className="p-8 bg-[#F7F6F3] border border-[#E9E9E7] rounded-sm space-y-8">
                                         <div className="flex items-center gap-5">
                                             <div className="w-14 h-14 bg-white border border-[#E9E9E7] rounded-sm flex items-center justify-center text-[28px] shadow-sm">
@@ -231,34 +231,8 @@ function DashboardContent() {
                                             </div>
                                         </div>
                                     </div>
-                                ) : isPetOwner && (
-                                    <div className="p-10 bg-[#FBFAFB] border border-[#E9E9E7] rounded-sm space-y-8 group relative overflow-hidden">
-                                        <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none group-hover:opacity-10 transition-opacity">
-                                            <Trophy size={140} className="rotate-12 translate-x-8 -translate-y-4" />
-                                        </div>
-                                        <div className="space-y-6 relative z-10">
-                                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary text-black rounded-sm text-[9px] font-bold uppercase tracking-widest">
-                                                Elite Invitation
-                                            </div>
-                                            <div className="space-y-3">
-                                                <h3 className="text-[28px] font-bold text-[#37352F] tracking-tight leading-tight">
-                                                    {data.tier === 'dog-owner' ? "Register for the Dog Fashion Star?" : "Showcase the elegance of your feline."}
-                                                </h3>
-                                                <p className="text-[14px] text-[#666666] leading-relaxed max-w-lg">
-                                                    As a <span className="font-bold text-primary italic">{getTierName(data.tier)}</span> pass holder, you are invited to join the main stage showcase.
-                                                </p>
-                                            </div>
-                                            <Button 
-                                                onClick={() => router.push('/dashboard/register-pet')}
-                                                className="h-12 bg-[#37352F] hover:bg-black text-white px-10 text-[12px] font-bold uppercase tracking-[0.2em] rounded-sm shadow-xl shadow-black/10 flex items-center gap-3 active:scale-[0.98] transition-all"
-                                            >
-                                                Secure Registration
-                                                <ArrowRight size={16} />
-                                            </Button>
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
+                                </div>
+                            )}
                         </div>
                     )}
 
@@ -392,36 +366,24 @@ function DashboardContent() {
                                             </div>
 
                                             {/* Competition Registration Block */}
-                                            <div className="space-y-6">
-                                                <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] border-l-2 border-yellow-500 pl-3">Competition Summary</h3>
-                                                <div className="p-6 bg-yellow-50/50 border border-yellow-100 rounded-sm space-y-4">
-                                                    {data.competitionEntry ? (
-                                                        <>
-                                                            <div className="flex justify-between items-start">
-                                                                <div className="space-y-1">
-                                                                    <p className="text-[14px] font-bold text-yellow-900">{data.competitionEntry}</p>
-                                                                    <p className="text-[12px] text-yellow-800/60 font-medium italic">Confirmed Application</p>
-                                                                </div>
-                                                                <Trophy size={20} className="text-yellow-600" />
+                                            {data.competitionEntry && (
+                                                <div className="space-y-6">
+                                                    <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] border-l-2 border-yellow-500 pl-3">Competition Summary</h3>
+                                                    <div className="p-6 bg-yellow-50/50 border border-yellow-100 rounded-sm space-y-4">
+                                                        <div className="flex justify-between items-start">
+                                                            <div className="space-y-1">
+                                                                <p className="text-[14px] font-bold text-yellow-900">{data.competitionEntry}</p>
+                                                                <p className="text-[12px] text-yellow-800/60 font-medium italic">Confirmed Application</p>
                                                             </div>
-                                                            <div className="pt-4 border-t border-yellow-200/50 flex items-center justify-between">
-                                                                <span className="text-[11px] font-bold text-yellow-800/60 uppercase tracking-widest">Entry ID</span>
-                                                                <span className="text-[11px] font-mono font-bold text-yellow-900">REG-COMP-{data.orderId.split('-')[2]}</span>
-                                                            </div>
-                                                        </>
-                                                    ) : (
-                                                        <div className="text-center py-4 space-y-3">
-                                                            <p className="text-[13px] font-medium text-yellow-800/60">No active competition entries found for this order.</p>
-                                                            <Button 
-                                                                onClick={() => router.push('/dashboard/register-pet')}
-                                                                className="h-9 bg-yellow-600 hover:bg-yellow-700 text-white text-[11px] font-bold uppercase tracking-widest px-6"
-                                                            >
-                                                                Register Now
-                                                            </Button>
+                                                            <Trophy size={20} className="text-yellow-600" />
                                                         </div>
-                                                    )}
+                                                        <div className="pt-4 border-t border-yellow-200/50 flex items-center justify-between">
+                                                            <span className="text-[11px] font-bold text-yellow-800/60 uppercase tracking-widest">Entry ID</span>
+                                                            <span className="text-[11px] font-mono font-bold text-yellow-900">REG-COMP-{data.orderId.split('-')[2]}</span>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            )}
                                         </div>
                                     </div>
 

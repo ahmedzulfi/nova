@@ -823,6 +823,7 @@
     "sidebar": {
       "overview": "My Tickets",
       "competitions": "Competitions",
+      "schedule": "Festival Schedule",
       "settings": "Account",
       "sign_out": "Sign Out"
     },
