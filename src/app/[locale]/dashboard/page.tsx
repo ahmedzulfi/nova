@@ -145,71 +145,155 @@ function DashboardContent() {
           {activeTab === 'overview' && (
             <div className="space-y-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {/* Ticket Block */}
-                    <div className="p-6 border border-[#E9E9E7] rounded-sm space-y-6">
-                        <div className="flex items-center gap-3 text-[#91918E] text-[12px] font-bold uppercase tracking-wider">
-                            <Ticket size={14} />
-                            <span>Digital Pass</span>
+                    {/* Elite Digital Pass Block */}
+                    <div className="p-8 bg-[#F5F5F0] border border-black/5 rounded-sm space-y-8 shadow-sm relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                            <Ticket size={120} className="-rotate-12 translate-x-8 -translate-y-8" />
                         </div>
-                        <div className="flex gap-6 items-center">
-                            <div className="bg-white p-2 border border-[#E9E9E7] rounded-sm">
+                        
+                        <div className="flex items-center justify-between relative z-10">
+                            <div className="space-y-1">
+                                <p className="text-[10px] font-bold text-black/40 uppercase tracking-[0.2em] leading-none">Official Pass</p>
+                                <h3 className="text-[28px] font-bold text-black tracking-tighter leading-none">{data.orderId}</h3>
+                            </div>
+                            <div className="w-10 h-10 bg-black rounded-sm flex items-center justify-center text-white">
+                                <ShieldCheck size={20} />
+                            </div>
+                        </div>
+
+                        <div className="flex gap-8 items-center relative z-10">
+                            <div className="bg-white p-3 border border-black/5 rounded-sm shadow-sm transition-transform group-hover:scale-105 duration-500">
                                 <img src={QR_CODE_URL} alt="QR" className="w-24 h-24" />
                             </div>
-                            <div className="space-y-1">
-                                <p className="font-bold text-[18px]">{data.orderId}</p>
-                                <p className="text-[14px] text-[#37352F]">{getTierName(data.tier)}</p>
-                                <p className="text-[12px] text-[#91918E]">{data.adultQty} Adult • {data.kidsQty || 0} Kids</p>
+                            <div className="space-y-3">
+                                <div>
+                                    <p className="text-[10px] font-bold text-black/30 uppercase tracking-[0.15em] mb-1">Holder</p>
+                                    <p className="font-bold text-[16px] text-black leading-none">{data.fullName}</p>
+                                </div>
+                                <div>
+                                    <p className="text-[10px] font-bold text-black/30 uppercase tracking-[0.15em] mb-1">Tier</p>
+                                    <p className="font-bold text-[14px] text-primary leading-none uppercase">{getTierName(data.tier)}</p>
+                                </div>
+                                <div className="flex gap-4">
+                                    <div>
+                                        <p className="text-[9px] font-bold text-black/30 uppercase tracking-[0.1em]">Guests</p>
+                                        <p className="font-bold text-[13px]">{data.adultQty + (data.kidsQty || 0)}</p>
+                                    </div>
+                                    <div>
+                                        <p className="text-[9px] font-bold text-black/30 uppercase tracking-[0.1em]">Pets</p>
+                                        <p className="font-bold text-[13px]">{data.petQty}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <Button variant="outline" className="w-full border-[#E9E9E7] h-10 text-[13px] gap-2">
-                            <Download size={14} />
+
+                        <Button className="w-full bg-black hover:bg-black/90 text-white rounded-sm h-12 text-[13px] font-bold uppercase tracking-[0.15em] relative z-10 gap-2 shadow-lg shadow-black/10 transition-all active:scale-[0.98]">
+                            <Download size={16} />
                             {t('overview.download')}
                         </Button>
                     </div>
 
-                    {/* Quick Stats / Info */}
-                    <div className="p-6 border border-[#E9E9E7] rounded-sm space-y-6">
-                        <div className="flex items-center gap-3 text-[#91918E] text-[12px] font-bold uppercase tracking-wider">
-                            <Info size={14} />
-                            <span>Quick Info</span>
-                        </div>
-                        <div className="space-y-4">
-                            <div className="flex items-center justify-between text-[14px]">
-                                <span className="text-[#91918E]">Status</span>
-                                <span className="font-bold text-green-600">Active</span>
+                    {/* Festival Status / Info */}
+                    <div className="p-8 border border-[#E9E9E7] rounded-sm space-y-8 bg-white shadow-sm">
+                        <div className="flex items-center justify-between">
+                            <div className="space-y-1">
+                                <p className="text-[10px] font-bold text-black/40 uppercase tracking-[0.2em] leading-none">Festival Status</p>
+                                <h3 className="text-[20px] font-bold text-black tracking-tight">Active Access</h3>
                             </div>
-                            <div className="flex items-center justify-between text-[14px]">
-                                <span className="text-[#91918E]">Location</span>
-                                <span className="font-bold text-[#37352F]">The Pearl, Qatar</span>
-                            </div>
-                            <div className="flex items-center justify-between text-[14px]">
-                                <span className="text-[#91918E]">Total Paid</span>
-                                <span className="font-bold text-[#37352F]">{data.total} {tTickets('currency')}</span>
+                            <div className="flex items-center gap-2 px-3 py-1 bg-green-50 text-green-700 border border-green-100 rounded-full text-[11px] font-bold uppercase tracking-wider">
+                                <div className="w-1.5 h-1.5 bg-green-600 rounded-full animate-pulse" />
+                                Valid
                             </div>
                         </div>
+
+                        <div className="space-y-6">
+                            <div className="flex items-center justify-between border-b border-black/[0.03] pb-4">
+                                <div className="flex items-center gap-3">
+                                    <div className="w-8 h-8 bg-[#F7F6F3] rounded-sm flex items-center justify-center text-black/40">
+                                        <Calendar size={16} />
+                                    </div>
+                                    <span className="text-[14px] font-medium text-black/60">Event Dates</span>
+                                </div>
+                                <span className="text-[14px] font-bold text-black">Nov 15-16, 2026</span>
+                            </div>
+                            <div className="flex items-center justify-between border-b border-black/[0.03] pb-4">
+                                <div className="flex items-center gap-3">
+                                    <div className="w-8 h-8 bg-[#F7F6F3] rounded-sm flex items-center justify-center text-black/40">
+                                        <PawPrint size={16} />
+                                    </div>
+                                    <span className="text-[14px] font-medium text-black/60">Location</span>
+                                </div>
+                                <span className="text-[14px] font-bold text-black">The Pearl, Qatar</span>
+                            </div>
+                            <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-3">
+                                    <div className="w-8 h-8 bg-[#F7F6F3] rounded-sm flex items-center justify-center text-black/40">
+                                        <Clock size={16} />
+                                    </div>
+                                    <span className="text-[14px] font-medium text-black/60">Gate Open</span>
+                                </div>
+                                <span className="text-[14px] font-bold text-black">09:00 AM AST</span>
+                            </div>
+                        </div>
+
                         <Button 
                             onClick={() => setActiveTab('receipt')}
-                            variant="outline" 
-                            className="w-full border-[#E9E9E7] h-10 text-[13px] gap-2 mt-4"
+                            variant="ghost" 
+                            className="w-full text-[#37352F] hover:bg-[#F7F6F3] h-12 text-[13px] font-bold uppercase tracking-[0.1em] gap-2 mt-2"
                         >
-                            <ExternalLink size={14} />
-                            View Full Receipt
+                            <ExternalLink size={16} />
+                            {t('overview.view_receipt') || 'View Receipt'}
                         </Button>
                     </div>
                 </div>
 
+                {/* Exclusive Invitations (Tier-Based) */}
+                {isPetOwner && !data.competitionEntry && (
+                    <div className="bg-black text-white p-8 rounded-sm relative overflow-hidden group shadow-xl">
+                        <div className="absolute top-0 right-0 p-8 opacity-20 pointer-events-none">
+                            <Trophy size={160} className="rotate-12 translate-x-12 -translate-y-8" />
+                        </div>
+                        <div className="relative z-10 max-w-2xl space-y-6">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary text-black rounded-sm text-[10px] font-black uppercase tracking-widest">
+                                Exclusive Invitation
+                            </div>
+                            <div className="space-y-3">
+                                <h3 className="text-[32px] md:text-[40px] font-bold tracking-tighter leading-tight italic">
+                                    {data.tier === 'dog-owner' ? "Is Maximus the next Dog Fashion Star?" : "Showcase the elegance of your feline."}
+                                </h3>
+                                <p className="text-[16px] text-white/60 leading-relaxed">
+                                    Based on your <span className="text-primary font-bold">{getTierName(data.tier)}</span> pass, 
+                                    you are eligible for elite competition entry. Register now to showcase your pet to the world.
+                                </p>
+                            </div>
+                            <Button 
+                                onClick={() => setActiveTab('competitions')}
+                                className="bg-white text-black hover:bg-primary transition-colors h-14 px-8 text-[14px] font-black uppercase tracking-[0.2em] rounded-sm group/btn"
+                            >
+                                Register Now
+                                <ArrowRight className="ml-2 w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+                            </Button>
+                        </div>
+                    </div>
+                )}
+
                 {data.competitionEntry && (
-                    <div className="p-6 bg-[#FBFAFB] border border-[#E9E9E7] rounded-sm flex items-center justify-between">
-                        <div className="flex items-center gap-4">
-                            <div className="text-[24px]">🏅</div>
-                            <div>
-                                <p className="text-[12px] font-bold text-[#91918E] uppercase tracking-wider">COMPETITION ENTRY</p>
-                                <p className="font-bold text-[18px]">{data.competitionEntry}</p>
+                    <div className="p-8 bg-[#FBFAFB] border border-[#E9E9E7] rounded-sm flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm">
+                        <div className="flex items-center gap-5">
+                            <div className="w-16 h-16 bg-white border border-[#E9E9E7] rounded-sm flex items-center justify-center text-[32px] shadow-sm">
+                                🏅
+                            </div>
+                            <div className="space-y-1">
+                                <p className="text-[11px] font-black text-black/30 uppercase tracking-[0.2em]">Registered Event</p>
+                                <p className="font-bold text-[24px] text-black tracking-tight">{data.competitionEntry}</p>
                             </div>
                         </div>
-                        <div className="flex items-center gap-2 px-3 py-1 bg-yellow-100 text-yellow-800 rounded-sm text-[12px] font-medium">
-                            <Clock size={12} />
-                            {t('overview.review_pending')}
+                        <div className="flex items-center gap-3 px-5 py-3 bg-yellow-50 border border-yellow-100 text-yellow-800 rounded-sm">
+                            <Clock size={18} />
+                            <div className="space-y-0.5">
+                                <p className="text-[13px] font-bold leading-none">{t('overview.review_pending')}</p>
+                                <p className="text-[11px] opacity-60 font-medium">Expected update in 24-48h</p>
+                            </div>
                         </div>
                     </div>
                 )}

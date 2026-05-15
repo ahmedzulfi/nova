@@ -10,8 +10,20 @@ import {
     ShieldCheck,
     MoreHorizontal,
     MessageSquare,
-    ExternalLink
+    ExternalLink,
+    ChevronRight,
+    Edit3,
+    Eye,
+    Activity
 } from 'lucide-react';
+import { 
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from 'next-intl';
 
@@ -103,7 +115,7 @@ export default function PetOwnerDashboard() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="group flex items-center gap-4 p-4 border border-[#E9E9E7] rounded-sm hover:bg-[#F7F6F3] transition-colors cursor-pointer">
+                        <div className="group flex items-center gap-4 p-4 border border-[#E9E9E7] rounded-sm hover:bg-[#F7F6F3] transition-colors">
                             <div className="w-12 h-12 bg-[#F7F6F3] group-hover:bg-white border border-[#E9E9E7] rounded-sm flex items-center justify-center">
                                 <PawPrint size={24} className="text-[#37352F]" />
                             </div>
@@ -111,7 +123,28 @@ export default function PetOwnerDashboard() {
                                 <p className="font-bold text-[15px]">Buddy</p>
                                 <p className="text-[13px] text-[#91918E]">Golden Retriever • 2 Years</p>
                             </div>
-                            <MoreHorizontal size={18} className="text-[#91918E]" />
+                            <DropdownMenu>
+                                <DropdownMenuTrigger asChild>
+                                    <Button variant="ghost" size="icon" className="h-8 w-8 rounded-sm hover:bg-[#E9E9E7]">
+                                        <MoreHorizontal size={18} className="text-[#91918E]" />
+                                    </Button>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent align="end" className="w-48 rounded-sm border-[#E9E9E7] bg-white p-1.5 shadow-sm">
+                                    <DropdownMenuItem className="rounded-sm text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">
+                                        <Eye size={16} className="mr-2 text-[#91918E]" />
+                                        View Profile
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem className="rounded-sm text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">
+                                        <Edit3 size={16} className="mr-2 text-[#91918E]" />
+                                        Edit Details
+                                    </DropdownMenuItem>
+                                    <DropdownMenuSeparator className="bg-[#E9E9E7] my-1" />
+                                    <DropdownMenuItem className="rounded-sm text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">
+                                        <Activity size={16} className="mr-2 text-[#91918E]" />
+                                        Medical Records
+                                    </DropdownMenuItem>
+                                </DropdownMenuContent>
+                            </DropdownMenu>
                         </div>
 
                         <div className="flex items-center justify-center p-4 border border-dashed border-[#E9E9E7] rounded-sm hover:bg-[#F7F6F3] transition-colors cursor-pointer text-[#91918E] text-[14px] gap-2">
@@ -124,23 +157,5 @@ export default function PetOwnerDashboard() {
                 {/* Resources Grid removed */}
             </div>
         </div>
-    );
-}
-
-// Minimalist Chevron for sections
-function ChevronRight({ size }: { size: number }) {
-    return (
-        <svg
-            width={size}
-            height={size}
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="m9 18 6-6-6-6" />
-        </svg>
     );
 }

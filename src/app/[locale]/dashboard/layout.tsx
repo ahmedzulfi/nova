@@ -78,11 +78,11 @@ export default function DashboardLayout({
               key={item.id}
               href={item.href as any}
               className={`
-                flex items-center gap-2 px-2 py-1.5 rounded-sm text-[14px] transition-colors
-                ${pathname === item.href ? 'bg-[#E9E9E7] font-semibold' : 'hover:bg-[#E9E9E7] text-[#37352F]'}
+                flex items-center gap-2 px-2 py-1.5 rounded-sm text-[14px] transition-all duration-150
+                ${pathname === item.href ? 'bg-[#FACC15] text-black font-bold shadow-sm' : 'hover:bg-[#E9E9E7] text-[#37352F]'}
               `}
             >
-              <item.icon size={18} className="text-[#91918E]" />
+              <item.icon size={18} className={pathname === item.href ? "text-black" : "text-[#91918E]"} />
               <span>{item.label}</span>
             </Link>
           ))}
@@ -111,12 +111,28 @@ export default function DashboardLayout({
       {/* Main Content Area */}
       <main 
         className={`
-          flex-1 transition-all duration-300
+          flex-1 transition-all duration-300 bg-white
           ${isSidebarOpen ? 'lg:ml-64' : 'lg:ml-16'}
           rtl:lg:ml-0 rtl:lg:mr-64
           ${!isSidebarOpen && 'rtl:lg:mr-16'}
         `}
       >
+        {/* Notion Header */}
+        <header className="h-12 flex items-center justify-between px-8 md:px-16 border-b border-[#F1F1EF] sticky top-0 bg-white/80 backdrop-blur-sm z-10">
+          <div className="flex items-center gap-2 text-[13px] text-[#91918E]">
+            <span>Nova Paw</span>
+            <span>/</span>
+            <span className="text-[#37352F] capitalize font-medium">
+              {pathname === '/dashboard' ? 'Overview' : pathname.split('/').pop()?.replace(/-/g, ' ')}
+            </span>
+          </div>
+          <div className="flex items-center gap-3">
+            <button className="p-1.5 hover:bg-[#F1F1EF] rounded-sm text-[#91918E]">
+              <Bell size={16} />
+            </button>
+          </div>
+        </header>
+
         <div className="max-w-5xl mx-auto p-8 md:p-16">
           {children}
         </div>
