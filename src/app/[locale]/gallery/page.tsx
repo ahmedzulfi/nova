@@ -50,13 +50,13 @@ export default function GalleryPage() {
           <a
             href="https://www.instagram.com/nova_paw_festival/"
             target="_blank"
-            className="inline-flex items-center gap-4 bg-black text-white px-12 py-6 rounded-sm font-bold text-[14px] uppercase tracking-[0.2em] transition-all duration-300 hover:bg-white hover:text-black active:scale-95 shadow-2xl shadow-black/20"
+            className="inline-flex items-center gap-4 bg-black text-white px-12 py-6 rounded-sm font-bold text-[14px] uppercase tracking-[0.2em] transition-all duration-300 hover:bg-white hover:text-black active:scale-95  shadow-sm  shadow-black/20"
           >
             <Instagram className="w-5 h-5" />
             {t('social_cta')}
           </a>
         </div>
-        
+
         {/* Decorative elements */}
         <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white rounded-full blur-[150px] -mr-80 -mt-80" />

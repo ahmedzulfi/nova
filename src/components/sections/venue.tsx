@@ -11,9 +11,9 @@ const Venue = () => {
     <section className="bg-white py-[120px] md:py-[160px]" id="venue">
       <div className="container max-w-[1280px] mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-          
+
           {/* Image Side */}
-          <div className="relative h-[440px] md:h-[640px] w-full rounded-sm overflow-hidden shadow-2xl border border-black/5 group">
+          <div className="relative h-[440px] md:h-[640px] w-full rounded-sm overflow-hidden  shadow-sm  border border-black/5 group">
             <Image
               src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=2070&auto=format&fit=crop"
               alt="The Pearl Island Qatar"
@@ -45,7 +45,7 @@ const Venue = () => {
 
             <a
               href="#contact"
-              className="inline-flex items-center justify-center h-16 px-10 bg-black text-white rounded-sm font-bold text-[14px] uppercase tracking-[0.2em] transition-all hover:bg-primary active:scale-95 shadow-xl shadow-black/10"
+              className="inline-flex items-center justify-center h-16 px-10 bg-black text-white rounded-sm font-bold text-[14px] uppercase tracking-[0.2em] transition-all hover:bg-primary active:scale-95  shadow-sm  shadow-black/10"
             >
               {t('cta')}
             </a>

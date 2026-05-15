@@ -28,7 +28,7 @@ const ZoneSplit = () => {
                     <div className="flex flex-col gap-8">
                         <div className="bg-primary rounded-sm p-10 md:p-14 flex flex-col justify-between min-h-[500px] overflow-hidden relative group shadow-sm border border-black/5">
                             <div className="relative z-10">
-                                <div className="w-16 h-16 bg-white rounded-sm flex items-center justify-center mb-10 shadow-xl shadow-primary/20">
+                                <div className="w-16 h-16 bg-white rounded-sm flex items-center justify-center mb-10  shadow-sm  shadow-primary/20">
                                     <Dog className="text-primary w-10 h-10" />
                                 </div>
                                 <h3 className="text-white text-[32px] md:text-[48px] font-bold mb-8 font-display tracking-tight leading-none">
@@ -48,7 +48,7 @@ const ZoneSplit = () => {
                             <div className="relative z-10">
                                 <Link
                                     href="/registration"
-                                    className="inline-flex items-center justify-between gap-6 bg-black text-white px-10 py-5 rounded-sm font-bold uppercase tracking-[0.2em] text-[13px] transition-all hover:bg-white hover:text-black active:scale-95 group/btn shadow-xl shadow-black/10"
+                                    className="inline-flex items-center justify-between gap-6 bg-black text-white px-10 py-5 rounded-sm font-bold uppercase tracking-[0.2em] text-[13px] transition-all hover:bg-white hover:text-black active:scale-95 group/btn  shadow-sm  shadow-black/10"
                                 >
                                     <span>{t('dog_cta')}</span>
                                     <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform rtl:rotate-180" />
@@ -79,7 +79,7 @@ const ZoneSplit = () => {
                         </div>
                         <div className="bg-accent rounded-sm p-10 md:p-14 flex flex-col justify-between min-h-[500px] overflow-hidden relative group shadow-sm border border-black/5">
                             <div className="relative z-10">
-                                <div className="w-16 h-16 bg-white rounded-sm flex items-center justify-center mb-10 shadow-xl shadow-accent/20">
+                                <div className="w-16 h-16 bg-white rounded-sm flex items-center justify-center mb-10  shadow-sm  shadow-accent/20">
                                     <Cat className="text-accent w-10 h-10" />
                                 </div>
                                 <h3 className="text-white text-[32px] md:text-[48px] font-bold mb-8 font-display tracking-tight leading-none">
@@ -99,7 +99,7 @@ const ZoneSplit = () => {
                             <div className="relative z-10">
                                 <Link
                                     href="/registration"
-                                    className="inline-flex items-center justify-between gap-6 bg-black text-white px-10 py-5 rounded-sm font-bold uppercase tracking-[0.2em] text-[13px] transition-all hover:bg-white hover:text-black active:scale-95 group/btn shadow-xl shadow-black/10"
+                                    className="inline-flex items-center justify-between gap-6 bg-black text-white px-10 py-5 rounded-sm font-bold uppercase tracking-[0.2em] text-[13px] transition-all hover:bg-white hover:text-black active:scale-95 group/btn  shadow-sm  shadow-black/10"
                                 >
                                     <span>{t('cat_cta')}</span>
                                     <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform rtl:rotate-180" />

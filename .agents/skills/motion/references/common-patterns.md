@@ -25,7 +25,7 @@ import { motion, AnimatePresence } from "motion/react";
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.9 }}
-        className="fixed inset-0 m-auto w-96 bg-white    rounded-sm  shadow-xl z-50"
+        className="fixed inset-0 m-auto w-96 bg-white    rounded-sm   shadow-sm  z-50"
       >
         Content
       </motion.dialog>

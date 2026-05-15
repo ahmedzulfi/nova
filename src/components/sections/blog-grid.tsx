@@ -46,9 +46,9 @@ const BlogCard: React.FC<BlogCardProps> = ({ itemKey, imageUrl, t }) => {
         />
         {/* Hover Arrow Overlay */}
         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-            <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl scale-50 group-hover:scale-100 transition-transform duration-500">
-                <ArrowRight className="w-8 h-8 text-black rtl:rotate-180" />
-            </div>
+          <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center  shadow-sm  scale-50 group-hover:scale-100 transition-transform duration-500">
+            <ArrowRight className="w-8 h-8 text-black rtl:rotate-180" />
+          </div>
         </div>
       </div>
     </Link>
@@ -57,7 +57,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ itemKey, imageUrl, t }) => {
 
 const BlogGrid: React.FC = () => {
   const t = useTranslations('BlogPage');
-  
+
   const posts = [
     {
       key: "preparation",

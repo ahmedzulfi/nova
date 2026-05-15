@@ -131,7 +131,7 @@ export default function AttendeesPage() {
                                                 <MoreHorizontal className="w-4.5 h-4.5 text-[#91918E]" />
                                             </Button>
                                         </DropdownMenuTrigger>
-                                        <DropdownMenuContent align="end" className="w-48  rounded-sm  p-1.5 border-[#E9E9E7] shadow-xl bg-white">
+                                        <DropdownMenuContent align="end" className="w-48  rounded-sm  p-1.5 border-[#E9E9E7]  shadow-sm  bg-white">
                                             <Link href={`/admin/attendees/AT-${person.id + 1000}`}>
                                                 <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">View Profile</DropdownMenuItem>
                                             </Link>

@@ -21,7 +21,7 @@ const Competitions = () => {
   return (
     <section className="bg-white py-[120px] md:py-[160px]" id="competitions">
       <div className="container max-w-[1280px] mx-auto px-6">
-        
+
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-16 md:mb-24">
           <span className="inline-flex items-center px-5 py-2 rounded-sm bg-black text-white text-[11px] font-bold uppercase tracking-[0.2em] mb-8">
@@ -38,7 +38,7 @@ const Competitions = () => {
         {/* Competitions Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {items.map((competition, index) => (
-            <div key={index} className="group bg-[#F5F5F0] rounded-sm overflow-hidden border border-black/5 transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
+            <div key={index} className="group bg-[#F5F5F0] rounded-sm overflow-hidden border border-black/5 transition-all duration-500 hover: shadow-sm  hover:-translate-y-1">
               <div className="relative h-[280px] w-full overflow-hidden">
                 <Image
                   src={images[index]}
@@ -64,7 +64,7 @@ const Competitions = () => {
         <div className="mt-16 md:mt-24 flex justify-center">
           <Link
             href="/tickets"
-            className="inline-flex items-center justify-center h-16 px-12 bg-primary text-white rounded-sm font-bold text-[14px] uppercase tracking-[0.2em] transition-all hover:bg-black active:scale-95 shadow-xl shadow-primary/20"
+            className="inline-flex items-center justify-center h-16 px-12 bg-primary text-white rounded-sm font-bold text-[14px] uppercase tracking-[0.2em] transition-all hover:bg-black active:scale-95  shadow-sm  shadow-primary/20"
           >
             {t('cta')}
           </Link>

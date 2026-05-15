@@ -43,7 +43,7 @@ const BlogHero: React.FC = () => {
         {avatars.map((avatar, index) => (
           <div
             key={index}
-            className={`absolute rounded-full overflow-hidden border-4 border-white shadow-2xl transition-transform duration-1000 hover:scale-110 ${avatar.className}`}
+            className={`absolute rounded-full overflow-hidden border-4 border-white  shadow-sm  transition-transform duration-1000 hover:scale-110 ${avatar.className}`}
           >
             <Image
               src={avatar.url}
@@ -77,7 +77,7 @@ const BlogHero: React.FC = () => {
           {/* CTA Button */}
           <Link
             href="/registration"
-            className="group flex items-center justify-center px-12 py-6 bg-black hover:bg-black/90  rounded-sm  transition-all duration-300 animate-in fade-in slide-in-from-bottom-12 duration-700 delay-300 shadow-2xl hover:scale-105 active:scale-95"
+            className="group flex items-center justify-center px-12 py-6 bg-black hover:bg-black/90  rounded-sm  transition-all duration-300 animate-in fade-in slide-in-from-bottom-12 duration-700 delay-300  shadow-sm  hover:scale-105 active:scale-95"
           >
             <span className="text-[18px] font-bold text-white mr-4 rtl:mr-0 rtl:ml-4">
               Register Your Pet

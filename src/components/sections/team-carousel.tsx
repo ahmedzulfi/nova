@@ -106,7 +106,7 @@ export default function TeamCarousel() {
                   />
 
                   <div className="absolute bottom-6 right-6">
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary flex items-center justify-center shadow-lg transition-transform duration-300 hover:rotate-90">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary flex items-center justify-center  shadow-sm  transition-transform duration-300 hover:rotate-90">
                       <Plus className="w-5 h-5 text-white" />
                     </div>
                   </div>

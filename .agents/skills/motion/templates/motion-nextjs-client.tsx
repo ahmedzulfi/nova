@@ -121,7 +121,7 @@ export function AnimatedModal({ trigger, title, children }: AnimatedModalProps) 
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: "spring", damping: 20, stiffness: 300 }}
-              className="fixed inset-0 m-auto w-full max-w-md h-fit bg-white    rounded-sm  shadow-xl z-50 p-6"
+              className="fixed inset-0 m-auto w-full max-w-md h-fit bg-white    rounded-sm   shadow-sm  z-50 p-6"
             >
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-2xl font-bold">{title}</h2>

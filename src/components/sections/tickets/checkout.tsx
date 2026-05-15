@@ -15,7 +15,7 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
   const router = useRouter();
   const t = useTranslations('Checkout');
   const tTickets = useTranslations('Tickets');
-  
+
   const [step, setStep] = useState(1);
   const [otp, setOtp] = useState('');
   const [checkedTerms, setCheckedTerms] = useState<Record<number, boolean>>({});
@@ -71,7 +71,7 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
   const dogTerms = t.raw('terms.dog') as string[];
   const catTerms = t.raw('terms.cat') as string[];
   const adultTerms = t.raw('terms.adult') as string[];
-  
+
   const currentTerms = selectedTier === 'dog-owner' ? dogTerms : selectedTier === 'cat-owner' ? catTerms : adultTerms;
   const allChecked = currentTerms.every((_, i) => checkedTerms[i]);
 
@@ -127,7 +127,7 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
         <button
           type="button"
           onClick={() => setStep(2)}
-          className="w-full bg-black text-white rounded-sm py-6 text-[14px] font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-primary shadow-xl shadow-black/10 mt-6"
+          className="w-full bg-black text-white rounded-sm py-6 text-[14px] font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-primary  shadow-sm  shadow-black/10 mt-6"
         >
           {t('form.continue')} <ArrowRight className="w-5 h-5 rtl:rotate-180" />
         </button>
@@ -149,9 +149,8 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
             {[0, 1, 2, 3, 4, 5].map((i) => (
               <div
                 key={i}
-                className={`w-12 h-16 md:w-16 md:h-20 rounded-sm border-2 flex items-center justify-center text-[28px] font-bold transition-all ${
-                  otp[i] ? 'border-primary bg-white text-black' : 'border-black/5 bg-white text-black/10'
-                }`}
+                className={`w-12 h-16 md:w-16 md:h-20 rounded-sm border-2 flex items-center justify-center text-[28px] font-bold transition-all ${otp[i] ? 'border-primary bg-white text-black' : 'border-black/5 bg-white text-black/10'
+                  }`}
               >
                 {otp[i] || '·'}
               </div>
@@ -180,13 +179,13 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
           <button
             type="button"
             onClick={() => setStep(3)}
-            className="w-full bg-black text-white rounded-sm py-6 text-[14px] font-bold uppercase tracking-[0.2em] transition-all active:scale-[0.97] hover:bg-primary shadow-xl shadow-black/10"
+            className="w-full bg-black text-white rounded-sm py-6 text-[14px] font-bold uppercase tracking-[0.2em] transition-all active:scale-[0.97] hover:bg-primary  shadow-sm  shadow-black/10"
           >
             {t('form.verify_btn')}
           </button>
-          <button 
+          <button
             type="button"
-            onClick={() => setStep(1)} 
+            onClick={() => setStep(1)}
             className="w-full py-3 text-[11px] font-bold uppercase tracking-[0.2em] text-black/30 hover:text-black transition-all flex items-center justify-center gap-2"
           >
             <ArrowLeft className="w-4 h-4 rtl:rotate-180" /> {t('form.back')}
@@ -200,11 +199,11 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
   if (step === 3) return (
     <Shell step={step} labels={STEP_LABELS} selectedTier={selectedTier} total={total}>
       <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-8">
-        
+
         {selectedTier !== 'adult' && (
           <div className="border border-black/5 rounded-sm overflow-hidden shadow-sm">
             <div className="bg-primary px-10 py-6 flex items-center gap-5">
-              <div className="w-12 h-12 bg-white rounded-sm flex items-center justify-center shadow-lg">
+              <div className="w-12 h-12 bg-white rounded-sm flex items-center justify-center  shadow-sm ">
                 {selectedTier === 'dog-owner' ? <Dog className="w-6 h-6 text-primary" /> : <Cat className="w-6 h-6 text-primary" />}
               </div>
               <div>
@@ -278,17 +277,17 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <button 
+          <button
             type="button"
             onClick={() => setStep(2)}
             className="md:col-span-1 bg-[#F5F5F0] text-black/40 rounded-sm py-6 text-[11px] font-bold uppercase tracking-[0.2em] transition-all hover:bg-black hover:text-white flex items-center justify-center gap-2"
           >
             <ArrowLeft className="w-4 h-4 rtl:rotate-180" /> {t('form.back')}
           </button>
-          <button 
+          <button
             type="button"
-            onClick={() => setStep(4)} 
-            className="md:col-span-3 bg-black text-white rounded-sm py-6 text-[14px] font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-primary shadow-xl shadow-black/10"
+            onClick={() => setStep(4)}
+            className="md:col-span-3 bg-black text-white rounded-sm py-6 text-[14px] font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-primary  shadow-sm  shadow-black/10"
           >
             {t('form.next_safety')} <ArrowRight className="w-5 h-5 rtl:rotate-180" />
           </button>
@@ -306,9 +305,8 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
             {t('safety.required', { count: currentTerms.length })}
           </p>
           <span
-            className={`text-[11px] font-bold uppercase tracking-[0.2em] px-4 py-2 rounded-sm transition-all shadow-sm ${
-              allChecked ? 'bg-green-100 text-green-700' : 'bg-black/5 text-black/30'
-            }`}
+            className={`text-[11px] font-bold uppercase tracking-[0.2em] px-4 py-2 rounded-sm transition-all shadow-sm ${allChecked ? 'bg-green-100 text-green-700' : 'bg-black/5 text-black/30'
+              }`}
           >
             {t('safety.agreed', { count: Object.values(checkedTerms).filter(Boolean).length, total: currentTerms.length })}
           </span>
@@ -319,9 +317,8 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
             <div
               key={i}
               onClick={() => toggleTerm(i)}
-              className={`flex items-start gap-5 p-6 rounded-sm border cursor-pointer transition-all duration-300 ${
-                checkedTerms[i] ? 'bg-green-50/50 border-green-200 shadow-sm' : 'bg-[#F5F5F0] border-black/5 hover:border-black/20'
-              }`}
+              className={`flex items-start gap-5 p-6 rounded-sm border cursor-pointer transition-all duration-300 ${checkedTerms[i] ? 'bg-green-50/50 border-green-200 shadow-sm' : 'bg-[#F5F5F0] border-black/5 hover:border-black/20'
+                }`}
             >
               <Checkbox
                 id={`term-${i}`}
@@ -337,7 +334,7 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <button 
+          <button
             type="button"
             onClick={() => setStep(3)}
             className="md:col-span-1 bg-[#F5F5F0] text-black/40 rounded-sm py-6 text-[11px] font-bold uppercase tracking-[0.2em] transition-all hover:bg-black hover:text-white flex items-center justify-center gap-2"
@@ -347,9 +344,8 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
           <button
             type="button"
             onClick={() => allChecked && setStep(5)}
-            className={`md:col-span-3 rounded-sm py-6 text-[14px] font-bold uppercase tracking-[0.2em] transition-all shadow-xl ${
-              allChecked ? 'bg-black text-white hover:bg-primary active:scale-[0.97]' : 'bg-black/5 text-black/20 cursor-not-allowed shadow-none'
-            }`}
+            className={`md:col-span-3 rounded-sm py-6 text-[14px] font-bold uppercase tracking-[0.2em] transition-all  shadow-sm  ${allChecked ? 'bg-black text-white hover:bg-primary active:scale-[0.97]' : 'bg-black/5 text-black/20 cursor-not-allowed shadow-none'
+              }`}
           >
             {allChecked ? t('safety.continue_summary') : t('safety.agree_btn')}
           </button>
@@ -410,7 +406,7 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <button 
+          <button
             type="button"
             onClick={() => setStep(4)}
             className="md:col-span-1 bg-[#F5F5F0] text-black/40 rounded-sm py-6 text-[11px] font-bold uppercase tracking-[0.2em] transition-all hover:bg-black hover:text-white flex items-center justify-center gap-2"
@@ -420,7 +416,7 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
           <button
             type="button"
             onClick={handleFinish}
-            className="md:col-span-3 bg-black text-white rounded-sm py-6 text-[15px] font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-primary shadow-2xl shadow-black/20"
+            className="md:col-span-3 bg-black text-white rounded-sm py-6 text-[15px] font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-3 transition-all active:scale-[0.97] hover:bg-primary  shadow-sm  shadow-black/20"
           >
             {t('form.finish')} <ArrowRight className="w-5 h-5 rtl:rotate-180" />
           </button>
@@ -434,15 +430,15 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
 };
 
 // ─── Shared Layout Shell ───────────────────────────────────────────────────
-const Shell = ({ 
-  children, 
-  step, 
+const Shell = ({
+  children,
+  step,
   labels,
   selectedTier,
   total
-}: { 
-  children: React.ReactNode; 
-  step: number; 
+}: {
+  children: React.ReactNode;
+  step: number;
   labels: string[];
   selectedTier: string;
   total: number;
@@ -459,16 +455,14 @@ const Shell = ({
             <React.Fragment key={num}>
               <div className="flex flex-col items-center gap-3">
                 <div
-                  className={`w-10 h-10 rounded-full text-[13px] font-bold flex items-center justify-center transition-all duration-700 shadow-sm ${
-                    isDone ? 'bg-primary text-white' : isActive ? 'bg-black text-white shadow-lg' : 'bg-black/5 text-black/20'
-                  }`}
+                  className={`w-10 h-10 rounded-full text-[13px] font-bold flex items-center justify-center transition-all duration-700 shadow-sm ${isDone ? 'bg-primary text-white' : isActive ? 'bg-black text-white  shadow-sm ' : 'bg-black/5 text-black/20'
+                    }`}
                 >
                   {isDone ? '✓' : num}
                 </div>
                 <span
-                  className={`text-[10px] font-bold uppercase tracking-[0.15em] hidden md:block transition-colors duration-300 ${
-                    isActive ? 'text-black' : 'text-black/30'
-                  }`}
+                  className={`text-[10px] font-bold uppercase tracking-[0.15em] hidden md:block transition-colors duration-300 ${isActive ? 'text-black' : 'text-black/30'
+                    }`}
                 >
                   {label}
                 </span>
@@ -487,7 +481,7 @@ const Shell = ({
       </div>
 
       {/* Card */}
-      <div className="bg-white rounded-sm border border-black/5 shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-700">
+      <div className="bg-white rounded-sm border border-black/5  shadow-sm  overflow-hidden animate-in fade-in zoom-in-95 duration-700">
         <div className="border-b border-black/5 px-10 pt-12 pb-10">
           <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-black/30 mb-4 leading-none">
             {selectedTier.replace('-', ' ')} · {step} / 5
@@ -520,9 +514,8 @@ const QtyControl = ({
       type="button"
       onClick={onIncrement}
       disabled={!canIncrement}
-      className={`w-12 h-12 flex items-center justify-center transition-all active:scale-90 ${
-        canIncrement ? 'bg-primary text-white shadow-lg' : 'bg-black/5 text-black/10 cursor-not-allowed shadow-none'
-      }`}
+      className={`w-12 h-12 flex items-center justify-center transition-all active:scale-90 ${canIncrement ? 'bg-primary text-white  shadow-sm ' : 'bg-black/5 text-black/10 cursor-not-allowed shadow-none'
+        }`}
     >
       <Plus className="w-5 h-5" />
     </button>

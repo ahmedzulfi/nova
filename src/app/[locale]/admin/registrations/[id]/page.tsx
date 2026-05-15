@@ -105,7 +105,7 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
     const data = mockGetRegistrationDetails(resolvedParams.id);
 
     return (
-        <motion.div 
+        <motion.div
             initial="hidden"
             animate="visible"
             variants={containerVariants}
@@ -135,17 +135,17 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <Button 
+                        <Button
                             onClick={() => toast.error("Entry Declined", { description: "The owner has been notified." })}
-                            variant="outline" 
+                            variant="outline"
                             className="h-12 px-6 rounded-sm border-[#E9E9E7] text-[#37352F] hover:bg-red-50 hover:text-red-600 hover:border-red-100 text-[14px] font-bold transition-all active:scale-[0.98]"
                         >
                             <XCircle className="w-4 h-4 mr-2" />
                             Decline
                         </Button>
-                        <Button 
+                        <Button
                             onClick={() => toast.success("Entry Approved", { description: "Digital pass sent to owner." })}
-                            className="h-12 px-10 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[14px] font-bold transition-all active:scale-[0.98] shadow-lg shadow-yellow-500/10 border border-black/5"
+                            className="h-12 px-10 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[14px] font-bold transition-all active:scale-[0.98]  shadow-sm  shadow-yellow-500/10 border border-black/5"
                         >
                             <CheckCircle2 className="w-4 h-4 mr-2" />
                             Approve Registration
@@ -157,7 +157,7 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 {/* Left Column: Details */}
                 <div className="lg:col-span-8 space-y-12">
-                    
+
                     {/* Pet Profile Section */}
                     <motion.section variants={itemVariants} className="space-y-6">
                         <div className="flex items-center gap-3">
@@ -232,7 +232,7 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
                             <div className="absolute top-0 right-0 p-12 translate-x-1/3 -translate-y-1/3 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity duration-500">
                                 <Trophy className="w-64 h-64 text-black" />
                             </div>
-                            
+
                             <div className="relative z-10 space-y-6">
                                 <div>
                                     <p className="text-[12px] font-bold text-[#854d0e] uppercase tracking-[0.2em] mb-2">Selected Category</p>
@@ -290,8 +290,8 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {data.documents.map((doc, idx) => (
-                                <div 
-                                    key={idx} 
+                                <div
+                                    key={idx}
                                     className="group flex items-center justify-between p-4 border border-[#E9E9E7] rounded-sm hover:border-[#FACC15] hover:bg-[#F7F6F3]/50 transition-all cursor-pointer active:scale-[0.98]"
                                 >
                                     <div className="flex items-center gap-4">
@@ -315,10 +315,10 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
                 {/* Right Column: Attendee & Quick Stats */}
                 <div className="lg:col-span-4 space-y-8">
                     <motion.div variants={itemVariants}>
-                        <Card className="border-[#E9E9E7] shadow-xl shadow-black/[0.02] rounded-sm overflow-hidden border-t-4 border-t-[#FACC15]">
+                        <Card className="border-[#E9E9E7]  shadow-sm  shadow-black/[0.02] rounded-sm overflow-hidden border-t-4 border-t-[#FACC15]">
                             <CardHeader className="bg-[#F7F6F3]/50 pb-8">
                                 <div className="flex flex-col items-center text-center space-y-4">
-                                    <Avatar className="w-24 h-24 border-4 border-white shadow-md">
+                                    <Avatar className="w-24 h-24 border-4 border-white  shadow-sm ">
                                         <AvatarImage src={data.attendee.avatarUrl} />
                                         <AvatarFallback className="bg-yellow-100 text-yellow-800 text-2xl font-bold">
                                             {data.attendee.name.charAt(0)}

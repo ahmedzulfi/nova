@@ -93,17 +93,7 @@ export default function AdminLayout({
                         </Link>
                     ))}
                     
-                    <div className="mt-8 mb-1 px-2 text-[11px] font-bold text-[#91918E] uppercase tracking-wider">
-                        Quick Actions
-                    </div>
-                    <Link href="/admin/registrations" className="flex items-center gap-2 px-2 py-1.5 hover:bg-[#EBEBE9] rounded-sm text-[14px] text-[#37352F]">
-                        <Plus size={18} className="text-[#91918E]" />
-                        <span>Add Entry</span>
-                    </Link>
-                    <Link href="/admin/tickets" className="flex items-center gap-2 px-2 py-1.5 hover:bg-[#EBEBE9] rounded-sm text-[14px] text-[#37352F]">
-                        <Search size={18} className="text-[#91918E]" />
-                        <span>Search Ledger</span>
-                    </Link>
+                    {/* Removed Quick Actions */}
                 </nav>
 
                 {/* Footer User Profile */}

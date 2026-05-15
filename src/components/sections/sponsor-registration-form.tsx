@@ -20,7 +20,7 @@ const SponsorRegistrationForm = () => {
 
     if (submitted) {
         return (
-            <div className="bg-primary  rounded-sm  p-12 text-center text-white animate-in zoom-in duration-500 shadow-2xl">
+            <div className="bg-primary  rounded-sm  p-12 text-center text-white animate-in zoom-in duration-500  shadow-sm ">
                 <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-8">
                     <Check className="w-12 h-12 text-white" />
                 </div>

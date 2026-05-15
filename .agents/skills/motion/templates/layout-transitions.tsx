@@ -32,9 +32,8 @@ export function ExpandableCard() {
     <motion.div
       layout // Enable FLIP layout animations
       onClick={() => setIsExpanded(!isExpanded)}
-      className={`cursor-pointer bg-white border    rounded-sm  shadow-md p-6 ${
-        isExpanded ? "w-full" : "w-64"
-      }`}
+      className={`cursor-pointer bg-white border    rounded-sm   shadow-sm  p-6 ${isExpanded ? "w-full" : "w-64"
+        }`}
       transition={{ layout: { duration: 0.3, type: "spring" } }}
     >
       <motion.h3 layout className="text-xl font-bold mb-2">
@@ -250,7 +249,7 @@ export function TabPanel({ tabs }: TabPanelProps) {
  * <div className="grid grid-cols-2 gap-4">
  *   <TabPanel tabs={[...]} />
  *   <TabPanel tabs={[...]} />  {/* No layoutId conflicts! */}
- * </div>
+ * </div >
  */
 
 // ============================================================================
@@ -330,7 +329,7 @@ export function FixedModal() {
         <motion.div
           layoutRoot // CRITICAL: Fixes animations in fixed elements
           layout
-          className="fixed bottom-4 right-4 w-64 bg-white border    rounded-sm  shadow-2xl p-4 z-50"
+          className="fixed bottom-4 right-4 w-64 bg-white border    rounded-sm   shadow-sm  p-4 z-50"
         >
           <h3 className="font-bold mb-2">Fixed Modal</h3>
           <p className="text-sm text-gray-700">
@@ -367,17 +366,15 @@ export function ViewSwitcher() {
       <div className="flex gap-2 mb-4">
         <button
           onClick={() => setView("grid")}
-          className={`px-4 py-2 rounded ${
-            view === "grid" ? "bg-blue-600 text-white" : "bg-gray-200"
-          }`}
+          className={`px-4 py-2 rounded ${view === "grid" ? "bg-blue-600 text-white" : "bg-gray-200"
+            }`}
         >
           Grid
         </button>
         <button
           onClick={() => setView("list")}
-          className={`px-4 py-2 rounded ${
-            view === "list" ? "bg-blue-600 text-white" : "bg-gray-200"
-          }`}
+          className={`px-4 py-2 rounded ${view === "list" ? "bg-blue-600 text-white" : "bg-gray-200"
+            }`}
         >
           List
         </button>

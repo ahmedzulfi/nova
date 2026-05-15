@@ -26,7 +26,7 @@
   - Background: `#F9F9F9`
   - Border: `1px solid #F0F0F0`
   - Corners: `rounded-sm` (Sharp Minimalist)
-  - Hover: `scale-[1.01]` or `shadow-md`
+  - Hover: `scale-[1.01]` or ` shadow-sm `
 - **Buttons:**
   - Primary: Black background, white text, `rounded-sm`, `h-16`.
   - Alternative: Primary yellow (`#FACC15`) background for active/selected states and primary dashboard actions, `rounded-sm`.

@@ -89,7 +89,7 @@ export default function SchedulePage() {
                                     className={cn(
                                         "w-full text-left p-3.5  rounded-sm  font-bold text-[14px] transition-all border",
                                         i === 0
-                                            ? "bg-[#37352F] text-white border-[#37352F] shadow-lg shadow-black/10"
+                                            ? "bg-[#37352F] text-white border-[#37352F]  shadow-sm  shadow-black/10"
                                             : "hover:bg-[#F7F6F3] text-[#37352F]/60 border-transparent hover:border-[#E9E9E7]"
                                     )}
                                 >
@@ -158,7 +158,7 @@ export default function SchedulePage() {
                                                 <MoreHorizontal className="w-4.5 h-4.5 text-[#91918E]" />
                                             </Button>
                                         </DropdownMenuTrigger>
-                                        <DropdownMenuContent align="end" className="w-48  rounded-sm  p-1.5 border-[#E9E9E7] shadow-xl bg-white">
+                                        <DropdownMenuContent align="end" className="w-48  rounded-sm  p-1.5 border-[#E9E9E7]  shadow-sm  bg-white">
                                             <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">Edit Activity</DropdownMenuItem>
                                             <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">Relocate Session</DropdownMenuItem>
                                             <DropdownMenuSeparator className="bg-[#F1F1EF] my-1" />

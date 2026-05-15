@@ -13,7 +13,8 @@ import {
     MoreHorizontal,
     Filter,
     Eye,
-    Users
+    Users,
+    History
 } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -54,14 +55,14 @@ export default function TicketsPage() {
     const [selectedStatus, setSelectedStatus] = useState("All");
 
     const filteredTickets = tickets.filter(ticket => {
-        const matchesSearch = 
+        const matchesSearch =
             ticket.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
             ticket.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
             ticket.id.toLowerCase().includes(searchTerm.toLowerCase());
-        
+
         const matchesTier = selectedTier === "All" || ticket.type === selectedTier;
         const matchesStatus = selectedStatus === "All" || ticket.status === selectedStatus;
-        
+
         return matchesSearch && matchesTier && matchesStatus;
     });
     return (
@@ -72,9 +73,9 @@ export default function TicketsPage() {
                     <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">Guest Ledger</h1>
                     <p className="text-[16px] text-[#91918E] max-w-2xl">Unified database of festival attendees and ticket tiers.</p>
                 </div>
-                <Button 
+                <Button
                     onClick={() => toast.info("Scanner Mode", { description: "Initialize camera for QR check-in." })}
-                    className="h-12 px-8 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[14px] font-bold transition-all active:scale-[0.98] shadow-lg shadow-yellow-500/10 border border-black/5"
+                    className="h-12 px-8 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[14px] font-bold transition-all active:scale-[0.98]  shadow-sm  shadow-yellow-500/10 border border-black/5"
                 >
                     <Plus className="w-4 h-4 mr-2" />
                     Scan Ticket
@@ -89,8 +90,8 @@ export default function TicketsPage() {
                         onClick={() => setSelectedStatus(status)}
                         className={cn(
                             "px-4 py-3 text-[13px] font-medium transition-all relative",
-                            selectedStatus === status 
-                                ? "text-[#37352F] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#37352F]" 
+                            selectedStatus === status
+                                ? "text-[#37352F] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#37352F]"
                                 : "text-[#91918E] hover:text-[#37352F] hover:bg-[#F7F6F3]"
                         )}
                     >
@@ -125,10 +126,10 @@ export default function TicketsPage() {
                                 {selectedTier === "All" ? "Filter" : selectedTier}
                             </Button>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end" className="w-48 p-1.5 rounded-sm border-[#E9E9E7] shadow-xl bg-white">
+                        <DropdownMenuContent align="end" className="w-48 p-1.5 rounded-sm border-[#E9E9E7]  shadow-sm  bg-white">
                             <DropdownMenuLabel className="px-2 py-1.5 text-[10px] text-[#91918E] uppercase font-bold tracking-widest">By Ticket Tier</DropdownMenuLabel>
                             {tiers.map(tier => (
-                                <DropdownMenuItem 
+                                <DropdownMenuItem
                                     key={tier}
                                     onClick={() => setSelectedTier(tier)}
                                     className={cn(
@@ -141,9 +142,9 @@ export default function TicketsPage() {
                             ))}
                         </DropdownMenuContent>
                     </DropdownMenu>
-                    <Button 
+                    <Button
                         onClick={() => toast.success("Ledger exported", { description: "The full guest list is ready for download." })}
-                        variant="outline" 
+                        variant="outline"
                         className="h-9 px-3 rounded-sm border-[#E9E9E7] text-[13px] font-medium text-[#37352F] hover:bg-[#F7F6F3]"
                     >
                         <Download className="w-3.5 h-3.5 mr-2 text-[#91918E]" />
@@ -153,7 +154,7 @@ export default function TicketsPage() {
             </div>
 
             {/* Main Listing */}
-            <div className="bg-white border border-[#E9E9E7]  rounded-sm  overflow-hidden shadow-sm">
+            <div className="bg-white border border-[#E9E9E7]  rounded-sm  overflow-hidden shadow-xs">
                 <Table>
                     <TableHeader className="bg-[#F7F6F3]/50">
                         <TableRow className="hover:bg-transparent border-b border-[#E9E9E7]">
@@ -185,8 +186,8 @@ export default function TicketsPage() {
                                     <span className={cn(
                                         "text-[11px] font-bold px-2 py-1  rounded-sm  border uppercase tracking-wider",
                                         ticket.type === 'Dog Owner' ? 'bg-orange-50 text-orange-600 border-orange-100/50' :
-                                        ticket.type === 'Cat Owner' ? 'bg-blue-50 text-blue-600 border-blue-100/50' :
-                                        'bg-[#F1F1EF] text-[#37352F] border-[#E9E9E7]'
+                                            ticket.type === 'Cat Owner' ? 'bg-blue-50 text-blue-600 border-blue-100/50' :
+                                                'bg-[#F1F1EF] text-[#37352F] border-[#E9E9E7]'
                                     )}>
                                         {ticket.type}
                                     </span>
@@ -217,21 +218,21 @@ export default function TicketsPage() {
                                                 <MoreHorizontal className="w-4.5 h-4.5 text-[#91918E]" />
                                             </Button>
                                         </DropdownMenuTrigger>
-                                        <DropdownMenuContent align="end" className="w-48  rounded-sm  p-1.5 border-[#E9E9E7] shadow-xl bg-white">
+                                        <DropdownMenuContent align="end" className="w-48  rounded-sm  p-1.5 border-[#E9E9E7]  shadow-sm  bg-white">
                                             <Link href={`/admin/tickets/${ticket.id}`}>
                                                 <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3] focus:text-[#37352F]">
                                                     <Eye className="w-4 h-4 mr-2 text-[#91918E]" />
                                                     View Ticket
                                                 </DropdownMenuItem>
                                             </Link>
-                                            <DropdownMenuItem 
+                                            <DropdownMenuItem
                                                 onClick={() => toast.success("Confirmation Resent", { description: "Email sent to " + ticket.email })}
                                                 className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3] focus:text-[#37352F]"
                                             >
                                                 Resend Confirmation
                                             </DropdownMenuItem>
                                             <DropdownMenuSeparator className="bg-[#F1F1EF] my-1" />
-                                            <DropdownMenuItem 
+                                            <DropdownMenuItem
                                                 onClick={() => toast.info("Status Updated", { description: "Ticket marked as redeemed." })}
                                                 className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer text-[#37352F] focus:bg-[#F7F6F3] focus:text-[#37352F]"
                                             >

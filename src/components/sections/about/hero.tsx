@@ -22,7 +22,7 @@ const AboutHero = () => {
         {floatingImages.map((img, i) => (
           <div
             key={i}
-            className={`absolute ${img.pos} ${img.size} rounded-full overflow-hidden border-4 border-white shadow-2xl animate-float hidden md:block`}
+            className={`absolute ${img.pos} ${img.size} rounded-full overflow-hidden border-4 border-white  shadow-sm  animate-float hidden md:block`}
             style={{ animationDelay: img.delay }}
           >
             <Image src={img.src} alt="Moment" fill className="object-cover" />
@@ -42,9 +42,9 @@ const AboutHero = () => {
               food_trucks: (chunks) => <span className="text-primary font-bold">{chunks}</span>
             })}
           </p>
-          <a 
+          <a
             href="#story"
-            className="group bg-primary hover:bg-black text-white font-bold h-16 md:h-18 px-10 md:px-12 rounded-full flex items-center gap-4 transition-all duration-300 transform hover:scale-105 shadow-2xl shadow-primary/20 animate-in fade-in slide-in-from-bottom-12 duration-700 delay-300 uppercase tracking-[0.2em] text-[13px]"
+            className="group bg-primary hover:bg-black text-white font-bold h-16 md:h-18 px-10 md:px-12 rounded-full flex items-center gap-4 transition-all duration-300 transform hover:scale-105  shadow-sm  shadow-primary/20 animate-in fade-in slide-in-from-bottom-12 duration-700 delay-300 uppercase tracking-[0.2em] text-[13px]"
           >
             {t('cta')}
             <svg className="w-5 h-5 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

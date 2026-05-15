@@ -37,7 +37,7 @@ const CompetitionsList = () => {
             >
               {/* Image Side */}
               <div className="w-full lg:w-1/2">
-                <div className="relative aspect-[4/3]  rounded-sm  overflow-hidden shadow-2xl group border-8 border-white">
+                <div className="relative aspect-[4/3]  rounded-sm  overflow-hidden  shadow-sm  group border-8 border-white">
                   <Image
                     src={comp.image}
                     alt={t(`items.${comp.key}.title`)}
@@ -96,7 +96,7 @@ const CompetitionsList = () => {
                 <div className="pt-8 flex flex-col gap-8">
                   <Link
                     href={isLoggedIn ? "/dashboard" : "/tickets"}
-                    className="inline-flex items-center justify-center h-18 px-12 bg-black text-white rounded-full font-bold text-[14px] uppercase tracking-[0.3em] hover:bg-primary transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl shadow-black/10 w-fit"
+                    className="inline-flex items-center justify-center h-18 px-12 bg-black text-white rounded-full font-bold text-[14px] uppercase tracking-[0.3em] hover:bg-primary transition-all duration-300 hover:scale-105 active:scale-95  shadow-sm  shadow-black/10 w-fit"
                   >
                     {isLoggedIn ? tCTA('manage') : tCTA('primary')} <ArrowRight className="w-6 h-6 rtl:rotate-180" />
                   </Link>

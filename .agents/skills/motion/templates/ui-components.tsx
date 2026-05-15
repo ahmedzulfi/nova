@@ -50,7 +50,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", damping: 20, stiffness: 300 }}
-            className="fixed inset-0 m-auto w-full max-w-md h-fit bg-white dark:bg-gray-800    rounded-sm  shadow-2xl z-50 p-6"
+            className="fixed inset-0 m-auto w-full max-w-md h-fit bg-white dark:bg-gray-800    rounded-sm   shadow-sm  z-50 p-6"
             style={{ willChange: "transform, opacity" }}
           >
             {/* Header */}
@@ -274,13 +274,13 @@ export function Carousel({ images }: CarouselProps) {
       {/* Navigation buttons */}
       <button
         onClick={handlePrev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 p-3 rounded-full shadow-lg z-10"
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 p-3 rounded-full  shadow-sm  z-10"
       >
         ←
       </button>
       <button
         onClick={handleNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 p-3 rounded-full shadow-lg z-10"
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 p-3 rounded-full  shadow-sm  z-10"
       >
         →
       </button>
@@ -344,7 +344,7 @@ export function DragCarousel({ items }: DragCarouselProps) {
           <motion.div
             key={index}
             whileHover={{ scale: 1.05 }}
-            className="min-w-[300px] h-64 bg-white dark:bg-gray-700    rounded-sm  shadow-md flex items-center justify-center"
+            className="min-w-[300px] h-64 bg-white dark:bg-gray-700    rounded-sm   shadow-sm  flex items-center justify-center"
           >
             {item}
           </motion.div>
@@ -474,7 +474,7 @@ export function Dropdown({ trigger, items }: DropdownProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700    rounded-sm  shadow-lg z-20"
+              className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700    rounded-sm   shadow-sm  z-20"
             >
               {items.map((item, index) => (
                 <motion.button
@@ -536,7 +536,7 @@ export function Toast({ message, type = "info", isVisible, onClose }: ToastProps
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: 300 }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className={`fixed top-4 right-4 ${colors[type]} text-white px-6 py-4    rounded-sm  shadow-lg z-50 flex items-center gap-4`}
+          className={`fixed top-4 right-4 ${colors[type]} text-white px-6 py-4    rounded-sm   shadow-sm  z-50 flex items-center gap-4`}
         >
           <span>{message}</span>
           <motion.button

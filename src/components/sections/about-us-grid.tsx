@@ -24,7 +24,7 @@ const AboutUsGrid = () => {
             </div>
             <Link
               href="/about"
-              className="mt-12 inline-flex items-center justify-center h-16 px-10 rounded-sm bg-black text-white font-bold uppercase tracking-[0.2em] text-[13px] transition-all hover:bg-white hover:text-black active:scale-95 shadow-xl relative z-10"
+              className="mt-12 inline-flex items-center justify-center h-16 px-10 rounded-sm bg-black text-white font-bold uppercase tracking-[0.2em] text-[13px] transition-all hover:bg-white hover:text-black active:scale-95  shadow-sm  relative z-10"
             >
               {t('cta')}
             </Link>
@@ -50,7 +50,7 @@ const AboutUsGrid = () => {
         {/* Bottom Bento Row */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Black Block: Description - Fixed UI */}
-          <div className="lg:col-span-7 bg-black rounded-sm overflow-hidden flex flex-col group border border-white/5 shadow-2xl">
+          <div className="lg:col-span-7 bg-black rounded-sm overflow-hidden flex flex-col group border border-white/5  shadow-sm ">
             <div className="p-10 md:p-14 relative z-10">
               <h4 className="text-[20px] sm:text-[22px] md:text-[28px] leading-[1.5] text-white/90 font-medium font-body tracking-tight">
                 {t.rich('story', {

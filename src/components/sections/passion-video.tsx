@@ -41,7 +41,7 @@ export default function PassionVideo() {
           {/* Custom Play Button Overlay */}
           <div className="absolute inset-0 flex items-center justify-center bg-black/5 group-hover:bg-black/10 transition-colors duration-300">
             <button
-              className="relative w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center bg-white rounded-full shadow-lg hover:scale-105 transition-transform duration-300"
+              className="relative w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center bg-white rounded-full  shadow-sm  hover:scale-105 transition-transform duration-300"
               aria-label="Play video"
             >
               {/* Pulse effect border */}

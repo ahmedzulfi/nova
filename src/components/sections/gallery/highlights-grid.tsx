@@ -29,11 +29,11 @@ const HighlightsGrid = () => {
           <div className="w-24 h-1.5 bg-black mx-auto rounded-full shadow-sm" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 shadow-2xl shadow-black/5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1  shadow-sm  shadow-black/5">
           {highlights.map((item, index) => (
-            <div 
-              key={index} 
-              className={`p-12 md:p-16 flex flex-col items-start transition-all duration-700 hover:z-10 hover:shadow-2xl hover:scale-[1.02] border border-black/5 ${item.bg} group`}
+            <div
+              key={index}
+              className={`p-12 md:p-16 flex flex-col items-start transition-all duration-700 hover:z-10 hover: shadow-sm  hover:scale-[1.02] border border-black/5 ${item.bg} group`}
             >
               <div className="text-[48px] mb-10 grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110">
                 {item.emoji}

@@ -19,7 +19,7 @@ const AboutSchedule = () => {
     <section className="py-24 md:py-40 bg-white" id="schedule">
       <div className="container mx-auto px-6 max-w-[1350px]">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2.5fr] gap-x-32 items-start">
-          
+
           {/* Left Column: Sticky Navigation */}
           <div className="flex flex-col gap-10 md:sticky md:top-32">
             <div>
@@ -27,17 +27,16 @@ const AboutSchedule = () => {
                 {t('badge')}
               </span>
             </div>
-            
+
             <div className="flex flex-row lg:flex-col gap-5 overflow-x-auto lg:overflow-x-visible pb-6 lg:pb-0 no-scrollbar">
               {days.map((day) => (
-                <button 
+                <button
                   key={day.id}
                   onClick={() => setActiveDay(day.id)}
-                  className={`text-left rtl:text-right px-8 py-6 rounded-sm transition-all duration-500 min-w-[260px] lg:min-w-0 shadow-sm border ${
-                    activeDay === day.id 
-                      ? 'bg-black text-white border-black scale-[1.02] shadow-2xl shadow-black/20' 
+                  className={`text-left rtl:text-right px-8 py-6 rounded-sm transition-all duration-500 min-w-[260px] lg:min-w-0 shadow-sm border ${activeDay === day.id
+                      ? 'bg-black text-white border-black scale-[1.02]  shadow-sm  shadow-black/20'
                       : 'bg-[#F5F5F0] text-black border-black/5 hover:bg-black/5'
-                  }`}
+                    }`}
                 >
                   <span className={`block text-[12px] uppercase tracking-[0.3em] font-bold mb-2 transition-opacity ${activeDay === day.id ? 'opacity-40' : 'opacity-20'}`}>
                     {t(`days.${day.key}.label`)}
@@ -55,7 +54,7 @@ const AboutSchedule = () => {
             <h2 className="text-[48px] md:text-[84px] font-display font-bold leading-[0.85] text-black mb-16 tracking-tighter">
               {t('title')}
             </h2>
-            
+
             <div className="flex flex-col relative min-h-[700px]">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -66,8 +65,8 @@ const AboutSchedule = () => {
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 >
                   {currentEvents.map((item, index) => (
-                    <div 
-                      key={index} 
+                    <div
+                      key={index}
                       className={`py-12 group ${index !== 0 ? 'border-t border-black/5' : ''}`}
                     >
                       <div className="flex flex-col md:flex-row items-start gap-6 md:gap-16">
@@ -91,7 +90,7 @@ const AboutSchedule = () => {
 
             <div className="mt-20 pt-16 border-t border-black/5">
               <a
-                className="inline-flex items-center justify-center h-18 px-12 bg-black text-white rounded-full font-bold text-[14px] uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary hover:scale-105 active:scale-95 shadow-2xl shadow-black/10"
+                className="inline-flex items-center justify-center h-18 px-12 bg-black text-white rounded-full font-bold text-[14px] uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary hover:scale-105 active:scale-95  shadow-sm  shadow-black/10"
                 href="/tickets"
               >
                 {t('cta')}

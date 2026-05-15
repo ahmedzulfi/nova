@@ -39,11 +39,11 @@ const AwardsSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {awards.map((award, index) => (
-            <div 
-              key={index} 
-              className={`p-14 rounded-[3.5rem] ${award.color} border border-transparent hover:border-black/5 transition-all duration-700 group flex flex-col items-center text-center hover:shadow-2xl hover:shadow-black/5 hover:-translate-y-2`}
+            <div
+              key={index}
+              className={`p-14 rounded-[3.5rem] ${award.color} border border-transparent hover:border-black/5 transition-all duration-700 group flex flex-col items-center text-center hover: shadow-sm  hover:shadow-black/5 hover:-translate-y-2`}
             >
-              <div className="mb-10 p-8 bg-white rounded-sm shadow-xl shadow-black/5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-700">
+              <div className="mb-10 p-8 bg-white rounded-sm  shadow-sm  shadow-black/5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-700">
                 {award.icon}
               </div>
               <h3 className="text-[32px] font-display font-bold text-black mb-4 tracking-tighter">

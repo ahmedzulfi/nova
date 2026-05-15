@@ -150,7 +150,7 @@ const Navigation = () => {
             {isRegistered ? (
               <Link
                 href="/dashboard"
-                className="flex items-center justify-center w-full py-6 text-[14px] font-bold text-white bg-black rounded-sm uppercase tracking-[0.2em] shadow-xl"
+                className="flex items-center justify-center w-full py-6 text-[14px] font-bold text-white bg-black rounded-sm uppercase tracking-[0.2em]  shadow-sm "
                 onClick={() => setIsOpen(false)}
               >
                 {t('dashboard')}
@@ -166,7 +166,7 @@ const Navigation = () => {
                 </Link>
                 <Link
                   href="/tickets"
-                  className="flex items-center justify-center w-full py-6 text-[14px] font-bold text-white bg-primary rounded-sm uppercase tracking-[0.2em] shadow-xl shadow-primary/20"
+                  className="flex items-center justify-center w-full py-6 text-[14px] font-bold text-white bg-primary rounded-sm uppercase tracking-[0.2em]  shadow-sm  shadow-primary/20"
                   onClick={() => setIsOpen(false)}
                 >
                   {t('tickets')}

@@ -41,7 +41,7 @@ const ProgramPreview = () => {
                                     key={index}
                                     onClick={() => setActiveDay(index)}
                                     className={`text-left rtl:text-right px-8 py-6 rounded-sm transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${activeDay === index
-                                        ? 'bg-primary text-white shadow-xl shadow-primary/20'
+                                        ? 'bg-primary text-white  shadow-sm  shadow-primary/20'
                                         : 'bg-[#F5F5F0] text-black hover:bg-[#E6E6E6]'
                                         }`}
                                 >
@@ -56,7 +56,7 @@ const ProgramPreview = () => {
                         </div>
 
                         <div className="hidden md:block w-full mt-10">
-                            <div className="relative aspect-[4/3] overflow-hidden rounded-sm shadow-2xl border border-black/5">
+                            <div className="relative aspect-[4/3] overflow-hidden rounded-sm  shadow-sm  border border-black/5">
                                 <Image
                                     src={dayData[activeDay].image}
                                     alt="Program Preview"
@@ -101,7 +101,7 @@ const ProgramPreview = () => {
                         <div className="mt-16">
                             <Link
                                 href="/about"
-                                className="inline-flex items-center justify-center h-16 px-12 bg-black text-white rounded-sm font-bold text-[14px] uppercase tracking-[0.2em] transition-all hover:bg-primary active:scale-95 shadow-xl shadow-black/10"
+                                className="inline-flex items-center justify-center h-16 px-12 bg-black text-white rounded-sm font-bold text-[14px] uppercase tracking-[0.2em] transition-all hover:bg-primary active:scale-95  shadow-sm  shadow-black/10"
                             >
                                 {t('cta')}
                             </Link>

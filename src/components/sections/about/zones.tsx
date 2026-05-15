@@ -3,15 +3,15 @@
 import React from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { 
-  Mic2, 
-  Dog, 
-  Cat, 
-  HeartPulse, 
-  Heart, 
-  ShoppingBag, 
-  Gamepad2, 
-  Utensils, 
+import {
+  Mic2,
+  Dog,
+  Cat,
+  HeartPulse,
+  Heart,
+  ShoppingBag,
+  Gamepad2,
+  Utensils,
   Camera,
   ArrowUpRight
 } from 'lucide-react';
@@ -48,9 +48,9 @@ const AboutZones = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {zones.map((zone, index) => (
-            <div 
-              key={index} 
-              className="group relative flex flex-col h-full bg-[#F5F5F0] rounded-sm overflow-hidden border border-black/5 transition-all duration-700 hover:shadow-2xl hover:shadow-black/5 hover:-translate-y-2"
+            <div
+              key={index}
+              className="group relative flex flex-col h-full bg-[#F5F5F0] rounded-sm overflow-hidden border border-black/5 transition-all duration-700 hover: shadow-sm  hover:shadow-black/5 hover:-translate-y-2"
             >
               {/* Image Header */}
               <div className="relative h-[280px] w-full overflow-hidden">
@@ -65,7 +65,7 @@ const AboutZones = () => {
                   <h3 className="text-[32px] font-display font-bold text-white leading-none tracking-tighter">
                     {t(`list.${zone.key}.title`)}
                   </h3>
-                  <div className="w-14 h-14 rounded-sm bg-white/20 backdrop-blur-xl flex items-center justify-center text-white border border-white/20 shadow-xl">
+                  <div className="w-14 h-14 rounded-sm bg-white/20 backdrop-blur-xl flex items-center justify-center text-white border border-white/20  shadow-sm ">
                     {zone.icon}
                   </div>
                 </div>
@@ -81,7 +81,7 @@ const AboutZones = () => {
                     </li>
                   ))}
                 </ul>
-                
+
                 <div className="mt-auto pt-8 border-t border-black/5 flex items-center justify-between">
                   <span className="text-[24px] grayscale group-hover:grayscale-0 transition-all duration-700 hover:scale-110">{zone.emoji}</span>
                   <div className="flex items-center gap-3 text-primary font-bold uppercase tracking-[0.2em] text-[12px] opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-700">

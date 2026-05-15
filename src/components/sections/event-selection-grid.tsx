@@ -25,11 +25,10 @@ const EventSelectionGrid = ({ onSelect, selectedEventId }: { onSelect: (id: stri
           key={event.id}
           type="button"
           onClick={() => onSelect(event.id, t(`items.${event.key}.title`))}
-          className={`group relative aspect-[4/3] rounded-sm overflow-hidden transition-all duration-500 text-left ${
-            selectedEventId === event.id
+          className={`group relative aspect-[4/3] rounded-sm overflow-hidden transition-all duration-500 text-left ${selectedEventId === event.id
               ? 'ring-4 ring-primary ring-offset-4 ring-offset-white'
               : 'hover:ring-2 hover:ring-primary/50 hover:ring-offset-2 hover:ring-offset-white'
-          }`}
+            }`}
         >
           <Image
             src={event.image}
@@ -37,9 +36,8 @@ const EventSelectionGrid = ({ onSelect, selectedEventId }: { onSelect: (id: stri
             fill
             className="object-cover transition-transform duration-1000 group-hover:scale-110"
           />
-          <div className={`absolute inset-0 transition-opacity duration-500 ${
-            selectedEventId === event.id ? 'bg-primary/20' : 'bg-black/60 group-hover:bg-black/20'
-          }`} />
+          <div className={`absolute inset-0 transition-opacity duration-500 ${selectedEventId === event.id ? 'bg-primary/20' : 'bg-black/60 group-hover:bg-black/20'
+            }`} />
 
           <div className="absolute inset-0 p-8 flex flex-col justify-end">
             <span className="text-[10px] font-bold text-white/60 uppercase tracking-[0.3em] mb-3 block rtl:text-right">
@@ -51,7 +49,7 @@ const EventSelectionGrid = ({ onSelect, selectedEventId }: { onSelect: (id: stri
           </div>
 
           {selectedEventId === event.id && (
-            <div className="absolute top-6 right-6 rtl:right-auto rtl:left-6 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center animate-in zoom-in duration-500 shadow-2xl">
+            <div className="absolute top-6 right-6 rtl:right-auto rtl:left-6 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center animate-in zoom-in duration-500  shadow-sm ">
               <Check className="w-6 h-6 stroke-[3px]" />
             </div>
           )}

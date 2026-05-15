@@ -92,7 +92,7 @@ export default function TicketDetailsPage({ params }: { params: Promise<{ id: st
     const data = mockGetTicketDetails(resolvedParams.id);
 
     return (
-        <motion.div 
+        <motion.div
             initial="hidden"
             animate="visible"
             variants={containerVariants}
@@ -122,17 +122,17 @@ export default function TicketDetailsPage({ params }: { params: Promise<{ id: st
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <Button 
+                        <Button
                             onClick={() => toast.success("Confirmation Resent", { description: "Email sent to " + data.attendee.email })}
-                            variant="outline" 
+                            variant="outline"
                             className="h-12 px-6 rounded-sm border-[#E9E9E7] text-[#37352F] hover:bg-[#F7F6F3] text-[14px] font-bold transition-all active:scale-[0.98]"
                         >
                             <MailCheck className="w-4 h-4 mr-2 text-[#91918E]" />
                             Resend Email
                         </Button>
-                        <Button 
+                        <Button
                             onClick={() => toast.info("Exporting Ticket Data", { description: "PDF generation started." })}
-                            className="h-12 px-10 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[14px] font-bold transition-all active:scale-[0.98] shadow-lg shadow-yellow-500/10 border border-black/5"
+                            className="h-12 px-10 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[14px] font-bold transition-all active:scale-[0.98]  shadow-sm  shadow-yellow-500/10 border border-black/5"
                         >
                             <Download className="w-4 h-4 mr-2" />
                             Download PDF
@@ -144,7 +144,7 @@ export default function TicketDetailsPage({ params }: { params: Promise<{ id: st
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 {/* Left Column: Attendee & Order Details */}
                 <div className="lg:col-span-8 space-y-12">
-                    
+
                     {/* Attendee Profile Section */}
                     <motion.section variants={itemVariants} className="space-y-6">
                         <div className="flex items-center gap-3">
@@ -163,7 +163,7 @@ export default function TicketDetailsPage({ params }: { params: Promise<{ id: st
                                             {data.attendee.name.charAt(0)}
                                         </AvatarFallback>
                                     </Avatar>
-                                    
+
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 w-full">
                                         <div>
                                             <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Full Name</p>
@@ -271,7 +271,7 @@ export default function TicketDetailsPage({ params }: { params: Promise<{ id: st
                 {/* Right Column: Order Details */}
                 <div className="lg:col-span-4 space-y-8">
                     <motion.div variants={itemVariants}>
-                        <Card className="border-[#E9E9E7] shadow-xl shadow-black/[0.02] rounded-sm overflow-hidden border-t-4 border-t-[#FACC15]">
+                        <Card className="border-[#E9E9E7]  shadow-sm  shadow-black/[0.02] rounded-sm overflow-hidden border-t-4 border-t-[#FACC15]">
                             <CardHeader className="bg-[#F7F6F3]/50">
                                 <CardTitle className="text-[18px] font-bold text-[#37352F]">Order Summary</CardTitle>
                                 <CardDescription className="text-[12px]">Financial breakdown & payment</CardDescription>

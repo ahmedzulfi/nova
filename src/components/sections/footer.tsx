@@ -63,7 +63,7 @@ const Footer = () => {
               />
               <button
                 type="button"
-                className="absolute ltr:right-3 rtl:left-3 top-1/2 -translate-y-1/2 bg-primary text-white h-14 px-8 rounded-sm font-bold uppercase tracking-[0.2em] text-[12px] flex items-center gap-3 hover:bg-white hover:text-black transition-all shadow-xl shadow-primary/20"
+                className="absolute ltr:right-3 rtl:left-3 top-1/2 -translate-y-1/2 bg-primary text-white h-14 px-8 rounded-sm font-bold uppercase tracking-[0.2em] text-[12px] flex items-center gap-3 hover:bg-white hover:text-black transition-all  shadow-sm  shadow-primary/20"
               >
                 {t('newsletter_btn')}
                 <ArrowRight size={18} className="rtl:rotate-180" />
@@ -88,13 +88,13 @@ const Footer = () => {
             </p>
 
             <div className="flex items-center gap-5">
-              <a href="https://www.instagram.com/nova_paw_festival/" target="_blank" className="w-12 h-12 rounded-sm border border-white/10 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 text-white shadow-lg">
+              <a href="https://www.instagram.com/nova_paw_festival/" target="_blank" className="w-12 h-12 rounded-sm border border-white/10 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 text-white  shadow-sm ">
                 <Instagram size={20} />
               </a>
-              <a href="https://www.tiktok.com/@nova_paw_festival" target="_blank" className="w-12 h-12 rounded-sm border border-white/10 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 text-white shadow-lg">
+              <a href="https://www.tiktok.com/@nova_paw_festival" target="_blank" className="w-12 h-12 rounded-sm border border-white/10 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 text-white  shadow-sm ">
                 <Music2 size={20} />
               </a>
-              <a href="https://www.youtube.com/@paw_festival" target="_blank" className="w-12 h-12 rounded-sm border border-white/10 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 text-white shadow-lg">
+              <a href="https://www.youtube.com/@paw_festival" target="_blank" className="w-12 h-12 rounded-sm border border-white/10 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 text-white  shadow-sm ">
                 <Youtube size={20} />
               </a>
             </div>
@@ -144,7 +144,7 @@ const Footer = () => {
                     <MapPin size={14} className="text-primary" />
                   </div>
                   <p className="text-[16px] font-bold leading-tight">
-                    {t('location_val')}<br/>
+                    {t('location_val')}<br />
                     <span className="text-[13px] text-white/40 font-medium mt-1 block">{t('date_val')}</span>
                   </p>
                 </div>
@@ -178,8 +178,8 @@ const Footer = () => {
             <span>© 2026 Nova Paw Festival · {t('rights')}</span>
           </div>
           <div className="flex items-center gap-6">
-             <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-             <span className="uppercase tracking-[0.2em] text-[11px]">Doha, Qatar</span>
+            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span className="uppercase tracking-[0.2em] text-[11px]">Doha, Qatar</span>
           </div>
         </div>
 

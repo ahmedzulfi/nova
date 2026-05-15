@@ -14,7 +14,7 @@ const CompetitionsHero = () => {
 
       <div className="container mx-auto px-6 max-w-[1280px] relative z-10">
         <div className="flex flex-col items-center text-center">
-          <span className="inline-flex items-center px-6 py-2 rounded-full bg-black text-white text-[11px] font-bold uppercase tracking-[0.3em] mb-10 animate-in fade-in slide-in-from-bottom-4 duration-500 shadow-xl shadow-black/10">
+          <span className="inline-flex items-center px-6 py-2 rounded-full bg-black text-white text-[11px] font-bold uppercase tracking-[0.3em] mb-10 animate-in fade-in slide-in-from-bottom-4 duration-500  shadow-sm  shadow-black/10">
             {t('badge')}
           </span>
           <h1 className="text-[44px] md:text-[84px] font-display font-bold text-black leading-[0.95] tracking-tighter mb-10 max-w-[1100px] animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">

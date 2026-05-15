@@ -100,8 +100,8 @@ export default function RegistrationsPage() {
                         onClick={() => setSelectedStatus(status)}
                         className={cn(
                             "px-4 py-3 text-[13px] font-medium transition-all relative",
-                            selectedStatus === status 
-                                ? "text-[#37352F] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#37352F]" 
+                            selectedStatus === status
+                                ? "text-[#37352F] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#37352F]"
                                 : "text-[#91918E] hover:text-[#37352F] hover:bg-[#F7F6F3]"
                         )}
                     >
@@ -134,7 +134,7 @@ export default function RegistrationsPage() {
                                 {selectedCategory === "All" ? "Filter" : selectedCategory}
                             </Button>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent align="start" className="w-56 p-1.5 rounded-sm border-[#E9E9E7] shadow-xl bg-white">
+                        <DropdownMenuContent align="start" className="w-56 p-1.5 rounded-sm border-[#E9E9E7]  shadow-sm  bg-white">
                             <DropdownMenuLabel className="px-2 py-1.5 text-[10px] text-[#91918E] uppercase font-bold tracking-widest">By Competition</DropdownMenuLabel>
                             {categories.map(cat => (
                                 <DropdownMenuItem
@@ -208,7 +208,7 @@ export default function RegistrationsPage() {
                                                 <MoreHorizontal className="w-4.5 h-4.5 text-[#91918E]" />
                                             </Button>
                                         </DropdownMenuTrigger>
-                                        <DropdownMenuContent align="end" className="w-48  rounded-sm  p-1.5 border-[#E9E9E7] shadow-xl bg-white">
+                                        <DropdownMenuContent align="end" className="w-48  rounded-sm  p-1.5 border-[#E9E9E7]  shadow-sm  bg-white">
                                             <DropdownMenuLabel className="px-2 py-1.5 text-[10px] text-[#91918E] uppercase font-bold tracking-widest">Manage</DropdownMenuLabel>
                                             <Link href={`/admin/registrations/${reg.id}`}>
                                                 <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium text-[#37352F] focus:bg-[#F7F6F3] focus:text-[#37352F] cursor-pointer">View Details</DropdownMenuItem>

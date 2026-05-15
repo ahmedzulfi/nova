@@ -13,7 +13,7 @@ const AboutStory = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           {/* Left Side: Image with floating elements */}
           <div className="relative group">
-            <div className="relative aspect-[4/5]  rounded-sm  overflow-hidden shadow-2xl">
+            <div className="relative aspect-[4/5]  rounded-sm  overflow-hidden  shadow-sm ">
               <Image
                 src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2069&auto=format&fit=crop"
                 alt="Festival Vibe"
@@ -24,12 +24,12 @@ const AboutStory = () => {
             </div>
 
             {/* Floating Info Cards */}
-            <div className="absolute -top-8 -right-8 md:-top-12 md:-right-12 bg-primary p-8 md:p-10  rounded-sm  shadow-2xl rotate-3 transition-transform hover:rotate-0 duration-500 z-20 border-4 border-white">
+            <div className="absolute -top-8 -right-8 md:-top-12 md:-right-12 bg-primary p-8 md:p-10  rounded-sm   shadow-sm  rotate-3 transition-transform hover:rotate-0 duration-500 z-20 border-4 border-white">
               <span className="block text-[44px] md:text-[64px] font-bold text-black leading-none mb-1 font-display tracking-tighter">10K</span>
               <span className="text-[12px] md:text-[14px] font-bold uppercase tracking-[0.2em] text-black/40 whitespace-nowrap">{t('stats.visitors')}</span>
             </div>
 
-            <div className="absolute -bottom-8 -left-8 md:-bottom-12 md:-left-12 bg-black p-8 md:p-10  rounded-sm  shadow-2xl -rotate-3 transition-transform hover:rotate-0 duration-500 z-20 border-4 border-black/10">
+            <div className="absolute -bottom-8 -left-8 md:-bottom-12 md:-left-12 bg-black p-8 md:p-10  rounded-sm   shadow-sm  -rotate-3 transition-transform hover:rotate-0 duration-500 z-20 border-4 border-black/10">
               <span className="block text-[44px] md:text-[64px] font-bold text-white leading-none mb-1 font-display tracking-tighter">270m</span>
               <span className="text-[12px] md:text-[14px] font-bold uppercase tracking-[0.2em] text-white/40 whitespace-nowrap">{t('stats.venue')}</span>
             </div>

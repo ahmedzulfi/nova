@@ -46,7 +46,7 @@ export default function WelfareSafety() {
                         <div className="pt-2 md:pt-4">
                             <a
                                 href="/registration"
-                                className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-primary text-white rounded-full font-bold text-[15px] md:text-[16px] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20"
+                                className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-primary text-white rounded-full font-bold text-[15px] md:text-[16px] transition-all hover:scale-105 active:scale-95  shadow-sm  shadow-primary/20"
                             >
                                 Read Full Guidelines
                             </a>

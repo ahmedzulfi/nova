@@ -12,7 +12,7 @@ const HeroSection = () => {
     <section className="relative w-full overflow-hidden bg-white pt-[100px] pb-[80px] md:pt-[140px] md:pb-[120px]">
       <div className="container mx-auto px-6 max-w-[1280px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          
+
           {/* Left Column: Text Content */}
           <div className="flex flex-col items-start text-start">
             {/* Badge */}
@@ -28,7 +28,7 @@ const HeroSection = () => {
             <h1 className="mb-6 font-display text-[44px] sm:text-[58px] md:text-[72px] lg:text-[84px] xl:text-[96px] text-black leading-[0.95] tracking-tighter">
               {t('title')}
             </h1>
-            
+
             <h2 className="mb-8 text-[20px] md:text-[26px] font-bold text-primary font-display leading-tight tracking-tight">
               {t('subtitle')}
             </h2>
@@ -42,7 +42,7 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row items-center gap-4 w-full">
               <Link
                 href="/competitions"
-                className="group inline-flex items-center justify-center gap-4 w-full sm:w-auto px-10 py-5 bg-primary text-white rounded-sm font-bold uppercase tracking-[0.2em] text-[13px] transition-all hover:bg-black active:scale-[0.95] shadow-xl shadow-primary/20"
+                className="group inline-flex items-center justify-center gap-4 w-full sm:w-auto px-10 py-5 bg-primary text-white rounded-sm font-bold uppercase tracking-[0.2em] text-[13px] transition-all hover:bg-black active:scale-[0.95]  shadow-sm  shadow-primary/20"
               >
                 <span>{t('cta_competitions')}</span>
                 <div className="transition-transform group-hover:translate-x-1">
@@ -57,7 +57,7 @@ const HeroSection = () => {
               </Link>
               <Link
                 href="/tickets"
-                className="inline-flex items-center justify-center w-full sm:w-auto px-10 py-5 bg-black text-white rounded-sm font-bold uppercase tracking-[0.2em] text-[13px] transition-all hover:bg-primary active:scale-[0.95] shadow-xl shadow-black/10"
+                className="inline-flex items-center justify-center w-full sm:w-auto px-10 py-5 bg-black text-white rounded-sm font-bold uppercase tracking-[0.2em] text-[13px] transition-all hover:bg-primary active:scale-[0.95]  shadow-sm  shadow-black/10"
               >
                 {t('cta_tickets')}
               </Link>
@@ -65,7 +65,7 @@ const HeroSection = () => {
           </div>
 
           {/* Right Column: Video Container */}
-          <div className="relative w-full aspect-[4/5] lg:aspect-[4/5] rounded-sm overflow-hidden shadow-2xl group border border-black/5">
+          <div className="relative w-full aspect-[4/5] lg:aspect-[4/5] rounded-sm overflow-hidden  shadow-sm  group border border-black/5">
             <video
               autoPlay
               muted
@@ -83,13 +83,13 @@ const HeroSection = () => {
 
             {/* Floating Badges on Video */}
             <div className="absolute top-6 left-6 z-20">
-              <div className="px-5 py-2 bg-white rounded-sm shadow-xl">
+              <div className="px-5 py-2 bg-white rounded-sm  shadow-sm ">
                 <span className="text-black font-display text-[12px] font-bold uppercase tracking-widest">{t('video_badge_top')}</span>
               </div>
             </div>
 
             <div className="absolute bottom-8 left-8 right-8 z-20">
-              <div className="p-8 bg-white/10 backdrop-blur-xl rounded-sm border border-white/20 shadow-2xl">
+              <div className="p-8 bg-white/10 backdrop-blur-xl rounded-sm border border-white/20  shadow-sm ">
                 <p className="text-white font-display text-[18px] md:text-[20px] font-bold leading-tight tracking-tight">
                   {t('video_badge_bottom')}
                 </p>

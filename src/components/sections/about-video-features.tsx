@@ -92,7 +92,7 @@ export default function AboutVideoFeatures() {
 
           <button
             onClick={togglePlay}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-16 h-16 lg:w-20 lg:h-20 bg-white rounded-full flex items-center justify-center transition-transform hover:scale-110 shadow-xl"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-16 h-16 lg:w-20 lg:h-20 bg-white rounded-full flex items-center justify-center transition-transform hover:scale-110  shadow-sm "
             aria-label={isPlaying ? "Pause video" : "Play video"}
           >
             {isPlaying ? (

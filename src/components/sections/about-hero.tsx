@@ -49,7 +49,7 @@ const AboutHero = () => {
         {floatingImages.map((img, index) => (
           <div
             key={index}
-            className={`absolute ${img.position} ${img.size} rounded-sm overflow-hidden border-[6px] border-white shadow-2xl animate-float hidden md:block`}
+            className={`absolute ${img.position} ${img.size} rounded-sm overflow-hidden border-[6px] border-white  shadow-sm  animate-float hidden md:block`}
             style={{ animationDelay: img.delay }}
           >
             <Image
@@ -71,7 +71,7 @@ const AboutHero = () => {
             Nova Paw Festival   Pearl 2026 is Qatar&apos;s first pet festival, designed to bring together pets, families, professionals, and global partners in an outdoor experience.
           </p>
 
-          <button className="group bg-primary hover:bg-black text-white font-bold h-16 px-12 rounded-sm flex items-center gap-4 transition-all duration-300 transform hover:scale-105 shadow-xl shadow-primary/20 uppercase tracking-[0.2em] text-[13px]">
+          <button className="group bg-primary hover:bg-black text-white font-bold h-16 px-12 rounded-sm flex items-center gap-4 transition-all duration-300 transform hover:scale-105  shadow-sm  shadow-primary/20 uppercase tracking-[0.2em] text-[13px]">
             Let&apos;s get started
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>

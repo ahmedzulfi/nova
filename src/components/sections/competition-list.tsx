@@ -62,7 +62,7 @@ export default function CompetitionList() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {dogCompetitions.map((comp, index) => (
                             <div key={index} className="group cursor-pointer">
-                                <div className="relative aspect-[4/5]  rounded-sm  overflow-hidden mb-6 shadow-lg shadow-black/5">
+                                <div className="relative aspect-[4/5]  rounded-sm  overflow-hidden mb-6  shadow-sm  shadow-black/5">
                                     <Image
                                         src={comp.image}
                                         alt={comp.title}
@@ -92,7 +92,7 @@ export default function CompetitionList() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {catCompetitions.map((comp, index) => (
                             <div key={index} className="group cursor-pointer">
-                                <div className="relative aspect-[4/5]  rounded-sm  overflow-hidden mb-6 shadow-lg shadow-black/5">
+                                <div className="relative aspect-[4/5]  rounded-sm  overflow-hidden mb-6  shadow-sm  shadow-black/5">
                                     <Image
                                         src={comp.image}
                                         alt={comp.title}

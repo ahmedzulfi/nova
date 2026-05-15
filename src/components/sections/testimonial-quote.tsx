@@ -21,7 +21,7 @@ const TestimonialQuote = () => {
 
           <div className="flex flex-col items-center gap-6">
             {/* Avatar */}
-            <div className="relative w-20 h-20 overflow-hidden rounded-full border-4 border-white shadow-2xl">
+            <div className="relative w-20 h-20 overflow-hidden rounded-full border-4 border-white  shadow-sm ">
               <Image
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop"
                 alt={t('author')}

@@ -8,20 +8,20 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import EventSelectionGrid from "@/components/sections/event-selection-grid";
-import { 
-    ArrowLeft, 
-    Check, 
-    Upload, 
-    Info, 
-    ShieldCheck, 
-    ArrowRight, 
-    User, 
-    Phone, 
-    Mail, 
-    MapPin, 
-    PawPrint, 
-    FileText, 
-    Clock, 
+import {
+    ArrowLeft,
+    Check,
+    Upload,
+    Info,
+    ShieldCheck,
+    ArrowRight,
+    User,
+    Phone,
+    Mail,
+    MapPin,
+    PawPrint,
+    FileText,
+    Clock,
     Trophy,
     History,
     Sparkles,
@@ -41,7 +41,7 @@ function RegistrationContent() {
     const searchParams = useSearchParams();
     const t = useTranslations('RegistrationPage');
     const tComp = useTranslations('CompetitionsPage.list');
-    
+
     const [step, setStep] = useState(1);
     const [selectedEventId, setSelectedEventId] = useState<CompetitionType>('');
     const [selectedEventName, setSelectedEventName] = useState("");
@@ -139,10 +139,10 @@ function RegistrationContent() {
     const allChecked = currentTerms.length > 0 && Object.values(checkedTerms).filter(Boolean).length === currentTerms.length;
 
     const renderStep = () => {
-        switch(step) {
+        switch (step) {
             case 1:
                 return (
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="space-y-8"
@@ -152,7 +152,7 @@ function RegistrationContent() {
                 );
             case 2:
                 return (
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         className="space-y-12"
@@ -232,12 +232,12 @@ function RegistrationContent() {
                                 className="sr-only"
                                 autoFocus
                             />
-                            <Button 
+                            <Button
                                 onClick={() => {
-                                    if(otp.length === 6) nextStep();
+                                    if (otp.length === 6) nextStep();
                                     else toast.error("Invalid Code", { description: "Please enter the 6-digit code." });
                                 }}
-                                className="w-full h-14 bg-[#37352F] hover:bg-black text-white rounded-sm text-[13px] font-bold uppercase tracking-[0.2em] shadow-xl shadow-black/10"
+                                className="w-full h-14 bg-[#37352F] hover:bg-black text-white rounded-sm text-[13px] font-bold uppercase tracking-[0.2em]  shadow-sm  shadow-black/10"
                             >
                                 Verify & Continue
                             </Button>
@@ -250,7 +250,7 @@ function RegistrationContent() {
                 );
             case 3:
                 return (
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         className="space-y-12"
@@ -292,7 +292,7 @@ function RegistrationContent() {
                                     <SelectTrigger className="w-full h-[52px] bg-[#F7F6F3] border-none rounded-sm px-6 font-medium text-[14px] text-[#37352F]">
                                         <SelectValue />
                                     </SelectTrigger>
-                                    <SelectContent className="rounded-sm border-[#E9E9E7] p-1 shadow-xl">
+                                    <SelectContent className="rounded-sm border-[#E9E9E7] p-1  shadow-sm ">
                                         <SelectItem value="Male" className="rounded-sm py-2.5">Male</SelectItem>
                                         <SelectItem value="Female" className="rounded-sm py-2.5">Female</SelectItem>
                                     </SelectContent>
@@ -312,7 +312,7 @@ function RegistrationContent() {
                 );
             case 4:
                 return (
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         className="space-y-12"
@@ -325,7 +325,7 @@ function RegistrationContent() {
                                         <SelectTrigger className="w-full h-[52px] bg-[#F7F6F3] border-none rounded-sm px-6 font-medium text-[14px] text-[#37352F]">
                                             <SelectValue />
                                         </SelectTrigger>
-                                        <SelectContent className="rounded-sm border-[#E9E9E7] p-1 shadow-xl">
+                                        <SelectContent className="rounded-sm border-[#E9E9E7] p-1  shadow-sm ">
                                             <SelectItem value="Beginner" className="rounded-sm py-2.5">Beginner (First Time)</SelectItem>
                                             <SelectItem value="Intermediate" className="rounded-sm py-2.5">Intermediate (1-3 events)</SelectItem>
                                             <SelectItem value="Professional" className="rounded-sm py-2.5">Professional (Championship Level)</SelectItem>
@@ -380,7 +380,7 @@ function RegistrationContent() {
                 );
             case 5:
                 return (
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         className="space-y-12"
@@ -388,7 +388,7 @@ function RegistrationContent() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div className="space-y-4">
                                 <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Pet Passport (PDF/JPG)</Label>
-                                <div 
+                                <div
                                     onClick={() => setFiles(f => ({ ...f, passport: 'Passport_Uploaded.pdf' }))}
                                     className={cn(
                                         "h-52 border-2 border-dashed rounded-sm flex flex-col items-center justify-center transition-all cursor-pointer group",
@@ -412,7 +412,7 @@ function RegistrationContent() {
                             </div>
                             <div className="space-y-4">
                                 <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Vaccination Record</Label>
-                                <div 
+                                <div
                                     onClick={() => setFiles(f => ({ ...f, vaccination: 'Vaccination_Record.pdf' }))}
                                     className={cn(
                                         "h-52 border-2 border-dashed rounded-sm flex flex-col items-center justify-center transition-all cursor-pointer group",
@@ -440,8 +440,8 @@ function RegistrationContent() {
                             <Button variant="outline" onClick={prevStep} className="h-14 md:col-span-1 rounded-sm border-[#E9E9E7] text-[13px] font-bold uppercase tracking-[0.2em] hover:bg-[#F7F6F3]">
                                 <ArrowLeft className="w-4 h-4 mr-2" /> Back
                             </Button>
-                            <Button 
-                                onClick={nextStep} 
+                            <Button
+                                onClick={nextStep}
                                 disabled={!files.passport || !files.vaccination}
                                 className="h-14 md:col-span-3 bg-[#37352F] hover:bg-black text-white rounded-sm text-[13px] font-bold uppercase tracking-[0.2em] disabled:opacity-50"
                             >
@@ -452,7 +452,7 @@ function RegistrationContent() {
                 );
             case 6:
                 return (
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, scale: 0.98 }}
                         animate={{ opacity: 1, scale: 1 }}
                         className="space-y-12"
@@ -523,10 +523,10 @@ function RegistrationContent() {
                             <Button variant="outline" onClick={prevStep} className="h-14 md:col-span-1 rounded-sm border-[#E9E9E7] text-[13px] font-bold uppercase tracking-[0.2em] hover:bg-[#F7F6F3]">
                                 <ArrowLeft className="w-4 h-4 mr-2" /> Edit Info
                             </Button>
-                            <Button 
-                                onClick={nextStep} 
+                            <Button
+                                onClick={nextStep}
                                 disabled={!allChecked}
-                                className="h-14 md:col-span-3 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[13px] font-bold uppercase tracking-[0.2em] shadow-xl shadow-yellow-500/10 border border-black/5"
+                                className="h-14 md:col-span-3 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[13px] font-bold uppercase tracking-[0.2em]  shadow-sm  shadow-yellow-500/10 border border-black/5"
                             >
                                 Submit Registration <Sparkles className="w-4 h-4 ml-2" />
                             </Button>
@@ -535,12 +535,12 @@ function RegistrationContent() {
                 );
             case 7:
                 return (
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         className="text-center space-y-12 py-10"
                     >
-                        <div className="w-24 h-24 bg-[#FACC15] text-black rounded-full flex items-center justify-center mx-auto shadow-2xl shadow-yellow-500/20">
+                        <div className="w-24 h-24 bg-[#FACC15] text-black rounded-full flex items-center justify-center mx-auto  shadow-sm  shadow-yellow-500/20">
                             <Check className="w-12 h-12 stroke-[4px]" />
                         </div>
                         <div className="space-y-6">
@@ -580,7 +580,7 @@ function RegistrationContent() {
                                     <div className="flex flex-col items-center gap-4 relative">
                                         <div className={cn(
                                             "w-10 h-10 rounded-sm text-[12px] font-bold flex items-center justify-center transition-all duration-500",
-                                            isDone ? 'bg-[#37352F] text-white' : isActive ? 'bg-[#FACC15] text-black shadow-lg shadow-yellow-500/20 scale-110' : 'bg-[#E9E9E7] text-[#91918E]'
+                                            isDone ? 'bg-[#37352F] text-white' : isActive ? 'bg-[#FACC15] text-black  shadow-sm  shadow-yellow-500/20 scale-110' : 'bg-[#E9E9E7] text-[#91918E]'
                                         )}>
                                             {isDone ? <Check size={16} /> : num}
                                         </div>
@@ -593,7 +593,7 @@ function RegistrationContent() {
                                     </div>
                                     {idx < STEP_LABELS.length - 1 && (
                                         <div className="flex-1 h-[2px] mx-4 bg-[#E9E9E7] overflow-hidden">
-                                            <motion.div 
+                                            <motion.div
                                                 initial={{ width: 0 }}
                                                 animate={{ width: isDone ? '100%' : '0%' }}
                                                 className="h-full bg-[#37352F]"
@@ -606,7 +606,7 @@ function RegistrationContent() {
                     </div>
 
                     {/* Elite Registration Card */}
-                    <div className="bg-white rounded-sm border border-[#E9E9E7] shadow-2xl shadow-black/[0.03] overflow-hidden animate-in fade-in zoom-in-95 duration-1000">
+                    <div className="bg-white rounded-sm border border-[#E9E9E7]  shadow-sm  shadow-black/[0.03] overflow-hidden animate-in fade-in zoom-in-95 duration-1000">
                         <div className="border-b border-[#F1F1EF] px-12 pt-16 pb-12 bg-white relative">
                             <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-8">
                                 <div className="space-y-4">
