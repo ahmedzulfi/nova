@@ -385,18 +385,16 @@ function DashboardContent() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    )}
 
                             {/* PDF Print Styles */}
                             <style jsx global>{`
-                    @media print {
-                        body * { visibility: hidden; }
-                        .max-w-4xl, .max-w-4xl * { visibility: visible; }
-                        .max-w-4xl { position: absolute; left: 0; top: 0; width: 100%; margin: 0; padding: 0; }
-                        button { display: none !important; }
-                    }
-                `}</style>
+                                @media print {
+                                    body * { visibility: hidden; }
+                                    .max-w-4xl, .max-w-4xl * { visibility: visible; }
+                                    .max-w-4xl { position: absolute; left: 0; top: 0; width: 100%; margin: 0; padding: 0; }
+                                    button { display: none !important; }
+                                }
+                            `}</style>
                         </div>
                     )}
 
