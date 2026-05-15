@@ -24,6 +24,7 @@ import { toast } from "sonner";
 
 const navItems = [
     { id: 'overview', name: 'Overview', href: '/admin', icon: LayoutDashboard },
+    { id: 'scanner', name: 'Scanner', href: '/admin/scanner', icon: Shield },
     { id: 'registrations', name: 'Registrations', href: '/admin/registrations', icon: PawPrint },
     { id: 'tickets', name: 'Tickets', href: '/admin/tickets', icon: Ticket },
 ];
