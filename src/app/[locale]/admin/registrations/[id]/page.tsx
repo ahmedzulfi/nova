@@ -366,22 +366,6 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
                             </CardContent>
                         </Card>
                     </motion.div>
-
-                    <motion.div variants={itemVariants} className="p-6 bg-[#37352F] rounded-sm text-white space-y-6">
-                        <div className="flex items-center gap-2 text-white/50">
-                            <Info size={14} />
-                            <span className="text-[11px] font-bold uppercase tracking-widest">Admin Note</span>
-                        </div>
-                        <p className="text-[13px] leading-relaxed opacity-80">
-                            This registration requires manual verification of the vaccination certificate before full approval.
-                        </p>
-                        <div className="pt-4 border-t border-white/10">
-                            <div className="flex justify-between items-center text-[12px]">
-                                <span className="opacity-50">Priority</span>
-                                <span className="px-2 py-0.5 bg-yellow-500/20 text-[#FACC15] rounded-sm font-bold">Medium</span>
-                            </div>
-                        </div>
-                    </motion.div>
                 </div>
             </div>
         </motion.div>
