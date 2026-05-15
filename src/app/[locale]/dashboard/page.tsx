@@ -297,92 +297,200 @@ function DashboardContent() {
 
                     {/* ─── TAB: Receipt ──────────────────────────────────────────────── */}
                     {activeTab === 'receipt' && (
-                        <div className="max-w-4xl mx-auto">
+                        <div className="max-w-4xl mx-auto space-y-8 pb-12">
                             <div className="bg-white border border-[#E9E9E7] rounded-sm shadow-sm overflow-hidden animate-in fade-in zoom-in-[0.99] duration-500">
-                                {/* Notion Header Style */}
-                                <div className="p-12 md:p-16 space-y-12">
-                                    <div className="flex flex-col md:flex-row justify-between items-start gap-8">
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-16 h-16 bg-[#F7F6F3] border border-[#E9E9E7] rounded-sm flex items-center justify-center text-[32px]">
-                                                📄
+                                {/* Notion Header Style - Official Document */}
+                                <div className="p-12 md:p-16 space-y-16">
+                                    <div className="flex flex-col md:flex-row justify-between items-start gap-12 border-b border-black/5 pb-12">
+                                        <div className="flex items-center gap-6">
+                                            <div className="w-20 h-20 bg-[#F7F6F3] border border-[#E9E9E7] rounded-sm flex items-center justify-center text-[40px] shadow-sm">
+                                                📜
                                             </div>
-                                            <div>
-                                                <h2 className="text-[28px] font-bold text-[#37352F] tracking-tight">Receipt</h2>
-                                                <p className="text-[13px] text-[#91918E] font-medium uppercase tracking-widest">{data.orderId}</p>
+                                            <div className="space-y-1">
+                                                <h2 className="text-[32px] font-bold text-[#37352F] tracking-tighter">Festival Pass & Receipt</h2>
+                                                <div className="flex items-center gap-2">
+                                                    <span className="text-[12px] text-[#91918E] font-medium uppercase tracking-widest">{data.orderId}</span>
+                                                    <span className="w-1 h-1 bg-[#E9E9E7] rounded-full" />
+                                                    <span className="text-[12px] text-green-600 font-bold uppercase tracking-widest">Verified</span>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div className="md:text-right">
-                                            <p className="text-[10px] font-bold text-[#91918E] uppercase tracking-[0.2em] mb-1">Issue Date</p>
-                                            <p className="text-[14px] font-bold text-[#37352F]">
-                                                {new Date(data.entryDate || '').toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
-                                            </p>
+                                        <div className="md:text-right space-y-4">
+                                            <div>
+                                                <p className="text-[10px] font-bold text-[#91918E] uppercase tracking-[0.2em] mb-1">Issue Date</p>
+                                                <p className="text-[15px] font-bold text-[#37352F]">
+                                                    {new Date(data.entryDate || '').toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p className="text-[10px] font-bold text-[#91918E] uppercase tracking-[0.2em] mb-1">Status</p>
+                                                <p className="text-[13px] font-bold text-black bg-[#F7F6F3] px-3 py-1 rounded-sm inline-block">PAID · SECURED</p>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    {/* Grid Section */}
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 border-t border-black/5 pt-12">
-                                        <div className="space-y-8">
-                                            <div className="space-y-4">
-                                                <p className="text-[10px] font-bold text-[#91918E] uppercase tracking-[0.2em]">Billed To</p>
-                                                <div className="p-4 bg-[#F7F6F3] border border-[#E9E9E7] rounded-sm space-y-1">
-                                                    <p className="font-bold text-[14px] text-[#37352F]">{data.fullName}</p>
-                                                    <p className="text-[13px] text-[#666666]">{data.email}</p>
-                                                    <p className="text-[13px] text-[#666666]">{data.phone}</p>
+                                    {/* Multi-Section Grid */}
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+                                        {/* Attendee & Billing Column */}
+                                        <div className="space-y-12">
+                                            <div className="space-y-6">
+                                                <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] border-l-2 border-primary pl-3">Attendee Profile</h3>
+                                                <div className="grid grid-cols-2 gap-6">
+                                                    <div className="space-y-1">
+                                                        <p className="text-[10px] font-bold text-black/30 uppercase">Legal Name</p>
+                                                        <p className="text-[14px] font-bold text-[#37352F]">{data.fullName}</p>
+                                                    </div>
+                                                    <div className="space-y-1">
+                                                        <p className="text-[10px] font-bold text-black/30 uppercase">Nationality</p>
+                                                        <p className="text-[14px] font-bold text-[#37352F]">Qatari / Resident</p>
+                                                    </div>
+                                                    <div className="space-y-1">
+                                                        <p className="text-[10px] font-bold text-black/30 uppercase">Contact</p>
+                                                        <p className="text-[13px] font-medium text-[#666666]">{data.email}</p>
+                                                    </div>
+                                                    <div className="space-y-1">
+                                                        <p className="text-[10px] font-bold text-black/30 uppercase">Festival Zone</p>
+                                                        <p className="text-[14px] font-bold text-primary">Elite VIP Access</p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div className="space-y-4">
-                                                <p className="text-[10px] font-bold text-[#91918E] uppercase tracking-[0.2em]">Merchant</p>
-                                                <div className="space-y-1">
-                                                    <p className="font-bold text-[14px] text-[#37352F]">Nova Events LLC</p>
-                                                    <p className="text-[13px] text-[#666666]">Doha, Qatar</p>
+
+                                            <div className="space-y-6">
+                                                <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] border-l-2 border-black/20 pl-3">Billing Details</h3>
+                                                <div className="p-6 bg-[#F7F6F3] rounded-sm space-y-4">
+                                                    <div className="space-y-1">
+                                                        <p className="text-[10px] font-bold text-black/30 uppercase">Billing Address</p>
+                                                        <p className="text-[13px] text-[#37352F] font-medium leading-relaxed">
+                                                            The Pearl, Porto Arabia<br />
+                                                            Parcel 12, Tower 4<br />
+                                                            Doha, Qatar
+                                                        </p>
+                                                    </div>
+                                                    <div className="flex justify-between items-center pt-4 border-t border-black/5">
+                                                        <div className="space-y-1">
+                                                            <p className="text-[10px] font-bold text-black/30 uppercase">Payment Method</p>
+                                                            <div className="flex items-center gap-2">
+                                                                <div className="w-8 h-5 bg-white border border-[#E9E9E7] rounded-sm flex items-center justify-center text-[8px] font-bold">VISA</div>
+                                                                <p className="text-[13px] font-bold text-[#37352F]">•••• 4242</p>
+                                                            </div>
+                                                        </div>
+                                                        <div className="text-right space-y-1">
+                                                            <p className="text-[10px] font-bold text-black/30 uppercase">Merchant ID</p>
+                                                            <p className="text-[13px] font-mono text-[#37352F]">NV-8829-X</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div className="space-y-8">
-                                            <div className="space-y-4">
-                                                <p className="text-[10px] font-bold text-[#91918E] uppercase tracking-[0.2em]">Breakdown</p>
+                                        {/* Ticket breakdown & Competition Column */}
+                                        <div className="space-y-12">
+                                            <div className="space-y-6">
+                                                <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] border-l-2 border-black/20 pl-3">Ticket Inventory</h3>
                                                 <div className="space-y-4 divide-y divide-black/5">
                                                     <div className="flex justify-between items-center py-2">
-                                                        <span className="text-[14px] text-[#666666]">{getTierName(data.tier)}</span>
+                                                        <div className="space-y-1">
+                                                            <span className="text-[14px] font-bold text-[#37352F]">{getTierName(data.tier)}</span>
+                                                            <p className="text-[11px] text-[#91918E]">Primary Admission Pass</p>
+                                                        </div>
                                                         <span className="text-[14px] font-bold text-[#37352F]">QAR 50.00</span>
                                                     </div>
                                                     {data.adultQty > 0 && (
-                                                        <div className="flex justify-between items-center py-2 pt-4">
-                                                            <span className="text-[14px] text-[#666666]">Adult Passes (x{data.adultQty})</span>
+                                                        <div className="flex justify-between items-center py-4">
+                                                            <div className="space-y-1">
+                                                                <span className="text-[14px] text-[#666666]">Adult Companion (x{data.adultQty})</span>
+                                                                <p className="text-[11px] text-[#91918E]">Standard Secondary Access</p>
+                                                            </div>
                                                             <span className="text-[14px] font-bold text-[#37352F]">QAR {data.adultQty * 25}.00</span>
                                                         </div>
                                                     )}
                                                     {data.kidsQty > 0 && (
-                                                        <div className="flex justify-between items-center py-2 pt-4">
-                                                            <span className="text-[14px] text-[#666666]">Kids Passes (x{data.kidsQty})</span>
+                                                        <div className="flex justify-between items-center py-4">
+                                                            <div className="space-y-1">
+                                                                <span className="text-[14px] text-[#666666]">Kids Admission (x{data.kidsQty})</span>
+                                                                <p className="text-[11px] text-[#91918E]">Junior Pass (U-12)</p>
+                                                            </div>
                                                             <span className="text-[14px] font-bold text-[#37352F]">QAR {data.kidsQty * 15}.00</span>
                                                         </div>
                                                     )}
-                                                    <div className="flex justify-between items-center pt-6">
-                                                        <span className="text-[12px] font-bold text-[#37352F] uppercase tracking-wider">Total</span>
-                                                        <span className="text-[28px] font-bold text-[#37352F] tracking-tighter">QAR {data.total.toFixed(2)}</span>
+                                                    <div className="flex justify-between items-center pt-8">
+                                                        <span className="text-[12px] font-bold text-[#37352F] uppercase tracking-[0.2em]">Total Amount</span>
+                                                        <div className="text-right">
+                                                            <span className="text-[32px] font-bold text-[#37352F] tracking-tighter leading-none">QAR {data.total.toFixed(2)}</span>
+                                                            <p className="text-[10px] text-green-600 font-bold uppercase tracking-widest mt-1">Authorized · 0.0s</p>
+                                                        </div>
                                                     </div>
+                                                </div>
+                                            </div>
+
+                                            {/* Competition Registration Block */}
+                                            <div className="space-y-6">
+                                                <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] border-l-2 border-yellow-500 pl-3">Competition Summary</h3>
+                                                <div className="p-6 bg-yellow-50/50 border border-yellow-100 rounded-sm space-y-4">
+                                                    {data.competitionEntry ? (
+                                                        <>
+                                                            <div className="flex justify-between items-start">
+                                                                <div className="space-y-1">
+                                                                    <p className="text-[14px] font-bold text-yellow-900">{data.competitionEntry}</p>
+                                                                    <p className="text-[12px] text-yellow-800/60 font-medium italic">Confirmed Application</p>
+                                                                </div>
+                                                                <Trophy size={20} className="text-yellow-600" />
+                                                            </div>
+                                                            <div className="pt-4 border-t border-yellow-200/50 flex items-center justify-between">
+                                                                <span className="text-[11px] font-bold text-yellow-800/60 uppercase tracking-widest">Entry ID</span>
+                                                                <span className="text-[11px] font-mono font-bold text-yellow-900">REG-COMP-{data.orderId.split('-')[2]}</span>
+                                                            </div>
+                                                        </>
+                                                    ) : (
+                                                        <div className="text-center py-4 space-y-3">
+                                                            <p className="text-[13px] font-medium text-yellow-800/60">No active competition entries found for this order.</p>
+                                                            <Button 
+                                                                onClick={() => router.push('/dashboard/register-pet')}
+                                                                className="h-9 bg-yellow-600 hover:bg-yellow-700 text-white text-[11px] font-bold uppercase tracking-widest px-6"
+                                                            >
+                                                                Register Now
+                                                            </Button>
+                                                        </div>
+                                                    )}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    {/* Footer Actions */}
-                                    <div className="pt-12 border-t border-black/5 flex flex-col md:flex-row gap-4 items-center justify-between">
-                                        <div className="flex items-center gap-2 text-[12px] text-[#91918E] font-medium">
-                                            <ShieldCheck size={14} className="text-green-600" />
-                                            <span>Verified Transaction</span>
+                                    {/* Footer / Legal / Actions */}
+                                    <div className="pt-16 border-t border-black/5 space-y-12">
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                                            <div className="space-y-4 p-6 border border-[#E9E9E7] rounded-sm">
+                                                <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] flex items-center gap-2">
+                                                    <Info size={14} />
+                                                    Compliance & Security
+                                                </p>
+                                                <p className="text-[12px] text-[#666666] leading-relaxed">
+                                                    This document serves as an official proof of purchase for Nova Paw Festival 2026. 
+                                                    Digital signatures were captured for all safety agreements at the time of transaction.
+                                                    Verified by Nova Gatekeeper Security Systems.
+                                                </p>
+                                            </div>
+                                            <div className="flex flex-col justify-end gap-4">
+                                                <Button className="w-full h-14 bg-[#37352F] hover:bg-black text-white text-[14px] font-bold uppercase tracking-[0.2em] shadow-xl shadow-black/10 transition-all active:scale-[0.98] gap-3">
+                                                    <Download size={18} />
+                                                    Download Official PDF
+                                                </Button>
+                                                <div className="flex gap-4">
+                                                    <Button variant="outline" className="flex-1 h-12 border-[#E9E9E7] text-[12px] font-bold uppercase tracking-widest gap-2" onClick={() => window.print()}>
+                                                        <ExternalLink size={16} />
+                                                        Print Pass
+                                                    </Button>
+                                                    <Button variant="ghost" className="flex-1 h-12 text-[#91918E] hover:text-[#37352F] text-[12px] font-bold uppercase tracking-widest">
+                                                        Need Help?
+                                                    </Button>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="flex gap-3">
-                                            <Button variant="ghost" className="text-[#37352F] hover:bg-[#F7F6F3] rounded-sm text-[13px] font-bold uppercase tracking-[0.1em] gap-2 px-6" onClick={() => window.print()}>
-                                                <ExternalLink size={16} />
-                                                Print
-                                            </Button>
-                                            <Button className="bg-[#37352F] hover:bg-black text-white rounded-sm text-[13px] font-bold uppercase tracking-[0.1em] gap-2 px-8">
-                                                <Download size={16} />
-                                                Download
-                                            </Button>
+
+                                        <div className="text-center space-y-1 pt-8 border-t border-black/[0.03]">
+                                            <p className="text-[11px] font-medium text-[#91918E]">Nova Events Qatar · The Pearl · Parcel 18 · Doha, QA</p>
+                                            <p className="text-[10px] text-black/20 font-bold uppercase tracking-[0.3em]">Nova Paw 2026</p>
                                         </div>
                                     </div>
                                 </div>
