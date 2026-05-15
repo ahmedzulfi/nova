@@ -97,7 +97,7 @@ export default function TicketsPage() {
                                     key={tier}
                                     onClick={() => setSelectedTier(tier)}
                                     className={cn(
-                                        "rounded-sm text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]",
+                                        "rounded-sm text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3] focus:text-[#37352F]",
                                         selectedTier === tier && "bg-[#F7F6F3]"
                                     )}
                                 >
@@ -177,21 +177,21 @@ export default function TicketsPage() {
                                         </DropdownMenuTrigger>
                                         <DropdownMenuContent align="end" className="w-48  rounded-sm  p-1.5 border-[#E9E9E7] shadow-xl bg-white">
                                             <Link href={`/admin/tickets/${ticket.id}`}>
-                                                <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">
+                                                <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3] focus:text-[#37352F]">
                                                     <Eye className="w-4 h-4 mr-2 text-[#91918E]" />
                                                     View Ticket
                                                 </DropdownMenuItem>
                                             </Link>
                                             <DropdownMenuItem 
                                                 onClick={() => toast.success("Confirmation Resent", { description: "Email sent to " + ticket.email })}
-                                                className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]"
+                                                className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3] focus:text-[#37352F]"
                                             >
                                                 Resend Confirmation
                                             </DropdownMenuItem>
                                             <DropdownMenuSeparator className="bg-[#F1F1EF] my-1" />
                                             <DropdownMenuItem 
                                                 onClick={() => toast.info("Status Updated", { description: "Ticket marked as redeemed." })}
-                                                className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer text-[#37352F] focus:bg-[#F7F6F3]"
+                                                className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer text-[#37352F] focus:bg-[#F7F6F3] focus:text-[#37352F]"
                                             >
                                                 Mark as Used
                                             </DropdownMenuItem>

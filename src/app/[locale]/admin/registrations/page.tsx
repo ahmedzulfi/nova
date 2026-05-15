@@ -33,6 +33,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
+import { cn } from '@/lib/utils';
 
 const registrations = [
     { id: 'REG-001', owner: 'Sarah Johnson', email: 'sarah.j@example.com', pet: 'Luna', category: 'Grooming Competition', date: '2026-01-15', status: 'Completed' },
@@ -59,14 +60,14 @@ export default function RegistrationsPage() {
     const [selectedCategory, setSelectedCategory] = useState("All");
 
     const filteredRegistrations = registrations.filter(reg => {
-        const matchesSearch = 
+        const matchesSearch =
             reg.owner.toLowerCase().includes(searchTerm.toLowerCase()) ||
             reg.pet.toLowerCase().includes(searchTerm.toLowerCase()) ||
             reg.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
             reg.id.toLowerCase().includes(searchTerm.toLowerCase());
-        
+
         const matchesCategory = selectedCategory === "All" || reg.category === selectedCategory;
-        
+
         return matchesSearch && matchesCategory;
     });
 
@@ -111,11 +112,11 @@ export default function RegistrationsPage() {
                         <DropdownMenuContent align="start" className="w-56 p-1.5 rounded-sm border-[#E9E9E7] shadow-xl bg-white">
                             <DropdownMenuLabel className="px-2 py-1.5 text-[10px] text-[#91918E] uppercase font-bold tracking-widest">By Competition</DropdownMenuLabel>
                             {categories.map(cat => (
-                                <DropdownMenuItem 
+                                <DropdownMenuItem
                                     key={cat}
                                     onClick={() => setSelectedCategory(cat)}
                                     className={cn(
-                                        "rounded-sm text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]",
+                                        "rounded-sm text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3] focus:text-[#37352F]",
                                         selectedCategory === cat && "bg-[#F7F6F3]"
                                     )}
                                 >
@@ -126,9 +127,9 @@ export default function RegistrationsPage() {
                     </DropdownMenu>
                 </div>
                 <div className="flex items-center gap-2">
-                    <Button 
+                    <Button
                         onClick={() => toast.success("Exporting registrations...", { description: "Your CSV file is being generated." })}
-                        variant="outline" 
+                        variant="outline"
                         className="h-9 px-3 rounded-sm border-[#E9E9E7] text-[13px] font-medium text-[#37352F] hover:bg-[#F7F6F3]"
                     >
                         <Download className="w-3.5 h-3.5 mr-2 text-[#91918E]" />
@@ -185,16 +186,16 @@ export default function RegistrationsPage() {
                                         <DropdownMenuContent align="end" className="w-48  rounded-sm  p-1.5 border-[#E9E9E7] shadow-xl bg-white">
                                             <DropdownMenuLabel className="px-2 py-1.5 text-[10px] text-[#91918E] uppercase font-bold tracking-widest">Manage</DropdownMenuLabel>
                                             <Link href={`/admin/registrations/${reg.id}`}>
-                                                <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium text-[#37352F] focus:bg-[#F7F6F3] cursor-pointer">View Details</DropdownMenuItem>
+                                                <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium text-[#37352F] focus:bg-[#F7F6F3] focus:text-[#37352F] cursor-pointer">View Details</DropdownMenuItem>
                                             </Link>
-                                            <DropdownMenuItem 
+                                            <DropdownMenuItem
                                                 onClick={() => toast.info("Editing disabled in preview", { description: "Database integration is pending." })}
-                                                className=" rounded-sm  text-[13px] font-medium text-[#37352F] focus:bg-[#F7F6F3] cursor-pointer"
+                                                className=" rounded-sm  text-[13px] font-medium text-[#37352F] focus:bg-[#F7F6F3] focus:text-[#37352F] cursor-pointer"
                                             >
                                                 Edit Data
                                             </DropdownMenuItem>
                                             <DropdownMenuSeparator className="bg-[#F1F1EF] my-1" />
-                                            <DropdownMenuItem 
+                                            <DropdownMenuItem
                                                 onClick={() => toast.error("Destructive actions restricted", { description: "You do not have permission to delete entries." })}
                                                 className=" rounded-sm  text-[13px] font-medium text-red-600 focus:bg-red-50 focus:text-red-600 cursor-pointer"
                                             >
