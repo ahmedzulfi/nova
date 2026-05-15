@@ -194,13 +194,6 @@ export default function RegistrationsPage() {
                                             >
                                                 Edit Data
                                             </DropdownMenuItem>
-                                            <DropdownMenuSeparator className="bg-[#F1F1EF] my-1" />
-                                            <DropdownMenuItem
-                                                onClick={() => toast.error("Destructive actions restricted", { description: "You do not have permission to delete entries." })}
-                                                className=" rounded-sm  text-[13px] font-medium text-red-600 focus:bg-red-50 focus:text-red-600 cursor-pointer"
-                                            >
-                                                Delete Record
-                                            </DropdownMenuItem>
                                         </DropdownMenuContent>
                                     </DropdownMenu>
                                 </TableCell>
