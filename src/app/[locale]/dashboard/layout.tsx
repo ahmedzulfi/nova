@@ -37,7 +37,6 @@ export default function DashboardLayout({
   const navItems = [
     { id: 'overview', label: t('sidebar.overview'), icon: LayoutDashboard, href: '/dashboard' },
     { id: 'competitions', label: t('sidebar.competitions'), icon: Trophy, href: '/dashboard/pet-owner' },
-    { id: 'schedule', label: t('sidebar.schedule'), icon: Calendar, href: '/dashboard#schedule' },
     { id: 'settings', label: t('sidebar.settings'), icon: Settings, href: '/dashboard#settings' },
   ];
 
