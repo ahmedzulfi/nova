@@ -11,6 +11,7 @@ import {
     Calendar,
     Tag,
     MoreHorizontal,
+    Filter,
     Eye,
     Users
 } from 'lucide-react';
