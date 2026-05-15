@@ -2,6 +2,7 @@
 
 import React, { use } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import {
     ArrowLeft,
     CheckCircle2,
@@ -15,7 +16,12 @@ import {
     FileText,
     Image as ImageIcon,
     Download,
-    Clock
+    Clock,
+    ShieldCheck,
+    Trophy,
+    ExternalLink,
+    ChevronRight,
+    Info
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -28,6 +34,7 @@ import {
 } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { toast } from "sonner";
+import { cn } from "@/lib/utils";
 
 // Mock data fetching based on ID
 const mockGetRegistrationDetails = (id: string) => {
@@ -39,7 +46,7 @@ const mockGetRegistrationDetails = (id: string) => {
             name: 'Sarah Johnson',
             email: 'sarah.j@example.com',
             phone: '+1 (555) 123-4567',
-            location: 'New York, USA',
+            location: 'Doha, Qatar',
             avatarUrl: 'https://i.pravatar.cc/150?u=sarah',
             memberSince: '2025-11-20',
         },
@@ -65,212 +72,287 @@ const mockGetRegistrationDetails = (id: string) => {
     };
 };
 
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
+};
+
+const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 0.5,
+            ease: [0.22, 1, 0.36, 1]
+        }
+    }
+};
+
 export default function RegistrationDetailsPage({ params }: { params: Promise<{ id: string }> }) {
     const resolvedParams = use(params);
     const data = mockGetRegistrationDetails(resolvedParams.id);
 
     return (
-        <div className="space-y-8 animate-in fade-in duration-700">
-            {/* Back Navigation */}
-            <Link
-                href="/admin/registrations"
-                className="flex items-center gap-2 text-[#91918E] hover:text-[#37352F] text-[13px] font-medium transition-colors mb-8 group"
-            >
-                <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
-                Back to registrations
-            </Link>
+        <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            className="max-w-6xl mx-auto space-y-12 pb-20"
+        >
+            {/* Header & Breadcrumbs */}
+            <motion.div variants={itemVariants} className="space-y-6">
+                <Link
+                    href="/admin/registrations"
+                    className="inline-flex items-center gap-2 text-[#91918E] hover:text-[#37352F] text-[13px] font-medium transition-all group"
+                >
+                    <ArrowLeft size={14} className="transition-transform group-hover:-translate-x-1" />
+                    Back to registrations
+                </Link>
 
-            {/* Notion Page Header */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#F1F1EF]">
-                <div>
-                    <div className="flex items-center gap-3 mb-2">
-                        <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight">{data.id}</h1>
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-yellow-600 bg-yellow-50 px-2 py-0.5 rounded-sm border border-yellow-100/50 flex items-center gap-1.5 h-fit mt-3">
-                            <Clock className="w-3 h-3" /> {data.status}
-                        </span>
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pb-10 border-b border-[#F1F1EF]">
+                    <div className="space-y-2">
+                        <div className="flex items-center gap-4">
+                            <h1 className="text-[48px] font-bold text-[#37352F] tracking-tighter leading-none">{data.id}</h1>
+                            <Badge className="bg-yellow-100 text-yellow-800 border-yellow-200/50 text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full h-fit mt-2">
+                                {data.status}
+                            </Badge>
+                        </div>
+                        <p className="text-[18px] text-[#91918E] font-medium">
+                            Submitted on {new Date(data.submissionDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                        </p>
                     </div>
-                    <p className="text-[16px] text-[#91918E]">Submitted on {new Date(data.submissionDate).toLocaleDateString()} at {new Date(data.submissionDate).toLocaleTimeString()}</p>
+
+                    <div className="flex items-center gap-4">
+                        <Button 
+                            onClick={() => toast.error("Entry Declined", { description: "The owner has been notified." })}
+                            variant="outline" 
+                            className="h-12 px-6 rounded-sm border-[#E9E9E7] text-[#37352F] hover:bg-red-50 hover:text-red-600 hover:border-red-100 text-[14px] font-bold transition-all active:scale-[0.98]"
+                        >
+                            <XCircle className="w-4 h-4 mr-2" />
+                            Decline
+                        </Button>
+                        <Button 
+                            onClick={() => toast.success("Entry Approved", { description: "Digital pass sent to owner." })}
+                            className="h-12 px-10 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[14px] font-bold transition-all active:scale-[0.98] shadow-lg shadow-yellow-500/10 border border-black/5"
+                        >
+                            <CheckCircle2 className="w-4 h-4 mr-2" />
+                            Approve Registration
+                        </Button>
+                    </div>
                 </div>
-                <div className="flex items-center gap-3">
-                    <Button 
-                        onClick={() => toast.error("Entry Declined", { description: "The user has been notified of the status change." })}
-                        variant="outline" 
-                        className="h-10 px-6 rounded-sm border-red-200 text-red-600 hover:bg-red-50 text-[13px] font-bold transition-all active:scale-[0.98]"
-                    >
-                        <XCircle className="w-4 h-4 mr-2" />
-                        Decline Entry
-                    </Button>
-                    <Button 
-                        onClick={() => toast.success("Entry Approved", { description: "The digital pass has been sent to the owner's email." })}
-                        className="h-10 px-8 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[13px] font-bold transition-all active:scale-[0.98] shadow-sm border border-black/5"
-                    >
-                        <CheckCircle2 className="w-4 h-4 mr-2" />
-                        Approve Registration
-                    </Button>
-                </div>
-            </div>
+            </motion.div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 pt-8">
-                {/* Main Content Area */}
-                <div className="lg:col-span-2 space-y-8">
-                    {/* Pet Details */}
-                    <Card className="border-[#E9E9E7] shadow-sm hover:shadow-md transition-all duration-300 [transition-timing-function:var(--ease-emil-out)]">
-                        <CardHeader className="border-b border-[#E9E9E7] bg-[#F7F6F3]/50 pb-4">
-                            <CardTitle className="text-lg font-display font-bold text-[#37352F] flex items-center gap-2">
-                                <PawPrint className="w-5 h-5 text-primary" />
-                                Pet Information
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent className="p-6">
-                            <div className="grid grid-cols-2 md:grid-cols-3 gap-y-6 gap-x-4">
-                                <div>
-                                    <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Name</p>
-                                    <p className="text-[14px] font-semibold text-[#37352F]">{data.pet.name}</p>
-                                </div>
-                                <div>
-                                    <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Type & Breed</p>
-                                    <p className="text-[14px] font-semibold text-[#37352F]">{data.pet.type} - {data.pet.breed}</p>
-                                </div>
-                                <div>
-                                    <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Gender</p>
-                                    <p className="text-[14px] font-semibold text-[#37352F]">{data.pet.gender}</p>
-                                </div>
-                                <div>
-                                    <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Age</p>
-                                    <p className="text-[14px] font-semibold text-[#37352F]">{data.pet.age}</p>
-                                </div>
-                                <div>
-                                    <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Weight</p>
-                                    <p className="text-[14px] font-semibold text-[#37352F]">{data.pet.weight}</p>
-                                </div>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                {/* Left Column: Details */}
+                <div className="lg:col-span-8 space-y-12">
+                    
+                    {/* Pet Profile Section */}
+                    <motion.section variants={itemVariants} className="space-y-6">
+                        <div className="flex items-center gap-3">
+                            <div className="p-2 bg-orange-50 rounded-sm">
+                                <PawPrint className="w-5 h-5 text-orange-600" />
                             </div>
+                            <h2 className="text-[20px] font-bold text-[#37352F]">Pet Information</h2>
+                        </div>
 
-                            <div className="mt-8 space-y-4">
-                                <div className="bg-blue-50/50 p-4  rounded-sm  border border-blue-100">
-                                    <p className="text-[11px] font-bold text-blue-800 uppercase tracking-widest mb-1 flex items-center gap-1.5">
-                                        <FileText className="w-3.5 h-3.5" /> Medical Notes
-                                    </p>
-                                    <p className="text-[13px] text-blue-900/80 leading-relaxed">{data.pet.medicalNotes}</p>
-                                </div>
-                            </div>
-                        </CardContent>
-                    </Card>
-
-                    {/* Competition Details */}
-                    <Card className="border-[#E9E9E7] shadow-sm hover:shadow-md transition-all duration-300 [transition-timing-function:var(--ease-emil-out)]">
-                        <CardHeader className="border-b border-[#E9E9E7] bg-[#F7F6F3]/50 pb-4">
-                            <CardTitle className="text-lg font-display font-bold text-[#37352F] flex items-center gap-2">
-                                <Calendar className="w-5 h-5 text-teal-600" />
-                                Competition Entry
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent className="p-6">
-                            <div className="grid gap-6">
-                                <div>
-                                    <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Selected Category</p>
-                                    <div className="inline-flex items-center px-3 py-1.5  rounded-sm  bg-[#F7F6F3] border border-[#E9E9E7] text-[14px] font-semibold text-[#37352F]">
-                                        {data.competition.category}
-                                    </div>
-                                </div>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-[#F1F1EF]">
-                                    <div>
-                                        <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Experience Level</p>
-                                        <p className="text-[14px] text-[#37352F]">{data.competition.experienceLevel}</p>
-                                    </div>
-                                    <div>
-                                        <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Previous Titles</p>
-                                        <p className="text-[14px] text-[#37352F]">{data.competition.previousTitles || 'None'}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </CardContent>
-                    </Card>
-
-                    {/* Documents */}
-                    <Card className="border-[#E9E9E7] shadow-sm hover:shadow-md transition-all duration-300 [transition-timing-function:var(--ease-emil-out)]">
-                        <CardHeader className="border-b border-[#E9E9E7] bg-[#F7F6F3]/50 pb-4">
-                            <CardTitle className="text-lg font-display font-bold text-[#37352F] flex items-center gap-2">
-                                <FileText className="w-5 h-5 text-[#91918E]" />
-                                Uploaded Documents
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent className="p-6">
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                {data.documents.map((doc, idx) => (
-                                    <div key={idx} className="flex items-center justify-between p-3 border border-[#E9E9E7]  rounded-sm  hover:border-[#37352F]/20 transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] hover:bg-[#F7F6F3]/50 active:scale-[0.98] group cursor-pointer">
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-8 h-8  rounded-sm  bg-[#F7F6F3] flex items-center justify-center text-[#91918E]">
-                                                {doc.type === 'image' ? <ImageIcon className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
-                                            </div>
-                                            <div>
-                                                <p className="text-[13px] font-bold text-[#37352F] truncate max-w-[150px]">{doc.name}</p>
-                                                <p className="text-[11px] text-[#91918E]">{doc.size}</p>
-                                            </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <Card className="border-[#E9E9E7] shadow-none bg-[#F7F6F3]/30 rounded-sm">
+                                <CardContent className="p-6 space-y-6">
+                                    <div className="grid grid-cols-2 gap-6">
+                                        <div>
+                                            <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Name</p>
+                                            <p className="text-[16px] font-bold text-[#37352F]">{data.pet.name}</p>
                                         </div>
-                                        <Button variant="ghost" size="icon" className="h-8 w-8 text-[#91918E] group-hover:text-[#37352F]">
-                                            <Download className="w-4 h-4" />
-                                        </Button>
+                                        <div>
+                                            <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Breed</p>
+                                            <p className="text-[16px] font-bold text-[#37352F]">{data.pet.breed}</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Gender</p>
+                                            <p className="text-[16px] font-bold text-[#37352F]">{data.pet.gender}</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Age</p>
+                                            <p className="text-[16px] font-bold text-[#37352F]">{data.pet.age}</p>
+                                        </div>
                                     </div>
-                                ))}
+                                </CardContent>
+                            </Card>
+
+                            <Card className="border-[#E9E9E7] shadow-none bg-white rounded-sm">
+                                <CardContent className="p-6 space-y-4">
+                                    <div className="flex items-start gap-3">
+                                        <div className="mt-1">
+                                            <ShieldCheck className="w-4 h-4 text-green-600" />
+                                        </div>
+                                        <div>
+                                            <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Medical Status</p>
+                                            <p className="text-[13px] text-[#37352F] leading-relaxed font-medium">
+                                                {data.pet.medicalNotes}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="pt-4 border-t border-[#F1F1EF]">
+                                        <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Special Needs</p>
+                                        <p className="text-[13px] text-[#37352F] font-medium">{data.pet.specialNeeds}</p>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </div>
+                    </motion.section>
+
+                    {/* Competition Entry Section */}
+                    <motion.section variants={itemVariants} className="space-y-6">
+                        <div className="flex items-center gap-3">
+                            <div className="p-2 bg-blue-50 rounded-sm">
+                                <Trophy className="w-5 h-5 text-blue-600" />
                             </div>
-                        </CardContent>
-                    </Card>
+                            <h2 className="text-[20px] font-bold text-[#37352F]">Competition Entry</h2>
+                        </div>
+
+                        <div className="p-8 border-2 border-[#FACC15]/20 bg-[#FACC15]/5 rounded-sm relative overflow-hidden group">
+                            <div className="absolute top-0 right-0 p-12 translate-x-1/3 -translate-y-1/3 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity duration-500">
+                                <Trophy className="w-64 h-64 text-black" />
+                            </div>
+                            
+                            <div className="relative z-10 space-y-6">
+                                <div>
+                                    <p className="text-[12px] font-bold text-[#854d0e] uppercase tracking-[0.2em] mb-2">Selected Category</p>
+                                    <h3 className="text-[32px] font-bold text-[#37352F] tracking-tight">{data.competition.category}</h3>
+                                </div>
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 border-t border-black/5">
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm">
+                                            <Calendar className="w-4 h-4 text-[#854d0e]" />
+                                        </div>
+                                        <div>
+                                            <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Experience</p>
+                                            <p className="text-[15px] font-bold text-[#37352F]">{data.competition.experienceLevel}</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm">
+                                            <ShieldCheck className="w-4 h-4 text-[#854d0e]" />
+                                        </div>
+                                        <div>
+                                            <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Past Honors</p>
+                                            <p className="text-[15px] font-bold text-[#37352F]">{data.competition.previousTitles || 'None'}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.section>
+
+                    {/* Documents Section */}
+                    <motion.section variants={itemVariants} className="space-y-6">
+                        <div className="flex items-center gap-3">
+                            <div className="p-2 bg-slate-100 rounded-sm">
+                                <FileText className="w-5 h-5 text-slate-600" />
+                            </div>
+                            <h2 className="text-[20px] font-bold text-[#37352F]">Verification Documents</h2>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {data.documents.map((doc, idx) => (
+                                <div 
+                                    key={idx} 
+                                    className="group flex items-center justify-between p-4 border border-[#E9E9E7] rounded-sm hover:border-[#FACC15] hover:bg-[#F7F6F3]/50 transition-all cursor-pointer active:scale-[0.98]"
+                                >
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-10 h-10 rounded-sm bg-[#F7F6F3] flex items-center justify-center text-[#91918E] group-hover:bg-[#FACC15]/10 group-hover:text-[#854d0e] transition-colors">
+                                            {doc.type === 'image' ? <ImageIcon className="w-5 h-5" /> : <FileText className="w-5 h-5" />}
+                                        </div>
+                                        <div>
+                                            <p className="text-[14px] font-bold text-[#37352F]">{doc.name}</p>
+                                            <p className="text-[11px] text-[#91918E] font-medium uppercase tracking-widest">{doc.size} • {doc.type.toUpperCase()}</p>
+                                        </div>
+                                    </div>
+                                    <Button variant="ghost" size="icon" className="h-10 w-10 text-[#91918E] group-hover:text-[#37352F]">
+                                        <Download className="w-4 h-4" />
+                                    </Button>
+                                </div>
+                            ))}
+                        </div>
+                    </motion.section>
                 </div>
 
-                {/* Sidebar (Attendee Profile) */}
-                <div className="space-y-6">
-                    <Card className="border-[#E9E9E7] shadow-sm hover:shadow-md transition-all duration-300 [transition-timing-function:var(--ease-emil-out)]">
-                        <CardHeader className="border-b border-[#E9E9E7] bg-[#F7F6F3]/50 pb-4">
-                            <CardTitle className="text-lg font-display font-bold text-[#37352F] flex items-center gap-2">
-                                <User className="w-5 h-5 text-indigo-500" />
-                                Attendee Profile
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent className="p-6">
-                            <div className="flex items-center gap-4 mb-6">
-                                <Avatar className="w-16 h-16 border border-[#E9E9E7]">
-                                    <AvatarImage src={data.attendee.avatarUrl} />
-                                    <AvatarFallback className="bg-[#FACC15]/20 text-[#854d0e] font-bold text-xl">
-                                        {data.attendee.name.charAt(0)}
-                                    </AvatarFallback>
-                                </Avatar>
-                                <div>
-                                    <h3 className="font-bold text-[#37352F] text-lg">{data.attendee.name}</h3>
-                                    <p className="text-[12px] text-[#91918E]">Member since {new Date(data.attendee.memberSince).getFullYear()}</p>
+                {/* Right Column: Attendee & Quick Stats */}
+                <div className="lg:col-span-4 space-y-8">
+                    <motion.div variants={itemVariants}>
+                        <Card className="border-[#E9E9E7] shadow-xl shadow-black/[0.02] rounded-sm overflow-hidden border-t-4 border-t-[#FACC15]">
+                            <CardHeader className="bg-[#F7F6F3]/50 pb-8">
+                                <div className="flex flex-col items-center text-center space-y-4">
+                                    <Avatar className="w-24 h-24 border-4 border-white shadow-md">
+                                        <AvatarImage src={data.attendee.avatarUrl} />
+                                        <AvatarFallback className="bg-yellow-100 text-yellow-800 text-2xl font-bold">
+                                            {data.attendee.name.charAt(0)}
+                                        </AvatarFallback>
+                                    </Avatar>
+                                    <div>
+                                        <CardTitle className="text-[22px] font-bold text-[#37352F]">{data.attendee.name}</CardTitle>
+                                        <CardDescription className="text-[13px] font-medium">Attendee Profile</CardDescription>
+                                    </div>
                                 </div>
+                            </CardHeader>
+                            <CardContent className="p-8 space-y-6">
+                                <div className="space-y-4">
+                                    <div className="flex items-center gap-4 text-[14px]">
+                                        <div className="w-8 h-8 rounded-full bg-[#F7F6F3] flex items-center justify-center text-[#91918E]">
+                                            <Mail size={14} />
+                                        </div>
+                                        <span className="font-medium text-[#37352F]">{data.attendee.email}</span>
+                                    </div>
+                                    <div className="flex items-center gap-4 text-[14px]">
+                                        <div className="w-8 h-8 rounded-full bg-[#F7F6F3] flex items-center justify-center text-[#91918E]">
+                                            <Phone size={14} />
+                                        </div>
+                                        <span className="font-medium text-[#37352F]">{data.attendee.phone}</span>
+                                    </div>
+                                    <div className="flex items-center gap-4 text-[14px]">
+                                        <div className="w-8 h-8 rounded-full bg-[#F7F6F3] flex items-center justify-center text-[#91918E]">
+                                            <MapPin size={14} />
+                                        </div>
+                                        <span className="font-medium text-[#37352F]">{data.attendee.location}</span>
+                                    </div>
+                                </div>
+
+                                <div className="pt-6 border-t border-[#F1F1EF]">
+                                    <Link href={`/admin/tickets/NP-2026-X8Y1`}>
+                                        <Button variant="outline" className="w-full h-11 text-[13px] font-bold border-[#E9E9E7] hover:bg-[#F7F6F3] hover:text-[#37352F] group transition-all">
+                                            View Guest Ledger Entry
+                                            <ChevronRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                                        </Button>
+                                    </Link>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </motion.div>
+
+                    <motion.div variants={itemVariants} className="p-6 bg-[#37352F] rounded-sm text-white space-y-6">
+                        <div className="flex items-center gap-2 text-white/50">
+                            <Info size={14} />
+                            <span className="text-[11px] font-bold uppercase tracking-widest">Admin Note</span>
+                        </div>
+                        <p className="text-[13px] leading-relaxed opacity-80">
+                            This registration requires manual verification of the vaccination certificate before full approval.
+                        </p>
+                        <div className="pt-4 border-t border-white/10">
+                            <div className="flex justify-between items-center text-[12px]">
+                                <span className="opacity-50">Priority</span>
+                                <span className="px-2 py-0.5 bg-yellow-500/20 text-[#FACC15] rounded-sm font-bold">Medium</span>
                             </div>
-                            <div className="space-y-4">
-                                <div className="flex items-start gap-3">
-                                    <Mail className="w-4 h-4 text-[#91918E] mt-0.5" />
-                                    <div>
-                                        <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Email</p>
-                                        <p className="text-[13px] text-[#37352F]">{data.attendee.email}</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start gap-3">
-                                    <Phone className="w-4 h-4 text-[#91918E] mt-0.5" />
-                                    <div>
-                                        <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Phone</p>
-                                        <p className="text-[13px] text-[#37352F]">{data.attendee.phone}</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start gap-3">
-                                    <MapPin className="w-4 h-4 text-[#91918E] mt-0.5" />
-                                    <div>
-                                        <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Location</p>
-                                        <p className="text-[13px] text-[#37352F]">{data.attendee.location}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <Link href={`/admin/tickets/NP-2026-X8Y1`} className="block w-full">
-                                <Button variant="outline" className="w-full mt-6 text-[13px] font-semibold border-[#E9E9E7] hover:bg-[#F7F6F3] transition-all">
-                                    View Guest Ticket
-                                </Button>
-                            </Link>
-                        </CardContent>
-                    </Card>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }
