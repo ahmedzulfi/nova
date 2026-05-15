@@ -51,6 +51,7 @@ const tiers = ["All", "Adult", "Dog Owner", "Cat Owner"];
 export default function TicketsPage() {
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedTier, setSelectedTier] = useState("All");
+    const [selectedStatus, setSelectedStatus] = useState("All");
 
     const filteredTickets = tickets.filter(ticket => {
         const matchesSearch = 
@@ -59,15 +60,48 @@ export default function TicketsPage() {
             ticket.id.toLowerCase().includes(searchTerm.toLowerCase());
         
         const matchesTier = selectedTier === "All" || ticket.type === selectedTier;
+        const matchesStatus = selectedStatus === "All" || ticket.status === selectedStatus;
         
-        return matchesSearch && matchesTier;
+        return matchesSearch && matchesTier && matchesStatus;
     });
     return (
         <div className="space-y-8 animate-in fade-in duration-700">
             {/* Notion Page Header */}
-            <div className="mb-10">
-                <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">Guest & Ticket Ledger</h1>
-                <p className="text-[16px] text-[#91918E] max-w-2xl">Unified database of festival attendees, ticket tiers, and order breakdowns.</p>
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+                <div className="space-y-2">
+                    <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">Guest Ledger</h1>
+                    <p className="text-[16px] text-[#91918E] max-w-2xl">Unified database of festival attendees and ticket tiers.</p>
+                </div>
+                <Button 
+                    onClick={() => toast.info("Scanner Mode", { description: "Initialize camera for QR check-in." })}
+                    className="h-12 px-8 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[14px] font-bold transition-all active:scale-[0.98] shadow-lg shadow-yellow-500/10 border border-black/5"
+                >
+                    <Plus className="w-4 h-4 mr-2" />
+                    Scan Ticket
+                </Button>
+            </div>
+
+            {/* Status Tabs */}
+            <div className="flex items-center gap-1 border-b border-[#F1F1EF] px-2 mb-6">
+                {["All", "Active", "Used"].map((status) => (
+                    <button
+                        key={status}
+                        onClick={() => setSelectedStatus(status)}
+                        className={cn(
+                            "px-4 py-3 text-[13px] font-medium transition-all relative",
+                            selectedStatus === status 
+                                ? "text-[#37352F] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#37352F]" 
+                                : "text-[#91918E] hover:text-[#37352F] hover:bg-[#F7F6F3]"
+                        )}
+                    >
+                        {status}
+                        {status === "All" && (
+                            <span className="ml-2 text-[10px] bg-[#F7F6F3] px-1.5 py-0.5 rounded-sm text-[#91918E]">
+                                {tickets.length}
+                            </span>
+                        )}
+                    </button>
+                ))}
             </div>
 
             {/* Actions Bar */}
@@ -162,12 +196,19 @@ export default function TicketsPage() {
                                 </TableCell>
                                 <TableCell className="px-6 py-5 font-bold text-[#37352F] text-[13px]">{ticket.total}</TableCell>
                                 <TableCell className="px-6 py-5">
-                                    <span className={cn(
-                                        "text-[10px] font-bold uppercase tracking-wider px-2.5 py-1  rounded-sm  border",
-                                        ticket.status === 'Active' ? 'bg-green-50 text-green-600 border-green-100/50' : 'bg-[#F1F1EF] text-[#91918E] border-[#E9E9E7]/50'
-                                    )}>
-                                        {ticket.status}
-                                    </span>
+                                    <div className="flex items-center gap-2">
+                                        {ticket.status === 'Active' ? (
+                                            <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-sm border bg-green-50 text-green-600 border-green-100/50 flex items-center gap-1.5">
+                                                <CheckCircle2 size={12} />
+                                                Active
+                                            </span>
+                                        ) : (
+                                            <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-sm border bg-[#F1F1EF] text-[#91918E] border-[#E9E9E7]/50 flex items-center gap-1.5">
+                                                <History size={12} />
+                                                Used
+                                            </span>
+                                        )}
+                                    </div>
                                 </TableCell>
                                 <TableCell className="px-6 py-5">
                                     <DropdownMenu>
