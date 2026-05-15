@@ -45,7 +45,22 @@ const tickets = [
     { id: 'NP-2026-G7H8', name: 'James Smith', email: 'j.smith@example.com', type: 'Adult', adults: 1, kids: 0, pets: 0, total: '$50.00', date: '2026-01-13', status: 'Active' },
 ];
 
+const tiers = ["All", "Adult", "Dog Owner", "Cat Owner"];
+
 export default function TicketsPage() {
+    const [searchTerm, setSearchTerm] = useState("");
+    const [selectedTier, setSelectedTier] = useState("All");
+
+    const filteredTickets = tickets.filter(ticket => {
+        const matchesSearch = 
+            ticket.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            ticket.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            ticket.id.toLowerCase().includes(searchTerm.toLowerCase());
+        
+        const matchesTier = selectedTier === "All" || ticket.type === selectedTier;
+        
+        return matchesSearch && matchesTier;
+    });
     return (
         <div className="space-y-8 animate-in fade-in duration-700">
             {/* Notion Page Header */}
@@ -62,10 +77,35 @@ export default function TicketsPage() {
                         <Input
                             placeholder="Search by ID, name or email..."
                             className="pl-10 h-9 bg-[#F7F6F3] border-none rounded-sm text-[13px] focus-visible:ring-1 focus-visible:ring-[#E9E9E7] placeholder:text-[#91918E]"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
                         />
                     </div>
                 </div>
                 <div className="flex items-center gap-2">
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="outline" className="h-9 px-3 rounded-sm border-[#E9E9E7] text-[13px] font-medium text-[#37352F] hover:bg-[#F7F6F3]">
+                                <Filter className="w-3.5 h-3.5 mr-2 text-[#91918E]" />
+                                {selectedTier === "All" ? "Filter" : selectedTier}
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end" className="w-48 p-1.5 rounded-sm border-[#E9E9E7] shadow-xl bg-white">
+                            <DropdownMenuLabel className="px-2 py-1.5 text-[10px] text-[#91918E] uppercase font-bold tracking-widest">By Ticket Tier</DropdownMenuLabel>
+                            {tiers.map(tier => (
+                                <DropdownMenuItem 
+                                    key={tier}
+                                    onClick={() => setSelectedTier(tier)}
+                                    className={cn(
+                                        "rounded-sm text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]",
+                                        selectedTier === tier && "bg-[#F7F6F3]"
+                                    )}
+                                >
+                                    {tier}
+                                </DropdownMenuItem>
+                            ))}
+                        </DropdownMenuContent>
+                    </DropdownMenu>
                     <Button 
                         onClick={() => toast.success("Ledger exported", { description: "The full guest list is ready for download." })}
                         variant="outline" 
@@ -92,7 +132,7 @@ export default function TicketsPage() {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {tickets.map((ticket) => (
+                        {filteredTickets.map((ticket) => (
                             <TableRow key={ticket.id} className="hover:bg-[#F7F6F3]/30 border-b border-[#F1F1EF] last:border-0 transition-colors duration-100 [transition-timing-function:var(--ease-emil-out)]">
                                 <TableCell className="px-6 py-5 font-bold text-[#37352F] text-[13px]">{ticket.id}</TableCell>
                                 <TableCell className="px-6 py-5">

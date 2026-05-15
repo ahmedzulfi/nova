@@ -44,8 +44,31 @@ const registrations = [
     { id: 'REG-008', owner: 'William Taylor', email: 'w.taylor@example.com', pet: 'Finn', category: 'Grooming Competition', date: '2026-01-11', status: 'Completed' },
 ];
 
+const categories = [
+    "All",
+    "Grooming Competition",
+    "Dog Fashion Show",
+    "Cat Fashion Show",
+    "Best Looking Dog Show",
+    "Best Looking Cat Show",
+    "Drawing Cat Battle"
+];
+
 export default function RegistrationsPage() {
     const [searchTerm, setSearchTerm] = useState("");
+    const [selectedCategory, setSelectedCategory] = useState("All");
+
+    const filteredRegistrations = registrations.filter(reg => {
+        const matchesSearch = 
+            reg.owner.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            reg.pet.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            reg.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            reg.id.toLowerCase().includes(searchTerm.toLowerCase());
+        
+        const matchesCategory = selectedCategory === "All" || reg.category === selectedCategory;
+        
+        return matchesSearch && matchesCategory;
+    });
 
     const getStatusBadge = (status: string) => {
         switch (status) {
@@ -78,14 +101,29 @@ export default function RegistrationsPage() {
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
                     </div>
-                    <Button 
-                        onClick={() => toast.info("Filter parameters coming soon", { description: "Advanced filtering by date and zone is in development." })}
-                        variant="outline" 
-                        className="h-9 px-3 rounded-sm border-[#E9E9E7] text-[13px] font-medium text-[#37352F] hover:bg-[#F7F6F3]"
-                    >
-                        <Filter className="w-3.5 h-3.5 mr-2 text-[#91918E]" />
-                        Filter
-                    </Button>
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="outline" className="h-9 px-3 rounded-sm border-[#E9E9E7] text-[13px] font-medium text-[#37352F] hover:bg-[#F7F6F3]">
+                                <Filter className="w-3.5 h-3.5 mr-2 text-[#91918E]" />
+                                {selectedCategory === "All" ? "Filter" : selectedCategory}
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="start" className="w-56 p-1.5 rounded-sm border-[#E9E9E7] shadow-xl bg-white">
+                            <DropdownMenuLabel className="px-2 py-1.5 text-[10px] text-[#91918E] uppercase font-bold tracking-widest">By Competition</DropdownMenuLabel>
+                            {categories.map(cat => (
+                                <DropdownMenuItem 
+                                    key={cat}
+                                    onClick={() => setSelectedCategory(cat)}
+                                    className={cn(
+                                        "rounded-sm text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]",
+                                        selectedCategory === cat && "bg-[#F7F6F3]"
+                                    )}
+                                >
+                                    {cat}
+                                </DropdownMenuItem>
+                            ))}
+                        </DropdownMenuContent>
+                    </DropdownMenu>
                 </div>
                 <div className="flex items-center gap-2">
                     <Button 
@@ -113,7 +151,7 @@ export default function RegistrationsPage() {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {registrations.map((reg) => (
+                        {filteredRegistrations.map((reg) => (
                             <TableRow key={reg.id} className="hover:bg-[#F7F6F3]/30 transition-colors duration-100 [transition-timing-function:var(--ease-emil-out)] border-b border-[#F1F1EF] last:border-0">
                                 <TableCell className="px-6 py-5 font-bold text-[#37352F] text-[13px]">{reg.id}</TableCell>
                                 <TableCell className="px-6 py-5">
@@ -173,7 +211,7 @@ export default function RegistrationsPage() {
                 {/* Pagination */}
                 <div className="px-6 py-4 border-t border-[#E9E9E7] flex items-center justify-between bg-[#F7F6F3]/30">
                     <p className="text-[12px] text-[#91918E] font-medium">
-                        Showing <span className="font-bold text-[#37352F]">8</span> of <span className="font-bold text-[#37352F]">124</span> records
+                        Showing <span className="font-bold text-[#37352F]">{filteredRegistrations.length}</span> of <span className="font-bold text-[#37352F]">{registrations.length}</span> records
                     </p>
                     <div className="flex items-center gap-2">
                         <Button variant="outline" size="sm" className="h-8  rounded-sm  border-[#E9E9E7] bg-white text-[11px] font-bold text-[#37352F] px-3 disabled:opacity-50">
