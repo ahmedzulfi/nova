@@ -55,15 +55,19 @@ const mockGetGuestData = (id: string) => {
 
 export default function ScannerPage() {
     const [isScanning, setIsScanning] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const [scannedData, setScannedData] = useState<any>(null);
     const [manualId, setManualId] = useState("");
 
     const handleScan = (id?: string) => {
-        setIsScanning(false);
-        // Simulate loading
+        setIsLoading(true);
+        // Simulate network/db latency
         setTimeout(() => {
-            setScannedData(mockGetGuestData(id || manualId));
-        }, 600);
+            const data = mockGetGuestData(id || manualId);
+            setScannedData(data);
+            setIsLoading(false);
+            setIsScanning(false);
+        }, 800);
     };
 
     const handleCheckIn = () => {
@@ -113,8 +117,15 @@ export default function ScannerPage() {
                             <div className="absolute bottom-8 right-8 w-12 h-12 border-b-4 border-r-4 border-[#FACC15] rounded-br-lg" />
 
                             <div className="absolute inset-0 flex items-center justify-center">
+                            {isLoading ? (
+                                <div className="flex flex-col items-center gap-4 animate-in fade-in zoom-in duration-300">
+                                    <div className="w-12 h-12 border-4 border-[#FACC15] border-t-transparent rounded-full animate-spin" />
+                                    <span className="text-[10px] font-bold text-white uppercase tracking-[0.2em]">Verifying ID...</span>
+                                </div>
+                            ) : (
                                 <Camera className="w-16 h-16 text-white/10" />
-                            </div>
+                            )}
+                        </div>
 
                             {/* Simulation Trigger */}
                             <button 
