@@ -16,7 +16,9 @@ import {
     Download,
     Info,
     ExternalLink,
-    PawPrint
+    PawPrint,
+    Mail,
+    Phone
 } from 'lucide-react';
 import { Link, useRouter } from '@/i18n/routing';
 import { useTranslations, useLocale } from 'next-intl';
@@ -440,48 +442,120 @@ function DashboardContent() {
                         </div>
                     )}
 
-                    {/* ─── TAB: Settings ─────────────────────────────────────────────── */}
+                    {/* ─── TAB: Account Settings ─────────────────────────────────────────────── */}
                     {activeTab === 'settings' && (
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div className="p-8 border border-[#E9E9E7] rounded-sm space-y-8">
-                                <h3 className="text-[14px] font-bold text-[#91918E] uppercase tracking-wider border-b border-[#E9E9E7] pb-4">{t('settings.profile_title')}</h3>
-                                <div className="space-y-6">
-                                    <div>
-                                        <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-wider mb-1">{t('settings.name')}</p>
-                                        <p className="text-[16px] font-medium text-[#37352F]">{data.fullName}</p>
+                        <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                            {/* Profile Header Block */}
+                            <div className="flex flex-col md:flex-row gap-10 items-start md:items-center p-10 bg-[#F7F6F3] border border-[#E9E9E7] rounded-sm relative overflow-hidden">
+                                <div className="relative group">
+                                    <div className="w-24 h-24 bg-white border border-[#E9E9E7] rounded-sm flex items-center justify-center text-[40px] shadow-sm">
+                                        👤
                                     </div>
-                                    <div>
-                                        <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-wider mb-1">{t('settings.email')}</p>
-                                        <p className="text-[16px] font-medium text-[#37352F]">{data.email}</p>
+                                    <button className="absolute -bottom-2 -right-2 w-8 h-8 bg-white border border-[#E9E9E7] rounded-sm flex items-center justify-center text-[#37352F] shadow-sm hover:bg-[#F7F6F3] transition-all">
+                                        <Clock size={14} className="opacity-40" />
+                                    </button>
+                                </div>
+                                <div className="space-y-2 flex-1">
+                                    <h2 className="text-[28px] font-bold text-[#37352F] tracking-tight">{data.fullName}</h2>
+                                    <div className="flex flex-wrap gap-4">
+                                        <div className="flex items-center gap-2 text-[12px] font-medium text-[#91918E]">
+                                            <Mail size={14} />
+                                            {data.email}
+                                        </div>
+                                        <div className="flex items-center gap-2 text-[12px] font-medium text-[#91918E]">
+                                            <Phone size={14} />
+                                            {data.phone}
+                                        </div>
                                     </div>
-                                    <div>
-                                        <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-wider mb-1">{t('settings.phone')}</p>
-                                        <p className="text-[16px] font-medium text-[#37352F]">{data.phone}</p>
-                                    </div>
+                                </div>
+                                <div className="flex flex-col items-end gap-2 text-right">
+                                    <span className="px-3 py-1 bg-green-50 text-green-700 border border-green-100 rounded-full text-[10px] font-bold uppercase tracking-widest">Active Member</span>
+                                    <p className="text-[11px] text-[#91918E] font-medium">Joined Oct 2023</p>
                                 </div>
                             </div>
 
-                            <div className="p-8 border border-[#E9E9E7] rounded-sm space-y-8">
-                                <h3 className="text-[14px] font-bold text-[#91918E] uppercase tracking-wider border-b border-[#E9E9E7] pb-4">{t('settings.data_title')}</h3>
-                                <div className="space-y-6">
-                                    <div>
-                                        <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-wider mb-1">{t('settings.tier')}</p>
-                                        <p className="text-[16px] font-bold text-[#37352F]">{getTierName(data.tier)}</p>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                {/* Pass Details */}
+                                <div className="md:col-span-2 space-y-8">
+                                    <div className="space-y-6">
+                                        <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] border-b border-black/5 pb-4">Digital Pass Configuration</h3>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                            <div className="space-y-1">
+                                                <p className="text-[10px] font-bold text-[#91918E] uppercase tracking-[0.2em]">Membership Tier</p>
+                                                <p className="text-[16px] font-bold text-primary uppercase">{getTierName(data.tier)}</p>
+                                            </div>
+                                            <div className="space-y-1">
+                                                <p className="text-[10px] font-bold text-[#91918E] uppercase tracking-[0.2em]">Registered Pet</p>
+                                                <p className="text-[16px] font-bold text-[#37352F]">{data.petName || '—'}</p>
+                                            </div>
+                                            <div className="space-y-1">
+                                                <p className="text-[10px] font-bold text-[#91918E] uppercase tracking-[0.2em]">Additional Adults</p>
+                                                <p className="text-[16px] font-bold text-[#37352F]">{data.adultQty}</p>
+                                            </div>
+                                            <div className="space-y-1">
+                                                <p className="text-[10px] font-bold text-[#91918E] uppercase tracking-[0.2em]">Additional Kids</p>
+                                                <p className="text-[16px] font-bold text-[#37352F]">{data.kidsQty || 0}</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    {isPetOwner && (
-                                        <div>
-                                            <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-wider mb-1">{t('settings.pet_name')}</p>
-                                            <p className="text-[16px] font-medium text-[#37352F]">{data.petName || '—'}</p>
+
+                                    {/* Compliance Block */}
+                                    <div className="p-8 border border-[#E9E9E7] rounded-sm space-y-6 bg-[#FBFAFB]">
+                                        <h3 className="text-[14px] font-bold text-[#37352F] flex items-center gap-2">
+                                            <ShieldCheck size={18} className="text-green-600" />
+                                            Safety & Legal Compliance
+                                        </h3>
+                                        <div className="space-y-4">
+                                            <div className="flex items-center justify-between p-3 bg-white border border-[#E9E9E7] rounded-sm">
+                                                <span className="text-[13px] font-medium text-[#37352F]">Nova Paw Safety Agreement</span>
+                                                <span className="text-[11px] font-bold text-green-600 uppercase tracking-widest">Signed</span>
+                                            </div>
+                                            <div className="flex items-center justify-between p-3 bg-white border border-[#E9E9E7] rounded-sm">
+                                                <span className="text-[13px] font-medium text-[#37352F]">Liability Waiver 2026</span>
+                                                <span className="text-[11px] font-bold text-green-600 uppercase tracking-widest">Signed</span>
+                                            </div>
                                         </div>
-                                    )}
-                                    <div className="flex gap-12">
-                                        <div>
-                                            <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-wider mb-1">{t('overview.adults')}</p>
-                                            <p className="text-[16px] font-medium text-[#37352F]">{data.adultQty}</p>
+                                    </div>
+                                </div>
+
+                                {/* Sidebar Stats */}
+                                <div className="space-y-8">
+                                    <div className="p-6 bg-white border border-[#E9E9E7] rounded-sm space-y-6">
+                                        <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em]">Security Overview</h3>
+                                        <div className="space-y-4">
+                                            <div>
+                                                <p className="text-[10px] font-bold text-[#91918E] uppercase mb-1">Last Active</p>
+                                                <p className="text-[13px] font-bold text-[#37352F]">Today, 10:45 AM</p>
+                                            </div>
+                                            <div>
+                                                <p className="text-[10px] font-bold text-[#91918E] uppercase mb-1">Trusted Device</p>
+                                                <p className="text-[13px] font-medium text-[#666666]">iPhone 15 Pro · Doha, QA</p>
+                                            </div>
+                                            <div>
+                                                <p className="text-[10px] font-bold text-[#91918E] uppercase mb-1">Account ID</p>
+                                                <p className="text-[13px] font-mono text-[#37352F]">{data.orderId.replace('NP-', 'USR-')}</p>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-wider mb-1">{t('overview.kids')}</p>
-                                            <p className="text-[16px] font-medium text-[#37352F]">{data.kidsQty || '0'}</p>
+                                        <div className="pt-4 border-t border-black/5">
+                                            <Button variant="ghost" className="w-full text-[#37352F] hover:bg-[#F7F6F3] text-[12px] font-bold uppercase tracking-widest h-10">
+                                                Manage Security
+                                            </Button>
+                                        </div>
+                                    </div>
+
+                                    <div className="p-6 bg-white border border-[#E9E9E7] rounded-sm space-y-4">
+                                        <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em]">Preferences</h3>
+                                        <div className="flex items-center justify-between">
+                                            <span className="text-[13px] text-[#666666]">Email Notifications</span>
+                                            <div className="w-8 h-4 bg-green-500 rounded-full relative">
+                                                <div className="absolute right-0.5 top-0.5 w-3 h-3 bg-white rounded-full shadow-sm" />
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center justify-between">
+                                            <span className="text-[13px] text-[#666666]">SMS Alerts</span>
+                                            <div className="w-8 h-4 bg-[#E9E9E7] rounded-full relative">
+                                                <div className="absolute left-0.5 top-0.5 w-3 h-3 bg-white rounded-full shadow-sm" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
