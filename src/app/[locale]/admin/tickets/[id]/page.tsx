@@ -2,6 +2,7 @@
 
 import React, { use } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import {
     ArrowLeft,
     Ticket,
@@ -9,13 +10,18 @@ import {
     Mail,
     Phone,
     MapPin,
-    Calendar,
     Users,
+    Baby,
     PawPrint,
-    Clock,
+    Calendar,
     Download,
-    ShieldCheck,
+    MailCheck,
+    CheckCircle2,
+    Clock,
+    ChevronRight,
     ExternalLink,
+    CreditCard,
+    ShieldCheck,
     Trophy
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -29,26 +35,56 @@ import {
 } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { toast } from "sonner";
+import { cn } from "@/lib/utils";
 
-const QR_CODE_URL = "https://public-api.qr-code-generator.com/v1/create/extended?image_format=PNG&image_width=300&qr_code_text=https%3A%2F%2Fvalidmvps.vercel.app%2F&foreground_color=%23000000&background_color=%23FFFFFF&frame_name=no-frame";
-
+// Mock data fetching based on ID
 const mockGetTicketDetails = (id: string) => {
     return {
         id,
-        fullName: 'Sarah Johnson',
-        email: 'sarah.j@example.com',
-        phone: '+974 5555 1234',
-        tier: 'Dog Owner',
-        adultQty: 1,
-        kidsQty: 1,
-        petQty: 1,
-        petName: 'Luna',
-        total: 125,
-        orderId: id,
-        competitionEntry: 'Grooming Competition',
-        entryDate: '2026-01-15',
-        status: 'Active'
+        status: 'Active',
+        purchaseDate: '2026-01-15T14:20:00Z',
+        tier: 'Dog Owner Ticket',
+        total: '$125.00',
+        paymentMethod: 'Visa ending in 4242',
+        attendee: {
+            name: 'Sarah Johnson',
+            email: 'sarah.j@example.com',
+            phone: '+1 (555) 123-4567',
+            address: 'Al Waab St, Doha, Qatar',
+            avatarUrl: 'https://i.pravatar.cc/150?u=sarah',
+        },
+        breakdown: {
+            adults: 1,
+            kids: 1,
+            pets: 1
+        },
+        registrations: [
+            { id: 'REG-001', category: 'Grooming Competition', pet: 'Luna', status: 'Pending' },
+            { id: 'REG-007', category: 'Drawing Cat Battle', pet: 'Daisy', status: 'Completed' }
+        ]
     };
+};
+
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
+};
+
+const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 0.5,
+            ease: [0.22, 1, 0.36, 1]
+        }
+    }
 };
 
 export default function TicketDetailsPage({ params }: { params: Promise<{ id: string }> }) {
@@ -56,176 +92,250 @@ export default function TicketDetailsPage({ params }: { params: Promise<{ id: st
     const data = mockGetTicketDetails(resolvedParams.id);
 
     return (
-        <div className="space-y-8 animate-in fade-in duration-700">
-            {/* Back Navigation */}
-            <Link 
-                href="/admin/tickets" 
-                className="flex items-center gap-2 text-[#91918E] hover:text-[#37352F] text-[13px] font-medium transition-colors mb-8 group"
-            >
-                <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
-                Back to ledger
-            </Link>
+        <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            className="max-w-6xl mx-auto space-y-12 pb-20"
+        >
+            {/* Header & Navigation */}
+            <motion.div variants={itemVariants} className="space-y-6">
+                <Link
+                    href="/admin/tickets"
+                    className="inline-flex items-center gap-2 text-[#91918E] hover:text-[#37352F] text-[13px] font-medium transition-all group"
+                >
+                    <ArrowLeft size={14} className="transition-transform group-hover:-translate-x-1" />
+                    Back to guest ledger
+                </Link>
 
-            {/* Notion Page Header */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#F1F1EF]">
-                <div>
-                    <div className="flex items-center gap-3 mb-2">
-                        <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight">{data.orderId}</h1>
-                        <Badge className="bg-green-50 text-green-600 border-green-100/50 text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm h-fit mt-3">
-                            {data.status}
-                        </Badge>
-                    </div>
-                    <p className="text-[16px] text-[#91918E]">Full Access Pass • Issued on {data.entryDate}</p>
-                </div>
-                <div className="flex items-center gap-3">
-                    <Button 
-                        onClick={() => toast.success("Confirmation Resent", { description: "Email sent to " + data.email })}
-                        variant="outline" 
-                        className="h-10 px-6 rounded-sm border-[#E9E9E7] text-[#37352F] hover:bg-[#F7F6F3] text-[13px] font-bold transition-all active:scale-[0.98]"
-                    >
-                        Resend Email
-                    </Button>
-                    <Button 
-                        onClick={() => toast.success("Generating PDF...", { description: "Your ticket download will start shortly." })}
-                        className="h-10 px-8 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[13px] font-bold transition-all active:scale-[0.98] shadow-sm border border-black/5"
-                    >
-                        <Download className="w-4 h-4 mr-2" />
-                        Download PDF
-                    </Button>
-                </div>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 pt-8">
-                {/* Main Content Area */}
-                <div className="lg:col-span-2 space-y-12">
-                    {/* Guest Summary */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div className="p-6 border border-[#E9E9E7] rounded-sm space-y-6">
-                            <div className="flex items-center gap-3 text-[#91918E] text-[12px] font-bold uppercase tracking-wider">
-                                <Ticket size={14} className="text-[#FACC15]" />
-                                <span>Digital Pass</span>
-                            </div>
-                            <div className="flex gap-6 items-center">
-                                <div className="bg-white p-2 border border-[#E9E9E7] rounded-sm">
-                                    <img src={QR_CODE_URL} alt="QR" className="w-24 h-24" />
-                                </div>
-                                <div className="space-y-1">
-                                    <p className="font-bold text-[18px]">{data.orderId}</p>
-                                    <p className="text-[14px] text-[#37352F]">{data.tier}</p>
-                                    <p className="text-[12px] text-[#91918E]">{data.adultQty} Adult • {data.kidsQty} Kids</p>
-                                </div>
-                            </div>
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pb-10 border-b border-[#F1F1EF]">
+                    <div className="space-y-2">
+                        <div className="flex items-center gap-4">
+                            <h1 className="text-[48px] font-bold text-[#37352F] tracking-tighter leading-none">{data.id}</h1>
+                            <Badge className="bg-green-100 text-green-800 border-green-200/50 text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full h-fit mt-2">
+                                {data.status}
+                            </Badge>
                         </div>
-
-                        <div className="p-6 border border-[#E9E9E7] rounded-sm space-y-6 bg-[#F7F6F3]/30">
-                            <div className="flex items-center gap-3 text-[#91918E] text-[12px] font-bold uppercase tracking-wider">
-                                <User size={14} />
-                                <span>Primary Buyer</span>
-                            </div>
-                            <div className="space-y-4">
-                                <div>
-                                    <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-wider mb-1">Full Name</p>
-                                    <p className="text-[16px] font-bold text-[#37352F]">{data.fullName}</p>
-                                </div>
-                                <div>
-                                    <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-wider mb-1">Email / Phone</p>
-                                    <p className="text-[14px] text-[#37352F]">{data.email}</p>
-                                    <p className="text-[14px] text-[#37352F]">{data.phone}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Registration Details */}
-                    <div className="space-y-6">
-                        <h3 className="font-bold text-[#37352F] text-[12px] uppercase tracking-widest border-b border-[#E9E9E7] pb-2">Pass Breakdown</h3>
-                        <div className="border border-[#E9E9E7] rounded-sm overflow-hidden">
-                            <div className="p-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-                                <div className="space-y-1">
-                                    <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Adult Passes</p>
-                                    <p className="text-[20px] font-bold text-[#37352F]">{data.adultQty}</p>
-                                </div>
-                                <div className="space-y-1">
-                                    <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Kids Added</p>
-                                    <p className="text-[20px] font-bold text-[#37352F]">{data.kidsQty}</p>
-                                </div>
-                                <div className="space-y-1">
-                                    <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Pet Entitlements</p>
-                                    <p className="text-[20px] font-bold text-[#37352F]">{data.petQty}</p>
-                                </div>
-                            </div>
-                            {data.petName && (
-                                <div className="px-6 py-4 bg-[#F7F6F3]/50 border-t border-[#E9E9E7] flex items-center justify-between">
-                                    <div className="flex items-center gap-2">
-                                        <PawPrint className="w-4 h-4 text-[#37352F]" />
-                                        <span className="text-[14px] font-bold text-[#37352F]">Registered Pet: {data.petName}</span>
-                                    </div>
-                                    <Badge className="bg-white border-[#E9E9E7] text-[#91918E] rounded-sm text-[10px] font-bold uppercase tracking-widest">
-                                        Health Check Required
-                                    </Badge>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-
-                    {/* Competitions */}
-                    <div className="space-y-6">
-                        <h3 className="font-bold text-[#37352F] text-[12px] uppercase tracking-widest border-b border-[#E9E9E7] pb-2">Festival Participation</h3>
-                        {data.competitionEntry ? (
-                            <div className="p-6 bg-[#FBFAFB] border border-[#E9E9E7] rounded-sm flex items-center justify-between group hover:border-[#FACC15]/50 transition-all">
-                                <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-white border border-[#E9E9E7] rounded-sm flex items-center justify-center text-[24px]">
-                                        <Trophy className="w-6 h-6 text-[#FACC15]" />
-                                    </div>
-                                    <div>
-                                        <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Competition Registration</p>
-                                        <p className="text-[18px] font-bold text-[#37352F]">{data.competitionEntry}</p>
-                                    </div>
-                                </div>
-                                <Link href={`/admin/registrations/REG-001`}>
-                                    <Button variant="ghost" className="h-10 text-[13px] font-bold text-[#91918E] hover:text-[#37352F]">
-                                        View Entry <ExternalLink className="w-4 h-4 ml-2" />
-                                    </Button>
-                                </Link>
-                            </div>
-                        ) : (
-                            <div className="p-12 border border-dashed border-[#E9E9E7] rounded-sm text-center">
-                                <p className="text-[14px] text-[#91918E]">No competition entries found for this ticket.</p>
-                            </div>
-                        )}
-                    </div>
-                </div>
-
-                {/* Sidebar area */}
-                <div className="space-y-8">
-                    {/* Financial Summary */}
-                    <div className="p-6 bg-[#37352F] text-white rounded-sm space-y-6">
-                        <div className="space-y-1">
-                            <p className="text-[11px] font-bold text-white/50 uppercase tracking-widest">Order Total</p>
-                            <p className="text-[32px] font-bold">{data.total} QAR</p>
-                        </div>
-                        <div className="pt-6 border-t border-white/10 space-y-4">
-                            <div className="flex justify-between text-[13px]">
-                                <span className="text-white/50">Payment Status</span>
-                                <span className="font-bold text-green-400 flex items-center gap-1.5">
-                                    <ShieldCheck size={14} />
-                                    Captured
-                                </span>
-                            </div>
-                            <div className="flex justify-between text-[13px]">
-                                <span className="text-white/50">Transaction ID</span>
-                                <span className="font-bold opacity-80">TXN-8842-X1</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="p-6 border border-[#E9E9E7] rounded-sm space-y-4">
-                        <p className="text-[13px] text-[#91918E] leading-relaxed">
-                            This ticket was purchased via the online checkout flow. Access is granted for both days of the festival.
+                        <p className="text-[18px] text-[#91918E] font-medium">
+                            {data.tier} • Purchased on {new Date(data.purchaseDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                         </p>
                     </div>
+
+                    <div className="flex items-center gap-4">
+                        <Button 
+                            onClick={() => toast.success("Confirmation Resent", { description: "Email sent to " + data.attendee.email })}
+                            variant="outline" 
+                            className="h-12 px-6 rounded-sm border-[#E9E9E7] text-[#37352F] hover:bg-[#F7F6F3] text-[14px] font-bold transition-all active:scale-[0.98]"
+                        >
+                            <MailCheck className="w-4 h-4 mr-2 text-[#91918E]" />
+                            Resend Email
+                        </Button>
+                        <Button 
+                            onClick={() => toast.info("Exporting Ticket Data", { description: "PDF generation started." })}
+                            className="h-12 px-10 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[14px] font-bold transition-all active:scale-[0.98] shadow-lg shadow-yellow-500/10 border border-black/5"
+                        >
+                            <Download className="w-4 h-4 mr-2" />
+                            Download PDF
+                        </Button>
+                    </div>
+                </div>
+            </motion.div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                {/* Left Column: Attendee & Order Details */}
+                <div className="lg:col-span-8 space-y-12">
+                    
+                    {/* Attendee Profile Section */}
+                    <motion.section variants={itemVariants} className="space-y-6">
+                        <div className="flex items-center gap-3">
+                            <div className="p-2 bg-blue-50 rounded-sm">
+                                <User className="w-5 h-5 text-blue-600" />
+                            </div>
+                            <h2 className="text-[20px] font-bold text-[#37352F]">Attendee Information</h2>
+                        </div>
+
+                        <Card className="border-[#E9E9E7] shadow-none bg-[#F7F6F3]/30 rounded-sm">
+                            <CardContent className="p-8">
+                                <div className="flex flex-col md:flex-row gap-8 items-start">
+                                    <Avatar className="w-24 h-24 border-4 border-white shadow-sm shrink-0">
+                                        <AvatarImage src={data.attendee.avatarUrl} />
+                                        <AvatarFallback className="bg-yellow-100 text-yellow-800 text-2xl font-bold">
+                                            {data.attendee.name.charAt(0)}
+                                        </AvatarFallback>
+                                    </Avatar>
+                                    
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 w-full">
+                                        <div>
+                                            <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Full Name</p>
+                                            <p className="text-[18px] font-bold text-[#37352F]">{data.attendee.name}</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Email Address</p>
+                                            <p className="text-[16px] font-bold text-[#37352F]">{data.attendee.email}</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Phone Number</p>
+                                            <p className="text-[16px] font-bold text-[#37352F]">{data.attendee.phone}</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Billing Address</p>
+                                            <p className="text-[16px] font-bold text-[#37352F]">{data.attendee.address}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </motion.section>
+
+                    {/* Guest Breakdown Section */}
+                    <motion.section variants={itemVariants} className="space-y-6">
+                        <div className="flex items-center gap-3">
+                            <div className="p-2 bg-purple-50 rounded-sm">
+                                <Users className="w-5 h-5 text-purple-600" />
+                            </div>
+                            <h2 className="text-[20px] font-bold text-[#37352F]">Guest Breakdown</h2>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                            <div className="p-6 border border-[#E9E9E7] bg-white rounded-sm text-center space-y-2">
+                                <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-4">
+                                    <Users size={20} />
+                                </div>
+                                <p className="text-[24px] font-bold text-[#37352F]">{data.breakdown.adults}</p>
+                                <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Adults</p>
+                            </div>
+                            <div className="p-6 border border-[#E9E9E7] bg-white rounded-sm text-center space-y-2">
+                                <div className="w-10 h-10 rounded-full bg-pink-50 text-pink-600 flex items-center justify-center mx-auto mb-4">
+                                    <Baby size={20} />
+                                </div>
+                                <p className="text-[24px] font-bold text-[#37352F]">{data.breakdown.kids}</p>
+                                <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Kids</p>
+                            </div>
+                            <div className="p-6 border border-[#E9E9E7] bg-white rounded-sm text-center space-y-2">
+                                <div className="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center mx-auto mb-4">
+                                    <PawPrint size={20} />
+                                </div>
+                                <p className="text-[24px] font-bold text-[#37352F]">{data.breakdown.pets}</p>
+                                <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Pets</p>
+                            </div>
+                        </div>
+                    </motion.section>
+
+                    {/* Linked Registrations Section */}
+                    <motion.section variants={itemVariants} className="space-y-6">
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 bg-yellow-50 rounded-sm">
+                                    <Trophy className="w-5 h-5 text-yellow-600" />
+                                </div>
+                                <h2 className="text-[20px] font-bold text-[#37352F]">Linked Competitions</h2>
+                            </div>
+                            <Badge variant="outline" className="text-[10px] uppercase font-bold tracking-widest border-[#E9E9E7] text-[#91918E]">
+                                {data.registrations.length} Active Entries
+                            </Badge>
+                        </div>
+
+                        <div className="space-y-3">
+                            {data.registrations.map((reg) => (
+                                <Link key={reg.id} href={`/admin/registrations/${reg.id}`} className="block group">
+                                    <div className="flex items-center justify-between p-5 border border-[#E9E9E7] bg-white rounded-sm group-hover:border-[#FACC15] group-hover:bg-[#F7F6F3]/50 transition-all active:scale-[0.99]">
+                                        <div className="flex items-center gap-5">
+                                            <div className="w-12 h-12 rounded-sm bg-[#F7F6F3] flex items-center justify-center text-[#91918E] group-hover:bg-[#FACC15]/10 group-hover:text-[#854d0e] transition-colors font-bold text-[13px]">
+                                                {reg.id.split('-')[1]}
+                                            </div>
+                                            <div>
+                                                <p className="text-[15px] font-bold text-[#37352F] group-hover:text-[#37352F] transition-colors">{reg.category}</p>
+                                                <p className="text-[12px] text-[#91918E] font-medium flex items-center gap-2">
+                                                    For: <span className="text-[#37352F] font-bold">{reg.pet}</span>
+                                                    <span className="w-1 h-1 rounded-full bg-[#E9E9E7]" />
+                                                    ID: {reg.id}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center gap-4">
+                                            <Badge className={cn(
+                                                "text-[10px] font-bold uppercase tracking-widest px-2",
+                                                reg.status === 'Completed' ? "bg-green-50 text-green-700 border-green-100" : "bg-yellow-50 text-yellow-700 border-yellow-100"
+                                            )}>
+                                                {reg.status}
+                                            </Badge>
+                                            <ChevronRight className="w-4 h-4 text-[#E9E9E7] group-hover:text-[#37352F] transition-colors" />
+                                        </div>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                    </motion.section>
+                </div>
+
+                {/* Right Column: Order Details */}
+                <div className="lg:col-span-4 space-y-8">
+                    <motion.div variants={itemVariants}>
+                        <Card className="border-[#E9E9E7] shadow-xl shadow-black/[0.02] rounded-sm overflow-hidden border-t-4 border-t-[#FACC15]">
+                            <CardHeader className="bg-[#F7F6F3]/50">
+                                <CardTitle className="text-[18px] font-bold text-[#37352F]">Order Summary</CardTitle>
+                                <CardDescription className="text-[12px]">Financial breakdown & payment</CardDescription>
+                            </CardHeader>
+                            <CardContent className="p-8 space-y-6">
+                                <div className="space-y-4">
+                                    <div className="flex justify-between items-center text-[14px]">
+                                        <span className="text-[#91918E] font-medium">Ticket Price</span>
+                                        <span className="text-[#37352F] font-bold">{data.total}</span>
+                                    </div>
+                                    <div className="flex justify-between items-center text-[14px]">
+                                        <span className="text-[#91918E] font-medium">VAT (5%)</span>
+                                        <span className="text-[#37352F] font-bold">$6.25</span>
+                                    </div>
+                                    <div className="pt-4 border-t border-[#F1F1EF] flex justify-between items-center">
+                                        <span className="text-[13px] font-bold text-[#37352F]">Grand Total</span>
+                                        <span className="text-[22px] font-bold text-[#37352F] tracking-tight">{data.total}</span>
+                                    </div>
+                                </div>
+
+                                <div className="pt-8 space-y-4">
+                                    <div className="flex items-center gap-3 p-4 bg-[#F7F6F3] rounded-sm">
+                                        <CreditCard className="w-4 h-4 text-[#91918E]" />
+                                        <div>
+                                            <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-0.5">Payment Method</p>
+                                            <p className="text-[13px] font-bold text-[#37352F]">{data.paymentMethod}</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-3 p-4 border border-[#E9E9E7] rounded-sm">
+                                        <ShieldCheck className="w-4 h-4 text-green-600" />
+                                        <div>
+                                            <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-0.5">Verification</p>
+                                            <p className="text-[13px] font-bold text-[#37352F]">3D Secure Verified</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </motion.div>
+
+                    <motion.div variants={itemVariants} className="p-6 bg-[#37352F] rounded-sm text-white space-y-4">
+                        <div className="flex items-center gap-2 text-white/50">
+                            <Clock size={14} />
+                            <span className="text-[11px] font-bold uppercase tracking-widest">Entry History</span>
+                        </div>
+                        <div className="space-y-4 pt-2">
+                            <div className="flex gap-4">
+                                <div className="w-1.5 h-1.5 rounded-full bg-green-500 mt-1.5" />
+                                <div>
+                                    <p className="text-[13px] font-bold">Scanned at Main Gate</p>
+                                    <p className="text-[11px] opacity-50 font-medium">Today, 10:45 AM</p>
+                                </div>
+                            </div>
+                            <div className="flex gap-4 opacity-50">
+                                <div className="w-1.5 h-1.5 rounded-full bg-white/30 mt-1.5" />
+                                <div>
+                                    <p className="text-[13px] font-bold">Ticket Issued</p>
+                                    <p className="text-[11px] font-medium">Jan 15, 2:20 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }
