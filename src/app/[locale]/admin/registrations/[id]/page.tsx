@@ -27,6 +27,7 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { toast } from "sonner";
 
 // Mock data fetching based on ID
 const mockGetRegistrationDetails = (id: string) => {
@@ -91,11 +92,18 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
                     <p className="text-[16px] text-[#91918E]">Submitted on {new Date(data.submissionDate).toLocaleDateString()} at {new Date(data.submissionDate).toLocaleTimeString()}</p>
                 </div>
                 <div className="flex items-center gap-3">
-                    <Button variant="outline" className="h-10 px-6 rounded-sm border-red-200 text-red-600 hover:bg-red-50 text-[13px] font-bold transition-all active:scale-[0.98]">
+                    <Button 
+                        onClick={() => toast.error("Entry Declined", { description: "The user has been notified of the status change." })}
+                        variant="outline" 
+                        className="h-10 px-6 rounded-sm border-red-200 text-red-600 hover:bg-red-50 text-[13px] font-bold transition-all active:scale-[0.98]"
+                    >
                         <XCircle className="w-4 h-4 mr-2" />
                         Decline Entry
                     </Button>
-                    <Button className="h-10 px-8 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[13px] font-bold transition-all active:scale-[0.98] shadow-sm border border-black/5">
+                    <Button 
+                        onClick={() => toast.success("Entry Approved", { description: "The digital pass has been sent to the owner's email." })}
+                        className="h-10 px-8 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[13px] font-bold transition-all active:scale-[0.98] shadow-sm border border-black/5"
+                    >
                         <CheckCircle2 className="w-4 h-4 mr-2" />
                         Approve Registration
                     </Button>

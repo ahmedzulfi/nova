@@ -28,6 +28,7 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { toast } from "sonner";
 
 const QR_CODE_URL = "https://public-api.qr-code-generator.com/v1/create/extended?image_format=PNG&image_width=300&qr_code_text=https%3A%2F%2Fvalidmvps.vercel.app%2F&foreground_color=%23000000&background_color=%23FFFFFF&frame_name=no-frame";
 
@@ -77,10 +78,17 @@ export default function TicketDetailsPage({ params }: { params: Promise<{ id: st
                     <p className="text-[16px] text-[#91918E]">Full Access Pass • Issued on {data.entryDate}</p>
                 </div>
                 <div className="flex items-center gap-3">
-                    <Button variant="outline" className="h-10 px-6 rounded-sm border-[#E9E9E7] text-[#37352F] hover:bg-[#F7F6F3] text-[13px] font-bold transition-all active:scale-[0.98]">
+                    <Button 
+                        onClick={() => toast.success("Confirmation Resent", { description: "Email sent to " + data.email })}
+                        variant="outline" 
+                        className="h-10 px-6 rounded-sm border-[#E9E9E7] text-[#37352F] hover:bg-[#F7F6F3] text-[13px] font-bold transition-all active:scale-[0.98]"
+                    >
                         Resend Email
                     </Button>
-                    <Button className="h-10 px-8 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[13px] font-bold transition-all active:scale-[0.98] shadow-sm border border-black/5">
+                    <Button 
+                        onClick={() => toast.success("Generating PDF...", { description: "Your ticket download will start shortly." })}
+                        className="h-10 px-8 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[13px] font-bold transition-all active:scale-[0.98] shadow-sm border border-black/5"
+                    >
                         <Download className="w-4 h-4 mr-2" />
                         Download PDF
                     </Button>

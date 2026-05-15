@@ -20,12 +20,12 @@ import {
     Search
 } from 'lucide-react';
 import { cn } from "@/lib/utils";
+import { toast } from "sonner";
 
 const navItems = [
     { id: 'overview', name: 'Overview', href: '/admin', icon: LayoutDashboard },
     { id: 'registrations', name: 'Registrations', href: '/admin/registrations', icon: PawPrint },
     { id: 'tickets', name: 'Tickets', href: '/admin/tickets', icon: Ticket },
-    { id: 'settings', name: 'Settings', href: '/admin/settings', icon: Settings },
 ];
 
 export default function AdminLayout({
@@ -144,11 +144,11 @@ export default function AdminLayout({
                         </span>
                     </div>
                     <div className="flex items-center gap-3">
-                        <button className="p-1.5 hover:bg-[#F1F1EF] rounded-sm text-[#91918E]">
+                        <button 
+                            onClick={() => toast.info("No new notifications", { description: "You are all caught up for today." })}
+                            className="p-1.5 hover:bg-[#F1F1EF] rounded-sm text-[#91918E]"
+                        >
                             <Bell size={16} />
-                        </button>
-                        <button className="p-1.5 hover:bg-[#F1F1EF] rounded-sm text-[#91918E]">
-                            <Settings size={16} />
                         </button>
                     </div>
                 </header>

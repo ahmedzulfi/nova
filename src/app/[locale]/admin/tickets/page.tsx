@@ -35,6 +35,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { toast } from "sonner";
 
 const tickets = [
     { id: 'NP-2026-X8Y1', name: 'Sarah Johnson', email: 'sarah.j@example.com', type: 'Dog Owner', adults: 1, kids: 1, pets: 1, total: '$125.00', date: '2026-01-15', status: 'Active' },
@@ -65,7 +66,11 @@ export default function TicketsPage() {
                     </div>
                 </div>
                 <div className="flex items-center gap-2">
-                    <Button variant="outline" className="h-9 px-3 rounded-sm border-[#E9E9E7] text-[13px] font-medium text-[#37352F] hover:bg-[#F7F6F3]">
+                    <Button 
+                        onClick={() => toast.success("Ledger exported", { description: "The full guest list is ready for download." })}
+                        variant="outline" 
+                        className="h-9 px-3 rounded-sm border-[#E9E9E7] text-[13px] font-medium text-[#37352F] hover:bg-[#F7F6F3]"
+                    >
                         <Download className="w-3.5 h-3.5 mr-2 text-[#91918E]" />
                         Export Ledger
                     </Button>
@@ -137,9 +142,19 @@ export default function TicketsPage() {
                                                     View Ticket
                                                 </DropdownMenuItem>
                                             </Link>
-                                            <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">Resend Confirmation</DropdownMenuItem>
+                                            <DropdownMenuItem 
+                                                onClick={() => toast.success("Confirmation Resent", { description: "Email sent to " + ticket.email })}
+                                                className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]"
+                                            >
+                                                Resend Confirmation
+                                            </DropdownMenuItem>
                                             <DropdownMenuSeparator className="bg-[#F1F1EF] my-1" />
-                                            <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer text-[#37352F] focus:bg-[#F7F6F3]">Mark as Used</DropdownMenuItem>
+                                            <DropdownMenuItem 
+                                                onClick={() => toast.info("Status Updated", { description: "Ticket marked as redeemed." })}
+                                                className=" rounded-sm  text-[13px] font-medium py-2 cursor-pointer text-[#37352F] focus:bg-[#F7F6F3]"
+                                            >
+                                                Mark as Used
+                                            </DropdownMenuItem>
                                         </DropdownMenuContent>
                                     </DropdownMenu>
                                 </TableCell>

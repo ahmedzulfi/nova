@@ -13,8 +13,11 @@ import {
     Clock,
     Shield,
     Plus,
-    Activity
+    Activity,
+    ArrowRight
 } from 'lucide-react';
+import Link from 'next/link';
+import { toast } from "sonner";
 import {
     Area,
     AreaChart,
@@ -100,13 +103,21 @@ export default function AdminOverviewPage() {
                     <div className="space-y-4">
                         <div className="flex items-center justify-between border-b border-[#E9E9E7] pb-2">
                             <h2 className="font-bold text-[#37352F] text-[16px] uppercase tracking-wider">Recent Activity</h2>
-                            <Button variant="ghost" className="text-[12px] font-bold text-[#91918E] hover:text-[#37352F] h-8 px-2">
+                            <Button 
+                                onClick={() => toast.info("Full activity log coming soon", { description: "We are integrating the real-time audit stream." })}
+                                variant="ghost" 
+                                className="text-[12px] font-bold text-[#91918E] hover:text-[#37352F] h-8 px-2"
+                            >
                                 View Full Log
                             </Button>
                         </div>
                         <div className="border border-[#E9E9E7] rounded-sm divide-y divide-[#F1F1EF] overflow-hidden">
                             {recentActivity.map((activity) => (
-                                <div key={activity.id} className="group p-4 flex items-center justify-between hover:bg-[#F7F6F3] transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] cursor-pointer">
+                                <Link 
+                                    key={activity.id} 
+                                    href={activity.type === 'registration' ? `/admin/registrations/REG-001` : `/admin/tickets/NP-2026-X8Y1`}
+                                    className="group p-4 flex items-center justify-between hover:bg-[#F7F6F3] transition-all duration-150 [transition-timing-function:var(--ease-emil-out)] cursor-pointer block"
+                                >
                                     <div className="flex items-center gap-4">
                                         <div className={cn(
                                             "w-9 h-9 rounded-sm flex items-center justify-center transition-transform duration-200 [transition-timing-function:var(--ease-emil-out)] group-hover:scale-105",
@@ -114,11 +125,12 @@ export default function AdminOverviewPage() {
                                         )}>
                                             {activity.type === 'registration' ? <PawPrint className="w-4.5 h-4.5" /> : <Ticket className="w-4.5 h-4.5" />}
                                         </div>
-                                        <div>
-                                            <p className="font-bold text-[14px] text-[#37352F]">
+                                        <div className="flex-1">
+                                            <p className="font-bold text-[14px] text-[#37352F] flex items-center gap-2">
                                                 {activity.type === 'registration'
                                                     ? `New Registration: ${activity.pet}`
                                                     : `Ticket Purchased: ${activity.quantity}`}
+                                                <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
                                             </p>
                                             <p className="text-[12px] text-[#91918E]">by {activity.user} • {activity.time}</p>
                                         </div>
@@ -131,7 +143,7 @@ export default function AdminOverviewPage() {
                                     )}>
                                         {activity.status}
                                     </div>
-                                </div>
+                                </Link>
                             ))}
                         </div>
                     </div>
