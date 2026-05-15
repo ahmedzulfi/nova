@@ -121,43 +121,7 @@ export default function PetOwnerDashboard() {
                     </div>
                 </div>
 
-                {/* Resources Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="space-y-4">
-                        <h4 className="text-[14px] font-bold text-[#91918E] uppercase tracking-wider uppercase">{t('handbook_badge')}</h4>
-                        <div className="p-6 border border-[#E9E9E7] rounded-sm space-y-4">
-                            <div className="flex items-center gap-3">
-                                <FileText size={20} className="text-orange-500" />
-                                <span className="font-bold text-[16px]">{t('handbook_title')}</span>
-                            </div>
-                            <p className="text-[14px] text-[#666666] leading-relaxed">
-                                {t('handbook_desc')}
-                            </p>
-                            <Button variant="outline" className="w-full border-[#E9E9E7] text-[13px] font-bold h-10 gap-2">
-                                <ExternalLink size={14} />
-                                {t('handbook_cta')}
-                            </Button>
-                        </div>
-                    </div>
-
-                    <div className="space-y-4">
-                        <h4 className="text-[14px] font-bold text-[#91918E] uppercase tracking-wider uppercase">NOTICES</h4>
-                        <div className="p-6 border border-[#E9E9E7] rounded-sm space-y-4">
-                            <div className="flex items-start gap-3">
-                                <div className="mt-1 w-2 h-2 bg-red-500 rounded-full shrink-0" />
-                                <p className="text-[14px] text-[#37352F] leading-relaxed">
-                                    {t('security_note1')}
-                                </p>
-                            </div>
-                            <div className="flex items-start gap-3">
-                                <div className="mt-1 w-2 h-2 bg-blue-500 rounded-full shrink-0" />
-                                <p className="text-[14px] text-[#37352F] leading-relaxed">
-                                    {t('security_note2')}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {/* Resources Grid removed */}
             </div>
         </div>
     );
