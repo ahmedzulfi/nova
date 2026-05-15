@@ -73,13 +73,6 @@ export default function TicketsPage() {
                     <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">Guest Ledger</h1>
                     <p className="text-[16px] text-[#91918E] max-w-2xl">Unified database of festival attendees and ticket tiers.</p>
                 </div>
-                <Button
-                    onClick={() => toast.info("Scanner Mode", { description: "Initialize camera for QR check-in." })}
-                    className="h-12 px-8 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[14px] font-bold transition-all active:scale-[0.98]  shadow-sm  shadow-yellow-500/10 border border-black/5"
-                >
-                    <Plus className="w-4 h-4 mr-2" />
-                    Scan Ticket
-                </Button>
             </div>
 
             {/* Status Tabs */}
