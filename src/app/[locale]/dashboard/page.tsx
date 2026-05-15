@@ -294,8 +294,6 @@ function DashboardContent() {
                             </div>
                         </div>
                     )}
-                        </div>
-                    )}
 
 
                     {/* ─── TAB: Receipt ──────────────────────────────────────────────── */}
