@@ -58,6 +58,7 @@ const categories = [
 export default function RegistrationsPage() {
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("All");
+    const [selectedStatus, setSelectedStatus] = useState("All");
 
     const filteredRegistrations = registrations.filter(reg => {
         const matchesSearch =
@@ -67,8 +68,9 @@ export default function RegistrationsPage() {
             reg.id.toLowerCase().includes(searchTerm.toLowerCase());
 
         const matchesCategory = selectedCategory === "All" || reg.category === selectedCategory;
+        const matchesStatus = selectedStatus === "All" || reg.status === selectedStatus;
 
-        return matchesSearch && matchesCategory;
+        return matchesSearch && matchesCategory && matchesStatus;
     });
 
     const getStatusBadge = (status: string) => {
@@ -85,9 +87,32 @@ export default function RegistrationsPage() {
     return (
         <div className="space-y-8 animate-in fade-in duration-700">
             {/* Notion Page Header */}
-            <div className="mb-10">
+            <div className="mb-8">
                 <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">Registrations</h1>
                 <p className="text-[16px] text-[#91918E] max-w-2xl">Manage and review all pet competition entries for the festival.</p>
+            </div>
+
+            {/* Status Tabs */}
+            <div className="flex items-center gap-1 border-b border-[#F1F1EF] px-2 mb-6">
+                {["All", "Pending", "Completed"].map((status) => (
+                    <button
+                        key={status}
+                        onClick={() => setSelectedStatus(status)}
+                        className={cn(
+                            "px-4 py-3 text-[13px] font-medium transition-all relative",
+                            selectedStatus === status 
+                                ? "text-[#37352F] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#37352F]" 
+                                : "text-[#91918E] hover:text-[#37352F] hover:bg-[#F7F6F3]"
+                        )}
+                    >
+                        {status === "Completed" ? "Approved" : status}
+                        {status === "All" && (
+                            <span className="ml-2 text-[10px] bg-[#F7F6F3] px-1.5 py-0.5 rounded-sm text-[#91918E]">
+                                {registrations.length}
+                            </span>
+                        )}
+                    </button>
+                ))}
             </div>
 
             {/* Actions Bar */}
