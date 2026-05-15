@@ -210,7 +210,7 @@ function DashboardContent() {
                             </div>
 
                             {/* 2. Competition & Event Status - Single Column Integration */}
-                            {data.competitionEntry && (
+                            {isPetOwner && data.competitionEntry && (
                                 <div className="space-y-6">
                                     <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] px-2 border-l-2 border-primary">Event Registration</h3>
                                     <div className="p-8 bg-[#F7F6F3] border border-[#E9E9E7] rounded-sm space-y-8">
@@ -366,7 +366,7 @@ function DashboardContent() {
                                             </div>
 
                                             {/* Competition Registration Block */}
-                                            {data.competitionEntry && (
+                                            {isPetOwner && data.competitionEntry && (
                                                 <div className="space-y-6">
                                                     <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] border-l-2 border-yellow-500 pl-3">Competition Summary</h3>
                                                     <div className="p-6 bg-yellow-50/50 border border-yellow-100 rounded-sm space-y-4">
