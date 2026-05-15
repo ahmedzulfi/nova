@@ -20,7 +20,9 @@ import {
   Ticket,
   Search,
   Bell,
-  Plus
+  Plus,
+  Menu,
+  X
 } from 'lucide-react';
 
 export default function DashboardLayout({
@@ -36,6 +38,7 @@ export default function DashboardLayout({
 
   const navItems = [
     { id: 'overview', label: t('sidebar.overview'), icon: LayoutDashboard, href: '/dashboard' },
+    { id: 'register-pet', label: 'Competition Entry', icon: Plus, href: '/dashboard/register-pet' },
     { id: 'competitions', label: t('sidebar.competitions'), icon: Trophy, href: '/dashboard/pet-owner' },
     { id: 'settings', label: t('sidebar.settings'), icon: Settings, href: '/dashboard#settings' },
   ];
