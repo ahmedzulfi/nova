@@ -21,7 +21,8 @@ import {
     Trophy,
     ExternalLink,
     ChevronRight,
-    Info
+    Info,
+    Hash
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -46,6 +47,7 @@ const mockGetRegistrationDetails = (id: string) => {
             name: 'Sarah Johnson',
             email: 'sarah.j@example.com',
             phone: '+1 (555) 123-4567',
+            address: 'Al Waab St, Doha, Qatar',
             location: 'Doha, Qatar',
             avatarUrl: 'https://i.pravatar.cc/150?u=sarah',
             memberSince: '2025-11-20',
@@ -61,14 +63,18 @@ const mockGetRegistrationDetails = (id: string) => {
             specialNeeds: 'None',
         },
         competition: {
-            category: 'Grooming Competition',
-            experienceLevel: 'Intermediate',
-            previousTitles: 'Best in Show 2025 (Local)',
+            category: 'Drawing Cat Battle',
+            experienceLevel: 'Professional',
+            previousTitles: 'National Art Winner 2024',
+            materialsList: 'Graphite pencils, Charcoal, Arches 300gsm Paper, Fixing spray',
         },
         documents: [
+            { name: 'Identity_Proof.pdf', size: '0.8 MB', type: 'pdf' },
+            { name: 'Portfolio_Sample.jpg', size: '4.2 MB', type: 'image' },
+            { name: 'Pet_Passport.pdf', size: '1.5 MB', type: 'pdf' },
             { name: 'Vaccination_Record.pdf', size: '1.2 MB', type: 'pdf' },
-            { name: 'Pet_Photo.jpg', size: '3.4 MB', type: 'image' },
-        ]
+        ],
+        passportId: 'NP-PASS-7721-Q'
     };
 };
 
@@ -185,17 +191,23 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
                                 </CardContent>
                             </Card>
 
-                            <Card className="border-[#E9E9E7] shadow-none bg-white rounded-sm">
+                            <Card className="border-[#E9E9E7] shadow-none bg-white rounded-sm overflow-hidden">
                                 <CardContent className="p-6 space-y-4">
                                     <div className="flex items-start gap-3">
                                         <div className="mt-1">
                                             <ShieldCheck className="w-4 h-4 text-green-600" />
                                         </div>
                                         <div>
-                                            <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Medical Status</p>
-                                            <p className="text-[13px] text-[#37352F] leading-relaxed font-medium">
-                                                {data.pet.medicalNotes}
-                                            </p>
+                                            <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Medical & Passport</p>
+                                            <div className="space-y-2">
+                                                <p className="text-[13px] text-[#37352F] leading-relaxed font-medium">
+                                                    {data.pet.medicalNotes}
+                                                </p>
+                                                <div className="inline-flex items-center gap-2 px-2 py-1 bg-blue-50 text-blue-700 rounded-sm">
+                                                    <Hash size={12} />
+                                                    <span className="text-[11px] font-bold tracking-wider">{data.passportId}</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="pt-4 border-t border-[#F1F1EF]">
@@ -247,6 +259,22 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
                                         </div>
                                     </div>
                                 </div>
+
+                                {data.competition.category === 'Drawing Cat Battle' && (
+                                    <div className="mt-8 pt-6 border-t border-black/5">
+                                        <div className="flex items-start gap-4">
+                                            <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm shrink-0">
+                                                <FileText className="w-4 h-4 text-[#854d0e]" />
+                                            </div>
+                                            <div>
+                                                <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest mb-1">Required Materials List</p>
+                                                <p className="text-[14px] text-[#37352F] font-medium leading-relaxed italic">
+                                                    "{data.competition.materialsList}"
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </motion.section>
@@ -316,11 +344,14 @@ export default function RegistrationDetailsPage({ params }: { params: Promise<{ 
                                         </div>
                                         <span className="font-medium text-[#37352F]">{data.attendee.phone}</span>
                                     </div>
-                                    <div className="flex items-center gap-4 text-[14px]">
-                                        <div className="w-8 h-8 rounded-full bg-[#F7F6F3] flex items-center justify-center text-[#91918E]">
+                                    <div className="flex items-start gap-4 text-[14px]">
+                                        <div className="w-8 h-8 rounded-full bg-[#F7F6F3] flex items-center justify-center text-[#91918E] shrink-0">
                                             <MapPin size={14} />
                                         </div>
-                                        <span className="font-medium text-[#37352F]">{data.attendee.location}</span>
+                                        <div className="flex flex-col">
+                                            <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Home Address</p>
+                                            <span className="font-medium text-[#37352F]">{data.attendee.address}</span>
+                                        </div>
                                     </div>
                                 </div>
 
