@@ -110,13 +110,12 @@ function DashboardContent() {
             <div className="mb-12">
                 <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">
                     {activeTab === 'overview' ? `Welcome, ${data.fullName.split(' ')[0]}` :
-                            activeTab === 'receipt' ? 'Order Receipt' :
-                                activeTab === 'schedule' ? t('sidebar.schedule') : t('sidebar.settings')}
+                            activeTab === 'receipt' ? 'Order Receipt' : t('sidebar.schedule')}
                 </h1>
 
                 {/* Simple Tab Switcher (Notion Style) */}
                 <div className="flex items-center gap-1 mt-6 border-b border-[#E9E9E7]">
-                    {['overview', 'receipt', 'schedule', 'settings'].map((tab) => {
+                    {['overview', 'receipt', 'schedule'].map((tab) => {
                         return (
                             <button
                                 key={tab}
@@ -550,127 +549,6 @@ function DashboardContent() {
                                         </div>
                                     </div>
                                 ))}
-                            </div>
-                        </div>
-                    )}
-
-                    {/* ─── TAB: Account Settings ─────────────────────────────────────────────── */}
-                    {activeTab === 'settings' && (
-                        <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                            {/* Profile Header Block */}
-                            <div className="flex flex-col md:flex-row gap-10 items-start md:items-center p-10 bg-[#F7F6F3] border border-[#E9E9E7] rounded-sm relative overflow-hidden">
-                                <div className="relative group">
-                                    <div className="w-24 h-24 bg-white border border-[#E9E9E7] rounded-sm flex items-center justify-center text-[40px] shadow-sm">
-                                        👤
-                                    </div>
-                                    <button className="absolute -bottom-2 -right-2 w-8 h-8 bg-white border border-[#E9E9E7] rounded-sm flex items-center justify-center text-[#37352F] shadow-sm hover:bg-[#F7F6F3] transition-all">
-                                        <Clock size={14} className="opacity-40" />
-                                    </button>
-                                </div>
-                                <div className="space-y-2 flex-1">
-                                    <h2 className="text-[28px] font-bold text-[#37352F] tracking-tight">{data.fullName}</h2>
-                                    <div className="flex flex-wrap gap-4">
-                                        <div className="flex items-center gap-2 text-[12px] font-medium text-[#91918E]">
-                                            <Mail size={14} />
-                                            {data.email}
-                                        </div>
-                                        <div className="flex items-center gap-2 text-[12px] font-medium text-[#91918E]">
-                                            <Phone size={14} />
-                                            {data.phone}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="flex flex-col items-end gap-2 text-right">
-                                    <span className="px-3 py-1 bg-green-50 text-green-700 border border-green-100 rounded-full text-[10px] font-bold uppercase tracking-widest">Active Member</span>
-                                    <p className="text-[11px] text-[#91918E] font-medium">Joined Oct 2023</p>
-                                </div>
-                            </div>
-
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                                {/* Pass Details */}
-                                <div className="md:col-span-2 space-y-8">
-                                    <div className="space-y-6">
-                                        <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] border-b border-black/5 pb-4">Digital Pass Configuration</h3>
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                            <div className="space-y-1">
-                                                <p className="text-[10px] font-bold text-[#91918E] uppercase tracking-[0.2em]">Membership Tier</p>
-                                                <p className="text-[16px] font-bold text-primary uppercase">{getTierName(data.tier)}</p>
-                                            </div>
-                                            <div className="space-y-1">
-                                                <p className="text-[10px] font-bold text-[#91918E] uppercase tracking-[0.2em]">Registered Pet</p>
-                                                <p className="text-[16px] font-bold text-[#37352F]">{data.petName || '—'}</p>
-                                            </div>
-                                            <div className="space-y-1">
-                                                <p className="text-[10px] font-bold text-[#91918E] uppercase tracking-[0.2em]">Additional Adults</p>
-                                                <p className="text-[16px] font-bold text-[#37352F]">{data.adultQty}</p>
-                                            </div>
-                                            <div className="space-y-1">
-                                                <p className="text-[10px] font-bold text-[#91918E] uppercase tracking-[0.2em]">Additional Kids</p>
-                                                <p className="text-[16px] font-bold text-[#37352F]">{data.kidsQty || 0}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {/* Compliance Block */}
-                                    <div className="p-8 border border-[#E9E9E7] rounded-sm space-y-6 bg-[#FBFAFB]">
-                                        <h3 className="text-[14px] font-bold text-[#37352F] flex items-center gap-2">
-                                            <ShieldCheck size={18} className="text-green-600" />
-                                            Safety & Legal Compliance
-                                        </h3>
-                                        <div className="space-y-4">
-                                            <div className="flex items-center justify-between p-3 bg-white border border-[#E9E9E7] rounded-sm">
-                                                <span className="text-[13px] font-medium text-[#37352F]">Nova Paw Safety Agreement</span>
-                                                <span className="text-[11px] font-bold text-green-600 uppercase tracking-widest">Signed</span>
-                                            </div>
-                                            <div className="flex items-center justify-between p-3 bg-white border border-[#E9E9E7] rounded-sm">
-                                                <span className="text-[13px] font-medium text-[#37352F]">Liability Waiver 2026</span>
-                                                <span className="text-[11px] font-bold text-green-600 uppercase tracking-widest">Signed</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Sidebar Stats */}
-                                <div className="space-y-8">
-                                    <div className="p-6 bg-white border border-[#E9E9E7] rounded-sm space-y-6">
-                                        <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em]">Security Overview</h3>
-                                        <div className="space-y-4">
-                                            <div>
-                                                <p className="text-[10px] font-bold text-[#91918E] uppercase mb-1">Last Active</p>
-                                                <p className="text-[13px] font-bold text-[#37352F]">Today, 10:45 AM</p>
-                                            </div>
-                                            <div>
-                                                <p className="text-[10px] font-bold text-[#91918E] uppercase mb-1">Trusted Device</p>
-                                                <p className="text-[13px] font-medium text-[#666666]">iPhone 15 Pro · Doha, QA</p>
-                                            </div>
-                                            <div>
-                                                <p className="text-[10px] font-bold text-[#91918E] uppercase mb-1">Account ID</p>
-                                                <p className="text-[13px] font-mono text-[#37352F]">{data.orderId.replace('NP-', 'USR-')}</p>
-                                            </div>
-                                        </div>
-                                        <div className="pt-4 border-t border-black/5">
-                                            <Button variant="ghost" className="w-full text-[#37352F] hover:bg-[#F7F6F3] text-[12px] font-bold uppercase tracking-widest h-10">
-                                                Manage Security
-                                            </Button>
-                                        </div>
-                                    </div>
-
-                                    <div className="p-6 bg-white border border-[#E9E9E7] rounded-sm space-y-4">
-                                        <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em]">Preferences</h3>
-                                        <div className="flex items-center justify-between">
-                                            <span className="text-[13px] text-[#666666]">Email Notifications</span>
-                                            <div className="w-8 h-4 bg-green-500 rounded-full relative">
-                                                <div className="absolute right-0.5 top-0.5 w-3 h-3 bg-white rounded-full shadow-sm" />
-                                            </div>
-                                        </div>
-                                        <div className="flex items-center justify-between">
-                                            <span className="text-[13px] text-[#666666]">SMS Alerts</span>
-                                            <div className="w-8 h-4 bg-[#E9E9E7] rounded-full relative">
-                                                <div className="absolute left-0.5 top-0.5 w-3 h-3 bg-white rounded-full shadow-sm" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     )}
