@@ -153,95 +153,126 @@ function RegistrationContent() {
                 );
             case 2:
                 return (
-                    <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-8">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="space-y-2">
-                                <Label className="text-[11px] font-bold uppercase tracking-wider text-[#91918E]">Full Name</Label>
-                                <input
-                                    value={formData.fullName}
-                                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                                    className="w-full bg-[#F7F6F3] border border-[#E9E9E7] rounded-sm px-4 py-3 text-[14px] focus:outline-none focus:ring-1 focus:ring-[#37352F]"
-                                />
+                    <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-10">
+                        <div className="bg-[#F7F6F3]/50 backdrop-blur-sm border border-[#E9E9E7] rounded-sm p-10 space-y-8 shadow-sm">
+                            <div className="flex items-center gap-4 border-b border-[#E9E9E7] pb-6">
+                                <div className="w-12 h-12 bg-[#37352F] rounded-sm flex items-center justify-center text-white">
+                                    <User size={24} />
+                                </div>
+                                <div>
+                                    <h2 className="text-[20px] font-bold text-[#37352F] tracking-tight">Step 02: Personal Information</h2>
+                                    <p className="text-[12px] text-[#91918E] font-medium uppercase tracking-widest">Legal Guardian / Owner Details</p>
+                                </div>
                             </div>
-                            <div className="space-y-2">
-                                <Label className="text-[11px] font-bold uppercase tracking-wider text-[#91918E]">Phone Number</Label>
-                                <input
-                                    value={formData.phone}
-                                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                    className="w-full bg-[#F7F6F3] border border-[#E9E9E7] rounded-sm px-4 py-3 text-[14px] focus:outline-none focus:ring-1 focus:ring-[#37352F]"
-                                />
-                            </div>
-                            <div className="space-y-2 md:col-span-2">
-                                <Label className="text-[11px] font-bold uppercase tracking-wider text-[#91918E]">Home Address</Label>
-                                <input
-                                    value={formData.address}
-                                    onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                                    className="w-full bg-[#F7F6F3] border border-[#E9E9E7] rounded-sm px-4 py-3 text-[14px] focus:outline-none focus:ring-1 focus:ring-[#37352F]"
-                                />
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+                                <div className="space-y-3">
+                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E]">Legal Full Name</Label>
+                                    <input
+                                        value={formData.fullName}
+                                        onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                                        className="w-full bg-white border border-[#E9E9E7] rounded-sm px-5 py-4 text-[14px] font-bold text-[#37352F] outline-none focus:border-[#37352F] transition-all shadow-sm"
+                                        placeholder="John Doe"
+                                    />
+                                </div>
+                                <div className="space-y-3">
+                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E]">Primary Contact Number</Label>
+                                    <input
+                                        value={formData.phone}
+                                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                        className="w-full bg-white border border-[#E9E9E7] rounded-sm px-5 py-4 text-[14px] font-bold text-[#37352F] outline-none focus:border-[#37352F] transition-all shadow-sm"
+                                        placeholder="+974 XXXX XXXX"
+                                    />
+                                </div>
+                                <div className="space-y-3 md:col-span-2">
+                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E]">Residential Address in Qatar</Label>
+                                    <input
+                                        value={formData.address}
+                                        onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                                        className="w-full bg-white border border-[#E9E9E7] rounded-sm px-5 py-4 text-[14px] font-bold text-[#37352F] outline-none focus:border-[#37352F] transition-all shadow-sm"
+                                        placeholder="The Pearl, Porto Arabia, Tower 12"
+                                    />
+                                </div>
                             </div>
                         </div>
-                        <div className="flex gap-4 pt-4">
+
+                        <div className="flex gap-4">
                             <Button variant="ghost" onClick={prevStep} className="font-bold text-[13px] text-[#91918E] hover:text-[#37352F]">
                                 <ArrowLeft size={16} className="mr-2" /> Back
                             </Button>
-                            <Button onClick={nextStep} className="bg-[#37352F] text-white hover:bg-black rounded-sm h-12 px-8 font-bold text-[13px]">
-                                Next: Pet Details <ArrowRight size={16} className="ml-2" />
+                            <Button onClick={nextStep} className="bg-[#37352F] text-white hover:bg-black rounded-sm h-14 px-10 font-bold text-[14px] shadow-lg shadow-black/5">
+                                Save & Continue <ArrowRight size={18} className="ml-2" />
                             </Button>
                         </div>
                     </motion.div>
                 );
             case 3:
                 return (
-                    <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-8">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="space-y-2">
-                                <Label className="text-[11px] font-bold uppercase tracking-wider text-[#91918E]">Pet Name</Label>
-                                <input
-                                    value={formData.petName}
-                                    onChange={(e) => setFormData({ ...formData, petName: e.target.value })}
-                                    className="w-full bg-[#F7F6F3] border border-[#E9E9E7] rounded-sm px-4 py-3 text-[14px] focus:outline-none focus:ring-1 focus:ring-[#37352F]"
-                                />
+                    <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-10">
+                        <div className="bg-[#F7F6F3]/50 backdrop-blur-sm border border-[#E9E9E7] rounded-sm p-10 space-y-8 shadow-sm">
+                            <div className="flex items-center gap-4 border-b border-[#E9E9E7] pb-6">
+                                <div className="w-12 h-12 bg-primary rounded-sm flex items-center justify-center text-white">
+                                    <PawPrint size={24} />
+                                </div>
+                                <div>
+                                    <h2 className="text-[20px] font-bold text-[#37352F] tracking-tight">Step 03: Companion Profile</h2>
+                                    <p className="text-[12px] text-[#91918E] font-medium uppercase tracking-widest">Detailed Pet Information</p>
+                                </div>
                             </div>
-                            <div className="space-y-2">
-                                <Label className="text-[11px] font-bold uppercase tracking-wider text-[#91918E]">Breed</Label>
-                                <input
-                                    value={formData.breed}
-                                    onChange={(e) => setFormData({ ...formData, breed: e.target.value })}
-                                    className="w-full bg-[#F7F6F3] border border-[#E9E9E7] rounded-sm px-4 py-3 text-[14px] focus:outline-none focus:ring-1 focus:ring-[#37352F]"
-                                />
-                            </div>
-                            <div className="space-y-2">
-                                <Label className="text-[11px] font-bold uppercase tracking-wider text-[#91918E]">Gender</Label>
-                                <Select value={formData.gender} onValueChange={(val) => setFormData({ ...formData, gender: val })}>
-                                    <SelectTrigger className="w-full h-[46px] bg-[#F7F6F3] border-[#E9E9E7] rounded-sm">
-                                        <SelectValue />
-                                    </SelectTrigger>
-                                    <SelectContent className="rounded-sm">
-                                        <SelectItem value="Male">Male</SelectItem>
-                                        <SelectItem value="Female">Female</SelectItem>
-                                    </SelectContent>
-                                </Select>
-                            </div>
-                            <div className="space-y-2">
-                                <Label className="text-[11px] font-bold uppercase tracking-wider text-[#91918E]">Experience Level</Label>
-                                <Select value={formData.experienceLevel} onValueChange={(val) => setFormData({ ...formData, experienceLevel: val })}>
-                                    <SelectTrigger className="w-full h-[46px] bg-[#F7F6F3] border-[#E9E9E7] rounded-sm">
-                                        <SelectValue />
-                                    </SelectTrigger>
-                                    <SelectContent className="rounded-sm">
-                                        <SelectItem value="Beginner">Beginner</SelectItem>
-                                        <SelectItem value="Intermediate">Intermediate</SelectItem>
-                                        <SelectItem value="Professional">Professional</SelectItem>
-                                    </SelectContent>
-                                </Select>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+                                <div className="space-y-3">
+                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E]">Pet Name</Label>
+                                    <input
+                                        value={formData.petName}
+                                        onChange={(e) => setFormData({ ...formData, petName: e.target.value })}
+                                        className="w-full bg-white border border-[#E9E9E7] rounded-sm px-5 py-4 text-[14px] font-bold text-[#37352F] outline-none focus:border-[#37352F] transition-all shadow-sm"
+                                        placeholder="Buddy"
+                                    />
+                                </div>
+                                <div className="space-y-3">
+                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E]">Pet Breed</Label>
+                                    <input
+                                        value={formData.breed}
+                                        onChange={(e) => setFormData({ ...formData, breed: e.target.value })}
+                                        className="w-full bg-white border border-[#E9E9E7] rounded-sm px-5 py-4 text-[14px] font-bold text-[#37352F] outline-none focus:border-[#37352F] transition-all shadow-sm"
+                                        placeholder="Golden Retriever"
+                                    />
+                                </div>
+                                <div className="space-y-3">
+                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E]">Gender</Label>
+                                    <Select value={formData.gender} onValueChange={(val) => setFormData({ ...formData, gender: val })}>
+                                        <SelectTrigger className="w-full h-14 bg-white border-[#E9E9E7] rounded-sm font-bold text-[14px] shadow-sm">
+                                            <SelectValue />
+                                        </SelectTrigger>
+                                        <SelectContent className="rounded-sm">
+                                            <SelectItem value="Male">Male</SelectItem>
+                                            <SelectItem value="Female">Female</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+                                <div className="space-y-3">
+                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E]">Experience Level</Label>
+                                    <Select value={formData.experienceLevel} onValueChange={(val) => setFormData({ ...formData, experienceLevel: val })}>
+                                        <SelectTrigger className="w-full h-14 bg-white border-[#E9E9E7] rounded-sm font-bold text-[14px] shadow-sm">
+                                            <SelectValue />
+                                        </SelectTrigger>
+                                        <SelectContent className="rounded-sm">
+                                            <SelectItem value="Beginner">Beginner</SelectItem>
+                                            <SelectItem value="Intermediate">Intermediate</SelectItem>
+                                            <SelectItem value="Professional">Professional</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
                             </div>
                         </div>
-                        <div className="flex gap-4 pt-4">
+
+                        <div className="flex gap-4">
                             <Button variant="ghost" onClick={prevStep} className="font-bold text-[13px] text-[#91918E] hover:text-[#37352F]">
                                 <ArrowLeft size={16} className="mr-2" /> Back
                             </Button>
-                            <Button onClick={nextStep} className="bg-[#37352F] text-white hover:bg-black rounded-sm h-12 px-8 font-bold text-[13px]">
-                                Next: Documents <ArrowRight size={16} className="ml-2" />
+                            <Button onClick={nextStep} className="bg-[#37352F] text-white hover:bg-black rounded-sm h-14 px-10 font-bold text-[14px] shadow-lg shadow-black/5">
+                                Save & Upload Documents <ArrowRight size={18} className="ml-2" />
                             </Button>
                         </div>
                     </motion.div>

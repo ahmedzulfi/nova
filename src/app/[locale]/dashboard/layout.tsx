@@ -66,12 +66,20 @@ export default function DashboardLayout({
             </div>
             <span className="font-semibold text-[14px] truncate">Nova Paw Festival</span>
           </div>
-          <button 
-            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            className="p-1 hover:bg-[#E9E9E7] rounded-sm text-[#91918E]"
-          >
-            {isSidebarOpen ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
-          </button>
+          <div className="flex items-center gap-1">
+            <button 
+              onClick={() => setIsSidebarOpen(false)}
+              className="p-1 hover:bg-[#E9E9E7] rounded-sm text-[#91918E] lg:hidden"
+            >
+              <X size={16} />
+            </button>
+            <button 
+              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+              className="p-1 hover:bg-[#E9E9E7] rounded-sm text-[#91918E] hidden lg:block"
+            >
+              {isSidebarOpen ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
+            </button>
+          </div>
         </div>
 
         {/* Navigation */}
@@ -122,12 +130,22 @@ export default function DashboardLayout({
       >
         {/* Notion Header */}
         <header className="h-12 flex items-center justify-between px-8 md:px-16 border-b border-[#F1F1EF] sticky top-0 bg-white/80 backdrop-blur-sm z-10">
-          <div className="flex items-center gap-2 text-[13px] text-[#91918E]">
-            <span>Nova Paw</span>
-            <span>/</span>
-            <span className="text-[#37352F] capitalize font-medium">
-              {pathname === '/dashboard' ? 'Overview' : pathname.split('/').pop()?.replace(/-/g, ' ')}
-            </span>
+          <div className="flex items-center gap-4">
+            {!isSidebarOpen && (
+              <button 
+                onClick={() => setIsSidebarOpen(true)}
+                className="p-1.5 hover:bg-[#F1F1EF] rounded-sm text-[#91918E]"
+              >
+                <Menu size={18} />
+              </button>
+            )}
+            <div className="flex items-center gap-2 text-[13px] text-[#91918E]">
+              <span>Nova Paw</span>
+              <span>/</span>
+              <span className="text-[#37352F] capitalize font-medium">
+                {pathname === '/dashboard' ? 'Overview' : pathname.split('/').pop()?.replace(/-/g, ' ')}
+              </span>
+            </div>
           </div>
           <div className="flex items-center gap-3">
             <button className="p-1.5 hover:bg-[#F1F1EF] rounded-sm text-[#91918E]">
