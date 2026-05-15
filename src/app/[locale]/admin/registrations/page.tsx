@@ -188,12 +188,6 @@ export default function RegistrationsPage() {
                                             <Link href={`/admin/registrations/${reg.id}`}>
                                                 <DropdownMenuItem className=" rounded-sm  text-[13px] font-medium text-[#37352F] focus:bg-[#F7F6F3] focus:text-[#37352F] cursor-pointer">View Details</DropdownMenuItem>
                                             </Link>
-                                            <DropdownMenuItem
-                                                onClick={() => toast.info("Editing disabled in preview", { description: "Database integration is pending." })}
-                                                className=" rounded-sm  text-[13px] font-medium text-[#37352F] focus:bg-[#F7F6F3] focus:text-[#37352F] cursor-pointer"
-                                            >
-                                                Edit Data
-                                            </DropdownMenuItem>
                                         </DropdownMenuContent>
                                     </DropdownMenu>
                                 </TableCell>
