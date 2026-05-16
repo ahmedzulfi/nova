@@ -9,12 +9,13 @@
 | Layer            | Technology                      | Purpose                                            |
 | :---             | :---                            | :---                                               |
 | Framework        | Next.js 15+ (App Router)        | SSR, API Routes, Server Actions                    |
-| Database         | PostgreSQL                      | Persistent storage (Neon / Supabase hosted)        |
+| **Hosting**      | **Hostinger VPS**               | **Production hosting for the Next.js App**         |
+| **Database**     | **Supabase (PostgreSQL)**       | **Persistent storage & managed DB**                |
+| **File Storage** | **Supabase Storage**            | **Pet passport & vaccination PDFs**                |
 | ORM              | Drizzle ORM                     | Type-safe schema & migrations                      |
-| Auth (Admin)     | NextAuth.js v5                  | Admin portal login (email + password)              |
+| Auth (Admin)     | NextAuth.js v5 / Custom         | Admin portal login (email + password)              |
 | Auth (User)      | OTP-based (custom)              | User verification during checkout (phone/email)    |
 | Validation       | Zod                             | Request/form schema validation                     |
-| File Storage     | Supabase Storage / S3           | Pet passport & vaccination PDFs                    |
 | Payments         | Stripe (or regional gateway)    | Checkout payment processing                        |
 | Email            | Resend                          | Confirmation emails, receipts                      |
 
