@@ -1,22 +1,29 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/db';
 import { orders, petRegistrations } from '@/db/schema';
 import { sql, eq, desc } from 'drizzle-orm';
+import { requireAdmin } from '@/lib/auth';
+import { rateLimit, RATE_LIMIT_RELAXED } from '@/lib/rate-limit';
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  // ─── Auth Guard ────────────────────────────────────────────────────
+  const auth = await requireAdmin(req);
+  if (!auth.authenticated) return auth.response;
+
+  // ─── Rate Limit ────────────────────────────────────────────────────
+  const limited = rateLimit(req, RATE_LIMIT_RELAXED);
+  if (limited) return limited;
+
   try {
-    // Total Registrations
     const [regCount] = await db
       .select({ count: sql<number>`count(*)::int` })
       .from(petRegistrations);
 
-    // Tickets Sold (PAID orders)
     const [ticketCount] = await db
       .select({ count: sql<number>`count(*)::int` })
       .from(orders)
       .where(eq(orders.status, 'PAID'));
 
-    // Total Attendees (sum of adult_qty + kids_qty from paid orders)
     const [attendeeCount] = await db
       .select({
         total: sql<number>`coalesce(sum(adult_qty + kids_qty), 0)::int`,
@@ -24,7 +31,6 @@ export async function GET() {
       .from(orders)
       .where(eq(orders.status, 'PAID'));
 
-    // Revenue
     const [revenue] = await db
       .select({
         total: sql<number>`coalesce(sum(total::numeric), 0)::float`,
@@ -32,7 +38,6 @@ export async function GET() {
       .from(orders)
       .where(eq(orders.status, 'PAID'));
 
-    // Recent Activity (last 10 orders + registrations merged by date)
     const recentOrders = await db
       .select({
         id: orders.id,
@@ -59,21 +64,17 @@ export async function GET() {
       .orderBy(desc(petRegistrations.submittedAt))
       .limit(5);
 
-    // Merge and sort by time
     const recentActivity = [...recentOrders, ...recentRegistrations]
       .sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime())
       .slice(0, 10);
 
-    // Registration trends (last 7 days)
     const chartData = await db
       .select({
         day: sql<string>`to_char(created_at, 'Dy')`,
         registrations: sql<number>`count(*)::int`,
       })
       .from(orders)
-      .where(
-        sql`created_at >= now() - interval '7 days'`
-      )
+      .where(sql`created_at >= now() - interval '7 days'`)
       .groupBy(sql`to_char(created_at, 'Dy'), date_trunc('day', created_at)`)
       .orderBy(sql`date_trunc('day', created_at)`);
 
@@ -86,12 +87,9 @@ export async function GET() {
       ],
       recentActivity,
       chartData: chartData.length > 0 ? chartData : [
-        { day: 'Mon', registrations: 0 },
-        { day: 'Tue', registrations: 0 },
-        { day: 'Wed', registrations: 0 },
-        { day: 'Thu', registrations: 0 },
-        { day: 'Fri', registrations: 0 },
-        { day: 'Sat', registrations: 0 },
+        { day: 'Mon', registrations: 0 }, { day: 'Tue', registrations: 0 },
+        { day: 'Wed', registrations: 0 }, { day: 'Thu', registrations: 0 },
+        { day: 'Fri', registrations: 0 }, { day: 'Sat', registrations: 0 },
         { day: 'Sun', registrations: 0 },
       ],
     });

@@ -1,20 +1,32 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/db';
-import { petRegistrations, orders } from '@/db/schema';
+import { petRegistrations } from '@/db/schema';
 import { eq } from 'drizzle-orm';
+import { requireAdmin } from '@/lib/auth';
+import { rateLimit, RATE_LIMIT_STANDARD } from '@/lib/rate-limit';
+import { sanitizeString } from '@/lib/sanitize';
 
 export async function GET(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  const auth = await requireAdmin(req);
+  if (!auth.authenticated) return auth.response;
+
+  const limited = rateLimit(req, RATE_LIMIT_STANDARD);
+  if (limited) return limited;
+
   try {
     const { id } = await params;
+    const cleanId = sanitizeString(id);
+
+    if (!cleanId || cleanId.length > 30) {
+      return NextResponse.json({ error: 'Invalid ID' }, { status: 400 });
+    }
 
     const registration = await db.query.petRegistrations.findFirst({
-      where: eq(petRegistrations.id, id),
-      with: {
-        order: true,
-      },
+      where: eq(petRegistrations.id, cleanId),
+      with: { order: true },
     });
 
     if (!registration) {
@@ -31,7 +43,7 @@ export async function GET(
         phone: registration.ownerPhone,
         address: registration.ownerAddress || 'Doha, Qatar',
         location: 'Doha, Qatar',
-        avatarUrl: `https://i.pravatar.cc/150?u=${registration.ownerEmail || registration.order.email}`,
+        avatarUrl: `https://i.pravatar.cc/150?u=${encodeURIComponent(registration.ownerEmail || registration.order.email)}`,
         memberSince: registration.order.createdAt.toISOString().split('T')[0],
       },
       pet: {
@@ -51,12 +63,8 @@ export async function GET(
         materialsList: registration.drawingMaterials || registration.outfitDescription || '',
       },
       documents: [
-        ...(registration.passportUrl
-          ? [{ name: 'Pet_Passport.pdf', size: 'N/A', type: 'pdf', url: registration.passportUrl }]
-          : []),
-        ...(registration.vaccinationUrl
-          ? [{ name: 'Vaccination_Record.pdf', size: 'N/A', type: 'pdf', url: registration.vaccinationUrl }]
-          : []),
+        ...(registration.passportUrl ? [{ name: 'Pet_Passport.pdf', size: 'N/A', type: 'pdf', url: registration.passportUrl }] : []),
+        ...(registration.vaccinationUrl ? [{ name: 'Vaccination_Record.pdf', size: 'N/A', type: 'pdf', url: registration.vaccinationUrl }] : []),
       ],
       passportId: `NP-PASS-${registration.id.replace('REG-', '')}`,
     });
@@ -70,40 +78,36 @@ export async function PATCH(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  const auth = await requireAdmin(req);
+  if (!auth.authenticated) return auth.response;
+
+  const limited = rateLimit(req, RATE_LIMIT_STANDARD);
+  if (limited) return limited;
+
   try {
     const { id } = await params;
+    const cleanId = sanitizeString(id);
     const body = await req.json();
-    const { action } = body;
+    const action = typeof body.action === 'string' ? body.action : '';
 
-    if (action === 'approve') {
-      const [updated] = await db
-        .update(petRegistrations)
-        .set({ status: 'Completed' })
-        .where(eq(petRegistrations.id, id))
-        .returning();
-
-      if (!updated) {
-        return NextResponse.json({ error: 'Registration not found' }, { status: 404 });
-      }
-
-      return NextResponse.json({ success: true, status: 'Completed' });
+    // Whitelist allowed actions
+    if (!['approve', 'decline'].includes(action)) {
+      return NextResponse.json({ error: 'Unknown action' }, { status: 400 });
     }
 
-    if (action === 'decline') {
-      const [updated] = await db
-        .update(petRegistrations)
-        .set({ status: 'Rejected' })
-        .where(eq(petRegistrations.id, id))
-        .returning();
+    const newStatus = action === 'approve' ? 'Completed' : 'Rejected';
 
-      if (!updated) {
-        return NextResponse.json({ error: 'Registration not found' }, { status: 404 });
-      }
+    const [updated] = await db
+      .update(petRegistrations)
+      .set({ status: newStatus as any })
+      .where(eq(petRegistrations.id, cleanId))
+      .returning();
 
-      return NextResponse.json({ success: true, status: 'Rejected' });
+    if (!updated) {
+      return NextResponse.json({ error: 'Registration not found' }, { status: 404 });
     }
 
-    return NextResponse.json({ error: 'Unknown action' }, { status: 400 });
+    return NextResponse.json({ success: true, status: newStatus });
   } catch (error) {
     console.error('[PATCH /api/admin/registrations/[id]]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });

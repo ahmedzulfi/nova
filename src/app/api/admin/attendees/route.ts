@@ -1,18 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/db';
 import { orders } from '@/db/schema';
-import { sql, eq, desc, ilike, or } from 'drizzle-orm';
+import { sql, desc, ilike, or } from 'drizzle-orm';
+import { requireAdmin } from '@/lib/auth';
+import { rateLimit, RATE_LIMIT_RELAXED } from '@/lib/rate-limit';
+import { sanitizeString } from '@/lib/sanitize';
 
 export async function GET(req: NextRequest) {
+  const auth = await requireAdmin(req);
+  if (!auth.authenticated) return auth.response;
+
+  const limited = rateLimit(req, RATE_LIMIT_RELAXED);
+  if (limited) return limited;
+
   try {
     const { searchParams } = new URL(req.url);
-    const search = searchParams.get('search') || '';
-    const page = parseInt(searchParams.get('page') || '1');
+    const search = sanitizeString(searchParams.get('search') || '');
+    const page = Math.max(1, parseInt(searchParams.get('page') || '1'));
     const limit = 20;
     const offset = (page - 1) * limit;
 
-    // Attendees are derived from orders (no separate user accounts for buyers)
-    // Group by email to get unique attendees
     const searchCondition = search
       ? or(
           ilike(orders.fullName, `%${search}%`),
@@ -36,11 +43,8 @@ export async function GET(req: NextRequest) {
       .limit(limit)
       .offset(offset);
 
-    // Total count of unique attendees
     const [{ count: totalCount }] = await db
-      .select({
-        count: sql<number>`count(distinct email)::int`,
-      })
+      .select({ count: sql<number>`count(distinct email)::int` })
       .from(orders)
       .where(searchCondition);
 
@@ -56,12 +60,7 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json({
       attendees: result,
-      pagination: {
-        total: totalCount,
-        page,
-        limit,
-        totalPages: Math.ceil(totalCount / limit),
-      },
+      pagination: { total: totalCount, page, limit, totalPages: Math.ceil(totalCount / limit) },
     });
   } catch (error) {
     console.error('[GET /api/admin/attendees]', error);
