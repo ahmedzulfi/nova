@@ -97,13 +97,7 @@ export default function DashboardLayout({
             </Link>
           ))}
           
-          <div className="mt-8 mb-2 px-2 text-[11px] font-bold text-[#91918E] uppercase tracking-wider">
-            Quick Links
-          </div>
-          <Link href="/tickets" className="flex items-center gap-2 px-2 py-1.5 hover:bg-[#E9E9E7] rounded-sm text-[14px] text-[#37352F]">
-            <Plus size={18} className="text-[#91918E]" />
-            <span>Buy Tickets</span>
-          </Link>
+
         </nav>
 
         {/* Footer Actions */}
