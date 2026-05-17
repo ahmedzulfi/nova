@@ -54,20 +54,56 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'File size must be under 5MB' }, { status: 400 });
     }
 
-    // ─── Mock Upload Path (Storage integration TODO) ────────────────
-    // In production, upload to S3/Supabase and get real URL
-    const mockUrl = `/uploads/${cleanType}/${cleanId}_document.pdf`;
+    // ─── Supabase Storage Upload ────────────────────────────────────
+    const supabaseUrl = process.env.SUPABASE_URL;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
 
-    // ─── Update DB with the new URL ─────────────────────────────────
+    if (!supabaseUrl || !supabaseServiceKey) {
+      // If no keys, fallback to mock (useful for initial dev)
+      console.warn('Supabase keys missing, using mock URL');
+      const mockUrl = `/uploads/${cleanType}/${cleanId}_document.pdf`;
+      await db.update(petRegistrations)
+        .set({ [cleanType === 'passport' ? 'passportUrl' : 'vaccinationUrl']: mockUrl })
+        .where(eq(petRegistrations.id, cleanId));
+        
+      return NextResponse.json({ success: true, url: mockUrl, fileName: sanitizeString(file.name), fileSize: file.size, mock: true });
+    }
+
+    const { supabase } = await import('@/lib/supabase');
+    const fileExt = 'pdf';
+    const fileName = `${cleanId}_${cleanType}_${Date.now()}.${fileExt}`;
+    const filePath = `documents/${fileName}`;
+
+    // Convert File to ArrayBuffer for Supabase
+    const buffer = await file.arrayBuffer();
+
+    const { data: uploadData, error: uploadError } = await supabase.storage
+      .from('nova-paw-docs') // Bucket name
+      .upload(filePath, buffer, {
+        contentType: 'application/pdf',
+        upsert: true,
+      });
+
+    if (uploadError) {
+      console.error('Supabase upload error:', uploadError);
+      return NextResponse.json({ error: 'Failed to upload document to cloud storage' }, { status: 500 });
+    }
+
+    // Get Public URL
+    const { data: { publicUrl } } = supabase.storage
+      .from('nova-paw-docs')
+      .getPublicUrl(filePath);
+
+    // ─── Update DB with the real URL ─────────────────────────────────
     await db.update(petRegistrations)
       .set({ 
-        [cleanType === 'passport' ? 'passportUrl' : 'vaccinationUrl']: mockUrl 
+        [cleanType === 'passport' ? 'passportUrl' : 'vaccinationUrl']: publicUrl 
       })
       .where(eq(petRegistrations.id, cleanId));
 
     return NextResponse.json({
       success: true,
-      url: mockUrl,
+      url: publicUrl,
       fileName: sanitizeString(file.name),
       fileSize: file.size,
     });

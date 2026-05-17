@@ -15,6 +15,8 @@ const Navigation = () => {
   const router = useRouter();
   const pathname = usePathname();
 
+  const logoSrc = locale === 'ar' ? '/aa/Logo New ARABIC final.svg' : '/aa/Logo New Final English.svg';
+
   React.useEffect(() => {
     const registration = localStorage.getItem('nova_registration');
     if (registration) {
@@ -45,10 +47,10 @@ const Navigation = () => {
             <div className="flex-shrink-0">
               <Link href="/" className="block">
                 <Image
-                  src={logo}
+                  src={logoSrc}
                   alt="Nova Paw Festival"
                   height={80}
-                  width={80}
+                  width={150}
                   className="h-[50px] md:h-[80px] w-auto object-contain"
                   priority
                 />

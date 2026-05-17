@@ -13,12 +13,15 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { Link } from '@/i18n/routing';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import logo from '@/media/Artboard 1@2x (1).png';
 
 const Footer = () => {
   const t = useTranslations('Footer');
   const nt = useTranslations('Navigation');
+  const locale = useLocale();
+
+  const logoSrc = locale === 'ar' ? '/aa/Logo New ARABIC final.svg' : '/aa/Logo New Final English.svg';
 
   const footerLinks = {
     navigation: [
@@ -78,9 +81,10 @@ const Footer = () => {
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-10">
             <Image
-              src={logo}
+              src={logoSrc}
               alt="Nova Paw"
               height={80}
+              width={150}
               className="h-[70px] md:h-[90px] w-auto object-contain brightness-0 invert"
             />
             <p className="text-white/40 text-[16px] leading-relaxed max-w-[340px] font-medium">
