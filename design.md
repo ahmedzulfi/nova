@@ -43,6 +43,7 @@
 ## 🧭 Navigation & Layout
 
 - **Navbar:** Sticky, backdrop-blur, white background.
+- **Logo:** Automatically switches between `Logo New ARABIC final.svg` (for Arabic locale) and `Logo New Final English.svg` (for English locale) to guarantee pixel-perfect brand identity alignment in both Navigation and Footer.
 - **Footer:** Deep black background, high-contrast white/primary text.
 - **Shared CTA:** High-fidelity image background banner with cinematic gradient.
 - **7-Step Wizard Pattern:**
