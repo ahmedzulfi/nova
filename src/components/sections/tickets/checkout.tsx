@@ -26,9 +26,9 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
   const [petQty, setPetQty] = useState(0);
   const [petName, setPetName] = useState('');
 
-  const ADULT_PRICE = 25;
-  const KID_PRICE = 15;
-  const PET_FEE = 25;
+  const ADULT_PRICE = 45;
+  const KID_PRICE = 0;
+  const PET_FEE = 45;
   const total = adultQty * ADULT_PRICE + kidsQty * KID_PRICE + petQty * PET_FEE;
 
   const STEP_LABELS = t.raw('steps') as string[];
@@ -372,7 +372,7 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
             <div className="flex justify-between items-center px-10 py-7">
               <div>
                 <p className="font-bold text-[16px] text-black tracking-tight">{t('summary.adult_tickets')}</p>
-                <p className="text-[12px] text-black/30 font-bold">QAR 25 × {adultQty}</p>
+                <p className="text-[12px] text-black/30 font-bold">QAR {ADULT_PRICE} × {adultQty}</p>
               </div>
               <p className="font-bold text-[20px] tracking-tight">QAR {adultQty * ADULT_PRICE}</p>
             </div>
@@ -380,7 +380,7 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
               <div className="flex justify-between items-center px-10 py-7">
                 <div>
                   <p className="font-bold text-[16px] text-black tracking-tight">{t('summary.kid_tickets')}</p>
-                  <p className="text-[12px] text-black/30 font-bold">QAR 15 × {kidsQty}</p>
+                  <p className="text-[12px] text-black/30 font-bold">QAR {KID_PRICE} × {kidsQty}</p>
                 </div>
                 <p className="font-bold text-[20px] tracking-tight">QAR {kidsQty * KID_PRICE}</p>
               </div>
@@ -391,7 +391,7 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
                   <p className="font-bold text-[16px] text-black tracking-tight">
                     {selectedTier === 'dog-owner' ? tTickets('tiers.dog.name') : tTickets('tiers.cat.name')} — {petName}
                   </p>
-                  <p className="text-[12px] text-black/30 font-bold">QAR 25 × {petQty}</p>
+                  <p className="text-[12px] text-black/30 font-bold">QAR {PET_FEE} × {petQty}</p>
                 </div>
                 <p className="font-bold text-[20px] tracking-tight">QAR {petQty * PET_FEE}</p>
               </div>

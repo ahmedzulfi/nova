@@ -69,7 +69,7 @@ function DashboardContent() {
                 kidsQty: 1,
                 petQty: 1,
                 petName: "Maximus",
-                total: 225,
+                total: 135,
                 orderId: "NP-2026-X8Y1",
                 competitionEntry: "Dog Fashion Show",
                 entryDate: new Date().toISOString()
@@ -335,15 +335,24 @@ function DashboardContent() {
                                                             <span className="text-[14px] font-bold text-[#37352F]">{getTierName(data.tier)}</span>
                                                             <p className="text-[11px] text-[#91918E]">Primary Admission Pass</p>
                                                         </div>
-                                                        <span className="text-[14px] font-bold text-[#37352F]">QAR 50.00</span>
+                                                        <span className="text-[14px] font-bold text-[#37352F]">QAR {data.tier === 'adult' ? 45 : 90}.00</span>
                                                     </div>
-                                                    {data.adultQty > 0 && (
+                                                    {data.adultQty > 1 && (
                                                         <div className="flex justify-between items-center py-4">
                                                             <div className="space-y-1">
-                                                                <span className="text-[14px] text-[#666666]">Adult Companion (x{data.adultQty})</span>
+                                                                <span className="text-[14px] text-[#666666]">Adult Companion (x{data.adultQty - 1})</span>
                                                                 <p className="text-[11px] text-[#91918E]">Standard Secondary Access</p>
                                                             </div>
-                                                            <span className="text-[14px] font-bold text-[#37352F]">QAR {data.adultQty * 25}.00</span>
+                                                            <span className="text-[14px] font-bold text-[#37352F]">QAR {(data.adultQty - 1) * 45}.00</span>
+                                                        </div>
+                                                    )}
+                                                    {data.petQty > 1 && (
+                                                        <div className="flex justify-between items-center py-4">
+                                                            <div className="space-y-1">
+                                                                <span className="text-[14px] text-[#666666]">Additional Pet (x{data.petQty - 1})</span>
+                                                                <p className="text-[11px] text-[#91918E]">Extra Pet Admission</p>
+                                                            </div>
+                                                            <span className="text-[14px] font-bold text-[#37352F]">QAR {(data.petQty - 1) * 45}.00</span>
                                                         </div>
                                                     )}
                                                     {data.kidsQty > 0 && (
@@ -352,7 +361,7 @@ function DashboardContent() {
                                                                 <span className="text-[14px] text-[#666666]">Kids Admission (x{data.kidsQty})</span>
                                                                 <p className="text-[11px] text-[#91918E]">Junior Pass (U-12)</p>
                                                             </div>
-                                                            <span className="text-[14px] font-bold text-[#37352F]">QAR {data.kidsQty * 15}.00</span>
+                                                            <span className="text-[14px] font-bold text-[#37352F]">QAR 0.00</span>
                                                         </div>
                                                     )}
                                                     <div className="flex justify-between items-center pt-8">
