@@ -146,7 +146,6 @@
             { "time": "1:00 PM", "title": "Lunch Break & Food Trucks", "desc": "Enjoy cuisine from 6 food trucks across both zones." },
             { "time": "2:00 PM", "title": "Grooming Competition", "desc": "Professional groomers showcase precision trimming and styling." },
             { "time": "3:00 PM", "title": "Best Cat Show    Round 1", "desc": "WCF international judges evaluate cats inside the Cat Dome." },
-            { "time": "4:00 PM", "title": "Painting Competition", "desc": "Live painting session with artworks projected across the Cat Dome walls." },
             { "time": "5:30 PM", "title": "Carnival Games & Activities", "desc": "Fetch & Win, Spin-A-Treat, Paw Shot Challenge, and more." },
             { "time": "7:00 PM", "title": "Day 1 Awards Ceremony", "desc": "Champion cups, medals, and certificates presented on the Main Stage." }
           ]
@@ -162,7 +161,6 @@
             { "time": "1:00 PM", "title": "Lunch Break & Food Trucks", "desc": "Enjoy cuisine from 6 food trucks across both zones." },
             { "time": "2:00 PM", "title": "Dog Fashion Show    Day 2", "desc": "New contestants take the runway with their dogs." },
             { "time": "3:00 PM", "title": "Grooming Competition    Day 2", "desc": "Second round of professional grooming artistry." },
-            { "time": "4:00 PM", "title": "Painting Competition    Day 2", "desc": "New artists create live works in the Cat Dome." },
             { "time": "5:00 PM", "title": "Adoption & Vet Zone", "desc": "Final chance to visit QAWS, Paws Rescue, and NovaVet booths." },
             { "time": "6:30 PM", "title": "Grand Closing Ceremony", "desc": "Final awards, Best in Show, Best Cat of Show, and closing celebration." }
           ]
@@ -258,10 +256,6 @@
       {
         "title": "Cat Drawing Battle",
         "desc": "A live creative battle where artists compete to draw cats in real-time speed, style, and imagination under the spotlight."
-      },
-      {
-        "title": "Painting Competition",
-        "desc": "Live painting session where artists create cat and dog inspired works projected across the Cat Dome walls."
       }
     ]
   },
@@ -882,7 +876,6 @@
           { "time": "1:00 PM", "title": "Lunch Break & Food Trucks", "desc": "Enjoy cuisine from 6 food trucks across both zones." },
           { "time": "2:00 PM", "title": "Grooming Competition", "desc": "Professional groomers showcase precision trimming and styling." },
           { "time": "3:00 PM", "title": "Best Cat Show    Round 1", "desc": "WCF international judges evaluate cats inside the Cat Dome." },
-          { "time": "4:00 PM", "title": "Painting Competition", "desc": "Live painting session with artworks projected across the Cat Dome walls." },
           { "time": "5:30 PM", "title": "Carnival Games & Activities", "desc": "Fetch & Win, Spin-A-Treat, Paw Shot Challenge, and more." },
           { "time": "7:00 PM", "title": "Day 1 Awards Ceremony", "desc": "Champion cups, medals, and certificates presented on the Main Stage." }
         ]
@@ -898,7 +891,6 @@
           { "time": "1:00 PM", "title": "Lunch Break & Food Trucks", "desc": "Enjoy cuisine from 6 food trucks across both zones." },
           { "time": "2:00 PM", "title": "Dog Fashion Show    Day 2", "desc": "New contestants take the runway with their dogs." },
           { "time": "3:00 PM", "title": "Grooming Competition    Day 2", "desc": "Second round of professional grooming artistry." },
-          { "time": "4:00 PM", "title": "Painting Competition    Day 2", "desc": "New artists create live works in the Cat Dome." },
           { "time": "5:00 PM", "title": "Adoption & Vet Zone", "desc": "Final chance to visit QAWS, Paws Rescue, and NovaVet booths." },
           { "time": "6:30 PM", "title": "Grand Closing Ceremony", "desc": "Final awards, Best in Show, Best Cat of Show, and closing celebration." }
         ]
