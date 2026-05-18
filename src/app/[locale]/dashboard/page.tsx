@@ -69,7 +69,7 @@ function DashboardContent() {
                 kidsQty: 1,
                 petQty: 1,
                 petName: "Maximus",
-                total: 135,
+                total: 150,
                 orderId: "NP-2026-X8Y1",
                 competitionEntry: "Dog Fashion Show",
                 entryDate: new Date().toISOString()
@@ -361,7 +361,7 @@ function DashboardContent() {
                                                                 <span className="text-[14px] text-[#666666]">Kids Admission (x{data.kidsQty})</span>
                                                                 <p className="text-[11px] text-[#91918E]">Junior Pass (U-12)</p>
                                                             </div>
-                                                            <span className="text-[14px] font-bold text-[#37352F]">QAR 0.00</span>
+                                                            <span className="text-[14px] font-bold text-[#37352F]">QAR {data.kidsQty * 15}.00</span>
                                                         </div>
                                                     )}
                                                     <div className="flex justify-between items-center pt-8">

@@ -54,7 +54,7 @@ Maps directly to the `RegistrationData` interface in `dashboard/page.tsx` and th
 | `kids_qty`        | `integer`                                  | Not Null, Default: 0       | `kidsQty` (checkout step 3)                          |
 | `pet_qty`         | `integer`                                  | Not Null, Default: 0       | `petQty` (checkout step 3, 0 for adult tier)         |
 | `pet_name`        | `varchar(255)`                             | Nullable                   | `petName` (checkout step 3, only for pet tiers)      |
-| `total`           | `decimal(10,2)`                            | Not Null                   | Calculated: `adults×45 + kids×0 + pets×45`          |
+| `total`           | `decimal(10,2)`                            | Not Null                   | Calculated: `adults×45 + kids×15 + pets×45`          |
 | `status`          | `enum('PENDING','PAID','USED','CANCELLED')`| Default: `PENDING`         | Admin tickets page shows Active/Used                 |
 | `payment_method`  | `varchar(100)`                             | Nullable                   | Receipt tab shows "Visa •••• 4242"                   |
 | `checked_in`      | `boolean`                                  | Default: `false`           | Scanner sets this to true on entry                   |
@@ -63,7 +63,7 @@ Maps directly to the `RegistrationData` interface in `dashboard/page.tsx` and th
 
 **Pricing constants** (from `checkout.tsx`):
 - `ADULT_PRICE = 45 QAR`
-- `KID_PRICE = 0 QAR`
+- `KID_PRICE = 15 QAR`
 - `PET_FEE = 45 QAR`
 
 ---
@@ -308,7 +308,7 @@ GET /api/admin/export/registrations → CSV download of all pet_registrations
 
 ```
 ADULT_PRICE = 45 QAR
-KID_PRICE   = 0 QAR
+KID_PRICE   = 15 QAR
 PET_FEE     = 45 QAR
 
 total = (adultQty × ADULT_PRICE) + (kidsQty × KID_PRICE) + (petQty × PET_FEE)
