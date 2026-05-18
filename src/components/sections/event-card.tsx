@@ -43,7 +43,7 @@ const EventCardSection = () => {
                 Best in Show · Grooming Competition
               </p>
               <p className="text-[#666666] text-[14px] font-medium font-body leading-relaxed max-w-[320px]">
-                Pet’s Park, The Pearl, Qatar
+                Pet’s Park, pet park The Pearl, Qatar
               </p>
             </div>
 

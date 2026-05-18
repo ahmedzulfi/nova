@@ -190,7 +190,7 @@ function RegistrationContent() {
                                         value={formData.address}
                                         onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                                         className="w-full bg-white border border-[#E9E9E7] rounded-sm px-5 py-4 text-[14px] font-bold text-[#37352F] outline-none focus:border-[#37352F] transition-all shadow-sm"
-                                        placeholder="The Pearl, Porto Arabia, Tower 12"
+                                        placeholder="pet park The Pearl, Porto Arabia, Tower 12"
                                     />
                                 </div>
                             </div>

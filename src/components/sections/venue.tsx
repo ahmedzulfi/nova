@@ -16,7 +16,7 @@ const Venue = () => {
           <div className="relative h-[440px] md:h-[640px] w-full rounded-sm overflow-hidden  shadow-sm  border border-black/5 group">
             <Image
               src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=2070&auto=format&fit=crop"
-              alt="The Pearl Island Qatar"
+              alt="pet park The Pearl Island Qatar"
               fill
               className="object-cover transition-transform duration-1000 group-hover:scale-110"
             />

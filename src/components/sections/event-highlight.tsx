@@ -32,7 +32,7 @@ const EventHighlight = () => {
 
               <div className="space-y-1 mb-6 text-[#111111] font-medium text-[16px]">
                 <p>April 3-4, 2026</p>
-                <p>Pet’s Park, The Pearl, Qatar</p>
+                <p>Pet’s Park, pet park The Pearl, Qatar</p>
               </div>
 
               <div className="mb-8">

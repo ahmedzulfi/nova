@@ -54,7 +54,7 @@ const InnerBanner = () => {
               </div>
               <div className="flex justify-between py-4 border-b border-[#E8E8E8]">
                 <span className="text-[#8C8C8C] text-[16px]">Location:</span>
-                <span className="text-[#1C1C1C] font-medium text-[16px]">Pet&apos;s Park, The Pearl, Qatar</span>
+                <span className="text-[#1C1C1C] font-medium text-[16px]">Pet&apos;s Park, pet park The Pearl, Qatar</span>
               </div>
             </div>
 

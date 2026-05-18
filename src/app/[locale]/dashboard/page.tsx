@@ -303,7 +303,7 @@ function DashboardContent() {
                                                     <div className="space-y-1">
                                                         <p className="text-[10px] font-bold text-black/30 uppercase">Billing Address</p>
                                                         <p className="text-[13px] text-[#37352F] font-medium leading-relaxed">
-                                                            The Pearl, Porto Arabia<br />
+                                                            pet park The Pearl, Porto Arabia<br />
                                                             Parcel 12, Tower 4<br />
                                                             Doha, Qatar
                                                         </p>
@@ -419,7 +419,7 @@ function DashboardContent() {
                                         </div>
 
                                         <div className="text-center space-y-1 pt-8 border-t border-black/[0.03]">
-                                            <p className="text-[11px] font-medium text-[#91918E]">Nova Events Qatar · The Pearl · Parcel 18 · Doha, QA</p>
+                                            <p className="text-[11px] font-medium text-[#91918E]">Nova Events Qatar · pet park The Pearl · Parcel 18 · Doha, QA</p>
                                             <p className="text-[10px] text-black/20 font-bold uppercase tracking-[0.3em]">Nova Paw 2026</p>
                                         </div>
                                     </div>

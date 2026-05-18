@@ -15,7 +15,7 @@
     "description": "Judged by WKU World Kennel Union & WCF World Cat Federation international judges. The world comes to Qatar, and your pet takes center stage.",
     "cta_competitions": "Competitions",
     "cta_tickets": "Get Tickets",
-    "badge": "27-28 Nov 2026 · The Pearl · Qatar",
+    "badge": "27-28 Nov 2026 · pet park The Pearl · Qatar",
     "video_badge_top": "International Shows",
     "video_badge_bottom": "Experience the largest pet gathering in Qatar."
   },
@@ -23,7 +23,7 @@
     "badge": "About the Festival",
     "title": "Where Paws Meet Celebration",
     "cta": "The Nova Story",
-    "story": "The <bold_nova>Nova Paw Festival</bold_nova> is Qatar's first international pet festival, bringing together families and animal enthusiasts from around the world for an unforgettable two-day celebration at The Pearl Island. Featuring <bold_wku>WKU</bold_wku> and <bold_wcf>WCF</bold_wcf> international judges, this landmark event sets a new global standard.",
+    "story": "The <bold_nova>Nova Paw Festival</bold_nova> is Qatar's first international pet festival, bringing together families and animal enthusiasts from around the world for an unforgettable two-day celebration at pet park The Pearl Island. Featuring <bold_wku>WKU</bold_wku> and <bold_wcf>WCF</bold_wcf> international judges, this landmark event sets a new global standard.",
     "stat_competitions": "International\nCompetitions",
     "stat_visitors": "Expected\nVisitors",
     "stat_days": "Festival\nDays",
@@ -32,13 +32,13 @@
   "AboutPage": {
     "hero": {
       "title": "About the Festival",
-      "desc": "Qatar's first international pet festival   two days of world-class competitions, entertainment, and family fun. Experience a complete pet ecosystem featuring <nova_vet>NovaVet</nova_vet>, <adoption_zones>Adoption Zones</adoption_zones>, and a curated selection of <food_trucks>Food Trucks</food_trucks> at The Pearl Island.",
+      "desc": "Qatar's first international pet festival   two days of world-class competitions, entertainment, and family fun. Experience a complete pet ecosystem featuring <nova_vet>NovaVet</nova_vet>, <adoption_zones>Adoption Zones</adoption_zones>, and a curated selection of <food_trucks>Food Trucks</food_trucks> at pet park The Pearl Island.",
       "cta": "Learn more"
     },
     "story": {
       "badge": "Festival Overview",
       "title": "Groundbreaking Debut in Qatar",
-      "p1": "The Nova Paw Festival is a groundbreaking international pet event making its debut in Qatar on <date>27-28 Nov 2026</date> at the stunning The Pearl Island, Qatar.",
+      "p1": "The Nova Paw Festival is a groundbreaking international pet event making its debut in Qatar on <date>27-28 Nov 2026</date> at the stunning pet park The Pearl Island, Qatar.",
       "p2": "This festival brings together pet lovers, families, breeders, and animal enthusiasts from across the globe for an unforgettable celebration of our furry companions.",
       "quote": "What sets Nova Paw apart is its international judging panel    <wku>WKU</wku> judge all dog competitions, while <wcf>WCF</wcf> evaluate the cat shows.",
       "p3": "The festival spans a 270-meter venue divided into three main zones: the Dog Space, the Cat Space, and the Carnival Zone    each offering unique experiences, competitions, and activities.",
@@ -51,7 +51,7 @@
     "zones": {
       "badge": "Festival Geography",
       "title": "Explore the\nFestival Zones",
-      "desc": "Discover 9 specialized zones at The Pearl Island, each designed for maximum engagement, safety, and fun.",
+      "desc": "Discover 9 specialized zones at pet park The Pearl Island, each designed for maximum engagement, safety, and fun.",
       "cta": "Explore Zone",
       "list": {
         "stage": {
@@ -505,7 +505,7 @@
       "email": "Email",
       "support": "Support Line",
       "inquiries": "Inquiries & Media",
-      "val_location": "Pet’s Park,\nThe Pearl   Qatar",
+      "val_location": "Pet’s Park,\npet park The Pearl   Qatar",
       "val_phone": "+974 3302 2248",
       "val_email": "TBD"
     },
@@ -789,7 +789,7 @@
   },
   "AttendeeDashboard": {
     "title": "My Festival Pass",
-    "welcome": "Welcome back, {name}! Your adventure at The Pearl awaits.",
+    "welcome": "Welcome back, {name}! Your adventure at pet park The Pearl awaits.",
     "search_placeholder": "Search events...",
     "valid_badge": "Valid Entry",
     "ticket_ref": "Ticket #{ref}",
@@ -800,7 +800,7 @@
     "full_schedule": "View Full Schedule",
     "map_title": "Interactive Map",
     "map_locate": "Locate Your Spot",
-    "map_desc": "Navigate through the 5 festival zones at The Pearl.",
+    "map_desc": "Navigate through the 5 festival zones at pet park The Pearl.",
     "map_cta": "Open Full Map",
     "member_badge": "Festival Member",
     "links": {
@@ -908,15 +908,15 @@
   "TicketsPage": {
     "hero_badge": "Official Tickets",
     "hero_title": "Join the Global\nPet Celebration",
-    "hero_desc": "Choose your tier and prepare for an unforgettable weekend at The Pearl Island. Limited early-bird slots available."
+    "hero_desc": "Choose your tier and prepare for an unforgettable weekend at pet park The Pearl Island. Limited early-bird slots available."
   },
   "Venue": {
     "badge": "The Venue",
     "title": "A World-Class Destination for Pets",
-    "desc": "Set against the stunning waterfront of The Pearl Island, Qatar, the festival spans a 270-meter venue featuring the Dog Arena, the immersive Cat Dome, main stage, food trucks, adoption zones, and carnival areas   all designed for maximum fun and comfort for pets and families.",
+    "desc": "Set against the stunning waterfront of pet park The Pearl Island, Qatar, the festival spans a 270-meter venue featuring the Dog Arena, the immersive Cat Dome, main stage, food trucks, adoption zones, and carnival areas   all designed for maximum fun and comfort for pets and families.",
     "cta": "Get Directions & Contact Us",
     "location_badge": "Location",
-    "location_val": "The Pearl Island, Qatar"
+    "location_val": "pet park The Pearl Island, Qatar"
   },
   "Gallery": {
     "badge": "Gallery & Venues",
@@ -946,7 +946,7 @@
     "contact_call": "Call Support",
     "contact_email": "Email Us",
     "contact_location": "Location & Date",
-    "location_val": "The Pearl Island, Qatar",
+    "location_val": "pet park The Pearl Island, Qatar",
     "date_val": "November 27–28, 2026",
     "rights": "All Rights Reserved",
     "terms": "Terms & Conditions",

@@ -64,7 +64,7 @@ const EventHero: React.FC = () => {
               {/* Location Row */}
               <div className="flex justify-between items-center py-5 border-b border-border">
                 <span className="text-base text-muted-foreground font-normal">Location:</span>
-                <span className="text-base text-foreground font-medium">Pet&apos;s Park, The Pearl, Qatar</span>
+                <span className="text-base text-foreground font-medium">Pet&apos;s Park, pet park The Pearl, Qatar</span>
               </div>
             </div>
 

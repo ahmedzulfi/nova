@@ -1,6 +1,6 @@
 # Nova Paw Festival 2026
 
-The Nova Paw Festival is Qatar’s first international pet festival, taking place on November 27th & 28th, 2026 at the iconic The Pearl-Qatar.
+The Nova Paw Festival is Qatar’s first international pet festival, taking place on November 27th & 28th, 2026 at the iconic pet park The Pearl-Qatar.
 
 Bringing together over 6,000 visitors across two unforgettable days, the festival is designed as a celebration for pet lovers, families, breeders, trainers, and animal enthusiasts from across the region and beyond.
 
