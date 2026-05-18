@@ -101,3 +101,14 @@ Both User and Admin dashboards share a consistent **Notion-inspired minimalist a
 - **Platform:** Vercel (Edge Functions & Optimized Hosting)
 - **Monitoring:** Sentry (Error tracking)
 - **CI/CD:** GitHub Actions integration
+
+## 📐 Global UI Scaling Guidelines
+
+To achieve a compact, ultra-precise, and premium aesthetic, the website uses a global **20% UI scale reduction**:
+- **Root Scale:** Root `html` font-size is set to `80%`.
+- **Inherited Scaling:** Since all Tailwind sizes (spacing, gaps, paddings, margins) and text sizes are `rem`-based, they automatically scale down linearly by exactly 20% globally.
+- **Base Typography:**
+  - `body` is set to `14.4px` (previously `18px`).
+  - Hero Headings (`h1`) use `clamp(38.4px, 8vw, 67.2px)` (previously `clamp(48px, 8vw, 84px)`).
+  - Section Headings (`h2`) use `clamp(28.8px, 6vw, 44.8px)`.
+- **Paddings:** Container paddings are adjusted to `1.2rem` (previously `1.5rem`), and section padding sizes are scaled down proportionally.
