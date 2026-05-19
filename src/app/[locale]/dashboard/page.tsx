@@ -140,15 +140,19 @@ function DashboardContent() {
                 >
                     {/* ─── TAB: Overview ─────────────────────────────────────────────── */}
                     {activeTab === 'overview' && (
-                        <div className="max-w-md mx-auto space-y-8 pb-12 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-                            {/* 1. Official Digital Entrance Pass - Vertical Ticket Block */}
-                            <div className="relative bg-[#FBFBFA] border border-[#E9E9E7] rounded-sm shadow-md overflow-visible">
-                                {/* Left & Right Perforation Cutouts */}
-                                <div className="absolute -left-3.5 top-[60%] w-7 h-7 bg-white border border-[#E9E9E7] rounded-full z-10" />
-                                <div className="absolute -right-3.5 top-[60%] w-7 h-7 bg-white border border-[#E9E9E7] rounded-full z-10" />
+                        <div className="max-w-3xl mx-auto space-y-8 pb-12 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+                            {/* 1. Official Digital Entrance Pass - Horizontal Ticket Block */}
+                            <div className="relative w-full bg-[#FBFBFA] border border-[#E9E9E7] rounded-sm shadow-md overflow-visible flex flex-col md:flex-row">
+                                {/* Desktop Perforation Cutouts */}
+                                <div className="absolute top-0 left-[70%] -translate-x-1/2 -translate-y-1/2 w-7 h-7 bg-white border border-[#E9E9E7] rounded-full z-20 hidden md:block" />
+                                <div className="absolute bottom-0 left-[70%] -translate-x-1/2 translate-y-1/2 w-7 h-7 bg-white border border-[#E9E9E7] rounded-full z-20 hidden md:block" />
                                 
-                                <div className="p-6 md:p-8 space-y-6">
-                                    {/* Top Part: Ticket Header & Info */}
+                                {/* Mobile Perforation Cutouts */}
+                                <div className="absolute -left-3.5 top-[65%] -translate-y-1/2 w-7 h-7 bg-white border border-[#E9E9E7] rounded-full z-20 md:hidden" />
+                                <div className="absolute -right-3.5 top-[65%] -translate-y-1/2 w-7 h-7 bg-white border border-[#E9E9E7] rounded-full z-20 md:hidden" />
+
+                                {/* Left Pane: Ticket Information (70% width on desktop) */}
+                                <div className="w-full md:w-[70%] p-6 md:p-8 flex flex-col justify-between space-y-6 md:border-r md:border-dashed md:border-[#E9E9E7]">
                                     <div className="space-y-6">
                                         <div className="flex justify-between items-start">
                                             <div className="space-y-1">
@@ -197,33 +201,30 @@ function DashboardContent() {
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
-                                    {/* Perforation Line */}
-                                    <div className="relative py-2">
-                                        <div className="border-t border-dashed border-[#E9E9E7] w-full" />
+                                {/* Divider for Mobile */}
+                                <div className="border-t border-dashed border-[#E9E9E7] w-full md:hidden my-2" />
+
+                                {/* Right Pane: Stub with QR Code (30% width on desktop) */}
+                                <div className="w-full md:w-[30%] p-6 md:p-8 flex flex-col items-center justify-center space-y-4">
+                                    <div className="bg-white p-3 border border-[#E9E9E7] rounded-sm shadow-sm hover:scale-[1.02] transition-transform duration-500 cursor-zoom-in">
+                                        <img src={QR_CODE_URL} alt="Scan to Verify" className="w-32 h-32" />
                                     </div>
-
-                                    {/* Bottom Part: Stub with QR Code & Barcode */}
-                                    <div className="flex flex-col items-center justify-center space-y-4 pt-2">
-                                        <div className="bg-white p-4 border border-[#E9E9E7] rounded-sm shadow-sm hover:scale-[1.02] transition-transform duration-500 cursor-zoom-in">
-                                            <img src={QR_CODE_URL} alt="Scan to Verify" className="w-36 h-36" />
-                                        </div>
-                                        
-                                        <div className="text-center space-y-1">
-                                            <p className="text-[12px] font-bold text-[#37352F]">Unique Identification QR</p>
-                                            <p className="text-[10px] text-[#91918E]">Present at entrance gate for validation.</p>
-                                        </div>
+                                    <div className="text-center space-y-1">
+                                        <p className="text-[11px] font-bold text-[#37352F]">Unique QR Code</p>
+                                        <p className="text-[9px] text-[#91918E] leading-normal max-w-[120px] mx-auto">Present at entrance gate for validation.</p>
                                     </div>
                                 </div>
                             </div>
 
                             {/* Action Footer */}
-                            <div className="flex flex-col gap-3">
-                                <Button className="w-full h-12 bg-[#37352F] hover:bg-black text-white text-[13px] font-bold uppercase tracking-[0.2em] rounded-sm gap-3 shadow-md transition-all active:scale-[0.98]">
+                            <div className="flex flex-col sm:flex-row gap-3">
+                                <Button className="flex-1 h-12 bg-[#37352F] hover:bg-black text-white text-[13px] font-bold uppercase tracking-[0.2em] rounded-sm gap-3 shadow-md transition-all active:scale-[0.98]">
                                     <Download size={16} />
                                     Download Digital Pass
                                 </Button>
-                                <Button variant="ghost" className="w-full h-10 text-[#91918E] hover:text-[#37352F] text-[11px] font-bold uppercase tracking-widest" onClick={() => window.print()}>
+                                <Button variant="ghost" className="flex-1 h-12 text-[#91918E] hover:text-[#37352F] text-[11px] font-bold uppercase tracking-widest border border-[#E9E9E7] rounded-sm bg-white" onClick={() => window.print()}>
                                     Print Physical Copy
                                 </Button>
                             </div>

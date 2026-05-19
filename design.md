@@ -114,10 +114,10 @@ To achieve a compact, highly-precise, and premium aesthetic, the website uses a 
 - **Root Scale:** Root `html` is scaled to `zoom: 0.9` (10% smaller overall website layout, fonts, and paddings) for optimal readability and layout density.
 - **Layout Containers:** Standard layout containers use `max-w-[1280px]` (1.5rem padding), while dashboard interfaces use `max-w-7xl` (1280px) to maximize workspace area for tabular data and ledger stats.
 
-## 🎟️ Digital Admission Ticket Pattern (Vertical Stub)
+## 🎟️ Digital Admission Ticket Pattern (Horizontal Stub)
 
-For the user dashboard overview, the digital admission pass uses a physical vertical ticket metaphor:
-- **Dimensions:** Compact vertical structure (`max-w-md`) resembling a physical gate pass.
-- **Notched Perforation:** Absolute-positioned circles (`w-7 h-7 bg-white`) on the left and right borders aligning with a dashed border line (`border-t border-dashed`) to simulate a tearable stub.
-- **Header Stub:** Includes the event branding, order details, event venue, dates, and active verification status.
-- **Footer Stub:** Contains the unique validation QR code box for gate check-in.
+For the user dashboard overview, the digital admission pass uses a physical horizontal ticket metaphor:
+- **Dimensions:** Wider horizontal structure (`max-w-3xl`) resembling a physical VIP entry badge.
+- **Notched Perforation:** Absolute-positioned circles (`w-7 h-7 bg-white`) on the top/bottom borders (for desktop) and left/right borders (for mobile) to simulate a tearable stub.
+- **Left Pane:** Includes the event branding, order details, attendee info, ticket tier, guest count, dates, and venue status details.
+- **Right Pane:** Contains the unique validation QR code box for gate check-in.
