@@ -61,7 +61,7 @@ const EventsGrid: React.FC = () => {
   const events = [
     {
       key: "dog_show",
-      image: "https://images.unsplash.com/photo-1534361960057-19889db9621e?q=80&w=2070&auto=format&fit=crop"
+      image: "/best.PNG"
     },
     {
       key: "cat_show",

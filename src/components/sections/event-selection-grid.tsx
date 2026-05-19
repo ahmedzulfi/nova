@@ -10,7 +10,7 @@ const EventSelectionGrid = ({ onSelect, selectedEventId }: { onSelect: (id: stri
   const tReg = useTranslations('RegistrationPage.steps');
 
   const events = [
-    { id: 'dog-best-in-show', key: 'dog_show', category: 'dog', image: 'https://images.unsplash.com/photo-1534361960057-19889db9621e?q=80&w=2070&auto=format&fit=crop' },
+    { id: 'dog-best-in-show', key: 'dog_show', category: 'dog', image: '/best.PNG' },
     { id: 'dog-grooming', key: 'grooming', category: 'dog', image: '/grooming.jpeg' },
     { id: 'dog-fashion-show', key: 'fashion', category: 'dog', image: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=1964&auto=format&fit=crop' },
     { id: 'cat-best-show', key: 'cat_show', category: 'cat', image: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2043&auto=format&fit=crop' },
