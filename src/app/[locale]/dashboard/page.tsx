@@ -98,6 +98,12 @@ function DashboardContent() {
         if (tierId === 'cat-owner') return tTickets('tiers.cat.name');
         return tTickets('tiers.adult.name');
     };
+    const baseTicketPrice = data.tier === 'adult' ? 45 : 90;
+    const companionPrice = data.adultQty > 1 ? (data.adultQty - 1) * 45 : 0;
+    const extraPetPrice = data.petQty > 1 ? (data.petQty - 1) * 45 : 0;
+    const kidsPrice = data.kidsQty > 0 ? data.kidsQty * 15 : 0;
+    const competitionPrice = (isPetOwner && data.competitionEntry) ? 50 : 0;
+    const computedTotal = baseTicketPrice + companionPrice + extraPetPrice + kidsPrice + competitionPrice;
 
     const scheduleDays = [
         { day: tSchedule('days.day1.label'), date: tSchedule('days.day1.date'), eventsKey: 'day1' },
@@ -200,6 +206,13 @@ function DashboardContent() {
                                                 </div>
                                             </div>
                                         </div>
+                                         {/* Safety Disclaimer */}
+                                         <div className="p-3.5 bg-amber-50/60 border border-amber-100/80 rounded-sm flex items-start gap-2.5 mt-5 text-[11px] text-amber-800 leading-normal">
+                                             <span className="text-[14px] shrink-0">⚠️</span>
+                                             <p className="font-medium">
+                                                 <strong>Safety Notice:</strong> Parents must watch out for kids petting pets (applicable for all passes).
+                                             </p>
+                                         </div>
                                     </div>
                                 </div>
 
@@ -360,14 +373,14 @@ function DashboardContent() {
                                                         </tr>
                                                     )}
                                                     {isPetOwner && data.competitionEntry && (
-                                                        <tr className="hover:bg-[#FAF9F5] transition-colors bg-yellow-50/20">
-                                                            <td className="p-4">
-                                                                Competition Registration Fee
-                                                                <span className="block text-[10px] text-yellow-855 mt-0.5">Confirmed Activity: {data.competitionEntry}</span>
+                                                        <tr className="hover:bg-[#FAF9F5] transition-colors bg-amber-50/20">
+                                                            <td className="p-4 font-medium">
+                                                                Competition Registration
+                                                                <span className="block text-[10px] text-amber-800 mt-0.5">Event: {data.competitionEntry}</span>
                                                             </td>
                                                             <td className="p-4 text-center">1</td>
-                                                            <td className="p-4 text-right">QAR 0.00</td>
-                                                            <td className="p-4 text-right">QAR 0.00</td>
+                                                            <td className="p-4 text-right">QAR 50.00</td>
+                                                            <td className="p-4 text-right">QAR 50.00</td>
                                                         </tr>
                                                     )}
                                                 </tbody>
@@ -392,7 +405,7 @@ function DashboardContent() {
                                         <div className="w-full md:w-64 space-y-2 text-[13px]">
                                             <div className="flex justify-between text-[#666666]">
                                                 <span>Subtotal</span>
-                                                <span>QAR {data.total.toFixed(2)}</span>
+                                                <span>QAR {computedTotal.toFixed(2)}</span>
                                             </div>
                                             <div className="flex justify-between text-[#666666]">
                                                 <span>VAT / Processing (0%)</span>
@@ -400,7 +413,7 @@ function DashboardContent() {
                                             </div>
                                             <div className="flex justify-between pt-2 border-t border-black/5 text-[16px] font-bold text-[#37352F]">
                                                 <span>Grand Total</span>
-                                                <span>QAR {data.total.toFixed(2)}</span>
+                                                <span>QAR {computedTotal.toFixed(2)}</span>
                                             </div>
                                         </div>
                                     </div>
