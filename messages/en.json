@@ -988,7 +988,7 @@
     }
   },
   "Checkout": {
-    "steps": ["Tickets & Details", "Safety & Summary"],
+    "steps": ["🎟️ Tickets & Details", "🔒 Safety & Summary"],
     "form": {
       "name": "Full Legal Name",
       "name_placeholder": "John Doe",

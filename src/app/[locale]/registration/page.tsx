@@ -13,7 +13,6 @@ import {
     Check,
     Upload,
     Info,
-    ShieldCheck,
     ArrowRight,
     User,
     Phone,
@@ -45,7 +44,6 @@ function RegistrationContent() {
     const [step, setStep] = useState(1);
     const [selectedEventId, setSelectedEventId] = useState<CompetitionType>('');
     const [selectedEventName, setSelectedEventName] = useState("");
-    const [otp, setOtp] = useState('');
     const [checkedTerms, setCheckedTerms] = useState<Record<number, boolean>>({});
     const [files, setFiles] = useState<{ passport: string | null, vaccination: string | null }>({
         passport: null,
@@ -208,44 +206,18 @@ function RegistrationContent() {
                             </div>
                         </div>
 
-                        <div className="bg-[#F7F6F3] rounded-sm p-10 text-center space-y-8 border border-[#E9E9E7]">
-                            <ShieldCheck className="w-12 h-12 mx-auto text-[#FACC15]" />
-                            <div className="space-y-2">
-                                <p className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#37352F]">Verify Identity</p>
-                                <p className="text-[13px] text-[#91918E] font-medium">We've sent a 6-digit code to your mobile number.</p>
-                            </div>
-                            <div className="flex justify-center gap-3">
-                                {[0, 1, 2, 3, 4, 5].map((i) => (
-                                    <div key={i} className={cn(
-                                        "w-12 h-16 rounded-sm border-2 flex items-center justify-center text-[22px] font-bold transition-all bg-white",
-                                        otp[i] ? 'border-[#37352F] text-[#37352F]' : 'border-[#E9E9E7] text-[#E9E9E7]'
-                                    )}>
-                                        {otp[i] || '·'}
-                                    </div>
-                                ))}
-                            </div>
-                            <input
-                                type="text"
-                                maxLength={6}
-                                value={otp}
-                                onChange={(e) => setOtp(e.target.value.replace(/\D/g, ''))}
-                                className="sr-only"
-                                autoFocus
-                            />
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 pt-6 border-t border-[#F1F1EF]">
+                            <Button variant="outline" onClick={prevStep} className="h-14 md:col-span-1 rounded-sm border-[#E9E9E7] text-[13px] font-bold uppercase tracking-[0.2em] hover:bg-[#F7F6F3]">
+                                <ArrowLeft className="w-4 h-4 mr-2" /> Back
+                            </Button>
                             <Button
-                                onClick={() => {
-                                    if (otp.length === 6) nextStep();
-                                    else toast.error("Invalid Code", { description: "Please enter the 6-digit code." });
-                                }}
-                                className="w-full h-14 bg-[#37352F] hover:bg-black text-white rounded-sm text-[13px] font-bold uppercase tracking-[0.2em]  shadow-sm  shadow-black/10"
+                                onClick={nextStep}
+                                disabled={!formData.fullName.trim() || !formData.phone.trim() || !formData.email.trim() || !formData.address.trim()}
+                                className="h-14 md:col-span-3 bg-[#37352F] hover:bg-black text-white rounded-sm text-[13px] font-bold uppercase tracking-[0.2em] disabled:opacity-50"
                             >
-                                Verify & Continue
+                                Next: Pet Details <ArrowRight className="w-4 h-4 ml-2" />
                             </Button>
                         </div>
-
-                        <button onClick={prevStep} className="w-full py-4 text-[10px] font-bold uppercase tracking-[0.3em] text-[#91918E] hover:text-[#37352F] transition-all flex items-center justify-center gap-2">
-                            <ArrowLeft className="w-4 h-4" /> Change Competition
-                        </button>
                     </motion.div>
                 );
             case 3:
