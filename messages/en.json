@@ -541,11 +541,26 @@
           "I accept all judging decisions as final."
         ],
         "dog_show": [
-          "My dog is fully vaccinated.",
-          "My dog is not aggressive and is fully under control.",
-          "My dog is healthy and fit for participation.",
-          "I understand registration does not guarantee final selection.",
-          "I accept all judging decisions as final."
+          "I confirm that my dog is fully vaccinated and I have uploaded a valid pet passport for verification.",
+          "I confirm that my dog has completed a recent veterinary health checkup and is fit for competition participation.",
+          "If no recent health checkup is available, I understand that I must complete a veterinary checkup with Nova Vet before final approval.",
+          "I confirm that my dog is registered under the correct official WKU breed group according to the approved breed classification list.",
+          "I understand that incorrect breed classification may result in rejection or disqualification.",
+          "I confirm that my dog is not aggressive and is safe to participate around judges, handlers, staff, and other dogs.",
+          "I confirm that aggressive dogs are strictly not allowed, even if wearing a muzzle.",
+          "I confirm that my dog will remain under my full supervision and control at all times during the event.",
+          "I confirm that my dog will be presented on a secure collar or harness with a proper show lead.",
+          "I confirm that shock chains, prong collars, or harmful training equipment are strictly prohibited.",
+          "I confirm that my dog’s nails are trimmed and presentation condition is suitable for professional judging.",
+          "I confirm that female dogs in heat are strictly not allowed to participate.",
+          "I confirm that sick, injured, or visibly unwell dogs are not allowed.",
+          "I agree to arrive on time for registration, ring preparation, and official judging schedule.",
+          "I understand that late arrival may result in disqualification.",
+          "I understand that photography and videography will take place during the event, and I agree to media coverage and promotional use.",
+          "I understand that registration submission does not guarantee final acceptance into the competition.",
+          "I accept that all judging decisions made by WKU judges are final and non-negotiable.",
+          "I confirm my attendance and understand that cancellation must be reported at least 3 weeks before the event date.",
+          "I understand that emergency absence must be reported immediately to the organizer."
         ],
         "cat_show": [
           "My cat is fully vaccinated.",
