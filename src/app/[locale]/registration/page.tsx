@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, Suspense, use } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import Navigation from "@/components/sections/navigation";
 import Footer from "@/components/sections/footer";
 import { Label } from "@/components/ui/label";
@@ -33,7 +33,6 @@ import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { toast } from "sonner";
 
 type CompetitionType = 'dog-grooming' | 'dog-fashion-show' | 'cat-fashion-show' | 'dog-best-in-show' | 'cat-best-show' | 'cat-drawing-battle' | '';
 
@@ -52,8 +51,11 @@ function RegistrationContent() {
         vaccination: null
     });
 
-    const STEP_KEYS = ['selection', 'details', 'safety'];
-    const STEP_LABELS = STEP_KEYS.map(key => t(`steps.${key}`));
+    const STEP_LABELS = [
+        t('steps.selection'),
+        t('steps.owner') + ' & ' + t('steps.pet_info'),
+        t('steps.done')
+    ];
 
     const [formData, setFormData] = useState({
         fullName: "",
@@ -64,9 +66,12 @@ function RegistrationContent() {
         breed: "",
         age: "",
         gender: "Male",
+        groomerExperience: "",
         groomingCategory: "",
         outfitDescription: "",
+        drawingExperience: "",
         drawingMaterials: "",
+        experienceLevel: "Intermediate",
         previousTitles: "",
     });
 
@@ -102,6 +107,7 @@ function RegistrationContent() {
                 phone: parsed.phone || "",
                 email: parsed.email || "",
                 address: parsed.address || "",
+                petName: parsed.petName || "",
             }));
         }
     }, []);
@@ -113,11 +119,6 @@ function RegistrationContent() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    const nextStep = () => {
-        setStep(s => s + 1);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
     const prevStep = () => {
         setStep(s => s - 1);
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -126,13 +127,11 @@ function RegistrationContent() {
     const handleFinish = () => {
         const savedData = localStorage.getItem('nova_registration');
         let currentReg = savedData ? JSON.parse(savedData) : {};
-        const updatedReg = {
-            ...currentReg,
-            competitionEntry: selectedEventName,
-            petName: formData.petName || currentReg.petName || "",
-        };
-        localStorage.setItem('nova_registration', JSON.stringify(updatedReg));
-        nextStep();
+        currentReg.competitionEntry = selectedEventName;
+        currentReg.petName = formData.petName || currentReg.petName;
+        localStorage.setItem('nova_registration', JSON.stringify(currentReg));
+        setStep(3);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     const termKeys: Record<string, string> = {
@@ -164,101 +163,101 @@ function RegistrationContent() {
                     <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        className="space-y-10 animate-in fade-in duration-300"
+                        className="space-y-12 animate-in fade-in duration-500"
                     >
-                        {/* 1. Participant Details */}
-                        <div className="space-y-4">
-                            <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] px-2 border-l-2 border-[#37352F]">Owner Details</h3>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-[#F7F6F3] p-6 rounded-sm">
-                                <div className="space-y-2">
-                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Full Name *</Label>
+                        {/* 1. Contact & Owner Details */}
+                        <div className="space-y-6">
+                            <h3 className="text-[12px] font-bold text-[#37352F] uppercase tracking-[0.2em] px-3 py-1.5 bg-[#F7F6F3] border-l-2 border-[#37352F]">1. Contact & Owner Details</h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div className="space-y-3">
+                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block rtl:text-right">Full Name</Label>
                                     <div className="relative">
                                         <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#91918E]" />
                                         <input
                                             value={formData.fullName}
                                             onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                                             placeholder="Enter your legal name"
-                                            className="w-full bg-white border border-[#E9E9E7] rounded-sm pl-12 pr-6 py-3.5 outline-none focus:ring-1 focus:ring-[#37352F] transition-all font-medium text-[#37352F] text-[14px]"
+                                            className="w-full bg-[#F7F6F3] border-none rounded-sm pl-12 pr-6 py-4 outline-none focus:ring-1 focus:ring-[#E9E9E7] transition-all font-medium text-[#37352F] text-[14px]"
                                         />
                                     </div>
                                 </div>
-                                <div className="space-y-2">
-                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Mobile Number *</Label>
+                                <div className="space-y-3">
+                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block rtl:text-right">Mobile Number</Label>
                                     <div className="relative">
                                         <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#91918E]" />
                                         <input
                                             value={formData.phone}
                                             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                                             placeholder="+974 5555 5555"
-                                            className="w-full bg-white border border-[#E9E9E7] rounded-sm pl-12 pr-6 py-3.5 outline-none focus:ring-1 focus:ring-[#37352F] transition-all font-medium text-[#37352F] text-[14px]"
+                                            className="w-full bg-[#F7F6F3] border-none rounded-sm pl-12 pr-6 py-4 outline-none focus:ring-1 focus:ring-[#E9E9E7] transition-all font-medium text-[#37352F] text-[14px]"
                                         />
                                     </div>
                                 </div>
-                                <div className="space-y-2">
-                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Email Address *</Label>
+                                <div className="space-y-3">
+                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block rtl:text-right">Email Address</Label>
                                     <div className="relative">
                                         <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#91918E]" />
                                         <input
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                             placeholder="email@example.com"
-                                            className="w-full bg-white border border-[#E9E9E7] rounded-sm pl-12 pr-6 py-3.5 outline-none focus:ring-1 focus:ring-[#37352F] transition-all font-medium text-[#37352F] text-[14px]"
+                                            className="w-full bg-[#F7F6F3] border-none rounded-sm pl-12 pr-6 py-4 outline-none focus:ring-1 focus:ring-[#E9E9E7] transition-all font-medium text-[#37352F] text-[14px]"
                                         />
                                     </div>
                                 </div>
-                                <div className="space-y-2">
-                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Home Address *</Label>
+                                <div className="space-y-3">
+                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block rtl:text-right">Home Address</Label>
                                     <div className="relative">
                                         <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#91918E]" />
                                         <input
                                             value={formData.address}
                                             onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                                             placeholder="Doha, Qatar"
-                                            className="w-full bg-white border border-[#E9E9E7] rounded-sm pl-12 pr-6 py-3.5 outline-none focus:ring-1 focus:ring-[#37352F] transition-all font-medium text-[#37352F] text-[14px]"
+                                            className="w-full bg-[#F7F6F3] border-none rounded-sm pl-12 pr-6 py-4 outline-none focus:ring-1 focus:ring-[#E9E9E7] transition-all font-medium text-[#37352F] text-[14px]"
                                         />
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        {/* 2. Pet Details */}
-                        <div className="space-y-4">
-                            <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] px-2 border-l-2 border-[#37352F]">Pet Details</h3>
-                            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 bg-[#F7F6F3] p-6 rounded-sm">
-                                <div className="md:col-span-2 space-y-2">
-                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Pet Name *</Label>
+                        {/* 2. Pet Information */}
+                        <div className="space-y-6 pt-6 border-t border-[#F1F1EF]">
+                            <h3 className="text-[12px] font-bold text-[#37352F] uppercase tracking-[0.2em] px-3 py-1.5 bg-[#F7F6F3] border-l-2 border-[#37352F]">2. Pet Details</h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div className="space-y-3">
+                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Pet Name</Label>
                                     <div className="relative">
                                         <PawPrint className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#91918E]" />
                                         <input
                                             value={formData.petName}
                                             onChange={(e) => setFormData({ ...formData, petName: e.target.value })}
                                             placeholder="Pet's name"
-                                            className="w-full bg-white border border-[#E9E9E7] rounded-sm pl-12 pr-6 py-3.5 outline-none focus:ring-1 focus:ring-[#37352F] transition-all font-medium text-[#37352F] text-[14px]"
+                                            className="w-full bg-[#F7F6F3] border-none rounded-sm pl-12 pr-6 py-4 outline-none focus:ring-1 focus:ring-[#E9E9E7] transition-all font-medium text-[#37352F] text-[14px]"
                                         />
                                     </div>
                                 </div>
-                                <div className="space-y-2">
-                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Breed / Species *</Label>
+                                <div className="space-y-3">
+                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Breed / Species</Label>
                                     <input
                                         value={formData.breed}
                                         onChange={(e) => setFormData({ ...formData, breed: e.target.value })}
                                         placeholder="e.g. Golden Retriever"
-                                        className="w-full bg-white border border-[#E9E9E7] rounded-sm px-6 py-3.5 outline-none focus:ring-1 focus:ring-[#37352F] transition-all font-medium text-[#37352F] text-[14px]"
+                                        className="w-full bg-[#F7F6F3] border-none rounded-sm px-6 py-4 outline-none focus:ring-1 focus:ring-[#E9E9E7] transition-all font-medium text-[#37352F] text-[14px]"
                                     />
                                 </div>
-                                <div className="space-y-2">
-                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Pet Age *</Label>
+                                <div className="space-y-3">
+                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Pet Age</Label>
                                     <input
                                         value={formData.age}
                                         onChange={(e) => setFormData({ ...formData, age: e.target.value })}
                                         placeholder="e.g. 3 years"
-                                        className="w-full bg-white border border-[#E9E9E7] rounded-sm px-6 py-3.5 outline-none focus:ring-1 focus:ring-[#37352F] transition-all font-medium text-[#37352F] text-[14px]"
+                                        className="w-full bg-[#F7F6F3] border-none rounded-sm px-6 py-4 outline-none focus:ring-1 focus:ring-[#E9E9E7] transition-all font-medium text-[#37352F] text-[14px]"
                                     />
                                 </div>
-                                <div className="space-y-2">
-                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Gender *</Label>
+                                <div className="space-y-3">
+                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Gender</Label>
                                     <Select value={formData.gender} onValueChange={(val) => setFormData({ ...formData, gender: val })}>
-                                        <SelectTrigger className="w-full h-[48px] bg-white border border-[#E9E9E7] rounded-sm px-6 font-medium text-[14px] text-[#37352F] focus:ring-1 focus:ring-[#37352F]">
+                                        <SelectTrigger className="w-full h-[52px] bg-[#F7F6F3] border-none rounded-sm px-6 font-medium text-[14px] text-[#37352F]">
                                             <SelectValue />
                                         </SelectTrigger>
                                         <SelectContent className="rounded-sm border-[#E9E9E7] p-1 shadow-sm">
@@ -270,84 +269,98 @@ function RegistrationContent() {
                             </div>
                         </div>
 
-                        {/* 3. Specifics (only show if applicable) */}
-                        {((selectedEventId === 'dog-fashion-show' || selectedEventId === 'cat-fashion-show' || selectedEventId === 'cat-drawing-battle') && (
-                            <div className="space-y-4">
-                                <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] px-2 border-l-2 border-[#37352F]">Competition Specifics</h3>
-                                <div className="bg-[#F7F6F3] p-6 rounded-sm">
-                                    {selectedEventId === 'cat-drawing-battle' ? (
-                                        <div className="space-y-2">
-                                            <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Required Materials List *</Label>
+                        {/* 3. Competition Specifics */}
+                        {(selectedEventId === 'cat-drawing-battle' || selectedEventId === 'dog-fashion-show' || selectedEventId === 'cat-fashion-show' || formData.previousTitles) && (
+                            <div className="space-y-6 pt-6 border-t border-[#F1F1EF]">
+                                <h3 className="text-[12px] font-bold text-[#37352F] uppercase tracking-[0.2em] px-3 py-1.5 bg-[#F7F6F3] border-l-2 border-[#37352F]">3. Contest Details</h3>
+                                <div className="space-y-8">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                        <div className="space-y-3">
+                                            <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Previous Titles / Honors</Label>
+                                            <input
+                                                value={formData.previousTitles}
+                                                onChange={(e) => setFormData({ ...formData, previousTitles: e.target.value })}
+                                                placeholder="List any major wins"
+                                                className="w-full bg-[#F7F6F3] border-none rounded-sm px-6 py-4 outline-none focus:ring-1 focus:ring-[#E9E9E7] transition-all font-medium text-[#37352F] text-[14px]"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    {selectedEventId === 'cat-drawing-battle' && (
+                                        <div className="space-y-3">
+                                            <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Required Materials List</Label>
                                             <Textarea
                                                 value={formData.drawingMaterials}
                                                 onChange={(e) => setFormData({ ...formData, drawingMaterials: e.target.value })}
                                                 placeholder="List the pencils, paper, and tools you'll be bringing."
-                                                className="w-full bg-white border border-[#E9E9E7] rounded-sm min-h-[100px] font-medium text-[14px] p-4 outline-none focus:ring-1 focus:ring-[#37352F] transition-all"
+                                                className="w-full bg-[#F7F6F3] border-none rounded-sm min-h-[120px] font-medium text-[14px] p-6 focus:ring-1 focus:ring-[#E9E9E7] transition-all"
                                             />
                                         </div>
-                                    ) : (
-                                        <div className="space-y-2">
-                                            <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Outfit & Theme Description *</Label>
+                                    )}
+
+                                    {(selectedEventId === 'dog-fashion-show' || selectedEventId === 'cat-fashion-show') && (
+                                        <div className="space-y-3">
+                                            <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Outfit & Theme Description</Label>
                                             <Textarea
                                                 value={formData.outfitDescription}
                                                 onChange={(e) => setFormData({ ...formData, outfitDescription: e.target.value })}
                                                 placeholder="Describe the matching costumes for owner and pet."
-                                                className="w-full bg-white border border-[#E9E9E7] rounded-sm min-h-[100px] font-medium text-[14px] p-4 outline-none focus:ring-1 focus:ring-[#37352F] transition-all"
+                                                className="w-full bg-[#F7F6F3] border-none rounded-sm min-h-[120px] font-medium text-[14px] p-6 focus:ring-1 focus:ring-[#E9E9E7] transition-all"
                                             />
                                         </div>
                                     )}
                                 </div>
                             </div>
-                        ))}
+                        )}
 
-                        {/* 4. Document Uploads */}
-                        <div className="space-y-4">
-                            <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] px-2 border-l-2 border-[#37352F]">Required Health Documents</h3>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-[#F7F6F3] p-6 rounded-sm">
-                                <div className="space-y-2">
-                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Pet Passport (PDF/JPG) *</Label>
+                        {/* 4. Health Compliance Uploads */}
+                        <div className="space-y-6 pt-6 border-t border-[#F1F1EF]">
+                            <h3 className="text-[12px] font-bold text-[#37352F] uppercase tracking-[0.2em] px-3 py-1.5 bg-[#F7F6F3] border-l-2 border-[#37352F]">4. Health Compliance Documents</h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div className="space-y-4">
+                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Pet Passport (PDF/JPG)</Label>
                                     <div
                                         onClick={() => setFiles(f => ({ ...f, passport: 'Passport_Uploaded.pdf' }))}
                                         className={cn(
-                                            "h-36 border border-dashed rounded-sm flex flex-col items-center justify-center transition-all cursor-pointer group bg-white",
-                                            files.passport ? 'border-green-500 bg-green-50/10 text-green-700' : 'border-[#E9E9E7] text-[#91918E] hover:border-[#37352F]'
+                                            "h-48 border border-dashed rounded-sm flex flex-col items-center justify-center transition-all cursor-pointer group bg-[#F7F6F3]",
+                                            files.passport ? 'border-green-500 bg-green-50/20 text-green-700' : 'border-[#E9E9E7] hover:border-[#37352F]'
                                         )}
                                     >
                                         {files.passport ? (
                                             <>
-                                                <CheckCircle2 className="w-8 h-8 mb-2 text-green-600 animate-in zoom-in duration-300" />
+                                                <CheckCircle2 className="w-8 h-8 mb-3 text-green-600 animate-in zoom-in duration-300" />
                                                 <span className="text-[11px] font-bold uppercase tracking-[0.2em]">{files.passport}</span>
-                                                <p className="text-[9px] mt-1 opacity-50 uppercase tracking-widest">Click to change</p>
+                                                <p className="text-[9px] mt-1 opacity-50 uppercase tracking-widest">Click to change file</p>
                                             </>
                                         ) : (
                                             <>
-                                                <Upload className="w-8 h-8 mb-2 group-hover:scale-105 transition-transform" />
-                                                <span className="text-[11px] font-bold uppercase tracking-[0.2em]">Upload Passport</span>
-                                                <p className="text-[9px] mt-1 opacity-50 uppercase tracking-widest">Max size 5MB</p>
+                                                <Upload className="w-8 h-8 mb-3 text-[#91918E] group-hover:scale-110 transition-transform" />
+                                                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#91918E]">Upload Passport</span>
+                                                <p className="text-[9px] mt-1 text-[#91918E]/60 uppercase tracking-widest">Max file size 5MB</p>
                                             </>
                                         )}
                                     </div>
                                 </div>
-                                <div className="space-y-2">
-                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Vaccination Record *</Label>
+                                <div className="space-y-4">
+                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Vaccination Record</Label>
                                     <div
                                         onClick={() => setFiles(f => ({ ...f, vaccination: 'Vaccination_Record.pdf' }))}
                                         className={cn(
-                                            "h-36 border border-dashed rounded-sm flex flex-col items-center justify-center transition-all cursor-pointer group bg-white",
-                                            files.vaccination ? 'border-green-500 bg-green-50/10 text-green-700' : 'border-[#E9E9E7] text-[#91918E] hover:border-[#37352F]'
+                                            "h-48 border border-dashed rounded-sm flex flex-col items-center justify-center transition-all cursor-pointer group bg-[#F7F6F3]",
+                                            files.vaccination ? 'border-green-500 bg-green-50/20 text-green-700' : 'border-[#E9E9E7] hover:border-[#37352F]'
                                         )}
                                     >
                                         {files.vaccination ? (
                                             <>
-                                                <CheckCircle2 className="w-8 h-8 mb-2 text-green-600 animate-in zoom-in duration-300" />
+                                                <CheckCircle2 className="w-8 h-8 mb-3 text-green-600 animate-in zoom-in duration-300" />
                                                 <span className="text-[11px] font-bold uppercase tracking-[0.2em]">{files.vaccination}</span>
-                                                <p className="text-[9px] mt-1 opacity-50 uppercase tracking-widest">Click to change</p>
+                                                <p className="text-[9px] mt-1 opacity-50 uppercase tracking-widest">Click to change file</p>
                                             </>
                                         ) : (
                                             <>
-                                                <Upload className="w-8 h-8 mb-2 group-hover:scale-105 transition-transform" />
-                                                <span className="text-[11px] font-bold uppercase tracking-[0.2em]">Upload Record</span>
-                                                <p className="text-[9px] mt-1 opacity-50 uppercase tracking-widest">Mandatory for entry</p>
+                                                <Upload className="w-8 h-8 mb-3 text-[#91918E] group-hover:scale-110 transition-transform" />
+                                                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#91918E]">Upload Record</span>
+                                                <p className="text-[9px] mt-1 text-[#91918E]/60 uppercase tracking-widest">Mandatory for entry</p>
                                             </>
                                         )}
                                     </div>
@@ -355,29 +368,50 @@ function RegistrationContent() {
                             </div>
                         </div>
 
-                        {/* Navigation Controls */}
+                        {/* 5. Terms & Agreements */}
+                        <div className="space-y-6 pt-6 border-t border-[#F1F1EF]">
+                            <h3 className="text-[12px] font-bold text-[#37352F] uppercase tracking-[0.2em] px-3 py-1.5 bg-[#F7F6F3] border-l-2 border-[#37352F]">5. Safety & Judging Agreements</h3>
+                            <div className="space-y-3">
+                                {currentTerms.map((term, i) => (
+                                    <div
+                                        key={i}
+                                        onClick={() => setCheckedTerms(prev => ({ ...prev, [i]: !prev[i] }))}
+                                        className={cn(
+                                            "flex items-start gap-4 p-5 rounded-sm border cursor-pointer transition-all",
+                                            checkedTerms[i] ? 'bg-[#FACC15]/5 border-[#FACC15]/20' : 'bg-[#F7F6F3] border-transparent hover:border-[#E9E9E7]'
+                                        )}
+                                    >
+                                        <Checkbox checked={!!checkedTerms[i]} className="mt-1 w-5 h-5 rounded-sm border-[#E9E9E7]" />
+                                        <Label className="text-[13px] font-medium leading-relaxed text-[#37352F] cursor-pointer flex-1">
+                                            {term}
+                                        </Label>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Actions */}
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 pt-6 border-t border-[#F1F1EF]">
-                            <Button variant="outline" onClick={prevStep} className="h-12 md:col-span-1 rounded-sm border-[#E9E9E7] text-[12px] font-bold uppercase tracking-[0.2em] hover:bg-[#F7F6F3]">
+                            <Button variant="outline" onClick={prevStep} className="h-14 md:col-span-1 rounded-sm border-[#E9E9E7] text-[13px] font-bold uppercase tracking-[0.2em] hover:bg-[#F7F6F3]">
                                 <ArrowLeft className="w-4 h-4 mr-2" /> Back
                             </Button>
                             <Button
-                                onClick={nextStep}
+                                onClick={handleFinish}
                                 disabled={
-                                    !formData.fullName.trim() ||
-                                    !formData.phone.trim() ||
-                                    !formData.email.trim() ||
+                                    !formData.fullName.trim() || 
+                                    !formData.phone.trim() || 
+                                    !formData.email.trim() || 
                                     !formData.address.trim() ||
                                     !formData.petName.trim() ||
                                     !formData.breed.trim() ||
                                     !formData.age.trim() ||
                                     !files.passport ||
                                     !files.vaccination ||
-                                    ((selectedEventId === 'dog-fashion-show' || selectedEventId === 'cat-fashion-show') && !formData.outfitDescription.trim()) ||
-                                    (selectedEventId === 'cat-drawing-battle' && !formData.drawingMaterials.trim())
+                                    !allChecked
                                 }
-                                className="h-12 md:col-span-3 bg-[#37352F] hover:bg-black text-white rounded-sm text-[12px] font-bold uppercase tracking-[0.2em] disabled:opacity-50"
+                                className="h-14 md:col-span-3 bg-[#37352F] hover:bg-black text-white rounded-sm text-[13px] font-bold uppercase tracking-[0.2em] disabled:opacity-50"
                             >
-                                Next: Safety & Review <ArrowRight className="w-4 h-4 ml-2" />
+                                Submit Registration <Sparkles className="w-4 h-4 ml-2" />
                             </Button>
                         </div>
                     </motion.div>
@@ -385,98 +419,9 @@ function RegistrationContent() {
             case 3:
                 return (
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.98 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        className="space-y-10 animate-in fade-in duration-300"
-                    >
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                            {/* Summary Review Column */}
-                            <div className="space-y-8">
-                                <div className="space-y-4">
-                                    <div className="flex items-center gap-2 text-[#91918E]">
-                                        <User size={14} />
-                                        <span className="text-[10px] font-bold uppercase tracking-widest">Participant Details</span>
-                                    </div>
-                                    <div className="p-6 bg-[#F7F6F3] rounded-sm space-y-2">
-                                        <p className="text-[14px] font-bold text-[#37352F]">{formData.fullName}</p>
-                                        <p className="text-[12px] text-[#91918E] font-medium">{formData.email}</p>
-                                        <p className="text-[12px] text-[#91918E] font-medium">{formData.phone}</p>
-                                        <p className="text-[12px] text-[#91918E] font-medium">{formData.address}</p>
-                                    </div>
-                                </div>
-                                <div className="space-y-4">
-                                    <div className="flex items-center gap-2 text-[#91918E]">
-                                        <PawPrint size={14} />
-                                        <span className="text-[10px] font-bold uppercase tracking-widest">Pet Details</span>
-                                    </div>
-                                    <div className="p-6 bg-[#F7F6F3] rounded-sm space-y-2">
-                                        <div className="flex justify-between">
-                                            <span className="text-[12px] text-[#91918E] font-medium">Name</span>
-                                            <span className="text-[12px] font-bold text-[#37352F]">{formData.petName}</span>
-                                        </div>
-                                        <div className="flex justify-between">
-                                            <span className="text-[12px] text-[#91918E] font-medium">Breed</span>
-                                            <span className="text-[12px] font-bold text-[#37352F]">{formData.breed}</span>
-                                        </div>
-                                        <div className="flex justify-between">
-                                            <span className="text-[12px] text-[#91918E] font-medium">Age</span>
-                                            <span className="text-[12px] font-bold text-[#37352F]">{formData.age}</span>
-                                        </div>
-                                        <div className="flex justify-between">
-                                            <span className="text-[12px] text-[#91918E] font-medium">Gender</span>
-                                            <span className="text-[12px] font-bold text-[#37352F]">{formData.gender}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Safety Agreements Column */}
-                            <div className="space-y-6">
-                                <div className="flex items-center gap-2 text-[#91918E]">
-                                    <ShieldCheck size={14} />
-                                    <span className="text-[10px] font-bold uppercase tracking-widest">Confirm Agreements</span>
-                                </div>
-                                <div className="space-y-3 max-h-[360px] overflow-y-auto pr-2">
-                                    {currentTerms.map((term, i) => (
-                                        <div
-                                            key={i}
-                                            onClick={() => setCheckedTerms(prev => ({ ...prev, [i]: !prev[i] }))}
-                                            className={cn(
-                                                "flex items-start gap-4 p-4 rounded-sm border cursor-pointer transition-all",
-                                                checkedTerms[i] ? 'bg-[#FACC15]/5 border-[#FACC15]/20' : 'bg-[#F7F6F3] border-transparent hover:border-[#E9E9E7]'
-                                            )}
-                                        >
-                                            <Checkbox checked={!!checkedTerms[i]} className="mt-1 w-4 h-4 rounded-sm border-[#E9E9E7] data-[state=checked]:bg-[#37352F] data-[state=checked]:text-white" />
-                                            <Label className="text-[12px] font-medium leading-relaxed text-[#37352F] cursor-pointer flex-1">
-                                                {term}
-                                            </Label>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Submission Buttons */}
-                        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 pt-6 border-t border-[#F1F1EF]">
-                            <Button variant="outline" onClick={prevStep} className="h-12 md:col-span-1 rounded-sm border-[#E9E9E7] text-[12px] font-bold uppercase tracking-[0.2em] hover:bg-[#F7F6F3]">
-                                <ArrowLeft className="w-4 h-4 mr-2" /> Back
-                            </Button>
-                            <Button
-                                onClick={handleFinish}
-                                disabled={!allChecked}
-                                className="h-12 md:col-span-3 bg-[#FACC15] hover:bg-[#EAB308] text-black rounded-sm text-[12px] font-bold uppercase tracking-[0.2em] shadow-sm shadow-yellow-500/10 border border-black/5"
-                            >
-                                Submit Registration <Sparkles className="w-4 h-4 ml-2" />
-                            </Button>
-                        </div>
-                    </motion.div>
-                );
-            case 4:
-                return (
-                    <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="text-center space-y-12 py-10 animate-in fade-in duration-300"
+                        className="text-center space-y-12 py-10"
                     >
                         <div className="w-24 h-24 bg-[#FACC15] text-black rounded-full flex items-center justify-center mx-auto shadow-sm shadow-yellow-500/20">
                             <Check className="w-12 h-12 stroke-[4px]" />
@@ -518,7 +463,7 @@ function RegistrationContent() {
                                     <div className="flex flex-col items-center gap-4 relative">
                                         <div className={cn(
                                             "w-10 h-10 rounded-sm text-[12px] font-bold flex items-center justify-center transition-all duration-500",
-                                            isDone ? 'bg-[#37352F] text-white' : isActive ? 'bg-[#FACC15] text-black  shadow-sm  shadow-yellow-500/20 scale-110' : 'bg-[#E9E9E7] text-[#91918E]'
+                                            isDone ? 'bg-[#37352F] text-white' : isActive ? 'bg-[#FACC15] text-black shadow-sm shadow-yellow-500/20 scale-110' : 'bg-[#E9E9E7] text-[#91918E]'
                                         )}>
                                             {isDone ? <Check size={16} /> : num}
                                         </div>
@@ -544,7 +489,7 @@ function RegistrationContent() {
                     </div>
 
                     {/* Elite Registration Card */}
-                    <div className="bg-white rounded-sm border border-[#E9E9E7]  shadow-sm  shadow-black/[0.03] overflow-hidden animate-in fade-in zoom-in-95 duration-1000">
+                    <div className="bg-white rounded-sm border border-[#E9E9E7] shadow-sm shadow-black/[0.03] overflow-hidden animate-in fade-in zoom-in-95 duration-1000">
                         <div className="border-b border-[#F1F1EF] px-12 pt-16 pb-12 bg-white relative">
                             <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-8">
                                 <div className="space-y-4">
@@ -552,15 +497,13 @@ function RegistrationContent() {
                                         Elite Registration · {selectedEventName || "Phase 1"}
                                     </p>
                                     <h2 className="text-[48px] md:text-[72px] font-display font-bold text-[#37352F] leading-[0.85] tracking-tighter">
-                                        {STEP_LABELS[step - 1] || t('steps.done')}
+                                        {STEP_LABELS[step - 1]}
                                     </h2>
                                 </div>
                                 <div className="hidden md:flex items-center gap-3 pb-2">
-                                    {step <= STEP_LABELS.length && (
-                                        <Badge variant="outline" className="text-[10px] font-bold uppercase tracking-widest px-3 h-8 border-[#E9E9E7] text-[#91918E]">
-                                            Step {step} of {STEP_LABELS.length}
-                                        </Badge>
-                                    )}
+                                    <Badge variant="outline" className="text-[10px] font-bold uppercase tracking-widest px-3 h-8 border-[#E9E9E7] text-[#91918E]">
+                                        Step {step} of {STEP_LABELS.length}
+                                    </Badge>
                                     {selectedEventId && (
                                         <div className="h-8 px-3 rounded-full border border-yellow-200 bg-yellow-50 flex items-center gap-2">
                                             <Sparkles size={12} className="text-[#854d0e]" />
