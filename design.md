@@ -1,5 +1,9 @@
 # Nova Paw Festival - Design System & UI Guidelines
 
+## 📐 Global Scale Factor
+
+- **Scale Reduction:** The entire website (including the landing pages, dashboards, navigation, forms, and custom pixel-based spacing) is uniformly scaled down by **30%** using a global `zoom: 0.7` rule on the `html` element. This guarantees consistent typographic hierarchy, margins, and padding proportions across the entire website layout.
+
 ## 🎨 Color Palette
 
 - **Primary (Yellow):** `#FACC15` (bg-primary) - Used for primary actions, accents, and highlights.
