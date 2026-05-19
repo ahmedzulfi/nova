@@ -108,11 +108,14 @@ Both User and Admin dashboards share a consistent **Notion-inspired minimalist a
 
 ## 📐 Global UI Scaling Guidelines
 
-To achieve an ultra-compact, highly-precise, and premium aesthetic (similar to complex professional dashboards), the website uses a global **30% UI scale reduction**:
-- **Root Scale:** Root `html` font-size is set to `70%`.
-- **Inherited Scaling:** Since all Tailwind sizes (spacing, gaps, paddings, margins) and text sizes are `rem`-based, they automatically scale down linearly by exactly 30% globally.
-- **Base Typography:**
-  - `body` is set to `12.6px` (previously `18px`).
-  - Hero Headings (`h1`) use `clamp(33.6px, 8vw, 58.8px)` (previously `clamp(48px, 8vw, 84px)`).
-  - Section Headings (`h2`) use `clamp(25.2px, 6vw, 39.2px)`.
-- **Paddings:** Container paddings are adjusted to `1.05rem` (previously `1.5rem`), and section padding sizes are scaled down proportionally.
+To achieve a compact, highly-precise, and premium aesthetic, the website uses a global scaling model:
+- **Root Scale:** Root `html` is scaled to `zoom: 0.9` (10% smaller overall website layout, fonts, and paddings) for optimal readability and layout density.
+- **Layout Containers:** Standard layout containers use `max-w-[1280px]` (1.5rem padding), while dashboard interfaces use `max-w-7xl` (1280px) to maximize workspace area for tabular data and ledger stats.
+
+## 🎟️ Digital Admission Ticket Pattern (Vertical Stub)
+
+For the user dashboard overview, the digital admission pass uses a physical vertical ticket metaphor:
+- **Dimensions:** Compact vertical structure (`max-w-md`) resembling a physical gate pass.
+- **Notched Perforation:** Absolute-positioned circles (`w-7 h-7 bg-white`) on the left and right borders aligning with a dashed border line (`border-t border-dashed`) to simulate a tearable stub.
+- **Header Stub:** Includes the event branding, order details, event venue, dates, and active verification status.
+- **Footer Stub:** Contains the unique validation QR code box and a simulated high-fidelity CSS barcode row (`opacity-30`) to enhance visual authenticity.

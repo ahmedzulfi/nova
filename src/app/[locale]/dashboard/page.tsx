@@ -110,7 +110,7 @@ function DashboardContent() {
             <div className="mb-12">
                 <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">
                     {activeTab === 'overview' ? `Welcome, ${data.fullName.split(' ')[0]}` :
-                            activeTab === 'receipt' ? 'Order Receipt' : t('sidebar.schedule')}
+                        activeTab === 'receipt' ? 'Order Receipt' : t('sidebar.schedule')}
                 </h1>
 
                 {/* Simple Tab Switcher (Notion Style) */}
@@ -140,73 +140,116 @@ function DashboardContent() {
                 >
                     {/* ─── TAB: Overview ─────────────────────────────────────────────── */}
                     {activeTab === 'overview' && (
-                        <div className="max-w-3xl mx-auto space-y-12 pb-12 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-                            {/* 1. Official Digital Entrance Pass - Main Block */}
-                            <div className="bg-white border border-[#E9E9E7] rounded-sm overflow-hidden shadow-sm">
-                                <div className="p-8 md:p-12 space-y-12">
-                                    {/* Header Section */}
-                                    <div className="flex items-center justify-between border-b border-black/5 pb-8">
-                                        <div className="space-y-1">
-                                            <p className="text-[10px] font-bold text-[#91918E] uppercase tracking-[0.2em]">Official Entrance Pass</p>
-                                            <h2 className="text-[32px] font-bold text-[#37352F] tracking-tighter">{data.orderId}</h2>
-                                        </div>
-                                        <div className="w-14 h-14 bg-[#F7F6F3] border border-[#E9E9E7] rounded-sm flex items-center justify-center text-[#37352F]">
-                                            <Ticket size={28} strokeWidth={1.5} />
-                                        </div>
-                                    </div>
-
-                                    {/* Main Content Area - Single Column Flow */}
-                                    <div className="space-y-12">
-                                        {/* QR Code & Scan Instructions */}
-                                        <div className="flex flex-col items-center justify-center space-y-6 py-4">
-                                            <div className="bg-white p-6 border border-[#E9E9E7] rounded-sm shadow-sm hover:scale-[1.02] transition-transform duration-500 cursor-zoom-in">
-                                                <img src={QR_CODE_URL} alt="Scan to Verify" className="w-48 h-48" />
+                        <div className="max-w-md mx-auto space-y-8 pb-12 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+                            {/* 1. Official Digital Entrance Pass - Vertical Ticket Block */}
+                            <div className="relative bg-[#FBFBFA] border border-[#E9E9E7] rounded-sm shadow-md overflow-visible">
+                                {/* Left & Right Perforation Cutouts */}
+                                <div className="absolute -left-3.5 top-[60%] w-7 h-7 bg-white border border-[#E9E9E7] rounded-full z-10" />
+                                <div className="absolute -right-3.5 top-[60%] w-7 h-7 bg-white border border-[#E9E9E7] rounded-full z-10" />
+                                
+                                <div className="p-6 md:p-8 space-y-6">
+                                    {/* Top Part: Ticket Header & Info */}
+                                    <div className="space-y-6">
+                                        <div className="flex justify-between items-start">
+                                            <div className="space-y-1">
+                                                <p className="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">{t('badge') || "Official Entrance Pass"}</p>
+                                                <h2 className="text-[22px] font-display font-bold text-[#37352F] tracking-tighter leading-tight">Nova Paw Festival 2026</h2>
+                                                <p className="text-[11px] text-[#91918E]">Order ID: {data.orderId}</p>
                                             </div>
-                                            <div className="text-center space-y-2">
-                                                <p className="text-[13px] font-bold text-[#37352F]">Unique Identification QR</p>
-                                                <p className="text-[11px] text-[#91918E] max-w-[240px]">Present this code to the scanner at the festival entrance gate.</p>
+                                            <div className="w-12 h-12 bg-white border border-[#E9E9E7] rounded-sm flex items-center justify-center text-[#37352F] shrink-0">
+                                                <Ticket size={24} strokeWidth={1.5} />
                                             </div>
                                         </div>
 
-                                        {/* Property List - Notion Style (Single Column) */}
-                                        <div className="space-y-0 border-t border-black/5 pt-12">
-                                            <div className="flex items-center justify-between py-5 border-b border-black/[0.03]">
-                                                <span className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Main Attendee</span>
-                                                <span className="text-[15px] font-bold text-[#37352F]">{data.fullName}</span>
-                                            </div>
-                                            <div className="flex items-center justify-between py-5 border-b border-black/[0.03]">
-                                                <span className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Ticket Tier</span>
-                                                <div className="flex items-center gap-2">
-                                                    <span className="w-2 h-2 bg-primary rounded-full" />
-                                                    <span className="text-[14px] font-bold text-primary uppercase">{getTierName(data.tier)}</span>
+                                        {/* Main Details Table */}
+                                        <div className="space-y-4 pt-4 border-t border-black/5">
+                                            <div className="grid grid-cols-2 gap-4">
+                                                <div>
+                                                    <p className="text-[9px] font-bold text-[#91918E] uppercase tracking-widest">Main Attendee</p>
+                                                    <p className="text-[14px] font-bold text-[#37352F] truncate">{data.fullName}</p>
+                                                </div>
+                                                <div>
+                                                    <p className="text-[9px] font-bold text-[#91918E] uppercase tracking-widest">Ticket Tier</p>
+                                                    <span className="text-[13px] font-bold text-primary uppercase tracking-wider block">{getTierName(data.tier)}</span>
                                                 </div>
                                             </div>
-                                            <div className="flex items-center justify-between py-5 border-b border-black/[0.03]">
-                                                <span className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Guest Count</span>
-                                                <span className="text-[14px] font-bold text-[#37352F]">{data.adultQty} Adults · {data.kidsQty || 0} Kids</span>
+                                            <div className="grid grid-cols-2 gap-4">
+                                                <div>
+                                                    <p className="text-[9px] font-bold text-[#91918E] uppercase tracking-widest">Guest Count</p>
+                                                    <p className="text-[13px] font-bold text-[#37352F]">{data.adultQty} Adults · {data.kidsQty || 0} Kids</p>
+                                                </div>
+                                                <div>
+                                                    <p className="text-[9px] font-bold text-[#91918E] uppercase tracking-widest">Event Dates</p>
+                                                    <p className="text-[13px] font-bold text-[#37352F]">Nov 15 - 16, 2026</p>
+                                                </div>
                                             </div>
-                                            <div className="flex items-center justify-between py-5 border-b border-black/[0.03]">
-                                                <span className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Event Dates</span>
-                                                <span className="text-[14px] font-bold text-[#37352F]">November 15 - 16, 2026</span>
-                                            </div>
-                                            <div className="flex items-center justify-between py-5">
-                                                <span className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Gate Status</span>
-                                                <span className="px-3 py-1 bg-green-50 text-green-700 border border-green-100 rounded-sm text-[11px] font-bold uppercase tracking-widest">Active & Verified</span>
+                                            <div className="grid grid-cols-2 gap-4">
+                                                <div>
+                                                    <p className="text-[9px] font-bold text-[#91918E] uppercase tracking-widest">Venue</p>
+                                                    <p className="text-[12px] font-medium text-[#37352F]">pet park The Pearl Island</p>
+                                                </div>
+                                                <div>
+                                                    <p className="text-[9px] font-bold text-[#91918E] uppercase tracking-widest">Gate Status</p>
+                                                    <div>
+                                                        <span className="inline-block mt-0.5 px-2 py-0.5 bg-green-50 text-green-700 border border-green-100 rounded-sm text-[10px] font-bold uppercase tracking-widest">Active</span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    {/* Action Footer */}
-                                    <div className="pt-8 flex flex-col gap-3">
-                                        <Button className="w-full h-14 bg-[#37352F] hover:bg-black text-white text-[14px] font-bold uppercase tracking-[0.2em] rounded-sm gap-3 shadow-xl shadow-black/5 transition-all active:scale-[0.98]">
-                                            <Download size={18} />
-                                            Download Digital Pass
-                                        </Button>
-                                        <Button variant="ghost" className="w-full h-12 text-[#91918E] hover:text-[#37352F] text-[12px] font-bold uppercase tracking-widest" onClick={() => window.print()}>
-                                            Print Physical Copy
-                                        </Button>
+                                    {/* Perforation Line */}
+                                    <div className="relative py-2">
+                                        <div className="border-t border-dashed border-[#E9E9E7] w-full" />
+                                    </div>
+
+                                    {/* Bottom Part: Stub with QR Code & Barcode */}
+                                    <div className="flex flex-col items-center justify-center space-y-4 pt-2">
+                                        <div className="bg-white p-4 border border-[#E9E9E7] rounded-sm shadow-sm hover:scale-[1.02] transition-transform duration-500 cursor-zoom-in">
+                                            <img src={QR_CODE_URL} alt="Scan to Verify" className="w-36 h-36" />
+                                        </div>
+                                        
+                                        <div className="text-center space-y-1">
+                                            <p className="text-[12px] font-bold text-[#37352F]">Unique Identification QR</p>
+                                            <p className="text-[10px] text-[#91918E]">Present at entrance gate for validation.</p>
+                                        </div>
+
+                                        {/* CSS Simulated Barcode */}
+                                        <div className="w-full pt-2">
+                                            <div className="flex justify-center items-center gap-[2.5px] h-8 opacity-30">
+                                                <div className="w-[1.5px] h-full bg-black" />
+                                                <div className="w-[3px] h-full bg-black" />
+                                                <div className="w-[1.5px] h-full bg-black" />
+                                                <div className="w-[1px] h-full bg-black" />
+                                                <div className="w-[4px] h-full bg-black" />
+                                                <div className="w-[1.5px] h-full bg-black" />
+                                                <div className="w-[2px] h-full bg-black" />
+                                                <div className="w-[1px] h-full bg-black" />
+                                                <div className="w-[3px] h-full bg-black" />
+                                                <div className="w-[1.5px] h-full bg-black" />
+                                                <div className="w-[1px] h-full bg-black" />
+                                                <div className="w-[4px] h-full bg-black" />
+                                                <div className="w-[2px] h-full bg-black" />
+                                                <div className="w-[1.5px] h-full bg-black" />
+                                                <div className="w-[3px] h-full bg-black" />
+                                                <div className="w-[1px] h-full bg-black" />
+                                                <div className="w-[2px] h-full bg-black" />
+                                                <div className="w-[1.5px] h-full bg-black" />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
+
+                            {/* Action Footer */}
+                            <div className="flex flex-col gap-3">
+                                <Button className="w-full h-12 bg-[#37352F] hover:bg-black text-white text-[13px] font-bold uppercase tracking-[0.2em] rounded-sm gap-3 shadow-md transition-all active:scale-[0.98]">
+                                    <Download size={16} />
+                                    Download Digital Pass
+                                </Button>
+                                <Button variant="ghost" className="w-full h-10 text-[#91918E] hover:text-[#37352F] text-[11px] font-bold uppercase tracking-widest" onClick={() => window.print()}>
+                                    Print Physical Copy
+                                </Button>
                             </div>
 
                             {/* 2. Competition & Event Status - Single Column Integration */}
@@ -405,7 +448,7 @@ function DashboardContent() {
                                                     Compliance & Security
                                                 </p>
                                                 <p className="text-[12px] text-[#666666] leading-relaxed">
-                                                    This document serves as an official proof of purchase for Nova Paw Festival 2026. 
+                                                    This document serves as an official proof of purchase for Nova Paw Festival 2026.
                                                     Digital signatures were captured for all safety agreements at the time of transaction.
                                                     Verified by Nova Gatekeeper Security Systems.
                                                 </p>
