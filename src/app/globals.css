@@ -146,7 +146,7 @@
 
   html {
     scroll-behavior: smooth;
-    zoom: 0.9;
+    zoom: 0.99;
     /* Scale down the entire website uniformly by 30% (fonts, paddings, absolute pixels, margins, everything) */
   }
 

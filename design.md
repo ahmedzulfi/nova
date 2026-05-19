@@ -121,3 +121,11 @@ For the user dashboard overview, the digital admission pass uses a physical hori
 - **Notched Perforation:** Absolute-positioned circles (`w-7 h-7 bg-white`) on the top/bottom borders (for desktop) and left/right borders (for mobile) to simulate a tearable stub.
 - **Left Pane:** Includes the event branding, order details, attendee info, ticket tier, guest count, dates, and venue status details.
 - **Right Pane:** Contains the unique validation QR code box for gate check-in.
+
+## 🧾 Itemized Receipt Pattern (Horizontal Ledger)
+
+For the user dashboard receipt tab, the billing document mirrors the exact physical dimensions and styling of the digital admission ticket to create a unified premium feel:
+- **Dimensions:** Horizontal structure (`max-w-3xl`) identical to the ticket pass.
+- **Notched Perforation:** Identical tearable stub styling.
+- **Left Pane (70%):** Functions as the detailed billing ledger. Contains multi-section breakdowns for Attendee Profile, Billing Details (address, payment method, merchant ID), Ticket Inventory (itemized cost breakdown), and Competition Summaries.
+- **Right Pane (30%):** Functions as the official receipt stub, featuring the total paid amount, a "PAID" badge, QR verification code, and transaction date/ID.

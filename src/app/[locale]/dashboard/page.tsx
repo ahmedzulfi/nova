@@ -255,213 +255,176 @@ function DashboardContent() {
                             )}
                         </div>
                     )}
-
-
-                    {/* ─── TAB: Receipt ──────────────────────────────────────────────── */}
                     {activeTab === 'receipt' && (
-                        <div className="max-w-4xl mx-auto space-y-8 pb-12">
-                            <div className="bg-white border border-[#E9E9E7] rounded-sm shadow-sm overflow-hidden animate-in fade-in zoom-in-[0.99] duration-500">
-                                {/* Notion Header Style - Official Document */}
-                                <div className="p-12 md:p-16 space-y-16">
-                                    <div className="flex flex-col md:flex-row justify-between items-start gap-12 border-b border-black/5 pb-12">
-                                        <div className="flex items-center gap-6">
-                                            <div className="w-20 h-20 bg-[#F7F6F3] border border-[#E9E9E7] rounded-sm flex items-center justify-center text-[40px] shadow-sm">
-                                                📜
+                        <div className="max-w-3xl mx-auto space-y-8 pb-12">
+                            {/* Notion Invoice Container */}
+                            <div className="bg-[#FBFBFA] border border-[#E9E9E7] rounded-sm shadow-sm overflow-hidden animate-in fade-in zoom-in-[0.99] duration-500">
+                                {/* Top Banner/Decorative Bar */}
+                                <div className="h-1.5 bg-[#37352F] w-full" />
+                                
+                                <div className="p-8 md:p-12 space-y-10">
+                                    {/* Invoice Header */}
+                                    <div className="flex flex-col md:flex-row justify-between items-start gap-8 border-b border-black/5 pb-8">
+                                        <div className="space-y-3">
+                                            <div className="flex items-center gap-2">
+                                                <span className="text-[20px]">🧾</span>
+                                                <h2 className="text-[24px] font-bold text-[#37352F] tracking-tight">Official Invoice & Receipt</h2>
                                             </div>
-                                            <div className="space-y-1">
-                                                <h2 className="text-[32px] font-bold text-[#37352F] tracking-tighter">Festival Pass & Receipt</h2>
-                                                <div className="flex items-center gap-2">
-                                                    <span className="text-[12px] text-[#91918E] font-medium uppercase tracking-widest">{data.orderId}</span>
-                                                    <span className="w-1 h-1 bg-[#E9E9E7] rounded-full" />
-                                                    <span className="text-[12px] text-green-600 font-bold uppercase tracking-widest">Verified</span>
-                                                </div>
+                                            <p className="text-[12px] text-[#666666] leading-relaxed">
+                                                Nova Events Qatar · pet park The Pearl · Doha, Qatar
+                                            </p>
+                                        </div>
+                                        <div className="md:text-right space-y-2">
+                                            <div className="inline-block px-3 py-1 bg-green-50 text-green-700 border border-green-100 rounded-sm text-[10px] font-bold uppercase tracking-widest">
+                                                Paid & Verified
+                                            </div>
+                                            <p className="text-[11px] text-[#91918E] font-mono">INVOICE: #{data.orderId.split('-')[2] || data.orderId}</p>
+                                            <p className="text-[11px] text-[#91918E]">Date: {new Date(data.entryDate || '').toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' })}</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Billing & Payment Meta Info */}
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                        <div className="space-y-2">
+                                            <p className="text-[9px] font-bold text-[#91918E] uppercase tracking-wider">Billed To</p>
+                                            <div className="space-y-0.5">
+                                                <p className="text-[13px] font-bold text-[#37352F]">{data.fullName}</p>
+                                                <p className="text-[12px] text-[#666666]">{data.email}</p>
+                                                <p className="text-[11px] text-[#91918E]">Doha, Qatar</p>
                                             </div>
                                         </div>
-                                        <div className="md:text-right space-y-4">
-                                            <div>
-                                                <p className="text-[10px] font-bold text-[#91918E] uppercase tracking-[0.2em] mb-1">Issue Date</p>
-                                                <p className="text-[15px] font-bold text-[#37352F]">
-                                                    {new Date(data.entryDate || '').toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
-                                                </p>
-                                            </div>
-                                            <div>
-                                                <p className="text-[10px] font-bold text-[#91918E] uppercase tracking-[0.2em] mb-1">Status</p>
-                                                <p className="text-[13px] font-bold text-black bg-[#F7F6F3] px-3 py-1 rounded-sm inline-block">PAID · SECURED</p>
+                                        <div className="space-y-2 md:text-right">
+                                            <p className="text-[9px] font-bold text-[#91918E] uppercase tracking-wider">Payment Method</p>
+                                            <div className="space-y-0.5 md:flex md:flex-col md:items-end">
+                                                <p className="text-[13px] font-bold text-[#37352F]">VISA •••• 4242</p>
+                                                <p className="text-[12px] text-[#666666]">Authorized Transaction</p>
+                                                <p className="text-[11px] text-[#91918E] font-mono">Auth Code: #8829-X</p>
                                             </div>
                                         </div>
                                     </div>
 
-                                    {/* Multi-Section Grid */}
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-                                        {/* Attendee & Billing Column */}
-                                        <div className="space-y-12">
-                                            <div className="space-y-6">
-                                                <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] border-l-2 border-primary pl-3">Attendee Profile</h3>
-                                                <div className="grid grid-cols-2 gap-6">
-                                                    <div className="space-y-1">
-                                                        <p className="text-[10px] font-bold text-black/30 uppercase">Legal Name</p>
-                                                        <p className="text-[14px] font-bold text-[#37352F]">{data.fullName}</p>
-                                                    </div>
-                                                    <div className="space-y-1">
-                                                        <p className="text-[10px] font-bold text-black/30 uppercase">Nationality</p>
-                                                        <p className="text-[14px] font-bold text-[#37352F]">Qatari / Resident</p>
-                                                    </div>
-                                                    <div className="space-y-1">
-                                                        <p className="text-[10px] font-bold text-black/30 uppercase">Contact</p>
-                                                        <p className="text-[13px] font-medium text-[#666666]">{data.email}</p>
-                                                    </div>
-                                                    <div className="space-y-1">
-                                                        <p className="text-[10px] font-bold text-black/30 uppercase">Festival Zone</p>
-                                                        <p className="text-[14px] font-bold text-primary">Elite VIP Access</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div className="space-y-6">
-                                                <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] border-l-2 border-black/20 pl-3">Billing Details</h3>
-                                                <div className="p-6 bg-[#F7F6F3] rounded-sm space-y-4">
-                                                    <div className="space-y-1">
-                                                        <p className="text-[10px] font-bold text-black/30 uppercase">Billing Address</p>
-                                                        <p className="text-[13px] text-[#37352F] font-medium leading-relaxed">
-                                                            pet park The Pearl, Porto Arabia<br />
-                                                            Parcel 12, Tower 4<br />
-                                                            Doha, Qatar
-                                                        </p>
-                                                    </div>
-                                                    <div className="flex justify-between items-center pt-4 border-t border-black/5">
-                                                        <div className="space-y-1">
-                                                            <p className="text-[10px] font-bold text-black/30 uppercase">Payment Method</p>
-                                                            <div className="flex items-center gap-2">
-                                                                <div className="w-8 h-5 bg-white border border-[#E9E9E7] rounded-sm flex items-center justify-center text-[8px] font-bold">VISA</div>
-                                                                <p className="text-[13px] font-bold text-[#37352F]">•••• 4242</p>
-                                                            </div>
-                                                        </div>
-                                                        <div className="text-right space-y-1">
-                                                            <p className="text-[10px] font-bold text-black/30 uppercase">Merchant ID</p>
-                                                            <p className="text-[13px] font-mono text-[#37352F]">NV-8829-X</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        {/* Ticket breakdown & Competition Column */}
-                                        <div className="space-y-12">
-                                            <div className="space-y-6">
-                                                <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] border-l-2 border-black/20 pl-3">Ticket Inventory</h3>
-                                                <div className="space-y-4 divide-y divide-black/5">
-                                                    <div className="flex justify-between items-center py-2">
-                                                        <div className="space-y-1">
-                                                            <span className="text-[14px] font-bold text-[#37352F]">{getTierName(data.tier)}</span>
-                                                            <p className="text-[11px] text-[#91918E]">Primary Admission Pass</p>
-                                                        </div>
-                                                        <span className="text-[14px] font-bold text-[#37352F]">QAR {data.tier === 'adult' ? 45 : 90}.00</span>
-                                                    </div>
+                                    {/* Itemized Table */}
+                                    <div className="space-y-4">
+                                        <p className="text-[9px] font-bold text-[#91918E] uppercase tracking-wider">Itemized Costs</p>
+                                        <div className="border border-[#E9E9E7] rounded-sm overflow-hidden bg-white">
+                                            <table className="w-full text-left border-collapse">
+                                                <thead>
+                                                    <tr className="border-b border-[#E9E9E7] text-[10px] font-bold text-[#91918E] uppercase tracking-wider bg-[#F7F6F3]">
+                                                        <th className="p-4">Description</th>
+                                                        <th className="p-4 text-center w-20">Qty</th>
+                                                        <th className="p-4 text-right w-32">Unit Price</th>
+                                                        <th className="p-4 text-right w-32">Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody className="divide-y divide-[#E9E9E7] text-[13px] text-[#37352F]">
+                                                    <tr className="hover:bg-[#FAF9F5] transition-colors">
+                                                        <td className="p-4 font-medium">
+                                                            {getTierName(data.tier)} Pass
+                                                            <span className="block text-[10px] text-[#91918E] mt-0.5">Primary Admission Access</span>
+                                                        </td>
+                                                        <td className="p-4 text-center">1</td>
+                                                        <td className="p-4 text-right">QAR {data.tier === 'adult' ? 45 : 90}.00</td>
+                                                        <td className="p-4 text-right">QAR {data.tier === 'adult' ? 45 : 90}.00</td>
+                                                    </tr>
                                                     {data.adultQty > 1 && (
-                                                        <div className="flex justify-between items-center py-4">
-                                                            <div className="space-y-1">
-                                                                <span className="text-[14px] text-[#666666]">Adult Companion (x{data.adultQty - 1})</span>
-                                                                <p className="text-[11px] text-[#91918E]">Standard Secondary Access</p>
-                                                            </div>
-                                                            <span className="text-[14px] font-bold text-[#37352F]">QAR {(data.adultQty - 1) * 45}.00</span>
-                                                        </div>
+                                                        <tr className="hover:bg-[#FAF9F5] transition-colors">
+                                                            <td className="p-4">
+                                                                Adult Companion
+                                                                <span className="block text-[10px] text-[#91918E] mt-0.5">Secondary Admission Access</span>
+                                                            </td>
+                                                            <td className="p-4 text-center">{data.adultQty - 1}</td>
+                                                            <td className="p-4 text-right">QAR 45.00</td>
+                                                            <td className="p-4 text-right">QAR {(data.adultQty - 1) * 45}.00</td>
+                                                        </tr>
                                                     )}
                                                     {data.petQty > 1 && (
-                                                        <div className="flex justify-between items-center py-4">
-                                                            <div className="space-y-1">
-                                                                <span className="text-[14px] text-[#666666]">Additional Pet (x{data.petQty - 1})</span>
-                                                                <p className="text-[11px] text-[#91918E]">Extra Pet Admission</p>
-                                                            </div>
-                                                            <span className="text-[14px] font-bold text-[#37352F]">QAR {(data.petQty - 1) * 45}.00</span>
-                                                        </div>
+                                                        <tr className="hover:bg-[#FAF9F5] transition-colors">
+                                                            <td className="p-4">
+                                                                Additional Pet Admission
+                                                                <span className="block text-[10px] text-[#91918E] mt-0.5">Extra Pet Access Badge</span>
+                                                            </td>
+                                                            <td className="p-4 text-center">{data.petQty - 1}</td>
+                                                            <td className="p-4 text-right">QAR 45.00</td>
+                                                            <td className="p-4 text-right">QAR {(data.petQty - 1) * 45}.00</td>
+                                                        </tr>
                                                     )}
                                                     {data.kidsQty > 0 && (
-                                                        <div className="flex justify-between items-center py-4">
-                                                            <div className="space-y-1">
-                                                                <span className="text-[14px] text-[#666666]">Kids Admission (x{data.kidsQty})</span>
-                                                                <p className="text-[11px] text-[#91918E]">Junior Pass (U-12)</p>
-                                                            </div>
-                                                            <span className="text-[14px] font-bold text-[#37352F]">QAR {data.kidsQty * 15}.00</span>
-                                                        </div>
+                                                        <tr className="hover:bg-[#FAF9F5] transition-colors">
+                                                            <td className="p-4">
+                                                                Kids Admission
+                                                                <span className="block text-[10px] text-[#91918E] mt-0.5">Junior Pass (U-12)</span>
+                                                            </td>
+                                                            <td className="p-4 text-center">{data.kidsQty}</td>
+                                                            <td className="p-4 text-right">QAR 15.00</td>
+                                                            <td className="p-4 text-right">QAR {data.kidsQty * 15}.00</td>
+                                                        </tr>
                                                     )}
-                                                    <div className="flex justify-between items-center pt-8">
-                                                        <span className="text-[12px] font-bold text-[#37352F] uppercase tracking-[0.2em]">Total Amount</span>
-                                                        <div className="text-right">
-                                                            <span className="text-[32px] font-bold text-[#37352F] tracking-tighter leading-none">QAR {data.total.toFixed(2)}</span>
-                                                            <p className="text-[10px] text-green-600 font-bold uppercase tracking-widest mt-1">Authorized · 0.0s</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            {/* Competition Registration Block */}
-                                            {isPetOwner && data.competitionEntry && (
-                                                <div className="space-y-6">
-                                                    <h3 className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] border-l-2 border-yellow-500 pl-3">Competition Summary</h3>
-                                                    <div className="p-6 bg-yellow-50/50 border border-yellow-100 rounded-sm space-y-4">
-                                                        <div className="flex justify-between items-start">
-                                                            <div className="space-y-1">
-                                                                <p className="text-[14px] font-bold text-yellow-900">{data.competitionEntry}</p>
-                                                                <p className="text-[12px] text-yellow-800/60 font-medium italic">Confirmed Application</p>
-                                                            </div>
-                                                            <Trophy size={20} className="text-yellow-600" />
-                                                        </div>
-                                                        <div className="pt-4 border-t border-yellow-200/50 flex items-center justify-between">
-                                                            <span className="text-[11px] font-bold text-yellow-800/60 uppercase tracking-widest">Entry ID</span>
-                                                            <span className="text-[11px] font-mono font-bold text-yellow-900">REG-COMP-{data.orderId.split('-')[2]}</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            )}
+                                                    {isPetOwner && data.competitionEntry && (
+                                                        <tr className="hover:bg-[#FAF9F5] transition-colors bg-yellow-50/20">
+                                                            <td className="p-4">
+                                                                Competition Registration Fee
+                                                                <span className="block text-[10px] text-yellow-855 mt-0.5">Confirmed Activity: {data.competitionEntry}</span>
+                                                            </td>
+                                                            <td className="p-4 text-center">1</td>
+                                                            <td className="p-4 text-right">QAR 0.00</td>
+                                                            <td className="p-4 text-right">QAR 0.00</td>
+                                                        </tr>
+                                                    )}
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
 
-                                    {/* Footer / Legal / Actions */}
-                                    <div className="pt-16 border-t border-black/5 space-y-12">
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                                            <div className="space-y-4 p-6 border border-[#E9E9E7] rounded-sm">
-                                                <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-[0.2em] flex items-center gap-2">
-                                                    <Info size={14} />
-                                                    Compliance & Security
-                                                </p>
-                                                <p className="text-[12px] text-[#666666] leading-relaxed">
-                                                    This document serves as an official proof of purchase for Nova Paw Festival 2026.
-                                                    Digital signatures were captured for all safety agreements at the time of transaction.
-                                                    Verified by Nova Gatekeeper Security Systems.
-                                                </p>
+                                    {/* Subtotal / Grand Total Section */}
+                                    <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 pt-6 border-t border-black/5">
+                                        {/* Security & Verification Stamp */}
+                                        <div className="flex items-center gap-4 p-4 border border-[#E9E9E7] rounded-sm bg-white shadow-sm">
+                                            <div className="w-12 h-12 rounded-full border-2 border-green-600/40 flex items-center justify-center text-green-600 text-[14px] font-bold transform -rotate-12 select-none">
+                                                PAID
                                             </div>
-                                            <div className="flex flex-col justify-end gap-4">
-                                                <Button className="w-full h-14 bg-[#37352F] hover:bg-black text-white text-[14px] font-bold uppercase tracking-[0.2em] shadow-xl shadow-black/10 transition-all active:scale-[0.98] gap-3">
-                                                    <Download size={18} />
-                                                    Download Official PDF
-                                                </Button>
-                                                <div className="flex gap-4">
-                                                    <Button variant="outline" className="flex-1 h-12 border-[#E9E9E7] text-[12px] font-bold uppercase tracking-widest gap-2" onClick={() => window.print()}>
-                                                        <ExternalLink size={16} />
-                                                        Print Pass
-                                                    </Button>
-                                                    <Button variant="ghost" className="flex-1 h-12 text-[#91918E] hover:text-[#37352F] text-[12px] font-bold uppercase tracking-widest">
-                                                        Need Help?
-                                                    </Button>
-                                                </div>
+                                            <div className="space-y-0.5">
+                                                <p className="text-[11px] font-bold text-[#37352F]">Transaction Verified</p>
+                                                <p className="text-[10px] text-[#91918E]">Secured by Nova Gatekeeper</p>
                                             </div>
                                         </div>
 
-                                        <div className="text-center space-y-1 pt-8 border-t border-black/[0.03]">
-                                            <p className="text-[11px] font-medium text-[#91918E]">Nova Events Qatar · pet park The Pearl · Parcel 18 · Doha, QA</p>
-                                            <p className="text-[10px] text-black/20 font-bold uppercase tracking-[0.3em]">Nova Paw 2026</p>
+                                        {/* Total Summary Block */}
+                                        <div className="w-full md:w-64 space-y-2 text-[13px]">
+                                            <div className="flex justify-between text-[#666666]">
+                                                <span>Subtotal</span>
+                                                <span>QAR {data.total.toFixed(2)}</span>
+                                            </div>
+                                            <div className="flex justify-between text-[#666666]">
+                                                <span>VAT / Processing (0%)</span>
+                                                <span>QAR 0.00</span>
+                                            </div>
+                                            <div className="flex justify-between pt-2 border-t border-black/5 text-[16px] font-bold text-[#37352F]">
+                                                <span>Grand Total</span>
+                                                <span>QAR {data.total.toFixed(2)}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
+                            {/* Action Footer */}
+                            <div className="flex flex-col sm:flex-row gap-3">
+                                <Button className="flex-1 h-12 bg-[#37352F] hover:bg-black text-white text-[13px] font-bold uppercase tracking-[0.2em] rounded-sm gap-3 shadow-md transition-all active:scale-[0.98]">
+                                    <Download size={16} />
+                                    Download PDF Receipt
+                                </Button>
+                                <Button variant="ghost" className="flex-1 h-12 text-[#91918E] hover:text-[#37352F] text-[11px] font-bold uppercase tracking-widest border border-[#E9E9E7] rounded-sm bg-white" onClick={() => window.print()}>
+                                    Print Document
+                                </Button>
+                            </div>
+
                             {/* PDF Print Styles */}
                             <style jsx global>{`
                                 @media print {
-                                    body * { visibility: hidden; }
-                                    .max-w-4xl, .max-w-4xl * { visibility: visible; }
-                                    .max-w-4xl { position: absolute; left: 0; top: 0; width: 100%; margin: 0; padding: 0; }
-                                    button { display: none !important; }
+                                     body * { visibility: hidden; }
+                                     .max-w-3xl, .max-w-3xl * { visibility: visible; }
+                                     .max-w-3xl { position: absolute; left: 0; top: 0; width: 100%; margin: 0; padding: 0; }
+                                     button { display: none !important; }
                                 }
                             `}</style>
                         </div>
