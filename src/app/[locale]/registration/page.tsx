@@ -289,7 +289,7 @@ function RegistrationContent() {
                         </div>
 
                         {/* 3. Competition Specifics */}
-                        {(selectedEventId === 'cat-drawing-battle' || selectedEventId === 'dog-fashion-show' || selectedEventId === 'cat-fashion-show' || selectedEventId === 'dog-best-in-show' || formData.previousTitles) && (
+                        {(selectedEventId === 'cat-drawing-battle' || selectedEventId === 'dog-fashion-show' || selectedEventId === 'cat-fashion-show' || selectedEventId === 'dog-best-in-show' || selectedEventId === 'cat-best-show' || formData.previousTitles) && (
                             <div className="space-y-6 pt-6 border-t border-[#F1F1EF]">
                                 <h3 className="text-[12px] font-bold text-[#37352F] uppercase tracking-[0.2em] px-3 py-1.5 bg-[#F7F6F3] border-l-2 border-[#37352F]">3. Contest Details</h3>
                                 <div className="space-y-8">
@@ -382,10 +382,10 @@ function RegistrationContent() {
                                 </div>
                                 <div className="space-y-4">
                                     <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">
-                                        {selectedEventId === 'dog-best-in-show' ? 'Dog Competition Photos' : 'Vaccination Record'}
+                                        {selectedEventId === 'dog-best-in-show' ? 'Dog Competition Photos' : selectedEventId === 'cat-best-show' ? 'Cat Competition Photos' : 'Vaccination Record'}
                                     </Label>
                                     <div
-                                        onClick={() => setFiles(f => ({ ...f, vaccination: selectedEventId === 'dog-best-in-show' ? 'Dog_Competition_Photos.jpg' : 'Vaccination_Record.pdf' }))}
+                                        onClick={() => setFiles(f => ({ ...f, vaccination: selectedEventId === 'dog-best-in-show' ? 'Dog_Competition_Photos.jpg' : selectedEventId === 'cat-best-show' ? 'Cat_Competition_Photos.jpg' : 'Vaccination_Record.pdf' }))}
                                         className={cn(
                                             "h-48 border border-dashed rounded-sm flex flex-col items-center justify-center transition-all cursor-pointer group bg-[#F7F6F3]",
                                             files.vaccination ? 'border-green-500 bg-green-50/20 text-green-700' : 'border-[#E9E9E7] hover:border-[#37352F]'
@@ -401,10 +401,10 @@ function RegistrationContent() {
                                             <>
                                                 <Upload className="w-8 h-8 mb-3 text-[#91918E] group-hover:scale-110 transition-transform" />
                                                 <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#91918E]">
-                                                    {selectedEventId === 'dog-best-in-show' ? 'Upload Photos' : 'Upload Record'}
+                                                    {selectedEventId === 'dog-best-in-show' || selectedEventId === 'cat-best-show' ? 'Upload Photos' : 'Upload Record'}
                                                 </span>
                                                 <p className="text-[9px] mt-1 text-[#91918E]/60 uppercase tracking-widest">
-                                                    {selectedEventId === 'dog-best-in-show' ? 'Mandatory for best dog show' : 'Mandatory for entry'}
+                                                    {selectedEventId === 'dog-best-in-show' || selectedEventId === 'cat-best-show' ? 'Mandatory for show entry' : 'Mandatory for entry'}
                                                 </p>
                                             </>
                                         )}

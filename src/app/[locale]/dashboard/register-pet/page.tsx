@@ -348,37 +348,37 @@ function RegistrationContent() {
                             </Select>
                         </div>
                         {selectedEventId === "dog-best-in-show" && (
-                            <>
-                                <div className="space-y-1.5 w-full">
-                                    <Label className="text-[14px] font-medium text-[#37352F]">Dog Group *</Label>
-                                    <Select
-                                        value={formData.dogGroup}
-                                        onValueChange={(val) => setFormData({ ...formData, dogGroup: val })}
-                                    >
-                                        <SelectTrigger className="w-full bg-[#F7F6F3] border-none rounded-sm px-3 py-2 h-[36px] text-[14px] text-[#37352F] focus:ring-1 focus:ring-[#E9E9E7]">
-                                            <SelectValue placeholder="Select Breed Group" />
-                                        </SelectTrigger>
-                                        <SelectContent className="rounded-sm border-[#E9E9E7]">
-                                            <SelectItem value="Group 1: Sheepdogs" className="text-[14px]">Group 1: Sheepdogs</SelectItem>
-                                            <SelectItem value="Group 2: Working Dogs" className="text-[14px]">Group 2: Working Dogs</SelectItem>
-                                            <SelectItem value="Group 3: Terriers" className="text-[14px]">Group 3: Terriers</SelectItem>
-                                            <SelectItem value="Group 4: Hunting Dogs" className="text-[14px]">Group 4: Hunting Dogs</SelectItem>
-                                            <SelectItem value="Group 5: Companion Dogs" className="text-[14px]">Group 5: Companion Dogs</SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                </div>
-                                <div className="space-y-1.5 w-full sm:col-span-2">
-                                    <Label className="text-[14px] font-medium text-[#37352F]">Previous Titles / Awards (if applicable)</Label>
-                                    <input
-                                        value={formData.previousTitles}
-                                        onChange={(e: any) => setFormData({ ...formData, previousTitles: e.target.value })}
-                                        placeholder="e.g. Champion of Qatar 2025"
-                                        className="w-full bg-[#F7F6F3] border-none rounded-sm px-3 py-2 h-[36px] text-[14px] text-[#37352F] focus:ring-1 focus:ring-[#E9E9E7]"
-                                    />
-                                </div>
-                            </>
+                            <div className="space-y-1.5 w-full">
+                                <Label className="text-[14px] font-medium text-[#37352F]">Dog Group *</Label>
+                                <Select
+                                    value={formData.dogGroup}
+                                    onValueChange={(val) => setFormData({ ...formData, dogGroup: val })}
+                                >
+                                    <SelectTrigger className="w-full bg-[#F7F6F3] border-none rounded-sm px-3 py-2 h-[36px] text-[14px] text-[#37352F] focus:ring-1 focus:ring-[#E9E9E7]">
+                                        <SelectValue placeholder="Select Breed Group" />
+                                    </SelectTrigger>
+                                    <SelectContent className="rounded-sm border-[#E9E9E7]">
+                                        <SelectItem value="Group 1: Sheepdogs" className="text-[14px]">Group 1: Sheepdogs</SelectItem>
+                                        <SelectItem value="Group 2: Working Dogs" className="text-[14px]">Group 2: Working Dogs</SelectItem>
+                                        <SelectItem value="Group 3: Terriers" className="text-[14px]">Group 3: Terriers</SelectItem>
+                                        <SelectItem value="Group 4: Hunting Dogs" className="text-[14px]">Group 4: Hunting Dogs</SelectItem>
+                                        <SelectItem value="Group 5: Companion Dogs" className="text-[14px]">Group 5: Companion Dogs</SelectItem>
+                                    </SelectContent>
+                                </Select>
+                            </div>
                         )}
-                        {selectedEventId !== "dog-best-in-show" && (
+                        {(selectedEventId === "dog-best-in-show" || selectedEventId === "cat-best-show") && (
+                            <div className="space-y-1.5 w-full sm:col-span-2">
+                                <Label className="text-[14px] font-medium text-[#37352F]">Previous Titles / Awards (if applicable)</Label>
+                                <input
+                                    value={formData.previousTitles}
+                                    onChange={(e: any) => setFormData({ ...formData, previousTitles: e.target.value })}
+                                    placeholder="e.g. Champion of Qatar 2025"
+                                    className="w-full bg-[#F7F6F3] border-none rounded-sm px-3 py-2 h-[36px] text-[14px] text-[#37352F] focus:ring-1 focus:ring-[#E9E9E7]"
+                                />
+                            </div>
+                        )}
+                        {selectedEventId !== "dog-best-in-show" && selectedEventId !== "cat-best-show" && (
                             selectedEventId === "dog-grooming" ? (
                                 <div className="space-y-1.5 w-full">
                                     <Label className="text-[14px] font-medium text-[#37352F]">Preferred Timeslot *</Label>
@@ -448,7 +448,7 @@ function RegistrationContent() {
                         </div>
 
                         <div
-                            onClick={() => setFiles((f) => ({ ...f, vaccination: selectedEventId === "dog-best-in-show" ? "dog_photo.jpg" : "vaccination.pdf" }))}
+                            onClick={() => setFiles((f) => ({ ...f, vaccination: selectedEventId === "dog-best-in-show" ? "dog_photo.jpg" : selectedEventId === "cat-best-show" ? "cat_photo.jpg" : "vaccination.pdf" }))}
                             className={cn(
                                 "p-4 border rounded-sm cursor-pointer transition-all flex items-center gap-3",
                                 files.vaccination
@@ -461,12 +461,12 @@ function RegistrationContent() {
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-[14px] font-medium text-[#37352F]">
-                                    {selectedEventId === "dog-best-in-show" ? "Dog Competition Photos *" : "Vaccination Record *"}
+                                    {selectedEventId === "dog-best-in-show" ? "Dog Competition Photos *" : selectedEventId === "cat-best-show" ? "Cat Competition Photos *" : "Vaccination Record *"}
                                 </span>
                                 <span className="text-[12px] text-[#91918E]">
                                     {files.vaccination
                                         ? files.vaccination
-                                        : selectedEventId === "dog-best-in-show"
+                                        : (selectedEventId === "dog-best-in-show" || selectedEventId === "cat-best-show")
                                             ? "Upload JPG/PNG (Max 5MB)"
                                             : "Upload PDF (Max 5MB)"}
                                 </span>
