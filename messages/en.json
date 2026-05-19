@@ -520,11 +520,14 @@
           "Safety for your own dog."
         ],
         "dog_fashion": [
-          "I confirm that my dog's vaccination is up to date.",
-          "I confirm that I have uploaded a valid pet passport.",
-          "I understand that both owner and dog must participate together.",
-          "I confirm that all costumes respect local culture and decency.",
-          "I confirm that my dog will remain under my control at all times.",
+          "I confirm that my dog is fully vaccinated and I have uploaded a valid pet passport for verification.",
+          "I confirm that my dog has completed a recent health checkup and is fit to participate in the competition.",
+          "If no recent checkup is available, I understand that I must complete a veterinary checkup with Nova Vet before final competition approval.",
+          "I understand that this is a matching fashion show, and both the owner and the dog must appear together on the runway in coordinated or themed outfits.",
+          "I confirm that the costume must be creative, stylish, and clearly matching between the owner and the dog.",
+          "I confirm that all outfits must respect local culture, public decency, and event guidelines, and must not include anything offensive or inappropriate.",
+          "I confirm that the dog’s outfit must be safe, comfortable, and must not cause stress, pain, or restriction of movement.",
+          "I confirm that my dog will remain under my full control at all times.",
           "I understand that registration does not guarantee final selection.",
           "I accept all judging decisions as final."
         ],
