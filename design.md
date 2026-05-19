@@ -46,8 +46,8 @@
 - **Logo:** Automatically switches between `Logo New ARABIC final.svg` (for Arabic locale) and `Logo New Final English.svg` (for English locale) to guarantee pixel-perfect brand identity alignment in both Navigation and Footer.
 - **Footer:** Deep black background, high-contrast white/primary text.
 - **Shared CTA:** High-fidelity image background banner with cinematic gradient.
-- **7-Step Wizard Pattern:**
-  - Layout: `Shell` component with persistent step indicator.
+- **2-Step Checkout Wizard Pattern:**
+  - Layout: `Shell` component with persistent 2-step indicator (No OTP).
   - Background: `#F5F5F0` (Bone/Off-white) for the section, `#FFFFFF` for the card.
   - Progress: Monochromatic path with Primary (Yellow) highlights for completed steps.
   - Typography: Large `font-display` headers, `9px` bold uppercase labels for inputs.
@@ -112,6 +112,3 @@ To achieve an ultra-compact, highly-precise, and premium aesthetic (similar to c
   - Hero Headings (`h1`) use `clamp(33.6px, 8vw, 58.8px)` (previously `clamp(48px, 8vw, 84px)`).
   - Section Headings (`h2`) use `clamp(25.2px, 6vw, 39.2px)`.
 - **Paddings:** Container paddings are adjusted to `1.05rem` (previously `1.5rem`), and section padding sizes are scaled down proportionally.
-
-## 📝 Form Design Patterns
-- **Forms Layout:** All major forms (checkout and pet registration) have been refactored from multi-step wizard processes into flat, single-page scrollable layouts as per explicit instructions to display "everything all at once". Forms use a continuous vertical scroll rather than step-by-step UI to minimize clicks and improve top-to-bottom visual continuity.
