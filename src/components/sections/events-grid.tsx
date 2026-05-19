@@ -69,7 +69,7 @@ const EventsGrid: React.FC = () => {
     },
     {
       key: "grooming",
-      image: "https://images.unsplash.com/photo-1516733725897-1aa73b87c8e8?q=80&w=2070&auto=format&fit=crop"
+      image: "/grooming.jpeg"
     },
     {
       key: "fashion",
