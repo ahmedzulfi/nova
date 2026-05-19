@@ -3,7 +3,6 @@
 ## 📐 Global Scale Factor
 
 - **Scale Reduction:** The entire website (including the landing pages, dashboards, navigation, forms, and custom pixel-based spacing) is uniformly scaled down by **30%** using a global `zoom: 0.7` rule on the `html` element. This guarantees consistent typographic hierarchy, margins, and padding proportions across the entire website layout.
-- **Container Width:** All page sections and content wrappers are configured to span **95%** of the total page width (`width: 95% !important; max-width: 95% !important;`). This guarantees unified alignment between sections, navigation bars, and footer components across all viewport sizes.
 
 ## 🎨 Color Palette
 
@@ -64,7 +63,7 @@ Both User and Admin dashboards share a consistent **Notion-inspired minimalist a
   - **Sidebar:** `#F7F6F3` background, `1px solid #E9E9E7` right border. Fixed height, collapsible.
   - **Workspace Header:** Small `rounded-sm` initial/emoji icon, bold `14px` workspace name.
   - **Sidebar Typography:** `14px` Medium, text `#37352F`. Hover state: `bg-[#EBEBE9]`.
-  - **Layout:** Persistent left sidebar on desktop, sticky glassmorphism header with thin breadcrumbs.
+  - **Layout:** Persistent left sidebar on desktop, sticky glassmorphism header with thin breadcrumbs. Main page container set to `max-w-7xl` (1280px) to maximize screen space for grids and ledgers.
 - **Page Content:**
   - **Typography:** Main Heading `40px` Bold, tracking-tight, `#37352F`. Decorative page-top emojis have been removed for a cleaner workspace.
   - **Analytical Cards:** Simple grid-based cards focusing on raw data. Removed top icons and percentage indicators to minimize visual noise.

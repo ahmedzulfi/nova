@@ -144,7 +144,7 @@ export default function AdminLayout({
                     </div>
                 </header>
 
-                <div className="max-w-6xl mx-auto p-8 md:p-16">
+                <div className="max-w-7xl mx-auto p-8 md:p-16">
                     {children}
                 </div>
             </main>

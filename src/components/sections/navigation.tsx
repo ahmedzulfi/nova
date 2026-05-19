@@ -42,7 +42,7 @@ const Navigation = () => {
     <>
       <div className="fixed top-0 left-0 right-0 w-full z-[130] bg-white/90 backdrop-blur-md border-b border-black/5">
         <nav className="flex items-center justify-center w-full min-h-[70px] md:min-h-[89px] py-[12px] md:py-[18px]">
-          <div className="flex items-center justify-between w-full max-w-[95%] px-[20px]">
+          <div className="flex items-center justify-between w-full max-w-[1330px] px-[20px]">
             {/* Logo */}
             <div className="flex-shrink-0">
               <Link href="/" className="block">

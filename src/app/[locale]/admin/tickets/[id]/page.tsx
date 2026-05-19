@@ -96,7 +96,7 @@ export default function TicketDetailsPage({ params }: { params: Promise<{ id: st
             initial="hidden"
             animate="visible"
             variants={containerVariants}
-            className="max-w-6xl mx-auto space-y-12 pb-20"
+            className="max-w-7xl mx-auto space-y-12 pb-20"
         >
             {/* Header & Navigation */}
             <motion.div variants={itemVariants} className="space-y-6">
