@@ -213,30 +213,6 @@ function DashboardContent() {
                                             <p className="text-[12px] font-bold text-[#37352F]">Unique Identification QR</p>
                                             <p className="text-[10px] text-[#91918E]">Present at entrance gate for validation.</p>
                                         </div>
-
-                                        {/* CSS Simulated Barcode */}
-                                        <div className="w-full pt-2">
-                                            <div className="flex justify-center items-center gap-[2.5px] h-8 opacity-30">
-                                                <div className="w-[1.5px] h-full bg-black" />
-                                                <div className="w-[3px] h-full bg-black" />
-                                                <div className="w-[1.5px] h-full bg-black" />
-                                                <div className="w-[1px] h-full bg-black" />
-                                                <div className="w-[4px] h-full bg-black" />
-                                                <div className="w-[1.5px] h-full bg-black" />
-                                                <div className="w-[2px] h-full bg-black" />
-                                                <div className="w-[1px] h-full bg-black" />
-                                                <div className="w-[3px] h-full bg-black" />
-                                                <div className="w-[1.5px] h-full bg-black" />
-                                                <div className="w-[1px] h-full bg-black" />
-                                                <div className="w-[4px] h-full bg-black" />
-                                                <div className="w-[2px] h-full bg-black" />
-                                                <div className="w-[1.5px] h-full bg-black" />
-                                                <div className="w-[3px] h-full bg-black" />
-                                                <div className="w-[1px] h-full bg-black" />
-                                                <div className="w-[2px] h-full bg-black" />
-                                                <div className="w-[1.5px] h-full bg-black" />
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

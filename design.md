@@ -118,4 +118,4 @@ For the user dashboard overview, the digital admission pass uses a physical vert
 - **Dimensions:** Compact vertical structure (`max-w-md`) resembling a physical gate pass.
 - **Notched Perforation:** Absolute-positioned circles (`w-7 h-7 bg-white`) on the left and right borders aligning with a dashed border line (`border-t border-dashed`) to simulate a tearable stub.
 - **Header Stub:** Includes the event branding, order details, event venue, dates, and active verification status.
-- **Footer Stub:** Contains the unique validation QR code box and a simulated high-fidelity CSS barcode row (`opacity-30`) to enhance visual authenticity.
+- **Footer Stub:** Contains the unique validation QR code box for gate check-in.
