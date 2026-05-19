@@ -3,6 +3,7 @@
 ## 📐 Global Scale Factor
 
 - **Scale Reduction:** The entire website (including the landing pages, dashboards, navigation, forms, and custom pixel-based spacing) is uniformly scaled down by **30%** using a global `zoom: 0.7` rule on the `html` element. This guarantees consistent typographic hierarchy, margins, and padding proportions across the entire website layout.
+- **Container Width:** All page sections and content wrappers are configured to span **95%** of the total page width (`width: 95% !important; max-width: 95% !important;`). This guarantees unified alignment between sections, navigation bars, and footer components across all viewport sizes.
 
 ## 🎨 Color Palette
 
