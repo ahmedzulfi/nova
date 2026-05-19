@@ -65,6 +65,7 @@ function RegistrationContent() {
         previousTitles: "",
         drawingMaterials: "",
         outfitDescription: "",
+        dogGroup: "",
     });
 
     const termKeys: Record<string, string> = {
@@ -113,7 +114,10 @@ function RegistrationContent() {
                     ...prev,
                     experienceLevel: found.id === "dog-grooming"
                         ? "Session 1: Dog Figure Grooming (4:00 PM – 6:00 PM)"
-                        : "Intermediate"
+                        : "Intermediate",
+                    dogGroup: found.id === "dog-best-in-show"
+                        ? "Group 1: Sheepdogs"
+                        : ""
                 }));
             }
         }
@@ -152,6 +156,7 @@ function RegistrationContent() {
         formData.breed &&
         files.passport &&
         files.vaccination &&
+        (selectedEventId !== "dog-best-in-show" || formData.dogGroup) &&
         allChecked;
 
     const handleSubmit = () => {
@@ -244,7 +249,10 @@ function RegistrationContent() {
                                         ...prev,
                                         experienceLevel: id === "dog-grooming"
                                             ? "Session 1: Dog Figure Grooming (4:00 PM – 6:00 PM)"
-                                            : "Intermediate"
+                                            : "Intermediate",
+                                        dogGroup: id === "dog-best-in-show"
+                                            ? "Group 1: Sheepdogs"
+                                            : ""
                                     }));
                                 }}
                                 className={cn(
@@ -339,43 +347,76 @@ function RegistrationContent() {
                                 </SelectContent>
                             </Select>
                         </div>
-                        {selectedEventId === "dog-grooming" ? (
-                            <div className="space-y-1.5 w-full">
-                                <Label className="text-[14px] font-medium text-[#37352F]">Preferred Timeslot *</Label>
-                                <Select
-                                    value={formData.experienceLevel}
-                                    onValueChange={(val) => setFormData({ ...formData, experienceLevel: val })}
-                                >
-                                    <SelectTrigger className="w-full bg-[#F7F6F3] border-none rounded-sm px-3 py-2 h-[36px] text-[14px] text-[#37352F] focus:ring-1 focus:ring-[#E9E9E7]">
-                                        <SelectValue placeholder="Select Timeslot" />
-                                    </SelectTrigger>
-                                    <SelectContent className="rounded-sm border-[#E9E9E7]">
-                                        <SelectItem value="Session 1: Dog Figure Grooming (4:00 PM – 6:00 PM)" className="text-[14px]">
-                                            Session 1: Dog Figure Grooming (4:00 PM – 6:00 PM)
-                                        </SelectItem>
-                                        <SelectItem value="Session 2: Real Dog Grooming (2:00 PM – 4:00 PM)" className="text-[14px]">
-                                            Session 2: Real Dog Grooming (2:00 PM – 4:00 PM)
-                                        </SelectItem>
-                                    </SelectContent>
-                                </Select>
-                            </div>
-                        ) : (
-                            <div className="space-y-1.5 w-full">
-                                <Label className="text-[14px] font-medium text-[#37352F]">Experience Level</Label>
-                                <Select
-                                    value={formData.experienceLevel}
-                                    onValueChange={(val) => setFormData({ ...formData, experienceLevel: val })}
-                                >
-                                    <SelectTrigger className="w-full bg-[#F7F6F3] border-none rounded-sm px-3 py-2 h-[36px] text-[14px] text-[#37352F] focus:ring-1 focus:ring-[#E9E9E7]">
-                                        <SelectValue />
-                                    </SelectTrigger>
-                                    <SelectContent className="rounded-sm border-[#E9E9E7]">
-                                        <SelectItem value="Beginner" className="text-[14px]">Beginner</SelectItem>
-                                        <SelectItem value="Intermediate" className="text-[14px]">Intermediate</SelectItem>
-                                        <SelectItem value="Professional" className="text-[14px]">Professional</SelectItem>
-                                    </SelectContent>
-                                </Select>
-                            </div>
+                        {selectedEventId === "dog-best-in-show" && (
+                            <>
+                                <div className="space-y-1.5 w-full">
+                                    <Label className="text-[14px] font-medium text-[#37352F]">Dog Group *</Label>
+                                    <Select
+                                        value={formData.dogGroup}
+                                        onValueChange={(val) => setFormData({ ...formData, dogGroup: val })}
+                                    >
+                                        <SelectTrigger className="w-full bg-[#F7F6F3] border-none rounded-sm px-3 py-2 h-[36px] text-[14px] text-[#37352F] focus:ring-1 focus:ring-[#E9E9E7]">
+                                            <SelectValue placeholder="Select Breed Group" />
+                                        </SelectTrigger>
+                                        <SelectContent className="rounded-sm border-[#E9E9E7]">
+                                            <SelectItem value="Group 1: Sheepdogs" className="text-[14px]">Group 1: Sheepdogs</SelectItem>
+                                            <SelectItem value="Group 2: Working Dogs" className="text-[14px]">Group 2: Working Dogs</SelectItem>
+                                            <SelectItem value="Group 3: Terriers" className="text-[14px]">Group 3: Terriers</SelectItem>
+                                            <SelectItem value="Group 4: Hunting Dogs" className="text-[14px]">Group 4: Hunting Dogs</SelectItem>
+                                            <SelectItem value="Group 5: Companion Dogs" className="text-[14px]">Group 5: Companion Dogs</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+                                <div className="space-y-1.5 w-full sm:col-span-2">
+                                    <Label className="text-[14px] font-medium text-[#37352F]">Previous Titles / Awards (if applicable)</Label>
+                                    <input
+                                        value={formData.previousTitles}
+                                        onChange={(e: any) => setFormData({ ...formData, previousTitles: e.target.value })}
+                                        placeholder="e.g. Champion of Qatar 2025"
+                                        className="w-full bg-[#F7F6F3] border-none rounded-sm px-3 py-2 h-[36px] text-[14px] text-[#37352F] focus:ring-1 focus:ring-[#E9E9E7]"
+                                    />
+                                </div>
+                            </>
+                        )}
+                        {selectedEventId !== "dog-best-in-show" && (
+                            selectedEventId === "dog-grooming" ? (
+                                <div className="space-y-1.5 w-full">
+                                    <Label className="text-[14px] font-medium text-[#37352F]">Preferred Timeslot *</Label>
+                                    <Select
+                                        value={formData.experienceLevel}
+                                        onValueChange={(val) => setFormData({ ...formData, experienceLevel: val })}
+                                    >
+                                        <SelectTrigger className="w-full bg-[#F7F6F3] border-none rounded-sm px-3 py-2 h-[36px] text-[14px] text-[#37352F] focus:ring-1 focus:ring-[#E9E9E7]">
+                                            <SelectValue placeholder="Select Timeslot" />
+                                        </SelectTrigger>
+                                        <SelectContent className="rounded-sm border-[#E9E9E7]">
+                                            <SelectItem value="Session 1: Dog Figure Grooming (4:00 PM – 6:00 PM)" className="text-[14px]">
+                                                Session 1: Dog Figure Grooming (4:00 PM – 6:00 PM)
+                                            </SelectItem>
+                                            <SelectItem value="Session 2: Real Dog Grooming (2:00 PM – 4:00 PM)" className="text-[14px]">
+                                                Session 2: Real Dog Grooming (2:00 PM – 4:00 PM)
+                                            </SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+                            ) : (
+                                <div className="space-y-1.5 w-full">
+                                    <Label className="text-[14px] font-medium text-[#37352F]">Experience Level</Label>
+                                    <Select
+                                        value={formData.experienceLevel}
+                                        onValueChange={(val) => setFormData({ ...formData, experienceLevel: val })}
+                                    >
+                                        <SelectTrigger className="w-full bg-[#F7F6F3] border-none rounded-sm px-3 py-2 h-[36px] text-[14px] text-[#37352F] focus:ring-1 focus:ring-[#E9E9E7]">
+                                            <SelectValue />
+                                        </SelectTrigger>
+                                        <SelectContent className="rounded-sm border-[#E9E9E7]">
+                                            <SelectItem value="Beginner" className="text-[14px]">Beginner</SelectItem>
+                                            <SelectItem value="Intermediate" className="text-[14px]">Intermediate</SelectItem>
+                                            <SelectItem value="Professional" className="text-[14px]">Professional</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+                            )
                         )}
                     </div>
                 </div>
@@ -407,7 +448,7 @@ function RegistrationContent() {
                         </div>
 
                         <div
-                            onClick={() => setFiles((f) => ({ ...f, vaccination: "vaccination.pdf" }))}
+                            onClick={() => setFiles((f) => ({ ...f, vaccination: selectedEventId === "dog-best-in-show" ? "dog_photo.jpg" : "vaccination.pdf" }))}
                             className={cn(
                                 "p-4 border rounded-sm cursor-pointer transition-all flex items-center gap-3",
                                 files.vaccination
@@ -419,9 +460,15 @@ function RegistrationContent() {
                                 {files.vaccination ? <CheckCircle2 size={16} className="text-[#37352F]" /> : <Upload size={16} className="text-[#91918E]" />}
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-[14px] font-medium text-[#37352F]">Vaccination Record *</span>
+                                <span className="text-[14px] font-medium text-[#37352F]">
+                                    {selectedEventId === "dog-best-in-show" ? "Dog Competition Photos *" : "Vaccination Record *"}
+                                </span>
                                 <span className="text-[12px] text-[#91918E]">
-                                    {files.vaccination ? files.vaccination : "Upload PDF (Max 5MB)"}
+                                    {files.vaccination
+                                        ? files.vaccination
+                                        : selectedEventId === "dog-best-in-show"
+                                            ? "Upload JPG/PNG (Max 5MB)"
+                                            : "Upload PDF (Max 5MB)"}
                                 </span>
                             </div>
                         </div>

@@ -73,6 +73,7 @@ function RegistrationContent() {
         drawingMaterials: "",
         experienceLevel: "Intermediate",
         previousTitles: "",
+        dogGroup: "",
     });
 
     useEffect(() => {
@@ -93,6 +94,15 @@ function RegistrationContent() {
                 setSelectedEventId(found.id);
                 setSelectedEventName(tComp(`items.${found.key}.title`));
                 setStep(2);
+                setFormData(prev => ({
+                    ...prev,
+                    experienceLevel: found.id === 'dog-grooming'
+                        ? "Session 1: Dog Figure Grooming (4:00 PM – 6:00 PM)"
+                        : "Intermediate",
+                    dogGroup: found.id === 'dog-best-in-show'
+                        ? "Group 1: Sheepdogs"
+                        : ""
+                }));
             }
         }
     }, [searchParams, tComp]);
@@ -116,6 +126,15 @@ function RegistrationContent() {
         setSelectedEventId(eventId as CompetitionType);
         setSelectedEventName(eventTitle);
         setStep(2);
+        setFormData(prev => ({
+            ...prev,
+            experienceLevel: eventId === 'dog-grooming'
+                ? "Session 1: Dog Figure Grooming (4:00 PM – 6:00 PM)"
+                : "Intermediate",
+            dogGroup: eventId === 'dog-best-in-show'
+                ? "Group 1: Sheepdogs"
+                : ""
+        }));
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
@@ -270,11 +289,31 @@ function RegistrationContent() {
                         </div>
 
                         {/* 3. Competition Specifics */}
-                        {(selectedEventId === 'cat-drawing-battle' || selectedEventId === 'dog-fashion-show' || selectedEventId === 'cat-fashion-show' || formData.previousTitles) && (
+                        {(selectedEventId === 'cat-drawing-battle' || selectedEventId === 'dog-fashion-show' || selectedEventId === 'cat-fashion-show' || selectedEventId === 'dog-best-in-show' || formData.previousTitles) && (
                             <div className="space-y-6 pt-6 border-t border-[#F1F1EF]">
                                 <h3 className="text-[12px] font-bold text-[#37352F] uppercase tracking-[0.2em] px-3 py-1.5 bg-[#F7F6F3] border-l-2 border-[#37352F]">3. Contest Details</h3>
                                 <div className="space-y-8">
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                        {selectedEventId === 'dog-best-in-show' && (
+                                            <div className="space-y-3">
+                                                <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Dog Breed Group *</Label>
+                                                <Select
+                                                    value={formData.dogGroup}
+                                                    onValueChange={(val) => setFormData({ ...formData, dogGroup: val })}
+                                                >
+                                                    <SelectTrigger className="w-full h-[52px] bg-[#F7F6F3] border-none rounded-sm px-6 font-medium text-[14px] text-[#37352F]">
+                                                        <SelectValue placeholder="Select Breed Group" />
+                                                    </SelectTrigger>
+                                                    <SelectContent className="rounded-sm border-[#E9E9E7] p-1 shadow-sm">
+                                                        <SelectItem value="Group 1: Sheepdogs" className="rounded-sm py-2.5">Group 1: Sheepdogs</SelectItem>
+                                                        <SelectItem value="Group 2: Working Dogs" className="rounded-sm py-2.5">Group 2: Working Dogs</SelectItem>
+                                                        <SelectItem value="Group 3: Terriers" className="rounded-sm py-2.5">Group 3: Terriers</SelectItem>
+                                                        <SelectItem value="Group 4: Hunting Dogs" className="rounded-sm py-2.5">Group 4: Hunting Dogs</SelectItem>
+                                                        <SelectItem value="Group 5: Companion Dogs" className="rounded-sm py-2.5">Group 5: Companion Dogs</SelectItem>
+                                                    </SelectContent>
+                                                </Select>
+                                            </div>
+                                        )}
                                         <div className="space-y-3">
                                             <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Previous Titles / Honors</Label>
                                             <input
@@ -342,9 +381,11 @@ function RegistrationContent() {
                                     </div>
                                 </div>
                                 <div className="space-y-4">
-                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Vaccination Record</Label>
+                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">
+                                        {selectedEventId === 'dog-best-in-show' ? 'Dog Competition Photos' : 'Vaccination Record'}
+                                    </Label>
                                     <div
-                                        onClick={() => setFiles(f => ({ ...f, vaccination: 'Vaccination_Record.pdf' }))}
+                                        onClick={() => setFiles(f => ({ ...f, vaccination: selectedEventId === 'dog-best-in-show' ? 'Dog_Competition_Photos.jpg' : 'Vaccination_Record.pdf' }))}
                                         className={cn(
                                             "h-48 border border-dashed rounded-sm flex flex-col items-center justify-center transition-all cursor-pointer group bg-[#F7F6F3]",
                                             files.vaccination ? 'border-green-500 bg-green-50/20 text-green-700' : 'border-[#E9E9E7] hover:border-[#37352F]'
@@ -359,8 +400,12 @@ function RegistrationContent() {
                                         ) : (
                                             <>
                                                 <Upload className="w-8 h-8 mb-3 text-[#91918E] group-hover:scale-110 transition-transform" />
-                                                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#91918E]">Upload Record</span>
-                                                <p className="text-[9px] mt-1 text-[#91918E]/60 uppercase tracking-widest">Mandatory for entry</p>
+                                                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#91918E]">
+                                                    {selectedEventId === 'dog-best-in-show' ? 'Upload Photos' : 'Upload Record'}
+                                                </span>
+                                                <p className="text-[9px] mt-1 text-[#91918E]/60 uppercase tracking-widest">
+                                                    {selectedEventId === 'dog-best-in-show' ? 'Mandatory for best dog show' : 'Mandatory for entry'}
+                                                </p>
                                             </>
                                         )}
                                     </div>
@@ -407,6 +452,7 @@ function RegistrationContent() {
                                     !formData.age.trim() ||
                                     !files.passport ||
                                     !files.vaccination ||
+                                    (selectedEventId === 'dog-best-in-show' ? !formData.dogGroup.trim() : false) ||
                                     !allChecked
                                 }
                                 className="h-14 md:col-span-3 bg-[#37352F] hover:bg-black text-white rounded-sm text-[13px] font-bold uppercase tracking-[0.2em] disabled:opacity-50"
