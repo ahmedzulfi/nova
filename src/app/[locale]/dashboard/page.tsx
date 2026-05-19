@@ -206,13 +206,6 @@ function DashboardContent() {
                                                 </div>
                                             </div>
                                         </div>
-                                         {/* Safety Disclaimer */}
-                                         <div className="p-3.5 bg-amber-50/60 border border-amber-100/80 rounded-sm flex items-start gap-2.5 mt-5 text-[11px] text-amber-800 leading-normal">
-                                             <span className="text-[14px] shrink-0">⚠️</span>
-                                             <p className="font-medium">
-                                                 <strong>Safety Notice:</strong> Parents must watch out for kids petting pets (applicable for all passes).
-                                             </p>
-                                         </div>
                                     </div>
                                 </div>
 
