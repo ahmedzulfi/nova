@@ -119,3 +119,14 @@ For the user dashboard overview, the digital admission pass uses a physical vert
 - **Notched Perforation:** Absolute-positioned circles (`w-7 h-7 bg-white`) on the left and right borders aligning with a dashed border line (`border-t border-dashed`) to simulate a tearable stub.
 - **Header Stub:** Includes the event branding, order details, event venue, dates, and active verification status.
 - **Footer Stub:** Contains the unique validation QR code box for gate check-in.
+
+## 📝 Competition Registration Flow (Notion Style 3-Step Wizard)
+
+To optimize conversion and minimize user cognitive load, the competition registration is simplified into exactly 3 interactive input screens:
+- **Layout & Style:** Compact Notion-style panel with a persistent step progress bar and clear `#E9E9E7` layout lines. Emojis and unnecessary decorative components are removed to maintain a professional workspace feel.
+- **Steps Sequence:**
+  1. *Selection:* Event grid to select a specific category.
+  2. *Details & Uploads:* Consolidates owner details, pet details, specific costume/drawing descriptions (conditional on the selected event), and health document uploads into a single grid-based form.
+  3. *Safety & Review:* A double-column view presenting the participant details summary side-by-side with localized safety agreements and custom grooming terms.
+- **Experience Levels:** Experience level dropdowns and previous titles are removed entirely to streamline onboarding.
+- **Success screen:** Animates checkmark with dashboard shortcuts and updates the local state to persist active registration.

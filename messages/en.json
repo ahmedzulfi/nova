@@ -348,12 +348,8 @@
   "RegistrationPage": {
     "steps": {
       "selection": "Selection",
-      "owner": "Owner",
-      "pet_info": "Pet Info",
-      "specifics": "Specifics",
-      "health": "Health",
-      "safety": "Safety",
-      "done": "Done"
+      "details": "Details & Uploads",
+      "safety": "Safety & Submit"
     },
     "selection": {
       "title": "Competition Selection",
@@ -427,10 +423,9 @@
           "I confirm that all submitted information is correct.",
           "I confirm that my dog's vaccination is up to date.",
           "I confirm that I have uploaded a valid pet passport.",
-          "I confirm that my dog has completed a recent health checkup.",
+          "I agree to get the dog figure for the dog I am grooming on.",
+          "Safety for your own dog is guaranteed and remains my responsibility.",
           "I understand that I must complete a veterinary checkup with Nova Vet before final approval.",
-          "I understand that registration submission does not guarantee final acceptance.",
-          "I agree to attend on time for my assigned competition slot.",
           "I accept all judging decisions as final."
         ],
         "dog_fashion": [
