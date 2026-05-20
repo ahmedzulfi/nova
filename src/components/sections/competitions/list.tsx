@@ -19,11 +19,11 @@ const CompetitionsList = () => {
   }, []);
 
   const competitions = [
-    { key: "fashion", icon: <Users className="w-4 h-4" />, timeIcon: <Clock className="w-4 h-4" />, awardIcon: <Trophy className="w-4 h-4" />, image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2068&auto=format&fit=crop" },
-    { key: "grooming", icon: <Users className="w-4 h-4" />, timeIcon: <Clock className="w-4 h-4" />, awardIcon: <Star className="w-4 h-4" />, image: "/grooming.jpeg" },
-    { key: "dog_show", icon: <Users className="w-4 h-4" />, timeIcon: <Star className="w-4 h-4" />, awardIcon: <Trophy className="w-4 h-4" />, image: "/best.PNG" },
-    { key: "cat_show", icon: <Users className="w-4 h-4" />, timeIcon: <Star className="w-4 h-4" />, awardIcon: <Trophy className="w-4 h-4" />, image: "/cathsow.jfif" },
-    { key: "drawing", icon: <Users className="w-4 h-4" />, timeIcon: <Star className="w-4 h-4" />, awardIcon: <Trophy className="w-4 h-4" />, image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=2071&auto=format&fit=crop" }
+    { key: "fashion", detailSlug: "dog-fashion-show", icon: <Users className="w-4 h-4" />, timeIcon: <Clock className="w-4 h-4" />, awardIcon: <Trophy className="w-4 h-4" />, image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2068&auto=format&fit=crop" },
+    { key: "grooming", detailSlug: "grooming-competition", icon: <Users className="w-4 h-4" />, timeIcon: <Clock className="w-4 h-4" />, awardIcon: <Star className="w-4 h-4" />, image: "/grooming.jpeg" },
+    { key: "dog_show", detailSlug: "best-dog-show", icon: <Users className="w-4 h-4" />, timeIcon: <Star className="w-4 h-4" />, awardIcon: <Trophy className="w-4 h-4" />, image: "/best.PNG" },
+    { key: "cat_show", detailSlug: "best-cat-show", icon: <Users className="w-4 h-4" />, timeIcon: <Star className="w-4 h-4" />, awardIcon: <Trophy className="w-4 h-4" />, image: "/cathsow.jfif" },
+    { key: "drawing", detailSlug: "cat-drawing-battle", icon: <Users className="w-4 h-4" />, timeIcon: <Star className="w-4 h-4" />, awardIcon: <Trophy className="w-4 h-4" />, image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=2071&auto=format&fit=crop" }
   ];
 
   return (
@@ -93,12 +93,20 @@ const CompetitionsList = () => {
                   </div>
                 </div>
 
-                <div className="pt-8 flex flex-col gap-8">
+                <div className="pt-8 flex flex-col gap-4">
                   <Link
                     href={isLoggedIn ? "/dashboard" : "/tickets"}
                     className="inline-flex items-center justify-center h-18 px-12 bg-black text-white rounded-full font-bold text-[14px] uppercase tracking-[0.3em] hover:bg-primary transition-all duration-300 hover:scale-105 active:scale-95  shadow-sm  shadow-black/10 w-fit"
                   >
-                    {isLoggedIn ? tCTA('manage') : tCTA('primary')} <ArrowRight className="w-6 h-6 rtl:rotate-180" />
+                    {isLoggedIn ? tCTA('manage') : tCTA('primary')} <ArrowRight className="w-6 h-6 rtl:rotate-180 ml-3" />
+                  </Link>
+
+                  <Link
+                    href={`/competitions/${comp.detailSlug}`}
+                    className="inline-flex items-center gap-2 text-black/40 hover:text-primary font-bold text-[13px] uppercase tracking-[0.2em] transition-colors duration-300 w-fit group"
+                  >
+                    View Full Details
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform rtl:rotate-180" />
                   </Link>
 
                   <p className="text-[12px] font-bold text-black/20 uppercase tracking-[0.2em] italic flex items-center gap-3 rtl:flex-row-reverse rtl:justify-end">
