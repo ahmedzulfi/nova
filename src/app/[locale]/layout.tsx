@@ -3,7 +3,6 @@ import { getMessages, getTranslations } from 'next-intl/server';
 import { Inter, Archivo, Cairo, Archivo_Black } from "next/font/google";
 import "../globals.css";
 import ErrorReporter from "@/components/ErrorReporter";
-import SmoothScroll from "@/components/providers/SmoothScroll";
 import Script from "next/script";
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
@@ -79,9 +78,7 @@ export default async function LocaleLayout({
               data-debug="true"
               data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
             />
-            <SmoothScroll>
               {children}
-            </SmoothScroll>
             <Toaster position="top-center" richColors />
           </TooltipProvider>
         </NextIntlClientProvider>
