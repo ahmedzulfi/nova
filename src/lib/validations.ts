@@ -82,12 +82,15 @@ export type UpdateRegistrationStatusInput = z.infer<typeof updateRegistrationSta
 
 export const PRICING = {
   ADULT_PRICE: 45,
-  KID_PRICE: 45,
+  KID_PRICE: 15,
   PET_FEE: 45,
 } as const;
 
 export function calculateTotal(adultQty: number, kidsQty: number, petQty: number): number {
-  return (adultQty * PRICING.ADULT_PRICE) + (kidsQty * PRICING.KID_PRICE) + (petQty * PRICING.PET_FEE);
+  return PRICING.ADULT_PRICE + 
+    (adultQty - 1) * PRICING.ADULT_PRICE + 
+    (petQty > 1 ? (petQty - 1) * PRICING.PET_FEE : 0) + 
+    (kidsQty * PRICING.KID_PRICE);
 }
 
 // ─── Order ID Generator ──────────────────────────────────────────────────────

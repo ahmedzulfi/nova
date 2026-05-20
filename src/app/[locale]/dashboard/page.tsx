@@ -98,10 +98,10 @@ function DashboardContent() {
         if (tierId === 'cat-owner') return tTickets('tiers.cat.name');
         return tTickets('tiers.adult.name');
     };
-    const baseTicketPrice = data.tier === 'adult' ? 45 : 90;
+    const baseTicketPrice = 45;
     const companionPrice = data.adultQty > 1 ? (data.adultQty - 1) * 45 : 0;
     const extraPetPrice = data.petQty > 1 ? (data.petQty - 1) * 45 : 0;
-    const kidsPrice = data.kidsQty > 0 ? data.kidsQty * 45 : 0;
+    const kidsPrice = data.kidsQty > 0 ? data.kidsQty * 15 : 0;
     const competitionPrice = (isPetOwner && data.competitionEntry) ? 50 : 0;
     const computedTotal = baseTicketPrice + companionPrice + extraPetPrice + kidsPrice + competitionPrice;
 
@@ -329,8 +329,8 @@ function DashboardContent() {
                                                             <span className="block text-[10px] text-[#91918E] mt-0.5">Primary Admission Access</span>
                                                         </td>
                                                         <td className="p-4 text-center">1</td>
-                                                        <td className="p-4 text-right">QAR {data.tier === 'adult' ? 45 : 90}.00</td>
-                                                        <td className="p-4 text-right">QAR {data.tier === 'adult' ? 45 : 90}.00</td>
+                                                        <td className="p-4 text-right">QAR 45.00</td>
+                                                        <td className="p-4 text-right">QAR 45.00</td>
                                                     </tr>
                                                     {data.adultQty > 1 && (
                                                         <tr className="hover:bg-[#FAF9F5] transition-colors">
@@ -361,8 +361,8 @@ function DashboardContent() {
                                                                 <span className="block text-[10px] text-[#91918E] mt-0.5">Junior Pass (U-12)</span>
                                                             </td>
                                                             <td className="p-4 text-center">{data.kidsQty}</td>
-                                                            <td className="p-4 text-right">QAR 45.00</td>
-                                                            <td className="p-4 text-right">QAR {data.kidsQty * 45}.00</td>
+                                                            <td className="p-4 text-right">QAR 15.00</td>
+                                                            <td className="p-4 text-right">QAR {data.kidsQty * 15}.00</td>
                                                         </tr>
                                                     )}
                                                     {isPetOwner && data.competitionEntry && (

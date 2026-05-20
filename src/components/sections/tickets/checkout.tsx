@@ -26,9 +26,9 @@ const TicketsCheckout = ({ selectedTier }: TicketsCheckoutProps) => {
   const [petName, setPetName] = useState('');
 
   const ADULT_PRICE = 45;
-  const KID_PRICE = 45;
+  const KID_PRICE = 15;
   const PET_FEE = 45;
-  const total = adultQty * ADULT_PRICE + kidsQty * KID_PRICE + petQty * PET_FEE;
+  const total = ADULT_PRICE + (adultQty - 1) * ADULT_PRICE + (selectedTier === 'adult' ? 0 : (petQty > 1 ? (petQty - 1) * PET_FEE : 0)) + kidsQty * KID_PRICE;
 
   const STEP_LABELS = t.raw('steps') as string[];
 

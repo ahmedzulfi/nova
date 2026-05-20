@@ -19,12 +19,12 @@ const Tickets = () => {
     {
       id: "dog-owner",
       key: "dog",
-      price: "90"
+      price: "45"
     },
     {
       id: "cat-owner",
       key: "cat",
-      price: "90"
+      price: "45"
     },
     {
       id: "adult",
