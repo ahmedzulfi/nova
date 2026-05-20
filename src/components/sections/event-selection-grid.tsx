@@ -13,7 +13,7 @@ const EventSelectionGrid = ({ onSelect, selectedEventId }: { onSelect: (id: stri
     { id: 'dog-best-in-show', key: 'dog_show', category: 'dog', image: '/best.PNG' },
     { id: 'dog-grooming', key: 'grooming', category: 'dog', image: '/grooming.jpeg' },
     { id: 'dog-fashion-show', key: 'fashion', category: 'dog', image: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=1964&auto=format&fit=crop' },
-    { id: 'cat-best-show', key: 'cat_show', category: 'cat', image: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2043&auto=format&fit=crop' },
+    { id: 'cat-best-show', key: 'cat_show', category: 'cat', image: '/cathsow.jfif' },
     { id: 'cat-drawing-battle', key: 'drawing', category: 'cat', image: 'https://images.unsplash.com/photo-1533702165324-66678e2034b1?q=80&w=1974&auto=format&fit=crop' },
     { id: 'cat-fashion-show', key: 'fashion', category: 'cat', image: 'https://images.unsplash.com/photo-1533738363-b7f9aef128ce?q=80&w=1935&auto=format&fit=crop' }
   ];

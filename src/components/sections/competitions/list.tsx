@@ -22,7 +22,7 @@ const CompetitionsList = () => {
     { key: "fashion", icon: <Users className="w-4 h-4" />, timeIcon: <Clock className="w-4 h-4" />, awardIcon: <Trophy className="w-4 h-4" />, image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2068&auto=format&fit=crop" },
     { key: "grooming", icon: <Users className="w-4 h-4" />, timeIcon: <Clock className="w-4 h-4" />, awardIcon: <Star className="w-4 h-4" />, image: "/grooming.jpeg" },
     { key: "dog_show", icon: <Users className="w-4 h-4" />, timeIcon: <Star className="w-4 h-4" />, awardIcon: <Trophy className="w-4 h-4" />, image: "/best.PNG" },
-    { key: "cat_show", icon: <Users className="w-4 h-4" />, timeIcon: <Star className="w-4 h-4" />, awardIcon: <Trophy className="w-4 h-4" />, image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2043&auto=format&fit=crop" },
+    { key: "cat_show", icon: <Users className="w-4 h-4" />, timeIcon: <Star className="w-4 h-4" />, awardIcon: <Trophy className="w-4 h-4" />, image: "/cathsow.jfif" },
     { key: "drawing", icon: <Users className="w-4 h-4" />, timeIcon: <Star className="w-4 h-4" />, awardIcon: <Trophy className="w-4 h-4" />, image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=2071&auto=format&fit=crop" }
   ];
 
