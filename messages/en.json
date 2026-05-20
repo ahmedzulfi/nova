@@ -53,6 +53,26 @@
       "title": "Explore the\nFestival Zones",
       "desc": "Collect your stamps at each zone to complete your Nova Paw Passport and receive your exclusive gift!",
       "cta": "Explore Zone",
+      "passport": {
+        "cover_subtitle": "Your Journey. Our Passion.",
+        "welcome_title": "Welcome to",
+        "congratulations": "Congratulations!",
+        "welcome_desc": "You are now part of the most exciting pet experience in Qatar! This passport is your guide to a day full of fun, love and unforgettable moments with your furry family.",
+        "rule_1": "Please collect a stamp from each zone after you complete the experience.",
+        "rule_2": "Once you have all the stamps, head to the EXIT GATE to receive your exclusive Nova Paw Festival Gift!",
+        "important_notes": "Important Notes",
+        "note_1": "One passport per guest",
+        "note_2": "One completed passport = One gift",
+        "note_3": "Stamps must be collected from official zone stations only",
+        "note_4": "Lost passports cannot be replaced",
+        "sponsor_logo": "PLATINUM SPONSOR LOGO HERE",
+        "stamp_here": "Stamp Here",
+        "smile": "Don't forget to smile!",
+        "did_it": "YOU DID IT!",
+        "thanks": "Thank you for being part of Nova Paw Festival.",
+        "hope": "We hope you and your furry friend had an amazing day!",
+        "see_you": "SEE YOU NEXT YEAR!"
+      },
       "list": {
         "zone_a": {
           "title": "Zone A: Paw Care District",

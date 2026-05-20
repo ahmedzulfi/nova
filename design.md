@@ -142,9 +142,11 @@ For data-entry forms within the dashboard (like Pet Registration or Profiles):
 ## 📙 Passport Stamp Card Pattern (Festival Zones)
 
 For the Festival Geography / Zones section, the cards are designed to look like physical stamp pages from a festival passport booklet:
-- **Card Background:** Warm beige/off-white (`#FAF6F0`) with a subtle `1px` light grey border (`border-black/5`) and clean flat corners (`rounded-sm`).
-- **Zone Badge:** A prominent colored capsule pill (`bg-primary text-black`) absolute-positioned on the top-left of the image containing the zone indicator (e.g., `ZONE A`, `ZONE B`).
+- **Layout & Structure:** Grid display containing the 6 official zone cards followed by a "YOU DID IT!" completion card (totaling 7 cards, after removing Cover and Welcome cards).
+- **Card Background:** Warm beige/off-white (`#fdf6e9` / `#FAF6F0`) with a subtle `1px` light grey border (`border-black/5`) and clean flat corners (`rounded-sm`).
+- **Zone Badge:** A prominent orange capsule pill (`bg-[#f1641e] text-white`) absolute-positioned at the top containing the zone indicator (e.g., `ZONE A`, `ZONE B`).
 - **Typography:** High-impact bold display headings for zone names, accompanied by all-caps, tracking-wide subheadings for the zone purpose (e.g., `VET & BUYING ZONE`).
-- **Interactive Stamp Area:** A dashed circular stamp placeholder (`w-20 h-20 rounded-full border-2 border-dashed border-primary/40`) at the bottom of the card content containing the text "STAMP HERE" and the corresponding zone number, simulating a collection game.
-- **Visual Safety Warnings:** Special conditions (such as "Dogs are NOT allowed in this tent") are styled in bright red with a pulse animator to contrast against default items.
+- **Interactive Stamp Area:** A dashed circular stamp placeholder (`w-20 h-20 rounded-full border-2 border-dashed border-gray-300`) containing the text "STAMP HERE" or "اضع الختم" to simulate a collection game.
+- **Visual Safety Warnings:** Special conditions (such as the Cat Tent warning: "DOGS ARE NOT ALLOWED IN TENT") are styled in bright red borders with white background and a pulse animator.
+- **Page Numbers:** Orange footer bars containing white circles with consecutive page numbers `1` through `7` at the bottom of each card.
 
