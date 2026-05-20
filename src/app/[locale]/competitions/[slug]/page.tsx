@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import Image from 'next/image';
 import Navigation from '@/components/sections/navigation';
@@ -240,8 +238,9 @@ const competitions: Record<string, {
 };
 
 // ─── Page ──────────────────────────────────────────────────────────────────────
-export default function CompetitionDetailPage({ params }: { params: { slug: string } }) {
-  const comp = competitions[params.slug];
+export default async function CompetitionDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const comp = competitions[slug];
   if (!comp) notFound();
 
   return (
