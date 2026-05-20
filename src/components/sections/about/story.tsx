@@ -23,16 +23,6 @@ const AboutStory = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
             </div>
 
-            {/* Floating Info Cards */}
-            <div className="absolute -top-8 -right-8 md:-top-12 md:-right-12 bg-primary p-8 md:p-10  rounded-sm   shadow-sm  rotate-3 transition-transform hover:rotate-0 duration-500 z-20 border-4 border-white">
-              <span className="block text-[44px] md:text-[64px] font-bold text-black leading-none mb-1 font-display tracking-tighter">10K</span>
-              <span className="text-[12px] md:text-[14px] font-bold uppercase tracking-[0.2em] text-black/40 whitespace-nowrap">{t('stats.visitors')}</span>
-            </div>
-
-            <div className="absolute -bottom-8 -left-8 md:-bottom-12 md:-left-12 bg-black p-8 md:p-10  rounded-sm   shadow-sm  -rotate-3 transition-transform hover:rotate-0 duration-500 z-20 border-4 border-black/10">
-              <span className="block text-[44px] md:text-[64px] font-bold text-white leading-none mb-1 font-display tracking-tighter">270m</span>
-              <span className="text-[12px] md:text-[14px] font-bold uppercase tracking-[0.2em] text-white/40 whitespace-nowrap">{t('stats.venue')}</span>
-            </div>
           </div>
 
           {/* Right Side: Detailed Text Content */}
