@@ -40,9 +40,9 @@ export default function ContactPage() {
                     <MapPin className="w-6 h-6" />
                     <Label className="text-black/30 uppercase text-[11px] font-bold tracking-[0.2em] pl-0">{t('info.location')}</Label>
                   </div>
-                  <p className="text-[22px] font-bold text-black font-display tracking-tight whitespace-pre-line rtl:text-right">
+                  <a href="https://www.google.com/maps/place/Pet+Park/@25.3713397,51.5206187,5553m/data=!3m1!1e3!4m10!1m2!2m1!1spets+park!3m6!1s0x3e45c36bebd7c1ff:0xe9fe34995eb0a7b4!8m2!3d25.3713397!4d51.5566676!15sCglwZXRzIHBhcmtaCyIJcGV0cyBwYXJrkgEEcGFya5oBJENoZERTVWhOTUc5blMwVkpRMEZuU1VNdGQyUmZaeTFSUlJBQuABAPoBBAgAEDQ!16s%2Fg%2F11tdhzkd61?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="text-[22px] font-bold text-black font-display tracking-tight whitespace-pre-line rtl:text-right hover:text-primary transition-colors block">
                     {t('info.val_location')}
-                  </p>
+                  </a>
                 </div>
                 <div className="space-y-3">
                   <div className="flex items-center gap-4 text-primary mb-2 rtl:flex-row-reverse rtl:justify-end">
@@ -65,7 +65,7 @@ export default function ContactPage() {
               {/* Google Maps Embed */}
               <div className="w-full aspect-video  rounded-sm  overflow-hidden grayscale contrast-[1.1] border border-black/5  shadow-sm  shadow-black/5 hover:grayscale-0 transition-all duration-1000">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d14421.7377561!2d51.5435!3d25.3725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45c4793f77df23%3A0xc669f379fa4d4bb!2sThe%20Pearl-Qatar!5e0!3m2!1sen!2sqa!4v1700000000000!5m2!1sen!2sqa"
+                  src="https://maps.google.com/maps?q=25.3713397,51.5566676&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

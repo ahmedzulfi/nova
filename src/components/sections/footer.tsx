@@ -147,10 +147,10 @@ const Footer = () => {
                   <div className="w-8 h-8 rounded-sm bg-white/5 flex items-center justify-center">
                     <MapPin size={14} className="text-primary" />
                   </div>
-                  <p className="text-[16px] font-bold leading-tight">
+                  <a href="https://www.google.com/maps/place/Pet+Park/@25.3713397,51.5206187,5553m/data=!3m1!1e3!4m10!1m2!2m1!1spets+park!3m6!1s0x3e45c36bebd7c1ff:0xe9fe34995eb0a7b4!8m2!3d25.3713397!4d51.5566676!15sCglwZXRzIHBhcmtaCyIJcGV0cyBwYXJrkgEEcGFya5oBJENoZERTVWhOTUc5blMwVkpRMEZuU1VNdGQyUmZaeTFSUlJBQuABAPoBBAgAEDQ!16s%2Fg%2F11tdhzkd61?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="text-[16px] font-bold leading-tight hover:text-primary transition-colors block">
                     {t('location_val')}<br />
-                    <span className="text-[13px] text-white/40 font-medium mt-1 block">{t('date_val')}</span>
-                  </p>
+                    <span className="text-[13px] text-white/40 font-medium mt-1 block group-hover:text-primary/70 transition-colors">{t('date_val')}</span>
+                  </a>
                 </div>
               </li>
             </ul>
