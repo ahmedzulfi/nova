@@ -1247,7 +1247,7 @@
       "adults": "Adult Visitors",
       "adult_helper": "Age 12 and above",
       "kids": "Kids ",
-      "kids_helper": "QAR 15 — Children under 12"
+      "kids_helper": "QAR 45 — Children under 12"
     },
     "safety": {
       "required": "You must accept all {count} terms to proceed.",

@@ -2,17 +2,17 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-    Maximize, 
-    Camera, 
-    X, 
-    CheckCircle2, 
-    AlertCircle, 
-    User, 
-    Ticket, 
-    PawPrint, 
-    Clock, 
-    CreditCard, 
+import {
+    Maximize,
+    Camera,
+    X,
+    CheckCircle2,
+    AlertCircle,
+    User,
+    Ticket,
+    PawPrint,
+    Clock,
+    CreditCard,
     MapPin,
     ShieldCheck,
     Smartphone,
@@ -71,8 +71,8 @@ export default function ScannerPage() {
     };
 
     const handleCheckIn = () => {
-        toast.success("Check-in Successful", { 
-            description: `Guest ${scannedData.attendee.name} marked as present.` 
+        toast.success("Check-in Successful", {
+            description: `Guest ${scannedData.attendee.name} marked as present.`
         });
         resetScanner();
     };
@@ -87,7 +87,7 @@ export default function ScannerPage() {
         <div className="min-h-[80vh] flex flex-col items-center justify-center -mt-8">
             <AnimatePresence mode="wait">
                 {isScanning ? (
-                    <motion.div 
+                    <motion.div
                         key="scanner"
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -100,11 +100,11 @@ export default function ScannerPage() {
                         </div>
 
                         {/* Camera Viewport Simulation */}
-                        <div className="relative aspect-square bg-[#000000] rounded-sm overflow-hidden shadow-2xl border-4 border-white">
+                        <div className="relative aspect-square bg-[#000000] rounded-sm overflow-hidden shadow-xs border-4 border-white">
                             <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_center,_transparent_0%,_black_100%)]" />
-                            
+
                             {/* Scanning Laser */}
-                            <motion.div 
+                            <motion.div
                                 animate={{ top: ['0%', '100%', '0%'] }}
                                 transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                                 className="absolute left-0 right-0 h-1 bg-[#FACC15] shadow-[0_0_15px_#FACC15] z-10"
@@ -117,18 +117,18 @@ export default function ScannerPage() {
                             <div className="absolute bottom-8 right-8 w-12 h-12 border-b-4 border-r-4 border-[#FACC15] rounded-br-lg" />
 
                             <div className="absolute inset-0 flex items-center justify-center">
-                            {isLoading ? (
-                                <div className="flex flex-col items-center gap-4 animate-in fade-in zoom-in duration-300">
-                                    <div className="w-12 h-12 border-4 border-[#FACC15] border-t-transparent rounded-full animate-spin" />
-                                    <span className="text-[10px] font-bold text-white uppercase tracking-[0.2em]">Verifying ID...</span>
-                                </div>
-                            ) : (
-                                <Camera className="w-16 h-16 text-white/10" />
-                            )}
-                        </div>
+                                {isLoading ? (
+                                    <div className="flex flex-col items-center gap-4 animate-in fade-in zoom-in duration-300">
+                                        <div className="w-12 h-12 border-4 border-[#FACC15] border-t-transparent rounded-full animate-spin" />
+                                        <span className="text-[10px] font-bold text-white uppercase tracking-[0.2em]">Verifying ID...</span>
+                                    </div>
+                                ) : (
+                                    <Camera className="w-16 h-16 text-white/10" />
+                                )}
+                            </div>
 
                             {/* Simulation Trigger */}
-                            <button 
+                            <button
                                 onClick={() => handleScan('NP-2026-AUTO')}
                                 className="absolute inset-0 w-full h-full cursor-pointer z-20 group"
                             >
@@ -140,14 +140,14 @@ export default function ScannerPage() {
 
                         <div className="flex items-center gap-3">
                             <div className="relative flex-1">
-                                <input 
+                                <input
                                     value={manualId}
                                     onChange={(e) => setManualId(e.target.value)}
                                     placeholder="Enter Order ID Manually..."
                                     className="w-full bg-[#F7F6F3] border-none rounded-sm px-6 py-4 text-[14px] font-bold focus:ring-1 focus:ring-[#E9E9E7] outline-none"
                                 />
                             </div>
-                            <Button 
+                            <Button
                                 onClick={() => handleScan()}
                                 className="h-14 px-8 bg-[#37352F] text-white rounded-sm font-bold uppercase text-[12px] tracking-widest hover:bg-black transition-all"
                             >
@@ -167,27 +167,27 @@ export default function ScannerPage() {
                         </div>
                     </motion.div>
                 ) : (
-                    <motion.div 
+                    <motion.div
                         key="result"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="w-full max-w-2xl space-y-6 pb-12"
                     >
-                        <button 
+                        <button
                             onClick={resetScanner}
                             className="flex items-center gap-2 text-[#91918E] hover:text-[#37352F] text-[12px] font-bold uppercase tracking-widest transition-all mb-4"
                         >
                             <ArrowLeft size={14} /> Back to Scanner
                         </button>
 
-                        <div className="bg-white border border-[#E9E9E7] rounded-sm shadow-2xl overflow-hidden">
+                        <div className="bg-white border border-[#E9E9E7] rounded-sm shadow-xs overflow-hidden">
                             {/* Header Status */}
                             <div className="bg-[#FACC15] p-8 flex items-center justify-between">
                                 <div className="space-y-1">
                                     <p className="text-[11px] font-bold text-black/40 uppercase tracking-[0.2em]">Ticket Verified</p>
                                     <h3 className="text-[32px] font-bold text-black tracking-tighter leading-none">{scannedData.id}</h3>
                                 </div>
-                                <div className="w-16 h-16 bg-white rounded-sm flex items-center justify-center text-[#37352F] shadow-lg">
+                                <div className="w-16 h-16 bg-white rounded-sm flex items-center justify-center text-[#37352F] shadow-xs">
                                     <CheckCircle2 size={32} strokeWidth={3} />
                                 </div>
                             </div>
@@ -266,7 +266,7 @@ export default function ScannerPage() {
                                             <p className="text-[11px] opacity-50">Health records & ID checked</p>
                                         </div>
                                     </div>
-                                    <Button 
+                                    <Button
                                         onClick={handleCheckIn}
                                         className="bg-[#FACC15] hover:bg-[#EAB308] text-black font-bold uppercase text-[11px] tracking-widest h-10 px-6 rounded-sm active:scale-95"
                                     >

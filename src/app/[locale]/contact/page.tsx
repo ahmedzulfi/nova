@@ -80,8 +80,6 @@ export default function ContactPage() {
                 <div className="flex flex-wrap gap-4 rtl:flex-row-reverse">
                   {[
                     { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/nova_paw_festival/' },
-                    { name: 'TikTok', icon: Music2, href: 'https://www.tiktok.com/@nova_paw_festival' },
-                    { name: 'YouTube', icon: Youtube, href: 'https://www.youtube.com/@paw_festival' }
                   ].map((social) => (
                     <a
                       key={social.name}
@@ -137,7 +135,7 @@ export default function ContactPage() {
       <div className="container mx-auto px-6 max-w-[1280px] pb-32 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
         <div className="bg-black  rounded-sm  p-16 md:p-24 flex flex-col items-center text-center text-white relative overflow-hidden group  shadow-sm  shadow-black/20">
           <div className="relative z-10">
-            <h2 className="text-[40px] md:text-[72px] font-bold font-display mb-8 leading-[0.9] tracking-tighter">{t('whatsapp.title')}</h2>
+            <h2 className="text-[40px] md:text-[72px] text-white font-bold font-display mb-8 leading-[0.9] tracking-tighter">{t('whatsapp.title')}</h2>
             <p className="text-white/40 text-[18px] md:text-[22px] mb-12 max-w-[700px] mx-auto font-medium leading-relaxed">
               {t('whatsapp.desc')}
             </p>

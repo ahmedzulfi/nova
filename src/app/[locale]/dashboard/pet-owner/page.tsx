@@ -6,21 +6,16 @@ import {
     Clock,
     CheckCircle2,
     Plus,
-    FileText,
-    ShieldCheck,
     MoreHorizontal,
-    MessageSquare,
-    ExternalLink,
-    ChevronRight,
-    Edit3,
     Eye,
-    Activity
+    Edit3,
+    Activity,
+    FileText,
 } from 'lucide-react';
 import { 
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
@@ -48,113 +43,132 @@ export default function PetOwnerDashboard() {
     const t = useTranslations('PetOwnerDashboard');
 
     return (
-        <div className="animate-in fade-in duration-700">
-            {/* Notion Page Header */}
-            <div className="mb-12">
-                <div className="text-[78px] mb-4">🐕</div>
-                <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">
-                    {t('title')}
-                </h1>
-            </div>
-
-            <div className="space-y-12">
-                {/* Introduction Block */}
-                <div className="text-[16px] text-[#37352F] leading-relaxed max-w-3xl">
-                    {t('desc')}
+        <div className="animate-in fade-in duration-500 pb-20">
+            <div className="max-w-[708px]">
+                {/* Notion Page Header */}
+                <div className="mb-10 mt-4">
+                    <h1 className="text-[40px] font-bold text-[#37352F] tracking-tight mb-2">
+                        {t('title')}
+                    </h1>
+                    <p className="text-[16px] text-[#37352F]/70">
+                        {t('desc')}
+                    </p>
                 </div>
 
-                {/* Registration Journey Section */}
-                <div className="space-y-6">
-                    <div className="flex items-center gap-2 text-[18px] font-semibold text-[#37352F]">
-                        <ChevronRight size={18} />
-                        <h3>{t('journey_title', { name: mockRegistrations[0].petName })}</h3>
-                    </div>
-
-                    <div className="bg-[#FBFAFB] rounded-sm p-6 border border-[#E9E9E7]">
-                        <div className="flex items-center justify-between mb-8">
-                            <div className="flex items-center gap-4">
-                                <div className="w-10 h-10 bg-white border border-[#E9E9E7] rounded-sm flex items-center justify-center">
-                                    <PawPrint size={20} className="text-[#37352F]" />
-                                </div>
-                                <div>
-                                    <p className="font-bold text-[14px]">{mockRegistrations[0].type}</p>
-                                    <p className="text-[12px] text-[#91918E]">{t('journey_ref', { ref: mockRegistrations[0].id })}</p>
-                                </div>
-                            </div>
-                            <div className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-sm text-[12px] font-medium">
-                                {t('status', { status: mockRegistrations[0].status })}
-                            </div>
-                        </div>
-
-                        {/* Minimal Timeline */}
-                        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                            {mockRegistrations[0].steps.map((step, idx) => (
-                                <div key={idx} className="flex items-center gap-3 p-3 bg-white border border-[#E9E9E7] rounded-sm">
-                                    <div className={`w-6 h-6 rounded-full flex items-center justify-center ${step.completed ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-400'}`}>
-                                        {step.completed ? <CheckCircle2 size={14} /> : <Clock size={14} />}
+                <div className="space-y-10">
+                    
+                    {/* Active Registration Journey */}
+                    <div className="space-y-4">
+                        <h2 className="text-[24px] font-bold text-[#37352F] tracking-tight mb-4">
+                            {t('journey_title', { name: mockRegistrations[0].petName })}
+                        </h2>
+                        
+                        <div className="border border-[#E9E9E7] rounded-sm bg-white overflow-hidden">
+                            <div className="p-4 border-b border-[#E9E9E7] flex items-center justify-between bg-[#F7F6F3]">
+                                <div className="flex items-center gap-3">
+                                    <div className="w-8 h-8 bg-white border border-[#E9E9E7] rounded-sm flex items-center justify-center shrink-0">
+                                        <PawPrint size={16} className="text-[#37352F]" />
                                     </div>
-                                    <div>
-                                        <p className="text-[13px] font-medium">{step.label}</p>
-                                        <p className="text-[11px] text-[#91918E]">{step.date}</p>
+                                    <div className="flex flex-col">
+                                        <span className="text-[14px] font-bold text-[#37352F] leading-tight">
+                                            {mockRegistrations[0].type}
+                                        </span>
+                                        <span className="text-[12px] text-[#91918E]">
+                                            {t('journey_ref', { ref: mockRegistrations[0].id })}
+                                        </span>
                                     </div>
                                 </div>
-                            ))}
-                        </div>
-
-                    </div>
-                </div>
-
-                {/* Pet Profiles Section */}
-                <div className="space-y-6">
-                    <div className="flex items-center justify-between border-b border-[#E9E9E7] pb-2">
-                        <h3 className="text-[18px] font-semibold text-[#37352F]">{t('pets_title')}</h3>
-                        <Button variant="ghost" size="sm" className="text-[#91918E] hover:text-[#37352F] text-[13px] h-8 gap-2">
-                            <Plus size={14} />
-                            {t('new_pet')}
-                        </Button>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="group flex items-center gap-4 p-4 border border-[#E9E9E7] rounded-sm hover:bg-[#F7F6F3] transition-colors">
-                            <div className="w-12 h-12 bg-[#F7F6F3] group-hover:bg-white border border-[#E9E9E7] rounded-sm flex items-center justify-center">
-                                <PawPrint size={24} className="text-[#37352F]" />
+                                <div className="px-2 py-1 bg-yellow-100/50 text-[#854d0e] border border-yellow-200 rounded-sm text-[12px] font-medium">
+                                    {t('status', { status: mockRegistrations[0].status })}
+                                </div>
                             </div>
-                            <div className="flex-1">
-                                <p className="font-bold text-[15px]">Buddy</p>
-                                <p className="text-[13px] text-[#91918E]">Golden Retriever • 2 Years</p>
+                            
+                            <div className="p-4 grid grid-cols-1 sm:grid-cols-4 gap-4 bg-white">
+                                {mockRegistrations[0].steps.map((step, idx) => (
+                                    <div key={idx} className="flex items-start gap-2">
+                                        <div className={`mt-0.5 w-4 h-4 rounded-full flex items-center justify-center shrink-0 ${step.completed ? 'bg-[#37352F] text-white' : 'bg-[#F1F1EF] text-[#91918E]'}`}>
+                                            {step.completed ? <CheckCircle2 size={10} /> : <Clock size={10} />}
+                                        </div>
+                                        <div className="flex flex-col">
+                                            <span className={`text-[13px] font-medium leading-tight ${step.completed ? 'text-[#37352F]' : 'text-[#91918E]'}`}>
+                                                {step.label}
+                                            </span>
+                                            <span className="text-[11px] text-[#91918E]">
+                                                {step.date}
+                                            </span>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
-                            <DropdownMenu>
-                                <DropdownMenuTrigger asChild>
-                                    <Button variant="ghost" size="icon" className="h-8 w-8 rounded-sm hover:bg-[#E9E9E7]">
-                                        <MoreHorizontal size={18} className="text-[#91918E]" />
-                                    </Button>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent align="end" className="w-48 rounded-sm border-[#E9E9E7] bg-white p-1.5 shadow-sm">
-                                    <DropdownMenuItem className="rounded-sm text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">
-                                        <Eye size={16} className="mr-2 text-[#91918E]" />
-                                        View Profile
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem className="rounded-sm text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">
-                                        <Edit3 size={16} className="mr-2 text-[#91918E]" />
-                                        Edit Details
-                                    </DropdownMenuItem>
-                                    <DropdownMenuSeparator className="bg-[#E9E9E7] my-1" />
-                                    <DropdownMenuItem className="rounded-sm text-[13px] font-medium py-2 cursor-pointer focus:bg-[#F7F6F3]">
-                                        <Activity size={16} className="mr-2 text-[#91918E]" />
-                                        Medical Records
-                                    </DropdownMenuItem>
-                                </DropdownMenuContent>
-                            </DropdownMenu>
-                        </div>
-
-                        <div className="flex items-center justify-center p-4 border border-dashed border-[#E9E9E7] rounded-sm hover:bg-[#F7F6F3] transition-colors cursor-pointer text-[#91918E] text-[14px] gap-2">
-                            <Plus size={16} />
-                            <span>{t('new_pet')}</span>
                         </div>
                     </div>
-                </div>
 
-                {/* Resources Grid removed */}
+                    <div className="h-[1px] bg-[#E9E9E7] w-full" />
+
+                    {/* Registered Pets */}
+                    <div className="space-y-4">
+                        <div className="flex items-center justify-between mb-4">
+                            <h2 className="text-[24px] font-bold text-[#37352F] tracking-tight">
+                                {t('pets_title')}
+                            </h2>
+                            <Button variant="ghost" className="h-8 px-3 text-[#37352F] hover:bg-[#F7F6F3] text-[13px] font-medium gap-2 rounded-sm border border-[#E9E9E7]">
+                                <Plus size={14} />
+                                {t('new_pet')}
+                            </Button>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div className="flex items-center gap-3 p-3 border border-[#E9E9E7] rounded-sm hover:bg-[#F7F6F3] transition-colors bg-white">
+                                <div className="w-10 h-10 bg-[#F7F6F3] border border-[#E9E9E7] rounded-sm flex items-center justify-center shrink-0">
+                                    <PawPrint size={18} className="text-[#37352F]" />
+                                </div>
+                                <div className="flex-1 flex flex-col">
+                                    <span className="font-bold text-[14px] text-[#37352F] leading-tight">Buddy</span>
+                                    <span className="text-[12px] text-[#91918E]">Golden Retriever • 2 Years</span>
+                                </div>
+                                <DropdownMenu>
+                                    <DropdownMenuTrigger asChild>
+                                        <Button variant="ghost" size="icon" className="h-7 w-7 rounded-sm hover:bg-[#E9E9E7]">
+                                            <MoreHorizontal size={16} className="text-[#91918E]" />
+                                        </Button>
+                                    </DropdownMenuTrigger>
+                                    <DropdownMenuContent align="end" className="w-48 rounded-sm border-[#E9E9E7] bg-white p-1 shadow-sm">
+                                        <DropdownMenuItem className="rounded-sm text-[13px] font-medium py-1.5 cursor-pointer focus:bg-[#F7F6F3]">
+                                            <Eye size={14} className="mr-2 text-[#91918E]" />
+                                            View Profile
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem className="rounded-sm text-[13px] font-medium py-1.5 cursor-pointer focus:bg-[#F7F6F3]">
+                                            <Edit3 size={14} className="mr-2 text-[#91918E]" />
+                                            Edit Details
+                                        </DropdownMenuItem>
+                                        <DropdownMenuSeparator className="bg-[#E9E9E7] my-1" />
+                                        <DropdownMenuItem className="rounded-sm text-[13px] font-medium py-1.5 cursor-pointer focus:bg-[#F7F6F3]">
+                                            <Activity size={14} className="mr-2 text-[#91918E]" />
+                                            Medical Records
+                                        </DropdownMenuItem>
+                                    </DropdownMenuContent>
+                                </DropdownMenu>
+                            </div>
+
+                            <div className="flex items-center justify-center p-3 border border-dashed border-[#E9E9E7] rounded-sm hover:bg-[#F7F6F3] transition-colors cursor-pointer bg-white text-[#91918E] hover:text-[#37352F] gap-2">
+                                <Plus size={16} />
+                                <span className="text-[13px] font-medium">{t('new_pet')}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div className="h-[1px] bg-[#E9E9E7] w-full" />
+                    
+                    {/* Important Information Callout */}
+                    <div className="bg-[#F1F1EF] p-4 rounded-sm border border-[#E9E9E7] flex gap-3 items-start">
+                        <FileText size={16} className="text-[#37352F] shrink-0 mt-0.5" />
+                        <div className="flex flex-col gap-1">
+                            <span className="text-[14px] font-bold text-[#37352F] leading-tight">Registration Handbook</span>
+                            <span className="text-[13px] text-[#37352F]/80">Please ensure all medical records and vaccination certificates are up to date before final approval.</span>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     );

@@ -44,7 +44,7 @@ const Venue = () => {
             </p>
 
             <a
-              href="#contact"
+              href="/contact"
               className="inline-flex items-center justify-center h-16 px-10 bg-black text-white rounded-sm font-bold text-[14px] uppercase tracking-[0.2em] transition-all hover:bg-primary active:scale-95  shadow-sm  shadow-black/10"
             >
               {t('cta')}

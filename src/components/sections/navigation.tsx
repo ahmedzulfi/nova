@@ -30,7 +30,7 @@ const Navigation = () => {
     { name: t('competitions'), href: '/competitions' },
     { name: t('tickets'), href: '/tickets' },
     { name: t('gallery'), href: '/gallery' },
-    { name: t('contact'), href: '/#contact' },
+    { name: t('contact'), href: '/contact' },
   ];
 
   const toggleLocale = () => {

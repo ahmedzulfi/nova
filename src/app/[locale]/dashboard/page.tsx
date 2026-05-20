@@ -101,7 +101,7 @@ function DashboardContent() {
     const baseTicketPrice = data.tier === 'adult' ? 45 : 90;
     const companionPrice = data.adultQty > 1 ? (data.adultQty - 1) * 45 : 0;
     const extraPetPrice = data.petQty > 1 ? (data.petQty - 1) * 45 : 0;
-    const kidsPrice = data.kidsQty > 0 ? data.kidsQty * 15 : 0;
+    const kidsPrice = data.kidsQty > 0 ? data.kidsQty * 45 : 0;
     const competitionPrice = (isPetOwner && data.competitionEntry) ? 50 : 0;
     const computedTotal = baseTicketPrice + companionPrice + extraPetPrice + kidsPrice + competitionPrice;
 
@@ -148,11 +148,11 @@ function DashboardContent() {
                     {activeTab === 'overview' && (
                         <div className="max-w-3xl mx-auto space-y-8 pb-12 animate-in fade-in slide-in-from-bottom-4 duration-1000">
                             {/* 1. Official Digital Entrance Pass - Horizontal Ticket Block */}
-                            <div className="relative w-full bg-[#FBFBFA] border border-[#E9E9E7] rounded-sm shadow-md overflow-visible flex flex-col md:flex-row">
+                            <div className="relative w-full bg-[#FBFBFA] border border-[#E9E9E7] rounded-sm shadow-xs overflow-visible flex flex-col md:flex-row">
                                 {/* Desktop Perforation Cutouts */}
                                 <div className="absolute top-0 left-[70%] -translate-x-1/2 -translate-y-1/2 w-7 h-7 bg-white border border-[#E9E9E7] rounded-full z-20 hidden md:block" />
                                 <div className="absolute bottom-0 left-[70%] -translate-x-1/2 translate-y-1/2 w-7 h-7 bg-white border border-[#E9E9E7] rounded-full z-20 hidden md:block" />
-                                
+
                                 {/* Mobile Perforation Cutouts */}
                                 <div className="absolute -left-3.5 top-[65%] -translate-y-1/2 w-7 h-7 bg-white border border-[#E9E9E7] rounded-full z-20 md:hidden" />
                                 <div className="absolute -right-3.5 top-[65%] -translate-y-1/2 w-7 h-7 bg-white border border-[#E9E9E7] rounded-full z-20 md:hidden" />
@@ -226,7 +226,7 @@ function DashboardContent() {
 
                             {/* Action Footer */}
                             <div className="flex flex-col sm:flex-row gap-3">
-                                <Button className="flex-1 h-12 bg-[#37352F] hover:bg-black text-white text-[13px] font-bold uppercase tracking-[0.2em] rounded-sm gap-3 shadow-md transition-all active:scale-[0.98]">
+                                <Button className="flex-1 h-12 bg-[#37352F] hover:bg-black text-white text-[13px] font-bold uppercase tracking-[0.2em] rounded-sm gap-3 shadow-xs transition-all active:scale-[0.98]">
                                     <Download size={16} />
                                     Download Digital Pass
                                 </Button>
@@ -267,7 +267,7 @@ function DashboardContent() {
                             <div className="bg-[#FBFBFA] border border-[#E9E9E7] rounded-sm shadow-sm overflow-hidden animate-in fade-in zoom-in-[0.99] duration-500">
                                 {/* Top Banner/Decorative Bar */}
                                 <div className="h-1.5 bg-[#37352F] w-full" />
-                                
+
                                 <div className="p-8 md:p-12 space-y-10">
                                     {/* Invoice Header */}
                                     <div className="flex flex-col md:flex-row justify-between items-start gap-8 border-b border-black/5 pb-8">
@@ -361,8 +361,8 @@ function DashboardContent() {
                                                                 <span className="block text-[10px] text-[#91918E] mt-0.5">Junior Pass (U-12)</span>
                                                             </td>
                                                             <td className="p-4 text-center">{data.kidsQty}</td>
-                                                            <td className="p-4 text-right">QAR 15.00</td>
-                                                            <td className="p-4 text-right">QAR {data.kidsQty * 15}.00</td>
+                                                            <td className="p-4 text-right">QAR 45.00</td>
+                                                            <td className="p-4 text-right">QAR {data.kidsQty * 45}.00</td>
                                                         </tr>
                                                     )}
                                                     {isPetOwner && data.competitionEntry && (
@@ -415,7 +415,7 @@ function DashboardContent() {
 
                             {/* Action Footer */}
                             <div className="flex flex-col sm:flex-row gap-3">
-                                <Button className="flex-1 h-12 bg-[#37352F] hover:bg-black text-white text-[13px] font-bold uppercase tracking-[0.2em] rounded-sm gap-3 shadow-md transition-all active:scale-[0.98]">
+                                <Button className="flex-1 h-12 bg-[#37352F] hover:bg-black text-white text-[13px] font-bold uppercase tracking-[0.2em] rounded-sm gap-3 shadow-xs transition-all active:scale-[0.98]">
                                     <Download size={16} />
                                     Download PDF Receipt
                                 </Button>
