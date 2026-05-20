@@ -33,6 +33,7 @@ import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { WKU_GROUPS } from "@/lib/wku-breeds";
 
 type CompetitionType = 'dog-grooming' | 'dog-fashion-show' | 'cat-fashion-show' | 'dog-best-in-show' | 'cat-best-show' | 'cat-drawing-battle' | '';
 
@@ -74,6 +75,7 @@ function RegistrationContent() {
         experienceLevel: "Intermediate",
         previousTitles: "",
         dogGroup: "",
+        dogBreed: "",
     });
 
     useEffect(() => {
@@ -295,24 +297,48 @@ function RegistrationContent() {
                                 <div className="space-y-8">
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                         {selectedEventId === 'dog-best-in-show' && (
-                                            <div className="space-y-3">
-                                                <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Dog Breed Group *</Label>
-                                                <Select
-                                                    value={formData.dogGroup}
-                                                    onValueChange={(val) => setFormData({ ...formData, dogGroup: val })}
-                                                >
-                                                    <SelectTrigger className="w-full h-[52px] bg-[#F7F6F3] border-none rounded-sm px-6 font-medium text-[14px] text-[#37352F]">
-                                                        <SelectValue placeholder="Select Breed Group" />
-                                                    </SelectTrigger>
-                                                    <SelectContent className="rounded-sm border-[#E9E9E7] p-1 shadow-sm">
-                                                        <SelectItem value="Group 1: Sheepdogs" className="rounded-sm py-2.5">Group 1: Sheepdogs</SelectItem>
-                                                        <SelectItem value="Group 2: Working Dogs" className="rounded-sm py-2.5">Group 2: Working Dogs</SelectItem>
-                                                        <SelectItem value="Group 3: Terriers" className="rounded-sm py-2.5">Group 3: Terriers</SelectItem>
-                                                        <SelectItem value="Group 4: Hunting Dogs" className="rounded-sm py-2.5">Group 4: Hunting Dogs</SelectItem>
-                                                        <SelectItem value="Group 5: Companion Dogs" className="rounded-sm py-2.5">Group 5: Companion Dogs</SelectItem>
-                                                    </SelectContent>
-                                                </Select>
-                                            </div>
+                                            <>
+                                                {/* Step 1 – WKU Group */}
+                                                <div className="space-y-3">
+                                                    <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">WKU Breed Group *</Label>
+                                                    <Select
+                                                        value={formData.dogGroup}
+                                                        onValueChange={(val) => setFormData({ ...formData, dogGroup: val, dogBreed: '' })}
+                                                    >
+                                                        <SelectTrigger className="w-full h-[52px] bg-[#F7F6F3] border-none rounded-sm px-6 font-medium text-[14px] text-[#37352F]">
+                                                            <SelectValue placeholder="Select WKU Group" />
+                                                        </SelectTrigger>
+                                                        <SelectContent className="rounded-sm border-[#E9E9E7] p-1 shadow-sm max-h-72">
+                                                            {WKU_GROUPS.map(g => (
+                                                                <SelectItem key={g.id} value={g.id} className="rounded-sm py-2.5 text-[13px]">
+                                                                    {g.label}
+                                                                </SelectItem>
+                                                            ))}
+                                                        </SelectContent>
+                                                    </Select>
+                                                </div>
+                                                {/* Step 2 – Breed within group */}
+                                                {formData.dogGroup && (
+                                                    <div className="space-y-3">
+                                                        <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Dog Breed *</Label>
+                                                        <Select
+                                                            value={formData.dogBreed}
+                                                            onValueChange={(val) => setFormData({ ...formData, dogBreed: val })}
+                                                        >
+                                                            <SelectTrigger className="w-full h-[52px] bg-[#F7F6F3] border-none rounded-sm px-6 font-medium text-[14px] text-[#37352F]">
+                                                                <SelectValue placeholder="Select Breed" />
+                                                            </SelectTrigger>
+                                                            <SelectContent className="rounded-sm border-[#E9E9E7] p-1 shadow-sm max-h-72">
+                                                                {(WKU_GROUPS.find(g => g.id === formData.dogGroup)?.breeds ?? []).map(breed => (
+                                                                    <SelectItem key={breed} value={breed} className="rounded-sm py-2 text-[13px]">
+                                                                        {breed}
+                                                                    </SelectItem>
+                                                                ))}
+                                                            </SelectContent>
+                                                        </Select>
+                                                    </div>
+                                                )}
+                                            </>
                                         )}
                                         <div className="space-y-3">
                                             <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block">Previous Titles / Honors</Label>
@@ -452,7 +478,7 @@ function RegistrationContent() {
                                     !formData.age.trim() ||
                                     !files.passport ||
                                     !files.vaccination ||
-                                    (selectedEventId === 'dog-best-in-show' ? !formData.dogGroup.trim() : false) ||
+                                    (selectedEventId === 'dog-best-in-show' ? (!formData.dogGroup.trim() || !formData.dogBreed.trim()) : false) ||
                                     !allChecked
                                 }
                                 className="h-14 md:col-span-3 bg-[#37352F] hover:bg-black text-white rounded-sm text-[13px] font-bold uppercase tracking-[0.2em] disabled:opacity-50"

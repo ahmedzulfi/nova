@@ -24,6 +24,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import { WKU_GROUPS } from "@/lib/wku-breeds";
 
 type CompetitionType =
     | "dog-grooming"
@@ -66,6 +67,7 @@ function RegistrationContent() {
         drawingMaterials: "",
         outfitDescription: "",
         dogGroup: "",
+        dogBreed: "",
     });
 
     const termKeys: Record<string, string> = {
@@ -115,9 +117,8 @@ function RegistrationContent() {
                     experienceLevel: found.id === "dog-grooming"
                         ? "Session 1: Dog Figure Grooming (4:00 PM – 6:00 PM)"
                         : "Intermediate",
-                    dogGroup: found.id === "dog-best-in-show"
-                        ? "Group 1: Sheepdogs"
-                        : ""
+                    dogGroup: found.id === "dog-best-in-show" ? "" : "",
+                        dogBreed: "",
                 }));
             }
         }
@@ -250,9 +251,8 @@ function RegistrationContent() {
                                         experienceLevel: id === "dog-grooming"
                                             ? "Session 1: Dog Figure Grooming (4:00 PM – 6:00 PM)"
                                             : "Intermediate",
-                                        dogGroup: id === "dog-best-in-show"
-                                            ? "Group 1: Sheepdogs"
-                                            : ""
+                                        dogGroup: "",
+                                        dogBreed: "",
                                     }));
                                 }}
                                 className={cn(
@@ -348,24 +348,46 @@ function RegistrationContent() {
                             </Select>
                         </div>
                         {selectedEventId === "dog-best-in-show" && (
-                            <div className="space-y-1.5 w-full">
-                                <Label className="text-[14px] font-medium text-[#37352F]">Dog Group *</Label>
-                                <Select
-                                    value={formData.dogGroup}
-                                    onValueChange={(val) => setFormData({ ...formData, dogGroup: val })}
-                                >
-                                    <SelectTrigger className="w-full bg-[#F7F6F3] border-none rounded-sm px-3 py-2 h-[36px] text-[14px] text-[#37352F] focus:ring-1 focus:ring-[#E9E9E7]">
-                                        <SelectValue placeholder="Select Breed Group" />
-                                    </SelectTrigger>
-                                    <SelectContent className="rounded-sm border-[#E9E9E7]">
-                                        <SelectItem value="Group 1: Sheepdogs" className="text-[14px]">Group 1: Sheepdogs</SelectItem>
-                                        <SelectItem value="Group 2: Working Dogs" className="text-[14px]">Group 2: Working Dogs</SelectItem>
-                                        <SelectItem value="Group 3: Terriers" className="text-[14px]">Group 3: Terriers</SelectItem>
-                                        <SelectItem value="Group 4: Hunting Dogs" className="text-[14px]">Group 4: Hunting Dogs</SelectItem>
-                                        <SelectItem value="Group 5: Companion Dogs" className="text-[14px]">Group 5: Companion Dogs</SelectItem>
-                                    </SelectContent>
-                                </Select>
-                            </div>
+                            <>
+                                <div className="space-y-1.5 w-full">
+                                    <Label className="text-[14px] font-medium text-[#37352F]">WKU Breed Group *</Label>
+                                    <Select
+                                        value={formData.dogGroup}
+                                        onValueChange={(val) => setFormData({ ...formData, dogGroup: val, dogBreed: '' })}
+                                    >
+                                        <SelectTrigger className="w-full bg-[#F7F6F3] border-none rounded-sm px-3 py-2 h-[36px] text-[14px] text-[#37352F] focus:ring-1 focus:ring-[#E9E9E7]">
+                                            <SelectValue placeholder="Select WKU Group" />
+                                        </SelectTrigger>
+                                        <SelectContent className="rounded-sm border-[#E9E9E7] max-h-72">
+                                            {WKU_GROUPS.map(g => (
+                                                <SelectItem key={g.id} value={g.id} className="text-[13px] py-2">
+                                                    {g.label}
+                                                </SelectItem>
+                                            ))}
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+                                {formData.dogGroup && (
+                                    <div className="space-y-1.5 w-full">
+                                        <Label className="text-[14px] font-medium text-[#37352F]">Dog Breed *</Label>
+                                        <Select
+                                            value={formData.dogBreed}
+                                            onValueChange={(val) => setFormData({ ...formData, dogBreed: val })}
+                                        >
+                                            <SelectTrigger className="w-full bg-[#F7F6F3] border-none rounded-sm px-3 py-2 h-[36px] text-[14px] text-[#37352F] focus:ring-1 focus:ring-[#E9E9E7]">
+                                                <SelectValue placeholder="Select Breed" />
+                                            </SelectTrigger>
+                                            <SelectContent className="rounded-sm border-[#E9E9E7] max-h-72">
+                                                {(WKU_GROUPS.find(g => g.id === formData.dogGroup)?.breeds ?? []).map(breed => (
+                                                    <SelectItem key={breed} value={breed} className="text-[13px] py-1.5">
+                                                        {breed}
+                                                    </SelectItem>
+                                                ))}
+                                            </SelectContent>
+                                        </Select>
+                                    </div>
+                                )}
+                            </>
                         )}
                         {(selectedEventId === "dog-best-in-show" || selectedEventId === "cat-best-show") && (
                             <div className="space-y-1.5 w-full sm:col-span-2">
