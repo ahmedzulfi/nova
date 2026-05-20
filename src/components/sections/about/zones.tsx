@@ -37,8 +37,8 @@ const AboutZones = () => {
           </p>
         </div>
 
-        {/* Passport Grid (Centered and balanced) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-center">
+        {/* Passport Grid (Centered 3-column layout) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
           
           {/* Card 1: Zone A (Paw Care District) */}
           <section className="aspect-[2/3] min-h-[480px] flex flex-col relative overflow-hidden rounded-lg bg-[#fdf6e9] text-center shadow-md border border-black/5 group hover:shadow-xl transition-all duration-500 pb-[42px]">
@@ -317,43 +317,6 @@ const AboutZones = () => {
             {/* Footer Bar */}
             <div className="absolute bottom-0 left-0 h-[30px] bg-[#f1641e] w-full flex justify-center items-center">
               <div className="bg-white text-[#f1641e] w-5 h-5 rounded-full text-xs font-bold flex items-center justify-center shadow-sm">6</div>
-            </div>
-          </section>
-
-          {/* Card 7: Card Completion */}
-          <section className="aspect-[2/3] min-h-[480px] flex flex-col relative overflow-hidden rounded-lg bg-[#fdf6e9] text-center shadow-md border border-black/5 group hover:shadow-xl transition-all duration-500 pb-[42px]">
-            <div className="p-6 flex flex-col h-full justify-between items-center z-10">
-              <div className="my-auto flex flex-col items-center justify-center">
-                <h1 className="text-paw-orange text-3xl font-black italic tracking-tighter uppercase mb-4 font-display">
-                  {t('passport.did_it')}
-                </h1>
-                <p className="text-[12px] font-bold text-black/75 mb-1 px-4 leading-relaxed">
-                  {t('passport.thanks')}
-                </p>
-                <p className="text-[12px] font-semibold text-black/60 px-4 leading-relaxed mb-6">
-                  {t('passport.hope')}
-                </p>
-                
-                {/* Large Stamp Paw Icon */}
-                <div className="my-2 bg-[#f1641e] text-white w-20 h-20 rounded-full flex flex-col items-center justify-center shadow-lg transform rotate-[-10deg] border-4 border-white select-none">
-                  <span className="text-3xl">🐾</span>
-                  <span className="text-[9px] font-black tracking-widest uppercase mt-0.5">{t('passport.see_you').split(' ')[0]}</span>
-                </div>
-              </div>
-
-              <div className="mt-auto text-[11px] font-black text-[#f1641e] tracking-widest uppercase">
-                {t('passport.see_you')}
-              </div>
-            </div>
-            
-            {/* Skyline Background Silhouette */}
-            <div 
-              className="absolute bottom-[30px] left-0 h-[60px] w-full opacity-20 bg-repeat-x bg-bottom bg-contain"
-              style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuCid-hMQbWkmprsmB0jJGH5qE_RdvrpqgkGJ6BhmDsB1O2yiq-_vVb-j55c62Mrf1MpWMs35do92V8tIkLf4cVjPr26CojRJYXCwkSrYnedHiHMeBp1MjOrfEufT03OjrLvfLQ2U7TiQovoeLM9dOz2JFbf0urxI3vSM4J2ttbrJX907RKEV8i4SVGpPXPcLTBzFgGozG-cx2wxPfD7zNe57QPEGYxctxDtQJWKLoIQauqgFthRicfTIfyRSUSWpGYGg4nRMIVJ_x0')` }}
-            />
-            {/* Footer Bar */}
-            <div className="absolute bottom-0 left-0 h-[30px] bg-[#f1641e] w-full flex justify-center items-center">
-              <div className="bg-white text-[#f1641e] w-5 h-5 rounded-full text-xs font-bold flex items-center justify-center shadow-sm">7</div>
             </div>
           </section>
 
