@@ -129,3 +129,22 @@ For the user dashboard receipt tab, the billing document mirrors the exact physi
 - **Notched Perforation:** Identical tearable stub styling.
 - **Left Pane (70%):** Functions as the detailed billing ledger. Contains multi-section breakdowns for Attendee Profile, Billing Details (address, payment method, merchant ID), Ticket Inventory (itemized cost breakdown), and Competition Summaries.
 - **Right Pane (30%):** Functions as the official receipt stub, featuring the total paid amount, a "PAID" badge, QR verification code, and transaction date/ID.
+
+## 📋 Registration Form Pattern (Notion Style)
+
+For data-entry forms within the dashboard (like Pet Registration or Profiles):
+- **Layout:** Document-style flow without heavy boxed sections or massive paddings. Content sits directly on a white background or inside subtle `#F7F6F3` containers.
+- **Section Headers:** Simple, bold typography (e.g., `24px` H2) without giant colored badges or drop shadows.
+- **Inputs:** Clean fields with `bg-[#F7F6F3]`, `border-none`, and `rounded-sm`. Focus states use a subtle `ring-1 ring-[#E9E9E7]`.
+- **Dividers:** Use simple, full-width `1px solid #E9E9E7` lines to separate form sections.
+- **Action Buttons:** Standard height (`h-9` or `h-10`) with primary yellow `#FACC15` without heavy drop shadows. Cancel buttons should be text-only (`variant="ghost"`) to reduce visual weight.
+
+## 📙 Passport Stamp Card Pattern (Festival Zones)
+
+For the Festival Geography / Zones section, the cards are designed to look like physical stamp pages from a festival passport booklet:
+- **Card Background:** Warm beige/off-white (`#FAF6F0`) with a subtle `1px` light grey border (`border-black/5`) and clean flat corners (`rounded-sm`).
+- **Zone Badge:** A prominent colored capsule pill (`bg-primary text-black`) absolute-positioned on the top-left of the image containing the zone indicator (e.g., `ZONE A`, `ZONE B`).
+- **Typography:** High-impact bold display headings for zone names, accompanied by all-caps, tracking-wide subheadings for the zone purpose (e.g., `VET & BUYING ZONE`).
+- **Interactive Stamp Area:** A dashed circular stamp placeholder (`w-20 h-20 rounded-full border-2 border-dashed border-primary/40`) at the bottom of the card content containing the text "STAMP HERE" and the corresponding zone number, simulating a collection game.
+- **Visual Safety Warnings:** Special conditions (such as "Dogs are NOT allowed in this tent") are styled in bright red with a pulse animator to contrast against default items.
+

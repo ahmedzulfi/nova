@@ -49,81 +49,69 @@
       }
     },
     "zones": {
-      "badge": "Festival Geography",
+      "badge": "Festival Passport Zones",
       "title": "Explore the\nFestival Zones",
-      "desc": "Discover 9 specialized zones at pet park The Pearl Island, each designed for maximum engagement, safety, and fun.",
+      "desc": "Collect your stamps at each zone to complete your Nova Paw Passport and receive your exclusive gift!",
       "cta": "Explore Zone",
       "list": {
-        "stage": {
-          "title": "Main Stage",
+        "zone_a": {
+          "title": "Zone A: Paw Care District",
+          "subtitle": "Vet & Buying Zone",
           "items": [
-            "Live entertainment, performances, and experiences",
-            "Competitions, fashion shows, and ceremonies",
-            "Educational vet talks and engagement"
+            "Vet Consultation",
+            "Pet Health Check",
+            "Pet Pharmacy",
+            "Pet Food",
+            "Pet Accessories",
+            "Pet Supplies"
           ]
         },
-        "dog": {
-          "title": "Dog Arena",
+        "zone_b": {
+          "title": "Zone B: Forever Home Corner",
+          "subtitle": "Adoption Zone",
           "items": [
-            "International canine competitions and showcases",
-            "Professional dog demonstrations and agility",
-            "Safe and exciting experiences for dogs"
+            "Dog Adoption",
+            "Cat Adoption",
+            "Rescue Awareness",
+            "Meet & Adopt"
           ]
         },
-        "cat": {
-          "title": "Cat Tent",
+        "zone_c": {
+          "title": "Zone C: Paws & Play Land",
+          "subtitle": "Kids & Fun Zone",
           "items": [
-            "Cat competitions and drawing battles",
-            "Cat fashion activities and entertainment",
-            "Comfortable indoor environment for cats"
+            "Kids Activities",
+            "Carnival Games",
+            "Interactive Play Booths",
+            "Family Entertainment"
           ]
         },
-        "vet": {
-          "title": "Vet & Wellness",
+        "zone_d": {
+          "title": "Zone D: Tails & Tastes Street",
+          "subtitle": "Food & Flavors Zone",
           "items": [
-            "Free veterinary consultations and guidance",
-            "Health awareness and educational support",
-            "Professional support for pet owners"
+            "Food Trucks",
+            "Family Seating Area",
+            "Outdoor Dining Experience"
           ]
         },
-        "adoption": {
-          "title": "Adoption Zone",
+        "zone_e": {
+          "title": "Zone E: The Feline Kingdom",
+          "subtitle": "Cat Tent Zone",
           "items": [
-            "Meet rescue organizations (QAWS, Paws Rescue)",
-            "Awareness activities supporting rescue",
-            "Connecting visitors with animals in need"
+            "Cat Fashion Show",
+            "Best Cat Show",
+            "Cat Entertainment",
+            "Vet Talks",
+            "Cat Activities",
+            "Dogs are NOT allowed in this tent"
           ]
         },
-        "market": {
-          "title": "Pet Market",
+        "zone_f": {
+          "title": "Zone F: Memory Paws Studio",
+          "subtitle": "Photo Booth Zone",
           "items": [
-            "Pet accessories, lifestyle products, and treats",
-            "Explore unique brands and merchandise",
-            "Interactive shopping for pet lovers"
-          ]
-        },
-        "kids": {
-          "title": "Kids Zone",
-          "items": [
-            "Family-friendly games and creative fun",
-            "Interactive activities designed for children",
-            "Entertainment, crafts, and challenges"
-          ]
-        },
-        "food": {
-          "title": "Food Trucks",
-          "items": [
-            "Variety of food and beverage experiences",
-            "Relax, dine, and enjoy the festival vibes",
-            "Outdoor social space with entertainment"
-          ]
-        },
-        "photo": {
-          "title": "Photo Zone",
-          "items": [
-            "Interactive photo opportunities and installs",
-            "Meet mascots and capture themed moments",
-            "Designed for social sharing and memories"
+            "Capture your memories at our special landmarks!"
           ]
         }
       }
