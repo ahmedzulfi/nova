@@ -139,7 +139,7 @@ const competitions: Record<string, {
     desc: 'The prestigious WKU-recognized event evaluating breed structure, temperament, and presentation across Puppy, Youth, and Adult classes in a double-ring setup.',
     longDesc: 'The Best Dog Show is Nova Paw Festival\'s flagship canine competition — a WKU-sanctioned championship that draws top pedigree dogs from across the region. Dogs compete across three official WKU classes: Puppy Class (6–18 months), Youth Class (15–24 months), and Adult Class (15+ months). Judging follows strict WKU international standards, evaluating breed conformity and structure, gait and movement quality, temperament and behavior, coat condition and presentation, and overall breed type and impression. The top performers across all classes compete for the prestigious Best in Show Trophy.',
     stats: [
-      { label: 'Dogs per Day', value: '40 dogs', icon: <Users className="w-5 h-5" /> },
+      { label: 'Dogs per Day', value: '30 dogs', icon: <Users className="w-5 h-5" /> },
       { label: 'WKU Classes', value: 'Puppy · Youth · Adult', icon: <Star className="w-5 h-5" /> },
       { label: 'Grand Prize', value: 'Best in Show Trophy', icon: <Trophy className="w-5 h-5" /> },
     ],

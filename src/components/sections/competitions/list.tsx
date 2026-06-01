@@ -26,7 +26,7 @@ const CompetitionsList = () => {
   const statValues = {
     contestants: (key: string) =>
       key === 'dog_show'
-        ? t('values.40_dogs')
+        ? t('values.30_dogs')
         : key === 'cat_show'
         ? t('values.20_cats')
         : key === 'grooming'
