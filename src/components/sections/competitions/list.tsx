@@ -25,7 +25,13 @@ const CompetitionsList = () => {
 
   const statValues = {
     contestants: (key: string) =>
-      key === 'dog_show' ? t('values.40_dogs') : key === 'cat_show' ? t('values.20_cats') : t('values.8_per_day'),
+      key === 'dog_show'
+        ? t('values.40_dogs')
+        : key === 'cat_show'
+        ? t('values.20_cats')
+        : key === 'grooming'
+        ? t('values.10_per_day')
+        : t('values.8_per_day'),
     duration: (key: string) =>
       key === 'fashion' ? t('values.50_min') : key === 'grooming' ? t('values.60_min') : key === 'dog_show' ? t('values.3_classes') : key === 'cat_show' ? t('values.wcf_intl') : t('values.all_ages'),
     award: (key: string) =>
