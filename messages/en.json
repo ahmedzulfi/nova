@@ -426,6 +426,7 @@
     "awards": {
       "badge": "Victory & Recognition",
       "title": "Awards & Prizes",
+      "desc": "Official WKU & WCF recognition cups, class rosettes, and participation awards for every competitor.",
       "items": {
         "cups": {
           "title": "Champion Cups",
