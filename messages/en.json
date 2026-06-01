@@ -338,6 +338,10 @@
         "desc": "WCF-licensed grand judging of elegance, breed standards, and feline grace inside the immersive Cat Dome."
       },
       {
+        "title": "Cat Fashion Show",
+        "desc": "Cats and their owners dazzle the runway in coordinated themed outfits judged on creativity, coordination, and feline grace."
+      },
+      {
         "title": "Cat Drawing Battle",
         "desc": "A live creative battle where artists compete to draw cats in real-time speed, style, and imagination under the spotlight."
       }
@@ -383,7 +387,10 @@
         "best_cat": "Best Cat of Show",
         "all_ages": "Open to all ages",
         "materials": "All Materials",
-        "top_3": "Top 3 artists"
+        "top_3": "Top 3 artists",
+        "wku_awards": "WKU CERTIFICATES, TROPHY & ROSETTES",
+        "wcf_awards": "WCF CERTIFICATES, TROPHY & ROSETTES",
+        "drawing_awards": "CERTIFICATES & TROPHY"
       },
       "items": {
         "fashion": {
@@ -541,13 +548,27 @@
           "I accept all judging decisions as final."
         ],
         "cat_fashion": [
-          "I confirm that my cat's vaccination is up to date.",
-          "I confirm that I have uploaded a valid pet passport.",
-          "I understand that my cat must remain inside its carrier except during runway participation.",
-          "I confirm that all costumes respect local culture and decency.",
-          "I confirm that my cat will remain under my supervision at all times.",
-          "I understand that registration does not guarantee final selection.",
-          "I accept all judging decisions as final."
+          "I confirm that my cat is fully vaccinated and I have uploaded a valid pet passport and vaccination record for verification.",
+          "I confirm that my cat has completed a recent veterinary health checkup and is fit to participate in the competition.",
+          "If no recent health checkup is available, I understand that I must complete a veterinary checkup with Nova Vet before final approval.",
+          "I understand that this is a matching fashion competition and both the owner and the cat must participate together on the runway.",
+          "I confirm that my outfit and my cat's outfit are coordinated, themed, or creatively matched as part of the competition concept.",
+          "I confirm that all costumes, accessories, and themes respect local culture, public decency, and event guidelines.",
+          "I confirm that my cat's costume is safe, lightweight, comfortable, and does not cause stress, discomfort, injury, or restrict movement or breathing.",
+          "I understand that my cat must remain inside its secure carrier/cage at all times except during official competition participation.",
+          "I confirm that my cat will remain under my full supervision and responsibility throughout the event.",
+          "I confirm that my cat is healthy, clean, groomed, and suitable for public presentation.",
+          "I confirm that my cat is not aggressive and can safely participate around judges, staff, and visitors.",
+          "I agree to arrive on time for registration, briefing, rehearsal (if required), and the official competition schedule.",
+          "I understand that late arrival may result in disqualification from the competition.",
+          "I understand that all cats may be subject to veterinary inspection before entering the competition area.",
+          "I understand that photography and videography will take place during the event, and I agree to media coverage and promotional use of myself, my cat, and our competition appearance.",
+          "I understand that registration submission does not guarantee final acceptance into the competition.",
+          "I accept that all judging decisions are final and non-negotiable.",
+          "I confirm my attendance and understand that cancellation must be reported at least 3 weeks before the event date.",
+          "I understand that emergency absence must be reported immediately to the organizer.",
+          "I understand that event organizers reserve the right to refuse participation to any cat considered unsafe, unhealthy, distressed, or not compliant with competition requirements.",
+          "I understand that the judging criteria may include creativity, theme execution, owner-and-cat coordination, presentation, confidence, originality, and overall runway appearance."
         ],
         "dog_show": [
           "I confirm that my dog is fully vaccinated and I have uploaded a valid pet passport for verification.",

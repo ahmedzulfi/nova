@@ -150,3 +150,14 @@ For the Festival Geography / Zones section, the cards are designed to look like 
 - **Visual Safety Warnings:** Special conditions (such as the Cat Tent warning: "DOGS ARE NOT ALLOWED IN TENT") are styled in bright red borders with white background and a pulse animator.
 - **Page Numbers:** Orange footer bars containing white circles with consecutive page numbers `1` through `6` at the bottom of each card.
 
+## 🏆 Competition Cards & Registration Checklist Guidelines
+
+For displaying international competitions and managing registration terms:
+- **Card Stats Structure:**
+  - Every competition card lists three main metrics: Contestants, Duration/Classes/Judges, and Awards.
+  - The third metric is unified under the "AWARDS" label across all competitions to showcase WKU/WCF and generic trophy and certificate offerings cleanly.
+- **Mandatory Registration Checklist:**
+  - For cat-specific and highly regulated competitions (like the Cat Fashion Show), safety and operational checklists must consist of individual checkboxes covering vaccinations, vet health checks, costume safety, behavior standards, and event logistics (e.g. the 21 mandatory items).
+  - Checkbox states are saved dynamically per selected competition ID, and the final submission button is enabled only when 100% of safety terms are confirmed.
+
+

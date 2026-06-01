@@ -20,6 +20,7 @@ const CompetitionsList = () => {
     { key: "grooming", detailSlug: "grooming-competition", icon: <Users className="w-3.5 h-3.5" />, timeIcon: <Clock className="w-3.5 h-3.5" />, awardIcon: <Star className="w-3.5 h-3.5" />, image: "/grooming.jpeg" },
     { key: "dog_show", detailSlug: "best-dog-show", icon: <Users className="w-3.5 h-3.5" />, timeIcon: <Star className="w-3.5 h-3.5" />, awardIcon: <Trophy className="w-3.5 h-3.5" />, image: "/best.PNG" },
     { key: "cat_show", detailSlug: "best-cat-show", icon: <Users className="w-3.5 h-3.5" />, timeIcon: <Star className="w-3.5 h-3.5" />, awardIcon: <Trophy className="w-3.5 h-3.5" />, image: "/cathsow.PNG" },
+    { key: "cat_fashion", detailSlug: "cat-fashion-show", icon: <Users className="w-3.5 h-3.5" />, timeIcon: <Clock className="w-3.5 h-3.5" />, awardIcon: <Trophy className="w-3.5 h-3.5" />, image: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?q=80&w=2080&auto=format&fit=crop" },
     { key: "drawing", detailSlug: "cat-drawing-battle", icon: <Users className="w-3.5 h-3.5" />, timeIcon: <Star className="w-3.5 h-3.5" />, awardIcon: <Trophy className="w-3.5 h-3.5" />, image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=2071&auto=format&fit=crop" },
   ];
 
@@ -33,9 +34,21 @@ const CompetitionsList = () => {
         ? t('values.10_per_day')
         : t('values.8_per_day'),
     duration: (key: string) =>
-      key === 'fashion' ? t('values.50_min') : key === 'grooming' ? t('values.60_min') : key === 'dog_show' ? t('values.3_classes') : key === 'cat_show' ? t('values.wcf_intl') : t('values.all_ages'),
+      (key === 'fashion' || key === 'cat_fashion')
+        ? t('values.50_min')
+        : key === 'grooming'
+        ? t('values.60_min')
+        : key === 'dog_show'
+        ? t('values.3_classes')
+        : key === 'cat_show'
+        ? t('values.wcf_intl')
+        : t('values.all_ages'),
     award: (key: string) =>
-      key === 'fashion' ? t('values.cups') : key === 'grooming' ? t('values.tables') : key === 'dog_show' ? t('values.best_in_show') : key === 'cat_show' ? t('values.best_cat') : t('values.materials'),
+      (key === 'fashion' || key === 'grooming' || key === 'dog_show')
+        ? t('values.wku_awards')
+        : (key === 'cat_show' || key === 'cat_fashion')
+        ? t('values.wcf_awards')
+        : t('values.drawing_awards'),
   };
 
   return (
@@ -74,8 +87,8 @@ const CompetitionsList = () => {
                 <div className="grid grid-cols-3 gap-2 py-3 border-y border-black/5">
                   {[
                     { icon: comp.icon, label: t('labels.contestants'), val: statValues.contestants(comp.key) },
-                    { icon: comp.timeIcon, label: t(`labels.${comp.key === 'fashion' || comp.key === 'grooming' ? 'duration' : comp.key === 'dog_show' ? 'classes' : comp.key === 'cat_show' ? 'judges' : 'eligibility'}`), val: statValues.duration(comp.key) },
-                    { icon: comp.awardIcon, label: t(`labels.${comp.key === 'grooming' || comp.key === 'drawing' ? 'provided' : comp.key === 'dog_show' || comp.key === 'cat_show' ? 'grand_prize' : 'awards'}`), val: statValues.award(comp.key) },
+                    { icon: comp.timeIcon, label: t(`labels.${comp.key === 'fashion' || comp.key === 'cat_fashion' || comp.key === 'grooming' ? 'duration' : comp.key === 'dog_show' ? 'classes' : comp.key === 'cat_show' ? 'judges' : 'eligibility'}`), val: statValues.duration(comp.key) },
+                    { icon: comp.awardIcon, label: t('labels.awards'), val: statValues.award(comp.key) },
                   ].map((s, i) => (
                     <div key={i} className="flex flex-col gap-1">
                       <div className="flex items-center gap-1 text-primary">

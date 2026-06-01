@@ -35,7 +35,7 @@ const competitions: Record<string, {
     stats: [
       { label: 'Contestants', value: '8 per day', icon: <Users className="w-5 h-5" /> },
       { label: 'Show Duration', value: '50 minutes', icon: <Clock className="w-5 h-5" /> },
-      { label: 'Awards', value: 'Gold / Silver / Rose Cups', icon: <Trophy className="w-5 h-5" /> },
+      { label: 'Awards', value: 'WKU Certificates, Trophy & Rosettes', icon: <Trophy className="w-5 h-5" /> },
     ],
     requirements: [
       'Owner Full Name',
@@ -69,7 +69,7 @@ const competitions: Record<string, {
     stats: [
       { label: 'Contestants', value: '8 per day', icon: <Users className="w-5 h-5" /> },
       { label: 'Show Duration', value: '50 minutes', icon: <Clock className="w-5 h-5" /> },
-      { label: 'Awards', value: 'Gold / Silver / Rose Cups', icon: <Trophy className="w-5 h-5" /> },
+      { label: 'Awards', value: 'WCF Certificates, Trophy & Rosettes', icon: <Trophy className="w-5 h-5" /> },
     ],
     requirements: [
       'Owner Full Name',
@@ -104,7 +104,7 @@ const competitions: Record<string, {
     stats: [
       { label: 'Sessions', value: '2 Sessions per day', icon: <Users className="w-5 h-5" /> },
       { label: 'Duration', value: '2 hours per session', icon: <Clock className="w-5 h-5" /> },
-      { label: 'Provided', value: 'Grooming Tables', icon: <Star className="w-5 h-5" /> },
+      { label: 'Awards', value: 'WKU Certificates, Trophy & Rosettes', icon: <Trophy className="w-5 h-5" /> },
     ],
     requirements: [
       'Full Name',
@@ -141,7 +141,7 @@ const competitions: Record<string, {
     stats: [
       { label: 'Dogs per Day', value: '30 dogs', icon: <Users className="w-5 h-5" /> },
       { label: 'WKU Classes', value: 'Puppy · Youth · Adult', icon: <Star className="w-5 h-5" /> },
-      { label: 'Grand Prize', value: 'Best in Show Trophy', icon: <Trophy className="w-5 h-5" /> },
+      { label: 'Awards', value: 'WKU Certificates, Trophy & Rosettes', icon: <Trophy className="w-5 h-5" /> },
     ],
     requirements: [
       'Owner Full Name',
@@ -178,7 +178,7 @@ const competitions: Record<string, {
     stats: [
       { label: 'Cats per Day', value: '20 cats', icon: <Users className="w-5 h-5" /> },
       { label: 'Judges', value: 'WCF International', icon: <Star className="w-5 h-5" /> },
-      { label: 'Grand Prize', value: 'Best Cat of Show', icon: <Trophy className="w-5 h-5" /> },
+      { label: 'Awards', value: 'WCF Certificates, Trophy & Rosettes', icon: <Trophy className="w-5 h-5" /> },
     ],
     requirements: [
       'Owner Full Name',
@@ -214,7 +214,7 @@ const competitions: Record<string, {
     stats: [
       { label: 'Eligibility', value: 'Open to all ages', icon: <Users className="w-5 h-5" /> },
       { label: 'Duration', value: '1 hour live battle', icon: <Clock className="w-5 h-5" /> },
-      { label: 'Materials', value: 'All provided by participant', icon: <Upload className="w-5 h-5" /> },
+      { label: 'Awards', value: 'Certificates & Trophy', icon: <Trophy className="w-5 h-5" /> },
     ],
     requirements: [
       'Full Name',
