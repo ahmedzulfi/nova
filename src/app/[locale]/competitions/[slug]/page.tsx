@@ -170,7 +170,7 @@ const competitions: Record<string, {
     title: 'Best Cat Show',
     subtitle: 'WCF Grand Championship Inside the Cat Dome',
     badge: 'WCF LICENSED',
-    image: '/cathsow.jfif',
+    image: '/cathsow.PNG',
     color: '#FACC15',
     judge: 'WCF International',
     desc: 'WCF-licensed grand judging inside the immersive Cat Dome. Cats evaluated on body type, head, ears, eyes, coat, and overall condition according to WCF international standards.',

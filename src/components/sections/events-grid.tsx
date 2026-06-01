@@ -65,7 +65,7 @@ const EventsGrid: React.FC = () => {
     },
     {
       key: "cat_show",
-      image: "/cathsow.jfif"
+      image: "/cathsow.PNG"
     },
     {
       key: "grooming",

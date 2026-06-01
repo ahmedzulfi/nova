@@ -16,11 +16,11 @@ const CompetitionsList = () => {
   }, []);
 
   const competitions = [
-    { key: "fashion",  detailSlug: "dog-fashion-show",    icon: <Users className="w-3.5 h-3.5" />, timeIcon: <Clock className="w-3.5 h-3.5" />,  awardIcon: <Trophy className="w-3.5 h-3.5" />, image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2068&auto=format&fit=crop" },
-    { key: "grooming", detailSlug: "grooming-competition", icon: <Users className="w-3.5 h-3.5" />, timeIcon: <Clock className="w-3.5 h-3.5" />,  awardIcon: <Star className="w-3.5 h-3.5" />,   image: "/grooming.jpeg" },
-    { key: "dog_show", detailSlug: "best-dog-show",        icon: <Users className="w-3.5 h-3.5" />, timeIcon: <Star className="w-3.5 h-3.5" />,   awardIcon: <Trophy className="w-3.5 h-3.5" />, image: "/best.PNG" },
-    { key: "cat_show", detailSlug: "best-cat-show",        icon: <Users className="w-3.5 h-3.5" />, timeIcon: <Star className="w-3.5 h-3.5" />,   awardIcon: <Trophy className="w-3.5 h-3.5" />, image: "/cathsow.jfif" },
-    { key: "drawing",  detailSlug: "cat-drawing-battle",   icon: <Users className="w-3.5 h-3.5" />, timeIcon: <Star className="w-3.5 h-3.5" />,   awardIcon: <Trophy className="w-3.5 h-3.5" />, image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=2071&auto=format&fit=crop" },
+    { key: "fashion", detailSlug: "dog-fashion-show", icon: <Users className="w-3.5 h-3.5" />, timeIcon: <Clock className="w-3.5 h-3.5" />, awardIcon: <Trophy className="w-3.5 h-3.5" />, image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2068&auto=format&fit=crop" },
+    { key: "grooming", detailSlug: "grooming-competition", icon: <Users className="w-3.5 h-3.5" />, timeIcon: <Clock className="w-3.5 h-3.5" />, awardIcon: <Star className="w-3.5 h-3.5" />, image: "/grooming.jpeg" },
+    { key: "dog_show", detailSlug: "best-dog-show", icon: <Users className="w-3.5 h-3.5" />, timeIcon: <Star className="w-3.5 h-3.5" />, awardIcon: <Trophy className="w-3.5 h-3.5" />, image: "/best.PNG" },
+    { key: "cat_show", detailSlug: "best-cat-show", icon: <Users className="w-3.5 h-3.5" />, timeIcon: <Star className="w-3.5 h-3.5" />, awardIcon: <Trophy className="w-3.5 h-3.5" />, image: "/cathsow.PNG" },
+    { key: "drawing", detailSlug: "cat-drawing-battle", icon: <Users className="w-3.5 h-3.5" />, timeIcon: <Star className="w-3.5 h-3.5" />, awardIcon: <Trophy className="w-3.5 h-3.5" />, image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=2071&auto=format&fit=crop" },
   ];
 
   const statValues = {
@@ -67,8 +67,8 @@ const CompetitionsList = () => {
                 {/* Stats row */}
                 <div className="grid grid-cols-3 gap-2 py-3 border-y border-black/5">
                   {[
-                    { icon: comp.icon,      label: t('labels.contestants'), val: statValues.contestants(comp.key) },
-                    { icon: comp.timeIcon,  label: t(`labels.${comp.key === 'fashion' || comp.key === 'grooming' ? 'duration' : comp.key === 'dog_show' ? 'classes' : comp.key === 'cat_show' ? 'judges' : 'eligibility'}`), val: statValues.duration(comp.key) },
+                    { icon: comp.icon, label: t('labels.contestants'), val: statValues.contestants(comp.key) },
+                    { icon: comp.timeIcon, label: t(`labels.${comp.key === 'fashion' || comp.key === 'grooming' ? 'duration' : comp.key === 'dog_show' ? 'classes' : comp.key === 'cat_show' ? 'judges' : 'eligibility'}`), val: statValues.duration(comp.key) },
                     { icon: comp.awardIcon, label: t(`labels.${comp.key === 'grooming' || comp.key === 'drawing' ? 'provided' : comp.key === 'dog_show' || comp.key === 'cat_show' ? 'grand_prize' : 'awards'}`), val: statValues.award(comp.key) },
                   ].map((s, i) => (
                     <div key={i} className="flex flex-col gap-1">

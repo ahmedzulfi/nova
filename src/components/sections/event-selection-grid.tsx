@@ -13,7 +13,7 @@ const EventSelectionGrid = ({ onSelect, selectedEventId }: { onSelect: (id: stri
     { id: 'dog-best-in-show', key: 'dog_show', category: 'dog', image: '/best.PNG' },
     { id: 'dog-grooming', key: 'grooming', category: 'dog', image: '/grooming.jpeg' },
     { id: 'dog-fashion-show', key: 'fashion', category: 'dog', image: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=1964&auto=format&fit=crop' },
-    { id: 'cat-best-show', key: 'cat_show', category: 'cat', image: '/cathsow.jfif' },
+    { id: 'cat-best-show', key: 'cat_show', category: 'cat', image: '/cathsow.PNG' },
     { id: 'cat-drawing-battle', key: 'drawing', category: 'cat', image: 'https://images.unsplash.com/photo-1533702165324-66678e2034b1?q=80&w=1974&auto=format&fit=crop' },
     { id: 'cat-fashion-show', key: 'fashion', category: 'cat', image: 'https://images.unsplash.com/photo-1533738363-b7f9aef128ce?q=80&w=1935&auto=format&fit=crop' }
   ];
@@ -26,8 +26,8 @@ const EventSelectionGrid = ({ onSelect, selectedEventId }: { onSelect: (id: stri
           type="button"
           onClick={() => onSelect(event.id, t(`items.${event.key}.title`))}
           className={`group relative aspect-[4/3] rounded-sm overflow-hidden transition-all duration-500 text-left ${selectedEventId === event.id
-              ? 'ring-4 ring-primary ring-offset-4 ring-offset-white'
-              : 'hover:ring-2 hover:ring-primary/50 hover:ring-offset-2 hover:ring-offset-white'
+            ? 'ring-4 ring-primary ring-offset-4 ring-offset-white'
+            : 'hover:ring-2 hover:ring-primary/50 hover:ring-offset-2 hover:ring-offset-white'
             }`}
         >
           <Image
