@@ -7,8 +7,8 @@
 ## 🎨 Color Palette
 
 - **Landing Page Theme Palette:**
-  - **Light Peach/Beige:** `#FFF2E5` - Section background for Hero, About Us, and Competitions.
-  - **Warm Accent Yellow:** `#FBC84F` - Hero card background and Tickets section background.
+  - **Light Peach/Beige:** `#FFF2E5` - Section background for Hero, About Us, Competitions, and Venue.
+  - **Warm Accent Yellow:** `#FBC84F` - Hero card background, Tickets section background, and Footer background.
   - **Vibrant Orange:** `#FC7911` / `#FC7810` - Hero title accent, primary CTA buttons, stats background block, and orange checkerboard cards.
   - **Bone/Off-white:** `#F5F5F0` - Ticket cards, form backgrounds, and bone checkerboard cards.
   - **Dark Grayish Blue:** `#465067` - Date badges, secondary action CTAs, and Ticket section headings and cards.
