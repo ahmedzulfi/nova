@@ -45,31 +45,31 @@ const HeroSection = () => {
       <div className="relative z-10 w-full lg:h-full lg:flex lg:items-center lg:pt-[89px] pt-[70px] md:pt-[89px]">
         <div className="container mx-auto px-6 max-w-[1280px] flex justify-center lg:justify-end w-full">
           {/* Main Card */}
-          <div className="w-full sm:max-w-[480px] lg:max-w-[437px] bg-[#FBC84F]/95 backdrop-blur-md rounded-[33px] p-6 sm:p-8 xl:p-10 flex flex-col gap-5 sm:gap-6 shadow-xl border border-white/20 relative overflow-hidden">
+          <div className="w-full sm:max-w-[480px] lg:max-w-[437px] bg-[#FBC84F]/95 backdrop-blur-md rounded-[33px] p-6 lg:p-8 flex flex-col gap-4 sm:gap-5 shadow-xl border border-white/20 relative overflow-hidden">
             {/* Headline */}
             <div className="flex flex-col select-none">
-              <h1 className="font-display text-[44px] sm:text-[54px] md:text-[64px] lg:text-[72px] xl:text-[90px] font-bold leading-[0.9] tracking-tighter text-white">
+              <h1 className="font-display text-[44px] sm:text-[54px] md:text-[60px] lg:text-[64px] xl:text-[72px] font-bold leading-[0.9] tracking-tighter text-white">
                 Nova Paw
               </h1>
-              <h1 className="font-display text-[44px] sm:text-[54px] md:text-[64px] lg:text-[72px] xl:text-[90px] font-bold leading-[0.9] tracking-tighter text-[#FC7911]">
+              <h1 className="font-display text-[44px] sm:text-[54px] md:text-[60px] lg:text-[64px] xl:text-[72px] font-bold leading-[0.9] tracking-tighter text-[#FC7911]">
                 Festival
               </h1>
             </div>
 
             {/* Subtitle */}
-            <h2 className="text-[18px] sm:text-[20px] xl:text-[26px] font-bold text-[#37352F] font-display leading-[1.2] tracking-tight">
+            <h2 className="text-[17px] sm:text-[19px] xl:text-[22px] font-bold text-[#37352F] font-display leading-[1.2] tracking-tight">
               {t('subtitle')}
             </h2>
 
             {/* White card description overlay */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-[33px] p-4 sm:p-6 shadow-sm border border-white/40">
-              <p className="text-[13px] sm:text-[14px] xl:text-[19px] leading-[1.4] sm:leading-[1.5] xl:leading-[30.4px] text-[#37352F] font-medium font-body">
+            <div className="bg-white/80 backdrop-blur-sm rounded-[24px] p-4 sm:p-5 shadow-sm border border-white/40">
+              <p className="text-[13px] sm:text-[14px] xl:text-[16px] leading-relaxed text-[#37352F] font-medium font-body">
                 {t('description')}
               </p>
             </div>
 
             {/* Date badge */}
-            <div className="bg-[#465067] text-white py-3 px-4 rounded-[4px] text-center text-[10px] sm:text-[12px] font-bold uppercase tracking-[2px] sm:tracking-[2.40px]">
+            <div className="bg-[#465067] text-white py-3 px-4 rounded-[4px] text-center text-[10px] sm:text-[11px] font-bold uppercase tracking-[2px] sm:tracking-[2.40px]">
               {t('badge')}
             </div>
 
@@ -77,13 +77,13 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row items-center gap-3 w-full mt-1">
               <Link
                 href="/competitions"
-                className="flex-1 inline-flex items-center justify-center gap-3 w-full h-12 sm:h-14 lg:h-[60px] bg-[#FC7810] text-white rounded-[4px] font-bold uppercase tracking-[2px] sm:tracking-[2.60px] text-[12px] sm:text-[13px] transition-all hover:bg-black active:scale-[0.97] shadow-sm shadow-[#FC7810]/20"
+                className="flex-1 inline-flex items-center justify-center gap-3 w-full h-12 lg:h-[50px] bg-[#FC7810] text-white rounded-[4px] font-bold uppercase tracking-[2px] sm:tracking-[2.60px] text-[12px] sm:text-[13px] transition-all hover:bg-black active:scale-[0.97] shadow-sm shadow-[#FC7810]/20"
               >
                 <span>{t('cta_competitions')}</span>
               </Link>
               <Link
                 href="/tickets"
-                className="flex-1 inline-flex items-center justify-center w-full h-12 sm:h-14 lg:h-[60px] bg-[#465067] text-white rounded-[4px] font-bold uppercase tracking-[2px] sm:tracking-[2.60px] text-[12px] sm:text-[13px] transition-all hover:bg-[#FC7911] active:scale-[0.97] shadow-sm shadow-[#465067]/10"
+                className="flex-1 inline-flex items-center justify-center w-full h-12 lg:h-[50px] bg-[#465067] text-white rounded-[4px] font-bold uppercase tracking-[2px] sm:tracking-[2.60px] text-[12px] sm:text-[13px] transition-all hover:bg-[#FC7911] active:scale-[0.97] shadow-sm shadow-[#465067]/10"
               >
                 {t('cta_tickets')}
               </Link>
