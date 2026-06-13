@@ -30,9 +30,9 @@ const AboutUsGrid = () => {
         </div>
 
         {/* Center Pets Image */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[320px] sm:w-[420px] md:w-[520px] lg:w-[717px] lg:h-[478px] h-[220px] sm:h-[290px] md:h-[360px] z-10 select-none pointer-events-none">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[340px] sm:w-[440px] md:w-[560px] lg:w-[717px] lg:h-[478px] h-[220px] sm:h-[290px] md:h-[360px] z-10 select-none pointer-events-none">
           <Image
-            src="/vectors/about_hero_pets.png"
+            src="/vectors/ChatGPT Image Jun 1, 2026, 10_23_36 AM 1.png"
             alt="About Pets"
             fill
             className="object-contain object-bottom"
@@ -59,9 +59,6 @@ const AboutUsGrid = () => {
         </div>
         <div className="absolute right-6 bottom-6 w-[180px] h-[180px] lg:w-[241px] lg:h-[241px] opacity-100 pointer-events-none hidden md:block select-none">
           <Image src="/vectors/black-cat 1 copy.png" alt="" fill className="object-contain" />
-        </div>
-        <div className="absolute right-0 bottom-12 w-[180px] h-[320px] lg:w-[221px] lg:h-[391px] opacity-100 pointer-events-none hidden lg:block select-none">
-          <Image src="/vectors/White_paw_print 2.png" alt="" fill className="object-contain object-right-bottom" />
         </div>
 
         <div className="container mx-auto px-6 max-w-[1280px] relative z-10 h-full flex items-center">
