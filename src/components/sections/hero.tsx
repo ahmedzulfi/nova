@@ -33,148 +33,125 @@ const HeroSection = () => {
           <source src="/vectors/WIDE VERSION.mp4" type="video/mp4" />
         </video>
 
-        {/* Light overlay layers — warm & airy */}
-        {/* Bottom-up: strong warm-peach scrim so text on left is readable */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#FFF2E5]/95 via-[#FFF2E5]/40 to-[#FFF2E5]/10" />
-        {/* Left-side content zone: warm white gradient for text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FFF2E5]/90 via-[#FFF2E5]/40 to-transparent" />
-        {/* Subtle warm vignette at top for nav area readability */}
-        <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#FFF2E5]/30 to-transparent" />
+        {/* Warm light overlay — keeps the image visible but brightened */}
+        <div className="absolute inset-0 bg-[#FFF2E5]/55" />
+        {/* Soft radial spotlight on center for text contrast */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_80%_at_50%_50%,rgba(255,242,229,0.35)_0%,rgba(255,242,229,0.70)_100%)]" />
       </div>
 
-      {/* ── Content Layer ── */}
-      <div className="relative z-10 h-full flex flex-col justify-end pb-14 md:pb-16 lg:pb-20">
-        <div className="max-w-[1380px] mx-auto px-5 md:px-8 lg:px-12 w-full">
+      {/* ── Centered Content ── */}
+      <div className="relative z-10 h-full flex flex-col items-center justify-center px-5 text-center">
 
-          {/* ── Top label strip ── */}
-          <div
-            className={`hidden md:flex items-center gap-3 mb-8 transition-all duration-700 delay-[200ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+        {/* Eyebrow badge */}
+        <div
+          className={`flex items-center gap-2 mb-7 transition-all duration-700 delay-[150ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+        >
+          <div className="w-1.5 h-1.5 rounded-full bg-[#FC7911] animate-pulse" />
+          <span className="text-[11px] font-black uppercase tracking-[3px] text-[#FC7911]">
+            Qatar's First International Pet Festival
+          </span>
+          <div className="w-1.5 h-1.5 rounded-full bg-[#FC7911] animate-pulse" />
+        </div>
+
+        {/* Giant headline */}
+        <div className={`transition-all duration-700 delay-[250ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <h1
+            className="font-black leading-[0.85] tracking-[-3px] text-[#1a1209]"
+            style={{ fontSize: 'clamp(60px, 11vw, 148px)' }}
           >
-            <div className="w-1.5 h-1.5 rounded-full bg-[#FC7911]" />
-            <span className="text-[11px] font-bold uppercase tracking-[3px] text-[#465067]/60">
-              {t('video_badge_top')}
-            </span>
-            <div className="h-px w-10 bg-[#465067]/20" />
-          </div>
-
-          {/* ── Main headline cluster ── */}
-          <div className="max-w-[780px]">
-            {/* Eyebrow badge */}
-            <div
-              className={`flex items-center gap-3 mb-5 transition-all duration-700 delay-[300ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-            >
-              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#FC7911]/10 border border-[#FC7911]/25 rounded-sm">
-                <span className="text-[10px] font-black uppercase tracking-[2.5px] text-[#FC7911]">
-                  Qatar's First International Pet Festival
-                </span>
-              </div>
-            </div>
-
-            {/* Giant hero title — dark on light */}
-            <h1
-              className={`font-black leading-[0.88] tracking-[-2px] text-[#1a1209] transition-all duration-700 delay-[400ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-              style={{ fontSize: 'clamp(52px, 8.5vw, 110px)' }}
-            >
-              Nova Paw
-            </h1>
-            <h1
-              className={`font-black leading-[0.88] tracking-[-2px] text-[#FC7911] transition-all duration-700 delay-[480ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-              style={{ fontSize: 'clamp(52px, 8.5vw, 110px)' }}
-            >
-              Festival
-            </h1>
-
-            {/* Subtitle */}
-            <p
-              className={`mt-6 text-[15px] md:text-[17px] leading-relaxed text-[#465067]/80 max-w-[500px] font-medium transition-all duration-700 delay-[560ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-            >
-              {t('subtitle')}
-            </p>
-          </div>
-
-          {/* ── Bottom Action Row ── */}
-          <div
-            className={`mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-5 transition-all duration-700 delay-[680ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+            Nova Paw
+          </h1>
+          <h1
+            className="font-black leading-[0.85] tracking-[-3px] text-[#FC7911]"
+            style={{ fontSize: 'clamp(60px, 11vw, 148px)' }}
           >
-            {/* Primary CTA */}
-            <Link
-              href="/tickets"
-              className="group inline-flex items-center gap-3 px-7 py-4 bg-[#FC7911] hover:bg-[#e06a0a] text-white text-[13px] font-black uppercase tracking-[2px] rounded-sm transition-all duration-200 active:scale-[0.97] shadow-lg shadow-[#FC7911]/30"
-            >
-              Get Tickets
-              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-            </Link>
+            Festival
+          </h1>
+        </div>
 
-            {/* Secondary CTA */}
-            <Link
-              href="/competitions"
-              className="group inline-flex items-center gap-3 px-7 py-4 bg-[#465067] hover:bg-[#37404f] text-white text-[13px] font-bold uppercase tracking-[2px] rounded-sm transition-all duration-200 active:scale-[0.97]"
-            >
-              View Competitions
-              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-            </Link>
+        {/* Subtitle */}
+        <p
+          className={`mt-7 text-[15px] md:text-[18px] leading-relaxed text-[#465067]/75 max-w-[560px] font-medium transition-all duration-700 delay-[380ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+        >
+          {t('subtitle')}
+        </p>
 
-            {/* Divider */}
-            <div className="hidden sm:block w-px h-10 bg-[#465067]/15" />
-
-            {/* Date + Location info */}
-            <div className="flex flex-wrap items-center gap-4">
-              <div className="flex items-center gap-2 text-[#465067]/70 text-[12px] font-semibold tracking-wide">
-                <Calendar className="w-3.5 h-3.5 text-[#FC7911]" />
-                27–28 Nov 2026
-              </div>
-              <div className="flex items-center gap-2 text-[#465067]/70 text-[12px] font-semibold tracking-wide">
-                <MapPin className="w-3.5 h-3.5 text-[#FC7911]" />
-                Pet Park, The Pearl · Qatar
-              </div>
-            </div>
+        {/* Date + Location pill row */}
+        <div
+          className={`mt-6 flex flex-wrap items-center justify-center gap-5 transition-all duration-700 delay-[460ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+        >
+          <div className="flex items-center gap-2 px-4 py-2 bg-white/70 backdrop-blur-sm rounded-sm border border-black/[0.07] shadow-sm">
+            <Calendar className="w-3.5 h-3.5 text-[#FC7911] flex-shrink-0" />
+            <span className="text-[12px] font-bold tracking-wide text-[#465067]">27–28 Nov 2026</span>
+          </div>
+          <div className="flex items-center gap-2 px-4 py-2 bg-white/70 backdrop-blur-sm rounded-sm border border-black/[0.07] shadow-sm">
+            <MapPin className="w-3.5 h-3.5 text-[#FC7911] flex-shrink-0" />
+            <span className="text-[12px] font-bold tracking-wide text-[#465067]">Pet Park, The Pearl · Qatar</span>
           </div>
         </div>
 
-        {/* ── Stats row — desktop bottom-right ── */}
+        {/* CTA Buttons */}
         <div
-          className={`hidden lg:flex absolute bottom-10 right-12 items-center gap-8 transition-all duration-700 delay-[800ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+          className={`mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 delay-[560ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+        >
+          <Link
+            href="/tickets"
+            className="group inline-flex items-center gap-3 px-9 py-4 bg-[#FC7911] hover:bg-[#e06a0a] text-white text-[13px] font-black uppercase tracking-[2.5px] rounded-sm transition-all duration-200 active:scale-[0.97] shadow-xl shadow-[#FC7911]/30 min-w-[190px] justify-center"
+          >
+            Get Tickets
+            <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+          </Link>
+          <Link
+            href="/competitions"
+            className="group inline-flex items-center gap-3 px-9 py-4 bg-[#465067] hover:bg-[#37404f] text-white text-[13px] font-bold uppercase tracking-[2.5px] rounded-sm transition-all duration-200 active:scale-[0.97] min-w-[190px] justify-center"
+          >
+            Competitions
+            <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+          </Link>
+        </div>
+
+        {/* Stats strip */}
+        <div
+          className={`mt-14 flex items-center justify-center gap-8 md:gap-14 transition-all duration-700 delay-[680ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
         >
           {[
             { value: '6+', label: 'Competitions' },
-            { value: '10K+', label: 'Expected Visitors' },
-            { value: '2', label: 'Festival Days' },
-            { value: '48+', label: 'Champion Cups' },
+            { value: '10K+', label: 'Visitors' },
+            { value: '2', label: 'Days' },
+            { value: '48+', label: 'Cups' },
           ].map((stat, i) => (
-            <div key={stat.label} className="text-right">
-              {/* Divider between stats */}
-              {i !== 0 && (
-                <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-px h-8 bg-[#465067]/15 hidden" />
-              )}
-              <div
-                className="text-[28px] font-black leading-none text-[#1a1209] tabular-nums"
-                style={{ fontVariantNumeric: 'tabular-nums' }}
-              >
-                {stat.value}
+            <React.Fragment key={stat.label}>
+              {i !== 0 && <div className="w-px h-8 bg-[#465067]/15 hidden sm:block" />}
+              <div className="text-center">
+                <div
+                  className="text-[28px] md:text-[34px] font-black leading-none text-[#1a1209] tabular-nums"
+                >
+                  {stat.value}
+                </div>
+                <div className="text-[10px] font-bold uppercase tracking-[1.5px] text-[#465067]/50 mt-1">
+                  {stat.label}
+                </div>
               </div>
-              <div className="text-[10px] font-bold uppercase tracking-[1.5px] text-[#465067]/50 mt-0.5">
-                {stat.label}
-              </div>
-            </div>
+            </React.Fragment>
           ))}
-        </div>
-
-        {/* ── Scroll indicator ── */}
-        <div
-          className={`absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 transition-all duration-700 delay-[900ms] ${loaded ? 'opacity-100' : 'opacity-0'}`}
-        >
-          <span className="text-[10px] font-bold uppercase tracking-[2px] text-[#465067]/30">
-            Scroll
-          </span>
-          <ChevronDown
-            className="w-4 h-4 text-[#465067]/30 animate-bounce"
-            style={{ animationDuration: '2s' }}
-          />
         </div>
       </div>
 
-      {/* ── Warm bottom trim line ── */}
-      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#FC7911]/20 to-transparent z-10" />
+      {/* ── Scroll indicator ── */}
+      <div
+        className={`absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 transition-all duration-700 delay-[800ms] ${loaded ? 'opacity-100' : 'opacity-0'}`}
+      >
+        <span className="text-[10px] font-bold uppercase tracking-[2.5px] text-[#465067]/30">
+          Scroll
+        </span>
+        <ChevronDown
+          className="w-4 h-4 text-[#465067]/30 animate-bounce"
+          style={{ animationDuration: '2s' }}
+        />
+      </div>
+
+      {/* Bottom trim */}
+      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#FC7911]/25 to-transparent z-10" />
     </section>
   );
 };
