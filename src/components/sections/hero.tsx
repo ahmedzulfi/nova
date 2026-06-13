@@ -46,10 +46,17 @@ const HeroSection = () => {
         >
           <source src="/vectors/WIDE VERSION.mp4" type="video/mp4" />
         </video>
+
+        {/* 
+          Refined Black Gradient Scrim:
+          Ensures the bottom-left text is highly legible against a premium dark overlay.
+        */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-black/40 to-transparent z-1" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 z-1" />
       </motion.div>
 
       {/* ── Top Decorative Border ── */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-black/5 z-20" />
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/10 z-20" />
 
       {/* ── Bottom-Left Typography Stack (Cardless) ── */}
       <motion.div
@@ -61,7 +68,7 @@ const HeroSection = () => {
       >
         {/* Date / Category Tag */}
         <div className="inline-flex items-center">
-          <span className="text-[10px] md:text-[11px] font-mono uppercase tracking-[0.25em] text-[#68461d] border-b border-[#68461d]/30 pb-1">
+          <span className="text-[10px] md:text-[11px] font-mono uppercase tracking-[0.25em] text-[#FBC84F] border-b border-[#FBC84F]/30 pb-1">
             {t('badge')}
           </span>
         </div>
@@ -69,18 +76,18 @@ const HeroSection = () => {
         {/* Headings */}
         <div className="max-w-[720px] flex flex-col gap-3">
           <h1 
-            className="font-display font-bold leading-[0.9] tracking-tighter text-[#465067]" 
+            className="font-display font-bold leading-[0.9] tracking-tighter text-white" 
             style={{ fontSize: 'clamp(48px, 7vw, 84px)' }}
           >
             Nova Paw <span className="text-[#FC7911]">Festival</span>
           </h1>
-          <p className="text-[18px] md:text-[22px] font-semibold text-[#68461d] tracking-tight leading-snug max-w-[560px]">
+          <p className="text-[18px] md:text-[22px] font-semibold text-white/90 tracking-tight leading-snug max-w-[560px]">
             {t('subtitle')}
           </p>
         </div>
 
         {/* Short description */}
-        <p className="text-[14px] md:text-[16px] leading-relaxed text-[#666666] max-w-[520px] font-sans">
+        <p className="text-[14px] md:text-[16px] leading-relaxed text-white/70 max-w-[520px] font-sans">
           {t('description')}
         </p>
 
@@ -88,13 +95,13 @@ const HeroSection = () => {
         <div className="flex flex-col sm:flex-row gap-4 mt-2 w-full sm:w-auto">
           <Link
             href="/competitions"
-            className="inline-flex items-center justify-center h-12 px-8 bg-[#FC7810] hover:bg-black text-white text-[12px] font-bold uppercase tracking-[0.2em] rounded-sm transition-all duration-200 active:scale-[0.98]"
+            className="inline-flex items-center justify-center h-12 px-8 bg-[#FC7810] hover:bg-white hover:text-black text-white text-[12px] font-bold uppercase tracking-[0.2em] rounded-sm transition-all duration-200 active:scale-[0.98]"
           >
             {t('cta_competitions')}
           </Link>
           <Link
             href="/tickets"
-            className="inline-flex items-center justify-center h-12 px-8 border border-[#465067] hover:border-[#FC7911] text-[#465067] hover:text-[#FC7911] text-[12px] font-bold uppercase tracking-[0.2em] rounded-sm bg-white/40 backdrop-blur-sm transition-all duration-200 active:scale-[0.98]"
+            className="inline-flex items-center justify-center h-12 px-8 border border-white/30 hover:border-white hover:bg-white hover:text-black text-white text-[12px] font-bold uppercase tracking-[0.2em] rounded-sm bg-white/10 backdrop-blur-sm transition-all duration-200 active:scale-[0.98]"
           >
             {t('cta_tickets')}
           </Link>
