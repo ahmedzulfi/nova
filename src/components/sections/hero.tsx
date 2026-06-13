@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useRef, useEffect } from 'react';
-import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -17,8 +16,8 @@ const HeroSection = () => {
     target: sectionRef,
     offset: ['start start', 'end start'],
   });
-  const videoY = useTransform(scrollYProgress, [0, 1], ['0%', '12%']);
-  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '-8%']);
+  const videoY = useTransform(scrollYProgress, [0, 1], ['0%', '10%']);
+  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '-6%']);
 
   useEffect(() => {
     const v = videoRef.current;
@@ -33,13 +32,13 @@ const HeroSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-[100dvh] overflow-hidden bg-[#FFF2E5] flex items-end"
+      className="relative w-full min-h-[100dvh] overflow-hidden bg-white flex items-end"
       aria-label="Hero Section"
     >
       {/* ── Video Background with parallax ── */}
       <motion.div
         style={{ y: videoY }}
-        className="absolute inset-0 w-full h-[112%] z-0 will-change-transform"
+        className="absolute inset-0 w-full h-[110%] z-0 will-change-transform"
       >
         <video
           ref={videoRef}
@@ -54,117 +53,69 @@ const HeroSection = () => {
         </video>
 
         {/* 
-          Refined Black Gradient Scrim:
-          Ensures the bottom text overlay is highly legible against a premium dark overlay.
+          Premium Monochromatic Dark Overlay:
+          Ensures absolute readability while keeping the look clean and cinematic.
         */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-1" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/25 z-1" />
+        <div className="absolute inset-0 bg-black/55 z-1" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-1" />
       </motion.div>
 
       {/* ── Bottom Split-Screen Typographic Layout ── */}
       <motion.div
         style={{ y: contentY }}
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 w-full max-w-[1330px] mx-auto px-6 md:px-12 pb-12 md:pb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-10 md:gap-6 will-change-transform"
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 w-full max-w-[1330px] mx-auto px-6 md:px-12 pb-16 md:pb-24 flex flex-col md:flex-row items-start md:items-end justify-between gap-8 md:gap-12 will-change-transform"
       >
-        {/* Left Column: Metadata & Title & Subtitle */}
-        <div className="flex flex-col items-start gap-4 max-w-[640px]">
+        {/* Left Column: Metadata & Title & Description */}
+        <div className="flex flex-col items-start gap-5 max-w-[680px]">
           
           {/* Metadata Block */}
-          <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-2.5 text-white/90">
-              <Calendar className="w-4 h-4 text-[#FBC84F] shrink-0" />
-              <span className="text-[11px] md:text-[12px] font-mono uppercase tracking-[0.2em]">
+          <div className="flex flex-col gap-1.5 border-l-2 border-[#FC7911] pl-4">
+            <div className="flex items-center gap-2 text-white/95">
+              <Calendar className="w-3.5 h-3.5 text-[#FBC84F] shrink-0" />
+              <span className="text-[11px] font-mono uppercase tracking-[0.2em] font-medium">
                 {dateStr}
               </span>
             </div>
-            <div className="flex items-center gap-2.5 text-white/90">
-              <MapPin className="w-4 h-4 text-[#FBC84F] shrink-0" />
-              <span className="text-[11px] md:text-[12px] font-mono uppercase tracking-[0.2em]">
+            <div className="flex items-center gap-2 text-white/80">
+              <MapPin className="w-3.5 h-3.5 text-white/60 shrink-0" />
+              <span className="text-[11px] font-mono uppercase tracking-[0.2em] font-medium">
                 {locationStr}
               </span>
             </div>
           </div>
 
           {/* Headline */}
-          <div className="flex flex-col select-none mt-2">
-            <h1 
-              className="font-display font-black leading-[0.9] tracking-tighter text-white" 
-              style={{ fontSize: 'clamp(44px, 7vw, 80px)' }}
-            >
-              Nova Paw <span className="text-[#FC7911]">Festival</span>
-            </h1>
-          </div>
+          <h1 
+            className="font-display font-bold leading-[0.95] tracking-tighter text-white" 
+            style={{ fontSize: 'clamp(44px, 7.5vw, 84px)' }}
+          >
+            Nova Paw <span className="text-[#FC7911]">Festival</span>
+          </h1>
 
-          {/* Subtitle / Description */}
-          <p className="text-[14px] md:text-[16px] leading-relaxed text-white/70 max-w-[500px] font-sans">
+          {/* Description */}
+          <p className="text-[14px] md:text-[15px] leading-relaxed text-white/70 max-w-[500px] font-sans font-medium">
             {t('description')}
           </p>
         </div>
 
-        {/* Right Column: CTA Buttons & Social Proof */}
-        <div className="flex flex-col items-start md:items-end gap-6 relative shrink-0">
-          
-          {/* Hand-drawn Arrow pointing to the tickets button */}
-          <div className="absolute -top-14 -left-12 hidden lg:block text-[#FC7911] animate-pulse pointer-events-none">
-            <svg width="50" height="50" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="rotate-[15deg]">
-              <path d="M10 40 C 25 15, 35 45, 45 20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-              <path d="M38 22 L45 20 L44 28" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
-            <Link
-              href="/competitions"
-              className="inline-flex items-center justify-center h-12 px-6 border border-white/20 hover:border-white text-white text-[11px] font-bold uppercase tracking-[0.2em] rounded-full bg-white/10 backdrop-blur-sm transition-all duration-200 active:scale-[0.98]"
-            >
-              {t('cta_competitions')}
-            </Link>
-            <Link
-              href="/tickets"
-              className="inline-flex items-center justify-center gap-2 h-12 px-7 bg-[#FC7810] hover:bg-white hover:text-black text-white rounded-full font-bold uppercase tracking-[0.2em] text-[11px] transition-all duration-200 active:scale-[0.98]"
-            >
-              <Ticket className="w-3.5 h-3.5" />
-              {t('cta_tickets')}
-            </Link>
-          </div>
-
-          {/* Social Proof (Avatar Row + Joined Count) */}
-          <div className="flex items-center gap-3">
-            <div className="flex -space-x-2.5 rtl:space-x-reverse">
-              <div className="relative w-8 h-8 rounded-full border border-white overflow-hidden shrink-0">
-                <Image 
-                  src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=100&auto=format&fit=crop" 
-                  alt="Pet" 
-                  fill 
-                  className="object-cover" 
-                />
-              </div>
-              <div className="relative w-8 h-8 rounded-full border border-white overflow-hidden shrink-0">
-                <Image 
-                  src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=100&auto=format&fit=crop" 
-                  alt="Pet" 
-                  fill 
-                  className="object-cover" 
-                />
-              </div>
-              <div className="relative w-8 h-8 rounded-full border border-white overflow-hidden shrink-0">
-                <Image 
-                  src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=100&auto=format&fit=crop" 
-                  alt="Pet" 
-                  fill 
-                  className="object-cover" 
-                />
-              </div>
-            </div>
-            <span className="text-[11px] font-semibold text-white/80 uppercase tracking-widest font-mono">
-              2,000+ pet lovers joined
-            </span>
-          </div>
-
+        {/* Right Column: CTA Buttons */}
+        <div className="flex items-center gap-4 shrink-0 pb-1 w-full sm:w-auto">
+          <Link
+            href="/competitions"
+            className="flex-1 sm:flex-initial inline-flex items-center justify-center h-12 px-6 border border-white/20 hover:border-white text-white text-[11px] font-bold uppercase tracking-[0.2em] rounded-sm transition-all duration-200 active:scale-[0.98] bg-white/5 hover:bg-white/10 backdrop-blur-sm"
+          >
+            {t('cta_competitions')}
+          </Link>
+          <Link
+            href="/tickets"
+            className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 h-12 px-8 bg-[#FC7810] hover:bg-white hover:text-black text-white rounded-sm font-bold uppercase tracking-[0.2em] text-[11px] transition-all duration-200 active:scale-[0.98]"
+          >
+            <Ticket className="w-3.5 h-3.5" />
+            {t('cta_tickets')}
+          </Link>
         </div>
       </motion.div>
     </section>
