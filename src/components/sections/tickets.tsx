@@ -43,11 +43,11 @@ const Tickets = () => {
       <div className="absolute right-[-150px] top-[40%] w-[350px] h-[350px] opacity-20 pointer-events-none hidden xl:block select-none transform rotate-[45deg]">
         <Image src="/vectors/White_paw_print 2.png" alt="" fill className="object-contain" />
       </div>
-      <div className="absolute left-4 bottom-[20px] w-[180px] h-[180px] opacity-20 pointer-events-none hidden 2xl:block select-none">
-        <Image src="/vectors/pets 1 copy.png" alt="" fill className="object-contain" />
+      <div className="absolute left-6 bottom-6 w-[200px] h-[200px] opacity-95 pointer-events-none hidden md:block select-none">
+        <Image src="/vectors/pets 1.png" alt="" fill className="object-contain" />
       </div>
-      <div className="absolute right-4 bottom-[20px] w-[180px] h-[180px] opacity-20 pointer-events-none hidden 2xl:block select-none">
-        <Image src="/vectors/black-cat 1 copy.png" alt="" fill className="object-contain" />
+      <div className="absolute right-6 bottom-6 w-[200px] h-[200px] opacity-95 pointer-events-none hidden md:block select-none">
+        <Image src="/vectors/black-cat 1.png" alt="" fill className="object-contain" />
       </div>
 
       <div className="container max-w-[1280px] mx-auto px-6 relative z-10">

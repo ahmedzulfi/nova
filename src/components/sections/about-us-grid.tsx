@@ -51,10 +51,10 @@ const AboutUsGrid = () => {
       <div className="bg-[#FC7911] relative py-28 md:py-36 z-0 overflow-hidden">
         {/* Decorative Background Assets on Orange */}
         <div className="absolute left-6 bottom-6 w-[200px] h-[200px] opacity-95 pointer-events-none hidden md:block select-none">
-          <Image src="/vectors/pets 1.png" alt="" fill className="object-contain" />
+          <Image src="/vectors/pets 1 copy.png" alt="" fill className="object-contain" />
         </div>
         <div className="absolute right-6 bottom-6 w-[200px] h-[200px] opacity-95 pointer-events-none hidden md:block select-none">
-          <Image src="/vectors/black-cat 1.png" alt="" fill className="object-contain" />
+          <Image src="/vectors/black-cat 1 copy.png" alt="" fill className="object-contain" />
         </div>
         <div className="absolute right-[-120px] top-[10%] w-[380px] h-[380px] opacity-95 pointer-events-none hidden lg:block select-none">
           <Image src="/vectors/White_paw_print 2.png" alt="" fill className="object-contain" />
