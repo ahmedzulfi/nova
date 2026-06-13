@@ -37,11 +37,11 @@ const Tickets = () => {
   return (
     <section className="bg-[#FBC84F] py-[120px] md:py-[160px] relative overflow-hidden z-10" id="tickets">
       {/* Decorative Background Assets from Figma */}
-      <div className="absolute left-0 top-0 w-[250px] h-[250px] md:w-[300px] md:h-[300px] opacity-100 pointer-events-none hidden xl:block select-none transform rotate-[45deg]">
-        <Image src="/vectors/White_paw_print 2.png" alt="" fill className="object-contain object-left-top" />
+      <div className="absolute left-[-220px] sm:left-[-180px] lg:left-[-225px] top-[80px] lg:top-[207px] w-[320px] h-[307px] lg:w-[420px] lg:h-[404px] opacity-100 pointer-events-none hidden xl:block select-none transform rotate-[45deg]">
+        <Image src="/vectors/White_paw_print 2.png" alt="" fill className="object-contain" />
       </div>
-      <div className="absolute right-0 top-0 w-[250px] h-[250px] md:w-[300px] md:h-[300px] opacity-100 pointer-events-none hidden xl:block select-none">
-        <Image src="/vectors/White_paw_print 1-1.png" alt="" fill className="object-contain object-right-top" />
+      <div className="absolute right-[-180px] sm:right-[-150px] lg:right-[-15px] top-[30px] lg:top-[328px] w-[320px] h-[307px] lg:w-[420px] lg:h-[404px] opacity-100 pointer-events-none hidden xl:block select-none transform rotate-[-162deg] lg:origin-top-left">
+        <Image src="/vectors/White_paw_print 1-1.png" alt="" fill className="object-contain" />
       </div>
       <div className="absolute left-6 bottom-6 w-[200px] h-[200px] opacity-95 pointer-events-none hidden md:block select-none">
         <Image src="/vectors/pets 1.png" alt="" fill className="object-contain" />
