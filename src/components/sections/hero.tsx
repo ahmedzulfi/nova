@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useRef, useEffect } from 'react';
-import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -11,13 +10,13 @@ const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // Subtle parallax scroll effect
+  // Parallax scroll effect
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start start', 'end start'],
   });
-  const videoY = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
-  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '-5%']);
+  const videoY = useTransform(scrollYProgress, [0, 1], ['0%', '12%']);
+  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '-8%']);
 
   useEffect(() => {
     const v = videoRef.current;
@@ -31,10 +30,10 @@ const HeroSection = () => {
       className="relative w-full min-h-[100dvh] overflow-hidden bg-[#FFF2E5] flex items-end"
       aria-label="Hero Section"
     >
-      {/* ── Video Background ── */}
+      {/* ── Video Background with parallax ── */}
       <motion.div
         style={{ y: videoY }}
-        className="absolute inset-0 w-full h-[115%] z-0 will-change-transform"
+        className="absolute inset-0 w-full h-[112%] z-0 will-change-transform"
       >
         <video
           ref={videoRef}
@@ -48,61 +47,64 @@ const HeroSection = () => {
           <source src="/vectors/WIDE VERSION.mp4" type="video/mp4" />
         </video>
 
-        {/* Minimalist Light-Mode Scrim */}
-        <div className="absolute inset-0 bg-white/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-white/10 to-black/10" />
+        {/* 
+          Refined Light-Mode Gradient Scrim:
+          Blends the video into a warm white layout while ensuring the bottom-left dark text is fully readable.
+        */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-white/95 via-white/40 to-transparent z-1" />
+        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-black/5 z-1" />
       </motion.div>
 
-      {/* ── Bottom Left Clean Content Panel ── */}
+      {/* ── Top Decorative Border ── */}
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-black/5 z-20" />
+
+      {/* ── Bottom-Left Typography Stack (Cardless) ── */}
       <motion.div
         style={{ y: contentY }}
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 w-full max-w-[1330px] mx-auto px-6 md:px-12 pb-10 md:pb-16 flex justify-start pointer-events-none"
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 w-full max-w-[1330px] mx-auto px-6 md:px-12 pb-16 md:pb-24 flex flex-col items-start gap-6"
       >
-        <div className="w-full max-w-[540px] bg-white/95 backdrop-blur-md border border-[#E6E6E6] rounded-sm p-8 md:p-10 shadow-sm pointer-events-auto flex flex-col gap-6">
-          
-          {/* Tag / Badge */}
-          <div className="flex items-center gap-3">
-            <span className="text-[10px] md:text-[11px] font-mono uppercase tracking-[0.2em] bg-[#FBC84F]/20 text-[#68461d] px-2.5 py-1 rounded-sm">
-              {t('badge')}
-            </span>
-          </div>
+        {/* Date / Category Tag */}
+        <div className="inline-flex items-center">
+          <span className="text-[10px] md:text-[11px] font-mono uppercase tracking-[0.25em] text-[#68461d] border-b border-[#68461d]/30 pb-1">
+            {t('badge')}
+          </span>
+        </div>
 
-          {/* Heading */}
-          <div className="flex flex-col gap-1">
-            <h1 className="font-display font-bold leading-[0.95] tracking-tighter text-[#465067]" style={{ fontSize: 'clamp(44px, 6vw, 64px)' }}>
-              Nova Paw <span className="text-[#FC7911]">Festival</span>
-            </h1>
-            <p className="text-[15px] md:text-[17px] font-semibold text-[#68461d] tracking-tight leading-snug mt-1">
-              {t('subtitle')}
-            </p>
-          </div>
-
-          {/* Divider */}
-          <div className="h-[1px] w-full bg-[#E6E6E6]" />
-
-          {/* Description */}
-          <p className="text-[14px] md:text-[15px] leading-relaxed text-[#666666] font-sans">
-            {t('description')}
+        {/* Headings */}
+        <div className="max-w-[720px] flex flex-col gap-3">
+          <h1 
+            className="font-display font-bold leading-[0.9] tracking-tighter text-[#465067]" 
+            style={{ fontSize: 'clamp(48px, 7vw, 84px)' }}
+          >
+            Nova Paw <span className="text-[#FC7911]">Festival</span>
+          </h1>
+          <p className="text-[18px] md:text-[22px] font-semibold text-[#68461d] tracking-tight leading-snug max-w-[560px]">
+            {t('subtitle')}
           </p>
+        </div>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 mt-2">
-            <Link
-              href="/competitions"
-              className="inline-flex items-center justify-center h-12 px-6 bg-[#FC7810] hover:bg-black text-white text-[12px] font-bold uppercase tracking-[0.15em] rounded-sm transition-all duration-200 active:scale-[0.98]"
-            >
-              {t('cta_competitions')}
-            </Link>
-            <Link
-              href="/tickets"
-              className="inline-flex items-center justify-center h-12 px-6 border border-[#E6E6E6] hover:border-[#FC7911] text-[#465067] hover:text-[#FC7911] text-[12px] font-bold uppercase tracking-[0.15em] rounded-sm bg-white transition-all duration-200 active:scale-[0.98]"
-            >
-              {t('cta_tickets')}
-            </Link>
-          </div>
+        {/* Short description */}
+        <p className="text-[14px] md:text-[16px] leading-relaxed text-[#666666] max-w-[520px] font-sans">
+          {t('description')}
+        </p>
+
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 mt-2 w-full sm:w-auto">
+          <Link
+            href="/competitions"
+            className="inline-flex items-center justify-center h-12 px-8 bg-[#FC7810] hover:bg-black text-white text-[12px] font-bold uppercase tracking-[0.2em] rounded-sm transition-all duration-200 active:scale-[0.98]"
+          >
+            {t('cta_competitions')}
+          </Link>
+          <Link
+            href="/tickets"
+            className="inline-flex items-center justify-center h-12 px-8 border border-[#465067] hover:border-[#FC7911] text-[#465067] hover:text-[#FC7911] text-[12px] font-bold uppercase tracking-[0.2em] rounded-sm bg-white/40 backdrop-blur-sm transition-all duration-200 active:scale-[0.98]"
+          >
+            {t('cta_tickets')}
+          </Link>
         </div>
       </motion.div>
     </section>
