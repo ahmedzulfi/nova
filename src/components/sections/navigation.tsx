@@ -43,153 +43,95 @@ const Navigation = () => {
 
   return (
     <>
-      {/* ─── Desktop / Tablet Bar ─── */}
-      <div
-        className={`fixed top-0 left-0 right-0 w-full z-[130] transition-all duration-500 ${
-          scrolled
-            ? 'bg-white/95 backdrop-blur-xl shadow-[0_1px_0_rgba(0,0,0,0.06)]'
-            : 'bg-white/80 backdrop-blur-md border-b border-black/[0.04]'
-        }`}
-      >
-        <nav className="flex items-center justify-between w-full max-w-[1330px] mx-auto px-5 md:px-8 min-h-[70px] md:min-h-[80px]">
+      {/* ─── Floating Pill Navbar (Top Center) ─── */}
+      <div className="fixed top-6 left-0 right-0 w-full z-[130] flex justify-center px-4 pointer-events-none">
+        <motion.div
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="pointer-events-auto flex items-center justify-between gap-6 md:gap-12 px-6 py-2.5 bg-white/15 backdrop-blur-xl border border-white/20 rounded-full shadow-lg max-w-[540px] w-full"
+        >
+          {/* Logo */}
+          <Link href="/" className="block flex-shrink-0">
+            <Image
+              src={logoSrc}
+              alt="Nova Paw Festival"
+              height={50}
+              width={110}
+              className="h-[32px] md:h-[40px] w-auto object-contain brightness-0 invert"
+              priority
+            />
+          </Link>
 
-          {/* ── Logo ── */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="block">
-              <Image
-                src={logoSrc}
-                alt="Nova Paw Festival"
-                height={80}
-                width={150}
-                className="h-[44px] md:h-[56px] w-auto object-contain"
-                priority
-              />
-            </Link>
-          </div>
-
-          {/* ── Center Nav Links ── */}
-          <div className="hidden lg:flex items-center gap-[6px]">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href as any}
-                className="group relative px-3 xl:px-4 py-2 flex flex-col items-center"
-              >
-                <span className="text-[11px] xl:text-[12px] font-bold text-[#465067] transition-colors duration-200 group-hover:text-[#FC7911] uppercase tracking-[0.22em] whitespace-nowrap">
-                  {link.name}
-                </span>
-                {/* Animated underline */}
-                <span className="absolute bottom-0 left-3 xl:left-4 right-3 xl:right-4 h-[2px] bg-[#FC7911] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 rounded-full" />
-              </Link>
-            ))}
-          </div>
-
-          {/* ── Right: Lang + Login + CTA ── */}
-          <div className="hidden md:flex items-center gap-2 xl:gap-4 flex-shrink-0">
-
-            {/* Language Switcher */}
+          {/* Right section: Lang & Menu */}
+          <div className="flex items-center gap-3">
+            {/* Lang Switcher */}
             <button
               onClick={toggleLocale}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-[11px] font-bold uppercase tracking-widest text-[#465067]/70 hover:text-[#FC7911] hover:bg-[#FC7911]/5 transition-all duration-200"
-              aria-label="Switch language"
+              className="flex items-center gap-1 px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-white/80 hover:text-[#FC7911] hover:bg-white/10 transition-all duration-200"
             >
               <Globe className="w-3.5 h-3.5" />
-              {locale === 'en' ? 'عربي' : 'EN'}
+              {locale === 'en' ? 'AR' : 'EN'}
             </button>
 
-            <div className="w-px h-5 bg-black/8" />
-
-            {isRegistered ? (
-              <Link
-                href="/dashboard"
-                className="inline-flex items-center justify-center px-5 py-2.5 bg-black hover:bg-[#FC7911] transition-all duration-200 hover:scale-105 active:scale-95 rounded-sm text-[11px] font-bold text-white uppercase tracking-[0.2em]"
-              >
-                {t('dashboard')}
-              </Link>
-            ) : (
-              <>
-                <Link
-                  href="/dashboard"
-                  className="text-[11px] font-bold text-[#465067] hover:text-[#FC7911] transition-colors px-2 uppercase tracking-[0.22em] whitespace-nowrap"
-                >
-                  {t('login')}
-                </Link>
-
-                {/* Pill-shaped Ticket CTA */}
-                <Link
-                  href="/tickets"
-                  className="inline-flex items-center justify-center gap-1.5 px-5 xl:px-6 py-2.5 bg-[#FC7810] hover:bg-[#465067] transition-all duration-200 hover:scale-105 active:scale-95 rounded-full text-[11px] font-bold text-white uppercase tracking-[0.22em] shadow-sm shadow-[#FC7810]/20 whitespace-nowrap"
-                >
-                  {t('tickets')}
-                  <ChevronRight className="w-3 h-3" />
-                </Link>
-              </>
-            )}
+            {/* Menu Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all border border-white/10 active:scale-95 text-[11px] font-bold uppercase tracking-[0.15em]"
+            >
+              <span>Menu</span>
+              {isOpen ? <X className="w-3.5 h-3.5" /> : <Menu className="w-3.5 h-3.5" />}
+            </button>
           </div>
-
-          {/* ── Mobile Hamburger ── */}
-          <button
-            className="lg:hidden p-2 -mr-1 text-[#465067] hover:text-[#FC7911] transition-colors z-[140]"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={24} strokeWidth={2} /> : <Menu size={24} strokeWidth={2} />}
-          </button>
-        </nav>
+        </motion.div>
       </div>
 
-      {/* ─── Mobile Menu Overlay ─── */}
+      {/* ─── Full-Screen Mobile/Desktop Overlay Menu ─── */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             key="mobile-menu"
-            initial={{ x: '100%', opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: '100%', opacity: 0 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="fixed inset-0 bg-white z-[110] lg:hidden overflow-y-auto"
+            initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            animate={{ opacity: 1, backdropFilter: 'blur(20px)' }}
+            exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            transition={{ duration: 0.4 }}
+            className="fixed inset-0 bg-black/80 z-[120] flex items-center justify-center"
           >
-            {/* Decorative top stripe */}
-            <div className="h-1 w-full bg-gradient-to-r from-[#FC7911] via-[#FBC84F] to-[#FC7911]" />
-
-            <div className="flex flex-col px-8 pt-[100px] pb-12 gap-0 h-full">
-
-              {/* Mobile Lang Switcher */}
-              <button
-                onClick={toggleLocale}
-                className="self-start flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#465067] hover:text-[#FC7911] transition-colors mb-10"
-              >
-                <Globe className="w-4 h-4" />
-                {locale === 'en' ? 'Switch to العربية' : 'Switch to English'}
-              </button>
-
-              {/* Mobile Nav Links */}
-              <div className="flex flex-col">
+            <div className="w-full max-w-[1330px] mx-auto px-6 md:px-12 flex flex-col items-center gap-12 text-center">
+              
+              {/* Menu Links */}
+              <div className="flex flex-col gap-6 md:gap-8">
                 {navLinks.map((link, i) => (
                   <motion.div
                     key={link.name}
-                    initial={{ opacity: 0, x: 24 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.06, type: 'spring', stiffness: 400, damping: 30 }}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -30 }}
+                    transition={{ delay: i * 0.05, type: 'spring', stiffness: 300, damping: 25 }}
                   >
                     <Link
                       href={link.href as any}
-                      className="flex items-center justify-between w-full py-5 border-b border-[#E6E6E6] text-[28px] font-display font-bold text-[#465067] hover:text-[#FC7911] transition-colors tracking-tighter group"
+                      className="text-[32px] md:text-[54px] font-display font-bold text-white hover:text-[#FC7911] transition-colors tracking-tighter block"
                       onClick={() => setIsOpen(false)}
                     >
                       {link.name}
-                      <ChevronRight className="w-5 h-5 opacity-30 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                     </Link>
                   </motion.div>
                 ))}
               </div>
 
-              {/* Mobile CTAs */}
-              <div className="flex flex-col gap-3 mt-auto pt-10">
+              {/* Action Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ delay: 0.35 }}
+                className="flex flex-col sm:flex-row gap-4 w-full max-w-[420px]"
+              >
                 {isRegistered ? (
                   <Link
                     href="/dashboard"
-                    className="flex items-center justify-center w-full py-4 text-[13px] font-bold text-white bg-black rounded-sm uppercase tracking-[0.2em]"
+                    className="flex-1 flex items-center justify-center py-4 text-[12px] font-bold text-white bg-[#FC7810] hover:bg-white hover:text-black rounded-full uppercase tracking-[0.2em] transition-all"
                     onClick={() => setIsOpen(false)}
                   >
                     {t('dashboard')}
@@ -198,21 +140,21 @@ const Navigation = () => {
                   <>
                     <Link
                       href="/dashboard"
-                      className="flex items-center justify-center w-full py-4 text-[13px] font-bold text-[#465067] border border-[#E6E6E6] rounded-sm uppercase tracking-[0.2em] hover:border-[#FC7911] hover:text-[#FC7911] transition-colors"
+                      className="flex-1 flex items-center justify-center py-4 text-[12px] font-bold text-white border border-white/20 hover:bg-white hover:text-black rounded-full uppercase tracking-[0.2em] transition-all"
                       onClick={() => setIsOpen(false)}
                     >
                       {t('login')}
                     </Link>
                     <Link
                       href="/tickets"
-                      className="flex items-center justify-center w-full py-4 text-[13px] font-bold text-white bg-[#FC7810] rounded-sm uppercase tracking-[0.2em] hover:bg-[#465067] transition-colors"
+                      className="flex-1 flex items-center justify-center py-4 text-[12px] font-bold text-white bg-[#FC7810] hover:bg-[#465067] rounded-full uppercase tracking-[0.2em] transition-all"
                       onClick={() => setIsOpen(false)}
                     >
                       {t('tickets')}
                     </Link>
                   </>
                 )}
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         )}
