@@ -10,8 +10,8 @@ const Venue = () => {
   return (
     <section className="bg-[#FFF2E5] relative min-h-[750px] lg:h-[950.38px] overflow-hidden flex items-center py-20 lg:py-0" id="venue">
       {/* Decorative Figma Paw Print on the Right */}
-      <div className="absolute right-[-100px] top-[-60px] w-[380px] h-[380px] pointer-events-none select-none hidden lg:block">
-        <Image src="/vectors/White_paw_print 1 copy 3.png" alt="" fill className="object-contain" />
+      <div className="absolute right-0 top-0 w-[280px] h-[280px] md:w-[350px] md:h-[350px] pointer-events-none select-none hidden lg:block">
+        <Image src="/vectors/White_paw_print 1 copy 3.png" alt="" fill className="object-contain object-right-top" />
       </div>
 
       <div className="container mx-auto px-6 max-w-[1280px] relative z-10">

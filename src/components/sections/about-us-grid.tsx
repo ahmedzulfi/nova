@@ -13,11 +13,11 @@ const AboutUsGrid = () => {
       {/* Top Half: Yellow Section */}
       <div className="bg-[#FBC84F] relative h-[320px] sm:h-[400px] md:h-[480px] overflow-hidden z-10 flex flex-col justify-between items-center py-8">
         {/* Decorative Figma Paw Prints on Yellow */}
-        <div className="absolute left-[-150px] sm:left-[-120px] md:left-[-80px] top-[10%] w-[320px] h-[320px] opacity-95 pointer-events-none select-none">
-          <Image src="/vectors/White_paw_print 1.png" alt="" fill className="object-contain" />
+        <div className="absolute left-0 top-0 w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px] opacity-100 pointer-events-none select-none transform rotate-[45deg]">
+          <Image src="/vectors/White_paw_print 1 copy.png" alt="" fill className="object-contain object-left-top" />
         </div>
-        <div className="absolute right-[-150px] sm:right-[-120px] md:right-[-80px] top-[10%] w-[320px] h-[320px] opacity-95 pointer-events-none select-none transform rotate-[45deg]">
-          <Image src="/vectors/White_paw_print 1 copy.png" alt="" fill className="object-contain" />
+        <div className="absolute right-0 top-0 w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px] opacity-100 pointer-events-none select-none">
+          <Image src="/vectors/White_paw_print 1.png" alt="" fill className="object-contain object-right-top" />
         </div>
 
         {/* Top Center Badge */}
@@ -56,8 +56,8 @@ const AboutUsGrid = () => {
         <div className="absolute right-6 bottom-6 w-[200px] h-[200px] opacity-95 pointer-events-none hidden md:block select-none">
           <Image src="/vectors/black-cat 1 copy.png" alt="" fill className="object-contain" />
         </div>
-        <div className="absolute right-[-120px] top-[10%] w-[380px] h-[380px] opacity-95 pointer-events-none hidden lg:block select-none">
-          <Image src="/vectors/White_paw_print 2.png" alt="" fill className="object-contain" />
+        <div className="absolute right-0 top-[10%] w-[250px] h-[250px] md:w-[300px] md:h-[300px] opacity-100 pointer-events-none hidden lg:block select-none">
+          <Image src="/vectors/White_paw_print 2.png" alt="" fill className="object-contain object-right" />
         </div>
 
         <div className="container mx-auto px-6 max-w-[1280px] relative z-10">

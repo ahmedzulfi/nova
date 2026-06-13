@@ -1,0 +1,4879 @@
+<div class="nova-pet-home-page-english">
+  <div class="main">
+    <div class="section">
+      <img
+        class="screenshot-2026-06-04-161213-1"
+        src="screenshot-2026-06-04-161213-10.png"
+      />
+      <div class="rectangle-5"></div>
+      <div class="rectangle-6"></div>
+      <div class="international-judges-championship-competitions-pet-fashion">
+        International judges. Championship competitions. Pet fashion
+      </div>
+      <div class="shows-grooming-battles-adoption-zones-vet-talks-live">
+        shows. Grooming battles. Adoption zones. Vet talks. Live
+      </div>
+      <div
+        class="entertainment-food-trucks-family-experiences-this-is-not-just"
+      >
+        entertainment. Food trucks. Family experiences. This is not just
+      </div>
+      <div class="a-festival-it-s-the-ultimate-celebration-of-the-pet-world">
+        a festival, it’s the ultimate celebration of the pet world.
+      </div>
+      <div class="link">
+        <div class="link-shadow"></div>
+        <div class="competitions">Competitions</div>
+        <div class="arrow">
+          <img
+            class="m-j-4-b-3-s-uua-6-gvw-j-6-r-qys-23-dlj-9-c-svg"
+            src="m-j-4-b-3-s-uua-6-gvw-j-6-r-qys-23-dlj-9-c-svg0.svg"
+          />
+        </div>
+      </div>
+      <div class="link2">
+        <div class="link-shadow2"></div>
+        <div class="get-tickets">Get Tickets</div>
+      </div>
+      <img class="rectangle-3" src="rectangle-30.svg" />
+      <div class="back-drop-300-cm-250-cm-1"></div>
+      <img class="rectangle-4" src="rectangle-40.svg" />
+      <div class="heading-1">
+        <div class="nova-paw">Nova Paw</div>
+        <div class="festival">Festival</div>
+      </div>
+      <div class="heading-2">
+        <div class="the-biggest-pet-festival-in-the-middle-east-starts">
+          The Biggest Pet Festival in the
+          <br />
+          Middle East Starts
+        </div>
+        <div class="here">Here</div>
+      </div>
+      <div class="background">
+        <div class="_27-28-nov-2026-pet-park-the-pearl-qatar">
+          27-28 Nov 2026 · pet park The Pearl · Qatar
+        </div>
+      </div>
+      <div class="overlay-horizontal-border-overlay-blur">
+        <div class="nav">
+          <div class="link-nova-paw-festival">
+            <div class="logo-20-new-20-final-20-english-svg">
+              <div class="calque-1">
+                <div class="group2">
+                  <div class="nova-paw-festival">Nova Paw Festival</div>
+                  <img class="group3" src="group2.svg" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="link-home">Home</div>
+          <div class="link-about">About</div>
+          <div class="link-competitions">Competitions</div>
+          <div class="link-tickets">Tickets</div>
+          <div class="link-gallery">Gallery</div>
+          <div class="link-contact">Contact</div>
+          <div class="button">
+            <img class="svg" src="svg0.svg" />
+            <div class="div">عربي</div>
+          </div>
+          <div class="vertical-divider"></div>
+          <div class="link-log-in">Log In</div>
+          <div class="link3">
+            <div class="tickets">Tickets</div>
+          </div>
+        </div>
+        <img class="rectangle-42" src="rectangle-41.svg" />
+      </div>
+    </div>
+    <div class="frame-1">
+      <div class="section2">
+        <img class="rectangle-2" src="rectangle-20.svg" />
+        <div class="background-shadow">
+          <img
+            class="chat-gpt-image-jun-1-2026-10-23-36-am-1"
+            src="chat-gpt-image-jun-1-2026-10-23-36-am-10.png"
+          />
+          <div class="overlay-blur"></div>
+          <div class="background2">
+            <div class="about-the-festival">About the Festival</div>
+          </div>
+          <div class="link4">
+            <div class="link-shadow3"></div>
+            <div class="the-nova-story">The Nova Story</div>
+          </div>
+          <img class="pets-1" src="pets-10.svg" />
+          <img class="black-cat-1" src="black-cat-10.svg" />
+          <img class="white-paw-print-1" src="white-paw-print-10.png" />
+          <img class="white-paw-print-12" src="white-paw-print-11.png" />
+        </div>
+        <img class="pets-12" src="pets-11.svg" />
+        <img class="black-cat-12" src="black-cat-11.svg" />
+        <div class="background-border-shadow">
+          <div class="chat-gpt-image-jun-4-2026-12-31-44-pm-1"></div>
+          <div class="heading-4">
+            <div class="the-nova-paw-festival-is-qatar-s-first">
+              <span>
+                <span class="the-nova-paw-festival-is-qatar-s-first-span">
+                  The
+                </span>
+                <span
+                  class="the-nova-paw-festival-is-qatar-s-first-span2"
+                ></span>
+                <span class="the-nova-paw-festival-is-qatar-s-first-span3">
+                  Nova Paw Festival
+                </span>
+                <span
+                  class="the-nova-paw-festival-is-qatar-s-first-span2"
+                ></span>
+                <span class="the-nova-paw-festival-is-qatar-s-first-span">
+                  is Qatar&#039;s first
+                </span>
+              </span>
+            </div>
+            <div class="international-pet-festival-bringing-together-families">
+              international pet festival, bringing together families
+            </div>
+            <div class="and-animal-enthusiasts-from-around-the-world-for">
+              and animal enthusiasts from around the world for
+            </div>
+            <div class="an-unforgettable-two-day-celebration-at-pet-park">
+              an unforgettable two-day celebration at pet park
+            </div>
+            <div class="the-pearl-island-featuring">
+              The Pearl Island. Featuring
+            </div>
+            <div class="horizontal-border">
+              <div class="wku">WKU</div>
+            </div>
+            <div class="and">and</div>
+            <div class="horizontal-border2">
+              <div class="wcf">WCF</div>
+            </div>
+            <div class="international-judges-this-landmark-event-sets-a">
+              international judges, this landmark event sets a
+            </div>
+            <div class="new-global-standard">new global standard.</div>
+          </div>
+          <div class="chat-gpt-image-jun-4-2026-01-34-54-pm-1"></div>
+        </div>
+        <div class="background-border">
+          <div class="heading-3-6">6</div>
+          <div class="background3">
+            <div class="overlay-shadow"></div>
+          </div>
+          <div class="international">International</div>
+          <div class="competitions2">Competitions</div>
+          <div class="heading-3-10-k">10K</div>
+          <div class="overlay"></div>
+          <div class="expected">Expected</div>
+          <div class="visitors">Visitors</div>
+          <div class="heading-3-2">2</div>
+          <div class="background4">
+            <div class="overlay-shadow"></div>
+          </div>
+          <div class="festival2">Festival</div>
+          <div class="days">Days</div>
+          <div class="heading-3-48">48</div>
+          <div class="overlay2"></div>
+          <div class="champion">Champion</div>
+          <div class="cups">Cups</div>
+        </div>
+        <img class="white-paw-print-13" src="white-paw-print-12.png" />
+      </div>
+      <div class="section3">
+        <div class="background5">
+          <div class="compete-shine">Compete &amp; Shine</div>
+        </div>
+        <div class="heading-2-international-competitions">
+          International Competitions
+        </div>
+        <div class="judged-by-wku-wcf-international-judges-compete-for">
+          Judged by WKU &amp; WCF international judges. Compete for
+        </div>
+        <div
+          class="championship-titles-cups-and-medals-in-qatar-s-premier-pet-event"
+        >
+          championship titles, cups, and medals in Qatar&#039;s premier pet
+          event.
+        </div>
+        <div class="background-border-shadow2">
+          <div class="heading-4-dog-fashion-show">Dog Fashion Show</div>
+          <div class="owners-and-dogs-strut-the-runway-in">
+            Owners and dogs strut the runway in
+          </div>
+          <div class="matching-themed-outfits-judged-on">
+            matching themed outfits judged on
+          </div>
+          <div class="creativity-coordination-and-charm">
+            creativity, coordination, and charm.
+          </div>
+          <div class="container">
+            <img class="dog-fashion-show" src="dog-fashion-show0.png" />
+            <div class="gradient"></div>
+          </div>
+        </div>
+        <div class="background-border-shadow3">
+          <div class="heading-4-grooming-competition">Grooming Competition</div>
+          <div class="professional-groomers-showcase-their">
+            Professional groomers showcase their
+          </div>
+          <div class="artistry-precision-trimming-styling-and">
+            artistry precision trimming, styling, and
+          </div>
+          <div class="finishing-under-wku-supervision">
+            finishing under WKU supervision.
+          </div>
+          <div class="container">
+            <img class="grooming-competition" src="grooming-competition0.png" />
+            <div class="gradient"></div>
+          </div>
+        </div>
+        <div class="background-border-shadow4">
+          <div class="heading-4-best-dog-show">Best Dog Show</div>
+          <div class="the-prestigious-wku-recognized-event">
+            The prestigious WKU-recognized event
+          </div>
+          <div class="evaluating-breed-structure">
+            evaluating breed structure,
+          </div>
+          <div class="temperament-and-presentation-across">
+            temperament, and presentation across
+          </div>
+          <div class="three-classes">three classes.</div>
+          <div class="container">
+            <div
+              class="best-dog-show"
+              style="
+                background: url(best-dog-show0.png) center;
+                background-size: cover;
+                background-repeat: no-repeat;
+              "
+            >
+              <img
+                class="chat-gpt-image-jun-4-2026-12-06-34-pm-1"
+                src="chat-gpt-image-jun-4-2026-12-06-34-pm-10.png"
+              />
+            </div>
+            <img class="gradient2" src="gradient2.svg" />
+          </div>
+        </div>
+        <div class="background-border-shadow5">
+          <div class="heading-4-best-cat-show">Best Cat Show</div>
+          <div class="wcf-licensed-grand-judging-of">
+            WCF-licensed grand judging of
+          </div>
+          <div class="elegance-breed-standards-and-feline">
+            elegance, breed standards, and feline
+          </div>
+          <div class="grace-inside-the-immersive-cat-dome">
+            grace inside the immersive Cat Dome.
+          </div>
+          <div class="container">
+            <img class="best-cat-show" src="best-cat-show0.png" />
+            <div class="gradient"></div>
+          </div>
+        </div>
+        <div class="background-border-shadow6">
+          <div class="heading-4-cat-fashion-show">Cat Fashion Show</div>
+          <div class="cats-and-their-owners-dazzle-the">
+            Cats and their owners dazzle the
+          </div>
+          <div class="runway-in-coordinated-themed-outfits">
+            runway in coordinated themed outfits
+          </div>
+          <div class="judged-on-creativity-coordination-and">
+            judged on creativity, coordination, and
+          </div>
+          <div class="feline-grace">feline grace.</div>
+          <div class="chat-gpt-image-jun-4-2026-11-41-57-am-1"></div>
+          <img
+            class="chat-gpt-image-jun-4-2026-11-46-15-am-1"
+            src="chat-gpt-image-jun-4-2026-11-46-15-am-10.png"
+          />
+        </div>
+        <div class="background-border-shadow7">
+          <div class="heading-4-cat-drawing-battle">Cat Drawing Battle</div>
+          <div class="a-live-creative-battle-where-artists">
+            A live creative battle where artists
+          </div>
+          <div class="compete-to-draw-cats-in-real-time">
+            compete to draw cats in real-time
+          </div>
+          <div class="speed-style-and-imagination-under-the">
+            speed, style, and imagination under the
+          </div>
+          <div class="spotlight">spotlight.</div>
+          <div class="container">
+            <div
+              class="cat-drawing-battle"
+              style="
+                background: url(cat-drawing-battle0.png) center;
+                background-size: cover;
+                background-repeat: no-repeat;
+              "
+            >
+              <img
+                class="a-4-e-7-aa-6-a-29-e-3-4-ea-7-ad-93-2512825-a-1-c-43-1"
+                src="a-4-e-7-aa-6-a-29-e-3-4-ea-7-ad-93-2512825-a-1-c-43-10.png"
+              />
+            </div>
+            <div class="gradient3"></div>
+          </div>
+        </div>
+        <div class="link5">
+          <div class="link-shadow4"></div>
+          <div class="register-now">Register Now</div>
+        </div>
+        <img
+          class="brown-maximalist-dress-up-your-pet-day-instagram-post-made-with-poster-my-wall-1"
+          src="brown-maximalist-dress-up-your-pet-day-instagram-post-made-with-poster-my-wall-10.png"
+        />
+      </div>
+    </div>
+    <div class="frame-2">
+      <div class="section4">
+        <div class="background6">
+          <div class="experience-the-magic">Experience the Magic</div>
+        </div>
+        <div class="heading-2-get-your-tickets">Get Your Tickets</div>
+        <div class="background-border2">
+          <div class="heading-3-dog-owner-pass">Dog Owner Pass</div>
+          <div class="entry-for-1-adult-and-1-dog-for">
+            Entry for 1 Adult and 1 Dog for
+          </div>
+          <div class="international-competitions">
+            international competitions.
+          </div>
+          <div class="_45">45</div>
+          <div class="qar">QAR</div>
+          <div class="list">
+            <div class="item">
+              <div class="background7">
+                <div class="overlay-shadow2"></div>
+              </div>
+              <div class="wku-international-judging">
+                WKU International Judging
+              </div>
+            </div>
+            <div class="item2">
+              <div class="background7">
+                <div class="overlay-shadow2"></div>
+              </div>
+              <div class="dog-arena-access">Dog Arena Access</div>
+            </div>
+            <div class="item3">
+              <div class="background7">
+                <div class="overlay-shadow2"></div>
+              </div>
+              <div class="competition-entry-slot">Competition Entry Slot</div>
+            </div>
+            <div class="item4">
+              <div class="background7">
+                <div class="overlay-shadow2"></div>
+              </div>
+              <div class="nova-vet-health-check">Nova Vet Health Check</div>
+            </div>
+            <div class="item5">
+              <div class="background7">
+                <div class="overlay-shadow2"></div>
+              </div>
+              <div class="festival-giveaway-bag">Festival Giveaway Bag</div>
+            </div>
+          </div>
+          <div class="link6">
+            <div class="link-shadow5"></div>
+            <div class="purchase-ticket">Purchase Ticket</div>
+          </div>
+        </div>
+        <div class="background-border3">
+          <div class="overlay-shadow3"></div>
+          <div class="heading-3-cat-owner-pass">Cat Owner Pass</div>
+          <div class="entry-for-1-adult-and-up-to-2-cats-for">
+            Entry for 1 Adult and up to 2 Cats for
+          </div>
+          <div class="local-intl-shows">local &amp; intl shows.</div>
+          <div class="_452">45</div>
+          <div class="qar2">QAR</div>
+          <div class="list2">
+            <div class="item">
+              <div class="background7">
+                <div class="overlay-shadow2"></div>
+              </div>
+              <div class="wcf-international-judging">
+                WCF International Judging
+              </div>
+            </div>
+            <div class="item2">
+              <div class="background7">
+                <div class="overlay-shadow2"></div>
+              </div>
+              <div class="cat-dome-priority-access">
+                Cat Dome Priority Access
+              </div>
+            </div>
+            <div class="item3">
+              <div class="background7">
+                <div class="overlay-shadow2"></div>
+              </div>
+              <div class="grooming-zone-entry">Grooming Zone Entry</div>
+            </div>
+            <div class="item4">
+              <div class="background7">
+                <div class="overlay-shadow2"></div>
+              </div>
+              <div class="drawing-battle-participation">
+                Drawing Battle Participation
+              </div>
+            </div>
+            <div class="item5">
+              <div class="background7">
+                <div class="overlay-shadow2"></div>
+              </div>
+              <div class="festival-giveaway-bag">Festival Giveaway Bag</div>
+            </div>
+          </div>
+          <div class="link7">
+            <div class="link-shadow5"></div>
+            <div class="purchase-ticket">Purchase Ticket</div>
+          </div>
+        </div>
+        <div class="background-border4">
+          <div class="heading-3-visitor-pass">Visitor Pass</div>
+          <div class="general-admission-for-families-and-pet">
+            General admission for families and pet
+          </div>
+          <div class="enthusiasts">enthusiasts.</div>
+          <div class="_453">45</div>
+          <div class="qar">QAR</div>
+          <div class="list3">
+            <div class="item">
+              <div class="background7">
+                <div class="overlay-shadow2"></div>
+              </div>
+              <div class="access-to-all-festival-zones">
+                Access to All Festival Zones
+              </div>
+            </div>
+            <div class="item2">
+              <div class="background7">
+                <div class="overlay-shadow2"></div>
+              </div>
+              <div class="main-stage-performances">Main Stage Performances</div>
+            </div>
+            <div class="item3">
+              <div class="background7">
+                <div class="overlay-shadow2"></div>
+              </div>
+              <div class="carnival-food-court">Carnival &amp; Food Court</div>
+            </div>
+            <div class="item4">
+              <div class="background7">
+                <div class="overlay-shadow2"></div>
+              </div>
+              <div class="interactive-photo-zones">Interactive Photo Zones</div>
+            </div>
+            <div class="item5">
+              <div class="background7">
+                <div class="overlay-shadow2"></div>
+              </div>
+              <div class="kids-zone-activities">Kids Zone Activities</div>
+            </div>
+          </div>
+          <div class="link8">
+            <div class="link-shadow5"></div>
+            <div class="purchase-ticket">Purchase Ticket</div>
+          </div>
+        </div>
+        <img class="pets-13" src="pets-12.svg" />
+        <img class="black-cat-13" src="black-cat-12.svg" />
+        <img class="white-paw-print-2" src="white-paw-print-20.png" />
+        <img class="white-paw-print-3" src="white-paw-print-30.png" />
+      </div>
+      <div class="section5">
+        <img
+          class="chat-gpt-image-jun-4-2026-03-09-57-pm-1"
+          src="chat-gpt-image-jun-4-2026-03-09-57-pm-10.png"
+        />
+        <div class="background8">
+          <div class="the-venue">The Venue</div>
+        </div>
+        <div class="heading-22">
+          <div class="a-world-class">A World-Class</div>
+          <div class="destination-for">Destination for</div>
+          <div class="pets">Pets</div>
+        </div>
+        <div
+          class="recognized-as-one-of-the-country-s-most-beloved-pet-friendly-destinations-pets-park-is-where-the-pet-community-comes-together-a-place-for-connection-education-recreation-and-unforgettable-experiences-it-welcomes-everyone-who-believes-that-pets-are-more-than-companions-they-are-family-from-casual-visits-to-major-community-events-pets-park-continues-to-unite-pet-lovers-from-across-qatar-in-one-extraordinary-setting"
+        >
+          Recognized as one of the country&#039;s most beloved pet-friendly
+          destinations, Pets Park is where the pet community comes together. A
+          place for connection, education, recreation, and unforgettable
+          experiences, it welcomes everyone who believes that pets are more than
+          companions — they are family. From casual visits to major community
+          events, Pets Park continues to unite pet lovers from across Qatar in
+          one extraordinary setting.
+        </div>
+        <div class="link9">
+          <div class="link-shadow6"></div>
+          <div class="get-directions-contact-us">
+            Get Directions &amp; Contact Us
+          </div>
+        </div>
+        <img class="white-paw-print-14" src="white-paw-print-13.png" />
+      </div>
+    </div>
+    <div class="footer">
+      <div class="overlay-blur2"></div>
+      <div class="overlay-blur3"></div>
+      <div class="horizontal-border3">
+        <div class="heading-23">
+          <div class="don-t-miss-a-single-wag">
+            <span>
+              <span class="don-t-miss-a-single-wag-span">
+                Don’t miss a single
+              </span>
+              <span class="don-t-miss-a-single-wag-span2"></span>
+              <span class="don-t-miss-a-single-wag-span3">wag,</span>
+            </span>
+          </div>
+          <div class="purr-or-roar">purr, or roar.</div>
+        </div>
+        <div
+          class="subscribe-for-exclusive-festival-updates-competition-results-and"
+        >
+          Subscribe for exclusive festival updates, competition results, and
+        </div>
+        <div class="early-bird-ticket-access">early-bird ticket access.</div>
+        <div class="input">
+          <div class="container2">
+            <div class="enter-your-email-address">Enter your email address</div>
+          </div>
+        </div>
+        <div class="button2">
+          <div class="button-shadow"></div>
+          <div class="join-now">Join Now</div>
+          <img class="svg2" src="svg1.svg" />
+        </div>
+      </div>
+      <div class="nova-paw2"></div>
+      <div class="qatar-s-first-international-pet-festival-wku">
+        Qatar&#039;s first international pet festival WKU &amp;
+      </div>
+      <div class="wcf-judged-competitions-family-fun-and">
+        WCF judged competitions, family fun, and
+      </div>
+      <div class="celebration-of-our-furry-companions">
+        celebration of our furry companions.
+      </div>
+      <div class="link10">
+        <div class="link-shadow7"></div>
+        <img class="svg3" src="svg2.svg" />
+      </div>
+      <div class="link11">
+        <div class="link-shadow7"></div>
+        <img class="svg4" src="svg3.svg" />
+      </div>
+      <div class="link12">
+        <div class="link-shadow7"></div>
+        <img class="svg5" src="svg4.svg" />
+      </div>
+      <div class="heading-4-discover">Discover</div>
+      <div class="list4">
+        <div class="item-link">
+          <img class="svg6" src="svg5.svg" />
+          <div class="home">Home</div>
+        </div>
+        <div class="item-link2">
+          <img class="svg7" src="svg6.svg" />
+          <div class="about">About</div>
+        </div>
+        <div class="item-link3">
+          <img class="svg8" src="svg7.svg" />
+          <div class="competitions3">Competitions</div>
+        </div>
+        <div class="item-link4">
+          <img class="svg9" src="svg8.svg" />
+          <div class="tickets2">Tickets</div>
+        </div>
+        <div class="item-link5">
+          <img class="svg10" src="svg9.svg" />
+          <div class="gallery">Gallery</div>
+        </div>
+        <div class="item-link6">
+          <img class="svg11" src="svg10.svg" />
+          <div class="contact">Contact</div>
+        </div>
+      </div>
+      <div class="heading-4-get-in-touch">Get in Touch</div>
+      <div class="list5">
+        <div class="item6">
+          <div class="call-support">Call Support</div>
+          <div class="overlay3">
+            <img class="svg12" src="svg11.svg" />
+          </div>
+          <div class="link-974-3302-2248">+974 3302 2248</div>
+        </div>
+        <div class="item7">
+          <div class="email-us">Email Us</div>
+          <div class="overlay4">
+            <img class="svg13" src="svg12.svg" />
+          </div>
+          <div class="link-contact-novapawfestival-com">
+            contact@novapawfestival.com
+          </div>
+        </div>
+        <div class="item8">
+          <div class="location-date">Location &amp; Date</div>
+          <div class="overlay5">
+            <img class="svg14" src="svg13.svg" />
+          </div>
+          <div class="link13">
+            <div class="pet-park-the-pearl">pet park The Pearl</div>
+            <div class="island-qatar">Island, Qatar</div>
+            <div class="november-27-28-2026">November 27–28, 2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="heading-4-resources">Resources</div>
+      <div class="list6">
+        <div class="item-link">
+          <img class="svg15" src="svg14.svg" />
+          <div class="terms-conditions">Terms &amp; Conditions</div>
+        </div>
+        <div class="item-link2">
+          <img class="svg16" src="svg15.svg" />
+          <div class="privacy-policy">Privacy Policy</div>
+        </div>
+      </div>
+      <div class="horizontal-border4">
+        <div class="_2026-nova-paw-festival-all-rights-reserved">
+          © 2026 Nova Paw Festival · All Rights Reserved
+        </div>
+        <div class="background9"></div>
+        <div class="doha-qatar">Doha, Qatar</div>
+      </div>
+      <img class="white-paw-print-15" src="white-paw-print-14.png" />
+      <img
+        class="logo-nova-arabic-english-1"
+        src="logo-nova-arabic-english-10.png"
+      />
+      <div class="don-t-miss-out-on-this-incredible-opportunity-to-celebrate">
+        Don’t miss out on this incredible opportunity to celebrate
+      </div>
+      <div class="your-pets-connect-with-fellow-lovers-and-experience-the">
+        your pets, connect with fellow lovers, and experience the
+      </div>
+      <div class="thrill-of-the-festival">thrill of the festival!</div>
+      <div class="link14">
+        <div class="link-shadow8"></div>
+        <div class="get-tickets-now">Get Tickets Now</div>
+        <img class="svg17" src="svg16.svg" />
+      </div>
+      <div class="link15">
+        <div class="link-shadow9"></div>
+        <div class="learn-more">Learn More</div>
+      </div>
+    </div>
+    <img class="white-paw-print-16" src="white-paw-print-15.png" />
+    <img class="image-1" src="image-10.png" />
+  </div>
+</div>
+.nova-pet-home-page-english,
+.nova-pet-home-page-english * {
+  box-sizing: border-box;
+}
+.nova-pet-home-page-english {
+  background: #fff2e5;
+  height: 8475.56px;
+  position: relative;
+}
+.main {
+  background: #ffffff;
+  height: 8635px;
+  position: absolute;
+  right: -2px;
+  left: 0px;
+  top: 0px;
+}
+.section {
+  background: #fff2e5;
+  height: 1054px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+}
+.screenshot-2026-06-04-161213-1 {
+  width: 1920px;
+  height: 822px;
+  position: absolute;
+  left: 0px;
+  top: 126px;
+  object-fit: cover;
+  aspect-ratio: 1920/822;
+}
+.rectangle-5 {
+  background: rgba(251, 200, 79, 0.9);
+  border-radius: 33px;
+  width: 437px;
+  height: 754px;
+  position: absolute;
+  left: 1377px;
+  top: 157px;
+}
+.rectangle-6 {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 33px;
+  width: 437px;
+  height: 268px;
+  position: absolute;
+  left: 1376px;
+  top: 436px;
+}
+.international-judges-championship-competitions-pet-fashion {
+  color: #37352f;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 19px;
+  line-height: 30.4px;
+  font-weight: 500;
+  position: absolute;
+  right: 136px;
+  left: 1411px;
+  top: 461px;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.shows-grooming-battles-adoption-zones-vet-talks-live {
+  color: #37352f;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 19px;
+  line-height: 30.4px;
+  font-weight: 500;
+  position: absolute;
+  right: 164px;
+  left: 1411px;
+  top: 517px;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.entertainment-food-trucks-family-experiences-this-is-not-just {
+  color: #37352f;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 19px;
+  line-height: 30.4px;
+  font-weight: 500;
+  position: absolute;
+  right: 125px;
+  left: 1411px;
+  top: 574px;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.a-festival-it-s-the-ultimate-celebration-of-the-pet-world {
+  color: #37352f;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 19px;
+  line-height: 30.4px;
+  font-weight: 500;
+  position: absolute;
+  right: 178px;
+  left: 1411px;
+  top: 633px;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.link {
+  background: #fc7810;
+  border-radius: 4px;
+  height: 60.19px;
+  position: absolute;
+  right: 281.22px;
+  left: 1376px;
+  top: 783px;
+}
+.link-shadow {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  top: 0px;
+  box-shadow: 0px 1px 2px -1px rgba(233, 159, 61, 0.2),
+    0px 1px 3px 0px rgba(233, 159, 61, 0.2);
+}
+.competitions {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 13px;
+  line-height: 20.8px;
+  letter-spacing: 2.6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: calc(50% - 82.8px);
+  top: 50%;
+  translate: 0 -50%;
+  width: 131.25px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.arrow {
+  width: 17.81px;
+  height: 17.81px;
+  position: absolute;
+  left: calc(50% - -63.98px);
+  top: 50%;
+  translate: 0 -50%;
+  overflow: hidden;
+  aspect-ratio: 1;
+}
+.m-j-4-b-3-s-uua-6-gvw-j-6-r-qys-23-dlj-9-c-svg {
+  width: 17.81px;
+  height: 17.81px;
+  position: absolute;
+  left: 50%;
+  translate: -50% -50%;
+  top: 50%;
+  overflow: visible;
+}
+.link2 {
+  background: #465067;
+  border-radius: 4px;
+  height: 60px;
+  position: absolute;
+  right: 108px;
+  left: 1603px;
+  top: 783px;
+}
+.link-shadow2 {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  position: absolute;
+  right: -0.3px;
+  left: 0px;
+  bottom: -0.19px;
+  top: 0px;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
+.get-tickets {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 13px;
+  line-height: 20.8px;
+  letter-spacing: 2.6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  translate: -50% -50%;
+  top: 50%;
+  width: 113.49px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rectangle-3 {
+  border-radius: 0px;
+  width: 2049px;
+  height: 123px;
+  position: absolute;
+  left: -86px;
+  top: 0px;
+  overflow: visible;
+}
+.back-drop-300-cm-250-cm-1 {
+  width: 4096px;
+  height: 3763px;
+  position: absolute;
+  left: -819px;
+  top: -1675px;
+  aspect-ratio: 4096/3763;
+}
+.rectangle-4 {
+  width: 1922px;
+  height: 399px;
+  position: absolute;
+  left: -1811px;
+  top: 176.5px;
+  overflow: visible;
+}
+.heading-1 {
+  height: 152px;
+  position: absolute;
+  right: 60px;
+  left: 1250px;
+  top: 204.56px;
+}
+.nova-paw {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 90px;
+  line-height: 91.2px;
+  letter-spacing: -4.8px;
+  font-weight: 700;
+  position: absolute;
+  left: 152px;
+  top: -32.56px;
+  width: 420.84px;
+  height: 103px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.festival {
+  color: #fc7911;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 90px;
+  line-height: 91.2px;
+  letter-spacing: -4.8px;
+  font-weight: 700;
+  position: absolute;
+  left: 152px;
+  top: 49.44px;
+  width: 336px;
+  height: 87px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.heading-2 {
+  height: 63px;
+  position: absolute;
+  right: 76px;
+  left: 1418px;
+  top: 415px;
+}
+.the-biggest-pet-festival-in-the-middle-east-starts {
+  color: #37352f;
+  text-align: left;
+  font-family: "DmSans-Bold", sans-serif;
+  font-size: 26px;
+  line-height: 32.5px;
+  letter-spacing: -0.65px;
+  font-weight: 700;
+  position: absolute;
+  left: -10px;
+  top: -36px;
+  width: 567.34px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.here {
+  color: #37352f;
+  text-align: left;
+  font-family: "DmSans-Bold", sans-serif;
+  font-size: 26px;
+  line-height: 32.5px;
+  letter-spacing: -0.65px;
+  font-weight: 700;
+  position: absolute;
+  left: 216px;
+  top: -20px;
+  width: 103px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.background {
+  background: #465067;
+  border-radius: 4px;
+  height: 49px;
+  position: absolute;
+  right: 108px;
+  left: 1376px;
+  top: 713px;
+}
+._27-28-nov-2026-pet-park-the-pearl-qatar {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 12px;
+  line-height: 19.2px;
+  letter-spacing: 2.4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 19.79px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 385.34px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.overlay-horizontal-border-overlay-blur {
+  background: rgba(255, 255, 255, 0.9);
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.05);
+  border-width: 0px 0px 1.01px 0px;
+  width: 1920px;
+  height: 126px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  backdrop-filter: blur(6px);
+}
+.nav {
+  height: 105px;
+  position: absolute;
+  right: 302px;
+  left: 284px;
+  top: 18px;
+}
+.link-nova-paw-festival {
+  width: 183px;
+  height: 140px;
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  translate: 0 -50%;
+  overflow: hidden;
+  aspect-ratio: 183/140;
+}
+.logo-20-new-20-final-20-english-svg {
+  width: 116px;
+  height: 85px;
+  position: absolute;
+  left: calc(50% - 56.5px);
+  top: calc(50% - 48px);
+  overflow: hidden;
+}
+.group {
+  position: absolute;
+  inset: 0;
+}
+.calque-1 {
+  width: 119px;
+  height: 98px;
+  position: static;
+}
+.group2 {
+  width: 119px;
+  height: 98px;
+  position: static;
+}
+.nova-paw-festival {
+  color: #ee7124;
+  text-align: left;
+  font-family: "ArchivoBlack-Regular", sans-serif;
+  font-size: 10.300350189208984px;
+  font-weight: 400;
+  position: absolute;
+  right: -12.07%;
+  left: 9.48%;
+  width: 102.59%;
+  bottom: -16.47%;
+  top: 85.88%;
+  height: 30.59%;
+}
+.group3 {
+  width: 72.43px;
+  height: 63.6px;
+  position: absolute;
+  left: 26.84px;
+  top: 1px;
+  overflow: visible;
+}
+.link-home {
+  color: #465067;
+  text-align: left;
+  font-family: "DmSans-Medium", sans-serif;
+  font-size: 12px;
+  line-height: 22.4px;
+  letter-spacing: 2.8px;
+  font-weight: 500;
+  text-transform: uppercase;
+  position: absolute;
+  left: 175.59px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 53.81px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.link-about {
+  color: #465067;
+  text-align: left;
+  font-family: "DmSans-Medium", sans-serif;
+  font-size: 12px;
+  line-height: 22.4px;
+  letter-spacing: 2.8px;
+  font-weight: 500;
+  text-transform: uppercase;
+  position: absolute;
+  left: 268.64px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 63.85px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.link-competitions {
+  color: #465067;
+  text-align: left;
+  font-family: "DmSans-Medium", sans-serif;
+  font-size: 12px;
+  line-height: 22.4px;
+  letter-spacing: 2.8px;
+  font-weight: 500;
+  text-transform: uppercase;
+  position: absolute;
+  left: 371.68px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 141.42px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.link-tickets {
+  color: #465067;
+  text-align: left;
+  font-family: "DmSans-Medium", sans-serif;
+  font-size: 12px;
+  line-height: 22.4px;
+  letter-spacing: 2.8px;
+  font-weight: 500;
+  text-transform: uppercase;
+  position: absolute;
+  left: 552.39px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 79.77px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.link-gallery {
+  color: #465067;
+  text-align: left;
+  font-family: "DmSans-Medium", sans-serif;
+  font-size: 12px;
+  line-height: 22.4px;
+  letter-spacing: 2.8px;
+  font-weight: 500;
+  text-transform: uppercase;
+  position: absolute;
+  left: 671.43px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 82.97px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.link-contact {
+  color: #465067;
+  text-align: left;
+  font-family: "DmSans-Medium", sans-serif;
+  font-size: 12px;
+  line-height: 22.4px;
+  letter-spacing: 2.8px;
+  font-weight: 500;
+  text-transform: uppercase;
+  position: absolute;
+  left: 793.67px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 88.53px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.button {
+  border-radius: 4px;
+  width: 47px;
+  height: 35px;
+  position: absolute;
+  left: 934px;
+  top: 50%;
+  translate: 0 -50%;
+}
+.svg {
+  width: 15.83px;
+  height: 15.83px;
+  position: absolute;
+  left: 15.82px;
+  top: 50%;
+  translate: 0 -50%;
+  overflow: visible;
+}
+.div {
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 12px;
+  line-height: 19.2px;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: calc(50% - -2.14px);
+  top: 50%;
+  translate: 0 -50%;
+  width: 61px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vertical-divider {
+  background: rgba(0, 0, 0, 0.05);
+  width: 0.98px;
+  height: 23.75px;
+  position: absolute;
+  left: 1034.86px;
+  top: 50%;
+  translate: 0 -50%;
+}
+.link-log-in {
+  color: #465067;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 13px;
+  line-height: 20.8px;
+  letter-spacing: 2.6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 1075.42px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 58.76px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.link3 {
+  background: #fc7810;
+  border-radius: 4px;
+  width: 123.52px;
+  height: 44.72px;
+  position: absolute;
+  left: 1173.37px;
+  top: 50%;
+  translate: 0 -50%;
+}
+.tickets {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 12px;
+  line-height: 19.2px;
+  letter-spacing: 2.4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  translate: -50% -50%;
+  top: 50%;
+  width: 68.38px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rectangle-42 {
+  width: 1922px;
+  height: 463.5px;
+  position: absolute;
+  left: 0px;
+  top: 135px;
+  overflow: visible;
+}
+.frame-1 {
+  width: 1922px;
+  height: 3277.67px;
+  position: absolute;
+  left: 0px;
+  top: 1032px;
+}
+.section2 {
+  background: #fff2e5;
+  height: 1593px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 0px;
+}
+.rectangle-2 {
+  width: 1922px;
+  height: 720px;
+  position: absolute;
+  left: 0px;
+  top: 633px;
+  overflow: visible;
+}
+.background-shadow {
+  background: #fbc84f;
+  border-radius: 4px;
+  height: 571px;
+  position: absolute;
+  right: 10px;
+  left: 0px;
+  top: 51px;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.chat-gpt-image-jun-1-2026-10-23-36-am-1 {
+  width: 717px;
+  height: 478px;
+  position: absolute;
+  left: 598px;
+  top: 93px;
+  object-fit: cover;
+  aspect-ratio: 3/2;
+}
+.overlay-blur {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  width: 253.44px;
+  height: 253.44px;
+  position: absolute;
+  right: -39.8px;
+  bottom: -39.6px;
+  filter: blur(32px);
+}
+.background2 {
+  background: #465067;
+  border-radius: 4px;
+  width: 197px;
+  height: 43px;
+  position: absolute;
+  left: 850px;
+  top: 28px;
+}
+.about-the-festival {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 11px;
+  line-height: 17.6px;
+  letter-spacing: 2.2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 19.8px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 157.45px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.link4 {
+  background: #465067;
+  border-radius: 4px;
+  width: 229px;
+  height: 45px;
+  position: absolute;
+  left: 833px;
+  top: 441px;
+}
+.link-shadow3 {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  height: 63.36px;
+  position: absolute;
+  right: 0.42px;
+  left: 0px;
+  top: 0px;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
+.the-nova-story {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 13px;
+  line-height: 20.8px;
+  letter-spacing: 2.6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  translate: -50% -50%;
+  top: 50%;
+  width: 149.71px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pets-1 {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  left: 21px;
+  top: 1023px;
+  overflow: visible;
+}
+.black-cat-1 {
+  width: 241px;
+  height: 241px;
+  position: absolute;
+  left: 1650px;
+  top: 1023px;
+  overflow: visible;
+}
+.white-paw-print-1 {
+  width: 420px;
+  height: 404px;
+  position: absolute;
+  left: -225px;
+  top: 207px;
+  object-fit: cover;
+  aspect-ratio: 420/404;
+}
+.white-paw-print-12 {
+  width: 420px;
+  height: 404px;
+  position: absolute;
+  left: 1905.47px;
+  top: 328.98px;
+  transform-origin: 0 0;
+  transform: rotate(-161.593deg) scale(1, 1);
+  object-fit: cover;
+  aspect-ratio: 420/404;
+}
+.pets-12 {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  left: 21px;
+  top: 1107px;
+  overflow: visible;
+}
+.black-cat-12 {
+  width: 241px;
+  height: 241px;
+  position: absolute;
+  left: 1649px;
+  top: 1112px;
+  overflow: visible;
+}
+.background-border-shadow {
+  background: #fc7911;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.05);
+  border-width: 1px;
+  height: 542px;
+  position: absolute;
+  right: 839px;
+  left: 360px;
+  top: 811px;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.chat-gpt-image-jun-4-2026-12-31-44-pm-1 {
+  width: 753px;
+  height: 303px;
+  position: absolute;
+  left: 1.45px;
+  top: 402.53px;
+  aspect-ratio: 753/303;
+}
+.heading-4 {
+  height: 419px;
+  position: absolute;
+  right: 93px;
+  left: 0px;
+  top: 13px;
+}
+.the-nova-paw-festival-is-qatar-s-first {
+  text-align: left;
+  font-family: "-", sans-serif;
+  font-size: 28px;
+  line-height: 42px;
+  letter-spacing: -0.7px;
+  font-weight: 400;
+  position: absolute;
+  left: 0px;
+  top: 5px;
+  width: 449.99px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.the-nova-paw-festival-is-qatar-s-first-span {
+  color: #ffffff;
+  font-family: "Archivo-Medium", sans-serif;
+  font-weight: 500;
+}
+.the-nova-paw-festival-is-qatar-s-first-span2 {
+  color: #000000;
+  font-family: "Archivo-Medium", sans-serif;
+  font-weight: 500;
+}
+.the-nova-paw-festival-is-qatar-s-first-span3 {
+  color: #37352f;
+  font-family: "Archivo-Bold", sans-serif;
+  font-weight: 700;
+}
+.international-pet-festival-bringing-together-families {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Archivo-Medium", sans-serif;
+  font-size: 28px;
+  line-height: 42px;
+  letter-spacing: -0.7px;
+  font-weight: 500;
+  position: absolute;
+  left: 0px;
+  top: 46.58px;
+  width: 594.06px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.and-animal-enthusiasts-from-around-the-world-for {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Archivo-Medium", sans-serif;
+  font-size: 28px;
+  line-height: 42px;
+  letter-spacing: -0.7px;
+  font-weight: 500;
+  position: absolute;
+  left: 0px;
+  top: 88.16px;
+  width: 577.26px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.an-unforgettable-two-day-celebration-at-pet-park {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Archivo-Medium", sans-serif;
+  font-size: 28px;
+  line-height: 42px;
+  letter-spacing: -0.7px;
+  font-weight: 500;
+  position: absolute;
+  left: 0px;
+  top: 129.73px;
+  width: 563.91px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.the-pearl-island-featuring {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Archivo-Medium", sans-serif;
+  font-size: 28px;
+  line-height: 42px;
+  letter-spacing: -0.7px;
+  font-weight: 500;
+  position: absolute;
+  left: 0px;
+  top: 171.31px;
+  width: 319.77px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.horizontal-border {
+  background: #fd8b13;
+  border-style: solid;
+  border-color: #e99f3d;
+  border-width: 0px 0px 1.01px 0px;
+  width: 65.48px;
+  height: 34.95px;
+  position: absolute;
+  left: 327.46px;
+  top: 171.31px;
+}
+.wku {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 28px;
+  line-height: 42px;
+  letter-spacing: -0.7px;
+  font-weight: 700;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 66.89px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.and {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Archivo-Medium", sans-serif;
+  font-size: 28px;
+  line-height: 42px;
+  letter-spacing: -0.7px;
+  font-weight: 500;
+  position: absolute;
+  left: 391.94px;
+  top: 171.31px;
+  width: 55.45px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.horizontal-border2 {
+  background: #fd8b13;
+  border-style: solid;
+  border-color: #e99f3d;
+  border-width: 0px 0px 1.01px 0px;
+  width: 61.77px;
+  height: 34.95px;
+  position: absolute;
+  left: 445.02px;
+  top: 171.31px;
+}
+.wcf {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 28px;
+  line-height: 42px;
+  letter-spacing: -0.7px;
+  font-weight: 700;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 63.11px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.international-judges-this-landmark-event-sets-a {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Archivo-Medium", sans-serif;
+  font-size: 28px;
+  line-height: 42px;
+  letter-spacing: -0.7px;
+  font-weight: 500;
+  position: absolute;
+  left: 0px;
+  top: 212.89px;
+  width: 554.42px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.new-global-standard {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Archivo-Medium", sans-serif;
+  font-size: 28px;
+  line-height: 42px;
+  letter-spacing: -0.7px;
+  font-weight: 500;
+  position: absolute;
+  left: 0px;
+  top: 254.47px;
+  width: 247.79px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.chat-gpt-image-jun-4-2026-01-34-54-pm-1 {
+  width: 1183px;
+  height: 701px;
+  position: absolute;
+  left: -534.55px;
+  top: 362.53px;
+  aspect-ratio: 1183/701;
+}
+.background-border {
+  background: #fc7911;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.05);
+  border-width: 1px;
+  height: 708px;
+  position: absolute;
+  right: 361px;
+  left: 1066px;
+  top: 645px;
+}
+.heading-3-6 {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 84px;
+  line-height: 84px;
+  letter-spacing: -4.2px;
+  font-weight: 700;
+  position: absolute;
+  right: 383.9px;
+  left: 64.3499984741211px;
+  top: calc(50% - 177.65px);
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.background3 {
+  background: #37352f;
+  border-radius: 4px;
+  height: 9.89px;
+  position: absolute;
+  right: 366.44px;
+  left: 117.66999816894531px;
+  top: calc(50% - 114.54px);
+}
+.overlay-shadow {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  width: 9.89px;
+  height: 9.89px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  box-shadow: 0px 1px 2px -1px rgba(233, 159, 61, 0.4),
+    0px 1px 3px 0px rgba(233, 159, 61, 0.4);
+}
+.international {
+  color: #37352f;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 13px;
+  line-height: 17.88px;
+  letter-spacing: 2.6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  right: 290.59px;
+  left: 64.3499984741211px;
+  top: calc(50% - 73.67px);
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.competitions2 {
+  color: #37352f;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 13px;
+  line-height: 17.88px;
+  letter-spacing: 2.6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  right: 298.4px;
+  left: 64.3499984741211px;
+  top: calc(50% - 55.97px);
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.heading-3-10-k {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 84px;
+  line-height: 84px;
+  letter-spacing: -4.2px;
+  font-weight: 700;
+  position: absolute;
+  right: 74.51px;
+  left: 266.9599914550781px;
+  top: calc(50% - 177.65px);
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.overlay {
+  background: #37352f;
+  border-radius: 4px;
+  height: 9.89px;
+  position: absolute;
+  right: 64.02px;
+  left: 421.7300109863281px;
+  top: calc(50% - 114.54px);
+}
+.expected {
+  color: #37352f;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 13px;
+  line-height: 17.88px;
+  letter-spacing: 2.6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  right: 137.47px;
+  left: 266.9599914550781px;
+  top: calc(50% - 73.67px);
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.visitors {
+  color: #37352f;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 13px;
+  line-height: 17.88px;
+  letter-spacing: 2.6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  right: 145.94px;
+  left: 266.9599914550781px;
+  top: calc(50% - 55.97px);
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.heading-3-2 {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 84px;
+  line-height: 84px;
+  letter-spacing: -4.2px;
+  font-weight: 700;
+  position: absolute;
+  right: 383.9px;
+  left: 64.3499984741211px;
+  top: calc(50% - -35.92px);
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.background4 {
+  background: #37352f;
+  border-radius: 4px;
+  height: 9.89px;
+  position: absolute;
+  right: 366.44px;
+  left: 117.66999816894531px;
+  top: calc(50% - -99.03px);
+}
+.festival2 {
+  color: #37352f;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 13px;
+  line-height: 17.88px;
+  letter-spacing: 2.6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  right: 347.38px;
+  left: 64.3499984741211px;
+  top: calc(50% - -139.91px);
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.days {
+  color: #37352f;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 13px;
+  line-height: 17.88px;
+  letter-spacing: 2.6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  right: 383.86px;
+  left: 64.3499984741211px;
+  top: calc(50% - -157.61px);
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.heading-3-48 {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 84px;
+  line-height: 84px;
+  letter-spacing: -4.2px;
+  font-weight: 700;
+  position: absolute;
+  right: 131.03px;
+  left: 266.9599914550781px;
+  top: calc(50% - -35.92px);
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.overlay2 {
+  background: #37352f;
+  border-radius: 4px;
+  height: 9.89px;
+  position: absolute;
+  right: 118.35px;
+  left: 365.760009765625px;
+  top: calc(50% - -99.03px);
+}
+.champion {
+  color: #37352f;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 13px;
+  line-height: 17.88px;
+  letter-spacing: 2.6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  right: 133.75px;
+  left: 266.9599914550781px;
+  top: calc(50% - -139.91px);
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.cups {
+  color: #37352f;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 13px;
+  line-height: 17.88px;
+  letter-spacing: 2.6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  right: 180.72px;
+  left: 266.9599914550781px;
+  top: calc(50% - -157.61px);
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.white-paw-print-13 {
+  width: 221.54px;
+  height: 391.64px;
+  position: absolute;
+  left: 1699px;
+  top: 699px;
+  transform-origin: 0 0;
+  transform: rotate(0deg) scale(1, 1);
+  object-fit: cover;
+  aspect-ratio: 221.54/391.64;
+}
+.section3 {
+  background: #fff2e5;
+  height: 1839.67px;
+  position: absolute;
+  right: 0.2px;
+  left: 0px;
+  top: 1438px;
+}
+.background5 {
+  background: #fc7a12;
+  border-radius: 4px;
+  height: 33.23px;
+  position: absolute;
+  right: 864.41px;
+  left: 864.3900146484375px;
+  top: 158.39px;
+}
+.compete-shine {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 11px;
+  line-height: 17.6px;
+  letter-spacing: 2.2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  translate: -50% -50%;
+  top: 50%;
+  width: 132.71px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.heading-2-international-competitions {
+  color: #fc7a12;
+  text-align: center;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 72px;
+  line-height: 72px;
+  letter-spacing: -3.6px;
+  font-weight: 700;
+  position: absolute;
+  right: 533.17px;
+  left: 545.030029296875px;
+  top: 219.3px;
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.judged-by-wku-wcf-international-judges-compete-for {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 500;
+  position: absolute;
+  right: 674.82px;
+  left: 678.47998046875px;
+  top: 329.25px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.championship-titles-cups-and-medals-in-qatar-s-premier-pet-event {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 500;
+  position: absolute;
+  right: 627.42px;
+  left: 632.6900024414062px;
+  top: 360.92px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.background-border-shadow2 {
+  background: #fc7a12;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.05);
+  border-width: 1px;
+  height: 503.3px;
+  position: absolute;
+  right: 1174.81px;
+  left: 340.54998779296875px;
+  top: 484.63px;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.heading-4-dog-fashion-show {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 28px;
+  line-height: 28px;
+  letter-spacing: -0.7px;
+  font-weight: 700;
+  position: absolute;
+  right: 107.42px;
+  left: 40.59000015258789px;
+  top: 315.78px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.owners-and-dogs-strut-the-runway-in {
+  color: #f5f5f0;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-weight: 500;
+  position: absolute;
+  right: 62.26px;
+  left: 40.59000015258789px;
+  top: 364.33px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.matching-themed-outfits-judged-on {
+  color: #f5f5f0;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-weight: 500;
+  position: absolute;
+  right: 76.53px;
+  left: 40.59000015258789px;
+  top: 389.67px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.creativity-coordination-and-charm {
+  color: #f5f5f0;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-weight: 500;
+  position: absolute;
+  right: 75.1px;
+  left: 40.59000015258789px;
+  top: 415.01px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.container {
+  height: 277.19px;
+  position: absolute;
+  right: 1px;
+  left: 1px;
+  top: 1px;
+  overflow: hidden;
+}
+.dog-fashion-show {
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  top: 0px;
+  overflow: hidden;
+  object-fit: cover;
+}
+.gradient {
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  top: 0px;
+}
+.background-border-shadow3 {
+  background: #f5f5f0;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.05);
+  border-width: 1px;
+  height: 503.3px;
+  position: absolute;
+  right: 757.69px;
+  left: 757.6599731445312px;
+  top: 484.63px;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.heading-4-grooming-competition {
+  color: #465067;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 28px;
+  line-height: 28px;
+  letter-spacing: -0.7px;
+  font-weight: 700;
+  position: absolute;
+  right: 55.07px;
+  left: 40.59000015258789px;
+  top: 315.78px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.professional-groomers-showcase-their {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-weight: 500;
+  position: absolute;
+  right: 52.86px;
+  left: 40.59000015258789px;
+  top: 364.33px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.artistry-precision-trimming-styling-and {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-weight: 500;
+  position: absolute;
+  right: 45.92px;
+  left: 40.59000015258789px;
+  top: 389.67px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.finishing-under-wku-supervision {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-weight: 500;
+  position: absolute;
+  right: 91.19px;
+  left: 40.59000015258789px;
+  top: 415.01px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.grooming-competition {
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  top: 0px;
+  overflow: hidden;
+  object-fit: cover;
+}
+.background-border-shadow4 {
+  background: #fbc84f;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.05);
+  border-width: 1px;
+  height: 503.3px;
+  position: absolute;
+  right: 340.58px;
+  left: 1174.780029296875px;
+  top: 484.63px;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.heading-4-best-dog-show {
+  color: #465067;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 28px;
+  line-height: 28px;
+  letter-spacing: -0.7px;
+  font-weight: 700;
+  position: absolute;
+  right: 150.22px;
+  left: 40.599998474121094px;
+  top: 315.78px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.the-prestigious-wku-recognized-event {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-weight: 500;
+  position: absolute;
+  right: 43.82px;
+  left: 40.599998474121094px;
+  top: 364.33px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.evaluating-breed-structure {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-weight: 500;
+  position: absolute;
+  right: 137.99px;
+  left: 40.599998474121094px;
+  top: 389.67px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.temperament-and-presentation-across {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-weight: 500;
+  position: absolute;
+  right: 48.5px;
+  left: 40.599998474121094px;
+  top: 415.01px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.three-classes {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-weight: 500;
+  position: absolute;
+  right: 238.32px;
+  left: 40.599998474121094px;
+  top: 440.36px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.best-dog-show {
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  top: 0px;
+  overflow: hidden;
+}
+.chat-gpt-image-jun-4-2026-12-06-34-pm-1 {
+  width: 1257px;
+  height: 719px;
+  position: absolute;
+  left: -124.78px;
+  top: -389.63px;
+  object-fit: cover;
+  aspect-ratio: 1257/719;
+}
+.gradient2 {
+  height: auto;
+  position: absolute;
+  right: 101.22px;
+  left: -4.780029296875px;
+  bottom: -12.18px;
+  top: 74.3699951171875px;
+  overflow: visible;
+}
+.background-border-shadow5 {
+  background: #fbc84f;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.05);
+  border-width: 1px;
+  height: 503.3px;
+  position: absolute;
+  right: 1174.81px;
+  left: 340.54998779296875px;
+  top: 1019.6px;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.heading-4-best-cat-show {
+  color: #465067;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 28px;
+  line-height: 28px;
+  letter-spacing: -0.7px;
+  font-weight: 700;
+  position: absolute;
+  right: 158.78px;
+  left: 40.59000015258789px;
+  top: 315.78px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.wcf-licensed-grand-judging-of {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-weight: 500;
+  position: absolute;
+  right: 107.39px;
+  left: 40.59000015258789px;
+  top: 364.32px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.elegance-breed-standards-and-feline {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-weight: 500;
+  position: absolute;
+  right: 57.26px;
+  left: 40.59000015258789px;
+  top: 389.67px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.grace-inside-the-immersive-cat-dome {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-weight: 500;
+  position: absolute;
+  right: 54.8px;
+  left: 40.59000015258789px;
+  top: 415.01px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.best-cat-show {
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  top: 0px;
+  overflow: hidden;
+  object-fit: cover;
+}
+.background-border-shadow6 {
+  background: #fc7a12;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.05);
+  border-width: 1px;
+  height: 503.3px;
+  position: absolute;
+  right: 757.69px;
+  left: 757.6599731445312px;
+  top: 1019.6px;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.heading-4-cat-fashion-show {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 28px;
+  line-height: 28px;
+  letter-spacing: -0.7px;
+  font-weight: 700;
+  position: absolute;
+  right: 115.96px;
+  left: 40.59000015258789px;
+  top: 315.78px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.cats-and-their-owners-dazzle-the {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-weight: 500;
+  position: absolute;
+  right: 92.85px;
+  left: 40.59000015258789px;
+  top: 364.32px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.runway-in-coordinated-themed-outfits {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-weight: 500;
+  position: absolute;
+  right: 57.87px;
+  left: 40.59000015258789px;
+  top: 389.67px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.judged-on-creativity-coordination-and {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-weight: 500;
+  position: absolute;
+  right: 51.53px;
+  left: 40.59000015258789px;
+  top: 415.01px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.feline-grace {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-weight: 500;
+  position: absolute;
+  right: 250.53px;
+  left: 40.59000015258789px;
+  top: 440.36px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.chat-gpt-image-jun-4-2026-11-41-57-am-1 {
+  width: 371px;
+  height: 496px;
+  position: absolute;
+  left: 25.34px;
+  top: 0.4px;
+  aspect-ratio: 371/496;
+}
+.chat-gpt-image-jun-4-2026-11-46-15-am-1 {
+  width: 516px;
+  height: 291px;
+  position: absolute;
+  left: -31.66px;
+  top: -10.6px;
+  object-fit: cover;
+  aspect-ratio: 516/291;
+}
+.background-border-shadow7 {
+  background: #f5f5f0;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.05);
+  border-width: 1px;
+  height: 503.3px;
+  position: absolute;
+  right: 340.58px;
+  left: 1174.780029296875px;
+  top: 1019.6px;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.heading-4-cat-drawing-battle {
+  color: #465067;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 28px;
+  line-height: 28px;
+  letter-spacing: -0.7px;
+  font-weight: 700;
+  position: absolute;
+  right: 108.97px;
+  left: 40.599998474121094px;
+  top: 315.78px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.a-live-creative-battle-where-artists {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-weight: 500;
+  position: absolute;
+  right: 83.95px;
+  left: 40.599998474121094px;
+  top: 364.32px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.compete-to-draw-cats-in-real-time {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-weight: 500;
+  position: absolute;
+  right: 87.02px;
+  left: 40.599998474121094px;
+  top: 389.67px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.speed-style-and-imagination-under-the {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-weight: 500;
+  position: absolute;
+  right: 43.19px;
+  left: 40.599998474121094px;
+  top: 415.01px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.spotlight {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-weight: 500;
+  position: absolute;
+  right: 272.56px;
+  left: 40.599998474121094px;
+  top: 440.36px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.cat-drawing-battle {
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  top: 0px;
+  overflow: hidden;
+}
+.a-4-e-7-aa-6-a-29-e-3-4-ea-7-ad-93-2512825-a-1-c-43-1 {
+  width: 1411px;
+  height: 705px;
+  position: absolute;
+  left: -718.78px;
+  top: -85.6px;
+  object-fit: cover;
+  aspect-ratio: 1411/705;
+}
+.gradient3 {
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  position: absolute;
+  right: 141.22px;
+  left: 0.219970703125px;
+  bottom: -0.21px;
+  top: 129.4000244140625px;
+}
+.link5 {
+  background: #fc7911;
+  border-radius: 4px;
+  height: 63.36px;
+  position: absolute;
+  right: 833.21px;
+  left: 833.1699829101562px;
+  top: 1617.92px;
+}
+.link-shadow4 {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  height: 63.36px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 0px;
+  box-shadow: 0px 1px 2px -1px rgba(233, 159, 61, 0.2),
+    0px 1px 3px 0px rgba(233, 159, 61, 0.2);
+}
+.register-now {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 14px;
+  line-height: 22.4px;
+  letter-spacing: 2.8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  translate: -50% -50%;
+  top: 50%;
+  width: 139.7px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.brown-maximalist-dress-up-your-pet-day-instagram-post-made-with-poster-my-wall-1 {
+  width: 404px;
+  height: 277px;
+  position: absolute;
+  left: 342px;
+  top: 486px;
+  object-fit: cover;
+  aspect-ratio: 404/277;
+}
+.frame-2 {
+  width: 1921.8px;
+  height: 2221.03px;
+  position: absolute;
+  left: 0px;
+  top: 4306.73px;
+}
+.section4 {
+  background: #fbc84f;
+  height: 1270.64px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 0px;
+}
+.background6 {
+  background: #fc7a12;
+  border-radius: 4px;
+  height: 53px;
+  position: absolute;
+  right: 839.8px;
+  left: 839px;
+  top: 94.27px;
+}
+.experience-the-magic {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 11px;
+  line-height: 17.6px;
+  letter-spacing: 2.2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  translate: -50% -50%;
+  top: 50%;
+  width: 184px;
+  height: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.heading-2-get-your-tickets {
+  color: #465067;
+  text-align: center;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 72px;
+  line-height: 72px;
+  letter-spacing: -3.6px;
+  font-weight: 700;
+  position: absolute;
+  right: 694.25px;
+  left: 703.0900268554688px;
+  top: 219.3px;
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.background-border2 {
+  background: #f5f5f0;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.05);
+  border-width: 1px;
+  height: 723px;
+  position: absolute;
+  right: 1174.8px;
+  left: 353px;
+  top: 389.27px;
+}
+.heading-3-dog-owner-pass {
+  color: #465067;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 36px;
+  line-height: 36px;
+  letter-spacing: -0.9px;
+  font-weight: 700;
+  position: absolute;
+  right: 57.59px;
+  left: 56.43000030517578px;
+  top: 54.44px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.entry-for-1-adult-and-1-dog-for {
+  color: rgba(0, 0, 0, 0.4);
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: -0.38px;
+  font-weight: 700;
+  position: absolute;
+  right: 122.73px;
+  left: 56.43000030517578px;
+  top: 105.96px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.international-competitions {
+  color: rgba(0, 0, 0, 0.4);
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: -0.38px;
+  font-weight: 700;
+  position: absolute;
+  right: 139.87px;
+  left: 56.43000030517578px;
+  top: 129.71px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+._45 {
+  color: #465067;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 72px;
+  line-height: 72px;
+  letter-spacing: -3.6px;
+  font-weight: 700;
+  position: absolute;
+  right: 246.34px;
+  left: 56.43000030517578px;
+  top: 194.97px;
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.qar {
+  color: rgba(0, 0, 0, 0.3);
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 14px;
+  line-height: 22.4px;
+  letter-spacing: 2.8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  right: 200.59px;
+  left: 146.13999938964844px;
+  top: 244.97px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.list {
+  height: 221.72px;
+  position: absolute;
+  right: 56.01px;
+  left: 56.43000030517578px;
+  top: 317.77px;
+}
+.item {
+  height: 25.34px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 0px;
+}
+.background7 {
+  background: #e99f3d;
+  border-radius: 4px;
+  width: 7.91px;
+  height: 7.91px;
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  translate: 0 -50%;
+}
+.overlay-shadow2 {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  width: 7.91px;
+  height: 7.91px;
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  translate: 0 -50%;
+  box-shadow: 0px 1px 2px -1px rgba(233, 159, 61, 0.4),
+    0px 1px 3px 0px rgba(233, 159, 61, 0.4);
+}
+.wku-international-judging {
+  color: #465067;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  letter-spacing: -0.4px;
+  font-weight: 700;
+  position: absolute;
+  left: 23.74px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 200.84px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.item2 {
+  height: 25.34px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 49.09px;
+}
+.dog-arena-access {
+  color: #465067;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  letter-spacing: -0.4px;
+  font-weight: 700;
+  position: absolute;
+  left: 23.74px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 137.78px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.item3 {
+  height: 25.34px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 98.19px;
+}
+.competition-entry-slot {
+  color: #465067;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  letter-spacing: -0.4px;
+  font-weight: 700;
+  position: absolute;
+  left: 23.74px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 169.11px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.item4 {
+  height: 25.34px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 147.28px;
+}
+.nova-vet-health-check {
+  color: #465067;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  letter-spacing: -0.4px;
+  font-weight: 700;
+  position: absolute;
+  left: 23.74px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 171.5px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.item5 {
+  height: 25.34px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 196.37px;
+}
+.festival-giveaway-bag {
+  color: #465067;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  letter-spacing: -0.4px;
+  font-weight: 700;
+  position: absolute;
+  left: 23.74px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 167.01px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.link6 {
+  background: #fc7a12;
+  border-radius: 4px;
+  height: 63.36px;
+  position: absolute;
+  right: 56.01px;
+  left: 56.43000030517578px;
+  top: 602.85px;
+}
+.link-shadow5 {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  height: 63.36px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 0px;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
+.purchase-ticket {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 14px;
+  line-height: 22.4px;
+  letter-spacing: 2.8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  translate: -50% -50%;
+  top: 50%;
+  width: 172.69px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.background-border3 {
+  background: #f5f5f0;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.05);
+  border-width: 1px;
+  height: 722.64px;
+  position: absolute;
+  right: 757.69px;
+  left: 757.6599731445312px;
+  top: 389.61px;
+}
+.overlay-shadow3 {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  top: 0px;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
+.heading-3-cat-owner-pass {
+  color: #465067;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 36px;
+  line-height: 36px;
+  letter-spacing: -0.9px;
+  font-weight: 700;
+  position: absolute;
+  right: 68.92px;
+  left: 56.43000030517578px;
+  top: 54.44px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.entry-for-1-adult-and-up-to-2-cats-for {
+  color: rgba(0, 0, 0, 0.4);
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: -0.38px;
+  font-weight: 700;
+  position: absolute;
+  right: 78.48px;
+  left: 56.43000030517578px;
+  top: 105.96px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.local-intl-shows {
+  color: rgba(0, 0, 0, 0.4);
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: -0.38px;
+  font-weight: 700;
+  position: absolute;
+  right: 204.26px;
+  left: 56.43000030517578px;
+  top: 129.71px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+._452 {
+  color: #465067;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 72px;
+  line-height: 72px;
+  letter-spacing: -3.6px;
+  font-weight: 700;
+  position: absolute;
+  right: 246.79px;
+  left: 56.43000030517578px;
+  top: 194.97px;
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.qar2 {
+  color: rgba(0, 0, 0, 0.3);
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 14px;
+  line-height: 22.4px;
+  letter-spacing: 2.8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  right: 201.04px;
+  left: 146.13999938964844px;
+  top: 244.97px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.list2 {
+  height: 221.72px;
+  position: absolute;
+  right: 56.44px;
+  left: 56.43000030517578px;
+  top: 317.77px;
+}
+.wcf-international-judging {
+  color: #465067;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  letter-spacing: -0.4px;
+  font-weight: 700;
+  position: absolute;
+  left: 23.74px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 198.91px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.cat-dome-priority-access {
+  color: #465067;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  letter-spacing: -0.4px;
+  font-weight: 700;
+  position: absolute;
+  left: 23.74px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 190.62px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.grooming-zone-entry {
+  color: #465067;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  letter-spacing: -0.4px;
+  font-weight: 700;
+  position: absolute;
+  left: 23.74px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 159.42px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.drawing-battle-participation {
+  color: #465067;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  letter-spacing: -0.4px;
+  font-weight: 700;
+  position: absolute;
+  left: 23.74px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 208.85px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.link7 {
+  background: #fc7b13;
+  border-radius: 4px;
+  height: 63.36px;
+  position: absolute;
+  right: 56.44px;
+  left: 56.43000030517578px;
+  top: 602.85px;
+}
+.background-border4 {
+  background: #f5f5f0;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.05);
+  border-width: 1px;
+  height: 723px;
+  position: absolute;
+  right: 312.8px;
+  left: 1175px;
+  top: 389.27px;
+}
+.heading-3-visitor-pass {
+  color: #465067;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 36px;
+  line-height: 36px;
+  letter-spacing: -0.9px;
+  font-weight: 700;
+  position: absolute;
+  right: 134.74px;
+  left: 56.439998626708984px;
+  top: 54.44px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.general-admission-for-families-and-pet {
+  color: rgba(0, 0, 0, 0.4);
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: -0.38px;
+  font-weight: 700;
+  position: absolute;
+  right: 62.03px;
+  left: 56.439998626708984px;
+  top: 105.96px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.enthusiasts {
+  color: rgba(0, 0, 0, 0.4);
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: -0.38px;
+  font-weight: 700;
+  position: absolute;
+  right: 241.33px;
+  left: 56.439998626708984px;
+  top: 129.71px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+._453 {
+  color: #465067;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 72px;
+  line-height: 72px;
+  letter-spacing: -3.6px;
+  font-weight: 700;
+  position: absolute;
+  right: 246.33px;
+  left: 56.439998626708984px;
+  top: 194.97px;
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.list3 {
+  height: 221.72px;
+  position: absolute;
+  right: 56px;
+  left: 56.439998626708984px;
+  top: 317.77px;
+}
+.access-to-all-festival-zones {
+  color: #465067;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  letter-spacing: -0.4px;
+  font-weight: 700;
+  position: absolute;
+  left: 23.73px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 208.19px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.main-stage-performances {
+  color: #465067;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  letter-spacing: -0.4px;
+  font-weight: 700;
+  position: absolute;
+  left: 23.73px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 193.38px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.carnival-food-court {
+  color: #465067;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  letter-spacing: -0.4px;
+  font-weight: 700;
+  position: absolute;
+  left: 23.73px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 162.47px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.interactive-photo-zones {
+  color: #465067;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  letter-spacing: -0.4px;
+  font-weight: 700;
+  position: absolute;
+  left: 23.73px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 178.07px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.kids-zone-activities {
+  color: #465067;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  letter-spacing: -0.4px;
+  font-weight: 700;
+  position: absolute;
+  left: 23.73px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 149.32px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.link8 {
+  background: #fc7c14;
+  border-radius: 4px;
+  height: 63.36px;
+  position: absolute;
+  right: 56px;
+  left: 56.439998626708984px;
+  top: 602.85px;
+}
+.pets-13 {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  left: 21px;
+  top: 1023.27px;
+  overflow: visible;
+}
+.black-cat-13 {
+  width: 241px;
+  height: 241px;
+  position: absolute;
+  left: 1652px;
+  top: 1035.27px;
+  overflow: visible;
+}
+.white-paw-print-2 {
+  width: 420px;
+  height: 404px;
+  position: absolute;
+  left: 0px;
+  top: 328.27px;
+  object-fit: cover;
+  aspect-ratio: 420/404;
+}
+.white-paw-print-3 {
+  width: 420px;
+  height: 404px;
+  position: absolute;
+  left: 0px;
+  top: 3485.27px;
+  object-fit: cover;
+  aspect-ratio: 420/404;
+}
+.section5 {
+  background: #fff2e5;
+  height: 950.38px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 1270.65px;
+}
+.chat-gpt-image-jun-4-2026-03-09-57-pm-1 {
+  width: 550px;
+  height: 675px;
+  position: absolute;
+  left: 313px;
+  top: 140.62px;
+  object-fit: cover;
+  aspect-ratio: 550/675;
+}
+.background8 {
+  background: #465067;
+  border-radius: 4px;
+  height: 33.23px;
+  position: absolute;
+  right: 781.55px;
+  left: 997.909912109375px;
+  top: 138.51px;
+}
+.the-venue {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 11px;
+  line-height: 17.6px;
+  letter-spacing: 2.2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 19.79px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 82.08px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.heading-22 {
+  height: 213.84px;
+  position: absolute;
+  right: 340.56px;
+  left: 997.909912109375px;
+  top: 207.42px;
+}
+.a-world-class {
+  color: #465067;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 72px;
+  line-height: 72px;
+  letter-spacing: -3.6px;
+  font-weight: 700;
+  position: absolute;
+  left: 0px;
+  top: -4px;
+  width: 441.05px;
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.destination-for {
+  color: #465067;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 72px;
+  line-height: 72px;
+  letter-spacing: -3.6px;
+  font-weight: 700;
+  position: absolute;
+  left: 0px;
+  top: 67.28px;
+  width: 453.75px;
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.pets {
+  color: #465067;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 72px;
+  line-height: 72px;
+  letter-spacing: -3.6px;
+  font-weight: 700;
+  position: absolute;
+  left: 0px;
+  top: 138.56px;
+  width: 144.08px;
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.recognized-as-one-of-the-country-s-most-beloved-pet-friendly-destinations-pets-park-is-where-the-pet-community-comes-together-a-place-for-connection-education-recreation-and-unforgettable-experiences-it-welcomes-everyone-who-believes-that-pets-are-more-than-companions-they-are-family-from-casual-visits-to-major-community-events-pets-park-continues-to-unite-pet-lovers-from-across-qatar-in-one-extraordinary-setting {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 500;
+  position: absolute;
+  right: 358.16px;
+  left: 997.909912109375px;
+  top: 576.93px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.link9 {
+  background: #465067;
+  border-radius: 4px;
+  height: 63.36px;
+  position: absolute;
+  right: 525.2px;
+  left: 997.909912109375px;
+  top: 746.48px;
+}
+.link-shadow6 {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  height: 63.36px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: -1px;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
+.get-directions-contact-us {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 14px;
+  line-height: 22.4px;
+  letter-spacing: 2.8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  translate: -50% -50%;
+  top: 50%;
+  width: 299.05px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.white-paw-print-14 {
+  width: 410px;
+  height: 380px;
+  position: absolute;
+  left: 1922px;
+  top: 379.62px;
+  transform-origin: 0 0;
+  transform: rotate(180deg) scale(1, 1);
+  object-fit: cover;
+  aspect-ratio: 410/380;
+}
+.footer {
+  background: #fbc84f;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.05);
+  border-width: 1.01px 0px 0px 0px;
+  height: 1001.38px;
+  position: absolute;
+  right: 0.2px;
+  left: 0px;
+  top: 7474.19px;
+  overflow: hidden;
+}
+.overlay-blur2 {
+  background: rgba(233, 159, 61, 0.05);
+  border-radius: 12px;
+  width: 495px;
+  height: 495px;
+  position: absolute;
+  right: -253.43px;
+  top: -252.44px;
+  filter: blur(60px);
+}
+.overlay-blur3 {
+  background: rgba(233, 159, 61, 0.05);
+  border-radius: 12px;
+  width: 396px;
+  height: 396px;
+  position: absolute;
+  left: -190.08px;
+  bottom: -190.07px;
+  filter: blur(50px);
+}
+.horizontal-border3 {
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.1);
+  border-width: 0px 0px 1.01px 0px;
+  height: 285.84px;
+  position: absolute;
+  right: 340.56px;
+  left: 340.54998779296875px;
+  top: 96.03px;
+}
+.heading-23 {
+  width: 633.59px;
+  height: 117.59px;
+  position: absolute;
+  left: 0px;
+  top: calc(50% - 142.92px);
+}
+.don-t-miss-a-single-wag {
+  text-align: left;
+  font-family: "-", sans-serif;
+  font-size: 54px;
+  line-height: 59.4px;
+  letter-spacing: -2.7px;
+  font-weight: 400;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 553.71px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.don-t-miss-a-single-wag-span {
+  color: #37352f;
+  font-family: "Archivo-Bold", sans-serif;
+  font-weight: 700;
+}
+.don-t-miss-a-single-wag-span2 {
+  color: #ffffff;
+  font-family: "Archivo-Bold", sans-serif;
+  font-weight: 700;
+}
+.don-t-miss-a-single-wag-span3 {
+  color: #fc7810;
+  font-family: "Archivo-BoldItalic", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+.purr-or-roar {
+  color: #fc7810;
+  text-align: left;
+  font-family: "Archivo-BoldItalic", sans-serif;
+  font-size: 54px;
+  line-height: 59.4px;
+  letter-spacing: -2.7px;
+  font-weight: 700;
+  font-style: italic;
+  position: absolute;
+  left: 0px;
+  top: 58.8px;
+  width: 278.28px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.subscribe-for-exclusive-festival-updates-competition-results-and {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 20px;
+  line-height: 32.5px;
+  font-weight: 500;
+  position: absolute;
+  left: 0px;
+  top: calc(50% - -2.42px);
+  width: 621.4px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.early-bird-ticket-access {
+  color: #1e1e1e;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 20px;
+  line-height: 32.5px;
+  font-weight: 500;
+  position: absolute;
+  left: 0px;
+  top: calc(50% - -34.58px);
+  width: 230.91px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.input {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  border-style: solid;
+  border-color: #e99f3d;
+  border-width: 1px;
+  height: 74.81px;
+  position: absolute;
+  right: 0.01px;
+  left: 764.2899780273438px;
+  top: calc(50% - 77.5px);
+  overflow: hidden;
+}
+.container2 {
+  height: 19px;
+  position: absolute;
+  right: 32.66px;
+  left: 32.68000030517578px;
+  top: 27.75px;
+  overflow: hidden;
+}
+.enter-your-email-address {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 187.32px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.button2 {
+  background: #fc7810;
+  border-radius: 4px;
+  height: 55.44px;
+  position: absolute;
+  right: 11.88px;
+  left: 1034.25px;
+  top: calc(50% - 67.81px);
+}
+.button-shadow {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  height: 55.44px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 50%;
+  translate: 0 -50%;
+  box-shadow: 0px 1px 2px -1px rgba(233, 159, 61, 0.2),
+    0px 1px 3px 0px rgba(233, 159, 61, 0.2);
+}
+.join-now {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 12px;
+  line-height: 19.2px;
+  letter-spacing: 2.4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: calc(50% - 55.61px);
+  top: 50%;
+  translate: 0 -50%;
+  width: 80.85px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.svg2 {
+  width: 17.81px;
+  height: 17.81px;
+  position: absolute;
+  left: 124.08px;
+  top: 50%;
+  translate: 0 -50%;
+  overflow: visible;
+}
+.nova-paw2 {
+  height: 105.19px;
+  position: absolute;
+  right: 1444.03px;
+  left: 340.54998779296875px;
+  top: 461.06px;
+  overflow: hidden;
+  aspect-ratio: 137.22/105.19;
+}
+.qatar-s-first-international-pet-festival-wku {
+  color: #37352f;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 500;
+  position: absolute;
+  right: 1224.57px;
+  left: 340.54998779296875px;
+  top: 592.75px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.wcf-judged-competitions-family-fun-and {
+  color: #37352f;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 500;
+  position: absolute;
+  right: 1241.82px;
+  left: 340.54998779296875px;
+  top: 618.48px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.celebration-of-our-furry-companions {
+  color: #37352f;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 500;
+  position: absolute;
+  right: 1281.5px;
+  left: 340.54998779296875px;
+  top: 644.22px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.link10 {
+  border-radius: 4px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.1);
+  border-width: 1px;
+  height: 47.52px;
+  position: absolute;
+  right: 1512.73px;
+  left: 340.54998779296875px;
+  top: 706.54px;
+}
+.link-shadow7 {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  width: 47.52px;
+  height: 47.52px;
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  translate: 0 -50%;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
+.svg3 {
+  width: 19.8px;
+  height: 19.8px;
+  position: absolute;
+  left: 50%;
+  translate: -50% -50%;
+  top: 50%;
+  overflow: visible;
+}
+.link11 {
+  border-radius: 4px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.1);
+  border-width: 1px;
+  height: 47.52px;
+  position: absolute;
+  right: 1445.42px;
+  left: 407.8599853515625px;
+  top: 706.54px;
+}
+.svg4 {
+  width: 19.8px;
+  height: 19.8px;
+  position: absolute;
+  left: 50%;
+  translate: -50% -50%;
+  top: 50%;
+  overflow: visible;
+}
+.link12 {
+  border-radius: 4px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.1);
+  border-width: 1px;
+  height: 47.52px;
+  position: absolute;
+  right: 1378.11px;
+  left: 475.1700134277344px;
+  top: 706.54px;
+}
+.svg5 {
+  width: 19.8px;
+  height: 19.8px;
+  position: absolute;
+  left: 50%;
+  translate: -50% -50%;
+  top: 50%;
+  overflow: visible;
+}
+.heading-4-discover {
+  color: #475168;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 2.4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  right: 964.32px;
+  left: 853.77001953125px;
+  top: 462.06px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.list4 {
+  height: 232.02px;
+  position: absolute;
+  right: 853.78px;
+  left: 853.77001953125px;
+  top: 515.5px;
+}
+.item-link {
+  height: 22.17px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 0px;
+}
+.svg6 {
+  opacity: 0;
+  width: 13.86px;
+  height: 13.86px;
+  position: absolute;
+  left: -15.83px;
+  top: 50%;
+  translate: 0 -50%;
+  overflow: visible;
+}
+.home {
+  color: #1f190a;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 14px;
+  line-height: 22.4px;
+  letter-spacing: 1.4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 5.93px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 48.27px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.item-link2 {
+  height: 22.17px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 41.97px;
+}
+.svg7 {
+  opacity: 0;
+  width: 13.86px;
+  height: 13.86px;
+  position: absolute;
+  left: -15.83px;
+  top: 50%;
+  translate: 0 -50%;
+  overflow: visible;
+}
+.about {
+  color: #1f190a;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 14px;
+  line-height: 22.4px;
+  letter-spacing: 1.4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 5.93px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 56.9px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.item-link3 {
+  height: 22.17px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 83.94px;
+}
+.svg8 {
+  opacity: 0;
+  width: 13.86px;
+  height: 13.86px;
+  position: absolute;
+  left: -15.83px;
+  top: 50%;
+  translate: 0 -50%;
+  overflow: visible;
+}
+.competitions3 {
+  color: #1f190a;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 14px;
+  line-height: 22.4px;
+  letter-spacing: 1.4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 5.93px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 124.87px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.item-link4 {
+  height: 22.17px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 125.9px;
+}
+.svg9 {
+  opacity: 0;
+  width: 13.86px;
+  height: 13.86px;
+  position: absolute;
+  left: -15.83px;
+  top: 50%;
+  translate: 0 -50%;
+  overflow: visible;
+}
+.tickets2 {
+  color: #1f190a;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 14px;
+  line-height: 22.4px;
+  letter-spacing: 1.4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 5.93px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 70.06px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.item-link5 {
+  height: 22.17px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 167.87px;
+}
+.svg10 {
+  opacity: 0;
+  width: 13.86px;
+  height: 13.86px;
+  position: absolute;
+  left: -15.83px;
+  top: 50%;
+  translate: 0 -50%;
+  overflow: visible;
+}
+.gallery {
+  color: #1f190a;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 14px;
+  line-height: 22.4px;
+  letter-spacing: 1.4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 5.93px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 73.25px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.item-link6 {
+  height: 22.17px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 209.84px;
+}
+.svg11 {
+  opacity: 0;
+  width: 13.86px;
+  height: 13.86px;
+  position: absolute;
+  left: -15.83px;
+  top: 50%;
+  translate: 0 -50%;
+  overflow: visible;
+}
+.contact {
+  color: #1f190a;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 14px;
+  line-height: 22.4px;
+  letter-spacing: 1.4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 5.93px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 78.8px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.heading-4-get-in-touch {
+  color: #475168;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 2.4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  right: 675.84px;
+  left: 1110.3800048828125px;
+  top: 462.06px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.list5 {
+  height: 274.22px;
+  position: absolute;
+  right: 597.17px;
+  left: 1110.3800048828125px;
+  top: 515.5px;
+}
+.item6 {
+  height: 60.97px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 0px;
+}
+.call-support {
+  color: #37352f;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 11px;
+  line-height: 17.6px;
+  letter-spacing: 2.2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  right: 84.05px;
+  left: 0px;
+  top: 1px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.overlay3 {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  height: 31.67px;
+  position: absolute;
+  right: 161.58px;
+  left: 0px;
+  top: 29.29px;
+}
+.svg12 {
+  width: 13.86px;
+  height: 13.86px;
+  position: absolute;
+  left: 50%;
+  translate: -50% -50%;
+  top: 50%;
+  overflow: visible;
+}
+.link-974-3302-2248 {
+  color: #fc7911;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  letter-spacing: -0.4px;
+  font-weight: 700;
+  position: absolute;
+  right: 19.43px;
+  left: 47.5px;
+  top: 35.45px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.item7 {
+  height: 60.97px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 92.64px;
+}
+.email-us {
+  color: #37352f;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 11px;
+  line-height: 17.6px;
+  letter-spacing: 2.2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  right: 123.8px;
+  left: 0px;
+  top: 1px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.overlay4 {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  height: 31.67px;
+  position: absolute;
+  right: 179.39px;
+  left: 0px;
+  top: 29.3px;
+}
+.svg13 {
+  width: 13.86px;
+  height: 13.86px;
+  position: absolute;
+  left: 50%;
+  translate: -50% -50%;
+  top: 50%;
+  overflow: visible;
+}
+.link-contact-novapawfestival-com {
+  color: #fc7911;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+  font-weight: 700;
+  position: absolute;
+  right: -80.52px;
+  left: 29.68000030517578px;
+  top: 35.45px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.item8 {
+  height: 88.94px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  top: 185.28px;
+}
+.location-date {
+  color: #37352f;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 11px;
+  line-height: 17.6px;
+  letter-spacing: 2.2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  right: 63.31px;
+  left: 0px;
+  top: 1px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.overlay5 {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  height: 31.67px;
+  position: absolute;
+  right: 172.81px;
+  left: 0px;
+  top: 43.28px;
+}
+.svg14 {
+  width: 13.86px;
+  height: 13.86px;
+  position: absolute;
+  left: 50%;
+  translate: -50% -50%;
+  top: 50%;
+  overflow: visible;
+}
+.link13 {
+  height: 59.64px;
+  position: absolute;
+  right: -5.35px;
+  left: 41.6201171875px;
+  top: 43.03px;
+}
+.pet-park-the-pearl {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 142.57px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.island-qatar {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  position: absolute;
+  left: 0px;
+  top: 19.79px;
+  width: 99.13px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.november-27-28-2026 {
+  color: #ee7124;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 13px;
+  line-height: 16.25px;
+  font-weight: 500;
+  position: absolute;
+  left: 0px;
+  top: 43.54px;
+  width: 145.37px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.heading-4-resources {
+  color: #475168;
+  text-align: left;
+  font-family: "Archivo-Bold", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 2.4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  right: 435.44px;
+  left: 1366.97998046875px;
+  top: 462.06px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.list6 {
+  height: 64.14px;
+  position: absolute;
+  right: 340.57px;
+  left: 1366.97998046875px;
+  top: 515.5px;
+}
+.svg15 {
+  opacity: 0;
+  width: 13.86px;
+  height: 13.86px;
+  position: absolute;
+  left: -15.82px;
+  top: 50%;
+  translate: 0 -50%;
+  overflow: visible;
+}
+.terms-conditions {
+  color: #37352f;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 14px;
+  line-height: 22.4px;
+  letter-spacing: 1.4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 5.94px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 178.78px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.svg16 {
+  opacity: 0;
+  width: 13.86px;
+  height: 13.86px;
+  position: absolute;
+  left: -15.82px;
+  top: 50%;
+  translate: 0 -50%;
+  overflow: visible;
+}
+.privacy-policy {
+  color: #37352f;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 14px;
+  line-height: 22.4px;
+  letter-spacing: 1.4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 5.94px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 136.15px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.horizontal-border4 {
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.05);
+  border-width: 1.01px 0px 0px 0px;
+  width: 1240.69px;
+  height: 69.11px;
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  top: 884.75px;
+}
+._2026-nova-paw-festival-all-rights-reserved {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 13px;
+  line-height: 20.8px;
+  font-weight: 500;
+  position: absolute;
+  left: 466px;
+  top: calc(50% - -5.51px);
+  width: 294.86px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.background9 {
+  background: #e99f3d;
+  border-radius: 12px;
+  width: 7.91px;
+  height: 7.91px;
+  position: absolute;
+  left: 1090.34px;
+  top: calc(50% - -20.28px);
+}
+.doha-qatar {
+  color: rgba(255, 255, 255, 0.2);
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 11px;
+  line-height: 17.6px;
+  letter-spacing: 2.2px;
+  font-weight: 500;
+  text-transform: uppercase;
+  position: absolute;
+  left: 1122px;
+  top: calc(50% - -16.53px);
+  width: 98.04px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.white-paw-print-15 {
+  width: 420px;
+  height: 404px;
+  position: absolute;
+  left: 1922px;
+  top: 393.81px;
+  transform-origin: 0 0;
+  transform: rotate(180deg) scale(1, 1);
+  object-fit: cover;
+  aspect-ratio: 420/404;
+}
+.logo-nova-arabic-english-1 {
+  width: 434px;
+  height: 434px;
+  position: absolute;
+  left: 273px;
+  top: 256.81px;
+  object-fit: cover;
+  aspect-ratio: 1;
+}
+.don-t-miss-out-on-this-incredible-opportunity-to-celebrate {
+  color: rgba(255, 255, 255, 0.8);
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 22px;
+  line-height: 35.2px;
+  font-weight: 500;
+  position: absolute;
+  left: 276px;
+  top: calc(50% - -265.12px);
+  width: 484px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.your-pets-connect-with-fellow-lovers-and-experience-the {
+  color: rgba(255, 255, 255, 0.8);
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 22px;
+  line-height: 35.2px;
+  font-weight: 500;
+  position: absolute;
+  left: 276px;
+  top: calc(50% - -294.12px);
+  width: 485px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.thrill-of-the-festival {
+  color: rgba(255, 255, 255, 0.8);
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 22px;
+  line-height: 35.2px;
+  font-weight: 500;
+  position: absolute;
+  left: 276px;
+  top: calc(50% - -323.12px);
+  width: 164px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.link14 {
+  background: #fc7911;
+  border-radius: 4px;
+  width: 244px;
+  height: 58px;
+  position: absolute;
+  left: 276px;
+  top: calc(50% - -396.12px);
+}
+.link-shadow8 {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  position: absolute;
+  right: -0.2px;
+  left: 0px;
+  bottom: 0.33px;
+  top: 0px;
+  box-shadow: 0px 1px 2px -1px rgba(233, 159, 61, 0.3),
+    0px 1px 3px 0px rgba(233, 159, 61, 0.3);
+}
+.get-tickets-now {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 14px;
+  line-height: 22.4px;
+  letter-spacing: 2.8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: calc(50% - 103.48px);
+  top: 50%;
+  translate: 0 -50%;
+  width: 171.88px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.svg17 {
+  width: 19.8px;
+  height: 19.8px;
+  position: absolute;
+  left: calc(50% - -83.89px);
+  top: 50%;
+  translate: 0 -50%;
+  overflow: visible;
+}
+.link15 {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.2);
+  border-width: 1px;
+  width: 174px;
+  height: 59px;
+  position: absolute;
+  left: 540px;
+  top: calc(50% - -396.12px);
+  backdrop-filter: blur(6px);
+}
+.link-shadow9 {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  position: absolute;
+  right: -0.42px;
+  left: 0px;
+  bottom: 0.33px;
+  top: 0px;
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
+.learn-more {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 14px;
+  line-height: 22.4px;
+  letter-spacing: 2.8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  translate: -50% -50%;
+  top: 50%;
+  width: 118.77px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.white-paw-print-16 {
+  width: 420px;
+  height: 404px;
+  position: absolute;
+  left: 1922px;
+  top: 4711px;
+  transform-origin: 0 0;
+  transform: rotate(180deg) scale(1, 1);
+  object-fit: cover;
+  aspect-ratio: 420/404;
+}
+.image-1 {
+  width: 1300px;
+  height: 494px;
+  position: absolute;
+  left: 297px;
+  top: 6528px;
+  object-fit: cover;
+  aspect-ratio: 1300/494;
+}

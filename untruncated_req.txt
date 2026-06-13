@@ -1,0 +1,27 @@
+<USER_REQUEST>
+hi  ineed to updatre the home page of website, <div style="width: 1920px; height: 8475.56px; position: relative; background: #FFF2E5">
+  <div style="width: 1922px; height: 8635px; left: 0px; top: 0px; position: absolute; background: white">
+    <div style="width: 1922px; height: 1054px; left: 0px; top: 0px; position: absolute; background: #FFF2E5; overflow: hidden">
+      <img style="width: 1920px; height: 822px; left: 0px; top: 126px; position: absolute" src="https://placehold.co/1920x822" />
+      <div style="width: 437px; height: 754px; left: 1377px; top: 157px; position: absolute; background: rgba(251, 200, 79, 0.90); border-radius: 33px"></div>
+      <div style="width: 437px; height: 268px; left: 1376px; top: 436px; position: absolute; background: rgba(255, 255, 255, 0.80); border-radius: 33px"></div>
+      <div style="width: 375px; height: 43px; left: 1411px; top: 461px; position: absolute; justify-content: center; display: flex; flex-direction: column; color: #37352F; font-size: 19px; font-family: Inter; font-weight: 500; line-height: 30.40px; word-wrap: break-word">International judges. Championship competitions. Pet fashion</div>
+      <div style="width: 347px; height: 43px; left: 1411px; top: 517px; position: absolute; justify-content: center; display: flex; flex-direction: column; color: #37352F; font-size: 19px; font-family: Inter; font-weight: 500; line-height: 30.40px; word-wrap: break-word">shows. Grooming battles. Adoption zones. Vet talks. Live</div>
+      <div style="width: 386px; height: 43px; left: 1411px; top: 574px; position: absolute; justify-content: center; display: flex; flex-direction: column; color: #37352F; font-size: 19px; font-family: Inter; font-weight: 500; line-height: 30.40px; word-wrap: break-word">entertainment. Food trucks. Family experiences. This is not just</div>
+      <div style="width: 333px; height: 43px; left: 1411px; top: 633px; position: absolute; justify-content: center; display: flex; flex-direction: column; color: #37352F; font-size: 19px; 
+<truncated 45215 bytes>
+ion: column; color: #465067; font-size: 72px; font-family: Archivo; font-weight: 700; line-height: 72px; word-wrap: break-word">45</div>
+        <div style="width: 47.27px; height: 16px; left: 146.14px; top: 244.97px; position: absolute; justify-content: center; display: flex; flex-direction: column; color: rgba(0, 0, 0, 0.30); font-size: 14px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 22.40px; letter-spacing: 2.80px; word-wrap: break-word">QAR</div>
+        <div style="width: 281.56px; height: 221.72px; left: 56.43px; top: 317.77px; position: absolute">
+          <div style="width: 281.56px; height: 25.34px; left: 0px; top: 0px; position: absolute">
+            <div style="width: 7.91px; height: 7.91px; left: 0px; top: 8.72px; position: absolute; background: #E99F3D; border-radius: 4px">
+              <div style="width: 7.91px; height: 7.91px; left: 0px; top: 0px; position: absolute; background: rgba(255, 255, 255, 0); box-shadow: 0px 1px 2px -1px rgba(233.02, 158.99, 60.99, 0.40), 0px 1px 3px rgba(233.02, 158.99, 60.99, 0.40); border-radius: 4px"></div>
+            </div>
+            <div style="width: 200.84px; height: 19px; left: 23.74px; top: 3px; position: absolute; justify-content: center; display: flex; flex-direction: column; color: #465067; font-size: 16px; font-family: Inter; font-weight: 700; line-height: 25.60px; word-wrap: break-word">WKU International Judging</div>
+          </div>
+          <div style="width: 281.56px; height: 25.34px; left: 0px; top: 49.09px; position: absolute">
+            <div style="width: 7.91px; height: 7.91px; left: 0px; top: 8.72px; position: absolute; background: #E99F3D; border-radius: 4px">
+              <div style="width: 7.91px; height: 7.91px; left: 0px; top: 0px; position: absolute; background: rgba(255, 255, 255, 0); box-shadow: 0px 1px 2px -1px rgba(233.02, 158
+<truncated 49222 bytes>
+
+NOTE: The output was truncated because it was too long. Use a more targeted query or a smaller range to get the information you need.
