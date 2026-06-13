@@ -46,13 +46,6 @@ const HeroSection = () => {
         >
           <source src="/vectors/WIDE VERSION.mp4" type="video/mp4" />
         </video>
-
-        {/* 
-          Refined Light-Mode Gradient Scrim:
-          Blends the video into a warm white layout while ensuring the bottom-left dark text is fully readable.
-        */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-white/95 via-white/40 to-transparent z-1" />
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-black/5 z-1" />
       </motion.div>
 
       {/* ── Top Decorative Border ── */}
