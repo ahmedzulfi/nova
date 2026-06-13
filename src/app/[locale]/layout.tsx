@@ -1,6 +1,6 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
-import { Inter, Archivo, Cairo, Archivo_Black } from "next/font/google";
+import { Inter, Archivo, Cairo, Archivo_Black, Playfair_Display } from "next/font/google";
 import "../globals.css";
 import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
@@ -26,6 +26,13 @@ const archivoBlack = Archivo_Black({
   subsets: ["latin"],
   variable: "--font-archivo-black",
   display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+  style: ["normal", "italic"],
 });
 
 const cairo = Cairo({
@@ -63,7 +70,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} className={`${inter.variable} ${archivo.variable} ${cairo.variable} ${archivoBlack.variable}`}>
+    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} className={`${inter.variable} ${archivo.variable} ${cairo.variable} ${archivoBlack.variable} ${playfair.variable}`}>
       <body className="antialiased">
         <NextIntlClientProvider messages={messages}>
           <TooltipProvider>

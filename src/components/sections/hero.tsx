@@ -30,15 +30,14 @@ const HeroSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-[100dvh] overflow-hidden bg-black flex flex-col"
+      className="relative w-full min-h-[100dvh] overflow-hidden bg-black flex flex-col items-center justify-center"
       aria-label="Nova Paw Festival Hero"
     >
-      {/* ── Full-bleed video background ── */}
+      {/* ── Full-bleed video ── */}
       <motion.div
         style={{ y: videoY }}
         className="absolute inset-0 w-full h-[115%] z-0 will-change-transform"
       >
-        {/* Poster fallback */}
         <div className={`absolute inset-0 transition-opacity duration-1000 ${videoReady ? 'opacity-0' : 'opacity-100'}`}>
           <Image
             src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2069&auto=format&fit=crop"
@@ -48,7 +47,6 @@ const HeroSection = () => {
             priority
           />
         </div>
-
         <video
           ref={videoRef}
           autoPlay
@@ -60,120 +58,95 @@ const HeroSection = () => {
           <source src="/vectors/WIDE VERSION.mp4" type="video/mp4" />
         </video>
 
-        {/* Cinematic gradient scrim — heavier at bottom for text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/10" />
-        {/* Subtle left vignette */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent" />
+        {/* Dark scrim over video */}
+        <div className="absolute inset-0 bg-black/50" />
       </motion.div>
 
-      {/* ── Content — bottom-left anchored ── */}
-      <div className="relative z-10 flex-1 flex flex-col justify-end pb-16 md:pb-20 lg:pb-24 pt-[90px]">
-        <div className="max-w-[1330px] mx-auto px-6 md:px-10 w-full">
+      {/* ── Centered content ── */}
+      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-[900px] mx-auto pt-[89px]">
 
-          {/* Event label */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-            className="mb-5 md:mb-7"
+        {/* Event tag */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+          className="mb-6"
+        >
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 border border-white/20 rounded-sm text-[10px] font-bold uppercase tracking-[0.28em] text-white/70 backdrop-blur-sm bg-white/5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FC7911] inline-block" />
+            {t('video_badge_top')}
+          </span>
+        </motion.div>
+
+        {/* Main headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          className="font-playfair italic font-semibold text-white leading-[1.05] tracking-tight mb-6"
+          style={{ fontSize: 'clamp(54px, 10vw, 110px)' }}
+        >
+          Nova Paw{' '}
+          <span className="text-[#FBC84F]">Festival</span>
+        </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
+          className="text-[16px] md:text-[18px] text-white/65 leading-relaxed font-sans font-medium max-w-[560px] mb-4"
+        >
+          {t('subtitle')}
+        </motion.p>
+
+        {/* Date */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.48 }}
+          className="mb-10"
+        >
+          <span className="text-[11px] font-bold uppercase tracking-[0.26em] text-[#FBC84F]/80">
+            {t('badge')}
+          </span>
+        </motion.div>
+
+        {/* CTA buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.55 }}
+          className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto"
+        >
+          <Link
+            href="/competitions"
+            className="inline-flex items-center justify-center h-12 px-8 bg-[#FC7911] hover:bg-[#FBC84F] text-white hover:text-black rounded-sm font-bold uppercase tracking-[0.2em] text-[12px] transition-all duration-200 active:scale-[0.97] shadow-lg shadow-[#FC7911]/25"
           >
-            <span className="inline-flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.28em] text-white/60">
-              {/* Orange dot accent */}
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FC7911] inline-block" />
-              {t('video_badge_top')}
-            </span>
-          </motion.div>
-
-          {/* Massive headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
-            className="font-display font-black text-white leading-[0.9] tracking-[-0.04em] mb-6 md:mb-8 max-w-[820px]"
-            style={{ fontSize: 'clamp(58px, 10vw, 108px)' }}
+            {t('cta_competitions')}
+          </Link>
+          <Link
+            href="/tickets"
+            className="inline-flex items-center justify-center h-12 px-8 bg-white/10 hover:bg-white/20 text-white border border-white/25 hover:border-white/50 rounded-sm font-bold uppercase tracking-[0.2em] text-[12px] transition-all duration-200 active:scale-[0.97] backdrop-blur-sm"
           >
-            Nova Paw{' '}
-            <span className="text-[#FBC84F]">Festival</span>
-          </motion.h1>
-
-          {/* Divider + subtitle row */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.45 }}
-            className="flex flex-col md:flex-row md:items-end gap-6 md:gap-12"
-          >
-            {/* Left: subtitle + CTAs */}
-            <div className="flex flex-col gap-6 max-w-[480px]">
-              <p className="text-[15px] md:text-[16px] text-white/70 leading-relaxed font-sans font-medium">
-                {t('subtitle')}
-              </p>
-
-              {/* CTA row */}
-              <div className="flex flex-row gap-3">
-                <Link
-                  href="/competitions"
-                  className="inline-flex items-center justify-center h-11 px-6 bg-[#FC7911] hover:bg-[#FBC84F] text-white hover:text-black rounded-sm font-bold uppercase tracking-[0.18em] text-[11px] transition-all duration-200 active:scale-[0.97]"
-                >
-                  {t('cta_competitions')}
-                </Link>
-                <Link
-                  href="/tickets"
-                  className="inline-flex items-center justify-center h-11 px-6 bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/40 rounded-sm font-bold uppercase tracking-[0.18em] text-[11px] transition-all duration-200 active:scale-[0.97] backdrop-blur-sm"
-                >
-                  {t('cta_tickets')}
-                </Link>
-              </div>
-            </div>
-
-            {/* Right: date + description — horizontal separator */}
-            <div className="hidden md:flex items-start gap-8 md:border-l md:border-white/15 md:pl-10">
-              <div className="flex flex-col gap-1">
-                <span className="text-[10px] uppercase tracking-[0.24em] text-white/40 font-bold">Date</span>
-                <span className="text-[14px] font-bold text-white/80 tracking-tight font-display">
-                  {t('badge')}
-                </span>
-              </div>
-              <div className="w-px h-10 bg-white/10 self-center" />
-              <div className="flex flex-col gap-1 max-w-[220px]">
-                <span className="text-[10px] uppercase tracking-[0.24em] text-white/40 font-bold">Event</span>
-                <span className="text-[13px] text-white/60 leading-snug font-sans">
-                  {t('description')}
-                </span>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Mobile: date strip */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.65, duration: 0.5 }}
-            className="md:hidden mt-6 pt-5 border-t border-white/10"
-          >
-            <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/50">
-              {t('badge')}
-            </span>
-          </motion.div>
-
-        </div>
+            {t('cta_tickets')}
+          </Link>
+        </motion.div>
       </div>
 
       {/* ── Scroll cue ── */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-8 right-8 md:right-12 z-20 hidden md:flex flex-col items-center gap-2"
+        transition={{ delay: 1.1, duration: 0.6 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
       >
         <motion.div
-          animate={{ y: [0, 5, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-          className="w-px h-10 bg-gradient-to-b from-white/0 via-white/40 to-white/0"
+          animate={{ y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
+          className="w-px h-8 bg-gradient-to-b from-white/50 to-white/0"
         />
-        <span className="text-[9px] uppercase tracking-[0.3em] text-white/30 font-bold rotate-90 origin-center mt-2">
-          Scroll
-        </span>
+        <span className="text-[9px] uppercase tracking-[0.3em] text-white/30 font-bold">Scroll</span>
       </motion.div>
 
     </section>
