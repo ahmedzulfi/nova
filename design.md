@@ -16,6 +16,8 @@
   - Absolute-positioned overlays using low-opacity (`opacity-20` to `opacity-40`) PNG assets from `/vectors/` (e.g., paw prints, cat and dog illustrations).
   - Placed in **About Us** (`about-us-grid.tsx`) and **Tickets** (`tickets.tsx`) sections to replicate the Figma designs.
   - Hidden on mobile/tablet screens (using Tailwind `hidden xl:block` or `hidden 2xl:block`) to prevent visual clutter and ensure responsive, RTL-friendly rendering.
+- **Background Media:**
+  - **Hero Background:** Uses the local wide-aspect video asset `/vectors/WIDE VERSION.mp4` with a poster fallback and an overlay overlaying `bg-black/15` for legibility of text content.
 - **Primary (Yellow):** `#FACC15` (bg-primary) - Used for general dashboard actions, accents, and highlights.
 - **Accent (Teal/Blue):** Used for specific tags and categories.
 - **Backgrounds:**

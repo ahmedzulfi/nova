@@ -13,11 +13,11 @@ const AboutUsGrid = () => {
       {/* Top Half: Yellow Section */}
       <div className="bg-[#FBC84F] relative h-[360px] sm:h-[460px] lg:h-[571px] overflow-hidden z-10 flex flex-col justify-between items-center py-8">
         {/* Decorative Figma Paw Prints on Yellow */}
-        <div className="absolute left-[-220px] sm:left-[-180px] lg:left-[-225px] top-[80px] lg:top-[207px] w-[320px] h-[307px] lg:w-[420px] lg:h-[404px] opacity-100 pointer-events-none select-none">
-          <Image src="/vectors/White_paw_print 1 copy 2.png" alt="" fill className="object-contain" />
+        <div className="absolute left-0 bottom-0 w-[180px] sm:w-[220px] lg:w-[260px] aspect-[420/404] opacity-100 pointer-events-none select-none">
+          <Image src="/vectors/White_paw_print 1 copy 2.png" alt="" fill className="object-contain object-left-bottom" />
         </div>
-        <div className="absolute right-[-180px] sm:right-[-150px] lg:right-[-15px] top-[30px] lg:top-[328px] w-[320px] h-[307px] lg:w-[420px] lg:h-[404px] opacity-100 pointer-events-none select-none transform rotate-[-162deg] lg:origin-top-left">
-          <Image src="/vectors/White_paw_print 1-1.png" alt="" fill className="object-contain" />
+        <div className="absolute right-0 top-0 w-[220px] sm:w-[280px] lg:w-[340px] aspect-[420/404] opacity-100 pointer-events-none select-none">
+          <Image src="/vectors/White_paw_print 1-1.png" alt="" fill className="object-contain object-right-top" />
         </div>
 
         {/* Top Center Badge */}
