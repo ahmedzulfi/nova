@@ -65,10 +65,10 @@ const Navigation = () => {
                   href={link.href as any}
                   className="group relative flex flex-col items-center justify-center h-[30px]"
                 >
-                  <p className="text-[13px] xl:text-[14px] font-bold text-black transition-colors group-hover:text-primary uppercase tracking-[0.2em]">
+                  <p className="text-[12px] font-bold text-[#465067] transition-colors group-hover:text-[#FC7911] uppercase tracking-[0.24em]">
                     {link.name}
                   </p>
-                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
+                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FC7911] transition-all duration-300 group-hover:w-full" />
                 </Link>
               ))}
             </div>
@@ -78,7 +78,7 @@ const Navigation = () => {
               {/* Language Switcher */}
               <button
                 onClick={toggleLocale}
-                className="flex items-center gap-2 px-4 py-2 rounded-sm hover:bg-black/5 transition-all text-[12px] font-bold uppercase tracking-widest text-black/60 hover:text-black"
+                className="flex items-center gap-2 px-4 py-2 rounded-sm hover:bg-black/5 transition-all text-[12px] font-bold uppercase tracking-widest text-[#00000099] hover:text-[#FC7911]"
               >
                 <Globe className="w-4 h-4" />
                 {locale === 'en' ? 'عربي' : 'English'}
@@ -97,13 +97,13 @@ const Navigation = () => {
                 <>
                   <Link
                     href="/dashboard"
-                    className="text-[13px] font-bold text-black hover:text-primary transition-colors px-2 xl:px-4 uppercase tracking-[0.2em]"
+                    className="text-[13px] font-bold text-[#465067] hover:text-[#FC7911] transition-colors px-2 xl:px-4 uppercase tracking-[0.26em]"
                   >
                     {t('login')}
                   </Link>
                   <Link
                     href="/tickets"
-                    className="inline-flex items-center justify-center px-5 xl:px-[28px] py-[13px] bg-primary hover:bg-black transition-all hover:scale-105 active:scale-95 rounded-sm text-[12px] font-bold text-white uppercase tracking-[0.2em]"
+                    className="inline-flex items-center justify-center px-5 xl:px-[28px] py-[13px] bg-[#fc7810] hover:bg-[#465067] transition-all hover:scale-105 active:scale-95 rounded-sm text-[12px] font-bold text-white uppercase tracking-[0.24em]"
                   >
                     {t('tickets')}
                   </Link>
@@ -142,7 +142,7 @@ const Navigation = () => {
             <Link
               key={link.name}
               href={link.href as any}
-              className="text-[32px] font-display font-bold text-black hover:text-primary transition-colors border-b border-black/5 pb-6 tracking-tighter"
+              className="text-[32px] font-display font-bold text-[#465067] hover:text-[#FC7911] transition-colors border-b border-black/5 pb-6 tracking-tighter"
               onClick={() => setIsOpen(false)}
             >
               {link.name}
@@ -161,14 +161,14 @@ const Navigation = () => {
               <>
                 <Link
                   href="/dashboard"
-                  className="flex items-center justify-center w-full py-6 text-[14px] font-bold text-black border border-black/10 rounded-sm uppercase tracking-[0.2em]"
+                  className="flex items-center justify-center w-full py-6 text-[14px] font-bold text-[#465067] border border-black/10 rounded-sm uppercase tracking-[0.2em]"
                   onClick={() => setIsOpen(false)}
                 >
                   {t('login')}
                 </Link>
                 <Link
                   href="/tickets"
-                  className="flex items-center justify-center w-full py-6 text-[14px] font-bold text-white bg-primary rounded-sm uppercase tracking-[0.2em]  shadow-sm  shadow-primary/20"
+                  className="flex items-center justify-center w-full py-6 text-[14px] font-bold text-white bg-[#fc7810] rounded-sm uppercase tracking-[0.2em]  shadow-sm "
                   onClick={() => setIsOpen(false)}
                 >
                   {t('tickets')}

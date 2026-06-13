@@ -45,28 +45,28 @@ const HeroSection = () => {
           <div className="lg:col-span-5 bg-[#FBC84F]/90 backdrop-blur-md rounded-[33px] p-8 md:p-10 flex flex-col gap-6 shadow-xl border border-white/20 relative overflow-hidden">
             {/* Headline */}
             <div className="flex flex-col select-none">
-              <h1 className="font-display text-[54px] sm:text-[64px] md:text-[72px] lg:text-[76px] xl:text-[84px] font-bold leading-[0.9] tracking-tighter text-white">
+              <h1 className="font-display text-[54px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[90px] font-bold leading-[0.9] tracking-tighter text-white">
                 Nova Paw
               </h1>
-              <h1 className="font-display text-[54px] sm:text-[64px] md:text-[72px] lg:text-[76px] xl:text-[84px] font-bold leading-[0.9] tracking-tighter text-[#FC7911]">
+              <h1 className="font-display text-[54px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[90px] font-bold leading-[0.9] tracking-tighter text-[#FC7911]">
                 Festival
               </h1>
             </div>
 
             {/* Subtitle */}
-            <h2 className="text-[20px] md:text-[24px] font-bold text-[#37352F] font-display leading-tight tracking-tight">
+            <h2 className="text-[22px] md:text-[26px] font-bold text-[#37352F] font-display leading-[32.5px] tracking-[-0.65px]">
               {t('subtitle')}
             </h2>
 
             {/* White card description overlay */}
             <div className="bg-white/80 backdrop-blur-sm rounded-[33px] p-6 shadow-sm border border-white/40">
-              <p className="text-[15px] md:text-[16px] leading-[1.6] text-[#37352F] font-medium font-body">
+              <p className="text-[15px] md:text-[19px] leading-[30.4px] text-[#37352F] font-medium font-body">
                 {t('description')}
               </p>
             </div>
 
             {/* Date badge */}
-            <div className="bg-[#465067] text-white py-3 px-4 rounded-[4px] text-center text-[11px] font-bold uppercase tracking-[0.2em]">
+            <div className="bg-[#465067] text-white py-4 px-4 rounded-[4px] text-center text-[12px] font-bold uppercase tracking-[2.40px]">
               {t('badge')}
             </div>
 
@@ -74,13 +74,13 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row items-center gap-3 w-full mt-2">
               <Link
                 href="/competitions"
-                className="flex-1 inline-flex items-center justify-center gap-3 w-full h-14 bg-[#FC7810] text-white rounded-[4px] font-bold uppercase tracking-[0.2em] text-[12px] transition-all hover:bg-black active:scale-[0.97] shadow-sm shadow-[#FC7810]/20"
+                className="flex-1 inline-flex items-center justify-center gap-3 w-full h-[60px] bg-[#FC7810] text-white rounded-[4px] font-bold uppercase tracking-[2.60px] text-[13px] leading-[20.8px] transition-all hover:bg-black active:scale-[0.97] shadow-sm shadow-[#FC7810]/20"
               >
                 <span>{t('cta_competitions')}</span>
               </Link>
               <Link
                 href="/tickets"
-                className="flex-1 inline-flex items-center justify-center w-full h-14 bg-[#465067] text-white rounded-[4px] font-bold uppercase tracking-[0.2em] text-[12px] transition-all hover:bg-primary hover:text-black active:scale-[0.97] shadow-sm shadow-[#465067]/10"
+                className="flex-1 inline-flex items-center justify-center w-full h-[60px] bg-[#465067] text-white rounded-[4px] font-bold uppercase tracking-[2.60px] text-[13px] leading-[20.8px] transition-all hover:bg-[#FC7911] active:scale-[0.97] shadow-sm shadow-[#465067]/10"
               >
                 {t('cta_tickets')}
               </Link>
