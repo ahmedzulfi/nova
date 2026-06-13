@@ -17,28 +17,7 @@
   - Placed in **About Us** (`about-us-grid.tsx`) and **Tickets** (`tickets.tsx`) sections to replicate the Figma designs.
   - Hidden on mobile/tablet screens (using Tailwind `hidden xl:block` or `hidden 2xl:block`) to prevent visual clutter and ensure responsive, RTL-friendly rendering.
 - **Background Media:**
-  - **Hero Background:** Uses the local wide-aspect video asset `/vectors/WIDE VERSION.mp4` with cinematic multi-layer gradient overlays (bottom-to-top dark scrim, left-to-right dark scrim, and radial vignette) for editorial drama.
-
-## 🦸 Hero Section Design (Light Mode — Warm Cinematic)
-
-- **Aesthetic Direction:** Full-screen video hero with warm peach overlays. Light, airy, festival feel.
-- **Base Color:** `#FFF2E5` (warm peach), video plays underneath warm gradient layers.
-- **Overlay Layers:** Bottom-up peach scrim (`from-[#FFF2E5]/95`), left-side content zone gradient, top edge fade for nav readability.
-- **Typography:** Fluid `clamp(52px, 8.5vw, 110px)`, tracking `-2px`, `font-black`. "Nova Paw" in near-black `#1a1209`, "Festival" in orange `#FC7911`.
-- **Body Text / Sub-copy:** `#465067` at 80% opacity.
-- **CTA Row:** Primary solid orange `#FC7911` + secondary navy `#465067`. Date/location in muted navy with orange icons.
-- **Stats Row:** Desktop bottom-right with dark `#1a1209` tabular numbers, muted navy labels.
-- **Scroll Indicator:** Bouncing ChevronDown in muted navy.
-- **Entrance Animations:** Staggered `translate-y` + `opacity`, 80ms delay steps.
-
-## 🧭 Navigation Design (Light Mode — Warm White)
-
-- **Background:** Always white/semi-transparent (`bg-white/80`), brighter on scroll (`bg-white/96`).
-- **Border:** Subtle `border-b border-black/[0.06]` bottom line.
-- **Link Color:** Navy `#465067`, hover/active → orange `#FC7911` with animated underline.
-- **CTA Button:** Solid orange `#FC7911` "Get Tickets" with subtle orange shadow.
-- **Mobile Menu:** White slide-in panel from right (340px), white bg, orange active states, navy text.
-- **Hamburger Icon:** Navy `#465067`, transitions to orange on hover.
+  - **Hero Background:** Uses the local wide-aspect video asset `/vectors/WIDE VERSION.mp4` with a poster fallback and an overlay overlaying `bg-black/15` for legibility of text content.
 - **Primary (Yellow):** `#FACC15` (bg-primary) - Used for general dashboard actions, accents, and highlights.
 - **Accent (Teal/Blue):** Used for specific tags and categories.
 - **Backgrounds:**
@@ -79,8 +58,21 @@
 
 ## 🧭 Navigation & Layout
 
-- **Navbar:** Sticky, backdrop-blur, white background.
-- **Logo:** Automatically switches between `Logo New ARABIC final.svg` (for Arabic locale) and `Logo New Final English.svg` (for English locale) to guarantee pixel-perfect brand identity alignment in both Navigation and Footer.
+- **Navbar (navigation.tsx):**
+  - **Layout:** Centered logo with nav links split left/right flanking it (premium event-festival pattern).
+  - **Scroll behavior:** Starts fully transparent over hero video; transitions to `bg-white/95 backdrop-blur-xl` with a subtle border after 40px scroll.
+  - **Logo:** Inverted white (`brightness-0 invert`) when transparent over the dark video, normal when scrolled. Switches between Arabic/English SVG logos.
+  - **Desktop links:** 11px bold uppercase `tracking-[0.22em]` with animated underline on hover. Color adapts: white over video, `#465067` on white.
+  - **CTA:** Frosted-glass pill over video, solid orange on white background.
+  - **Mobile:** Full-screen dark overlay (`bg-[#1a1714]`) with staggered Framer Motion link reveals.
+- **Hero (hero.tsx):**
+  - **Layout:** Full-bleed video (`/vectors/WIDE VERSION.mp4`), content anchored bottom-left — festival-poster composition.
+  - **Typography:** Viewport-relative title (`13vw mobile / 8.5vw desktop`), "Nova Paw" in white, "Festival" in `#FC7911`.
+  - **Overlay:** Two-layer gradient vignette: bottom-up `from-black/90 via-black/30 to-black/10` + left-edge `from-black/60`.
+  - **Video:** Fades in via opacity only after `canplay` event to avoid poster flash.
+  - **CTAs:** Solid orange "Get Tickets" + frosted-glass "Competitions" anchored bottom-right.
+  - **Motion:** Staggered `framer-motion` reveal with `[0.22, 1, 0.36, 1]` easing.
+  - **Scroll indicator:** Animated traveling light bar on right edge (desktop).
 - **Footer:** Deep black background, high-contrast white/primary text.
 - **Shared CTA:** High-fidelity image background banner with cinematic gradient.
 - **Consolidated Form & Checkout Wizard Pattern (2-3 Steps Max):**
