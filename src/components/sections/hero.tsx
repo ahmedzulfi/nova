@@ -5,27 +5,7 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, MapPin, Calendar, Star } from 'lucide-react';
-
-// ─── Floating Info Pill ───────────────────────────────────────────────────────
-const FloatingPill = ({
-  children,
-  className,
-  delay = 0,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
-}) => (
-  <motion.div
-    initial={{ opacity: 0, y: 16, scale: 0.92 }}
-    animate={{ opacity: 1, y: 0, scale: 1 }}
-    transition={{ delay, duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
-    className={className}
-  >
-    {children}
-  </motion.div>
-);
+import { ArrowRight, Calendar } from 'lucide-react';
 
 // ─── Main Component ───────────────────────────────────────────────────────────
 const HeroSection = () => {
@@ -95,32 +75,6 @@ const HeroSection = () => {
 
       {/* ── Top decorative bar ── */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FC7911] via-[#FBC84F] to-[#FC7911] z-30" />
-
-      {/* ── Floating top-left badge ── */}
-      <FloatingPill
-        delay={0.9}
-        className="absolute top-[100px] md:top-[110px] left-5 md:left-10 z-20 hidden sm:block"
-      >
-        <div className="flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full shadow-sm border border-white/40">
-          <Star className="w-3 h-3 text-[#FC7911] fill-[#FC7911]" />
-          <span className="text-black font-bold text-[10px] uppercase tracking-[0.22em]">
-            {t('video_badge_top')}
-          </span>
-        </div>
-      </FloatingPill>
-
-      {/* ── Floating bottom-left location pill ── */}
-      <FloatingPill
-        delay={1.1}
-        className="absolute bottom-10 left-5 md:left-10 z-20 hidden lg:block"
-      >
-        <div className="flex items-center gap-3 px-5 py-3 bg-white/15 backdrop-blur-xl rounded-2xl border border-white/25 shadow-md max-w-[240px]">
-          <MapPin className="w-4 h-4 text-[#FBC84F] flex-shrink-0" />
-          <p className="text-white font-bold text-[13px] leading-tight tracking-tight">
-            {t('video_badge_bottom')}
-          </p>
-        </div>
-      </FloatingPill>
 
       {/* ── Main Content ── */}
       <motion.div
