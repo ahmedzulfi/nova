@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 const Tickets = () => {
   const [isRegistered, setIsRegistered] = useState(false);
@@ -34,8 +35,22 @@ const Tickets = () => {
   ];
 
   return (
-    <section className="bg-[#FBC84F] py-[120px] md:py-[160px]" id="tickets">
-      <div className="container max-w-[1280px] mx-auto px-6">
+    <section className="bg-[#FBC84F] py-[120px] md:py-[160px] relative overflow-hidden z-10" id="tickets">
+      {/* Decorative Background Assets from Figma */}
+      <div className="absolute left-[-150px] top-[10%] w-[350px] h-[350px] opacity-20 pointer-events-none hidden xl:block select-none">
+        <Image src="/vectors/White_paw_print 1-1.png" alt="" fill className="object-contain" />
+      </div>
+      <div className="absolute right-[-150px] top-[40%] w-[350px] h-[350px] opacity-20 pointer-events-none hidden xl:block select-none transform rotate-[45deg]">
+        <Image src="/vectors/White_paw_print 2.png" alt="" fill className="object-contain" />
+      </div>
+      <div className="absolute left-4 bottom-[20px] w-[180px] h-[180px] opacity-20 pointer-events-none hidden 2xl:block select-none">
+        <Image src="/vectors/pets 1 copy.png" alt="" fill className="object-contain" />
+      </div>
+      <div className="absolute right-4 bottom-[20px] w-[180px] h-[180px] opacity-20 pointer-events-none hidden 2xl:block select-none">
+        <Image src="/vectors/black-cat 1 copy.png" alt="" fill className="object-contain" />
+      </div>
+
+      <div className="container max-w-[1280px] mx-auto px-6 relative z-10">
 
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-16 md:mb-24">

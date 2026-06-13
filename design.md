@@ -12,6 +12,10 @@
   - **Vibrant Orange:** `#FC7911` / `#FC7810` - Hero title accent, primary CTA buttons, stats background block, and orange checkerboard cards.
   - **Bone/Off-white:** `#F5F5F0` - Ticket cards, form backgrounds, and bone checkerboard cards.
   - **Dark Grayish Blue:** `#465067` - Date badges, secondary action CTAs, and Ticket section headings and cards.
+- **Decorative Figma Vectors:**
+  - Absolute-positioned overlays using low-opacity (`opacity-20` to `opacity-40`) PNG assets from `/vectors/` (e.g., paw prints, cat and dog illustrations).
+  - Placed in **About Us** (`about-us-grid.tsx`) and **Tickets** (`tickets.tsx`) sections to replicate the Figma designs.
+  - Hidden on mobile/tablet screens (using Tailwind `hidden xl:block` or `hidden 2xl:block`) to prevent visual clutter and ensure responsive, RTL-friendly rendering.
 - **Primary (Yellow):** `#FACC15` (bg-primary) - Used for general dashboard actions, accents, and highlights.
 - **Accent (Teal/Blue):** Used for specific tags and categories.
 - **Backgrounds:**

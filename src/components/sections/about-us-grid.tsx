@@ -9,8 +9,22 @@ const AboutUsGrid = () => {
   const t = useTranslations('AboutGrid');
 
   return (
-    <section className="py-24 md:py-32 bg-[#FFF2E5]" id="about-us">
-      <div className="container mx-auto px-6 max-w-[1280px]">
+    <section className="py-24 md:py-32 bg-[#FFF2E5] relative overflow-hidden" id="about-us">
+      {/* Decorative Background Assets from Figma */}
+      <div className="absolute left-[-150px] top-[10%] w-[350px] h-[350px] opacity-40 pointer-events-none hidden xl:block select-none">
+        <Image src="/vectors/White_paw_print 1.png" alt="" fill className="object-contain" />
+      </div>
+      <div className="absolute right-[-150px] top-[40%] w-[350px] h-[350px] opacity-40 pointer-events-none hidden xl:block select-none transform rotate-[-161deg]">
+        <Image src="/vectors/White_paw_print 1 copy.png" alt="" fill className="object-contain" />
+      </div>
+      <div className="absolute left-4 bottom-[20px] w-[180px] h-[180px] opacity-30 pointer-events-none hidden 2xl:block select-none">
+        <Image src="/vectors/pets 1.png" alt="" fill className="object-contain" />
+      </div>
+      <div className="absolute right-4 bottom-[20px] w-[180px] h-[180px] opacity-30 pointer-events-none hidden 2xl:block select-none">
+        <Image src="/vectors/black-cat 1.png" alt="" fill className="object-contain" />
+      </div>
+
+      <div className="container mx-auto px-6 max-w-[1280px] relative z-10">
         {/* Top Bento Block: Yellow Main Block */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6">
           <div className="lg:col-span-8 bg-[#FBC84F] rounded-sm p-10 md:p-14 flex flex-col justify-between items-start min-h-[400px] md:min-h-[500px] shadow-sm relative overflow-hidden group">
