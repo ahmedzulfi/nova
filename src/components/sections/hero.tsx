@@ -9,63 +9,12 @@ const HeroSection = () => {
   const t = useTranslations('Hero');
 
   return (
-    <section className="relative w-full overflow-hidden bg-white pt-[100px] pb-[80px] md:pt-[140px] md:pb-[120px]">
+    <section className="relative w-full overflow-hidden bg-[#FFF2E5] py-20 lg:py-32">
       <div className="container mx-auto px-6 max-w-[1280px]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-
-          {/* Left Column: Text Content */}
-          <div className="flex flex-col items-start text-start">
-            {/* Badge */}
-            <div
-              className="group mb-8 inline-flex items-center gap-2 px-5 py-2 bg-black rounded-sm transition-all hover:bg-primary"
-            >
-              <span className="text-[12px] font-bold text-white uppercase tracking-[0.2em]">
-                {t('badge')}
-              </span>
-            </div>
-
-            {/* Headline */}
-            <h1 className="mb-6 font-display text-[44px] sm:text-[58px] md:text-[72px] lg:text-[84px] xl:text-[96px] text-black leading-[0.95] tracking-tighter">
-              {t('title')}
-            </h1>
-
-            <h2 className="mb-8 text-[20px] md:text-[26px] font-bold text-primary font-display leading-tight tracking-tight">
-              {t('subtitle')}
-            </h2>
-
-            {/* Description */}
-            <p className="mb-12 text-[17px] md:text-[19px] leading-[1.6] text-black/50 max-w-[600px] font-medium font-body">
-              {t('description')}
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center gap-4 w-full">
-              <Link
-                href="/competitions"
-                className="group inline-flex items-center justify-center gap-4 w-full sm:w-auto px-10 py-5 bg-primary text-white rounded-sm font-bold uppercase tracking-[0.2em] text-[13px] transition-all hover:bg-black active:scale-[0.95]  shadow-sm  shadow-primary/20"
-              >
-                <span>{t('cta_competitions')}</span>
-                <div className="transition-transform group-hover:translate-x-1">
-                  <Image
-                    src="https://framerusercontent.com/images/mJ4B3sUua6gvwJ6rQYS23DLJ9c.svg"
-                    alt="Arrow"
-                    width={18}
-                    height={18}
-                    className="brightness-0 invert"
-                  />
-                </div>
-              </Link>
-              <Link
-                href="/tickets"
-                className="inline-flex items-center justify-center w-full sm:w-auto px-10 py-5 bg-black text-white rounded-sm font-bold uppercase tracking-[0.2em] text-[13px] transition-all hover:bg-primary active:scale-[0.95]  shadow-sm  shadow-black/10"
-              >
-                {t('cta_tickets')}
-              </Link>
-            </div>
-          </div>
-
-          {/* Right Column: Video Container */}
-          <div className="relative w-full aspect-[4/5] lg:aspect-[4/5] rounded-sm overflow-hidden  shadow-sm  group border border-black/5">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          {/* Left: Media Column */}
+          <div className="lg:col-span-7 relative w-full aspect-[16/10] lg:aspect-[4/3] rounded-sm overflow-hidden shadow-sm group border border-black/5">
             <video
               autoPlay
               muted
@@ -77,24 +26,68 @@ const HeroSection = () => {
               <source src="https://player.vimeo.com/external/494278657.sd.mp4?s=d5965457c154379a528e53ef711674a2b270a68d&profile_id=164&oauth2_token_id=57447761" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-
-            {/* Overlay Gradient */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none opacity-60 group-hover:opacity-40 transition-opacity" />
-
-            {/* Floating Badges on Video */}
             <div className="absolute top-6 left-6 z-20">
-              <div className="px-5 py-2 bg-white rounded-sm  shadow-sm ">
+              <div className="px-5 py-2 bg-white rounded-sm shadow-sm">
                 <span className="text-black font-display text-[12px] font-bold uppercase tracking-widest">{t('video_badge_top')}</span>
               </div>
             </div>
-
             <div className="absolute bottom-8 left-8 right-8 z-20">
-              <div className="p-8 bg-white/10 backdrop-blur-xl rounded-sm border border-white/20  shadow-sm ">
-                <p className="text-white font-display text-[18px] md:text-[20px] font-bold leading-tight tracking-tight">
+              <div className="p-6 bg-white/10 backdrop-blur-xl rounded-sm border border-white/20 shadow-sm">
+                <p className="text-white font-display text-[16px] md:text-[18px] font-bold leading-tight tracking-tight">
                   {t('video_badge_bottom')}
                 </p>
               </div>
             </div>
+          </div>
+
+          {/* Right: Premium Yellow-Orange Container Card */}
+          <div className="lg:col-span-5 bg-[#FBC84F]/90 backdrop-blur-md rounded-[33px] p-8 md:p-10 flex flex-col gap-6 shadow-xl border border-white/20 relative overflow-hidden">
+            {/* Headline */}
+            <div className="flex flex-col select-none">
+              <h1 className="font-display text-[54px] sm:text-[64px] md:text-[72px] lg:text-[76px] xl:text-[84px] font-bold leading-[0.9] tracking-tighter text-white">
+                Nova Paw
+              </h1>
+              <h1 className="font-display text-[54px] sm:text-[64px] md:text-[72px] lg:text-[76px] xl:text-[84px] font-bold leading-[0.9] tracking-tighter text-[#FC7911]">
+                Festival
+              </h1>
+            </div>
+
+            {/* Subtitle */}
+            <h2 className="text-[20px] md:text-[24px] font-bold text-[#37352F] font-display leading-tight tracking-tight">
+              {t('subtitle')}
+            </h2>
+
+            {/* White card description overlay */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-[33px] p-6 shadow-sm border border-white/40">
+              <p className="text-[15px] md:text-[16px] leading-[1.6] text-[#37352F] font-medium font-body">
+                {t('description')}
+              </p>
+            </div>
+
+            {/* Date badge */}
+            <div className="bg-[#465067] text-white py-3 px-4 rounded-[4px] text-center text-[11px] font-bold uppercase tracking-[0.2em]">
+              {t('badge')}
+            </div>
+
+            {/* Action buttons */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 w-full mt-2">
+              <Link
+                href="/competitions"
+                className="flex-1 inline-flex items-center justify-center gap-3 w-full h-14 bg-[#FC7810] text-white rounded-[4px] font-bold uppercase tracking-[0.2em] text-[12px] transition-all hover:bg-black active:scale-[0.97] shadow-sm shadow-[#FC7810]/20"
+              >
+                <span>{t('cta_competitions')}</span>
+              </Link>
+              <Link
+                href="/tickets"
+                className="flex-1 inline-flex items-center justify-center w-full h-14 bg-[#465067] text-white rounded-[4px] font-bold uppercase tracking-[0.2em] text-[12px] transition-all hover:bg-primary hover:text-black active:scale-[0.97] shadow-sm shadow-[#465067]/10"
+              >
+                {t('cta_tickets')}
+              </Link>
+            </div>
+
+            {/* Subtle decorative background element */}
+            <div className="absolute -top-20 -right-20 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none" />
           </div>
 
         </div>

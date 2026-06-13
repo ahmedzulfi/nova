@@ -34,7 +34,7 @@ const Tickets = () => {
   ];
 
   return (
-    <section className="bg-white py-[120px] md:py-[160px]" id="tickets">
+    <section className="bg-[#FBC84F] py-[120px] md:py-[160px]" id="tickets">
       <div className="container max-w-[1280px] mx-auto px-6">
 
         {/* Header */}
@@ -42,7 +42,7 @@ const Tickets = () => {
           <span className="inline-flex items-center px-5 py-2 rounded-sm bg-black text-white text-[11px] font-bold uppercase tracking-[0.2em] mb-8">
             {t('badge')}
           </span>
-          <h2 className="text-[40px] md:text-[72px] font-bold leading-[1] text-black font-display tracking-tighter">
+          <h2 className="text-[40px] md:text-[72px] font-bold leading-[1] text-[#465067] font-display tracking-tighter">
             {t('title')}
           </h2>
         </div>
@@ -52,20 +52,20 @@ const Tickets = () => {
           {ticketTiers.map((tier, index) => (
             <div
               key={index}
-              className="flex flex-col p-10 md:p-14 rounded-sm border border-black/5 bg-[#F5F5F0] text-black transition-all duration-500 hover:scale-[1.03] hover:border-black/20 h-full shadow-sm group"
+              className="flex flex-col p-10 md:p-14 rounded-sm border border-black/5 bg-[#F5F5F0] text-[#465067] transition-all duration-500 hover:scale-[1.03] hover:border-black/20 h-full shadow-sm group"
             >
-              <h3 className="text-[32px] md:text-[36px] font-bold mb-3 font-display text-black tracking-tight leading-none group-hover:text-primary transition-colors">
+              <h3 className="text-[32px] md:text-[36px] font-bold mb-3 font-display text-[#465067] tracking-tight leading-none group-hover:text-[#FC7911] transition-colors">
                 {t(`tiers.${tier.key}.name`)}
               </h3>
-              <p className="text-[14px] md:text-[15px] mb-12 font-body text-black/40 font-bold tracking-tight">
+              <p className="text-[14px] md:text-[15px] mb-12 font-body text-[#465067]/60 font-bold tracking-tight">
                 {t(`tiers.${tier.key}.desc`)}
               </p>
 
               <div className="flex items-baseline gap-3 mb-12">
-                <span className="text-[64px] md:text-[72px] font-bold tracking-tighter font-display text-black leading-none">
+                <span className="text-[64px] md:text-[72px] font-bold tracking-tighter font-display text-[#465067] leading-none">
                   {tier.price}
                 </span>
-                <span className="text-[14px] font-bold uppercase tracking-[0.2em] text-black/30">
+                <span className="text-[14px] font-bold uppercase tracking-[0.2em] text-[#465067]/40">
                   {t('currency')}
                 </span>
               </div>
@@ -73,7 +73,7 @@ const Tickets = () => {
               <ul className="flex flex-col gap-6 mb-16 flex-grow">
                 {(t.raw(`tiers.${tier.key}.features`) as string[]).map((feature, idx) => (
                   <li key={idx} className="flex items-center gap-4 text-[15px] md:text-[16px] font-bold font-body tracking-tight">
-                    <div className="w-2 h-2 rounded-sm shrink-0 bg-primary shadow-sm shadow-primary/40" />
+                    <div className="w-2.5 h-2.5 rounded-sm shrink-0 bg-[#FC7911] shadow-sm shadow-[#FC7911]/30" />
                     {feature}
                   </li>
                 ))}
@@ -81,9 +81,9 @@ const Tickets = () => {
 
               <Link
                 href={isRegistered ? "/dashboard" : `/tickets?tier=${tier.id}`}
-                className={`inline-flex items-center justify-center w-full h-16 rounded-sm font-bold text-[14px] uppercase tracking-[0.2em] transition-all active:scale-95  shadow-sm  ${isRegistered
-                    ? "bg-primary text-white hover:bg-black"
-                    : "bg-black text-white hover:bg-primary"
+                className={`inline-flex items-center justify-center w-full h-16 rounded-sm font-bold text-[14px] uppercase tracking-[0.2em] transition-all active:scale-95 shadow-sm ${isRegistered
+                    ? "bg-[#FC7911] text-white hover:bg-[#465067]"
+                    : "bg-[#465067] text-white hover:bg-[#FC7911]"
                   }`}
               >
                 {isRegistered ? t('view_pass') : t('purchase')}

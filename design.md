@@ -6,14 +6,20 @@
 
 ## 🎨 Color Palette
 
-- **Primary (Yellow):** `#FACC15` (bg-primary) - Used for primary actions, accents, and highlights.
+- **Landing Page Theme Palette:**
+  - **Light Peach/Beige:** `#FFF2E5` - Section background for Hero, About Us, and Competitions.
+  - **Warm Accent Yellow:** `#FBC84F` - Hero card background and Tickets section background.
+  - **Vibrant Orange:** `#FC7911` / `#FC7810` - Hero title accent, primary CTA buttons, stats background block, and orange checkerboard cards.
+  - **Bone/Off-white:** `#F5F5F0` - Ticket cards, form backgrounds, and bone checkerboard cards.
+  - **Dark Grayish Blue:** `#465067` - Date badges, secondary action CTAs, and Ticket section headings and cards.
+- **Primary (Yellow):** `#FACC15` (bg-primary) - Used for general dashboard actions, accents, and highlights.
 - **Accent (Teal/Blue):** Used for specific tags and categories.
 - **Backgrounds:**
   - Primary Background: `#FFFFFF`
   - Card/Section Background: `#F9F9F9`
   - Border/Divider: `#F0F0F0`
 - **Text:**
-  - Headings: `#000000`
+  - Headings: `#000000` (global default)
   - Body: `#666666` or `#000000` at lower opacity.
 
 ## ✍️ Typography

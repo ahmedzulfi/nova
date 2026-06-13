@@ -9,11 +9,11 @@ const AboutUsGrid = () => {
   const t = useTranslations('AboutGrid');
 
   return (
-    <section className="py-24 md:py-32 bg-white" id="about-us">
+    <section className="py-24 md:py-32 bg-[#FFF2E5]" id="about-us">
       <div className="container mx-auto px-6 max-w-[1280px]">
         {/* Top Bento Block: Yellow Main Block */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6">
-          <div className="lg:col-span-8 bg-primary rounded-sm p-10 md:p-14 flex flex-col justify-between items-start min-h-[400px] md:min-h-[500px] shadow-sm relative overflow-hidden group">
+          <div className="lg:col-span-8 bg-[#FBC84F] rounded-sm p-10 md:p-14 flex flex-col justify-between items-start min-h-[400px] md:min-h-[500px] shadow-sm relative overflow-hidden group">
             <div className="space-y-8 relative z-10">
               <span className="inline-flex items-center px-5 py-2 rounded-sm bg-black text-white text-[11px] font-bold uppercase tracking-[0.2em]">
                 {t('badge')}
@@ -50,13 +50,13 @@ const AboutUsGrid = () => {
         {/* Bottom Bento Row */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Black Block: Description - Fixed UI */}
-          <div className="lg:col-span-7 bg-black rounded-sm overflow-hidden flex flex-col group border border-white/5  shadow-sm ">
+          <div className="lg:col-span-7 bg-[#FC7911] rounded-sm overflow-hidden flex flex-col group border border-white/5  shadow-sm ">
             <div className="p-10 md:p-14 relative z-10">
-              <h4 className="text-[20px] sm:text-[22px] md:text-[28px] leading-[1.5] text-white/90 font-medium font-body tracking-tight">
+              <h4 className="text-[20px] sm:text-[22px] md:text-[28px] leading-[1.5] text-white font-medium font-body tracking-tight">
                 {t.rich('story', {
-                  bold_nova: (chunks) => <span className="text-primary font-bold">{chunks}</span>,
-                  bold_wku: (chunks) => <span className="text-white font-bold border-b-2 border-primary pb-1">{chunks}</span>,
-                  bold_wcf: (chunks) => <span className="text-white font-bold border-b-2 border-primary pb-1">{chunks}</span>
+                  bold_nova: (chunks) => <span className="text-[#FBC84F] font-bold">{chunks}</span>,
+                  bold_wku: (chunks) => <span className="text-white font-bold border-b-2 border-[#FBC84F] pb-1">{chunks}</span>,
+                  bold_wcf: (chunks) => <span className="text-white font-bold border-b-2 border-[#FBC84F] pb-1">{chunks}</span>
                 })}
               </h4>
             </div>
@@ -73,41 +73,41 @@ const AboutUsGrid = () => {
           </div>
 
           {/* Stats Block - Refined UI */}
-          <div className="lg:col-span-5 bg-[#F5F5F0] border border-black/5 rounded-sm p-10 md:p-16 flex flex-col justify-center shadow-sm group">
+          <div className="lg:col-span-5 bg-[#FC7911] border border-white/5 rounded-sm p-10 md:p-16 flex flex-col justify-center shadow-sm group">
             <div className="grid grid-cols-2 gap-x-10 gap-y-20">
               <div className="group/item">
                 <div className="flex items-baseline gap-2 mb-4">
-                  <h3 className="text-[64px] md:text-[84px] font-display font-bold leading-none text-black tracking-tighter transition-transform duration-500 group-hover/item:-translate-y-2">6</h3>
-                  <div className="w-2.5 h-2.5 rounded-sm bg-primary shadow-sm shadow-primary/40" />
+                  <h3 className="text-[64px] md:text-[84px] font-display font-bold leading-none text-white tracking-tighter transition-transform duration-500 group-hover/item:-translate-y-2">6</h3>
+                  <div className="w-2.5 h-2.5 rounded-sm bg-[#FBC84F] shadow-sm shadow-[#FBC84F]/40" />
                 </div>
-                <p className="text-[12px] md:text-[13px] font-bold uppercase tracking-[0.2em] text-black/30 leading-snug whitespace-pre-line">
+                <p className="text-[12px] md:text-[13px] font-bold uppercase tracking-[0.2em] text-white/60 leading-snug whitespace-pre-line">
                   {t('stat_competitions')}
                 </p>
               </div>
               <div className="group/item">
                 <div className="flex items-baseline gap-2 mb-4">
-                  <h3 className="text-[64px] md:text-[84px] font-display font-bold leading-none text-black tracking-tighter transition-transform duration-500 group-hover/item:-translate-y-2">10K</h3>
-                  <div className="w-2.5 h-2.5 rounded-sm bg-black/10" />
+                  <h3 className="text-[64px] md:text-[84px] font-display font-bold leading-none text-white tracking-tighter transition-transform duration-500 group-hover/item:-translate-y-2">10K</h3>
+                  <div className="w-2.5 h-2.5 rounded-sm bg-white/20" />
                 </div>
-                <p className="text-[12px] md:text-[13px] font-bold uppercase tracking-[0.2em] text-black/30 leading-snug whitespace-pre-line">
+                <p className="text-[12px] md:text-[13px] font-bold uppercase tracking-[0.2em] text-white/60 leading-snug whitespace-pre-line">
                   {t('stat_visitors')}
                 </p>
               </div>
               <div className="group/item">
                 <div className="flex items-baseline gap-2 mb-4">
-                  <h3 className="text-[64px] md:text-[84px] font-display font-bold leading-none text-black tracking-tighter transition-transform duration-500 group-hover/item:-translate-y-2">2</h3>
-                  <div className="w-2.5 h-2.5 rounded-sm bg-primary shadow-sm shadow-primary/40" />
+                  <h3 className="text-[64px] md:text-[84px] font-display font-bold leading-none text-white tracking-tighter transition-transform duration-500 group-hover/item:-translate-y-2">2</h3>
+                  <div className="w-2.5 h-2.5 rounded-sm bg-[#FBC84F] shadow-sm shadow-[#FBC84F]/40" />
                 </div>
-                <p className="text-[12px] md:text-[13px] font-bold uppercase tracking-[0.2em] text-black/30 leading-snug whitespace-pre-line">
+                <p className="text-[12px] md:text-[13px] font-bold uppercase tracking-[0.2em] text-white/60 leading-snug whitespace-pre-line">
                   {t('stat_days')}
                 </p>
               </div>
               <div className="group/item">
                 <div className="flex items-baseline gap-2 mb-4">
-                  <h3 className="text-[64px] md:text-[84px] font-display font-bold leading-none text-black tracking-tighter transition-transform duration-500 group-hover/item:-translate-y-2">48</h3>
-                  <div className="w-2.5 h-2.5 rounded-sm bg-black/10" />
+                  <h3 className="text-[64px] md:text-[84px] font-display font-bold leading-none text-white tracking-tighter transition-transform duration-500 group-hover/item:-translate-y-2">48</h3>
+                  <div className="w-2.5 h-2.5 rounded-sm bg-white/20" />
                 </div>
-                <p className="text-[12px] md:text-[13px] font-bold uppercase tracking-[0.2em] text-black/30 leading-snug whitespace-pre-line">
+                <p className="text-[12px] md:text-[13px] font-bold uppercase tracking-[0.2em] text-white/60 leading-snug whitespace-pre-line">
                   {t('stat_cups')}
                 </p>
               </div>
