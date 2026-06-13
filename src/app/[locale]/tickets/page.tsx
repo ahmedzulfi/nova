@@ -31,9 +31,9 @@ function TicketsContent() {
   const [petQty, setPetQty] = useState(0);
   const [petName, setPetName] = useState("");
 
-  const ADULT_PRICE = 45;
-  const KID_PRICE = 15;
-  const PET_FEE = 45;
+  const ADULT_PRICE = 60;
+  const KID_PRICE = 45;
+  const PET_FEE = 60;
   const total = ADULT_PRICE + (adultQty - 1) * ADULT_PRICE + (selectedTier === "adult" ? 0 : (petQty > 1 ? (petQty - 1) * PET_FEE : 0)) + kidsQty * KID_PRICE;
 
   // Sync pet quantity logic based on tier rules
@@ -107,9 +107,9 @@ function TicketsContent() {
     allChecked;
 
   const tiers = [
-    { id: "dog-owner", key: "dog", price: "90", emoji: "🐕" },
-    { id: "cat-owner", key: "cat", price: "90", emoji: "🐱" },
-    { id: "adult", key: "adult", price: "45", emoji: "👤" },
+    { id: "dog-owner", key: "dog", price: "60", emoji: "🐕" },
+    { id: "cat-owner", key: "cat", price: "60", emoji: "🐱" },
+    { id: "adult", key: "adult", price: "60", emoji: "👤" },
   ];
 
   // ─── SUCCESS STATE ───────────────────────────────────────────────

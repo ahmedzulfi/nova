@@ -81,9 +81,9 @@ export type UpdateRegistrationStatusInput = z.infer<typeof updateRegistrationSta
 // ─── Pricing Constants ───────────────────────────────────────────────────────
 
 export const PRICING = {
-  ADULT_PRICE: 45,
-  KID_PRICE: 15,
-  PET_FEE: 45,
+  ADULT_PRICE: 60,
+  KID_PRICE: 45,
+  PET_FEE: 60,
 } as const;
 
 export function calculateTotal(adultQty: number, kidsQty: number, petQty: number): number {

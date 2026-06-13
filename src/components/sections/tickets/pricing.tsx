@@ -15,17 +15,17 @@ const TicketsPricing = ({ onSelect, selectedTier }: TicketsPricingProps) => {
     {
       id: "dog-owner",
       key: "dog",
-      price: "45"
+      price: "60"
     },
     {
       id: "cat-owner",
       key: "cat",
-      price: "45"
+      price: "60"
     },
     {
       id: "adult",
       key: "adult",
-      price: "45"
+      price: "60"
     }
   ];
 
