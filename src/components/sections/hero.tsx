@@ -57,9 +57,6 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/25 z-1" />
       </motion.div>
 
-      {/* ── Top Decorative Border ── */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/10 z-20" />
-
       {/* ── Bottom Split-Screen Typographic Layout ── */}
       <motion.div
         style={{ y: contentY }}
