@@ -7,11 +7,11 @@
 ## 🎨 Color Palette
 
 - **Landing Page Theme Palette:**
-  - **Light Peach/Beige:** `#FFF2E5` - Section background for Hero, About Us, Competitions, and Venue.
-  - **Warm Accent Yellow:** `#FBC84F` - Hero card background, Tickets section background, and Footer background.
-  - **Vibrant Orange:** `#FC7911` / `#FC7810` - Hero title accent, primary CTA buttons, stats background block, and orange checkerboard cards.
+  - **Light Peach/Beige:** `#FFF2E5` - Section background for Competitions and Venue.
+  - **Warm Accent Yellow:** `#FBC84F` - Hero card background, Tickets section background, Footer background, and About Us top-half background.
+  - **Vibrant Orange:** `#FC7911` / `#FC7810` - Hero title accent, primary CTA buttons, stats background block, orange checkerboard cards, and About Us bottom-half background.
   - **Bone/Off-white:** `#F5F5F0` - Ticket cards, form backgrounds, and bone checkerboard cards.
-  - **Dark Grayish Blue:** `#465067` - Date badges, secondary action CTAs, and Ticket section headings and cards.
+  - **Dark Grayish Blue:** `#465067` - Date badges, secondary action CTAs, Ticket section headings and cards, and About Us section action buttons/badges.
 - **Decorative Figma Vectors:**
   - Absolute-positioned overlays using low-opacity (`opacity-20` to `opacity-40`) PNG assets from `/vectors/` (e.g., paw prints, cat and dog illustrations).
   - Placed in **About Us** (`about-us-grid.tsx`) and **Tickets** (`tickets.tsx`) sections to replicate the Figma designs.
