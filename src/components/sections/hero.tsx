@@ -9,7 +9,7 @@ const HeroSection = () => {
   const t = useTranslations('Hero');
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#FFF2E5] min-h-[100vh] lg:h-[822px] flex flex-col justify-center py-20 lg:py-0">
+    <section className="relative w-full overflow-hidden bg-[#FFF2E5] min-h-[100vh] lg:h-[822px] flex flex-col lg:block py-20 lg:py-0">
       
       {/* Background Media - Covers background on all viewports */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
@@ -28,7 +28,7 @@ const HeroSection = () => {
       </div>
 
       {/* Floating Badges (hidden on mobile, visible on larger viewports) */}
-      <div className="absolute top-28 left-6 z-20 hidden md:block">
+      <div className="absolute top-[120px] left-6 z-20 hidden md:block">
         <div className="px-5 py-2 bg-white/90 backdrop-blur-md rounded-sm shadow-sm border border-white/10">
           <span className="text-black font-display text-[12px] font-bold uppercase tracking-widest">{t('video_badge_top')}</span>
         </div>
@@ -42,7 +42,7 @@ const HeroSection = () => {
       </div>
 
       {/* Content Wrapper */}
-      <div className="relative z-10 w-full">
+      <div className="relative z-10 w-full lg:h-full lg:flex lg:items-center lg:pt-[89px] pt-[70px] md:pt-[89px]">
         <div className="container mx-auto px-6 max-w-[1280px] flex justify-center lg:justify-end w-full">
           {/* Main Card */}
           <div className="w-full sm:max-w-[480px] lg:max-w-[437px] bg-[#FBC84F]/95 backdrop-blur-md rounded-[33px] p-6 sm:p-8 xl:p-10 flex flex-col gap-5 sm:gap-6 shadow-xl border border-white/20 relative overflow-hidden">
