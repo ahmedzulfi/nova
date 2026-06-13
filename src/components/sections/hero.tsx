@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
@@ -10,7 +10,6 @@ const HeroSection = () => {
   const t = useTranslations('Hero');
   const videoRef = useRef<HTMLVideoElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [videoReady, setVideoReady] = useState(false);
 
   // Subtle parallax scroll effect
   const { scrollYProgress } = useScroll({
@@ -24,9 +23,6 @@ const HeroSection = () => {
     const v = videoRef.current;
     if (!v) return;
     v.playbackRate = 0.85;
-    const onCanPlay = () => setVideoReady(true);
-    v.addEventListener('canplaythrough', onCanPlay);
-    return () => v.removeEventListener('canplaythrough', onCanPlay);
   }, []);
 
   return (
@@ -40,29 +36,14 @@ const HeroSection = () => {
         style={{ y: videoY }}
         className="absolute inset-0 w-full h-[115%] z-0 will-change-transform"
       >
-        <div
-          className={`absolute inset-0 transition-opacity duration-700 ${
-            videoReady ? 'opacity-0' : 'opacity-100'
-          }`}
-        >
-          <Image
-            src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2069&auto=format&fit=crop"
-            alt="Nova Paw Festival"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-
         <video
           ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
-          className={`w-full h-full object-cover transition-opacity duration-700 ${
-            videoReady ? 'opacity-100' : 'opacity-0'
-          }`}
+          poster="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2069&auto=format&fit=crop"
+          className="w-full h-full object-cover"
         >
           <source src="/vectors/WIDE VERSION.mp4" type="video/mp4" />
         </video>
