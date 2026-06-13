@@ -42,7 +42,7 @@ const HeroSection = () => {
           loop
           playsInline
           poster="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2069&auto=format&fit=crop"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover scale-[1.15]"
         >
           <source src="/vectors/WIDE VERSION.mp4" type="video/mp4" />
         </video>
