@@ -19,25 +19,26 @@
 - **Background Media:**
   - **Hero Background:** Uses the local wide-aspect video asset `/vectors/WIDE VERSION.mp4` with cinematic multi-layer gradient overlays (bottom-to-top dark scrim, left-to-right dark scrim, and radial vignette) for editorial drama.
 
-## 🦸 Hero Section Design (Cinematic Dark Editorial)
+## 🦸 Hero Section Design (Light Mode — Warm Cinematic)
 
-- **Aesthetic Direction:** Immersive full-screen dark editorial. Entire hero is `h-dvh` covering the viewport. Background video from `/vectors/WIDE VERSION.mp4`.
-- **Typography:** Giant fluid headline with `clamp(52px, 9vw, 120px)`, tracking `-2px`, `font-black`. Two-line split: white "Nova Paw", orange `#FC7911` "Festival".
-- **Color Scheme:** Near-black `#0d0a05` base, white text with reduced opacity for hierarchy, `#FC7911` orange as the sole accent.
-- **Layers:** Grain overlay, bottom fade, radial vignette, left-side gradient scrim.
-- **Stats Row:** Fixed bottom-right on desktop, showing 4 live festival stats with tabular-nums.
-- **CTA Row:** Primary orange solid button + secondary frosted glass button. Date and location info with orange icon dots.
-- **Scroll Indicator:** Bouncing ChevronDown with "Scroll" label, fades in with last animation step.
-- **Entrance Animations:** Staggered CSS transitions with `translate-y` + `opacity`, each element delayed by ~80ms.
+- **Aesthetic Direction:** Full-screen video hero with warm peach overlays. Light, airy, festival feel.
+- **Base Color:** `#FFF2E5` (warm peach), video plays underneath warm gradient layers.
+- **Overlay Layers:** Bottom-up peach scrim (`from-[#FFF2E5]/95`), left-side content zone gradient, top edge fade for nav readability.
+- **Typography:** Fluid `clamp(52px, 8.5vw, 110px)`, tracking `-2px`, `font-black`. "Nova Paw" in near-black `#1a1209`, "Festival" in orange `#FC7911`.
+- **Body Text / Sub-copy:** `#465067` at 80% opacity.
+- **CTA Row:** Primary solid orange `#FC7911` + secondary navy `#465067`. Date/location in muted navy with orange icons.
+- **Stats Row:** Desktop bottom-right with dark `#1a1209` tabular numbers, muted navy labels.
+- **Scroll Indicator:** Bouncing ChevronDown in muted navy.
+- **Entrance Animations:** Staggered `translate-y` + `opacity`, 80ms delay steps.
 
-## 🧭 Navigation Design (Dark Floating Glass)
+## 🧭 Navigation Design (Light Mode — Warm White)
 
-- **Initial State:** Fully transparent (no background) when at top of page over the Hero video.
-- **Scrolled State:** `bg-[#0d0a05]/92` with `backdrop-blur-2xl`, subtle `border-b border-white/[0.07]`.
-- **Active Links:** `text-[#FC7911]` with an orange underline `scale-x-100`. Inactive: `text-white/70`, hover brightens + underline scales in.
-- **CTA Button:** Solid `#FC7911` "Get Tickets" with orange shadow glow.
-- **Mobile Menu:** Slides in from the RIGHT (panel, 360px wide), dark `#0f0c05` background, ChevronRight per link, locale switcher at top.
-- **Locale Switcher:** Globe icon + language text, positioned before CTA buttons on desktop.
+- **Background:** Always white/semi-transparent (`bg-white/80`), brighter on scroll (`bg-white/96`).
+- **Border:** Subtle `border-b border-black/[0.06]` bottom line.
+- **Link Color:** Navy `#465067`, hover/active → orange `#FC7911` with animated underline.
+- **CTA Button:** Solid orange `#FC7911` "Get Tickets" with subtle orange shadow.
+- **Mobile Menu:** White slide-in panel from right (340px), white bg, orange active states, navy text.
+- **Hamburger Icon:** Navy `#465067`, transitions to orange on hover.
 - **Primary (Yellow):** `#FACC15` (bg-primary) - Used for general dashboard actions, accents, and highlights.
 - **Accent (Teal/Blue):** Used for specific tags and categories.
 - **Backgrounds:**

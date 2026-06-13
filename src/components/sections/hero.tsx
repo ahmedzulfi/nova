@@ -11,12 +11,12 @@ const HeroSection = () => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoaded(true), 100);
+    const timer = setTimeout(() => setLoaded(true), 120);
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <section className="relative w-full h-dvh min-h-[680px] overflow-hidden bg-[#0d0a05]">
+    <section className="relative w-full h-dvh min-h-[680px] overflow-hidden bg-[#FFF2E5]">
 
       {/* ── Full-screen Video Background ── */}
       <div className="absolute inset-0 z-0">
@@ -33,69 +33,60 @@ const HeroSection = () => {
           <source src="/vectors/WIDE VERSION.mp4" type="video/mp4" />
         </video>
 
-        {/* Cinematic gradient layers */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0a05] via-[#0d0a05]/30 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0d0a05]/80 via-transparent to-transparent" />
-        {/* Subtle vignette */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.55)_100%)]" />
+        {/* Light overlay layers — warm & airy */}
+        {/* Bottom-up: strong warm-peach scrim so text on left is readable */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#FFF2E5]/95 via-[#FFF2E5]/40 to-[#FFF2E5]/10" />
+        {/* Left-side content zone: warm white gradient for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FFF2E5]/90 via-[#FFF2E5]/40 to-transparent" />
+        {/* Subtle warm vignette at top for nav area readability */}
+        <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#FFF2E5]/30 to-transparent" />
       </div>
-
-      {/* ── Animated Grain Overlay (textural depth) ── */}
-      <div
-        className="absolute inset-0 z-[1] opacity-[0.04] pointer-events-none"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-          backgroundRepeat: 'repeat',
-          backgroundSize: '128px 128px',
-        }}
-      />
 
       {/* ── Content Layer ── */}
       <div className="relative z-10 h-full flex flex-col justify-end pb-14 md:pb-16 lg:pb-20">
-        <div className="max-w-[1400px] mx-auto px-5 md:px-10 w-full">
+        <div className="max-w-[1380px] mx-auto px-5 md:px-8 lg:px-12 w-full">
 
-          {/* ── Top floating label (shown on md+) ── */}
+          {/* ── Top label strip ── */}
           <div
             className={`hidden md:flex items-center gap-3 mb-8 transition-all duration-700 delay-[200ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           >
-            <div className="w-1.5 h-1.5 rounded-full bg-[#FC7911] animate-pulse" />
-            <span className="text-[11px] font-bold uppercase tracking-[3px] text-white/50">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#FC7911]" />
+            <span className="text-[11px] font-bold uppercase tracking-[3px] text-[#465067]/60">
               {t('video_badge_top')}
             </span>
-            <div className="h-px w-12 bg-white/20" />
+            <div className="h-px w-10 bg-[#465067]/20" />
           </div>
 
           {/* ── Main headline cluster ── */}
-          <div className="max-w-[860px]">
-            {/* Eyebrow line */}
+          <div className="max-w-[780px]">
+            {/* Eyebrow badge */}
             <div
-              className={`flex items-center gap-3 mb-4 transition-all duration-700 delay-[300ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+              className={`flex items-center gap-3 mb-5 transition-all duration-700 delay-[300ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
             >
-              <div className="flex items-center gap-1.5 px-3 py-1 bg-[#FC7911]/20 border border-[#FC7911]/40 rounded-sm">
+              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#FC7911]/10 border border-[#FC7911]/25 rounded-sm">
                 <span className="text-[10px] font-black uppercase tracking-[2.5px] text-[#FC7911]">
-                  Qatar's First
+                  Qatar's First International Pet Festival
                 </span>
               </div>
-              <div className="h-px flex-1 max-w-[60px] bg-[#FC7911]/40" />
             </div>
 
-            {/* Giant hero title */}
+            {/* Giant hero title — dark on light */}
             <h1
-              className={`font-black leading-[0.88] tracking-[-2px] text-white transition-all duration-700 delay-[400ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-              style={{ fontSize: 'clamp(52px, 9vw, 120px)' }}
+              className={`font-black leading-[0.88] tracking-[-2px] text-[#1a1209] transition-all duration-700 delay-[400ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              style={{ fontSize: 'clamp(52px, 8.5vw, 110px)' }}
             >
               Nova Paw
             </h1>
             <h1
               className={`font-black leading-[0.88] tracking-[-2px] text-[#FC7911] transition-all duration-700 delay-[480ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-              style={{ fontSize: 'clamp(52px, 9vw, 120px)' }}
+              style={{ fontSize: 'clamp(52px, 8.5vw, 110px)' }}
             >
               Festival
             </h1>
 
             {/* Subtitle */}
             <p
-              className={`mt-5 text-[15px] md:text-[17px] leading-relaxed text-white/60 max-w-[520px] font-medium transition-all duration-700 delay-[560ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+              className={`mt-6 text-[15px] md:text-[17px] leading-relaxed text-[#465067]/80 max-w-[500px] font-medium transition-all duration-700 delay-[560ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
             >
               {t('subtitle')}
             </p>
@@ -108,7 +99,7 @@ const HeroSection = () => {
             {/* Primary CTA */}
             <Link
               href="/tickets"
-              className="group inline-flex items-center gap-3 px-7 py-4 bg-[#FC7911] hover:bg-[#e06a0a] text-white text-[13px] font-black uppercase tracking-[2px] rounded-sm transition-all duration-200 active:scale-[0.97] shadow-xl shadow-[#FC7911]/25"
+              className="group inline-flex items-center gap-3 px-7 py-4 bg-[#FC7911] hover:bg-[#e06a0a] text-white text-[13px] font-black uppercase tracking-[2px] rounded-sm transition-all duration-200 active:scale-[0.97] shadow-lg shadow-[#FC7911]/30"
             >
               Get Tickets
               <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -117,22 +108,22 @@ const HeroSection = () => {
             {/* Secondary CTA */}
             <Link
               href="/competitions"
-              className="group inline-flex items-center gap-3 px-7 py-4 bg-white/[0.07] hover:bg-white/[0.12] border border-white/15 hover:border-white/30 text-white text-[13px] font-bold uppercase tracking-[2px] rounded-sm transition-all duration-200 backdrop-blur-sm"
+              className="group inline-flex items-center gap-3 px-7 py-4 bg-[#465067] hover:bg-[#37404f] text-white text-[13px] font-bold uppercase tracking-[2px] rounded-sm transition-all duration-200 active:scale-[0.97]"
             >
               View Competitions
-              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 opacity-50 group-hover:opacity-100" />
+              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
 
             {/* Divider */}
-            <div className="hidden sm:block w-px h-10 bg-white/15" />
+            <div className="hidden sm:block w-px h-10 bg-[#465067]/15" />
 
-            {/* Date + Location pills */}
-            <div className="flex flex-wrap items-center gap-3">
-              <div className="flex items-center gap-2 text-white/50 text-[12px] font-semibold tracking-wide">
+            {/* Date + Location info */}
+            <div className="flex flex-wrap items-center gap-4">
+              <div className="flex items-center gap-2 text-[#465067]/70 text-[12px] font-semibold tracking-wide">
                 <Calendar className="w-3.5 h-3.5 text-[#FC7911]" />
                 27–28 Nov 2026
               </div>
-              <div className="flex items-center gap-2 text-white/50 text-[12px] font-semibold tracking-wide">
+              <div className="flex items-center gap-2 text-[#465067]/70 text-[12px] font-semibold tracking-wide">
                 <MapPin className="w-3.5 h-3.5 text-[#FC7911]" />
                 Pet Park, The Pearl · Qatar
               </div>
@@ -140,21 +131,28 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* ── Stats row (desktop only) ── */}
+        {/* ── Stats row — desktop bottom-right ── */}
         <div
-          className={`hidden lg:flex absolute bottom-8 right-10 items-center gap-8 transition-all duration-700 delay-[800ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+          className={`hidden lg:flex absolute bottom-10 right-12 items-center gap-8 transition-all duration-700 delay-[800ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
         >
           {[
             { value: '6+', label: 'Competitions' },
             { value: '10K+', label: 'Expected Visitors' },
             { value: '2', label: 'Festival Days' },
             { value: '48+', label: 'Champion Cups' },
-          ].map((stat) => (
+          ].map((stat, i) => (
             <div key={stat.label} className="text-right">
-              <div className="text-[26px] font-black leading-none text-white tabular-nums">
+              {/* Divider between stats */}
+              {i !== 0 && (
+                <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-px h-8 bg-[#465067]/15 hidden" />
+              )}
+              <div
+                className="text-[28px] font-black leading-none text-[#1a1209] tabular-nums"
+                style={{ fontVariantNumeric: 'tabular-nums' }}
+              >
                 {stat.value}
               </div>
-              <div className="text-[10px] font-bold uppercase tracking-[1.5px] text-white/40 mt-0.5">
+              <div className="text-[10px] font-bold uppercase tracking-[1.5px] text-[#465067]/50 mt-0.5">
                 {stat.label}
               </div>
             </div>
@@ -165,18 +163,18 @@ const HeroSection = () => {
         <div
           className={`absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 transition-all duration-700 delay-[900ms] ${loaded ? 'opacity-100' : 'opacity-0'}`}
         >
-          <span className="text-[10px] font-bold uppercase tracking-[2px] text-white/30">
+          <span className="text-[10px] font-bold uppercase tracking-[2px] text-[#465067]/30">
             Scroll
           </span>
           <ChevronDown
-            className="w-4 h-4 text-white/30 animate-bounce"
+            className="w-4 h-4 text-[#465067]/30 animate-bounce"
             style={{ animationDuration: '2s' }}
           />
         </div>
       </div>
 
-      {/* ── Bottom gradient scrim ── */}
-      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#FC7911]/30 to-transparent z-10" />
+      {/* ── Warm bottom trim line ── */}
+      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#FC7911]/20 to-transparent z-10" />
     </section>
   );
 };
