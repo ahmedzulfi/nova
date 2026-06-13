@@ -26,6 +26,10 @@ const HeroSection = () => {
     v.playbackRate = 0.85;
   }, []);
 
+  const badgeParts = t('badge').split('·');
+  const dateStr = badgeParts[0]?.trim();
+  const locationStr = badgeParts.slice(1).join('·').trim() || 'Pet Park, The Pearl - Qatar';
+
   return (
     <section
       ref={sectionRef}
@@ -73,13 +77,13 @@ const HeroSection = () => {
             <div className="flex items-center gap-2.5 text-white/90">
               <Calendar className="w-4 h-4 text-[#FBC84F] shrink-0" />
               <span className="text-[11px] md:text-[12px] font-mono uppercase tracking-[0.2em]">
-                {t('badge')}
+                {dateStr}
               </span>
             </div>
             <div className="flex items-center gap-2.5 text-white/90">
               <MapPin className="w-4 h-4 text-[#FBC84F] shrink-0" />
               <span className="text-[11px] md:text-[12px] font-mono uppercase tracking-[0.2em]">
-                Pet Park, The Pearl - Qatar
+                {locationStr}
               </span>
             </div>
           </div>
