@@ -1,214 +1,248 @@
 'use client';
 
 import React, { useRef, useEffect, useState } from 'react';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
-import { motion } from 'framer-motion';
-import { ArrowRight, MapPin, Calendar } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { ArrowRight, MapPin, Calendar, Star } from 'lucide-react';
 
-/**
- * HeroSection - Nova Paw Festival
- *
- * Design: Full-bleed video background with bold display typography.
- * Layout: Large title anchored bottom-left, event details in a bottom bar,
- *         CTA in bottom-right corner — cinematic festival poster aesthetic.
- * Motion: Staggered content reveal on mount (title, details, CTA).
- */
+// ─── Floating Info Pill ───────────────────────────────────────────────────────
+const FloatingPill = ({
+  children,
+  className,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 16, scale: 0.92 }}
+    animate={{ opacity: 1, y: 0, scale: 1 }}
+    transition={{ delay, duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
+    className={className}
+  >
+    {children}
+  </motion.div>
+);
+
+// ─── Main Component ───────────────────────────────────────────────────────────
 const HeroSection = () => {
   const t = useTranslations('Hero');
   const videoRef = useRef<HTMLVideoElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
   const [videoReady, setVideoReady] = useState(false);
 
+  // Subtle parallax on scroll
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  });
+  const videoY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
+  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '-6%']);
+
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    video.play().catch(() => {});
+    const v = videoRef.current;
+    if (!v) return;
+    v.playbackRate = 0.85;
+    const onCanPlay = () => setVideoReady(true);
+    v.addEventListener('canplaythrough', onCanPlay);
+    return () => v.removeEventListener('canplaythrough', onCanPlay);
   }, []);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const fadeUp = {
-    hidden: { opacity: 0, y: 28 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
-    },
-  };
-
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { duration: 0.7, ease: 'easeOut' },
-    },
-  };
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-black"
-      style={{ minHeight: '100dvh' }}
+      ref={sectionRef}
+      className="relative w-full min-h-[100dvh] overflow-hidden bg-[#FFF2E5] flex flex-col"
+      aria-label="Hero Section"
     >
-      {/* ── Video Background ─────────────────────────────── */}
-      <div className="absolute inset-0 z-0">
+
+      {/* ── Video Background with parallax ── */}
+      <motion.div
+        style={{ y: videoY }}
+        className="absolute inset-0 w-full h-[115%] z-0 will-change-transform"
+      >
+        {/* Poster / fallback image (shown until video loads) */}
+        <div
+          className={`absolute inset-0 transition-opacity duration-700 ${videoReady ? 'opacity-0' : 'opacity-100'}`}
+        >
+          <Image
+            src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2069&auto=format&fit=crop"
+            alt="Nova Paw Festival background"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+
         <video
           ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
-          onCanPlay={() => setVideoReady(true)}
-          poster="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2069&auto=format&fit=crop"
-          className={`w-full h-full object-cover transition-opacity duration-1000 ${videoReady ? 'opacity-100' : 'opacity-0'}`}
+          className={`w-full h-full object-cover transition-opacity duration-700 ${videoReady ? 'opacity-100' : 'opacity-0'}`}
         >
           <source src="/vectors/WIDE VERSION.mp4" type="video/mp4" />
         </video>
 
-        {/* Multi-layer gradient vignette for text legibility */}
-        {/* Bottom-up dark gradient (anchor area) */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10 pointer-events-none" />
-        {/* Left edge scrim for text pop */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent pointer-events-none" />
-      </div>
+        {/* Light-mode scrim — keeps the right panel readable */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/10 to-black/30 rtl:bg-gradient-to-l" />
+        {/* Bottom fade to white for seamless section transition */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#FFF2E5]/60 to-transparent" />
+      </motion.div>
 
-      {/* ── Content ──────────────────────────────────────── */}
-      <motion.div
-        className="relative z-10 flex flex-col justify-between h-full"
-        style={{ minHeight: '100dvh' }}
-        variants={containerVariants}
-        initial="hidden"
-        animate="show"
+      {/* ── Top decorative bar ── */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FC7911] via-[#FBC84F] to-[#FC7911] z-30" />
+
+      {/* ── Floating top-left badge ── */}
+      <FloatingPill
+        delay={0.9}
+        className="absolute top-[100px] md:top-[110px] left-5 md:left-10 z-20 hidden sm:block"
       >
+        <div className="flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full shadow-sm border border-white/40">
+          <Star className="w-3 h-3 text-[#FC7911] fill-[#FC7911]" />
+          <span className="text-black font-bold text-[10px] uppercase tracking-[0.22em]">
+            {t('video_badge_top')}
+          </span>
+        </div>
+      </FloatingPill>
 
-        {/* Top: Event tag pill */}
-        <motion.div
-          variants={fadeIn}
-          className="flex items-start justify-between pt-28 md:pt-32 px-6 md:px-12 xl:px-16"
-        >
-          <div className="inline-flex items-center gap-2 bg-[#FC7911] text-white px-4 py-1.5 rounded-sm">
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em]">Qatar 2026</span>
-          </div>
+      {/* ── Floating bottom-left location pill ── */}
+      <FloatingPill
+        delay={1.1}
+        className="absolute bottom-10 left-5 md:left-10 z-20 hidden lg:block"
+      >
+        <div className="flex items-center gap-3 px-5 py-3 bg-white/15 backdrop-blur-xl rounded-2xl border border-white/25 shadow-md max-w-[240px]">
+          <MapPin className="w-4 h-4 text-[#FBC84F] flex-shrink-0" />
+          <p className="text-white font-bold text-[13px] leading-tight tracking-tight">
+            {t('video_badge_bottom')}
+          </p>
+        </div>
+      </FloatingPill>
 
-          {/* Scroll hint on desktop */}
-          <div className="hidden lg:flex flex-col items-center gap-2 text-white/40 mt-2">
-            <span className="text-[9px] uppercase tracking-[0.3em] rotate-90 origin-center mt-6">Scroll</span>
-            <div className="w-px h-12 bg-white/20 mt-2" />
-          </div>
-        </motion.div>
+      {/* ── Main Content ── */}
+      <motion.div
+        style={{ y: contentY }}
+        className="relative z-10 flex-1 w-full flex items-center pt-[80px] md:pt-[89px] will-change-transform"
+      >
+        <div className="container max-w-[1330px] mx-auto px-5 md:px-8 w-full py-10 md:py-0 flex justify-center lg:justify-end">
 
-        {/* Bottom: Main title + info bar */}
-        <div className="px-6 md:px-10 xl:px-14 pb-10 md:pb-14">
-
-          {/* ── Giant title ─────────────────────────────── */}
-          <motion.div variants={fadeUp} className="mb-8 md:mb-10">
-            {/* Eyebrow */}
-            <p className="text-[#FBC84F] text-[11px] font-bold uppercase tracking-[0.35em] mb-4 md:mb-5">
-              {t('video_badge_top')}
-            </p>
-
-            {/* Display headline */}
-            <h1 className="font-display font-bold text-white leading-[0.88] tracking-tighter">
-              <span className="block text-[13vw] md:text-[10vw] lg:text-[9vw] xl:text-[8.5vw]">
-                Nova Paw
-              </span>
-              <span className="block text-[13vw] md:text-[10vw] lg:text-[9vw] xl:text-[8.5vw] text-[#FC7911]">
-                Festival
-              </span>
-            </h1>
-          </motion.div>
-
-          {/* ── Bottom bar: info + CTAs ──────────────────── */}
+          {/* ── Hero Card ── */}
           <motion.div
-            variants={fadeUp}
-            className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8"
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, ease: [0.23, 1, 0.32, 1], delay: 0.2 }}
+            className="w-full sm:max-w-[480px] lg:max-w-[440px]"
           >
-            {/* Left: Subtitle + meta */}
-            <div className="flex flex-col gap-4 max-w-md">
-              <p className="text-white/75 text-[15px] md:text-[17px] font-medium leading-snug">
-                {t('subtitle')}
-              </p>
+            <div className="relative overflow-hidden rounded-[28px] bg-[#FBC84F]/96 backdrop-blur-xl border border-white/30 shadow-2xl shadow-black/15 p-7 md:p-8 flex flex-col gap-5">
 
-              <div className="flex flex-wrap items-center gap-4">
-                <div className="flex items-center gap-2 text-white/50">
-                  <Calendar className="w-3.5 h-3.5 text-[#FBC84F]" strokeWidth={2} />
-                  <span className="text-[11px] font-bold uppercase tracking-[0.18em]">27-28 Nov 2026</span>
-                </div>
-                <div className="w-px h-4 bg-white/20 hidden sm:block" />
-                <div className="flex items-center gap-2 text-white/50">
-                  <MapPin className="w-3.5 h-3.5 text-[#FBC84F]" strokeWidth={2} />
-                  <span className="text-[11px] font-bold uppercase tracking-[0.18em]">Pet Park, The Pearl · Qatar</span>
-                </div>
-              </div>
-            </div>
+              {/* Inner glow */}
+              <div className="absolute -top-16 -right-16 w-56 h-56 rounded-full bg-white/20 blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-[#FC7911]/20 blur-2xl pointer-events-none" />
 
-            {/* Right: CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
-              <Link
-                href="/tickets"
-                className="group inline-flex items-center justify-center gap-2.5 h-[52px] px-7 bg-[#FC7810] hover:bg-white transition-all duration-300 active:scale-[0.97] text-white hover:text-black rounded-sm text-[11px] font-bold uppercase tracking-[0.22em]"
+              {/* ── Headline block ── */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
+                className="flex flex-col select-none relative"
               >
-                Get Tickets
-                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2.5} />
-              </Link>
-
-              <Link
-                href="/competitions"
-                className="inline-flex items-center justify-center h-[52px] px-7 bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm transition-all duration-300 active:scale-[0.97] text-white rounded-sm text-[11px] font-bold uppercase tracking-[0.22em]"
-              >
-                Competitions
-              </Link>
-            </div>
-          </motion.div>
-
-          {/* ── Divider line ────────────────────────────── */}
-          <motion.div
-            variants={fadeIn}
-            className="mt-8 w-full h-px bg-white/10"
-          />
-
-          {/* ── Bottom meta strip ───────────────────────── */}
-          <motion.div
-            variants={fadeIn}
-            className="mt-5 flex flex-wrap items-center justify-between gap-3"
-          >
-            <p className="text-white/35 text-[10px] uppercase tracking-[0.25em]">
-              {t('video_badge_bottom')}
-            </p>
-            <div className="flex items-center gap-3">
-              {['WKU Judged', 'WCF Certified', 'International'].map((tag) => (
-                <span
-                  key={tag}
-                  className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/30 border border-white/10 px-2.5 py-1 rounded-sm"
+                <h1
+                  className="font-display font-black leading-[0.88] tracking-tighter text-white"
+                  style={{ fontSize: 'clamp(52px, 8vw, 76px)' }}
                 >
-                  {tag}
-                </span>
-              ))}
+                  Nova Paw
+                </h1>
+                <h1
+                  className="font-display font-black leading-[0.88] tracking-tighter text-[#FC7911]"
+                  style={{ fontSize: 'clamp(52px, 8vw, 76px)' }}
+                >
+                  Festival
+                </h1>
+              </motion.div>
+
+              {/* ── Subtitle ── */}
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.55, duration: 0.6 }}
+                className="text-[15px] md:text-[16px] font-bold text-[#37352F] font-display leading-[1.25] tracking-tight"
+              >
+                {t('subtitle')}
+              </motion.p>
+
+              {/* ── Description card ── */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.65, duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+                className="bg-white/75 backdrop-blur-sm rounded-2xl p-4 md:p-5 border border-white/50"
+              >
+                <p className="text-[13px] md:text-[14px] leading-relaxed text-[#37352F] font-medium font-sans">
+                  {t('description')}
+                </p>
+              </motion.div>
+
+              {/* ── Date badge ── */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.75, duration: 0.5 }}
+                className="flex items-center gap-2.5"
+              >
+                <Calendar className="w-3.5 h-3.5 text-[#465067] flex-shrink-0" />
+                <div className="bg-[#465067] text-white px-4 py-2 rounded-sm text-[10px] md:text-[11px] font-bold uppercase tracking-[2px] inline-block">
+                  {t('badge')}
+                </div>
+              </motion.div>
+
+              {/* ── CTA Buttons ── */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.85, duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+                className="flex flex-col sm:flex-row gap-3 w-full"
+              >
+                {/* Primary */}
+                <Link
+                  href="/competitions"
+                  className="group flex-1 inline-flex items-center justify-center gap-2.5 h-12 md:h-[50px] bg-[#FC7810] text-white rounded-sm font-bold uppercase tracking-[2px] text-[11px] md:text-[12px] transition-all duration-200 hover:bg-black active:scale-[0.97] shadow-sm shadow-[#FC7810]/20"
+                >
+                  <span>{t('cta_competitions')}</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+
+                {/* Secondary */}
+                <Link
+                  href="/tickets"
+                  className="flex-1 inline-flex items-center justify-center h-12 md:h-[50px] bg-[#465067] text-white rounded-sm font-bold uppercase tracking-[2px] text-[11px] md:text-[12px] transition-all duration-200 hover:bg-[#FC7911] active:scale-[0.97] shadow-sm shadow-[#465067]/10"
+                >
+                  {t('cta_tickets')}
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
 
         </div>
       </motion.div>
 
-      {/* ── Animated scroll indicator ──────────────────── */}
-      <div className="absolute bottom-10 right-6 md:right-12 z-20 hidden md:flex flex-col items-center gap-2">
-        <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-white/30 to-white/10 overflow-hidden relative">
-          <motion.div
-            className="absolute top-0 left-0 w-full bg-white/60"
-            style={{ height: '30%' }}
-            animate={{ y: ['0%', '300%'] }}
-            transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
-          />
-        </div>
-      </div>
+      {/* ── Scroll indicator ── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4, duration: 0.6 }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 hidden md:flex flex-col items-center gap-2"
+      >
+        <span className="text-white/60 text-[9px] uppercase tracking-[0.3em] font-bold">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 1.6, ease: 'easeInOut' }}
+          className="w-[1px] h-8 bg-gradient-to-b from-white/60 to-transparent"
+        />
+      </motion.div>
+
     </section>
   );
 };
