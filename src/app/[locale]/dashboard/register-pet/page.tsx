@@ -23,6 +23,7 @@ import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import PhoneInput from "@/components/ui/phone-input";
 import { toast } from "sonner";
 import { WKU_GROUPS } from "@/lib/wku-breeds";
 
@@ -289,12 +290,11 @@ function RegistrationContent() {
                             onChange={(e: any) => setFormData({ ...formData, fullName: e.target.value })}
                             placeholder="John Doe"
                         />
-                        <NotionInput
+                        <PhoneInput
                             label="Primary Contact Number"
                             required
                             value={formData.phone}
-                            onChange={(e: any) => setFormData({ ...formData, phone: e.target.value })}
-                            placeholder="+974 XXXX XXXX"
+                            onChange={(val: string) => setFormData({ ...formData, phone: val })}
                         />
                         <NotionInput
                             label="Email Address"

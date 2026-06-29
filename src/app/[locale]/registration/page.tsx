@@ -4,6 +4,7 @@ import React, { useState, useEffect, Suspense } from 'react';
 import Navigation from "@/components/sections/navigation";
 import Footer from "@/components/sections/footer";
 import { Label } from "@/components/ui/label";
+import PhoneInput from "@/components/ui/phone-input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
@@ -204,15 +205,11 @@ function RegistrationContent() {
                                 </div>
                                 <div className="space-y-3">
                                     <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block rtl:text-right">Mobile Number</Label>
-                                    <div className="relative">
-                                        <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#91918E]" />
-                                        <input
-                                            value={formData.phone}
-                                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                            placeholder="+974 5555 5555"
-                                            className="w-full bg-[#F7F6F3] border-none rounded-sm pl-12 pr-6 py-4 outline-none focus:ring-1 focus:ring-[#E9E9E7] transition-all font-medium text-[#37352F] text-[14px]"
-                                        />
-                                    </div>
+                                    <PhoneInput
+                                        value={formData.phone}
+                                        onChange={(val: string) => setFormData({ ...formData, phone: val })}
+                                        required
+                                    />
                                 </div>
                                 <div className="space-y-3">
                                     <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#91918E] block rtl:text-right">Email Address</Label>

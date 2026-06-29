@@ -8,10 +8,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { Building2, Mail, Phone, MessageSquare, Check, User } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import PhoneInput from "@/components/ui/phone-input";
 
 const SponsorRegistrationForm = () => {
     const t = useTranslations('SponsorshipPage.form');
     const [submitted, setSubmitted] = useState(false);
+    const [phone, setPhone] = useState('');
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -102,18 +104,14 @@ const SponsorRegistrationForm = () => {
                             </div>
                         </div>
                         <div className="space-y-3">
-                            <Label htmlFor="contact-phone" className="text-[12px] font-bold text-black uppercase tracking-[0.2em] pl-2 rtl:pl-0 rtl:pr-2 block rtl:text-right">
+                            <Label className="text-[12px] font-bold text-black uppercase tracking-[0.2em] pl-2 rtl:pl-0 rtl:pr-2 block rtl:text-right">
                                 {t('label_phone')}
                             </Label>
-                            <div className="relative">
-                                <Phone className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-black/20 rtl:left-auto rtl:right-5" />
-                                <Input
-                                    id="contact-phone"
-                                    required
-                                    placeholder={t('placeholder_phone')}
-                                    className=" rounded-sm  border-black/5 bg-white h-16 pl-14 pr-6 focus:ring-2 focus:ring-primary transition-all text-[16px] font-medium rtl:pl-6 rtl:pr-14 rtl:text-right"
-                                />
-                            </div>
+                            <PhoneInput
+                                value={phone}
+                                onChange={setPhone}
+                                required
+                            />
                         </div>
                     </div>
 

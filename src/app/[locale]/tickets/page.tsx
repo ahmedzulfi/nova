@@ -12,6 +12,7 @@ import Navigation from "@/components/sections/navigation";
 import Footer from "@/components/sections/footer";
 import TicketsHero from "@/components/sections/tickets/hero";
 import TicketsPricing from "@/components/sections/tickets/pricing";
+import PhoneInput from "@/components/ui/phone-input";
 
 function TicketsContent() {
   const router = useRouter();
@@ -239,13 +240,11 @@ function TicketsContent() {
                 onChange={(e: any) => setOwnerData({ ...ownerData, fullName: e.target.value })}
                 placeholder={t("form.name_placeholder")}
               />
-              <NotionInput
+              <PhoneInput
                 label={t("form.mobile") || "Mobile Number"}
-                type="tel"
                 required
                 value={ownerData.phone}
-                onChange={(e: any) => setOwnerData({ ...ownerData, phone: e.target.value })}
-                placeholder={t("form.mobile_placeholder")}
+                onChange={(val: string) => setOwnerData({ ...ownerData, phone: val })}
               />
               <NotionInput
                 label={t("form.email") || "Email Address"}
