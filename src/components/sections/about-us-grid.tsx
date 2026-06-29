@@ -4,12 +4,50 @@ import React from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
+import { Calendar, MapPin } from 'lucide-react';
 
 const AboutUsGrid = () => {
   const t = useTranslations('AboutGrid');
+  const tHero = useTranslations('Hero');
+
+  const badgeParts = tHero('badge').split('·');
+  const dateStr = badgeParts[0]?.trim();
+  const locationStr = badgeParts.slice(1).join('·').trim() || 'Pet Park, The Pearl - Qatar';
 
   return (
     <section className="relative overflow-hidden bg-[#FFF2E5]" id="about-us">
+      {/* ── Top Editorial Intro Section (Moved from Hero) ── */}
+      <div className="max-w-[1330px] mx-auto px-6 pt-24 pb-16 flex flex-col items-center text-center gap-6">
+        {/* Metadata Badges */}
+        <div className="flex flex-wrap items-center justify-center gap-6 text-[#465067]/80">
+          <div className="flex items-center gap-2">
+            <Calendar className="w-5 h-5 text-[#FC7911] shrink-0" />
+            <span className="text-[12px] md:text-[13px] font-mono uppercase tracking-[0.2em] font-bold">
+              {dateStr}
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <MapPin className="w-5 h-5 text-[#FC7911] shrink-0" />
+            <span className="text-[12px] md:text-[13px] font-mono uppercase tracking-[0.2em] font-bold">
+              {locationStr}
+            </span>
+          </div>
+        </div>
+
+        {/* Huge Premium Display Title */}
+        <h2 
+          className="font-display font-black leading-[0.95] tracking-tighter text-[#37352F] select-none"
+          style={{ fontSize: 'clamp(38px, 6vw, 72px)' }}
+        >
+          Nova Paw <span className="text-[#FC7911]">Festival</span>
+        </h2>
+
+        {/* Description Paragraph */}
+        <p className="text-[16px] md:text-[18px] leading-relaxed text-[#666666] max-w-[65ch] font-sans">
+          {tHero('description')}
+        </p>
+      </div>
+
       {/* Top Half: Yellow Section */}
       <div className="bg-[#FBC84F] relative h-[360px] sm:h-[460px] lg:h-[571px] overflow-hidden z-10 flex flex-col justify-between items-center py-8">
         {/* Decorative Figma Paw Prints on Yellow */}

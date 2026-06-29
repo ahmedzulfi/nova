@@ -59,11 +59,9 @@ Design family: Split-screen hero, asymmetric layouts, editorial headers.
 ---
 
 ## Hero Section
-- **Layout:** Full-bleed video background + right-aligned floating card (split-screen feel)
+- **Layout:** Full-bleed video background with a simplified bottom-centered button row (displaying only the two main Action Buttons). All typography (headline, description, date/location metadata) is moved to the subsequent section (`AboutUsGrid`) as an editorial intro block.
 - **Video:** `/vectors/WIDE VERSION.mp4` with poster image
-- **Card:** `bg-[#FBC84F]/95 backdrop-blur-md rounded-[33px]` — positioned to the right on desktop
-- **Headline:** "Nova Paw" + "Festival" — large display, white + orange
-- **CTA:** Two buttons — primary orange + secondary slate-blue
+- **CTA:** Two buttons — primary orange + secondary/white-bordered button, centered horizontally
 - **Mode:** Light — `bg-[#FFF2E5]` warm white base
 
 ---
