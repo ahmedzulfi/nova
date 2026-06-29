@@ -48,8 +48,8 @@ const mockGetGuestData = (id: string) => {
             pets: 1
         },
         registrations: [
-            { id: 'REG-007', category: 'Grooming Competition', pet: 'Luna', status: 'Approved' },
-            { id: 'REG-012', category: 'Dog Fashion Show', pet: 'Luna', status: 'Approved' }
+            { id: 'REG-007', category: 'Grooming Competition', pet: 'Luna', status: 'Application under review' },
+            { id: 'REG-012', category: 'Dog Fashion Show', pet: 'Luna', status: 'Application under review' }
         ]
     };
 };
@@ -262,8 +262,8 @@ export default function ScannerPage() {
                                                         Pet: <span className="text-[#37352F]">{reg.pet}</span> • ID: {reg.id}
                                                     </p>
                                                 </div>
-                                                <Badge className="bg-green-100 text-green-700 border-green-200/50 text-[9px] h-6 rounded-sm px-2 uppercase font-bold tracking-widest">
-                                                    Approved
+                                                <Badge className="bg-yellow-100 text-yellow-800 border-yellow-200/50 text-[9px] h-6 rounded-sm px-2 uppercase font-bold tracking-widest whitespace-nowrap">
+                                                    {reg.status}
                                                 </Badge>
                                             </div>
                                         ))}

@@ -71,7 +71,7 @@ export async function POST(req: NextRequest) {
         id: reg.id,
         category: reg.competitionName,
         pet: reg.petName,
-        status: reg.status === 'Completed' ? 'Approved' : reg.status,
+        status: reg.status === 'Completed' ? 'Application under review' : reg.status,
       })),
     });
   } catch (error) {

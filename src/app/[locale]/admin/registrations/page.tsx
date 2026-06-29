@@ -105,7 +105,7 @@ export default function RegistrationsPage() {
                                 : "text-[#91918E] hover:text-[#37352F] hover:bg-[#F7F6F3]"
                         )}
                     >
-                        {status === "Completed" ? "Approved" : status}
+                        {status === "Completed" ? "Application under review" : status}
                         {status === "All" && (
                             <span className="ml-2 text-[10px] bg-[#F7F6F3] px-1.5 py-0.5 rounded-sm text-[#91918E]">
                                 {registrations.length}
