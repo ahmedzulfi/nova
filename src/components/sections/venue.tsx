@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import ParkingMap from '@/components/ui/parking-map';
 
 const Venue = () => {
   const t = useTranslations('Venue');
@@ -17,16 +18,10 @@ const Venue = () => {
       <div className="container mx-auto px-6 max-w-[1280px] relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
           
-          {/* Left Column: Image (Figma aspect ratio 550x675) */}
-          <div className="lg:col-span-6 flex justify-center lg:justify-start">
-            <div className="relative w-full max-w-[550px] aspect-[550/675] h-[400px] sm:h-[500px] lg:h-[675px] rounded-sm overflow-hidden border border-black/5 shadow-sm group">
-              <Image
-                src="/vectors/venue_park.png"
-                alt="pet park The Pearl Island Qatar"
-                fill
-                className="object-cover transition-transform duration-1000 group-hover:scale-105"
-                priority
-              />
+          {/* Left Column: Interactive Parking Map */}
+          <div className="lg:col-span-6 w-full flex justify-center lg:justify-start">
+            <div className="w-full max-w-[550px]">
+              <ParkingMap />
             </div>
           </div>
 

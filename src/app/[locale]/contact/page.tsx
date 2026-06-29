@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Instagram, Youtube, Music2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import ParkingMap from "@/components/ui/parking-map";
 
 export default function ContactPage() {
   const t = useTranslations('ContactPage');
@@ -62,18 +63,8 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Google Maps Embed */}
-              <div className="w-full aspect-video  rounded-sm  overflow-hidden grayscale contrast-[1.1] border border-black/5  shadow-sm  shadow-black/5 hover:grayscale-0 transition-all duration-1000">
-                <iframe
-                  src="https://maps.google.com/maps?q=25.3713397,51.5566676&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen={true}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
-              </div>
+              {/* Google Maps Embed with Toggles */}
+              <ParkingMap />
 
               <div className="space-y-8 pt-8">
                 <h3 className="text-[28px] font-bold font-display tracking-tight rtl:text-right">{t('social.title')}</h3>
