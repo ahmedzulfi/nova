@@ -677,6 +677,9 @@
       "placeholder_email": "john@example.com",
       "placeholder_message": "How can we help you?",
       "cta": "Send Message",
+      "success_title": "Message Sent!",
+      "success_desc": "Thank you for reaching out. We will get back to you shortly.",
+      "success_cta": "Send Another Message",
       "types": {
         "general": "General Inquiry",
         "sponsorship": "Sponsorship",

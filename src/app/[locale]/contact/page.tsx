@@ -1,18 +1,24 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Navigation from "@/components/sections/navigation";
 import Footer from "@/components/sections/footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, Instagram, Youtube, Music2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Youtube, Music2, CheckCircle2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import ParkingMap from "@/components/ui/parking-map";
 
 export default function ContactPage() {
   const t = useTranslations('ContactPage');
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
 
   return (
     <main className="min-h-screen bg-white">
@@ -86,38 +92,63 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-[#F5F5F0] p-10 md:p-16  rounded-sm  border border-black/5 sticky top-32  shadow-sm  shadow-black/5 animate-in fade-in slide-in-from-right-8 duration-1000">
-              <div className="mb-12 text-center">
-                <h3 className="text-[36px] font-bold font-display mb-4 tracking-tighter">{t('form.title')}</h3>
-                <p className="text-black/40 font-medium">{t('form.desc')}</p>
-              </div>
-              <form className="space-y-8">
-                <div className="space-y-3">
-                  <Label htmlFor="name" className="text-[11px] font-bold uppercase tracking-[0.2em] pl-4 rtl:pl-0 rtl:pr-4 block rtl:text-right">{t('form.label_name')}</Label>
-                  <Input id="name" placeholder={t('form.placeholder_name')} className="rounded-full border-black/5 bg-white h-16 px-8 focus:ring-4 focus:ring-primary/20 transition-all font-bold text-black rtl:text-right" />
+            <div className="bg-[#F5F5F0] p-10 md:p-16 rounded-sm border border-black/5 sticky top-32 shadow-sm shadow-black/5 animate-in fade-in slide-in-from-right-8 duration-1000 min-h-[550px] flex flex-col justify-center">
+              {submitted ? (
+                <div className="text-center space-y-8 animate-in zoom-in duration-300">
+                  <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-primary/20">
+                    <CheckCircle2 className="w-10 h-10 text-primary animate-bounce" />
+                  </div>
+                  <div>
+                    <h3 className="text-[32px] font-bold font-display text-black mb-4 tracking-tighter">
+                      {t('form.success_title')}
+                    </h3>
+                    <p className="text-black/50 font-medium text-[15px] max-w-[340px] mx-auto leading-relaxed">
+                      {t('form.success_desc')}
+                    </p>
+                  </div>
+                  <Button
+                    type="button"
+                    onClick={() => setSubmitted(false)}
+                    className="w-full h-16 bg-black hover:bg-primary text-white font-bold rounded-full text-[14px] uppercase tracking-[0.2em] transition-all duration-300 active:scale-[0.98] shadow-sm shadow-black/10"
+                  >
+                    {t('form.success_cta')}
+                  </Button>
                 </div>
-                <div className="space-y-3">
-                  <Label htmlFor="email" className="text-[11px] font-bold uppercase tracking-[0.2em] pl-4 rtl:pl-0 rtl:pr-4 block rtl:text-right">{t('form.label_email')}</Label>
-                  <Input id="email" type="email" placeholder={t('form.placeholder_email')} className="rounded-full border-black/5 bg-white h-16 px-8 focus:ring-4 focus:ring-primary/20 transition-all font-bold text-black rtl:text-right" />
-                </div>
-                <div className="space-y-3">
-                  <Label htmlFor="type" className="text-[11px] font-bold uppercase tracking-[0.2em] pl-4 rtl:pl-0 rtl:pr-4 block rtl:text-right">{t('form.label_type')}</Label>
-                  <select id="type" className="w-full rounded-full border border-black/5 bg-white h-16 px-8 focus:ring-4 focus:ring-primary/20 transition-all appearance-none cursor-pointer font-bold text-black rtl:text-right">
-                    <option>{t('form.types.general')}</option>
-                    <option>{t('form.types.sponsorship')}</option>
-                    <option>{t('form.types.media')}</option>
-                    <option>{t('form.types.ticketing')}</option>
-                    <option>{t('form.types.registration')}</option>
-                  </select>
-                </div>
-                <div className="space-y-3">
-                  <Label htmlFor="message" className="text-[11px] font-bold uppercase tracking-[0.2em] pl-4 rtl:pl-0 rtl:pr-4 block rtl:text-right">{t('form.label_message')}</Label>
-                  <Textarea id="message" placeholder={t('form.placeholder_message')} className=" rounded-sm  border-black/5 bg-white min-h-[180px] p-8 focus:ring-4 focus:ring-primary/20 transition-all font-bold text-black rtl:text-right" />
-                </div>
-                <Button className="w-full h-18 bg-black hover:bg-primary text-white font-bold rounded-full text-[16px] uppercase tracking-[0.2em] transition-all duration-500 active:scale-[0.98] mt-6  shadow-sm  shadow-black/10">
-                  {t('form.cta')}
-                </Button>
-              </form>
+              ) : (
+                <>
+                  <div className="mb-12 text-center">
+                    <h3 className="text-[36px] font-bold font-display mb-4 tracking-tighter">{t('form.title')}</h3>
+                    <p className="text-black/40 font-medium">{t('form.desc')}</p>
+                  </div>
+                  <form onSubmit={handleSubmit} className="space-y-8">
+                    <div className="space-y-3">
+                      <Label htmlFor="name" className="text-[11px] font-bold uppercase tracking-[0.2em] pl-4 rtl:pl-0 rtl:pr-4 block rtl:text-right">{t('form.label_name')}</Label>
+                      <Input id="name" required placeholder={t('form.placeholder_name')} className="rounded-full border-black/5 bg-white h-16 px-8 focus:ring-4 focus:ring-primary/20 transition-all font-bold text-black rtl:text-right" />
+                    </div>
+                    <div className="space-y-3">
+                      <Label htmlFor="email" className="text-[11px] font-bold uppercase tracking-[0.2em] pl-4 rtl:pl-0 rtl:pr-4 block rtl:text-right">{t('form.label_email')}</Label>
+                      <Input id="email" required type="email" placeholder={t('form.placeholder_email')} className="rounded-full border-black/5 bg-white h-16 px-8 focus:ring-4 focus:ring-primary/20 transition-all font-bold text-black rtl:text-right" />
+                    </div>
+                    <div className="space-y-3">
+                      <Label htmlFor="type" className="text-[11px] font-bold uppercase tracking-[0.2em] pl-4 rtl:pl-0 rtl:pr-4 block rtl:text-right">{t('form.label_type')}</Label>
+                      <select id="type" className="w-full rounded-full border border-black/5 bg-white h-16 px-8 focus:ring-4 focus:ring-primary/20 transition-all appearance-none cursor-pointer font-bold text-black rtl:text-right">
+                        <option>{t('form.types.general')}</option>
+                        <option>{t('form.types.sponsorship')}</option>
+                        <option>{t('form.types.media')}</option>
+                        <option>{t('form.types.ticketing')}</option>
+                        <option>{t('form.types.registration')}</option>
+                      </select>
+                    </div>
+                    <div className="space-y-3">
+                      <Label htmlFor="message" className="text-[11px] font-bold uppercase tracking-[0.2em] pl-4 rtl:pl-0 rtl:pr-4 block rtl:text-right">{t('form.label_message')}</Label>
+                      <Textarea id="message" required placeholder={t('form.placeholder_message')} className=" rounded-sm  border-black/5 bg-white min-h-[180px] p-8 focus:ring-4 focus:ring-primary/20 transition-all font-bold text-black rtl:text-right" />
+                    </div>
+                    <Button className="w-full h-18 bg-black hover:bg-primary text-white font-bold rounded-full text-[16px] uppercase tracking-[0.2em] transition-all duration-500 active:scale-[0.98] mt-6  shadow-sm  shadow-black/10">
+                      {t('form.cta')}
+                    </Button>
+                  </form>
+                </>
+              )}
             </div>
           </div>
         </div>

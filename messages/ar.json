@@ -601,6 +601,9 @@
       "placeholder_email": "mohammed@example.com",
       "placeholder_message": "كيف يمكننا مساعدتك؟",
       "cta": "إرسال الرسالة",
+      "success_title": "تم إرسال الرسالة!",
+      "success_desc": "شكراً لتواصلك معنا. سنقوم بالرد عليك في أقرب وقت ممكن.",
+      "success_cta": "إرسال رسالة أخرى",
       "types": {
         "general": "استفسار عام",
         "sponsorship": "رعاية",
