@@ -26,6 +26,7 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
+import { useTranslations } from 'next-intl';
 
 // Mock scanning results
 const mockGetGuestData = (id: string) => {
@@ -58,6 +59,18 @@ export default function ScannerPage() {
     const [isLoading, setIsLoading] = useState(false);
     const [scannedData, setScannedData] = useState<any>(null);
     const [manualId, setManualId] = useState("");
+
+    const tCheckout = useTranslations('Checkout');
+
+    const getTermsForTier = (tier: string) => {
+        const cleanTier = tier.toLowerCase();
+        if (cleanTier.includes('dog')) {
+            return (tCheckout.raw('terms.dog') as string[]) || [];
+        } else if (cleanTier.includes('cat')) {
+            return (tCheckout.raw('terms.cat') as string[]) || [];
+        }
+        return (tCheckout.raw('terms.adult') as string[]) || [];
+    };
 
     const handleScan = (id?: string) => {
         setIsLoading(true);
@@ -252,6 +265,22 @@ export default function ScannerPage() {
                                                 <Badge className="bg-green-100 text-green-700 border-green-200/50 text-[9px] h-6 rounded-sm px-2 uppercase font-bold tracking-widest">
                                                     Approved
                                                 </Badge>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Accepted Terms Checklist */}
+                                <div className="space-y-4 pt-4 border-t border-[#F1F1EF]">
+                                    <div className="flex items-center gap-2">
+                                        <ShieldCheck size={16} className="text-green-600 shrink-0" />
+                                        <span className="text-[11px] font-bold text-[#37352F] uppercase tracking-widest">Accepted Terms & Conditions</span>
+                                    </div>
+                                    <div className="space-y-2 bg-[#F7F6F3] p-4 rounded-sm border border-[#E9E9E7]">
+                                        {getTermsForTier(scannedData.tier).map((term: string, idx: number) => (
+                                            <div key={idx} className="flex items-start gap-2.5 text-[12px] text-[#37352F] font-medium">
+                                                <span className="text-green-600 font-bold shrink-0">✓</span>
+                                                <span className="leading-tight">{term}</span>
                                             </div>
                                         ))}
                                     </div>

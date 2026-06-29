@@ -49,12 +49,28 @@ function DashboardContent() {
     const t = useTranslations('Dashboard');
     const tTickets = useTranslations('Tickets');
     const tSchedule = useTranslations('Schedule');
+    const tCheckout = useTranslations('Checkout');
     const locale = useLocale();
 
     const [data, setData] = useState<RegistrationData | null>(null);
     const [activeTab, setActiveTab] = useState<TabType>('overview');
     const [activeDay, setActiveDay] = useState(0);
 
+    const getTermsForTier = (tier: string) => {
+        const dogTerms = (tCheckout.raw('terms.dog') as string[]) || [];
+        const catTerms = (tCheckout.raw('terms.cat') as string[]) || [];
+        const adultTerms = (tCheckout.raw('terms.adult') as string[]) || [];
+
+        if (tier === 'dog-owner') return dogTerms;
+        if (tier === 'cat-owner') return catTerms;
+        return adultTerms;
+    };
+
+    const qrCodeUrl = data?.orderId
+        ? `https://public-api.qr-code-generator.com/v1/create/extended?image_format=PNG&image_width=300&qr_code_text=${encodeURIComponent(
+              `https://nova-paw.com/admin/tickets/${data.orderId}?terms=accepted`
+          )}&foreground_color=%23000000&background_color=%23FFFFFF&frame_name=no-frame`
+        : "https://public-api.qr-code-generator.com/v1/create/extended?image_format=PNG&image_width=300&qr_code_text=https%3A%2F%2Fvalidmvps.vercel.app%2F&foreground_color=%23000000&background_color=%23FFFFFF&frame_name=no-frame";
     useEffect(() => {
         const savedData = localStorage.getItem('nova_registration');
         if (savedData) {
@@ -207,6 +223,22 @@ function DashboardContent() {
                                             </div>
                                         </div>
                                     </div>
+
+                                    {/* Accepted Terms Section */}
+                                    <div className="pt-4 border-t border-dashed border-[#E9E9E7] space-y-2">
+                                        <p className="text-[10px] font-bold text-[#91918E] uppercase tracking-widest flex items-center gap-1.5">
+                                            <ShieldCheck size={12} className="text-green-600 shrink-0" />
+                                            Safety Terms Accepted
+                                        </p>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5">
+                                            {getTermsForTier(data.tier).map((term: string, idx: number) => (
+                                                <div key={idx} className="flex items-start gap-1.5 text-[11px] text-[#37352F] leading-snug">
+                                                    <span className="text-green-600 font-bold shrink-0">✓</span>
+                                                    <span>{term}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
                                 </div>
 
                                 {/* Divider for Mobile */}
@@ -215,11 +247,16 @@ function DashboardContent() {
                                 {/* Right Pane: Stub with QR Code (30% width on desktop) */}
                                 <div className="w-full md:w-[30%] p-6 md:p-8 flex flex-col items-center justify-center space-y-4">
                                     <div className="bg-white p-3 border border-[#E9E9E7] rounded-sm shadow-sm hover:scale-[1.02] transition-transform duration-500 cursor-zoom-in">
-                                        <img src={QR_CODE_URL} alt="Scan to Verify" className="w-32 h-32" />
+                                        <img src={qrCodeUrl} alt="Scan to Verify" className="w-32 h-32" />
                                     </div>
                                     <div className="text-center space-y-1">
                                         <p className="text-[11px] font-bold text-[#37352F]">Unique QR Code</p>
                                         <p className="text-[9px] text-[#91918E] leading-normal max-w-[120px] mx-auto">Present at entrance gate for validation.</p>
+                                        <div className="pt-2">
+                                            <span className="inline-block text-[8px] font-bold uppercase tracking-wider text-green-700 bg-green-50 px-1.5 py-0.5 rounded-sm border border-green-100/50">
+                                                T&C ACCEPTED
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

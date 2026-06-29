@@ -3,6 +3,7 @@
 import React, { use } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import {
     ArrowLeft,
     Ticket,
@@ -90,6 +91,18 @@ const itemVariants = {
 export default function TicketDetailsPage({ params }: { params: Promise<{ id: string }> }) {
     const resolvedParams = use(params);
     const data = mockGetTicketDetails(resolvedParams.id);
+
+    const tCheckout = useTranslations('Checkout');
+
+    const getTermsForTier = (tier: string) => {
+        const cleanTier = tier.toLowerCase();
+        if (cleanTier.includes('dog')) {
+            return (tCheckout.raw('terms.dog') as string[]) || [];
+        } else if (cleanTier.includes('cat')) {
+            return (tCheckout.raw('terms.cat') as string[]) || [];
+        }
+        return (tCheckout.raw('terms.adult') as string[]) || [];
+    };
 
     return (
         <motion.div
@@ -219,6 +232,32 @@ export default function TicketDetailsPage({ params }: { params: Promise<{ id: st
                                 <p className="text-[11px] font-bold text-[#91918E] uppercase tracking-widest">Pets</p>
                             </div>
                         </div>
+                    </motion.section>
+
+                    {/* Terms & Conditions Section */}
+                    <motion.section variants={itemVariants} className="space-y-6">
+                        <div className="flex items-center gap-3">
+                            <div className="p-2 bg-green-50 rounded-sm">
+                                <ShieldCheck className="w-5 h-5 text-green-600" />
+                            </div>
+                            <h2 className="text-[20px] font-bold text-[#37352F]">Accepted Terms & Conditions</h2>
+                        </div>
+
+                        <Card className="border-[#E9E9E7] shadow-none bg-white rounded-sm">
+                            <CardContent className="p-8 space-y-4">
+                                <p className="text-[12px] text-[#91918E] font-medium">
+                                    The guest agreed to the following terms and safety conditions during ticket checkout:
+                                </p>
+                                <div className="space-y-3 bg-[#F7F6F3]/50 p-6 rounded-sm border border-[#E9E9E7]">
+                                    {getTermsForTier(data.tier).map((term: string, idx: number) => (
+                                        <div key={idx} className="flex items-start gap-3 text-[14px] text-[#37352F] font-medium">
+                                            <span className="text-green-600 font-bold shrink-0">✓</span>
+                                            <span className="leading-tight">{term}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </CardContent>
+                        </Card>
                     </motion.section>
 
                     {/* Linked Registrations Section */}
